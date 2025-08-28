@@ -7,10 +7,10 @@ const Navigation = () => {
 
   const navItems = [
     { label: 'Главная', href: '#home' },
+    { label: 'BioMath Platform', href: '#biomath' },
     { label: 'Проекты', href: '#projects' },
+    { label: 'О компании', href: '#company' },
     { label: 'Инвестировать', href: '#invest' },
-    { label: 'О нас', href: '#about' },
-    { label: 'Команда', href: '#team' },
     { label: 'Контакты', href: '#contacts' }
   ];
 
