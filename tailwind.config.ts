@@ -81,12 +81,14 @@ export default {
 				'gradient-invest': 'var(--gradient-invest)',
 				'gradient-neural': 'var(--gradient-neural)',
 				'gradient-bio': 'var(--gradient-bio)',
+				'gradient-corporate': 'var(--gradient-corporate)',
 				'gradient-hero': 'var(--gradient-hero)'
 			},
 			boxShadow: {
 				'tech': 'var(--shadow-tech)',
 				'invest': 'var(--shadow-invest)',
-				'glow': 'var(--shadow-glow)'
+				'glow': 'var(--shadow-glow)',
+				'elevated': 'var(--shadow-elevated)'
 			},
 			transitionTimingFunction: {
 				'smooth': 'var(--transition-smooth)',
