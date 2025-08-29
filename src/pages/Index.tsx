@@ -38,7 +38,7 @@ const Index = () => {
       number: "#1",
       title: "Секвенирование и анализ ДНК",
       description: "Создание индивидуального генетического профиля для каждого пациента",
-      details: "DNA sequencing is the process of identifying the order of nucleotide bases in a strand of DNA. We leverage this sequence for an in-depth analysis of a patient's genetic traits, primarily to assess susceptibility to various diseases, metabolization of different substances, and reaction to established medications.",
+      details: "DNA sequencing is the process of identifying the order of nucleotide bases in a strand of DNA. We leverage this sequence for comprehensive analysis of patient genetic traits, primarily to assess susceptibility to various diseases, metabolization of different substances, and reaction to established medications.",
       icon: Dna
     },
     {
@@ -173,7 +173,7 @@ const Index = () => {
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight animate-scale-in" style={{ animationDelay: '0.4s' }}>
             BioMath Life Platform
             <br />
-            <span className="gradient-text">Precision Medicine Revolution</span>
+            <span className="gradient-text">Advanced Precision Medicine</span>
           </h1>
           
           <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-4xl mx-auto leading-relaxed animate-fade-in" style={{ animationDelay: '0.6s' }}>
@@ -227,10 +227,10 @@ const Index = () => {
                 {/* Our Goals */}
                 <div className="text-center mb-16">
                   <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Goals</h2>
-                  <p className="text-muted-foreground text-lg max-w-4xl mx-auto mb-8">
-                    If you share our goals and desire to make the world a better place, welcome aboard. 
-                    Invest your knowledge, experience, finances in this revolutionary approach to medicine.
-                  </p>
+            <p className="text-muted-foreground text-lg max-w-4xl mx-auto mb-8">
+              If you share our goals and desire to make the world a better place, welcome aboard. 
+              Invest your knowledge, experience, finances in this advanced approach to medicine.
+            </p>
                   <Card className="p-8 mb-12 bg-gradient-corporate">
                     <p className="text-muted-foreground leading-relaxed">
                       Building on its achievements in advanced human genome analysis, Digital Invest Inc. continues to evolve towards 
@@ -507,10 +507,10 @@ const Index = () => {
               <div className="space-y-16">
                 <div className="text-center">
                   <h2 className="text-3xl md:text-4xl font-bold mb-4">Investment Opportunities</h2>
-                  <p className="text-muted-foreground text-lg max-w-3xl mx-auto">
-                    Join us in revolutionizing healthcare through biomathematical modeling and precision medicine. 
-                    Complete the investor questionnaire for personalized investment recommendations.
-                  </p>
+            <p className="text-muted-foreground text-lg max-w-3xl mx-auto">
+              Partner with us in advancing healthcare through biomathematical modeling and precision medicine. 
+              Complete the investor questionnaire for personalized investment recommendations.
+            </p>
                 </div>
 
                 {/* Investment Highlights */}
@@ -551,8 +551,8 @@ const Index = () => {
                 <span className="text-xl font-bold">Digital Invest Inc.</span>
               </div>
               <p className="text-muted-foreground mb-4 leading-relaxed">
-                Revolutionizing healthcare through biomathematical modeling and precision medicine. 
-                Investing in the future of medical technology since 2010.
+                Advanced healthcare solutions through biomathematical modeling and precision medicine. 
+                Developing the future of medical technology since 2010.
               </p>
             </div>
             
@@ -603,7 +603,7 @@ const Index = () => {
           
           <div className="border-t border-border/20 pt-8 flex flex-col md:flex-row justify-between items-center">
             <p className="text-muted-foreground text-sm">
-              &copy; 2024 Digital Invest Inc. All rights reserved. Precision medicine through biomathematical innovation.
+              &copy; 2024 Digital Invest Inc. All rights reserved. Precision medicine through biomathematical modeling.
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <a href="https://www.linkedin.com/company/digital-invest-inc/" className="text-muted-foreground hover:text-primary transition-colors text-sm">
