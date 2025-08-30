@@ -9,7 +9,7 @@ import BioMathPlatform from "@/components/BioMathPlatform";
 import CompanyInfo from "@/components/CompanyInfo";
 import InvestmentCard from "@/components/InvestmentCard";
 import InvestorForm from "@/components/InvestorForm";
-import heroImage from "@/assets/hero-tech-investment.jpg";
+import heroImage from "@/assets/hero-modern-tech.jpg";
 import { 
   Dna, 
   Brain, 
