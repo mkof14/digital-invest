@@ -10,6 +10,10 @@ import CompanyInfo from "@/components/CompanyInfo";
 import InvestmentCard from "@/components/InvestmentCard";
 import InvestorForm from "@/components/InvestorForm";
 import heroImage from "@/assets/hero-modern-tech.jpg";
+import michaelKofman from "@/assets/team/michael-kofman.jpg";
+import alexTur from "@/assets/team/alex-tur.jpg";
+import karinaGorfin from "@/assets/team/karina-gorfin.jpg";
+import biomathPlatform from "@/assets/biomath-platform.jpg";
 import { 
   Dna, 
   Brain, 
@@ -46,9 +50,10 @@ const Index = () => {
       
       {/* Enhanced Animations */}
       <div className="fixed inset-0 -z-10 overflow-hidden">
-        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-primary/5 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute top-3/4 right-1/4 w-96 h-96 bg-secondary/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
-        <div className="absolute bottom-1/4 left-1/2 w-72 h-72 bg-accent/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '4s' }}></div>
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-primary/8 to-accent/6 rounded-full blur-3xl animate-subtle-float"></div>
+        <div className="absolute top-3/4 right-1/4 w-128 h-128 bg-gradient-to-l from-secondary/6 to-primary/4 rounded-full blur-3xl animate-subtle-float" style={{ animationDelay: '3s' }}></div>
+        <div className="absolute bottom-1/4 left-1/2 w-80 h-80 bg-gradient-to-br from-accent/8 to-success/4 rounded-full blur-3xl animate-subtle-float" style={{ animationDelay: '6s' }}></div>
+        <div className="absolute top-1/2 right-1/3 w-64 h-64 bg-gradient-radial from-primary/4 to-transparent rounded-full blur-2xl animate-gentle-pulse" style={{ animationDelay: '9s' }}></div>
       </div>
       
       {/* Hero Section */}
@@ -300,10 +305,12 @@ const Index = () => {
             ].map((member, index) => (
               <Card key={index} className="hover-scale border-0 shadow-elegant">
                 <CardHeader className="text-center">
-                  <div className="w-24 h-24 rounded-full bg-gradient-primary mx-auto mb-4 flex items-center justify-center">
-                    <span className="text-2xl font-bold text-white">
-                      {member.name.split(' ').map(n => n[0]).join('')}
-                    </span>
+                  <div className="w-32 h-32 rounded-full mx-auto mb-4 overflow-hidden shadow-lg">
+                    <img 
+                      src={index === 0 ? michaelKofman : index === 1 ? alexTur : karinaGorfin} 
+                      alt={`${member.name} professional headshot`} 
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                   <CardTitle className="text-xl">{member.name}</CardTitle>
                   <CardDescription className="text-lg font-medium text-primary">{member.role}</CardDescription>
@@ -396,10 +403,10 @@ const Index = () => {
             <div className="space-y-4">
               <h4 className="font-semibold text-foreground">Platform</h4>
               <ul className="space-y-2 text-muted-foreground">
-                <li><a href="#platform" className="hover:text-primary transition-colors">BioMath Life Platform</a></li>
-                <li><a href="#services" className="hover:text-primary transition-colors">Genomic Analysis</a></li>
-                <li><a href="#services" className="hover:text-primary transition-colors">Predictive Intelligence</a></li>
-                <li><a href="#services" className="hover:text-primary transition-colors">Clinical Integration</a></li>
+                <li><a href="/platform" className="hover:text-primary transition-colors">BioMath Life Platform</a></li>
+                <li><a href="/services" className="hover:text-primary transition-colors">Genomic Analysis</a></li>
+                <li><a href="/services" className="hover:text-primary transition-colors">Predictive Intelligence</a></li>
+                <li><a href="/services" className="hover:text-primary transition-colors">Clinical Integration</a></li>
               </ul>
             </div>
 
@@ -407,9 +414,9 @@ const Index = () => {
             <div className="space-y-4">
               <h4 className="font-semibold text-foreground">Company</h4>
               <ul className="space-y-2 text-muted-foreground">
-                <li><a href="#team" className="hover:text-primary transition-colors">Leadership Team</a></li>
-                <li><a href="#awards" className="hover:text-primary transition-colors">Recognition</a></li>
-                <li><a href="#partnerships" className="hover:text-primary transition-colors">Partnerships</a></li>
+                <li><a href="/team" className="hover:text-primary transition-colors">Leadership Team</a></li>
+                <li><a href="/recognition" className="hover:text-primary transition-colors">Recognition</a></li>
+                <li><a href="/partnerships" className="hover:text-primary transition-colors">Partnerships</a></li>
                 <li><a href="https://www.healthcaretechoutlook.com/digital-invest-inc" 
                        target="_blank" 
                        rel="noopener noreferrer"
