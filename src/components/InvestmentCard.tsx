@@ -61,8 +61,8 @@ const InvestmentCard = ({
         </div>
 
         {/* Action Button */}
-        <Button className="w-full">
-          Learn More About Partnership
+        <Button className="w-full" asChild>
+          <a href="/start-investing">Start Investment Process</a>
         </Button>
       </div>
     </Card>

@@ -6,12 +6,12 @@ const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const navItems = [
-    { label: 'Главная', href: '#home' },
-    { label: 'BioMath Platform', href: '#biomath' },
-    { label: 'Проекты', href: '#projects' },
-    { label: 'О компании', href: '#company' },
-    { label: 'Инвестировать', href: '#invest' },
-    { label: 'Контакты', href: '#contacts' }
+    { label: 'Home', href: '/' },
+    { label: 'Platform', href: '/platform' },
+    { label: 'Services', href: '/services' },
+    { label: 'Team', href: '/team' },
+    { label: 'Recognition', href: '/recognition' },
+    { label: 'Partnerships', href: '/partnerships' }
   ];
 
   return (
@@ -37,7 +37,9 @@ const Navigation = () => {
                 {item.label}
               </a>
             ))}
-            <Button variant="tech">Начать инвестировать</Button>
+            <Button variant="tech" asChild>
+              <a href="/start-investing">Start Investing</a>
+            </Button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -65,7 +67,9 @@ const Navigation = () => {
                   {item.label}
                 </a>
               ))}
-              <Button variant="tech" className="mt-4">Начать инвестировать</Button>
+              <Button variant="tech" className="mt-4" asChild>
+                <a href="/start-investing">Start Investing</a>
+              </Button>
             </div>
           </div>
         )}
