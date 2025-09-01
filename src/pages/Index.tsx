@@ -14,34 +14,12 @@ import michaelKofman from "@/assets/team/michael-kofman.jpg";
 import alexTur from "@/assets/team/alex-tur.jpg";
 import karinaGorfin from "@/assets/team/karina-gorfin.jpg";
 import biomathPlatform from "@/assets/biomath-platform.jpg";
-import { 
-  Dna, 
-  Brain, 
-  Activity, 
-  Shield, 
-  Zap, 
-  Users, 
-  ArrowRight, 
-  CheckCircle,
-  Star,
-  Award,
-  Globe,
-  Mail,
-  Phone,
-  MapPin,
-  Linkedin,
-  Facebook,
-  Youtube,
-  Building2,
-  Target,
-  Calendar,
-  Microscope,
-  Cloud,
-  HeartPulse,
-  Pill,
-  Database,
-  Monitor
-} from "lucide-react";
+import { TrendingUp, Users, Target, CheckCircle, Dna, Brain, Activity, Globe, Building2, Award, Shield, Zap, Calendar, Linkedin, Facebook, Youtube, MapPin, Phone, Mail } from 'lucide-react';
+import AnimatedStatsCard from '@/components/AnimatedStatsCard';
+import DataVisualization from '@/components/DataVisualization';
+import biotechVisualization from '@/assets/biotech-visualization.jpg';
+import investmentDashboard from '@/assets/investment-dashboard.jpg';
+import mathModelingVisual from '@/assets/math-modeling-visual.jpg';
 
 const Index = () => {
   return (
@@ -57,98 +35,215 @@ const Index = () => {
       </div>
       
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center px-4 overflow-hidden">
+      <section className="relative py-20 px-4 bg-gradient-hero overflow-hidden">
+        {/* Animated background elements */}
         <div className="absolute inset-0">
-          <img 
-            src={heroImage} 
-            alt="Digital Invest Inc. - BioMath Life Platform" 
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-primary opacity-85"></div>
+          <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-electric rounded-full opacity-10 animate-subtle-float"></div>
+          <div className="absolute bottom-40 right-20 w-24 h-24 bg-gradient-bio rounded-full opacity-15 animate-gentle-pulse"></div>
+          <div className="absolute top-1/2 left-1/4 w-16 h-16 bg-gradient-neural rounded-full opacity-20 animate-vibrant-glow"></div>
         </div>
         
-        <div className="relative z-10 text-center max-w-5xl mx-auto">
-          <div className="mb-6 animate-fade-in">
-            <Badge variant="secondary" className="mb-4 px-4 py-2 text-sm font-medium">
-              <Award className="w-4 h-4 mr-2" />
-              Healthcare Tech Outlook Top Company 2024
-            </Badge>
-          </div>
-          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 animate-fade-in leading-tight">
-            Precision Medicine
-            <span className="block text-white/80 text-4xl md:text-6xl">Redefined</span>
-          </h1>
-          <p className="text-xl md:text-2xl text-white/90 mb-8 animate-fade-in max-w-3xl mx-auto leading-relaxed">
-            Digital Invest Inc. transforms healthcare through mathematical modeling of human biology, 
-            delivering predictive diagnostics and personalized treatment strategies.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in">
-            <Button size="lg" className="bg-white text-primary hover:bg-white/90 px-8 py-3" asChild>
-              <a href="/platform">Discover Platform <ArrowRight className="ml-2 h-5 w-5" /></a>
-            </Button>
-            <Button size="lg" variant="outline" className="text-white border-white hover:bg-white hover:text-primary px-8 py-3" asChild>
-              <a href="/start-investing">Start Investing</a>
-            </Button>
+        <div className="max-w-6xl mx-auto relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div className="space-y-8 animate-fade-in">
+              <div>
+                <Badge variant="secondary" className="mb-4 px-4 py-2 animate-gentle-pulse bg-gradient-electric">
+                  Next-Generation Precision Medicine
+                </Badge>
+                <h1 className="text-5xl md:text-7xl font-bold text-foreground mb-6 leading-tight">
+                  Redefining Healthcare Through 
+                  <span className="block bg-gradient-electric bg-clip-text text-transparent animate-rainbow-pulse">Mathematical Precision</span>
+                </h1>
+                <p className="text-xl text-muted-foreground leading-relaxed">
+                  Digital Invest Inc. pioneers the convergence of mathematical modeling, artificial intelligence, 
+                  and genetic analysis to deliver unprecedented accuracy in personalized medicine and healthcare outcomes.
+                </p>
+              </div>
+              
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button size="lg" className="px-8 py-4 text-lg shadow-rainbow animate-subtle-float glow-hover" asChild>
+                  <a href="/start-investing">Begin Investment Journey</a>
+                </Button>
+                <Button variant="outline" size="lg" className="px-8 py-4 text-lg electric-hover" asChild>
+                  <a href="/platform">Explore Platform</a>
+                </Button>
+              </div>
+            </div>
+            
+            <div className="relative animate-scale-in">
+              <div className="absolute -inset-4 bg-gradient-electric rounded-xl blur-xl opacity-40 animate-vibrant-glow"></div>
+              <img 
+                src={biotechVisualization} 
+                alt="Advanced biotech data visualization" 
+                className="relative w-full rounded-xl shadow-rainbow corporate-pattern animate-gentle-pulse"
+              />
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Recognition & Awards */}
-      <section className="py-16 px-4 bg-secondary/20">
+      {/* Key Metrics Section */}
+      <section className="py-20 px-4 bg-gradient-corporate">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
-            <Badge variant="secondary" className="mb-4 px-4 py-2">
-              Industry Recognition
-            </Badge>
+          <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-foreground mb-4">
-              Featured in Leading Publications
+              Transforming Healthcare Outcomes
             </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Our precision medicine platform delivers measurable results across clinical research, patient outcomes, and healthcare efficiency.
+            </p>
           </div>
           
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-            <Card className="border-0 shadow-elegant hover-scale">
-              <CardHeader className="text-center pb-4">
-                <div className="flex justify-center mb-4">
-                  <Award className="h-16 w-16 text-primary" />
-                </div>
-                <CardTitle className="text-2xl">Healthcare Tech Outlook</CardTitle>
-                <CardDescription className="text-lg">Top Precision Medicine Solutions Company</CardDescription>
-              </CardHeader>
-              <CardContent className="text-center">
-                <p className="text-muted-foreground mb-6 leading-relaxed">
-                  Recognized among the top precision medicine companies transforming healthcare 
-                  through innovative genetic analysis and personalized treatment strategies.
-                </p>
-                <Button variant="outline" asChild>
-                  <a href="https://www.healthcaretechoutlook.com/digital-invest-inc" target="_blank" rel="noopener noreferrer">
-                    Read Full Interview <ArrowRight className="ml-2 h-4 w-4" />
-                  </a>
-                </Button>
-              </CardContent>
-            </Card>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <AnimatedStatsCard
+              icon={TrendingUp}
+              title="Prediction Accuracy"
+              value="97.3%"
+              description="AI-driven diagnostic accuracy rate"
+              gradient="gradient-tech"
+              delay={0}
+            />
+            <AnimatedStatsCard
+              icon={Users}
+              title="Patients Analyzed"
+              value="250K+"
+              description="Comprehensive genomic profiles processed"
+              gradient="gradient-bio"
+              delay={200}
+            />
+            <AnimatedStatsCard
+              icon={Target}
+              title="Treatment Success"
+              value="89.7%"
+              description="Personalized therapy effectiveness"
+              gradient="gradient-neural"
+              delay={400}
+            />
+            <AnimatedStatsCard
+              icon={CheckCircle}
+              title="Clinical Validations"
+              value="180+"
+              description="Peer-reviewed studies completed"
+              gradient="gradient-invest"
+              delay={600}
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Data Visualization Section */}
+      <section className="py-20 px-4">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-foreground mb-4">
+              Real-Time Platform Analytics
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Live data insights from our precision medicine platform showing current performance metrics and growth trends.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+            <DataVisualization
+              title="Diagnostic Accuracy"
+              type="pie"
+              data={[
+                { label: "Genetic Analysis", value: 97, color: "bg-primary" },
+                { label: "Biomarker Detection", value: 94, color: "bg-secondary" },
+                { label: "Risk Assessment", value: 89, color: "bg-accent" }
+              ]}
+            />
             
-            <div className="space-y-6">
-              <div className="flex items-center space-x-4 p-6 bg-background rounded-lg shadow-sm">
-                <CheckCircle className="h-8 w-8 text-primary flex-shrink-0" />
-                <div>
-                  <h4 className="font-semibold text-lg">Market Leadership</h4>
-                  <p className="text-muted-foreground">Leading innovations in precision medicine and genetic analysis</p>
-                </div>
+            <DataVisualization
+              title="Treatment Success Rates"
+              type="bar"
+              data={[
+                { label: "Personalized Therapy", value: 89, color: "bg-success" },
+                { label: "Standard Treatment", value: 67, color: "bg-warning" },
+                { label: "Drug Optimization", value: 84, color: "bg-info" },
+                { label: "Preventive Care", value: 76, color: "bg-primary" }
+              ]}
+            />
+            
+            <DataVisualization
+              title="Platform Growth"
+              type="line"
+              data={[
+                { label: "Q1", value: 25, color: "bg-primary" },
+                { label: "Q2", value: 45, color: "bg-secondary" },
+                { label: "Q3", value: 78, color: "bg-accent" },
+                { label: "Q4", value: 95, color: "bg-success" }
+              ]}
+            />
+          </div>
+          
+          <div className="relative">
+            <img 
+              src={investmentDashboard} 
+              alt="Investment Analytics Dashboard" 
+              className="w-full rounded-xl shadow-rainbow animate-gentle-pulse"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Company Overview */}
+      <section className="py-20 px-4 bg-gradient-glow relative overflow-hidden">
+        {/* Animated background particles */}
+        <div className="absolute inset-0">
+          <div className="absolute top-10 left-20 w-20 h-20 bg-primary/10 rounded-full animate-subtle-float"></div>
+          <div className="absolute bottom-20 right-10 w-28 h-28 bg-secondary/10 rounded-full animate-gentle-pulse"></div>
+          <div className="absolute top-1/2 right-1/4 w-12 h-12 bg-accent/15 rounded-full animate-vibrant-glow"></div>
+        </div>
+        
+        <div className="max-w-6xl mx-auto relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div className="space-y-8 animate-fade-in">
+              <div>
+                <Badge className="mb-4 px-4 py-2 bg-gradient-electric animate-gentle-pulse">About Digital Invest Inc.</Badge>
+                <h2 className="text-4xl font-bold text-foreground mb-6">
+                  Pioneering the Future of <span className="bg-gradient-electric bg-clip-text text-transparent">Precision Medicine</span>
+                </h2>
+                <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+                  Founded by visionary technologist Michael Kofman, Digital Invest Inc. represents the convergence 
+                  of biotechnology innovation, mathematical precision, and investment strategy. Our company leverages 
+                  decades of experience in creating transformative technologies that redefine entire industries.
+                </p>
+                <p className="text-lg text-muted-foreground leading-relaxed">
+                  With successful exits totaling over $19.5 billion in market value, our leadership team brings 
+                  unparalleled expertise in scaling revolutionary technologies from concept to global market leadership.
+                </p>
               </div>
-              <div className="flex items-center space-x-4 p-6 bg-background rounded-lg shadow-sm">
-                <CheckCircle className="h-8 w-8 text-primary flex-shrink-0" />
-                <div>
-                  <h4 className="font-semibold text-lg">International Expertise</h4>
-                  <p className="text-muted-foreground">Proven track record with successful projects across multiple countries</p>
-                </div>
+              
+              <div className="grid grid-cols-2 gap-6">
+                <AnimatedStatsCard
+                  icon={Building2}
+                  title="Combined Exit Value"
+                  value="$19.5B"
+                  description="Total market value of successful exits"
+                  gradient="gradient-invest"
+                />
+                <AnimatedStatsCard
+                  icon={Award}
+                  title="Companies Founded"
+                  value="5+"
+                  description="Successful technology ventures created"
+                  gradient="gradient-neural"
+                />
               </div>
-              <div className="flex items-center space-x-4 p-6 bg-background rounded-lg shadow-sm">
-                <CheckCircle className="h-8 w-8 text-primary flex-shrink-0" />
-                <div>
-                  <h4 className="font-semibold text-lg">Technology Integration</h4>
-                  <p className="text-muted-foreground">Seamless integration of AI, mathematics, and biological sciences</p>
-                </div>
-              </div>
+              
+              <Button className="px-8 py-3 shadow-vibrant electric-hover" asChild>
+                <a href="/team">Meet Our Leadership Team</a>
+              </Button>
+            </div>
+            
+            <div className="relative animate-scale-in">
+              <div className="absolute -inset-4 bg-gradient-rainbow rounded-xl blur-xl opacity-20 animate-rainbow-pulse"></div>
+              <img 
+                src={mathModelingVisual} 
+                alt="Mathematical Modeling Visualization" 
+                className="relative w-full rounded-xl shadow-vibrant animate-gentle-pulse"
+              />
             </div>
           </div>
         </div>

@@ -6,41 +6,60 @@
 
 @layer base {
   :root {
-    /* Core Background & Text - Deep Corporate */
-    --background: 225 15% 8%;
-    --foreground: 210 15% 96%;
+    /* Core Background & Text - Vibrant Corporate */
+    --background: 225 20% 6%;
+    --foreground: 210 15% 98%;
 
     /* Card System - Elevated Corporate */
-    --card: 225 15% 11%;
-    --card-foreground: 210 15% 96%;
-    --card-hover: 225 15% 13%;
+    --card: 225 18% 9%;
+    --card-foreground: 210 15% 98%;
+    --card-hover: 225 20% 12%;
 
     /* Popover */
-    --popover: 225 15% 11%;
-    --popover-foreground: 210 15% 96%;
+    --popover: 225 18% 9%;
+    --popover-foreground: 210 15% 98%;
 
-    /* Primary - Professional Blue */
-    --primary: 210 100% 56%;
-    --primary-foreground: 210 15% 96%;
-    --primary-glow: 210 100% 66%;
+    /* Primary - Electric Blue */
+    --primary: 210 100% 60%;
+    --primary-foreground: 210 15% 98%;
+    --primary-glow: 210 100% 70%;
+    --primary-vibrant: 210 100% 55%;
 
-    /* Secondary - Corporate Silver */
-    --secondary: 215 16% 47%;
-    --secondary-foreground: 210 15% 96%;
-    --secondary-glow: 215 16% 57%;
+    /* Secondary - Vibrant Cyan */
+    --secondary: 185 84% 55%;
+    --secondary-foreground: 225 20% 6%;
+    --secondary-glow: 185 84% 65%;
+    --secondary-vibrant: 185 84% 50%;
 
     /* Muted */
-    --muted: 225 15% 15%;
-    --muted-foreground: 215 10% 60%;
+    --muted: 225 18% 14%;
+    --muted-foreground: 215 15% 65%;
 
-    /* Accent - Sophisticated Teal */
-    --accent: 192 95% 68%;
-    --accent-foreground: 225 15% 8%;
-    --accent-glow: 192 95% 78%;
+    /* Accent - Brilliant Teal */
+    --accent: 175 85% 60%;
+    --accent-foreground: 225 20% 6%;
+    --accent-glow: 175 85% 70%;
+    --accent-vibrant: 175 85% 55%;
 
-    /* Success - Medical Green */
-    --success: 158 64% 52%;
-    --success-foreground: 210 15% 96%;
+    /* Success - Vibrant Green */
+    --success: 145 70% 55%;
+    --success-foreground: 210 15% 98%;
+    --success-glow: 145 70% 65%;
+
+    /* Warning - Electric Orange */
+    --warning: 35 95% 60%;
+    --warning-foreground: 225 20% 6%;
+    --warning-glow: 35 95% 70%;
+
+    /* Error - Vibrant Red */
+    --error: 0 85% 60%;
+    --error-foreground: 210 15% 98%;
+    --error-glow: 0 85% 70%;
+
+    /* Info - Electric Purple */
+    --info: 260 85% 65%;
+    --info-foreground: 210 15% 98%;
+    --info-glow: 260 85% 75%;
 
     /* Destructive */
     --destructive: 0 62% 58%;
@@ -51,23 +70,29 @@
     --input: 225 15% 15%;
     --ring: 210 100% 56%;
 
-    /* Corporate Gradients */
-    --gradient-tech: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
-    --gradient-invest: linear-gradient(135deg, hsl(var(--secondary)), hsl(var(--primary)));
-    --gradient-neural: linear-gradient(135deg, hsl(var(--accent)), hsl(var(--secondary)));
-    --gradient-bio: linear-gradient(135deg, hsl(var(--success)), hsl(var(--accent)));
-    --gradient-corporate: linear-gradient(135deg, hsl(var(--primary) / 0.1), hsl(var(--accent) / 0.1));
+    /* Vibrant Corporate Gradients */
+    --gradient-tech: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)), hsl(var(--secondary)));
+    --gradient-invest: linear-gradient(135deg, hsl(var(--secondary)), hsl(var(--primary)), hsl(var(--info)));
+    --gradient-neural: linear-gradient(135deg, hsl(var(--accent)), hsl(var(--secondary)), hsl(var(--warning)));
+    --gradient-bio: linear-gradient(135deg, hsl(var(--success)), hsl(var(--accent)), hsl(var(--primary)));
+    --gradient-corporate: linear-gradient(135deg, hsl(var(--primary) / 0.15), hsl(var(--accent) / 0.15), hsl(var(--secondary) / 0.1));
+    --gradient-electric: linear-gradient(135deg, hsl(var(--primary-vibrant)), hsl(var(--secondary-vibrant)), hsl(var(--accent-vibrant)));
+    --gradient-rainbow: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--warning)), hsl(var(--error)), hsl(var(--info)), hsl(var(--success)));
+    --gradient-glow: linear-gradient(135deg, hsl(var(--primary-glow) / 0.3), hsl(var(--secondary-glow) / 0.3), hsl(var(--accent-glow) / 0.2));
     
-    /* Professional Mesh Gradients */
-    --gradient-hero: radial-gradient(ellipse 80% 50% at 50% -20%, hsl(var(--primary) / 0.15), transparent),
-                     radial-gradient(ellipse 60% 40% at 80% 80%, hsl(var(--accent) / 0.08), transparent),
-                     radial-gradient(ellipse 100% 60% at 20% 30%, hsl(var(--secondary) / 0.05), transparent);
+    /* Dynamic Mesh Gradients */
+    --gradient-hero: radial-gradient(ellipse 80% 50% at 50% -20%, hsl(var(--primary) / 0.25), transparent),
+                     radial-gradient(ellipse 60% 40% at 80% 80%, hsl(var(--accent) / 0.15), transparent),
+                     radial-gradient(ellipse 100% 60% at 20% 30%, hsl(var(--secondary) / 0.12), transparent),
+                     radial-gradient(ellipse 120% 80% at 70% 10%, hsl(var(--info) / 0.08), transparent);
 
-    /* Subtle Professional Shadows */
-    --shadow-tech: 0 8px 32px -8px hsl(var(--primary) / 0.2);
-    --shadow-invest: 0 8px 32px -8px hsl(var(--secondary) / 0.15);
-    --shadow-glow: 0 0 24px hsl(var(--primary-glow) / 0.2);
-    --shadow-elevated: 0 16px 48px -12px hsl(225 15% 0% / 0.4);
+    /* Dynamic Professional Shadows */
+    --shadow-tech: 0 8px 32px -8px hsl(var(--primary) / 0.3), 0 0 16px hsl(var(--primary) / 0.1);
+    --shadow-invest: 0 8px 32px -8px hsl(var(--secondary) / 0.25), 0 0 12px hsl(var(--secondary) / 0.08);
+    --shadow-glow: 0 0 32px hsl(var(--primary-glow) / 0.3), 0 0 16px hsl(var(--accent-glow) / 0.2);
+    --shadow-elevated: 0 16px 48px -12px hsl(225 20% 0% / 0.5), 0 4px 16px hsl(var(--primary) / 0.1);
+    --shadow-vibrant: 0 8px 32px -8px hsl(var(--accent) / 0.3), 0 0 20px hsl(var(--secondary) / 0.2);
+    --shadow-rainbow: 0 8px 32px -8px hsl(var(--primary) / 0.2), 0 4px 16px hsl(var(--accent) / 0.15), 0 0 8px hsl(var(--secondary) / 0.1);
 
     /* Smooth Professional Animations */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -116,15 +141,42 @@
     @apply border border-border/30 bg-gradient-corporate;
   }
 
-  /* Professional Animations */
+  /* Dynamic Animations */
   @keyframes subtle-float {
     0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-8px); }
+    50% { transform: translateY(-10px); }
   }
 
   @keyframes gentle-pulse {
-    0%, 100% { box-shadow: 0 0 16px hsl(var(--primary) / 0.15); }
-    50% { box-shadow: 0 0 24px hsl(var(--primary) / 0.25); }
+    0%, 100% { 
+      box-shadow: 0 0 20px hsl(var(--primary) / 0.2);
+      transform: scale(1);
+    }
+    50% { 
+      box-shadow: 0 0 32px hsl(var(--primary) / 0.35), 0 0 16px hsl(var(--accent) / 0.2);
+      transform: scale(1.02);
+    }
+  }
+
+  @keyframes vibrant-glow {
+    0%, 100% { 
+      box-shadow: 0 0 16px hsl(var(--primary) / 0.3);
+    }
+    25% { 
+      box-shadow: 0 0 24px hsl(var(--secondary) / 0.3);
+    }
+    50% { 
+      box-shadow: 0 0 32px hsl(var(--accent) / 0.4);
+    }
+    75% { 
+      box-shadow: 0 0 24px hsl(var(--info) / 0.3);
+    }
+  }
+
+  @keyframes rainbow-pulse {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
   }
 
   @keyframes smooth-fade-in {
@@ -137,12 +189,32 @@
     100% { opacity: 1; transform: scale(1); }
   }
 
+  @keyframes electric-border {
+    0%, 100% { border-color: hsl(var(--primary) / 0.5); }
+    25% { border-color: hsl(var(--secondary) / 0.5); }
+    50% { border-color: hsl(var(--accent) / 0.5); }
+    75% { border-color: hsl(var(--info) / 0.5); }
+  }
+
   .animate-subtle-float {
     animation: subtle-float 8s ease-in-out infinite;
   }
 
   .animate-gentle-pulse {
-    animation: gentle-pulse 3s ease-in-out infinite;
+    animation: gentle-pulse 4s ease-in-out infinite;
+  }
+
+  .animate-vibrant-glow {
+    animation: vibrant-glow 6s ease-in-out infinite;
+  }
+
+  .animate-rainbow-pulse {
+    animation: rainbow-pulse 8s ease infinite;
+    background-size: 400% 400%;
+  }
+
+  .animate-electric-border {
+    animation: electric-border 3s ease-in-out infinite;
   }
 
   .animate-fade-in {
@@ -155,6 +227,18 @@
 
   /* Interactive States */
   .card-hover {
-    @apply transition-all duration-300 hover:shadow-elevated hover:-translate-y-1 hover:border-primary/20;
+    @apply transition-all duration-300 hover:shadow-vibrant hover:-translate-y-2 hover:border-primary/30 hover:scale-105;
+  }
+
+  .electric-hover {
+    @apply transition-all duration-300 hover:shadow-rainbow hover:-translate-y-1 hover:animate-electric-border;
+  }
+
+  .gradient-hover {
+    @apply transition-all duration-500 hover:bg-gradient-electric hover:animate-rainbow-pulse;
+  }
+
+  .glow-hover {
+    @apply transition-all duration-300 hover:animate-vibrant-glow hover:scale-105;
   }
 }

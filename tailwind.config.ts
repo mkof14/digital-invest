@@ -27,12 +27,14 @@ export default {
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
 					foreground: 'hsl(var(--primary-foreground))',
-					glow: 'hsl(var(--primary-glow))'
+					glow: 'hsl(var(--primary-glow))',
+					vibrant: 'hsl(var(--primary-vibrant))'
 				},
 				secondary: {
 					DEFAULT: 'hsl(var(--secondary))',
 					foreground: 'hsl(var(--secondary-foreground))',
-					glow: 'hsl(var(--secondary-glow))'
+					glow: 'hsl(var(--secondary-glow))',
+					vibrant: 'hsl(var(--secondary-vibrant))'
 				},
 				destructive: {
 					DEFAULT: 'hsl(var(--destructive))',
@@ -45,11 +47,28 @@ export default {
 				accent: {
 					DEFAULT: 'hsl(var(--accent))',
 					foreground: 'hsl(var(--accent-foreground))',
-					glow: 'hsl(var(--accent-glow))'
+					glow: 'hsl(var(--accent-glow))',
+					vibrant: 'hsl(var(--accent-vibrant))'
 				},
 				success: {
 					DEFAULT: 'hsl(var(--success))',
-					foreground: 'hsl(var(--success-foreground))'
+					foreground: 'hsl(var(--success-foreground))',
+					glow: 'hsl(var(--success-glow))'
+				},
+				warning: {
+					DEFAULT: 'hsl(var(--warning))',
+					foreground: 'hsl(var(--warning-foreground))',
+					glow: 'hsl(var(--warning-glow))'
+				},
+				error: {
+					DEFAULT: 'hsl(var(--error))',
+					foreground: 'hsl(var(--error-foreground))',
+					glow: 'hsl(var(--error-glow))'
+				},
+				info: {
+					DEFAULT: 'hsl(var(--info))',
+					foreground: 'hsl(var(--info-foreground))',
+					glow: 'hsl(var(--info-glow))'
 				},
 				popover: {
 					DEFAULT: 'hsl(var(--popover))',
@@ -82,13 +101,18 @@ export default {
 				'gradient-neural': 'var(--gradient-neural)',
 				'gradient-bio': 'var(--gradient-bio)',
 				'gradient-corporate': 'var(--gradient-corporate)',
-				'gradient-hero': 'var(--gradient-hero)'
+				'gradient-hero': 'var(--gradient-hero)',
+				'gradient-electric': 'var(--gradient-electric)',
+				'gradient-rainbow': 'var(--gradient-rainbow)',
+				'gradient-glow': 'var(--gradient-glow)'
 			},
 			boxShadow: {
 				'tech': 'var(--shadow-tech)',
 				'invest': 'var(--shadow-invest)',
 				'glow': 'var(--shadow-glow)',
-				'elevated': 'var(--shadow-elevated)'
+				'elevated': 'var(--shadow-elevated)',
+				'vibrant': 'var(--shadow-vibrant)',
+				'rainbow': 'var(--shadow-rainbow)'
 			},
 			transitionTimingFunction: {
 				'smooth': 'var(--transition-smooth)',
