@@ -408,10 +408,6 @@ const Index = () => {
                           : karinaGorfin} 
                       alt={`${member.name} professional headshot`} 
                       className="w-full h-full object-cover"
-                      style={index === 0 ? {
-                        filter: 'contrast(1.1) brightness(1.05)',
-                        mixBlendMode: 'multiply'
-                      } : {}}
                     />
                   </div>
                   <CardTitle className="text-xl">{member.name}</CardTitle>
