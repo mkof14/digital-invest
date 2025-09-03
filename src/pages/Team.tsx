@@ -1,7 +1,6 @@
 import Navigation from "@/components/Navigation";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import michaelKofman from "@/assets/team/michael-kofman.jpg";
 import alexTur from "@/assets/team/alex-tur.jpg";
 import karinaGorfin from "@/assets/team/karina-gorfin.jpg";
 import { Award, Users, Globe, Building2 } from "lucide-react";
@@ -35,11 +34,11 @@ const Team = () => {
             {/* Michael Kofman */}
             <Card className="hover-scale border-0 shadow-elegant">
               <CardHeader className="text-center">
-                <div className="w-48 h-48 rounded-full mx-auto mb-6 overflow-hidden shadow-lg">
+                <div className="w-48 h-48 rounded-full mx-auto mb-6 overflow-hidden shadow-lg bg-gradient-to-br from-primary/10 to-secondary/10">
                   <img 
-                    src={michaelKofman} 
+                    src="/lovable-uploads/c2cb51a2-7071-4fb7-be6f-0e69d3a124e0.png" 
                     alt="Michael Kofman, CEO/President" 
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover object-center"
                   />
                 </div>
                 <CardTitle className="text-2xl">Michael Kofman</CardTitle>
