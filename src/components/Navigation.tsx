@@ -19,10 +19,12 @@ const Navigation = () => {
       <div className="container mx-auto px-4 py-3">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <div className="flex items-center space-x-2">
-            <div className="w-8 h-8 rounded-lg bg-gradient-tech flex items-center justify-center">
-              <span className="text-lg font-bold text-primary-foreground">DI</span>
-            </div>
+          <div className="flex items-center space-x-3">
+            <img 
+              src="/lovable-uploads/d1011e6f-955a-48d9-adef-662af751c3b9.png" 
+              alt="Digital Invest Logo" 
+              className="w-10 h-10 object-contain"
+            />
             <span className="text-xl font-bold gradient-text">Digital Invest</span>
           </div>
 
