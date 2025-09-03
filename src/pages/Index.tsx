@@ -10,7 +10,6 @@ import CompanyInfo from "@/components/CompanyInfo";
 import InvestmentCard from "@/components/InvestmentCard";
 import InvestorForm from "@/components/InvestorForm";
 import heroImage from "@/assets/hero-modern-tech.jpg";
-import michaelKofman from "@/assets/team/michael-kofman.jpg";
 import alexTur from "@/assets/team/alex-tur.jpg";
 import karinaGorfin from "@/assets/team/karina-gorfin.jpg";
 import biomathPlatform from "@/assets/biomath-platform.jpg";
@@ -402,9 +401,17 @@ const Index = () => {
                 <CardHeader className="text-center">
                   <div className="w-32 h-32 rounded-full mx-auto mb-4 overflow-hidden shadow-lg">
                     <img 
-                      src={index === 0 ? michaelKofman : index === 1 ? alexTur : karinaGorfin} 
+                      src={index === 0 
+                        ? "/lovable-uploads/6dd765a4-4908-4542-a7af-88ec2bf6741f.png"
+                        : index === 1 
+                          ? alexTur 
+                          : karinaGorfin} 
                       alt={`${member.name} professional headshot`} 
                       className="w-full h-full object-cover"
+                      style={index === 0 ? {
+                        filter: 'contrast(1.1) brightness(1.05)',
+                        mixBlendMode: 'multiply'
+                      } : {}}
                     />
                   </div>
                   <CardTitle className="text-xl">{member.name}</CardTitle>

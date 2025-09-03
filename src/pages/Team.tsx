@@ -34,11 +34,16 @@ const Team = () => {
             {/* Michael Kofman */}
             <Card className="hover-scale border-0 shadow-elegant">
               <CardHeader className="text-center">
-                <div className="w-48 h-48 rounded-full mx-auto mb-6 overflow-hidden shadow-lg bg-gradient-to-br from-primary/10 to-secondary/10">
+                <div className="relative w-48 h-48 rounded-full mx-auto mb-6 overflow-hidden shadow-elegant">
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/15 via-secondary/10 to-accent/15"></div>
                   <img 
-                    src="/lovable-uploads/c2cb51a2-7071-4fb7-be6f-0e69d3a124e0.png" 
+                    src="/lovable-uploads/6dd765a4-4908-4542-a7af-88ec2bf6741f.png" 
                     alt="Michael Kofman, CEO/President" 
-                    className="w-full h-full object-cover object-center"
+                    className="relative z-10 w-full h-full object-cover object-center"
+                    style={{
+                      filter: 'contrast(1.1) brightness(1.05)',
+                      mixBlendMode: 'multiply'
+                    }}
                   />
                 </div>
                 <CardTitle className="text-2xl">Michael Kofman</CardTitle>
