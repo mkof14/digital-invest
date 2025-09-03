@@ -402,7 +402,7 @@ const Index = () => {
                   <div className="w-32 h-32 rounded-full mx-auto mb-4 overflow-hidden shadow-lg">
                     <img 
                       src={index === 0 
-                        ? "/lovable-uploads/6dd765a4-4908-4542-a7af-88ec2bf6741f.png"
+                        ? "/lovable-uploads/649e2294-dd2f-4267-955e-efae9202adb9.png"
                         : index === 1 
                           ? alexTur 
                           : karinaGorfin} 
