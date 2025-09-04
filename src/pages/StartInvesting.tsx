@@ -1,5 +1,7 @@
 import Navigation from "@/components/Navigation";
 import InvestorForm from "@/components/InvestorForm";
+import ROICalculator from "@/components/ROICalculator";
+import InvestmentTimeline from "@/components/InvestmentTimeline";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -21,7 +23,11 @@ import {
   Lightbulb,
   FileText,
   Clock,
-  Phone
+  Phone,
+  Calculator,
+  Briefcase,
+  Video,
+  Download
 } from "lucide-react";
 
 const StartInvesting = () => {
@@ -121,13 +127,17 @@ const StartInvesting = () => {
             opportunities from $50K to $10M+ with exceptional growth potential.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="px-8 py-3">
+            <Button size="lg" className="px-8 py-3 glow-hover">
               <Calendar className="mr-2 h-5 w-5" />
               Schedule Consultation
             </Button>
-            <Button size="lg" variant="outline" className="px-8 py-3">
+            <Button size="lg" variant="outline" className="px-8 py-3 electric-hover">
               <FileText className="mr-2 h-5 w-5" />
               Download Investor Deck
+            </Button>
+            <Button size="lg" variant="secondary" className="px-8 py-3">
+              <Video className="mr-2 h-5 w-5" />
+              Watch Demo
             </Button>
           </div>
         </div>
@@ -325,6 +335,80 @@ const StartInvesting = () => {
                 )}
               </Card>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ROI Calculator */}
+      <section className="py-20 px-4 bg-gradient-glow">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-foreground mb-4">
+              Calculate Your Investment Returns
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Use our interactive calculator to project potential returns based on your investment amount and timeline
+            </p>
+          </div>
+          <ROICalculator />
+        </div>
+      </section>
+
+      {/* Investment Timeline */}
+      <section className="py-20 px-4">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-foreground mb-4">
+              Investment Roadmap & Milestones
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Transparent timeline showing how your investment accelerates our growth and drives returns
+            </p>
+          </div>
+          <InvestmentTimeline />
+        </div>
+      </section>
+
+      {/* Enhanced Investment Tools */}
+      <section className="py-20 px-4 bg-secondary/10">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-foreground mb-4">
+              Investment Resources & Tools
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Comprehensive resources to support your investment decision and ongoing partnership
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <Card className="text-center p-6 hover-scale border-0 shadow-elevated">
+              <Download className="h-12 w-12 text-primary mx-auto mb-4" />
+              <h3 className="text-lg font-semibold mb-2">Investor Deck</h3>
+              <p className="text-sm text-muted-foreground mb-4">Comprehensive presentation with market analysis, financials, and growth strategy</p>
+              <Button variant="outline" size="sm" className="w-full">Download PDF</Button>
+            </Card>
+            
+            <Card className="text-center p-6 hover-scale border-0 shadow-elevated">
+              <BarChart3 className="h-12 w-12 text-tech mx-auto mb-4" />
+              <h3 className="text-lg font-semibold mb-2">Financial Model</h3>
+              <p className="text-sm text-muted-foreground mb-4">Detailed financial projections and scenario analysis spreadsheet</p>
+              <Button variant="outline" size="sm" className="w-full">Access Model</Button>
+            </Card>
+            
+            <Card className="text-center p-6 hover-scale border-0 shadow-elevated">
+              <Video className="h-12 w-12 text-innovation mx-auto mb-4" />
+              <h3 className="text-lg font-semibold mb-2">Platform Demo</h3>
+              <p className="text-sm text-muted-foreground mb-4">Interactive demonstration of our BioMath Life Platform capabilities</p>
+              <Button variant="outline" size="sm" className="w-full">Watch Demo</Button>
+            </Card>
+            
+            <Card className="text-center p-6 hover-scale border-0 shadow-elevated">
+              <Briefcase className="h-12 w-12 text-accent mx-auto mb-4" />
+              <h3 className="text-lg font-semibold mb-2">Due Diligence</h3>
+              <p className="text-sm text-muted-foreground mb-4">Virtual data room with legal documents, audited financials, and IP portfolio</p>
+              <Button variant="outline" size="sm" className="w-full">Request Access</Button>
+            </Card>
           </div>
         </div>
       </section>

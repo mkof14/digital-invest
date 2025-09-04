@@ -28,13 +28,17 @@ export default {
 					DEFAULT: 'hsl(var(--primary))',
 					foreground: 'hsl(var(--primary-foreground))',
 					glow: 'hsl(var(--primary-glow))',
-					vibrant: 'hsl(var(--primary-vibrant))'
+					vibrant: 'hsl(var(--primary-vibrant))',
+					dark: 'hsl(var(--primary-dark))',
+					light: 'hsl(var(--primary-light))'
 				},
 				secondary: {
 					DEFAULT: 'hsl(var(--secondary))',
 					foreground: 'hsl(var(--secondary-foreground))',
 					glow: 'hsl(var(--secondary-glow))',
-					vibrant: 'hsl(var(--secondary-vibrant))'
+					vibrant: 'hsl(var(--secondary-vibrant))',
+					dark: 'hsl(var(--secondary-dark))',
+					light: 'hsl(var(--secondary-light))'
 				},
 				destructive: {
 					DEFAULT: 'hsl(var(--destructive))',
@@ -48,27 +52,49 @@ export default {
 					DEFAULT: 'hsl(var(--accent))',
 					foreground: 'hsl(var(--accent-foreground))',
 					glow: 'hsl(var(--accent-glow))',
-					vibrant: 'hsl(var(--accent-vibrant))'
+					vibrant: 'hsl(var(--accent-vibrant))',
+					dark: 'hsl(var(--accent-dark))',
+					light: 'hsl(var(--accent-light))'
 				},
 				success: {
 					DEFAULT: 'hsl(var(--success))',
 					foreground: 'hsl(var(--success-foreground))',
-					glow: 'hsl(var(--success-glow))'
+					glow: 'hsl(var(--success-glow))',
+					dark: 'hsl(var(--success-dark))',
+					light: 'hsl(var(--success-light))'
 				},
 				warning: {
 					DEFAULT: 'hsl(var(--warning))',
 					foreground: 'hsl(var(--warning-foreground))',
-					glow: 'hsl(var(--warning-glow))'
+					glow: 'hsl(var(--warning-glow))',
+					dark: 'hsl(var(--warning-dark))',
+					light: 'hsl(var(--warning-light))'
 				},
 				error: {
 					DEFAULT: 'hsl(var(--error))',
 					foreground: 'hsl(var(--error-foreground))',
-					glow: 'hsl(var(--error-glow))'
+					glow: 'hsl(var(--error-glow))',
+					dark: 'hsl(var(--error-dark))',
+					light: 'hsl(var(--error-light))'
 				},
 				info: {
 					DEFAULT: 'hsl(var(--info))',
 					foreground: 'hsl(var(--info-foreground))',
-					glow: 'hsl(var(--info-glow))'
+					glow: 'hsl(var(--info-glow))',
+					dark: 'hsl(var(--info-dark))',
+					light: 'hsl(var(--info-light))'
+				},
+				tech: {
+					DEFAULT: 'hsl(var(--tech))',
+					foreground: 'hsl(var(--tech-foreground))',
+					glow: 'hsl(var(--tech-glow))',
+					dark: 'hsl(var(--tech-dark))'
+				},
+				innovation: {
+					DEFAULT: 'hsl(var(--innovation))',
+					foreground: 'hsl(var(--innovation-foreground))',
+					glow: 'hsl(var(--innovation-glow))',
+					dark: 'hsl(var(--innovation-dark))'
 				},
 				popover: {
 					DEFAULT: 'hsl(var(--popover))',
@@ -104,7 +130,10 @@ export default {
 				'gradient-hero': 'var(--gradient-hero)',
 				'gradient-electric': 'var(--gradient-electric)',
 				'gradient-rainbow': 'var(--gradient-rainbow)',
-				'gradient-glow': 'var(--gradient-glow)'
+				'gradient-glow': 'var(--gradient-glow)',
+				'gradient-premium': 'var(--gradient-premium)',
+				'gradient-innovation': 'var(--gradient-innovation)',
+				'gradient-sophisticated': 'var(--gradient-sophisticated)'
 			},
 			boxShadow: {
 				'tech': 'var(--shadow-tech)',

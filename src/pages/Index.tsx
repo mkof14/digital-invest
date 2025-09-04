@@ -60,7 +60,7 @@ const Index = () => {
               </div>
               
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="px-8 py-4 text-lg shadow-rainbow animate-subtle-float glow-hover" asChild>
+                <Button size="lg" className="px-8 py-4 text-lg shadow-rainbow glow-hover" asChild>
                   <a href="/start-investing">Begin Investment Journey</a>
                 </Button>
                 <Button variant="outline" size="lg" className="px-8 py-4 text-lg electric-hover" asChild>
@@ -364,90 +364,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Leadership Team */}
-      <section className="py-20 px-4 bg-background">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-foreground mb-4">
-              Executive Leadership
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Seasoned executives with proven track records in biotechnology, healthcare, and business development
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              {
-                name: "Michael Kofman",
-                role: "CEO/President",
-                description: "Renowned technological visionary with expertise in executive leadership, strategic analysis, and biotechnology innovation. Founded multiple successful companies including 9 Net Avenue (acquired for $19.5B market value).",
-                achievements: "Entrepreneur of the Year 1999, Listed in Who's Who in America, Ph.D. in Information Technology"
-              },
-              {
-                name: "Alex Tur",
-                role: "CTO",
-                description: "Accomplished engineering leader with 20+ years in multidisciplinary software and hardware development. Expert in Cloud B2B/B2C platforms and Big Data processing ecosystems.",
-                achievements: "Best Defense Enterprise Designer, Best Defense Concern Inventor, Sun Microsystems Awards finalist"
-              },
-              {
-                name: "Karina Gorfin",
-                role: "CLO",
-                description: "Executive legal strategist with 25+ years advising international corporations. Expertise in technology law, strategic business relations, and corporate governance.",
-                achievements: "Leading Female Attorney in Technology Law, Founded legal practice in 2003, Member of NY and NJ State Bars"
-              }
-            ].map((member, index) => (
-              <Card key={index} className="hover-scale border-0 shadow-elegant">
-                <CardHeader className="text-center">
-                  <div className="w-32 h-32 rounded-full mx-auto mb-4 overflow-hidden shadow-lg">
-                    <img 
-                      src={index === 0 
-                        ? "/lovable-uploads/649e2294-dd2f-4267-955e-efae9202adb9.png"
-                        : index === 1 
-                          ? alexTur 
-                          : karinaGorfin} 
-                      alt={`${member.name} professional headshot`} 
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <CardTitle className="text-xl">{member.name}</CardTitle>
-                  <CardDescription className="text-lg font-medium text-primary">{member.role}</CardDescription>
-                </CardHeader>
-                <CardContent className="text-center">
-                  <p className="text-muted-foreground mb-4 leading-relaxed">
-                    {member.description}
-                  </p>
-                  <p className="text-sm text-muted-foreground font-medium">
-                    {member.achievements}
-                  </p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Company Statistics */}
-      <section className="py-16 px-4 bg-secondary/20">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {[
-              { label: "Years of Experience", value: "30+", icon: Calendar },
-              { label: "Countries Served", value: "10+", icon: Globe },
-              { label: "Successful Projects", value: "150+", icon: Target },
-              { label: "Team Members", value: "50+", icon: Users }
-            ].map((stat, index) => (
-              <div key={index} className="text-center">
-                <div className="flex justify-center mb-4">
-                  <stat.icon className="w-8 h-8 text-primary" />
-                </div>
-                <div className="text-4xl md:text-5xl font-bold text-primary mb-2">{stat.value}</div>
-                <div className="text-muted-foreground">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Contact Form */}
       <section className="py-20 px-4 bg-background">
