@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Menu, X } from 'lucide-react';
 
@@ -31,16 +32,16 @@ const Navigation = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
-              <a
+              <Link
                 key={item.label}
-                href={item.href}
+                to={item.href}
                 className="text-muted-foreground hover:text-foreground transition-colors duration-300"
               >
                 {item.label}
-              </a>
+              </Link>
             ))}
             <Button variant="tech" asChild>
-              <a href="/start-investing">Start Investing</a>
+              <Link to="/start-investing">Start Investing</Link>
             </Button>
           </div>
 
@@ -60,17 +61,17 @@ const Navigation = () => {
           <div className="md:hidden mt-4 pb-4 border-t border-border/20">
             <div className="flex flex-col space-y-3 pt-4">
               {navItems.map((item) => (
-                <a
+                <Link
                   key={item.label}
-                  href={item.href}
+                  to={item.href}
                   className="text-muted-foreground hover:text-foreground transition-colors duration-300 py-2"
                   onClick={() => setIsOpen(false)}
                 >
                   {item.label}
-                </a>
+                </Link>
               ))}
               <Button variant="tech" className="mt-4" asChild>
-                <a href="/start-investing">Start Investing</a>
+                <Link to="/start-investing">Start Investing</Link>
               </Button>
             </div>
           </div>

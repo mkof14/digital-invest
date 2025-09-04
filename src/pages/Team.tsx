@@ -1,4 +1,5 @@
 import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import alexTur from "@/assets/team/alex-tur.jpg";
@@ -170,6 +171,8 @@ const Team = () => {
           </div>
         </div>
       </section>
+      
+      <Footer />
     </div>
   );
 };

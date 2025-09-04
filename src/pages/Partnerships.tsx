@@ -1,4 +1,5 @@
 import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
 import InvestmentCard from "@/components/InvestmentCard";
 import InvestorForm from "@/components/InvestorForm";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -246,6 +247,8 @@ const Partnerships = () => {
           <InvestorForm />
         </div>
       </section>
+      
+      <Footer />
     </div>
   );
 };

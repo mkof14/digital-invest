@@ -1,4 +1,5 @@
 import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
 import InvestorForm from "@/components/InvestorForm";
 import ROICalculator from "@/components/ROICalculator";
 import InvestmentTimeline from "@/components/InvestmentTimeline";
@@ -593,6 +594,8 @@ const StartInvesting = () => {
           <InvestorForm />
         </div>
       </section>
+      
+      <Footer />
     </div>
   );
 };
