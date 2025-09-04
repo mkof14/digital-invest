@@ -538,12 +538,6 @@ const Index = () => {
                   <span className="text-sm">Charlotte, NC 28204</span>
                 </div>
                 <div className="flex items-center space-x-3 text-muted-foreground">
-                  <Phone className="h-4 w-4 text-primary flex-shrink-0" />
-                  <a href="tel:19802108177" className="text-sm hover:text-primary transition-colors">
-                    (980) 210-8177
-                  </a>
-                </div>
-                <div className="flex items-center space-x-3 text-muted-foreground">
                   <Mail className="h-4 w-4 text-primary flex-shrink-0" />
                   <a href="mailto:info@digitalinvest.com" className="text-sm hover:text-primary transition-colors">
                     info@digitalinvest.com
