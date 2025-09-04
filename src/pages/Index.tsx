@@ -470,7 +470,14 @@ const Index = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {/* Company Info */}
             <div className="space-y-4">
-              <h3 className="text-xl font-bold text-foreground">Digital Invest Inc.</h3>
+              <div className="flex items-center space-x-3 mb-2">
+                <img 
+                  src="/lovable-uploads/d1011e6f-955a-48d9-adef-662af751c3b9.png" 
+                  alt="Digital Invest Logo" 
+                  className="w-8 h-8 object-contain"
+                />
+                <h3 className="text-xl font-bold text-foreground">Digital Invest Inc.</h3>
+              </div>
               <p className="text-muted-foreground leading-relaxed">
                 Pioneering the future of precision medicine through mathematical modeling, 
                 AI-driven diagnostics, and personalized therapeutic solutions.
