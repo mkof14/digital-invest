@@ -33,107 +33,148 @@ const Team = () => {
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             {/* Michael Kofman */}
-            <Card className="hover-scale border-0 shadow-elegant">
+            <Card className="card-hover border-0 shadow-tech">
               <CardHeader className="text-center">
-                <div className="w-48 h-48 rounded-full mx-auto mb-6 overflow-hidden shadow-elegant bg-white/10">
+                <div className="w-48 h-48 rounded-full mx-auto mb-6 overflow-hidden shadow-glow bg-primary/10">
                   <img 
                     src="/lovable-uploads/649e2294-dd2f-4267-955e-efae9202adb9.png" 
                     alt="Michael Kofman, CEO/President" 
                     className="w-full h-full object-cover object-center"
                   />
                 </div>
-                <CardTitle className="text-2xl">Michael Kofman</CardTitle>
-                <CardDescription className="text-lg font-medium text-primary">CEO/President</CardDescription>
+                <CardTitle className="text-2xl text-foreground">Michael Kofman</CardTitle>
+                <CardDescription className="text-lg font-medium text-primary">CEO/President & Founder</CardDescription>
               </CardHeader>
-              <CardContent className="space-y-4">
+              <CardContent className="space-y-6">
                 <p className="text-muted-foreground leading-relaxed">
-                  Renowned technological visionary with expertise in executive leadership, strategic analysis, 
-                  and biotechnology innovation. Founded multiple successful companies including 9 Net Avenue 
-                  (acquired for $19.5B market value).
+                  Visionary entrepreneur and technological innovator with over 25 years of experience in executive leadership. 
+                  Founded Digital Invest Inc. to revolutionize precision medicine through mathematical modeling and AI-driven 
+                  diagnostics. Previously founded 9 Net Avenue, which achieved a remarkable $19.5B market valuation.
                 </p>
-                <div className="space-y-2">
-                  <div className="flex items-center space-x-2">
-                    <Award className="w-4 h-4 text-primary" />
-                    <span className="text-sm">Entrepreneur of the Year 1999</span>
+                <div className="space-y-3">
+                  <div className="flex items-center space-x-3">
+                    <Award className="w-5 h-5 text-secondary" />
+                    <span className="text-sm font-medium">Entrepreneur of the Year 1999</span>
                   </div>
-                  <div className="flex items-center space-x-2">
-                    <Building2 className="w-4 h-4 text-primary" />
-                    <span className="text-sm">Founded 5+ successful companies</span>
+                  <div className="flex items-center space-x-3">
+                    <Building2 className="w-5 h-5 text-secondary" />
+                    <span className="text-sm font-medium">Founded 5+ successful technology companies</span>
                   </div>
-                  <div className="flex items-center space-x-2">
-                    <Globe className="w-4 h-4 text-primary" />
-                    <span className="text-sm">Ph.D. in Information Technology</span>
+                  <div className="flex items-center space-x-3">
+                    <Globe className="w-5 h-5 text-secondary" />
+                    <span className="text-sm font-medium">Ph.D. in Information Technology</span>
                   </div>
+                  <div className="flex items-center space-x-3">
+                    <Users className="w-5 h-5 text-secondary" />
+                    <span className="text-sm font-medium">Expert in biotech strategy & innovation</span>
+                  </div>
+                </div>
+                <div className="bg-secondary/10 rounded-lg p-4 border border-secondary/20">
+                  <h4 className="font-semibold text-secondary mb-2">Key Achievements</h4>
+                  <ul className="text-sm text-muted-foreground space-y-1">
+                    <li>• Led 9 Net Avenue to $19.5B market cap acquisition</li>
+                    <li>• Pioneer in biotechnology mathematical modeling</li>
+                    <li>• 25+ years in executive leadership</li>
+                    <li>• Strategic advisor to Fortune 500 companies</li>
+                  </ul>
                 </div>
               </CardContent>
             </Card>
 
             {/* Alex Tur */}
-            <Card className="hover-scale border-0 shadow-elegant">
+            <Card className="card-hover border-0 shadow-tech">
               <CardHeader className="text-center">
-                <div className="w-48 h-48 rounded-full mx-auto mb-6 overflow-hidden shadow-lg">
+                <div className="w-48 h-48 rounded-full mx-auto mb-6 overflow-hidden shadow-glow bg-primary/10">
                   <img 
                     src={alexTur} 
                     alt="Alex Tur, CTO" 
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <CardTitle className="text-2xl">Alex Tur</CardTitle>
-                <CardDescription className="text-lg font-medium text-primary">CTO</CardDescription>
+                <CardTitle className="text-2xl text-foreground">Alex Tur</CardTitle>
+                <CardDescription className="text-lg font-medium text-primary">Chief Technology Officer</CardDescription>
               </CardHeader>
-              <CardContent className="space-y-4">
+              <CardContent className="space-y-6">
                 <p className="text-muted-foreground leading-relaxed">
-                  Accomplished engineering leader with 20+ years in multidisciplinary software and hardware 
-                  development. Expert in Cloud B2B/B2C platforms and Big Data processing ecosystems.
+                  Distinguished technology architect and engineering leader with over 20 years of experience in 
+                  multidisciplinary software and hardware development. Specializes in cloud-native B2B/B2C platforms, 
+                  Big Data processing ecosystems, and enterprise-scale distributed systems.
                 </p>
-                <div className="space-y-2">
-                  <div className="flex items-center space-x-2">
-                    <Award className="w-4 h-4 text-primary" />
-                    <span className="text-sm">Best Defense Enterprise Designer</span>
+                <div className="space-y-3">
+                  <div className="flex items-center space-x-3">
+                    <Award className="w-5 h-5 text-secondary" />
+                    <span className="text-sm font-medium">Best Defense Enterprise Designer Award</span>
                   </div>
-                  <div className="flex items-center space-x-2">
-                    <Building2 className="w-4 h-4 text-primary" />
-                    <span className="text-sm">20+ years engineering leadership</span>
+                  <div className="flex items-center space-x-3">
+                    <Building2 className="w-5 h-5 text-secondary" />
+                    <span className="text-sm font-medium">20+ years in engineering leadership</span>
                   </div>
-                  <div className="flex items-center space-x-2">
-                    <Globe className="w-4 h-4 text-primary" />
-                    <span className="text-sm">Master's in Electrical Engineering</span>
+                  <div className="flex items-center space-x-3">
+                    <Globe className="w-5 h-5 text-secondary" />
+                    <span className="text-sm font-medium">Master's in Electrical Engineering</span>
                   </div>
+                  <div className="flex items-center space-x-3">
+                    <Users className="w-5 h-5 text-secondary" />
+                    <span className="text-sm font-medium">Cloud architecture & data processing expert</span>
+                  </div>
+                </div>
+                <div className="bg-secondary/10 rounded-lg p-4 border border-secondary/20">
+                  <h4 className="font-semibold text-secondary mb-2">Technical Expertise</h4>
+                  <ul className="text-sm text-muted-foreground space-y-1">
+                    <li>• Enterprise cloud architecture design</li>
+                    <li>• Big Data processing & machine learning</li>
+                    <li>• Distributed systems & microservices</li>
+                    <li>• Healthcare data security & compliance</li>
+                  </ul>
                 </div>
               </CardContent>
             </Card>
 
             {/* Karina Gorfin */}
-            <Card className="hover-scale border-0 shadow-elegant">
+            <Card className="card-hover border-0 shadow-tech">
               <CardHeader className="text-center">
-                <div className="w-48 h-48 rounded-full mx-auto mb-6 overflow-hidden shadow-lg">
+                <div className="w-48 h-48 rounded-full mx-auto mb-6 overflow-hidden shadow-glow bg-primary/10">
                   <img 
                     src={karinaGorfin} 
                     alt="Karina Gorfin, CLO" 
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <CardTitle className="text-2xl">Karina Gorfin</CardTitle>
-                <CardDescription className="text-lg font-medium text-primary">CLO</CardDescription>
+                <CardTitle className="text-2xl text-foreground">Karina Gorfin</CardTitle>
+                <CardDescription className="text-lg font-medium text-primary">Chief Legal Officer</CardDescription>
               </CardHeader>
-              <CardContent className="space-y-4">
+              <CardContent className="space-y-6">
                 <p className="text-muted-foreground leading-relaxed">
-                  Executive legal strategist with 25+ years advising international corporations. 
-                  Expertise in technology law, strategic business relations, and corporate governance.
+                  Distinguished legal strategist and corporate counsel with over 25 years of experience advising 
+                  international corporations on complex technology law matters. Recognized leader in healthcare 
+                  regulatory compliance, intellectual property, and strategic business relations.
                 </p>
-                <div className="space-y-2">
-                  <div className="flex items-center space-x-2">
-                    <Award className="w-4 h-4 text-primary" />
-                    <span className="text-sm">Leading Female Attorney in Tech Law</span>
+                <div className="space-y-3">
+                  <div className="flex items-center space-x-3">
+                    <Award className="w-5 h-5 text-secondary" />
+                    <span className="text-sm font-medium">Leading Female Attorney in Tech Law</span>
                   </div>
-                  <div className="flex items-center space-x-2">
-                    <Building2 className="w-4 h-4 text-primary" />
-                    <span className="text-sm">Founded legal practice in 2003</span>
+                  <div className="flex items-center space-x-3">
+                    <Building2 className="w-5 h-5 text-secondary" />
+                    <span className="text-sm font-medium">Founded legal practice in 2003</span>
                   </div>
-                  <div className="flex items-center space-x-2">
-                    <Users className="w-4 h-4 text-primary" />
-                    <span className="text-sm">NY and NJ State Bars member</span>
+                  <div className="flex items-center space-x-3">
+                    <Users className="w-5 h-5 text-secondary" />
+                    <span className="text-sm font-medium">NY and NJ State Bars member</span>
                   </div>
+                  <div className="flex items-center space-x-3">
+                    <Globe className="w-5 h-5 text-secondary" />
+                    <span className="text-sm font-medium">Healthcare regulatory compliance expert</span>
+                  </div>
+                </div>
+                <div className="bg-secondary/10 rounded-lg p-4 border border-secondary/20">
+                  <h4 className="font-semibold text-secondary mb-2">Legal Specializations</h4>
+                  <ul className="text-sm text-muted-foreground space-y-1">
+                    <li>• Healthcare & biotechnology regulation</li>
+                    <li>• Intellectual property & patent law</li>
+                    <li>• Corporate governance & compliance</li>
+                    <li>• International business transactions</li>
+                  </ul>
                 </div>
               </CardContent>
             </Card>

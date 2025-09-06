@@ -10,6 +10,9 @@ import Team from "./pages/Team";
 import Recognition from "./pages/Recognition";
 import Partnerships from "./pages/Partnerships";
 import StartInvesting from "./pages/StartInvesting";
+import Privacy from "./pages/Privacy";
+import Terms from "./pages/Terms";
+import Cookies from "./pages/Cookies";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -28,6 +31,9 @@ const App = () => (
           <Route path="/recognition" element={<Recognition />} />
           <Route path="/partnerships" element={<Partnerships />} />
           <Route path="/start-investing" element={<StartInvesting />} />
+          <Route path="/privacy" element={<Privacy />} />
+          <Route path="/terms" element={<Terms />} />
+          <Route path="/cookies" element={<Cookies />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

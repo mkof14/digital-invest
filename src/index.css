@@ -27,13 +27,13 @@
     --primary-dark: 220 90% 45%;
     --primary-light: 220 90% 75%;
 
-    /* Secondary - Sophisticated Emerald */
-    --secondary: 165 75% 50%;
+    /* Secondary - Dynamic Orange */
+    --secondary: 25 95% 58%;
     --secondary-foreground: 225 20% 6%;
-    --secondary-glow: 165 75% 60%;
-    --secondary-vibrant: 165 75% 45%;
-    --secondary-dark: 165 75% 35%;
-    --secondary-light: 165 75% 65%;
+    --secondary-glow: 25 95% 68%;
+    --secondary-vibrant: 25 95% 53%;
+    --secondary-dark: 25 95% 43%;
+    --secondary-light: 25 95% 73%;
 
     /* Muted */
     --muted: 225 18% 14%;
@@ -47,12 +47,12 @@
     --accent-dark: 45 100% 50%;
     --accent-light: 45 100% 80%;
 
-    /* Success - Modern Green */
-    --success: 145 65% 52%;
+    /* Success - Modern Purple */
+    --success: 270 75% 60%;
     --success-foreground: 210 15% 98%;
-    --success-glow: 145 65% 62%;
-    --success-dark: 145 65% 42%;
-    --success-light: 145 65% 70%;
+    --success-glow: 270 75% 70%;
+    --success-dark: 270 75% 50%;
+    --success-light: 270 75% 80%;
 
     /* Warning - Contemporary Orange */
     --warning: 25 85% 58%;
@@ -81,11 +81,11 @@
     --tech-glow: 195 85% 65%;
     --tech-dark: 195 85% 45%;
 
-    /* Innovation - Vibrant Teal */
-    --innovation: 180 70% 50%;
+    /* Innovation - Vibrant Coral */
+    --innovation: 350 85% 60%;
     --innovation-foreground: 210 15% 98%;
-    --innovation-glow: 180 70% 60%;
-    --innovation-dark: 180 70% 40%;
+    --innovation-glow: 350 85% 70%;
+    --innovation-dark: 350 85% 50%;
 
     /* Destructive */
     --destructive: 0 62% 58%;
