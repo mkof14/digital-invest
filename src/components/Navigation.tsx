@@ -26,7 +26,7 @@ const Navigation = () => {
               alt="Digital Invest Logo" 
               className="w-10 h-10 object-contain"
             />
-            <span className="text-xl font-bold gradient-text">Digital Invest</span>
+            <span className="text-primary">Digital Invest</span>
           </div>
 
           {/* Desktop Navigation */}

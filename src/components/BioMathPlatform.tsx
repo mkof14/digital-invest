@@ -122,7 +122,7 @@ const BioMathPlatform = () => {
         </Badge>
         
         <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-          <span className="gradient-text">BioMath Life Platform</span>
+          <span className="text-primary">BioMath Life Platform</span>
         </h1>
         
         <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-4xl mx-auto">
