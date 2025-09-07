@@ -50,30 +50,24 @@ const AnimatedStatsCard = ({
 
   return (
     <Card className={`
-      relative overflow-hidden border-0 shadow-vibrant
-      electric-hover glow-hover
+      relative overflow-hidden border-0 shadow-lg
       ${isVisible ? 'animate-fade-in' : 'opacity-0'}
     `}>
-      {/* Animated background gradient */}
-      <div className={`absolute inset-0 bg-${gradient} opacity-10 animate-rainbow-pulse`}></div>
-      
-      {/* Electric border animation */}
-      <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-transparent to-secondary/20 animate-electric-border rounded-lg"></div>
+      {/* Simple background */}
+      <div className="absolute inset-0 bg-card/50"></div>
       
       <div className="relative z-10 p-8 text-center">
-        {/* Animated icon */}
-        <div className="mb-6 animate-subtle-float">
-          <div className="inline-flex p-4 rounded-full bg-gradient-electric animate-vibrant-glow">
+        <div className="flex items-center justify-between mb-4">
+          <div className="inline-flex p-4 rounded-full bg-primary">
             <Icon className="w-8 h-8 text-primary-foreground" />
           </div>
         </div>
         
-        {/* Animated value */}
-        <div className="mb-4">
-          <div className="text-4xl md:text-5xl font-bold bg-gradient-electric bg-clip-text text-transparent animate-rainbow-pulse">
+        <div className="space-y-3">
+          <div className="text-4xl md:text-5xl font-bold text-primary">
             {animatedValue}
           </div>
-          <Badge variant="secondary" className="mt-2 bg-gradient-glow animate-gentle-pulse">
+          <Badge variant="secondary" className="mt-2">
             {title}
           </Badge>
         </div>

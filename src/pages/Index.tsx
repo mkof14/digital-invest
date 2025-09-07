@@ -27,35 +27,23 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Navigation />
       
-      {/* Enhanced Animations */}
+      {/* Subtle Background Elements */}
       <div className="fixed inset-0 -z-10 overflow-hidden">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-primary/8 to-accent/6 rounded-full blur-3xl animate-subtle-float"></div>
-        <div className="absolute top-3/4 right-1/4 w-128 h-128 bg-gradient-to-l from-secondary/6 to-primary/4 rounded-full blur-3xl animate-subtle-float" style={{ animationDelay: '3s' }}></div>
-        <div className="absolute bottom-1/4 left-1/2 w-80 h-80 bg-gradient-to-br from-accent/8 to-success/4 rounded-full blur-3xl animate-subtle-float" style={{ animationDelay: '6s' }}></div>
-        <div className="absolute top-1/2 right-1/3 w-64 h-64 bg-gradient-radial from-primary/4 to-transparent rounded-full blur-2xl animate-gentle-pulse" style={{ animationDelay: '9s' }}></div>
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/4 rounded-full blur-3xl animate-subtle-float"></div>
+        <div className="absolute top-3/4 right-1/4 w-128 h-128 bg-secondary/3 rounded-full blur-3xl animate-subtle-float" style={{ animationDelay: '3s' }}></div>
+        <div className="absolute bottom-1/4 left-1/2 w-80 h-80 bg-accent/3 rounded-full blur-3xl animate-subtle-float" style={{ animationDelay: '6s' }}></div>
       </div>
       
       {/* Hero Section - Enhanced */}
       <section className="relative min-h-[90vh] flex items-center justify-center px-4 overflow-hidden">
-        {/* Dynamic Background Layers */}
-        <div className="absolute inset-0 bg-gradient-hero"></div>
-        <div className="absolute inset-0 bg-gradient-sophisticated opacity-80"></div>
+        {/* Simple Background */}
+        <div className="absolute inset-0 bg-background/95"></div>
         
-        {/* Animated Geometric Elements */}
+        {/* Minimal Geometric Elements */}
         <div className="absolute inset-0">
-          {/* Large floating orbs */}
-          <div className="absolute top-1/4 left-1/6 w-64 h-64 bg-gradient-electric rounded-full opacity-20 blur-2xl animate-subtle-float"></div>
-          <div className="absolute bottom-1/4 right-1/6 w-80 h-80 bg-gradient-premium rounded-full opacity-15 blur-3xl animate-gentle-pulse" style={{ animationDelay: '2s' }}></div>
-          <div className="absolute top-1/2 left-1/2 w-48 h-48 bg-gradient-innovation rounded-full opacity-25 blur-xl animate-vibrant-glow" style={{ animationDelay: '4s' }}></div>
-          
-          {/* Smaller accent elements */}
-          <div className="absolute top-20 right-1/4 w-24 h-24 bg-primary/30 rounded-full animate-subtle-float" style={{ animationDelay: '1s' }}></div>
-          <div className="absolute bottom-32 left-1/3 w-32 h-32 bg-accent/20 rounded-full animate-gentle-pulse" style={{ animationDelay: '3s' }}></div>
-          <div className="absolute top-1/3 right-20 w-16 h-16 bg-secondary/40 rounded-full animate-vibrant-glow" style={{ animationDelay: '5s' }}></div>
-          
-          {/* Geometric patterns */}
-          <div className="absolute top-1/4 right-1/3 w-1 h-32 bg-gradient-to-b from-primary/50 to-transparent animate-subtle-float rotate-45" style={{ animationDelay: '2.5s' }}></div>
-          <div className="absolute bottom-1/3 left-1/4 w-1 h-24 bg-gradient-to-b from-accent/40 to-transparent animate-gentle-pulse rotate-12" style={{ animationDelay: '4.5s' }}></div>
+          <div className="absolute top-20 right-1/4 w-24 h-24 bg-primary/15 rounded-full animate-subtle-float" style={{ animationDelay: '1s' }}></div>
+          <div className="absolute bottom-32 left-1/3 w-32 h-32 bg-accent/10 rounded-full animate-gentle-pulse" style={{ animationDelay: '3s' }}></div>
+          <div className="absolute top-1/3 right-20 w-16 h-16 bg-secondary/20 rounded-full animate-vibrant-glow" style={{ animationDelay: '5s' }}></div>
         </div>
         
         <div className="max-w-7xl mx-auto relative z-10">
@@ -63,9 +51,8 @@ const Index = () => {
             <div className="space-y-10 animate-fade-in">
               {/* Premium Badge */}
               <div className="inline-flex items-center">
-                <Badge variant="secondary" className="relative px-6 py-3 text-sm font-semibold overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-electric animate-rainbow-pulse"></div>
-                  <div className="relative flex items-center gap-2">
+                <Badge variant="secondary" className="px-6 py-3 text-sm font-semibold">
+                  <div className="flex items-center gap-2">
                     <Zap className="w-4 h-4" />
                     Next-Generation Precision Medicine
                   </div>
@@ -77,13 +64,13 @@ const Index = () => {
                 <h1 className="text-6xl md:text-8xl font-black text-foreground leading-none tracking-tight">
                   <span className="block">Redefining</span>
                   <span className="block text-5xl md:text-7xl font-light text-muted-foreground">Healthcare Through</span>
-                  <span className="block bg-gradient-premium bg-clip-text text-transparent animate-rainbow-pulse bg-300% animate-rainbow-pulse">
+                  <span className="block text-primary">
                     Mathematical Precision
                   </span>
                 </h1>
                 
                 <div className="relative">
-                  <div className="absolute -left-4 top-0 w-1 h-full bg-gradient-to-b from-primary via-accent to-secondary rounded-full"></div>
+                  <div className="absolute -left-4 top-0 w-1 h-full bg-primary rounded-full"></div>
                   <p className="text-2xl md:text-3xl text-muted-foreground leading-relaxed font-light pl-8">
                     Digital Invest Inc. pioneers the convergence of 
                     <span className="text-primary font-medium"> mathematical modeling</span>, 
@@ -96,16 +83,15 @@ const Index = () => {
               
               {/* Enhanced CTAs */}
               <div className="flex flex-col sm:flex-row gap-6 pt-8">
-                <Button size="lg" className="group relative px-10 py-6 text-xl font-semibold shadow-rainbow overflow-hidden" asChild>
+                <Button size="lg" className="px-10 py-6 text-xl font-semibold" asChild>
                   <Link to="/start-investing">
-                    <div className="absolute inset-0 bg-gradient-electric animate-rainbow-pulse opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    <span className="relative flex items-center gap-3">
+                    <span className="flex items-center gap-3">
                       <TrendingUp className="w-6 h-6" />
                       Begin Investment Journey
                     </span>
                   </Link>
                 </Button>
-                <Button variant="outline" size="lg" className="group px-10 py-6 text-xl font-semibold border-2 hover:bg-gradient-sophisticated hover:border-primary/50" asChild>
+                <Button variant="outline" size="lg" className="px-10 py-6 text-xl font-semibold border-2" asChild>
                   <Link to="/platform">
                     <span className="flex items-center gap-3">
                       <Globe className="w-6 h-6" />
@@ -130,13 +116,8 @@ const Index = () => {
             
             {/* Enhanced Hero Visual */}
             <div className="relative animate-scale-in lg:animate-fade-in" style={{ animationDelay: '0.3s' }}>
-              {/* Layered Glow Effects */}
-              <div className="absolute -inset-8 bg-gradient-electric rounded-2xl blur-2xl opacity-30 animate-vibrant-glow"></div>
-              <div className="absolute -inset-4 bg-gradient-premium rounded-xl blur-xl opacity-40 animate-gentle-pulse" style={{ animationDelay: '1s' }}></div>
-              
               {/* Main Image Container */}
               <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 via-transparent to-accent/20 rounded-2xl"></div>
                 <img 
                   src={biotechVisualization} 
                   alt="Advanced biotech data visualization showcasing precision medicine technology" 
@@ -169,7 +150,7 @@ const Index = () => {
       </section>
 
       {/* Key Metrics Section */}
-      <section className="py-20 px-4 bg-gradient-corporate">
+      <section className="py-20 px-4 bg-card">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-foreground mb-4">
@@ -274,7 +255,7 @@ const Index = () => {
       </section>
 
       {/* Company Overview */}
-      <section className="py-20 px-4 bg-gradient-glow relative overflow-hidden">
+      <section className="py-20 px-4 bg-muted/30 relative overflow-hidden">
         {/* Animated background particles */}
         <div className="absolute inset-0">
           <div className="absolute top-10 left-20 w-20 h-20 bg-primary/10 rounded-full animate-subtle-float"></div>
@@ -286,9 +267,9 @@ const Index = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="space-y-8 animate-fade-in">
               <div>
-                <Badge className="mb-4 px-4 py-2 bg-gradient-electric animate-gentle-pulse">About Digital Invest Inc.</Badge>
+                <Badge className="mb-4 px-4 py-2">About Digital Invest Inc.</Badge>
                 <h2 className="text-4xl font-bold text-foreground mb-6">
-                  Pioneering the Future of <span className="bg-gradient-electric bg-clip-text text-transparent">Precision Medicine</span>
+                  Pioneering the Future of <span className="text-primary">Precision Medicine</span>
                 </h2>
                 <p className="text-lg text-muted-foreground leading-relaxed mb-6">
                   Founded by visionary technologist Michael Kofman, Digital Invest Inc. represents the convergence 
@@ -318,17 +299,16 @@ const Index = () => {
                 />
               </div>
               
-              <Button className="px-8 py-3 shadow-vibrant electric-hover" asChild>
+              <Button className="px-8 py-3" asChild>
                 <Link to="/team">Meet Our Leadership Team</Link>
               </Button>
             </div>
             
             <div className="relative animate-scale-in">
-              <div className="absolute -inset-4 bg-gradient-rainbow rounded-xl blur-xl opacity-20 animate-rainbow-pulse"></div>
-              <img 
+              <img
                 src={mathModelingVisual} 
                 alt="Mathematical Modeling Visualization" 
-                className="relative w-full rounded-xl shadow-vibrant animate-gentle-pulse"
+                className="relative w-full rounded-xl shadow-lg animate-gentle-pulse"
               />
             </div>
           </div>

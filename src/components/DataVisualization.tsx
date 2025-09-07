@@ -69,10 +69,10 @@ const DataVisualization = ({
           </div>
           <div className="h-3 bg-muted rounded-full overflow-hidden">
             <div 
-              className={`h-full ${item.color} animate-electric-border transition-all duration-1000 ease-out`}
+              className={`h-full ${item.color} transition-all duration-1000 ease-out`}
               style={{ 
                 width: `${(item.value / maxValue) * 100}%`,
-                background: `linear-gradient(90deg, hsl(var(--primary)), hsl(var(--secondary)), hsl(var(--accent)))`
+                background: `hsl(var(--primary))`
               }}
             ></div>
           </div>
@@ -152,10 +152,9 @@ const DataVisualization = ({
         
         <polyline
           fill="none"
-          stroke="url(#lineGradient)"
+          stroke="hsl(var(--primary))"
           strokeWidth="3"
           strokeLinecap="round"
-          className="animate-electric-border"
           points={animatedData.map((item, index) => 
             `${(index / (animatedData.length - 1)) * 380 + 10},${90 - (item.value / maxValue) * 70}`
           ).join(' ')}
@@ -186,18 +185,18 @@ const DataVisualization = ({
 
   return (
     <Card className={`
-      border-0 shadow-vibrant electric-hover overflow-hidden
+      border-0 shadow-lg overflow-hidden
       ${isVisible ? 'animate-fade-in' : 'opacity-0'}
     `}>
-      {/* Animated background */}
-      <div className="absolute inset-0 bg-gradient-glow opacity-5 animate-rainbow-pulse"></div>
+      {/* Simple background */}
+      <div className="absolute inset-0 bg-card/30"></div>
       
       <div className="relative z-10 p-6">
         <div className="flex items-center space-x-2 mb-6">
-          <div className="p-2 bg-gradient-electric rounded-lg animate-gentle-pulse">
+          <div className="p-2 bg-primary rounded-lg">
             {getIcon()}
           </div>
-          <Badge variant="secondary" className="bg-gradient-neural animate-vibrant-glow">
+          <Badge variant="secondary">
             {title}
           </Badge>
         </div>
