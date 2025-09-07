@@ -25,19 +25,19 @@ const Footer = () => {
                  target="_blank" 
                  rel="noopener noreferrer"
                  className="p-2 bg-secondary rounded-lg hover:bg-secondary/80 transition-colors">
-                <Linkedin className="h-5 w-5 text-primary" />
+                <Linkedin className="h-5 w-5" style={{ color: '#0077B5' }} />
               </a>
               <a href="https://www.facebook.com/digitalinvestcompany" 
                  target="_blank" 
                  rel="noopener noreferrer"
                  className="p-2 bg-secondary rounded-lg hover:bg-secondary/80 transition-colors">
-                <Facebook className="h-5 w-5 text-primary" />
+                <Facebook className="h-5 w-5" style={{ color: '#1877F2' }} />
               </a>
               <a href="https://www.youtube.com/@BiomathLife" 
                  target="_blank" 
                  rel="noopener noreferrer"
                  className="p-2 bg-secondary rounded-lg hover:bg-secondary/80 transition-colors">
-                <Youtube className="h-5 w-5 text-primary" />
+                <Youtube className="h-5 w-5" style={{ color: '#FF0000' }} />
               </a>
             </div>
           </div>
@@ -88,7 +88,7 @@ const Footer = () => {
         <div className="border-t border-border mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-muted-foreground text-sm">
-              © 2024 Digital Invest Inc. All rights reserved. Transforming healthcare through precision medicine.
+              © 2025 Digital Invest Inc. All rights reserved. Transforming healthcare through precision medicine.
             </p>
             <div className="flex space-x-6 text-sm text-muted-foreground">
               <Link to="/privacy" className="hover:text-primary transition-colors">Privacy Policy</Link>
