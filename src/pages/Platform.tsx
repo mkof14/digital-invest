@@ -38,8 +38,9 @@ const Platform = () => {
               <span className="block text-primary">Meets Medical Science</span>
             </h1>
             <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
-              The BioMath Life Platform transforms healthcare through mathematical modeling of human biology, 
-              delivering predictive diagnostics and personalized treatment strategies with unprecedented accuracy.
+              Building on our achievements in advanced human genome analysis since 2010, the BioMath Life Platform 
+              shifts from statistical methods to mathematical ones. Using biomathematical models and digital simulation, 
+              we predict disease progression and treatment response even before application to patients.
             </p>
           </div>
 

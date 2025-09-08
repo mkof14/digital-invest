@@ -62,8 +62,8 @@ const Index = () => {
               {/* Enhanced Typography */}
               <div className="space-y-6">
                 <h1 className="text-6xl md:text-8xl font-black text-foreground leading-none tracking-tight">
-                  <span className="block">Redefining</span>
-                  <span className="block text-5xl md:text-7xl font-light text-muted-foreground">Healthcare Through</span>
+                  <span className="block">Digital Invest:</span>
+                  <span className="block text-5xl md:text-7xl font-light text-muted-foreground">Transforming Healthcare Through</span>
                   <span className="block text-primary">
                     Mathematical Precision
                   </span>
@@ -72,11 +72,9 @@ const Index = () => {
                 <div className="relative">
                   <div className="absolute -left-4 top-0 w-1 h-full bg-primary rounded-full"></div>
                   <p className="text-2xl md:text-3xl text-muted-foreground leading-relaxed font-light pl-8">
-                    Digital Invest Inc. pioneers the convergence of 
-                    <span className="text-primary font-medium"> mathematical modeling</span>, 
-                    <span className="text-accent font-medium"> artificial intelligence</span>, and 
-                    <span className="text-secondary font-medium"> genetic analysis</span> to deliver 
-                    unprecedented accuracy in personalized medicine.
+                    Since 2010, we've been reshaping traditional medicine through mathematical models of the human body 
+                    with AI support. Our BioMath Life Platform diagnoses and predicts disease development, recommending 
+                    optimal treatment methods with unprecedented precision.
                   </p>
                 </div>
               </div>
@@ -272,13 +270,16 @@ const Index = () => {
                   Pioneering the Future of <span className="text-primary">Precision Medicine</span>
                 </h2>
                 <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                  Founded by visionary technologist Michael Kofman, Digital Invest Inc. represents the convergence 
-                  of biotechnology innovation, mathematical precision, and investment strategy. Our company leverages 
-                  decades of experience in creating transformative technologies that redefine entire industries.
+                  Digital Invest Inc. (formerly GENEX Company, since 2010) is a biotechnology research company 
+                  specializing in advanced human genome analysis and biomathematical modeling. We are seasoned 
+                  experts in biotechnology, Big Data, Cloud Computing, and AI, with over 6 years of dedicated 
+                  research in creating personalized biomathematical models of the human body.
                 </p>
                 <p className="text-lg text-muted-foreground leading-relaxed">
-                  With successful exits totaling over $19.5 billion in market value, our leadership team brings 
-                  unparalleled expertise in scaling revolutionary technologies from concept to global market leadership.
+                  Our BioMath Life Platform shifts from statistical methods to mathematical ones in disease 
+                  diagnosis and treatment. Using digital simulation and incorporating genetic profiles, 
+                  lifestyle factors, and continuous monitoring, we predict disease progression and treatment 
+                  response before application to patients.
                 </p>
               </div>
               

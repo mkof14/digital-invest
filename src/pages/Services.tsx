@@ -33,106 +33,130 @@ const Services = () => {
             Our Services
           </Badge>
           <h1 className="text-5xl md:text-6xl font-bold text-foreground mb-6">
-            Comprehensive Solutions for
-            <span className="block text-primary">Precision Medicine</span>
+            BioMath Life Platform
+            <span className="block text-primary">Services & Solutions</span>
           </h1>
           <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
-            From genomic analysis to predictive modeling, we provide end-to-end solutions 
-            that bridge the gap between genetic data and clinical outcomes.
+            Each service serves as a link in our technological chain, functioning as both integrated components 
+            and self-contained entities. Our 5-step process transforms genetic data into personalized treatment recommendations.
           </p>
         </div>
       </section>
 
-      {/* Core Services */}
+      {/* Core Services - BioMath Platform */}
       <section className="py-20 px-4">
         <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 mb-20">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-foreground mb-4">
+              BioMath Life Platform Services
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Our comprehensive 5-service technological chain for precision medicine
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 gap-12 mb-20">
             {[
               {
+                step: "#1",
                 icon: <Dna className="h-16 w-16 text-primary mb-6" />,
-                title: "Genomic Analysis & Sequencing",
-                description: "Advanced DNA sequencing and interpretation with clinical-grade accuracy. Our comprehensive genomic analysis identifies genetic variations, predispositions, and actionable insights for personalized treatment strategies.",
+                title: "Sequencing and Advanced Analysis of Human DNA",
+                description: "Creating individual genetic profiles for each patient through comprehensive DNA sequencing and analysis.",
+                details: "DNA sequencing identifies the order of nucleotide bases in a strand of DNA. We leverage this sequence for in-depth analysis of genetic traits, primarily to assess susceptibility to various diseases, metabolization of different substances, and reaction to established medications. Using extensive datasets from our research and the collective work of other researchers, we construct a comprehensive genetic profile for each patient.",
                 features: [
-                  "Whole genome sequencing",
-                  "Variant analysis and interpretation", 
-                  "Pharmacogenomics testing",
-                  "Hereditary disease screening"
+                  "High-performance robotic biomolecular laboratory",
+                  "Comprehensive genetic trait analysis", 
+                  "Disease susceptibility assessment",
+                  "Medication reaction prediction",
+                  "Individual genetic profile creation"
                 ]
               },
               {
+                step: "#2",
                 icon: <Brain className="h-16 w-16 text-primary mb-6" />,
-                title: "AI-Powered Predictive Intelligence",
-                description: "Machine learning algorithms that analyze complex biological patterns to forecast disease progression and treatment outcomes before clinical symptoms appear.",
+                title: "Individual Biomathematical Model Creation",
+                description: "Developing personalized biomathematical models of the human body based on genetic profiles and additional factors.",
+                details: "We view the human body as an intricately complex and finely-tuned system where every organ and subsystem is linked through a vast network of connections. We develop a biomathematical model of the human body and refine it with insights from the patient's genetic profile, yielding a tailored biomathematical model specific to each patient.",
                 features: [
-                  "Disease progression modeling",
-                  "Treatment outcome prediction",
-                  "Risk stratification algorithms",
-                  "Early intervention alerts"
+                  "Complex system modeling approach",
+                  "Genetic profile integration",
+                  "Organ interconnection mapping",
+                  "Personalized model refinement",
+                  "Patient-specific adaptations"
+                ]
+              },
+              {
+                step: "#3", 
+                icon: <Monitor className="h-16 w-16 text-primary mb-6" />,
+                title: "Quick Diagnosis Based on Genetic Predispositions",
+                description: "Rapid diagnosis using genetic predispositions, monitoring history, and previous medical prescriptions.",
+                details: "We monitor patient health through biochemical data analysis and daily medical telemetry when necessary. This allows fine-tuning of the patient's biomathematical model. When significant deviations in health indicators are identified, AI conducts comprehensive analysis to pinpoint underlying causes and provide initial diagnosis - like a consultation with a vast panel of doctors.",
+                features: [
+                  "Continuous health monitoring",
+                  "Biochemical data analysis",
+                  "Daily medical telemetry",
+                  "AI-powered diagnosis assistance",
+                  "Medical expert panel simulation"
+                ]
+              },
+              {
+                step: "#4",
+                icon: <Activity className="h-16 w-16 text-primary mb-6" />,
+                title: "Disease Development Modeling",
+                description: "Modeling disease progression, ordering additional examinations, and recommending treatment methodology.",
+                details: "When disease is identified, we employ the patient's biomathematical model to simulate the ailment and its impact on individual organs and the overall body. This enables precise identification of root causes and simulation of disease progression under specific treatment protocols, gauging response to various medications while factoring in potential side effects.",
+                features: [
+                  "Disease simulation modeling",
+                  "Root cause identification",
+                  "Treatment protocol simulation", 
+                  "Medication response prediction",
+                  "Side effect assessment"
+                ]
+              },
+              {
+                step: "#5",
+                icon: <Pill className="h-16 w-16 text-primary mb-6" />,
+                title: "Medication Selection and Production",
+                description: "Selection and/or production of medications with maximum effectiveness based on patient's biomathematical model.",
+                details: "Precision Medicine based on individual genetic data enables us to achieve maximum medication effectiveness while avoiding adverse impacts. Our solutions allow us to pinpoint precisely the right medications or formulate distinct combinations tailored to specific patients, drawing from their genetic traits and body characteristics.",
+                features: [
+                  "Personalized medication selection",
+                  "Custom medication formulation",
+                  "Genetic-based optimization",
+                  "Adverse effect minimization",
+                  "Patient-specific combinations"
                 ]
               }
             ].map((service, index) => (
               <Card key={index} className="p-8 border-0 shadow-elegant hover-scale">
-                <div className="mb-6">{service.icon}</div>
-                <h3 className="text-2xl font-bold mb-4">{service.title}</h3>
-                <p className="text-muted-foreground mb-6 leading-relaxed">{service.description}</p>
-                <ul className="space-y-2 mb-6">
-                  {service.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-center space-x-2">
-                      <ArrowRight className="w-4 h-4 text-primary" />
-                      <span>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-                <Button variant="outline">Learn More</Button>
-              </Card>
-            ))}
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              {
-                icon: <Activity className="h-12 w-12 text-primary mb-4" />,
-                title: "Mathematical Modeling",
-                description: "Sophisticated biomathematical simulations of human physiological systems for precise treatment optimization and drug interaction analysis."
-              },
-              {
-                icon: <Shield className="h-12 w-12 text-primary mb-4" />,
-                title: "Biomarker Discovery",
-                description: "Identification and validation of novel biological indicators for early detection, disease monitoring, and therapeutic target identification."
-              },
-              {
-                icon: <Zap className="h-12 w-12 text-primary mb-4" />,
-                title: "Precision Therapeutics",
-                description: "Individualized treatment protocols tailored to genetic profiles, medical history, and predictive risk assessments."
-              },
-              {
-                icon: <Users className="h-12 w-12 text-primary mb-4" />,
-                title: "Clinical Integration",
-                description: "Seamless integration with existing healthcare systems and workflows for practical implementation in clinical settings."
-              },
-              {
-                icon: <Target className="h-12 w-12 text-primary mb-4" />,
-                title: "Drug Development Support",
-                description: "Accelerate pharmaceutical research with predictive modeling and patient stratification for clinical trials."
-              },
-              {
-                icon: <ChartBar className="h-12 w-12 text-primary mb-4" />,
-                title: "Population Health Analytics",
-                description: "Large-scale genomic analysis for population health insights, epidemiological research, and public health initiatives."
-              }
-            ].map((service, index) => (
-              <Card key={index} className="hover-scale border-0 shadow-elegant group">
-                <CardHeader className="text-center">
-                  <div className="group-hover:scale-110 transition-transform duration-300">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+                  <div className="text-center lg:text-left">
+                    <div className="text-3xl font-bold text-primary mb-2">{service.step}</div>
                     {service.icon}
+                    <h3 className="text-2xl font-bold mb-4">{service.title}</h3>
+                    <p className="text-lg text-muted-foreground mb-6 leading-relaxed">{service.description}</p>
                   </div>
-                  <CardTitle className="text-xl">{service.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground text-center leading-relaxed">
-                    {service.description}
-                  </p>
-                </CardContent>
+                  
+                  <div className="lg:col-span-2 space-y-6">
+                    <p className="text-muted-foreground leading-relaxed">{service.details}</p>
+                    
+                    <div>
+                      <h4 className="font-semibold mb-4">Key Features:</h4>
+                      <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                        {service.features.map((feature, idx) => (
+                          <li key={idx} className="flex items-center space-x-2">
+                            <ArrowRight className="w-4 h-4 text-primary flex-shrink-0" />
+                            <span className="text-sm">{feature}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    
+                    <Button variant="outline">
+                      Learn More About This Service
+                    </Button>
+                  </div>
+                </div>
               </Card>
             ))}
           </div>
@@ -144,10 +168,10 @@ const Services = () => {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-foreground mb-4">
-              Our Process
+              Platform Implementation Process
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              A systematic approach to delivering precision medicine solutions
+              Our structured approach ensures seamless integration of BioMath Life Platform services
             </p>
           </div>
           
@@ -155,23 +179,23 @@ const Services = () => {
             {[
               {
                 step: "01",
-                title: "Data Collection",
-                description: "Comprehensive gathering of genomic, clinical, and phenotypic data from multiple sources."
+                title: "Genetic Profiling",
+                description: "Comprehensive DNA analysis and individual genetic profile creation using our robotic laboratory."
               },
               {
                 step: "02", 
-                title: "Analysis & Modeling",
-                description: "Advanced computational analysis using AI and mathematical modeling techniques."
+                title: "Model Development",
+                description: "Creation of personalized biomathematical model tailored to patient's genetic and physiological data."
               },
               {
                 step: "03",
-                title: "Interpretation",
-                description: "Clinical interpretation of results with actionable insights and recommendations."
+                title: "Continuous Monitoring",
+                description: "Real-time health monitoring with AI-powered analysis for early detection and diagnosis."
               },
               {
                 step: "04",
-                title: "Implementation",
-                description: "Integration into clinical workflows with ongoing monitoring and optimization."
+                title: "Treatment Optimization",
+                description: "Personalized medication selection and treatment protocol development based on predictive modeling."
               }
             ].map((process, index) => (
               <Card key={index} className="text-center p-6 border-0 shadow-sm">
