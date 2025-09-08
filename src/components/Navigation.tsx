@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Sun, Moon } from 'lucide-react';
+import { useTheme } from '@/components/ThemeProvider';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { theme, setTheme } = useTheme();
 
   const navItems = [
     { label: 'Home', href: '/' },
@@ -40,6 +42,21 @@ const Navigation = () => {
                 {item.label}
               </Link>
             ))}
+            
+            {/* Theme Toggle */}
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+              className="p-2"
+            >
+              {theme === "light" ? (
+                <Moon className="h-5 w-5" />
+              ) : (
+                <Sun className="h-5 w-5" />
+              )}
+            </Button>
+            
             <Button variant="tech" asChild>
               <Link to="/start-investing">Start Investing</Link>
             </Button>
@@ -70,6 +87,21 @@ const Navigation = () => {
                   {item.label}
                 </Link>
               ))}
+              
+              {/* Mobile Theme Toggle */}
+              <Button
+                variant="ghost"
+                onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+                className="justify-start py-2"
+              >
+                {theme === "light" ? (
+                  <Moon className="h-5 w-5 mr-2" />
+                ) : (
+                  <Sun className="h-5 w-5 mr-2" />
+                )}
+                {theme === "light" ? "Dark Mode" : "Light Mode"}
+              </Button>
+              
               <Button variant="tech" className="mt-4" asChild>
                 <Link to="/start-investing">Start Investing</Link>
               </Button>

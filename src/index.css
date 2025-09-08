@@ -132,6 +132,152 @@
     /* Subtle Corporate Pattern */
     --pattern-corporate: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.02'%3E%3Ccircle cx='30' cy='30' r='1.5'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
   }
+
+  :root.light {
+    /* Core Background & Text - Light Corporate */
+    --background: 210 20% 98%;
+    --foreground: 225 15% 15%;
+
+    /* Card System - Light Corporate */
+    --card: 210 20% 96%;
+    --card-foreground: 225 15% 15%;
+    --card-hover: 210 20% 94%;
+
+    /* Popover */
+    --popover: 210 20% 96%;
+    --popover-foreground: 225 15% 15%;
+
+    /* Primary - Deep Corporate Blue (adjusted for light) */
+    --primary: 220 60% 45%;
+    --primary-foreground: 210 15% 98%;
+    --primary-glow: 220 60% 55%;
+    --primary-vibrant: 220 60% 40%;
+    --primary-dark: 220 60% 35%;
+    --primary-light: 220 60% 65%;
+
+    /* Secondary - Muted Slate (adjusted for light) */
+    --secondary: 215 25% 85%;
+    --secondary-foreground: 225 15% 15%;
+    --secondary-glow: 215 25% 75%;
+    --secondary-vibrant: 215 25% 80%;
+    --secondary-dark: 215 25% 70%;
+    --secondary-light: 215 25% 90%;
+
+    /* Muted */
+    --muted: 215 20% 90%;
+    --muted-foreground: 215 15% 40%;
+
+    /* Accent - Deep Amber (adjusted for light) */
+    --accent: 35 60% 45%;
+    --accent-foreground: 210 20% 98%;
+    --accent-glow: 35 60% 55%;
+    --accent-vibrant: 35 60% 40%;
+    --accent-dark: 35 60% 35%;
+    --accent-light: 35 60% 65%;
+
+    /* Success - Deep Teal (adjusted for light) */
+    --success: 180 50% 40%;
+    --success-foreground: 210 15% 98%;
+    --success-glow: 180 50% 50%;
+    --success-dark: 180 50% 35%;
+    --success-light: 180 50% 60%;
+
+    /* Warning - Muted Orange (adjusted for light) */
+    --warning: 25 60% 45%;
+    --warning-foreground: 225 20% 6%;
+    --warning-glow: 25 60% 55%;
+    --warning-dark: 25 60% 35%;
+    --warning-light: 25 60% 65%;
+
+    /* Error - Elegant Red (adjusted for light) */
+    --error: 0 75% 55%;
+    --error-foreground: 210 15% 98%;
+    --error-glow: 0 75% 65%;
+    --error-dark: 0 75% 45%;
+    --error-light: 0 75% 70%;
+
+    /* Info - Deep Purple (adjusted for light) */
+    --info: 250 80% 60%;
+    --info-foreground: 210 15% 98%;
+    --info-glow: 250 80% 70%;
+    --info-dark: 250 80% 50%;
+    --info-light: 250 80% 75%;
+
+    /* Tech - Deep Cyan (adjusted for light) */
+    --tech: 195 55% 40%;
+    --tech-foreground: 210 15% 98%;
+    --tech-glow: 195 55% 50%;
+    --tech-dark: 195 55% 35%;
+
+    /* Innovation - Muted Rose (adjusted for light) */
+    --innovation: 350 50% 45%;
+    --innovation-foreground: 210 15% 98%;
+    --innovation-glow: 350 50% 55%;
+    --innovation-dark: 350 50% 35%;
+
+    /* Destructive */
+    --destructive: 0 62% 58%;
+    --destructive-foreground: 210 15% 96%;
+
+    /* Border & Input */
+    --border: 215 20% 85%;
+    --input: 215 20% 88%;
+    --ring: 220 60% 45%;
+
+    /* Subtle Corporate Pattern for light mode */
+    --pattern-corporate: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='0.02'%3E%3Ccircle cx='30' cy='30' r='1.5'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  :root.light {
+    /* Core Background & Text - Light Corporate */
+    --background: 210 20% 98%;
+    --foreground: 225 15% 15%;
+
+    /* Card System - Light Corporate */
+    --card: 210 20% 96%;
+    --card-foreground: 225 15% 15%;
+    --card-hover: 210 20% 94%;
+
+    /* Popover */
+    --popover: 210 20% 96%;
+    --popover-foreground: 225 15% 15%;
+
+    /* Primary - Deep Corporate Blue (adjusted for light) */
+    --primary: 220 60% 45%;
+    --primary-foreground: 210 15% 98%;
+    --primary-glow: 220 60% 55%;
+    --primary-vibrant: 220 60% 40%;
+    --primary-dark: 220 60% 35%;
+    --primary-light: 220 60% 65%;
+
+    /* Secondary - Muted Slate (adjusted for light) */
+    --secondary: 215 25% 85%;
+    --secondary-foreground: 225 15% 15%;
+    --secondary-glow: 215 25% 75%;
+    --secondary-vibrant: 215 25% 80%;
+    --secondary-dark: 215 25% 70%;
+    --secondary-light: 215 25% 90%;
+
+    /* Muted */
+    --muted: 215 20% 90%;
+    --muted-foreground: 215 15% 40%;
+
+    /* Accent - Deep Amber (adjusted for light) */
+    --accent: 35 60% 45%;
+    --accent-foreground: 210 20% 98%;
+    --accent-glow: 35 60% 55%;
+    --accent-vibrant: 35 60% 40%;
+    --accent-dark: 35 60% 35%;
+    --accent-light: 35 60% 65%;
+
+    /* Border & Input */
+    --border: 215 20% 85%;
+    --input: 215 20% 88%;
+    --ring: 220 60% 45%;
+
+    /* Subtle Corporate Pattern for light mode */
+    --pattern-corporate: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='0.02'%3E%3Ccircle cx='30' cy='30' r='1.5'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
 }
 
 @layer base {
