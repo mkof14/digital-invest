@@ -1,453 +1,310 @@
-import { useState } from "react";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Badge } from "@/components/ui/badge";
-import { Progress } from "@/components/ui/progress";
-import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import BioMathPlatform from "@/components/BioMathPlatform";
-import CompanyInfo from "@/components/CompanyInfo";
-import InvestmentCard from "@/components/InvestmentCard";
-import InvestorForm from "@/components/InvestorForm";
-import heroImage from "@/assets/hero-modern-tech.jpg";
-import alexTur from "@/assets/team/alex-tur.jpg";
-import karinaGorfin from "@/assets/team/karina-gorfin.jpg";
-import biomathPlatform from "@/assets/biomath-platform.jpg";
-import { TrendingUp, Users, Target, CheckCircle, Dna, Brain, Activity, Globe, Building2, Award, Shield, Zap, Calendar, Linkedin, Facebook, Youtube, MapPin, Phone, Mail } from 'lucide-react';
-import AnimatedStatsCard from '@/components/AnimatedStatsCard';
-import DataVisualization from '@/components/DataVisualization';
-import biotechVisualization from '@/assets/biotech-visualization.jpg';
-import investmentDashboard from '@/assets/investment-dashboard.jpg';
-import mathModelingVisual from '@/assets/math-modeling-visual.jpg';
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Progress } from "@/components/ui/progress";
+import { Badge } from "@/components/ui/badge";
+import { ArrowRight, TrendingUp, Target, Users, Building2, Award, Shield } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Index = () => {
+  const projects = [
+    {
+      id: "biomathlife",
+      name: "BioMath Life Platform",
+      category: "Healthcare Innovation",
+      tagline: "Towards Precision Medicine",
+      description: "Revolutionary precision medicine platform using biomathematical modeling, genetics, AI, and pharmacology to transform healthcare diagnosis and treatment.",
+      targetAmount: 25000000,
+      currentAmount: 17000000,
+      progress: 68,
+      investors: 24,
+      status: "Active",
+      image: "/lovable-uploads/649e2294-dd2f-4267-955e-efae9202adb9.png",
+      highlights: [
+        "AI-powered medical diagnosis",
+        "Personalized treatment plans",
+        "24/7 health monitoring",
+        "Genetic-based medication"
+      ]
+    },
+    {
+      id: "terraaero",
+      name: "TerraAero",
+      category: "Agricultural Innovation",
+      tagline: "Advanced Drone Solutions",
+      description: "Cutting-edge drone technology for precision agriculture and rapid delivery services, transforming farming operations and last-mile logistics.",
+      targetAmount: 15000000,
+      currentAmount: 6750000,
+      progress: 45,
+      investors: 18,
+      status: "Active",
+      image: "/lovable-uploads/6dd765a4-4908-4542-a7af-88ec2bf6741f.png",
+      highlights: [
+        "Precision irrigation & fertilization",
+        "Field analysis & reporting",
+        "Restaurant & retail delivery",
+        "120+ farms served"
+      ]
+    },
+    {
+      id: "digital-invest",
+      name: "Digital Invest Inc.",
+      category: "Investment Platform",
+      tagline: "Complete Portfolio Investment",
+      description: "Invest in our entire portfolio of innovative technology projects. Established since 2010 with proven track record in genomics, biomathematics, and advanced technologies.",
+      targetAmount: 50000000,
+      currentAmount: 41000000,
+      progress: 82,
+      investors: 56,
+      status: "Active",
+      image: "/lovable-uploads/c2cb51a2-7071-4fb7-be6f-0e69d3a124e0.png",
+      highlights: [
+        "Diversified portfolio",
+        "Multiple revenue streams",
+        "Global partnerships",
+        "Established since 2010"
+      ]
+    }
+  ];
+
+  const stats = [
+    { icon: Building2, value: "3", label: "Active Projects" },
+    { icon: Users, value: "98", label: "Total Investors" },
+    { icon: Target, value: "$64.75M", label: "Funds Raised" },
+    { icon: TrendingUp, value: "72%", label: "Avg. Progress" },
+  ];
+
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-gradient-to-br from-background via-background to-primary/5">
       <Navigation />
-      
-      {/* Subtle Background Elements */}
-      <div className="fixed inset-0 -z-10 overflow-hidden">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/4 rounded-full blur-3xl animate-subtle-float"></div>
-        <div className="absolute top-3/4 right-1/4 w-128 h-128 bg-secondary/3 rounded-full blur-3xl animate-subtle-float" style={{ animationDelay: '3s' }}></div>
-        <div className="absolute bottom-1/4 left-1/2 w-80 h-80 bg-accent/3 rounded-full blur-3xl animate-subtle-float" style={{ animationDelay: '6s' }}></div>
-      </div>
-      
-      {/* Hero Section - Enhanced */}
-      <section className="relative min-h-[90vh] flex items-center justify-center px-4 overflow-hidden">
-        {/* Simple Background */}
-        <div className="absolute inset-0 bg-background/95"></div>
-        
-        {/* Minimal Geometric Elements */}
-        <div className="absolute inset-0">
-          <div className="absolute top-20 right-1/4 w-24 h-24 bg-primary/15 rounded-full animate-subtle-float" style={{ animationDelay: '1s' }}></div>
-          <div className="absolute bottom-32 left-1/3 w-32 h-32 bg-accent/10 rounded-full animate-gentle-pulse" style={{ animationDelay: '3s' }}></div>
-          <div className="absolute top-1/3 right-20 w-16 h-16 bg-secondary/20 rounded-full animate-vibrant-glow" style={{ animationDelay: '5s' }}></div>
-        </div>
-        
-        <div className="max-w-7xl mx-auto relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-            <div className="space-y-10 animate-fade-in">
-              {/* Premium Badge */}
-              <div className="inline-flex items-center">
-                <Badge variant="secondary" className="px-6 py-3 text-sm font-semibold">
-                  <div className="flex items-center gap-2">
-                    <Zap className="w-4 h-4" />
-                    Next-Generation Precision Medicine
-                  </div>
-                </Badge>
-              </div>
-              
-              {/* Enhanced Typography */}
-              <div className="space-y-6">
-                <h1 className="text-6xl md:text-8xl font-black text-foreground leading-none tracking-tight">
-                  <span className="block">Digital Invest:</span>
-                  <span className="block text-5xl md:text-7xl font-light text-muted-foreground">Transforming Healthcare Through</span>
-                  <span className="block text-primary">
-                    Mathematical Precision
-                  </span>
-                </h1>
-                
-                <div className="relative">
-                  <div className="absolute -left-4 top-0 w-1 h-full bg-primary rounded-full"></div>
-                  <p className="text-2xl md:text-3xl text-muted-foreground leading-relaxed font-light pl-8">
-                    Since 2010, we've been reshaping traditional medicine through mathematical models of the human body 
-                    with AI support. Our BioMath Life Platform diagnoses and predicts disease development, recommending 
-                    optimal treatment methods with unprecedented precision.
-                  </p>
-                </div>
-              </div>
-              
-              {/* Enhanced CTAs */}
-              <div className="flex flex-col sm:flex-row gap-6 pt-8">
-                <Button size="lg" className="px-10 py-6 text-xl font-semibold" asChild>
-                  <Link to="/start-investing">
-                    <span className="flex items-center gap-3">
-                      <TrendingUp className="w-6 h-6" />
-                      Begin Investment Journey
-                    </span>
-                  </Link>
-                </Button>
-                <Button variant="outline" size="lg" className="px-10 py-6 text-xl font-semibold border-2" asChild>
-                  <Link to="/platform">
-                    <span className="flex items-center gap-3">
-                      <Globe className="w-6 h-6" />
-                      Explore Platform
-                    </span>
-                  </Link>
-                </Button>
-              </div>
-              
-              {/* Trust Indicators */}
-              <div className="flex items-center gap-8 pt-8 opacity-80">
-                <div className="flex items-center gap-2 text-muted-foreground">
-                  <Award className="w-5 h-5 text-accent" />
-                  <span className="text-sm font-medium">Award-Winning Technology</span>
-                </div>
-                <div className="flex items-center gap-2 text-muted-foreground">
-                  <Shield className="w-5 h-5 text-primary" />
-                  <span className="text-sm font-medium">Enterprise Security</span>
-                </div>
-              </div>
-            </div>
-            
-            {/* Enhanced Hero Visual */}
-            <div className="relative animate-scale-in lg:animate-fade-in" style={{ animationDelay: '0.3s' }}>
-              {/* Main Image Container */}
-              <div className="relative">
-                <img 
-                  src={biotechVisualization} 
-                  alt="Advanced biotech data visualization showcasing precision medicine technology" 
-                  className="relative w-full h-auto rounded-2xl shadow-rainbow border border-border/30 backdrop-blur-sm"
-                />
-                
-                {/* Overlay Elements */}
-                <div className="absolute top-4 right-4 bg-background/90 backdrop-blur-sm rounded-lg px-4 py-2 border border-border/50">
-                  <div className="flex items-center gap-2">
-                    <div className="w-3 h-3 bg-success rounded-full animate-pulse"></div>
-                    <span className="text-sm font-medium text-foreground">Live Analytics</span>
-                  </div>
-                </div>
-                
-                <div className="absolute bottom-4 left-4 bg-background/90 backdrop-blur-sm rounded-lg px-4 py-2 border border-border/50">
-                  <div className="text-sm text-muted-foreground">99.7% Accuracy</div>
-                  <div className="text-lg font-bold text-primary">Real-Time Processing</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <div className="w-6 h-10 border-2 border-muted-foreground/30 rounded-full flex justify-center">
-            <div className="w-1 h-3 bg-primary rounded-full mt-2 animate-pulse"></div>
-          </div>
-        </div>
-      </section>
 
-      {/* Key Metrics Section */}
-      <section className="py-20 px-4 bg-card">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-foreground mb-4">
-              Transforming Healthcare Outcomes
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Our precision medicine platform delivers measurable results across clinical research, patient outcomes, and healthcare efficiency.
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <AnimatedStatsCard
-              icon={TrendingUp}
-              title="Prediction Accuracy"
-              value="97.3%"
-              description="AI-driven diagnostic accuracy rate"
-              gradient="gradient-tech"
-              delay={0}
-            />
-            <AnimatedStatsCard
-              icon={Users}
-              title="Patients Analyzed"
-              value="250K+"
-              description="Comprehensive genomic profiles processed"
-              gradient="gradient-bio"
-              delay={200}
-            />
-            <AnimatedStatsCard
-              icon={Target}
-              title="Treatment Success"
-              value="89.7%"
-              description="Personalized therapy effectiveness"
-              gradient="gradient-neural"
-              delay={400}
-            />
-            <AnimatedStatsCard
-              icon={CheckCircle}
-              title="Clinical Validations"
-              value="180+"
-              description="Peer-reviewed studies completed"
-              gradient="gradient-invest"
-              delay={600}
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* Data Visualization Section */}
-      <section className="py-20 px-4">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-foreground mb-4">
-              Real-Time Platform Analytics
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Live data insights from our precision medicine platform showing current performance metrics and growth trends.
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-            <DataVisualization
-              title="Diagnostic Accuracy"
-              type="pie"
-              data={[
-                { label: "Genetic Analysis", value: 97, color: "bg-primary" },
-                { label: "Biomarker Detection", value: 94, color: "bg-secondary" },
-                { label: "Risk Assessment", value: 89, color: "bg-accent" }
-              ]}
-            />
-            
-            <DataVisualization
-              title="Treatment Success Rates"
-              type="bar"
-              data={[
-                { label: "Personalized Therapy", value: 89, color: "bg-success" },
-                { label: "Standard Treatment", value: 67, color: "bg-warning" },
-                { label: "Drug Optimization", value: 84, color: "bg-info" },
-                { label: "Preventive Care", value: 76, color: "bg-primary" }
-              ]}
-            />
-            
-            <DataVisualization
-              title="Platform Growth"
-              type="line"
-              data={[
-                { label: "Q1", value: 25, color: "bg-primary" },
-                { label: "Q2", value: 45, color: "bg-secondary" },
-                { label: "Q3", value: 78, color: "bg-accent" },
-                { label: "Q4", value: 95, color: "bg-success" }
-              ]}
-            />
-          </div>
-          
-          <div className="relative">
-            <img 
-              src={investmentDashboard} 
-              alt="Investment Analytics Dashboard" 
-              className="w-full rounded-xl shadow-rainbow animate-gentle-pulse"
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* Company Overview */}
-      <section className="py-20 px-4 bg-muted/30 relative overflow-hidden">
-        {/* Animated background particles */}
-        <div className="absolute inset-0">
-          <div className="absolute top-10 left-20 w-20 h-20 bg-primary/10 rounded-full animate-subtle-float"></div>
-          <div className="absolute bottom-20 right-10 w-28 h-28 bg-secondary/10 rounded-full animate-gentle-pulse"></div>
-          <div className="absolute top-1/2 right-1/4 w-12 h-12 bg-accent/15 rounded-full animate-vibrant-glow"></div>
-        </div>
-        
-        <div className="max-w-6xl mx-auto relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div className="space-y-8 animate-fade-in">
-              <div>
-                <Badge className="mb-4 px-4 py-2">About Digital Invest Inc.</Badge>
-                <h2 className="text-4xl font-bold text-foreground mb-6">
-                  Pioneering the Future of <span className="text-primary">Precision Medicine</span>
-                </h2>
-                <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                  Digital Invest Inc. (formerly GENEX Company, since 2010) is a biotechnology research company 
-                  specializing in advanced human genome analysis and biomathematical modeling. We are seasoned 
-                  experts in biotechnology, Big Data, Cloud Computing, and AI, with over 6 years of dedicated 
-                  research in creating personalized biomathematical models of the human body.
-                </p>
-                <p className="text-lg text-muted-foreground leading-relaxed">
-                  Our BioMath Life Platform shifts from statistical methods to mathematical ones in disease 
-                  diagnosis and treatment. Using digital simulation and incorporating genetic profiles, 
-                  lifestyle factors, and continuous monitoring, we predict disease progression and treatment 
-                  response before application to patients.
-                </p>
-              </div>
-              
-              <div className="grid grid-cols-2 gap-6">
-                <AnimatedStatsCard
-                  icon={Building2}
-                  title="Combined Exit Value"
-                  value="$19.5B"
-                  description="Total market value of successful exits"
-                  gradient="gradient-invest"
-                />
-                <AnimatedStatsCard
-                  icon={Award}
-                  title="Companies Founded"
-                  value="5+"
-                  description="Successful technology ventures created"
-                  gradient="gradient-neural"
-                />
-              </div>
-              
-              <Button className="px-8 py-3" asChild>
-                <Link to="/team">Meet Our Leadership Team</Link>
+      {/* Hero Section */}
+      <section className="container mx-auto px-4 py-20 mt-20">
+        <div className="text-center max-w-4xl mx-auto mb-16">
+          <Badge className="mb-4 text-base px-4 py-2">Investment Platform</Badge>
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent">
+            Digital Invest Inc.
+          </h1>
+          <p className="text-xl md:text-2xl text-muted-foreground mb-8">
+            Your gateway to innovative technology investments. Discover groundbreaking projects in precision medicine, agricultural technology, and advanced drone solutions.
+          </p>
+          <div className="flex gap-4 justify-center flex-wrap">
+            <Link to="/start-investing">
+              <Button size="lg" className="text-lg px-8">
+                Start Investing
+                <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
-            </div>
-            
-            <div className="relative animate-scale-in">
-              <img
-                src={mathModelingVisual} 
-                alt="Mathematical Modeling Visualization" 
-                className="relative w-full rounded-xl shadow-lg animate-gentle-pulse"
-              />
-            </div>
+            </Link>
+            <Link to="/partnerships">
+              <Button size="lg" variant="outline" className="text-lg px-8">
+                Partnership Opportunities
+              </Button>
+            </Link>
           </div>
         </div>
-      </section>
 
-      {/* Core Services */}
-      <section className="py-20 px-4 bg-background">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-foreground mb-4">
-              Platform Capabilities
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Comprehensive solutions that bridge the gap between genetic data and clinical outcomes
+        {/* Trust Indicators */}
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 max-w-3xl mx-auto mb-12">
+          <div className="flex items-center gap-2 justify-center p-4 bg-card/50 backdrop-blur-sm rounded-lg border border-border/30">
+            <Award className="w-5 h-5 text-primary" />
+            <span className="text-sm font-medium">Award-Winning</span>
+          </div>
+          <div className="flex items-center gap-2 justify-center p-4 bg-card/50 backdrop-blur-sm rounded-lg border border-border/30">
+            <Shield className="w-5 h-5 text-primary" />
+            <span className="text-sm font-medium">Enterprise Security</span>
+          </div>
+          <div className="flex items-center gap-2 justify-center p-4 bg-card/50 backdrop-blur-sm rounded-lg border border-border/30 col-span-2 md:col-span-1">
+            <TrendingUp className="w-5 h-5 text-primary" />
+            <span className="text-sm font-medium">Since 2010</span>
+          </div>
+        </div>
+
+        {/* Platform Stats */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-20">
+          {stats.map((stat) => {
+            const Icon = stat.icon;
+            return (
+              <Card key={stat.label} className="text-center border-primary/20 hover:shadow-glow transition-all">
+                <CardContent className="pt-6">
+                  <Icon className="w-8 h-8 text-primary mx-auto mb-2" />
+                  <p className="text-3xl font-bold mb-1">{stat.value}</p>
+                  <p className="text-sm text-muted-foreground">{stat.label}</p>
+                </CardContent>
+              </Card>
+            );
+          })}
+        </div>
+
+        {/* Projects Section */}
+        <div className="mb-12">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">Investment Opportunities</h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Explore our portfolio of innovative projects and invest in the technologies shaping tomorrow
             </p>
           </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              {
-                icon: <Dna className="h-12 w-12 text-primary mb-4" />,
-                title: "Genomic Analysis",
-                description: "Advanced sequencing and interpretation of genetic variations with clinical-grade accuracy and comprehensive reporting."
-              },
-              {
-                icon: <Brain className="h-12 w-12 text-primary mb-4" />,
-                title: "Predictive Intelligence",
-                description: "AI-driven algorithms that forecast disease progression and treatment outcomes before clinical symptoms appear."
-              },
-              {
-                icon: <Activity className="h-12 w-12 text-primary mb-4" />,
-                title: "Mathematical Modeling",
-                description: "Sophisticated biomathematical simulations of human physiological systems for precise treatment optimization."
-              },
-              {
-                icon: <Shield className="h-12 w-12 text-primary mb-4" />,
-                title: "Biomarker Discovery",
-                description: "Identification and validation of novel biological indicators for early detection and therapeutic monitoring."
-              },
-              {
-                icon: <Zap className="h-12 w-12 text-primary mb-4" />,
-                title: "Precision Therapeutics",
-                description: "Individualized treatment protocols tailored to genetic profiles and predictive risk assessments."
-              },
-              {
-                icon: <Users className="h-12 w-12 text-primary mb-4" />,
-                title: "Clinical Integration",
-                description: "Seamless integration with existing healthcare systems and workflows for practical implementation."
-              }
-            ].map((service, index) => (
-              <Card key={index} className="hover-scale border-0 shadow-elegant group">
-                <CardHeader className="text-center">
-                  <div className="group-hover:scale-110 transition-transform duration-300">
-                    {service.icon}
+
+          <div className="space-y-8">
+            {projects.map((project) => (
+              <Card key={project.id} className="border-primary/20 hover:shadow-tech transition-all overflow-hidden">
+                <div className="grid md:grid-cols-5 gap-6">
+                  {/* Project Image */}
+                  <div className="md:col-span-2 relative h-64 md:h-auto">
+                    <img 
+                      src={project.image} 
+                      alt={project.name}
+                      className="w-full h-full object-cover"
+                    />
+                    <Badge className="absolute top-4 left-4">{project.category}</Badge>
+                    <Badge 
+                      variant="secondary" 
+                      className="absolute top-4 right-4"
+                    >
+                      {project.status}
+                    </Badge>
                   </div>
-                  <CardTitle className="text-xl">{service.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground text-center leading-relaxed">
-                    {service.description}
-                  </p>
-                </CardContent>
+
+                  {/* Project Details */}
+                  <div className="md:col-span-3 p-6 md:p-8 flex flex-col">
+                    <div className="flex-1">
+                      <h3 className="text-3xl font-bold mb-2">{project.name}</h3>
+                      <p className="text-lg text-primary mb-4">{project.tagline}</p>
+                      <p className="text-muted-foreground mb-6">
+                        {project.description}
+                      </p>
+
+                      {/* Highlights */}
+                      <div className="grid grid-cols-2 gap-3 mb-6">
+                        {project.highlights.map((highlight) => (
+                          <div key={highlight} className="flex items-center gap-2 text-sm">
+                            <div className="w-1.5 h-1.5 rounded-full bg-primary" />
+                            <span>{highlight}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Investment Metrics */}
+                    <div className="space-y-4 pt-4 border-t border-border/30">
+                      <div className="grid grid-cols-3 gap-4 text-center">
+                        <div>
+                          <p className="text-sm text-muted-foreground mb-1">Target</p>
+                          <p className="text-lg font-bold text-primary">
+                            ${(project.targetAmount / 1000000).toFixed(1)}M
+                          </p>
+                        </div>
+                        <div>
+                          <p className="text-sm text-muted-foreground mb-1">Raised</p>
+                          <p className="text-lg font-bold">
+                            ${(project.currentAmount / 1000000).toFixed(1)}M
+                          </p>
+                        </div>
+                        <div>
+                          <p className="text-sm text-muted-foreground mb-1">Investors</p>
+                          <p className="text-lg font-bold">{project.investors}</p>
+                        </div>
+                      </div>
+
+                      <div className="space-y-2">
+                        <div className="flex justify-between text-sm">
+                          <span className="text-muted-foreground">Funding Progress</span>
+                          <span className="font-semibold">{project.progress}%</span>
+                        </div>
+                        <Progress value={project.progress} className="h-2" />
+                      </div>
+
+                      <div className="flex gap-3">
+                        <Link to={`/projects/${project.id}`} className="flex-1">
+                          <Button variant="outline" className="w-full">
+                            View Details
+                          </Button>
+                        </Link>
+                        <Link to="/start-investing" className="flex-1">
+                          <Button className="w-full">
+                            Invest Now
+                            <ArrowRight className="ml-2 w-4 h-4" />
+                          </Button>
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </Card>
             ))}
           </div>
         </div>
-      </section>
 
-      {/* Investment Opportunities */}
-      <section className="py-20 px-4 bg-secondary/20">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-foreground mb-4">
-              Strategic Partnership Opportunities
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Join Digital Invest Inc. in advancing the future of precision medicine and healthcare technology
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <InvestmentCard
-              title="Platform Advancement"
-              description="Next-generation BioMath Life Platform development with enhanced AI capabilities"
-              targetAmount="$2.5M"
-              currentAmount="$850K"
-              progress={34}
-              features={[
-                "Advanced machine learning integration",
-                "Scalable cloud infrastructure",
-                "Enhanced predictive analytics"
-              ]}
-            />
-            <InvestmentCard
-              title="Clinical Implementation"
-              description="Large-scale clinical validation and regulatory pathway advancement"
-              targetAmount="$5M"
-              currentAmount="$1.2M"
-              progress={24}
-              features={[
-                "Multi-center clinical trials",
-                "Regulatory compliance framework",
-                "Healthcare system integration"
-              ]}
-            />
-            <InvestmentCard
-              title="Global Expansion"
-              description="International market development and strategic partnerships"
-              targetAmount="$3M"
-              currentAmount="$950K"
-              progress={32}
-              features={[
-                "International partnerships",
-                "Market development strategies",
-                "Global distribution network"
-              ]}
-            />
+        {/* Why Invest Section */}
+        <div className="mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Why Invest With Us?</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <Card className="border-primary/20 hover:shadow-glow transition-all">
+              <CardHeader>
+                <Target className="w-12 h-12 text-primary mb-4" />
+                <CardTitle>Proven Track Record</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground">
+                  Operating since 2010 with established expertise in advanced genomics, biomathematics, and innovative technology solutions.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-primary/20 hover:shadow-glow transition-all">
+              <CardHeader>
+                <Building2 className="w-12 h-12 text-primary mb-4" />
+                <CardTitle>Diversified Portfolio</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground">
+                  Multiple revenue streams across healthcare, agriculture, and technology sectors, reducing investment risk.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-primary/20 hover:shadow-glow transition-all">
+              <CardHeader>
+                <Award className="w-12 h-12 text-primary mb-4" />
+                <CardTitle>Innovation Focus</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground">
+                  Cutting-edge technologies solving real-world problems with significant market potential and social impact.
+                </p>
+              </CardContent>
+            </Card>
           </div>
         </div>
-      </section>
 
-
-      {/* Contact Form */}
-      <section className="py-20 px-4 bg-background">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-foreground mb-4">
-              Partner With Us
-            </h2>
-            <p className="text-xl text-muted-foreground">
-              Ready to explore partnership opportunities? Get in touch with our team.
+        {/* CTA Section */}
+        <Card className="bg-gradient-tech text-primary-foreground border-0">
+          <CardContent className="py-16 text-center">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Start Investing?</h2>
+            <p className="text-lg mb-8 opacity-90 max-w-2xl mx-auto">
+              Join our community of investors supporting breakthrough technologies that are shaping the future of healthcare and agriculture.
             </p>
-          </div>
-          <InvestorForm />
-        </div>
+            <div className="flex gap-4 justify-center flex-wrap">
+              <Link to="/start-investing">
+                <Button size="lg" variant="secondary" className="text-lg px-8">
+                  Start Investing Today
+                  <ArrowRight className="ml-2 w-5 h-5" />
+                </Button>
+              </Link>
+              <Link to="/team">
+                <Button 
+                  size="lg" 
+                  variant="outline" 
+                  className="bg-transparent border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10 text-lg px-8"
+                >
+                  Meet the Team
+                </Button>
+              </Link>
+            </div>
+          </CardContent>
+        </Card>
       </section>
-      
+
       <Footer />
     </div>
   );
