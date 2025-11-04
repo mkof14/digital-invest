@@ -15,20 +15,15 @@ const InvestorForm = () => {
   const [step, setStep] = useState(1);
   
   const [formData, setFormData] = useState({
-    // Личная информация
     fullName: '',
     email: '',
     phone: '',
     country: '',
-    
-    // Инвестиционный профиль
     investmentExperience: '',
     riskTolerance: '',
     investmentGoals: '',
     preferredSectors: [] as string[],
     investmentAmount: '',
-    
-    // Дополнительно
     accreditedInvestor: false,
     agreesToTerms: false,
     receiveUpdates: false,
@@ -36,14 +31,14 @@ const InvestorForm = () => {
   });
 
   const sectors = [
-    'Искусственный интеллект',
-    'Машинное обучение', 
-    'Биотехнологии',
-    'Блокчейн и криптовалюты',
-    'Квантовые вычисления',
-    'Зеленые технологии',
-    'Медицинские технологии',
-    'Финтех'
+    'Artificial Intelligence',
+    'Machine Learning', 
+    'Biotechnology',
+    'Blockchain & Cryptocurrency',
+    'Quantum Computing',
+    'Green Technology',
+    'Medical Technology',
+    'FinTech'
   ];
 
   const handleSectorChange = (sector: string, checked: boolean) => {
@@ -63,8 +58,8 @@ const InvestorForm = () => {
     await new Promise(resolve => setTimeout(resolve, 2000));
     
     toast({
-      title: "Анкета отправлена!",
-      description: "Наш менеджер свяжется с вами в течение 24 часов.",
+      title: "Application Submitted!",
+      description: "Our manager will contact you within 24 hours.",
       duration: 5000,
     });
     
@@ -84,13 +79,13 @@ const InvestorForm = () => {
     return (
       <Card className="max-w-md mx-auto p-8 text-center">
         <CheckCircle className="w-16 h-16 text-success mx-auto mb-4" />
-        <h3 className="text-2xl font-bold mb-2">Спасибо за интерес!</h3>
+        <h3 className="text-2xl font-bold mb-2">Thank You for Your Interest!</h3>
         <p className="text-muted-foreground mb-6">
-          Ваша анкета успешно отправлена. Мы проанализируем ваш профиль и предложим 
-          подходящие инвестиционные возможности.
+          Your application has been successfully submitted. We will analyze your profile and propose 
+          suitable investment opportunities.
         </p>
-        <Button variant="tech" onClick={() => setStep(1)}>
-          Заполнить еще одну анкету
+        <Button variant="default" onClick={() => setStep(1)} className="hover:scale-105 transition-transform">
+          Submit Another Application
         </Button>
       </Card>
     );
@@ -99,20 +94,20 @@ const InvestorForm = () => {
   return (
     <Card className="max-w-2xl mx-auto p-6">
       <div className="mb-6">
-        <h2 className="text-2xl font-bold mb-2">Анкета инвестора</h2>
+        <h2 className="text-2xl font-bold mb-2">Investor Application</h2>
         <p className="text-muted-foreground">
-          Заполните анкету, чтобы получить персональные рекомендации по инвестициям
+          Fill out the form to receive personalized investment recommendations
         </p>
         
         {/* Progress Bar */}
         <div className="mt-4">
           <div className="flex justify-between items-center mb-2">
-            <span className="text-sm text-muted-foreground">Шаг {step} из 3</span>
+            <span className="text-sm text-muted-foreground">Step {step} of 3</span>
             <span className="text-sm font-medium">{Math.round((step / 3) * 100)}%</span>
           </div>
           <div className="w-full bg-muted rounded-full h-2">
             <div 
-              className="bg-gradient-tech h-2 rounded-full transition-all duration-300"
+              className="bg-primary h-2 rounded-full transition-all duration-300"
               style={{ width: `${(step / 3) * 100}%` }}
             ></div>
           </div>
@@ -120,14 +115,14 @@ const InvestorForm = () => {
       </div>
 
       <form onSubmit={handleSubmit}>
-        {/* Шаг 1: Личная информация */}
+        {/* Step 1: Personal Information */}
         {step === 1 && (
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold mb-4">Личная информация</h3>
+            <h3 className="text-lg font-semibold mb-4">Personal Information</h3>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
-                <Label htmlFor="fullName">Полное имя</Label>
+                <Label htmlFor="fullName">Full Name</Label>
                 <Input
                   id="fullName"
                   value={formData.fullName}
@@ -146,7 +141,7 @@ const InvestorForm = () => {
                 />
               </div>
               <div>
-                <Label htmlFor="phone">Телефон</Label>
+                <Label htmlFor="phone">Phone</Label>
                 <Input
                   id="phone"
                   value={formData.phone}
@@ -155,68 +150,68 @@ const InvestorForm = () => {
                 />
               </div>
               <div>
-                <Label htmlFor="country">Страна</Label>
+                <Label htmlFor="country">Country</Label>
                 <Select onValueChange={(value) => setFormData({...formData, country: value})}>
                   <SelectTrigger>
-                    <SelectValue placeholder="Выберите страну" />
+                    <SelectValue placeholder="Select country" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="russia">Россия</SelectItem>
-                    <SelectItem value="belarus">Беларусь</SelectItem>
-                    <SelectItem value="ukraine">Украина</SelectItem>
-                    <SelectItem value="kazakhstan">Казахстан</SelectItem>
-                    <SelectItem value="other">Другая</SelectItem>
+                    <SelectItem value="usa">United States</SelectItem>
+                    <SelectItem value="uk">United Kingdom</SelectItem>
+                    <SelectItem value="canada">Canada</SelectItem>
+                    <SelectItem value="germany">Germany</SelectItem>
+                    <SelectItem value="other">Other</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
             </div>
 
             <div className="flex justify-end">
-              <Button type="button" variant="tech" onClick={nextStep}>
-                Далее
+              <Button type="button" variant="default" onClick={nextStep} className="hover:scale-105 transition-transform">
+                Next
               </Button>
             </div>
           </div>
         )}
 
-        {/* Шаг 2: Инвестиционный профиль */}
+        {/* Step 2: Investment Profile */}
         {step === 2 && (
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold mb-4">Инвестиционный профиль</h3>
+            <h3 className="text-lg font-semibold mb-4">Investment Profile</h3>
             
             <div>
-              <Label>Опыт инвестирования</Label>
+              <Label>Investment Experience</Label>
               <Select onValueChange={(value) => setFormData({...formData, investmentExperience: value})}>
                 <SelectTrigger>
-                  <SelectValue placeholder="Выберите уровень опыта" />
+                  <SelectValue placeholder="Select experience level" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="beginner">Начинающий (менее 1 года)</SelectItem>
-                  <SelectItem value="intermediate">Средний (1-5 лет)</SelectItem>
-                  <SelectItem value="advanced">Опытный (более 5 лет)</SelectItem>
+                  <SelectItem value="beginner">Beginner (less than 1 year)</SelectItem>
+                  <SelectItem value="intermediate">Intermediate (1-5 years)</SelectItem>
+                  <SelectItem value="advanced">Advanced (5+ years)</SelectItem>
                 </SelectContent>
               </Select>
             </div>
 
             <div>
-              <Label>Толерантность к риску</Label>
+              <Label>Risk Tolerance</Label>
               <Select onValueChange={(value) => setFormData({...formData, riskTolerance: value})}>
                 <SelectTrigger>
-                  <SelectValue placeholder="Выберите уровень риска" />
+                  <SelectValue placeholder="Select risk level" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="conservative">Консервативный</SelectItem>
-                  <SelectItem value="moderate">Умеренный</SelectItem>
-                  <SelectItem value="aggressive">Агрессивный</SelectItem>
+                  <SelectItem value="conservative">Conservative</SelectItem>
+                  <SelectItem value="moderate">Moderate</SelectItem>
+                  <SelectItem value="aggressive">Aggressive</SelectItem>
                 </SelectContent>
               </Select>
             </div>
 
             <div>
-              <Label>Планируемая сумма инвестиций</Label>
+              <Label>Planned Investment Amount</Label>
               <Select onValueChange={(value) => setFormData({...formData, investmentAmount: value})}>
                 <SelectTrigger>
-                  <SelectValue placeholder="Выберите сумму" />
+                  <SelectValue placeholder="Select amount" />
                 </SelectTrigger>
                 <SelectContent>
                   <SelectItem value="10-50k">$10,000 - $50,000</SelectItem>
@@ -228,7 +223,7 @@ const InvestorForm = () => {
             </div>
 
             <div>
-              <Label>Предпочитаемые секторы (выберите несколько)</Label>
+              <Label>Preferred Sectors (select multiple)</Label>
               <div className="grid grid-cols-2 gap-2 mt-2">
                 {sectors.map((sector) => (
                   <div key={sector} className="flex items-center space-x-2">
@@ -244,36 +239,36 @@ const InvestorForm = () => {
             </div>
 
             <div className="flex justify-between">
-              <Button type="button" variant="outline" onClick={prevStep}>
-                Назад
+              <Button type="button" variant="outline" onClick={prevStep} className="hover:scale-105 transition-transform">
+                Back
               </Button>
-              <Button type="button" variant="tech" onClick={nextStep}>
-                Далее
+              <Button type="button" variant="default" onClick={nextStep} className="hover:scale-105 transition-transform">
+                Next
               </Button>
             </div>
           </div>
         )}
 
-        {/* Шаг 3: Дополнительная информация */}
+        {/* Step 3: Additional Information */}
         {step === 3 && (
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold mb-4">Дополнительная информация</h3>
+            <h3 className="text-lg font-semibold mb-4">Additional Information</h3>
             
             <div>
-              <Label htmlFor="goals">Инвестиционные цели</Label>
+              <Label htmlFor="goals">Investment Goals</Label>
               <Textarea
                 id="goals"
-                placeholder="Опишите ваши инвестиционные цели..."
+                placeholder="Describe your investment goals..."
                 value={formData.investmentGoals}
                 onChange={(e) => setFormData({...formData, investmentGoals: e.target.value})}
               />
             </div>
 
             <div>
-              <Label htmlFor="additional">Дополнительная информация</Label>
+              <Label htmlFor="additional">Additional Information</Label>
               <Textarea
                 id="additional"
-                placeholder="Любая дополнительная информация о ваших предпочтениях..."
+                placeholder="Any additional information about your preferences..."
                 value={formData.additionalInfo}
                 onChange={(e) => setFormData({...formData, additionalInfo: e.target.value})}
               />
@@ -286,7 +281,7 @@ const InvestorForm = () => {
                   checked={formData.accreditedInvestor}
                   onCheckedChange={(checked) => setFormData({...formData, accreditedInvestor: checked as boolean})}
                 />
-                <Label htmlFor="accredited">Я являюсь аккредитованным инвестором</Label>
+                <Label htmlFor="accredited">I am an accredited investor</Label>
               </div>
               
               <div className="flex items-center space-x-2">
@@ -295,7 +290,7 @@ const InvestorForm = () => {
                   checked={formData.receiveUpdates}
                   onCheckedChange={(checked) => setFormData({...formData, receiveUpdates: checked as boolean})}
                 />
-                <Label htmlFor="updates">Получать обновления о новых возможностях</Label>
+                <Label htmlFor="updates">Receive updates about new opportunities</Label>
               </div>
               
               <div className="flex items-center space-x-2">
@@ -305,21 +300,22 @@ const InvestorForm = () => {
                   onCheckedChange={(checked) => setFormData({...formData, agreesToTerms: checked as boolean})}
                   required
                 />
-                <Label htmlFor="terms">Соглашаюсь с условиями и политикой конфиденциальности</Label>
+                <Label htmlFor="terms">I agree to the terms and privacy policy</Label>
               </div>
             </div>
 
             <div className="flex justify-between">
-              <Button type="button" variant="outline" onClick={prevStep}>
-                Назад
+              <Button type="button" variant="outline" onClick={prevStep} className="hover:scale-105 transition-transform">
+                Back
               </Button>
               <Button 
                 type="submit" 
-                variant="tech" 
+                variant="default" 
                 disabled={!formData.agreesToTerms || isLoading}
+                className="hover:scale-105 transition-transform"
               >
                 {isLoading && <Loader2 className="w-4 h-4 mr-2 animate-spin" />}
-                Отправить анкету
+                Submit Application
               </Button>
             </div>
           </div>

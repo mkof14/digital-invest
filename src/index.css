@@ -96,24 +96,6 @@
     --input: 225 15% 15%;
     --ring: 210 100% 56%;
 
-    /* Modern Corporate Gradients */
-    --gradient-tech: linear-gradient(135deg, hsl(var(--tech)), hsl(var(--primary)), hsl(var(--innovation)));
-    --gradient-invest: linear-gradient(135deg, hsl(var(--secondary)), hsl(var(--primary)), hsl(var(--info)));
-    --gradient-neural: linear-gradient(135deg, hsl(var(--accent)), hsl(var(--secondary)), hsl(var(--warning)));
-    --gradient-bio: linear-gradient(135deg, hsl(var(--success)), hsl(var(--innovation)), hsl(var(--primary)));
-    --gradient-corporate: linear-gradient(135deg, hsl(var(--primary) / 0.15), hsl(var(--accent) / 0.15), hsl(var(--secondary) / 0.1));
-    --gradient-electric: linear-gradient(135deg, hsl(var(--primary-vibrant)), hsl(var(--tech)), hsl(var(--accent-vibrant)));
-    --gradient-rainbow: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--warning)), hsl(var(--error)), hsl(var(--info)), hsl(var(--success)));
-    --gradient-glow: linear-gradient(135deg, hsl(var(--primary-glow) / 0.3), hsl(var(--secondary-glow) / 0.3), hsl(var(--accent-glow) / 0.2));
-    --gradient-premium: linear-gradient(135deg, hsl(var(--accent)), hsl(var(--primary)), hsl(var(--secondary)));
-    --gradient-innovation: linear-gradient(135deg, hsl(var(--innovation)), hsl(var(--tech)), hsl(var(--primary)));
-    --gradient-sophisticated: linear-gradient(135deg, hsl(var(--primary-dark)), hsl(var(--secondary-dark)), hsl(var(--accent-dark)));
-    
-    /* Dynamic Mesh Gradients */
-    --gradient-hero: radial-gradient(ellipse 80% 50% at 50% -20%, hsl(var(--primary) / 0.25), transparent),
-                     radial-gradient(ellipse 60% 40% at 80% 80%, hsl(var(--accent) / 0.15), transparent),
-                     radial-gradient(ellipse 100% 60% at 20% 30%, hsl(var(--secondary) / 0.12), transparent),
-                     radial-gradient(ellipse 120% 80% at 70% 10%, hsl(var(--info) / 0.08), transparent);
 
     /* Dynamic Professional Shadows */
     --shadow-tech: 0 8px 32px -8px hsl(var(--primary) / 0.3), 0 0 16px hsl(var(--primary) / 0.1);
@@ -313,7 +295,7 @@
   }
 
   .corporate-border {
-    @apply border border-border/30 bg-gradient-corporate;
+    @apply border border-border/30 bg-card;
   }
 
   /* Dynamic Animations */
@@ -410,7 +392,7 @@
   }
 
   .gradient-hover {
-    @apply transition-all duration-500 hover:bg-gradient-electric hover:animate-rainbow-pulse;
+    @apply transition-all duration-500 hover:bg-primary/10 hover:scale-105;
   }
 
   .glow-hover {

@@ -134,7 +134,7 @@ const BioMathPlatform = () => {
           искусственного интеллекта и фармакологии
         </div>
         
-        <Button variant="tech" size="lg" className="text-lg px-8 py-4">
+        <Button variant="default" size="lg" className="text-lg px-8 py-4 hover:scale-105 transition-transform">
           Присоединиться к проекту
           <ArrowRight className="w-5 h-5 ml-2" />
         </Button>
@@ -302,10 +302,10 @@ const BioMathPlatform = () => {
             биоматематического моделирования человеческого тела
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="tech" size="lg" className="text-lg px-8 py-4">
+            <Button variant="default" size="lg" className="text-lg px-8 py-4 hover:scale-105 transition-transform">
               Стать инвестором
             </Button>
-            <Button variant="outline" size="lg" className="text-lg px-8 py-4">
+            <Button variant="outline" size="lg" className="text-lg px-8 py-4 hover:scale-105 transition-transform">
               Узнать больше
             </Button>
           </div>

@@ -94,7 +94,7 @@ const CompanyInfo = () => {
               </p>
             </div>
             <div className="mt-6">
-              <Button variant="tech" size="lg">
+              <Button variant="default" size="lg" className="hover:scale-105 transition-transform">
                 Узнать больше о компании
               </Button>
             </div>
@@ -275,7 +275,7 @@ const CompanyInfo = () => {
                 ></textarea>
               </div>
               
-              <Button variant="tech" className="w-full">
+              <Button variant="default" className="w-full hover:scale-105 transition-transform">
                 Отправить сообщение
               </Button>
             </form>
@@ -295,10 +295,10 @@ const CompanyInfo = () => {
             BioMath Life Platform представляет собой прорывную технологию с огромным коммерческим потенциалом.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="tech" size="lg" className="text-lg px-8 py-4">
+            <Button variant="default" size="lg" className="text-lg px-8 py-4 hover:scale-105 transition-transform">
               Узнать об инвестициях
             </Button>
-            <Button variant="outline" size="lg" className="text-lg px-8 py-4">
+            <Button variant="outline" size="lg" className="text-lg px-8 py-4 hover:scale-105 transition-transform">
               Скачать презентацию
             </Button>
           </div>

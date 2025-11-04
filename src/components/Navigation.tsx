@@ -57,7 +57,7 @@ const Navigation = () => {
               )}
             </Button>
             
-            <Button variant="tech" asChild>
+            <Button variant="default" asChild className="hover:scale-105 transition-transform">
               <Link to="/start-investing">Start Investing</Link>
             </Button>
           </div>
@@ -102,7 +102,7 @@ const Navigation = () => {
                 {theme === "light" ? "Dark Mode" : "Light Mode"}
               </Button>
               
-              <Button variant="tech" className="mt-4" asChild>
+              <Button variant="default" className="mt-4 hover:scale-105 transition-transform" asChild>
                 <Link to="/start-investing">Start Investing</Link>
               </Button>
             </div>
