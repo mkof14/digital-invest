@@ -16,6 +16,7 @@ import Terms from "./pages/Terms";
 import Cookies from "./pages/Cookies";
 import NotFound from "./pages/NotFound";
 import BioMathLife from "./pages/Projects/BioMathLife";
+import BioMathCore from "./pages/Projects/BioMathCore";
 import TerraAero from "./pages/Projects/TerraAero";
 import DigitalInvest from "./pages/Projects/DigitalInvest";
 
@@ -40,6 +41,7 @@ const App = () => (
             <Route path="/terms" element={<Terms />} />
             <Route path="/cookies" element={<Cookies />} />
             <Route path="/projects/biomathlife" element={<BioMathLife />} />
+            <Route path="/projects/biomathcore" element={<BioMathCore />} />
             <Route path="/projects/terraaero" element={<TerraAero />} />
             <Route path="/projects/digital-invest" element={<DigitalInvest />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

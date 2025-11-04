@@ -1,10 +1,9 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Progress } from "@/components/ui/progress";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ArrowRight, TrendingUp, Target, Users, Building2, Award, Shield } from "lucide-react";
+import { ArrowRight, Activity, Plane, Heart, Building2, Award, Shield, Globe, Dna, Brain, Droplets } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Index = () => {
@@ -13,264 +12,260 @@ const Index = () => {
       id: "biomathlife",
       name: "BioMath Life Platform",
       category: "Healthcare Innovation",
-      tagline: "Towards Precision Medicine",
-      description: "Revolutionary precision medicine platform using biomathematical modeling, genetics, AI, and pharmacology to transform healthcare diagnosis and treatment.",
-      targetAmount: 25000000,
-      currentAmount: 17000000,
-      progress: 68,
-      investors: 24,
-      status: "Active",
-      image: "/lovable-uploads/649e2294-dd2f-4267-955e-efae9202adb9.png",
-      highlights: [
-        "AI-powered medical diagnosis",
-        "Personalized treatment plans",
-        "24/7 health monitoring",
-        "Genetic-based medication"
-      ]
+      icon: Dna,
+      tagline: "Precision Medicine through Biomathematical Modeling",
+      description: "Revolutionary platform shifting from statistical to mathematical methods in disease diagnosis and treatment. Using digital simulation to predict disease progression and treatment response before testing on patients.",
+      features: [
+        "Genomic Analysis & DNA Sequencing",
+        "Personalized Biomathematical Models",
+        "AI-Powered Medical Diagnosis 24/7",
+        "Disease Development Modeling",
+        "Personalized Medication Selection"
+      ],
+      gradient: "from-blue-500/20 to-purple-500/20",
+      borderColor: "border-blue-500/30"
+    },
+    {
+      id: "biomathcore",
+      name: "BioMath Core",
+      category: "Digital Health",
+      icon: Heart,
+      tagline: "All of Health in One Platform",
+      description: "Where data meets daily life. Track, understand, and optimize your wellbeing through intelligent, real-time insights tailored to you. From sleep to cognition, from movement to mood.",
+      features: [
+        "200+ AI-Powered Health Services",
+        "20 Comprehensive Health Categories",
+        "Dual AI Analysis & Second Opinion",
+        "Secure Health Data Vault (AES-256)",
+        "24/7 AI Health Advisor"
+      ],
+      gradient: "from-green-500/20 to-emerald-500/20",
+      borderColor: "border-green-500/30"
     },
     {
       id: "terraaero",
       name: "TerraAero",
-      category: "Agricultural Innovation",
-      tagline: "Advanced Drone Solutions",
-      description: "Cutting-edge drone technology for precision agriculture and rapid delivery services, transforming farming operations and last-mile logistics.",
-      targetAmount: 15000000,
-      currentAmount: 6750000,
-      progress: 45,
-      investors: 18,
-      status: "Active",
-      image: "/lovable-uploads/6dd765a4-4908-4542-a7af-88ec2bf6741f.png",
-      highlights: [
-        "Precision irrigation & fertilization",
-        "Field analysis & reporting",
-        "Restaurant & retail delivery",
-        "120+ farms served"
-      ]
+      category: "Agricultural Technology",
+      icon: Plane,
+      tagline: "Advanced Drone Solutions for Agriculture & Delivery",
+      description: "Transform operations with cutting-edge drone technology. From precision farming to rapid delivery - bringing innovation to agriculture and last-mile logistics.",
+      features: [
+        "Precision Irrigation & Watering",
+        "Fertilization & Crop Treatment",
+        "Field Analysis & Professional Reports",
+        "Restaurant & Retail Delivery",
+        "Express Service with 10-min Guarantee"
+      ],
+      gradient: "from-amber-500/20 to-orange-500/20",
+      borderColor: "border-amber-500/30"
     },
     {
       id: "digital-invest",
       name: "Digital Invest Inc.",
       category: "Investment Platform",
-      tagline: "Complete Portfolio Investment",
-      description: "Invest in our entire portfolio of innovative technology projects. Established since 2010 with proven track record in genomics, biomathematics, and advanced technologies.",
-      targetAmount: 50000000,
-      currentAmount: 41000000,
-      progress: 82,
-      investors: 56,
-      status: "Active",
-      image: "/lovable-uploads/c2cb51a2-7071-4fb7-be6f-0e69d3a124e0.png",
-      highlights: [
-        "Diversified portfolio",
-        "Multiple revenue streams",
-        "Global partnerships",
-        "Established since 2010"
-      ]
+      icon: Building2,
+      tagline: "Complete Technology Portfolio",
+      description: "Your gateway to innovative technology investments. Established since 2010 (formerly GENEX Company) with proven expertise in genomics, biomathematics, and advanced technologies.",
+      features: [
+        "Diversified Project Portfolio",
+        "Multiple Revenue Streams",
+        "International Partnerships",
+        "Award-Winning Technology",
+        "Proven Track Record Since 2010"
+      ],
+      gradient: "from-violet-500/20 to-indigo-500/20",
+      borderColor: "border-violet-500/30"
     }
   ];
 
-  const stats = [
-    { icon: Building2, value: "3", label: "Active Projects" },
-    { icon: Users, value: "98", label: "Total Investors" },
-    { icon: Target, value: "$64.75M", label: "Funds Raised" },
-    { icon: TrendingUp, value: "72%", label: "Avg. Progress" },
-  ];
-
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-background to-primary/5">
+    <div className="min-h-screen bg-background">
       <Navigation />
+
+      {/* Animated Background */}
+      <div className="fixed inset-0 -z-10 overflow-hidden">
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-[pulse_8s_ease-in-out_infinite]"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent/5 rounded-full blur-3xl animate-[pulse_8s_ease-in-out_infinite] [animation-delay:4s]"></div>
+      </div>
 
       {/* Hero Section */}
       <section className="container mx-auto px-4 py-20 mt-20">
-        <div className="text-center max-w-4xl mx-auto mb-16">
-          <Badge className="mb-4 text-base px-4 py-2">Investment Platform</Badge>
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent">
-            Digital Invest Inc.
+        <div className="text-center max-w-5xl mx-auto mb-16 animate-fade-in">
+          <Badge className="mb-6 text-base px-6 py-2 animate-scale-in">
+            <Globe className="w-4 h-4 mr-2" />
+            Innovation Investment Platform
+          </Badge>
+          
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-black mb-8 leading-tight">
+            <span className="block bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent">
+              Digital Invest Inc.
+            </span>
           </h1>
-          <p className="text-xl md:text-2xl text-muted-foreground mb-8">
-            Your gateway to innovative technology investments. Discover groundbreaking projects in precision medicine, agricultural technology, and advanced drone solutions.
+          
+          <p className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-3xl mx-auto leading-relaxed">
+            Pioneering breakthrough technologies in precision medicine, digital health, and agricultural innovation. 
+            Join us in shaping the future of healthcare and technology.
           </p>
-          <div className="flex gap-4 justify-center flex-wrap">
+
+          <div className="flex gap-6 justify-center flex-wrap mb-12">
             <Link to="/start-investing">
-              <Button size="lg" className="text-lg px-8">
-                Start Investing
+              <Button size="lg" className="text-lg px-10 py-6 hover-scale">
+                Explore Opportunities
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
             </Link>
-            <Link to="/partnerships">
-              <Button size="lg" variant="outline" className="text-lg px-8">
-                Partnership Opportunities
+            <Link to="/team">
+              <Button size="lg" variant="outline" className="text-lg px-10 py-6 hover-scale">
+                Meet the Team
               </Button>
             </Link>
           </div>
+
+          {/* Trust Indicators */}
+          <div className="flex items-center justify-center gap-8 flex-wrap">
+            <div className="flex items-center gap-2 text-sm text-muted-foreground">
+              <Award className="w-5 h-5 text-primary" />
+              <span>Award-Winning Technology</span>
+            </div>
+            <div className="flex items-center gap-2 text-sm text-muted-foreground">
+              <Shield className="w-5 h-5 text-primary" />
+              <span>Enterprise Security</span>
+            </div>
+            <div className="flex items-center gap-2 text-sm text-muted-foreground">
+              <Building2 className="w-5 h-5 text-primary" />
+              <span>Established 2010</span>
+            </div>
+          </div>
         </div>
 
-        {/* Trust Indicators */}
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 max-w-3xl mx-auto mb-12">
-          <div className="flex items-center gap-2 justify-center p-4 bg-card/50 backdrop-blur-sm rounded-lg border border-border/30">
-            <Award className="w-5 h-5 text-primary" />
-            <span className="text-sm font-medium">Award-Winning</span>
-          </div>
-          <div className="flex items-center gap-2 justify-center p-4 bg-card/50 backdrop-blur-sm rounded-lg border border-border/30">
-            <Shield className="w-5 h-5 text-primary" />
-            <span className="text-sm font-medium">Enterprise Security</span>
-          </div>
-          <div className="flex items-center gap-2 justify-center p-4 bg-card/50 backdrop-blur-sm rounded-lg border border-border/30 col-span-2 md:col-span-1">
-            <TrendingUp className="w-5 h-5 text-primary" />
-            <span className="text-sm font-medium">Since 2010</span>
-          </div>
-        </div>
-
-        {/* Platform Stats */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-20">
-          {stats.map((stat) => {
-            const Icon = stat.icon;
-            return (
-              <Card key={stat.label} className="text-center border-primary/20 hover:shadow-glow transition-all">
-                <CardContent className="pt-6">
-                  <Icon className="w-8 h-8 text-primary mx-auto mb-2" />
-                  <p className="text-3xl font-bold mb-1">{stat.value}</p>
-                  <p className="text-sm text-muted-foreground">{stat.label}</p>
-                </CardContent>
-              </Card>
-            );
-          })}
-        </div>
-
-        {/* Projects Section */}
-        <div className="mb-12">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">Investment Opportunities</h2>
+        {/* Projects Grid */}
+        <div className="mb-20">
+          <div className="text-center mb-12 animate-fade-in">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">Our Innovation Portfolio</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Explore our portfolio of innovative projects and invest in the technologies shaping tomorrow
+              Explore our cutting-edge projects transforming healthcare, agriculture, and technology
             </p>
           </div>
 
-          <div className="space-y-8">
-            {projects.map((project) => (
-              <Card key={project.id} className="border-primary/20 hover:shadow-tech transition-all overflow-hidden">
-                <div className="grid md:grid-cols-5 gap-6">
-                  {/* Project Image */}
-                  <div className="md:col-span-2 relative h-64 md:h-auto">
-                    <img 
-                      src={project.image} 
-                      alt={project.name}
-                      className="w-full h-full object-cover"
-                    />
-                    <Badge className="absolute top-4 left-4">{project.category}</Badge>
-                    <Badge 
-                      variant="secondary" 
-                      className="absolute top-4 right-4"
-                    >
-                      {project.status}
-                    </Badge>
-                  </div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {projects.map((project, index) => {
+              const Icon = project.icon;
+              return (
+                <Card 
+                  key={project.id} 
+                  className={`group border-2 ${project.borderColor} hover:shadow-2xl transition-all duration-500 overflow-hidden hover-scale animate-fade-in`}
+                  style={{ animationDelay: `${index * 150}ms` }}
+                >
+                  <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
+                  
+                  <CardHeader className="relative">
+                    <div className="flex items-start justify-between mb-4">
+                      <div className="p-4 rounded-xl bg-primary/10 group-hover:bg-primary/20 transition-colors">
+                        <Icon className="w-8 h-8 text-primary" />
+                      </div>
+                      <Badge variant="outline" className="text-xs">
+                        {project.category}
+                      </Badge>
+                    </div>
+                    
+                    <CardTitle className="text-2xl md:text-3xl font-bold mb-2 group-hover:text-primary transition-colors">
+                      {project.name}
+                    </CardTitle>
+                    
+                    <p className="text-base font-semibold text-primary mb-3">
+                      {project.tagline}
+                    </p>
+                    
+                    <p className="text-muted-foreground leading-relaxed">
+                      {project.description}
+                    </p>
+                  </CardHeader>
 
-                  {/* Project Details */}
-                  <div className="md:col-span-3 p-6 md:p-8 flex flex-col">
-                    <div className="flex-1">
-                      <h3 className="text-3xl font-bold mb-2">{project.name}</h3>
-                      <p className="text-lg text-primary mb-4">{project.tagline}</p>
-                      <p className="text-muted-foreground mb-6">
-                        {project.description}
+                  <CardContent className="relative space-y-6">
+                    {/* Features List */}
+                    <div className="space-y-3">
+                      <p className="text-sm font-semibold text-muted-foreground uppercase tracking-wide">
+                        Key Features
                       </p>
-
-                      {/* Highlights */}
-                      <div className="grid grid-cols-2 gap-3 mb-6">
-                        {project.highlights.map((highlight) => (
-                          <div key={highlight} className="flex items-center gap-2 text-sm">
-                            <div className="w-1.5 h-1.5 rounded-full bg-primary" />
-                            <span>{highlight}</span>
+                      <div className="space-y-2">
+                        {project.features.map((feature) => (
+                          <div key={feature} className="flex items-start gap-3">
+                            <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0"></div>
+                            <span className="text-sm leading-relaxed">{feature}</span>
                           </div>
                         ))}
                       </div>
                     </div>
 
-                    {/* Investment Metrics */}
-                    <div className="space-y-4 pt-4 border-t border-border/30">
-                      <div className="grid grid-cols-3 gap-4 text-center">
-                        <div>
-                          <p className="text-sm text-muted-foreground mb-1">Target</p>
-                          <p className="text-lg font-bold text-primary">
-                            ${(project.targetAmount / 1000000).toFixed(1)}M
-                          </p>
-                        </div>
-                        <div>
-                          <p className="text-sm text-muted-foreground mb-1">Raised</p>
-                          <p className="text-lg font-bold">
-                            ${(project.currentAmount / 1000000).toFixed(1)}M
-                          </p>
-                        </div>
-                        <div>
-                          <p className="text-sm text-muted-foreground mb-1">Investors</p>
-                          <p className="text-lg font-bold">{project.investors}</p>
-                        </div>
-                      </div>
-
-                      <div className="space-y-2">
-                        <div className="flex justify-between text-sm">
-                          <span className="text-muted-foreground">Funding Progress</span>
-                          <span className="font-semibold">{project.progress}%</span>
-                        </div>
-                        <Progress value={project.progress} className="h-2" />
-                      </div>
-
-                      <div className="flex gap-3">
-                        <Link to={`/projects/${project.id}`} className="flex-1">
-                          <Button variant="outline" className="w-full">
-                            View Details
-                          </Button>
-                        </Link>
-                        <Link to="/start-investing" className="flex-1">
-                          <Button className="w-full">
-                            Invest Now
-                            <ArrowRight className="ml-2 w-4 h-4" />
-                          </Button>
-                        </Link>
-                      </div>
+                    {/* Action Buttons */}
+                    <div className="flex gap-3 pt-4">
+                      <Link to={`/projects/${project.id}`} className="flex-1">
+                        <Button variant="outline" className="w-full group-hover:border-primary transition-colors">
+                          Learn More
+                        </Button>
+                      </Link>
+                      <Link to="/start-investing" className="flex-1">
+                        <Button className="w-full">
+                          Invest
+                          <ArrowRight className="ml-2 w-4 h-4" />
+                        </Button>
+                      </Link>
                     </div>
-                  </div>
-                </div>
-              </Card>
-            ))}
+                  </CardContent>
+                </Card>
+              );
+            })}
           </div>
         </div>
 
-        {/* Why Invest Section */}
-        <div className="mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Why Invest With Us?</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <Card className="border-primary/20 hover:shadow-glow transition-all">
+        {/* Why Choose Us Section */}
+        <div className="mb-20 animate-fade-in">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">Why Digital Invest Inc.?</h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Pioneering innovation with proven expertise and cutting-edge solutions
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <Card className="border-primary/30 hover:shadow-glow transition-all hover-scale">
               <CardHeader>
-                <Target className="w-12 h-12 text-primary mb-4" />
-                <CardTitle>Proven Track Record</CardTitle>
+                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
+                  <Brain className="w-6 h-6 text-primary" />
+                </div>
+                <CardTitle className="text-xl">Proven Expertise</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground">
-                  Operating since 2010 with established expertise in advanced genomics, biomathematics, and innovative technology solutions.
+                  Operating since 2010 with established leadership in genomics, biomathematics, and AI-powered healthcare solutions.
                 </p>
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20 hover:shadow-glow transition-all">
+            <Card className="border-primary/30 hover:shadow-glow transition-all hover-scale">
               <CardHeader>
-                <Building2 className="w-12 h-12 text-primary mb-4" />
-                <CardTitle>Diversified Portfolio</CardTitle>
+                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
+                  <Activity className="w-6 h-6 text-primary" />
+                </div>
+                <CardTitle className="text-xl">Diversified Portfolio</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground">
-                  Multiple revenue streams across healthcare, agriculture, and technology sectors, reducing investment risk.
+                  Multiple revenue streams across healthcare, digital health, and agricultural technology sectors.
                 </p>
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20 hover:shadow-glow transition-all">
+            <Card className="border-primary/30 hover:shadow-glow transition-all hover-scale">
               <CardHeader>
-                <Award className="w-12 h-12 text-primary mb-4" />
-                <CardTitle>Innovation Focus</CardTitle>
+                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
+                  <Droplets className="w-6 h-6 text-primary" />
+                </div>
+                <CardTitle className="text-xl">Real-World Impact</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground">
-                  Cutting-edge technologies solving real-world problems with significant market potential and social impact.
+                  Solving critical challenges in precision medicine, personal health management, and sustainable agriculture.
                 </p>
               </CardContent>
             </Card>
@@ -278,28 +273,30 @@ const Index = () => {
         </div>
 
         {/* CTA Section */}
-        <Card className="bg-gradient-tech text-primary-foreground border-0">
-          <CardContent className="py-16 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Start Investing?</h2>
-            <p className="text-lg mb-8 opacity-90 max-w-2xl mx-auto">
-              Join our community of investors supporting breakthrough technologies that are shaping the future of healthcare and agriculture.
-            </p>
-            <div className="flex gap-4 justify-center flex-wrap">
-              <Link to="/start-investing">
-                <Button size="lg" variant="secondary" className="text-lg px-8">
-                  Start Investing Today
-                  <ArrowRight className="ml-2 w-5 h-5" />
-                </Button>
-              </Link>
-              <Link to="/team">
-                <Button 
-                  size="lg" 
-                  variant="outline" 
-                  className="bg-transparent border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10 text-lg px-8"
-                >
-                  Meet the Team
-                </Button>
-              </Link>
+        <Card className="relative overflow-hidden border-0 bg-gradient-to-br from-primary/20 via-primary/10 to-transparent">
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-transparent"></div>
+          <CardContent className="relative py-16 px-8 text-center">
+            <div className="max-w-3xl mx-auto">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                Ready to Be Part of the Innovation?
+              </h2>
+              <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
+                Join us in revolutionizing healthcare and technology. Explore investment opportunities 
+                and partnership programs that align with your vision.
+              </p>
+              <div className="flex gap-4 justify-center flex-wrap">
+                <Link to="/start-investing">
+                  <Button size="lg" className="text-lg px-10 py-6 hover-scale">
+                    Start Investing
+                    <ArrowRight className="ml-2 w-5 h-5" />
+                  </Button>
+                </Link>
+                <Link to="/partnerships">
+                  <Button size="lg" variant="outline" className="text-lg px-10 py-6 hover-scale">
+                    Partnership Opportunities
+                  </Button>
+                </Link>
+              </div>
             </div>
           </CardContent>
         </Card>
