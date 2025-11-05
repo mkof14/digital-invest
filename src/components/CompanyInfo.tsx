@@ -18,10 +18,10 @@ import {
 
 const CompanyInfo = () => {
   const stats = [
-    { label: "Лет на рынке", value: "14+", icon: Award },
-    { label: "Сервисов платформы", value: "5", icon: Target },
-    { label: "Команда экспертов", value: "25+", icon: Users },
-    { label: "Точность диагностики", value: "97%", icon: TrendingUp }
+    { label: "Years in Market", value: "14+", icon: Award },
+    { label: "Platform Services", value: "5", icon: Target },
+    { label: "Expert Team", value: "25+", icon: Users },
+    { label: "Diagnostic Accuracy", value: "97%", icon: TrendingUp }
   ];
 
   const domains = [
@@ -53,9 +53,9 @@ const CompanyInfo = () => {
         </h1>
         
         <p className="text-xl text-muted-foreground mb-8 max-w-4xl mx-auto leading-relaxed">
-          Digital Invest Inc. (formerly GENEX Company) — биотехнологическая исследовательская компания, 
-          работающая с 2010 года в области передового анализа генома человека и биоматематического моделирования. 
-          Наш CEO Michael Kofman — опытный технологический лидер с более чем 30-летним опытом.
+          Digital Invest Inc. (formerly GENEX Company) — a biotechnology research company 
+          operating since 2010 in advanced human genome analysis and biomathematical modeling. 
+          Our CEO Michael Kofman is an experienced technology leader with over 30 years of experience.
         </p>
         
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto mb-12">
@@ -74,39 +74,39 @@ const CompanyInfo = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              О компании Digital Invest Inc.
+              About Digital Invest Inc.
             </h2>
             <div className="space-y-4 text-muted-foreground">
               <p>
-                Digital Invest Inc. (ранее GENEX Company) работает с 2010 года, специализируясь на передовом 
-                анализе генома человека и биоматематическом моделировании. Мы — опытные эксперты в области 
-                биотехнологий, больших данных, облачных вычислений и искусственного интеллекта.
+                Digital Invest Inc. (formerly GENEX Company) has been operating since 2010, specializing in advanced 
+                human genome analysis and biomathematical modeling. We are experienced experts in 
+                biotechnology, big data, cloud computing, and artificial intelligence.
               </p>
               <p>
-                Более 6 лет мы ведем амбициозную миссию: создание биоматематической модели, адаптированной 
-                для каждого индивидуума. Эта модель основана на математическом понимании процессов, 
-                происходящих в человеческом теле на всех уровнях и их взаимодействий.
+                For over 6 years, we've been pursuing an ambitious mission: creating a biomathematical model adapted 
+                for each individual. This model is based on mathematical understanding of processes 
+                occurring in the human body at all levels and their interactions.
               </p>
               <p>
-                BioMath Life Platform представляет техническое воплощение нашего научного и бизнес-видения, 
-                позволяя переходить от статистических методов диагностики к математическим, открывая широкие 
-                возможности для прогнозирования развития заболеваний и реакции организма на лечение.
+                BioMath Life Platform represents the technical embodiment of our scientific and business vision, 
+                enabling the transition from statistical diagnostic methods to mathematical ones, opening wide 
+                opportunities for predicting disease development and body response to treatment.
               </p>
             </div>
             <div className="mt-6">
-              <Button variant="default" size="lg" className="hover:scale-105 transition-transform">
-                Узнать больше о компании
+              <Button variant="default" size="lg">
+                Learn More About the Company
               </Button>
             </div>
           </div>
           
           <div className="relative">
-            <Card className="p-8 bg-gradient-hero">
+            <Card className="p-8 bg-card">
               <Building2 className="w-20 h-20 mx-auto mb-6 text-primary" />
-              <h3 className="text-xl font-semibold text-center mb-4">Наша миссия</h3>
+              <h3 className="text-xl font-semibold text-center mb-4">Our Mission</h3>
               <p className="text-center text-muted-foreground">
-                Революционизировать здравоохранение через биоматематическое моделирование 
-                и персонализированную медицину, делая передовые технологии доступными для каждого.
+                Revolutionize healthcare through biomathematical modeling 
+                and personalized medicine, making advanced technologies accessible to everyone.
               </p>
             </Card>
           </div>
@@ -116,10 +116,10 @@ const CompanyInfo = () => {
       {/* Expertise Domains */}
       <section className="py-16 bg-card/20">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Области экспертизы</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Areas of Expertise</h2>
           <p className="text-muted-foreground text-lg max-w-3xl mx-auto">
-            BioMath Life Platform — кроссдоменный проект, охватывающий множество 
-            передовых технологических областей
+            BioMath Life Platform is a cross-domain project covering many 
+            advanced technological areas
           </p>
         </div>
         
@@ -137,17 +137,17 @@ const CompanyInfo = () => {
       {/* Leadership */}
       <section className="py-16">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Руководство</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Leadership</h2>
           <p className="text-muted-foreground text-lg max-w-3xl mx-auto">
-            Опытная команда технологических лидеров и медицинских экспертов
+            Experienced team of technology leaders and medical experts
           </p>
         </div>
         
         <Card className="p-8 max-w-4xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
             <div className="text-center lg:text-left">
-              <div className="w-32 h-32 rounded-full bg-gradient-tech mx-auto lg:mx-0 mb-4 flex items-center justify-center">
-                <Users className="w-16 h-16 text-primary-foreground" />
+              <div className="w-32 h-32 rounded-full bg-card mx-auto lg:mx-0 mb-4 flex items-center justify-center border-2 border-primary">
+                <Users className="w-16 h-16 text-primary" />
               </div>
             </div>
             
@@ -157,9 +157,9 @@ const CompanyInfo = () => {
                 CEO & Founder
               </Badge>
               <p className="text-muted-foreground mb-4">
-                CEO/President Digital Invest Inc. Более 30 лет опыта руководства, основания и консультирования 
-                компаний в США и Европе. Технологический провидец, стратегический консультант и предприниматель. 
-                С 2010 года ведет компанию в области биоматематического моделирования и прецизионной медицины.
+                CEO/President of Digital Invest Inc. Over 30 years of experience in leading, founding, and consulting 
+                companies in the USA and Europe. Technology visionary, strategic consultant, and entrepreneur. 
+                Since 2010, leading the company in biomathematical modeling and precision medicine.
               </p>
               <div className="flex space-x-4">
                 <Button variant="outline" size="sm">
@@ -168,7 +168,7 @@ const CompanyInfo = () => {
                 </Button>
                 <Button variant="outline" size="sm">
                   <Mail className="w-4 h-4 mr-2" />
-                  Контакт
+                  Contact
                 </Button>
               </div>
             </div>
@@ -179,16 +179,16 @@ const CompanyInfo = () => {
       {/* Contact Information */}
       <section className="py-16 bg-card/20">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Свяжитесь с нами</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Contact Us</h2>
           <p className="text-muted-foreground text-lg">
-            Мы будем рады пообщаться с вами
+            We'd be happy to hear from you
           </p>
         </div>
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Contact Details */}
           <Card className="p-8">
-            <h3 className="text-xl font-semibold mb-6">Контактная информация</h3>
+            <h3 className="text-xl font-semibold mb-6">Contact Information</h3>
             
             <div className="space-y-4">
               <div className="flex items-center space-x-3">
@@ -215,7 +215,7 @@ const CompanyInfo = () => {
             </div>
             
             <div className="mt-8">
-              <h4 className="font-semibold mb-4">Социальные сети</h4>
+              <h4 className="font-semibold mb-4">Social Media</h4>
               <div className="flex space-x-4">
                 <Button variant="outline" size="sm">
                   <Linkedin className="w-4 h-4 mr-2" />
@@ -235,25 +235,25 @@ const CompanyInfo = () => {
           
           {/* Contact Form */}
           <Card className="p-8">
-            <h3 className="text-xl font-semibold mb-6">Напишите нам</h3>
+            <h3 className="text-xl font-semibold mb-6">Send Us a Message</h3>
             
             <form className="space-y-4">
               <div>
-                <label className="block text-sm font-medium mb-2">Тема обращения</label>
+                <label className="block text-sm font-medium mb-2">Subject</label>
                 <select className="w-full p-3 rounded-md border border-border bg-background">
-                  <option>Общий вопрос</option>
-                  <option>Запрос документов</option>
-                  <option>Обратный звонок</option>
-                  <option>Записаться на встречу</option>
+                  <option>General Question</option>
+                  <option>Document Request</option>
+                  <option>Call Back Request</option>
+                  <option>Schedule a Meeting</option>
                 </select>
               </div>
               
               <div>
-                <label className="block text-sm font-medium mb-2">Ваше имя</label>
+                <label className="block text-sm font-medium mb-2">Your Name</label>
                 <input 
                   type="text" 
                   className="w-full p-3 rounded-md border border-border bg-background"
-                  placeholder="Введите ваше имя"
+                  placeholder="Enter your name"
                 />
               </div>
               
@@ -262,21 +262,21 @@ const CompanyInfo = () => {
                 <input 
                   type="email" 
                   className="w-full p-3 rounded-md border border-border bg-background"
-                  placeholder="Введите ваш email"
+                  placeholder="Enter your email"
                 />
               </div>
               
               <div>
-                <label className="block text-sm font-medium mb-2">Сообщение</label>
+                <label className="block text-sm font-medium mb-2">Message</label>
                 <textarea 
                   rows={4}
                   className="w-full p-3 rounded-md border border-border bg-background"
-                  placeholder="Введите ваше сообщение"
+                  placeholder="Enter your message"
                 ></textarea>
               </div>
               
-              <Button variant="default" className="w-full hover:scale-105 transition-transform">
-                Отправить сообщение
+              <Button variant="default" className="w-full">
+                Send Message
               </Button>
             </form>
           </Card>
@@ -285,21 +285,21 @@ const CompanyInfo = () => {
 
       {/* Investment Opportunity */}
       <section className="py-16 text-center">
-        <Card className="p-12 bg-gradient-hero max-w-4xl mx-auto">
+        <Card className="p-12 bg-card max-w-4xl mx-auto">
           <Globe className="w-16 h-16 mx-auto mb-6 text-primary" />
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Инвестиционная возможность
+            Investment Opportunity
           </h2>
           <p className="text-xl text-muted-foreground mb-8">
-            Digital Invest Inc. предлагает уникальную возможность инвестировать в будущее медицины. 
-            BioMath Life Platform представляет собой прорывную технологию с огромным коммерческим потенциалом.
+            Digital Invest Inc. offers a unique opportunity to invest in the future of medicine. 
+            BioMath Life Platform represents breakthrough technology with enormous commercial potential.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="default" size="lg" className="text-lg px-8 py-4 hover:scale-105 transition-transform">
-              Узнать об инвестициях
+            <Button variant="default" size="lg" className="text-lg px-8 py-4">
+              Learn About Investment
             </Button>
-            <Button variant="outline" size="lg" className="text-lg px-8 py-4 hover:scale-105 transition-transform">
-              Скачать презентацию
+            <Button variant="outline" size="lg" className="text-lg px-8 py-4">
+              Download Presentation
             </Button>
           </div>
         </Card>

@@ -21,75 +21,75 @@ const BioMathPlatform = () => {
   const services = [
     {
       number: "#1",
-      title: "Секвенирование и анализ ДНК",
-      description: "Создание индивидуального генетического профиля для каждого пациента",
-      fullText: "Секвенирование ДНК - это процесс определения порядка нуклеотидных оснований в цепи ДНК. Мы используем эту последовательность для глубокого анализа генетических особенностей пациента, прежде всего для оценки предрасположенности к различным заболеваниям, метаболизма различных веществ и реакции на установленные лекарственные препараты.",
+      title: "DNA Sequencing and Analysis",
+      description: "Creating individual genetic profiles for each patient",
+      fullText: "DNA sequencing is the process of determining the order of nucleotide bases in a DNA strand. We use this sequence for in-depth analysis of patient genetic traits, primarily to assess susceptibility to various diseases, metabolism of different substances, and reaction to established medications.",
       icon: Dna
     },
     {
       number: "#2", 
-      title: "Биоматематическая модель тела",
-      description: "Создание индивидуальной биоматематической модели человеческого тела",
-      fullText: "Мы рассматриваем человеческое тело как невероятно сложную и точно настроенную систему. Чтобы расчленить и смоделировать процессы, действующие в этой системе, мы разрабатываем биоматематическую модель человеческого тела, адаптированную под каждого пациента.",
+      title: "Biomathematical Body Model",
+      description: "Creating individual biomathematical models of the human body",
+      fullText: "We view the human body as an incredibly complex and finely-tuned system. To dissect and model the processes acting within this system, we develop a biomathematical model of the human body, adapted for each patient.",
       icon: Brain
     },
     {
       number: "#3",
-      title: "Быстрая диагностика", 
-      description: "Диагностика на основе генетических предрасположенностей и медицинской истории",
-      fullText: "ИИ проводит комплексный анализ обширного массива информации для определения основной причины отклонений в жизненно важных показателях и предоставления первоначального диагноза. Это как консультация с огромной панелью врачей.",
+      title: "Quick Diagnosis", 
+      description: "Diagnosis based on genetic predispositions and medical history",
+      fullText: "AI conducts comprehensive analysis of extensive data arrays to determine the root cause of vital signs deviations and provide initial diagnosis. It's like consulting with a vast panel of physicians.",
       icon: Activity
     },
     {
       number: "#4",
-      title: "Моделирование развития болезни",
-      description: "Прогнозирование течения заболевания и рекомендации по лечению",
-      fullText: "Биоматематическая модель пациента используется для моделирования заболевания и его воздействия на отдельные органы и весь организм в целом. Это позволяет точно определить первопричину проблемы.",
+      title: "Disease Development Modeling",
+      description: "Predicting disease progression and treatment recommendations",
+      fullText: "The patient's biomathematical model is used to simulate the disease and its impact on individual organs and the entire body. This allows precise identification of the root cause of the problem.",
       icon: HeartPulse
     },
     {
       number: "#5",
-      title: "Персонализированные лекарства",
-      description: "Подбор и/или производство лекарств с максимальной эффективностью", 
-      fullText: "Прецизионная медицина, основанная на индивидуальных генетических данных пациента, позволяет достичь максимальной эффективности лекарственных препаратов, избегая при этом негативного воздействия на организм.",
+      title: "Personalized Medications",
+      description: "Selection and/or production of medications with maximum effectiveness", 
+      fullText: "Precision medicine based on individual patient genetic data enables maximum medication effectiveness while avoiding adverse impacts on the body.",
       icon: Pill
     }
   ];
 
   const keyResources = [
     {
-      title: "Лаборатория секвенирования",
-      description: "Современная роботизированная биомолекулярная лаборатория для секвенирования ДНК",
+      title: "Sequencing Laboratory",
+      description: "Modern robotic biomolecular laboratory for DNA sequencing",
       icon: Microscope,
       image: "sequencing_laboratory.jpg"
     },
     {
       title: "BioMath Cloud", 
-      description: "Облачная платформа для хранения данных пациентов и обработки с помощью ИИ",
+      description: "Cloud platform for storing patient data and AI processing",
       icon: Cloud,
       image: "bmc.jpg"
     },
     {
-      title: "Искусственный интеллект",
-      description: "Специализированная версия ИИ для работы с медицинской информацией",
+      title: "Artificial Intelligence",
+      description: "Specialized AI version for working with medical information",
       icon: Brain,
       image: "ai.jpg"
     },
     {
-      title: "Оборудование мониторинга",
-      description: "Система непрерывного мониторинга жизненно важных показателей 24/7",
+      title: "Monitoring Equipment",
+      description: "24/7 continuous vital signs monitoring system",
       icon: Monitor,
       image: "monitoring.jpg"
     },
     {
-      title: "Фармацевтическая фабрика",
-      description: "Полностью автоматизированное фармацевтическое оборудование под управлением ИИ",
+      title: "Pharmaceutical Factory",
+      description: "Fully automated pharmaceutical equipment under AI control",
       icon: Pill,
       image: "pharma.jpg"
     },
     {
-      title: "Информационный хаб",
-      description: "Центр коммуникации со всеми заинтересованными сторонами",
+      title: "Information Hub",
+      description: "Communication center with all stakeholders",
       icon: Database,
       image: "hub.jpg"
     }
@@ -97,18 +97,18 @@ const BioMathPlatform = () => {
 
   const goals = [
     {
-      title: "Прецизионная диагностика",
-      description: "«Медицинский совет врачей 24/7» на базе ИИ как значительная помощь лечащему врачу в принятии решений",
+      title: "Precision Diagnosis",
+      description: "AI-powered '24/7 Medical Council' providing significant support to physicians in decision-making",
       icon: Shield
     },
     {
-      title: "Быстрый доступ", 
-      description: "Сокращение нагрузки на систему здравоохранения и времени ожидания пациентов",
+      title: "Quick Access", 
+      description: "Reducing healthcare system burden and patient waiting times",
       icon: Clock
     },
     {
-      title: "Улучшение жизни",
-      description: "Повышение качества жизни и активного долголетия через мониторинг и персонализированную фармакологию",
+      title: "Life Improvement",
+      description: "Enhancing quality of life and active longevity through monitoring and personalized pharmacology",
       icon: HeartPulse
     }
   ];
@@ -118,7 +118,7 @@ const BioMathPlatform = () => {
       {/* Hero Section */}
       <section className="text-center py-16">
         <Badge className="mb-6 bg-success/10 text-success border-success/20">
-          Революционная платформа
+          Revolutionary Platform
         </Badge>
         
         <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
@@ -126,16 +126,16 @@ const BioMathPlatform = () => {
         </h1>
         
         <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-4xl mx-auto">
-          На пути к прецизионной медицине через биоматематическое моделирование человеческого тела
+          Towards precision medicine through biomathematical modeling of the human body
         </p>
         
         <div className="text-lg text-muted-foreground mb-12 max-w-3xl mx-auto">
-          Используя прорывные технологии в области генетики, биоматематики, 
-          искусственного интеллекта и фармакологии
+          Using breakthrough technologies in genetics, biomathematics, 
+          artificial intelligence, and pharmacology
         </div>
         
-        <Button variant="default" size="lg" className="text-lg px-8 py-4 hover:scale-105 transition-transform">
-          Присоединиться к проекту
+        <Button variant="default" size="lg" className="text-lg px-8 py-4">
+          Join the Project
           <ArrowRight className="w-5 h-5 ml-2" />
         </Button>
       </section>
@@ -143,21 +143,21 @@ const BioMathPlatform = () => {
       {/* Goals Section */}
       <section className="py-16">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Наши цели</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Goals</h2>
           <p className="text-muted-foreground text-lg max-w-4xl mx-auto leading-relaxed">
-            Если вы разделяете наши цели и желаете сделать мир лучше, добро пожаловать на борт. 
-            Инвестируйте свои знания, опыт, финансы в это.
+            If you share our goals and want to make the world a better place, welcome aboard. 
+            Invest your knowledge, experience, and finances in this mission.
           </p>
         </div>
         
         <div className="max-w-6xl mx-auto mb-12 p-6 bg-card/30 rounded-lg">
           <p className="text-muted-foreground leading-relaxed">
-            Основываясь на своих достижениях в области передового анализа генома человека, Digital Invest Inc. 
-            продолжает развиваться в направлении изменения ландшафта традиционной медицины. Суть нового проекта, 
-            BioMath Life Platform, заключается в смещении акцента со статистических методов диагностики и лечения 
-            заболеваний на математические. Используя цифровое моделирование, этот подход открывает широкие возможности, 
-            особенно в прогнозировании прогрессирования заболевания и потенциальной реакции организма на лечение 
-            еще до его тестирования на пациенте.
+            Building on achievements in advanced human genome analysis, Digital Invest Inc. 
+            continues to evolve towards transforming the traditional medicine landscape. The essence of the new project, 
+            BioMath Life Platform, lies in shifting the emphasis from statistical methods of disease diagnosis and treatment 
+            to mathematical ones. Using digital modeling, this approach opens wide opportunities, 
+            especially in predicting disease progression and potential body response to treatment 
+            before testing it on the patient.
           </p>
         </div>
         
@@ -175,10 +175,10 @@ const BioMathPlatform = () => {
       {/* How It Works */}
       <section className="py-16 bg-card/20">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Как это работает</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">How It Works</h2>
           <p className="text-muted-foreground text-lg max-w-4xl mx-auto">
-            Архитектура платформы структурирована для различных взаимодействий с клиентами и партнерами. 
-            Модульная производственная структура позволяет как комплексные, так и специфические запросы.
+            The platform architecture is structured for various interactions with clients and partners. 
+            Modular production structure enables both comprehensive and specific requests.
           </p>
         </div>
         
@@ -186,15 +186,15 @@ const BioMathPlatform = () => {
           <Card className="p-8 mb-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
               <div>
-                <h3 className="text-2xl font-semibold mb-4">Информационный хаб</h3>
+                <h3 className="text-2xl font-semibold mb-4">Information Hub</h3>
                 <p className="text-muted-foreground mb-4">
-                  Общение клиентов и партнеров с платформой осуществляется через внешний информационный хаб. 
-                  Задачи хаба включают предварительную обработку и сортировку входящих данных.
+                  Client and partner communication with the platform occurs through the external information hub. 
+                  Hub tasks include preprocessing and sorting incoming data.
                 </p>
                 <ul className="space-y-2 text-muted-foreground">
-                  <li>• Предварительная обработка данных</li>
-                  <li>• Адаптация данных под потребности клиентов</li>
-                  <li>• Обеспечение информационной безопасности</li>
+                  <li>• Data preprocessing</li>
+                  <li>• Data adaptation to client needs</li>
+                  <li>• Information security assurance</li>
                 </ul>
               </div>
               <div className="flex justify-center">
@@ -215,13 +215,13 @@ const BioMathPlatform = () => {
               <div className="lg:order-1">
                 <h3 className="text-2xl font-semibold mb-4">BioMath Cloud</h3>
                 <p className="text-muted-foreground mb-4">
-                  Ядро платформы включает данные генетического анализа пациентов, их персонализированную 
-                  биоматематическую модель, медицинскую историю и множество других факторов.
+                  The platform core includes patient genetic analysis data, their personalized 
+                  biomathematical model, medical history, and many other factors.
                 </p>
                 <ul className="space-y-2 text-muted-foreground">
-                  <li>• Генетический анализ пациентов</li>
-                  <li>• Персонализированные биоматематические модели</li>
-                  <li>• Медицинская история и результаты лечения</li>
+                  <li>• Patient genetic analysis</li>
+                  <li>• Personalized biomathematical models</li>
+                  <li>• Medical history and treatment outcomes</li>
                 </ul>
               </div>
             </div>
@@ -232,10 +232,10 @@ const BioMathPlatform = () => {
       {/* Services Section */}
       <section className="py-16">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Услуги платформы</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Platform Services</h2>
           <p className="text-muted-foreground text-lg max-w-3xl mx-auto">
-            Каждая услуга платформы служит звеном в технологической цепочке, оставаясь при этом 
-            самодостаточным объектом как технически, так и финансово
+            Each platform service serves as a link in the technological chain, while remaining 
+            a self-sufficient entity both technically and financially
           </p>
         </div>
         
@@ -269,10 +269,10 @@ const BioMathPlatform = () => {
       {/* Key Resources */}
       <section className="py-16 bg-card/20">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Ключевые ресурсы</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Key Resources</h2>
           <p className="text-muted-foreground text-lg max-w-3xl mx-auto">
-            Наши решения работают на передовом технологическом оборудовании, с использованием 
-            современных алгоритмов и максимального уровня информационной безопасности
+            Our solutions operate on cutting-edge technological equipment, using 
+            modern algorithms and maximum level of information security
           </p>
         </div>
         
@@ -293,20 +293,20 @@ const BioMathPlatform = () => {
 
       {/* CTA Section */}
       <section className="py-16 text-center">
-        <Card className="p-12 bg-gradient-hero">
+        <Card className="p-12 bg-card">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Инвестируйте в будущее медицины
+            Invest in the Future of Medicine
           </h2>
           <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
-            Присоединяйтесь к революции в области персонализированной медицины и 
-            биоматематического моделирования человеческого тела
+            Join the revolution in personalized medicine and 
+            biomathematical modeling of the human body
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="default" size="lg" className="text-lg px-8 py-4 hover:scale-105 transition-transform">
-              Стать инвестором
+            <Button variant="default" size="lg" className="text-lg px-8 py-4">
+              Become an Investor
             </Button>
-            <Button variant="outline" size="lg" className="text-lg px-8 py-4 hover:scale-105 transition-transform">
-              Узнать больше
+            <Button variant="outline" size="lg" className="text-lg px-8 py-4">
+              Learn More
             </Button>
           </div>
         </Card>

@@ -41,9 +41,39 @@ const Partnerships = () => {
         </div>
       </section>
 
-      {/* Partnership Types */}
+      {/* Why Partner With Us */}
       <section className="py-20 px-4">
         <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-foreground mb-4">
+              Why Partner With Digital Invest Inc.?
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Join a proven innovator in precision medicine with 14+ years of experience and a track record of breakthrough technologies
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+            <Card className="border-primary/20 hover-scale">
+              <CardContent className="pt-8 text-center">
+                <div className="text-4xl font-bold text-primary mb-2">14+</div>
+                <p className="text-sm text-muted-foreground">Years of Innovation</p>
+              </CardContent>
+            </Card>
+            <Card className="border-primary/20 hover-scale">
+              <CardContent className="pt-8 text-center">
+                <div className="text-4xl font-bold text-primary mb-2">25+</div>
+                <p className="text-sm text-muted-foreground">Expert Team Members</p>
+              </CardContent>
+            </Card>
+            <Card className="border-primary/20 hover-scale">
+              <CardContent className="pt-8 text-center">
+                <div className="text-4xl font-bold text-primary mb-2">4</div>
+                <p className="text-sm text-muted-foreground">Active Projects</p>
+              </CardContent>
+            </Card>
+          </div>
+
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-foreground mb-4">
               Partnership Opportunities
@@ -159,6 +189,58 @@ const Partnerships = () => {
                 "Regulatory compliance worldwide"
               ]}
             />
+          </div>
+        </div>
+      </section>
+
+      {/* Success Stories */}
+      <section className="py-20 px-4 bg-secondary/10">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-foreground mb-4">
+              Partnership Success Stories
+            </h2>
+            <p className="text-xl text-muted-foreground">
+              Real results from our collaborative partnerships
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+            <Card className="border-primary/20 hover-scale">
+              <CardContent className="pt-8">
+                <div className="text-center mb-4">
+                  <div className="text-3xl font-bold text-primary mb-2">97%</div>
+                  <p className="text-sm text-muted-foreground">Diagnostic Accuracy</p>
+                </div>
+                <p className="text-sm text-center text-muted-foreground">
+                  Achieved through our BioMath Life Platform partnerships
+                </p>
+              </CardContent>
+            </Card>
+            
+            <Card className="border-primary/20 hover-scale">
+              <CardContent className="pt-8">
+                <div className="text-center mb-4">
+                  <div className="text-3xl font-bold text-primary mb-2">1,200+</div>
+                  <p className="text-sm text-muted-foreground">Acres Treated</p>
+                </div>
+                <p className="text-sm text-center text-muted-foreground">
+                  Through TerraAero agricultural partnerships
+                </p>
+              </CardContent>
+            </Card>
+            
+            <Card className="border-primary/20 hover-scale">
+              <CardContent className="pt-8">
+                <div className="text-center mb-4">
+                  <div className="text-3xl font-bold text-primary mb-2">5,000+</div>
+                  <p className="text-sm text-muted-foreground">Active Users</p>
+                </div>
+                <p className="text-sm text-center text-muted-foreground">
+                  Utilizing BioMath Core wellness services
+                </p>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
