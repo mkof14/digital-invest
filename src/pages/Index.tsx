@@ -22,7 +22,6 @@ const Index = () => {
         "Disease Development Modeling",
         "Personalized Medication Selection"
       ],
-      gradient: "from-blue-500/20 to-purple-500/20",
       borderColor: "border-blue-500/30"
     },
     {
@@ -39,7 +38,6 @@ const Index = () => {
         "Secure Health Data Vault (AES-256)",
         "24/7 AI Health Advisor"
       ],
-      gradient: "from-green-500/20 to-emerald-500/20",
       borderColor: "border-green-500/30"
     },
     {
@@ -56,7 +54,6 @@ const Index = () => {
         "Restaurant & Retail Delivery",
         "Express Service with 10-min Guarantee"
       ],
-      gradient: "from-amber-500/20 to-orange-500/20",
       borderColor: "border-amber-500/30"
     },
     {
@@ -73,7 +70,6 @@ const Index = () => {
         "Award-Winning Technology",
         "Proven Track Record Since 2010"
       ],
-      gradient: "from-violet-500/20 to-indigo-500/20",
       borderColor: "border-violet-500/30"
     }
   ];
@@ -156,7 +152,6 @@ const Index = () => {
                   className={`group border-2 ${project.borderColor} hover:shadow-2xl transition-all duration-500 overflow-hidden hover-scale animate-fade-in`}
                   style={{ animationDelay: `${index * 150}ms` }}
                 >
-                  <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
                   
                   <CardHeader className="relative">
                     <div className="flex items-start justify-between mb-4">
@@ -273,8 +268,7 @@ const Index = () => {
         </div>
 
         {/* CTA Section */}
-        <Card className="relative overflow-hidden border-0 bg-gradient-to-br from-primary/20 via-primary/10 to-transparent">
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-transparent"></div>
+        <Card className="relative overflow-hidden border-2 border-primary/30 bg-card">
           <CardContent className="relative py-16 px-8 text-center">
             <div className="max-w-3xl mx-auto">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">

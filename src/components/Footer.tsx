@@ -17,8 +17,7 @@ const Footer = () => {
               <h3 className="text-xl font-bold text-foreground">Digital Invest Inc.</h3>
             </div>
             <p className="text-muted-foreground leading-relaxed">
-              Pioneering the future of precision medicine through mathematical modeling, 
-              AI-driven diagnostics, and personalized therapeutic solutions.
+              Transforming healthcare through innovation, advanced technology, and strategic partnerships.
             </p>
             <div className="flex space-x-4">
               <a href="https://www.linkedin.com/company/digital-invest-inc/" 
