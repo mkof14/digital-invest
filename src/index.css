@@ -6,104 +6,104 @@
 
 @layer base {
   :root {
-    /* Modern Crowdfunding - Premium Dark Theme */
-    --background: 222 47% 4%;
-    --foreground: 210 40% 98%;
+    /* Traditional Corporate - Professional Dark Theme */
+    --background: 220 20% 6%;
+    --foreground: 210 20% 96%;
 
-    /* Card System - Glass Morphism */
-    --card: 217 33% 8%;
-    --card-foreground: 210 40% 98%;
-    --card-hover: 217 33% 11%;
+    /* Card System - Corporate Clean */
+    --card: 220 18% 10%;
+    --card-foreground: 210 20% 96%;
+    --card-hover: 220 18% 13%;
 
     /* Popover */
-    --popover: 217 33% 8%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 220 18% 10%;
+    --popover-foreground: 210 20% 96%;
 
-    /* Primary - Vibrant Cyan (Innovation) */
-    --primary: 189 94% 43%;
-    --primary-foreground: 222 47% 4%;
-    --primary-glow: 189 94% 53%;
-    --primary-vibrant: 189 94% 38%;
-    --primary-dark: 189 94% 33%;
-    --primary-light: 189 94% 63%;
+    /* Primary - Professional Blue */
+    --primary: 210 80% 45%;
+    --primary-foreground: 210 20% 98%;
+    --primary-glow: 210 80% 55%;
+    --primary-vibrant: 210 80% 40%;
+    --primary-dark: 210 80% 35%;
+    --primary-light: 210 80% 60%;
 
-    /* Secondary - Electric Purple */
-    --secondary: 271 91% 65%;
-    --secondary-foreground: 222 47% 4%;
-    --secondary-glow: 271 91% 75%;
-    --secondary-vibrant: 271 91% 55%;
-    --secondary-dark: 271 91% 45%;
-    --secondary-light: 271 91% 85%;
+    /* Secondary - Corporate Navy */
+    --secondary: 215 40% 30%;
+    --secondary-foreground: 210 20% 98%;
+    --secondary-glow: 215 40% 40%;
+    --secondary-vibrant: 215 40% 25%;
+    --secondary-dark: 215 40% 20%;
+    --secondary-light: 215 40% 45%;
 
     /* Muted */
-    --muted: 217 33% 14%;
-    --muted-foreground: 215 20% 65%;
+    --muted: 220 18% 18%;
+    --muted-foreground: 215 15% 60%;
 
-    /* Accent - Vibrant Orange/Coral */
-    --accent: 14 100% 57%;
-    --accent-foreground: 222 47% 4%;
-    --accent-glow: 14 100% 67%;
-    --accent-vibrant: 14 100% 52%;
-    --accent-dark: 14 100% 47%;
-    --accent-light: 14 100% 77%;
+    /* Accent - Professional Green */
+    --accent: 145 60% 40%;
+    --accent-foreground: 210 20% 98%;
+    --accent-glow: 145 60% 50%;
+    --accent-vibrant: 145 60% 35%;
+    --accent-dark: 145 60% 30%;
+    --accent-light: 145 60% 55%;
 
-    /* Success - Vibrant Green */
-    --success: 142 76% 36%;
-    --success-foreground: 210 40% 98%;
-    --success-glow: 142 76% 46%;
-    --success-dark: 142 76% 26%;
-    --success-light: 142 76% 56%;
+    /* Success - Business Green */
+    --success: 145 60% 40%;
+    --success-foreground: 210 20% 98%;
+    --success-glow: 145 60% 50%;
+    --success-dark: 145 60% 30%;
+    --success-light: 145 60% 55%;
 
-    /* Warning - Golden Yellow */
-    --warning: 38 92% 50%;
-    --warning-foreground: 222 47% 4%;
-    --warning-glow: 38 92% 60%;
-    --warning-dark: 38 92% 40%;
-    --warning-light: 38 92% 70%;
+    /* Warning - Professional Amber */
+    --warning: 35 80% 50%;
+    --warning-foreground: 220 20% 6%;
+    --warning-glow: 35 80% 60%;
+    --warning-dark: 35 80% 40%;
+    --warning-light: 35 80% 65%;
 
-    /* Error - Neon Red */
-    --error: 0 84% 60%;
-    --error-foreground: 210 40% 98%;
-    --error-glow: 0 84% 70%;
-    --error-dark: 0 84% 50%;
-    --error-light: 0 84% 80%;
+    /* Error - Corporate Red */
+    --error: 0 70% 50%;
+    --error-foreground: 210 20% 98%;
+    --error-glow: 0 70% 60%;
+    --error-dark: 0 70% 40%;
+    --error-light: 0 70% 65%;
 
-    /* Info - Bright Blue */
-    --info: 217 91% 60%;
-    --info-foreground: 210 40% 98%;
-    --info-glow: 217 91% 70%;
-    --info-dark: 217 91% 50%;
-    --info-light: 217 91% 80%;
+    /* Info - Professional Blue */
+    --info: 210 80% 55%;
+    --info-foreground: 210 20% 98%;
+    --info-glow: 210 80% 65%;
+    --info-dark: 210 80% 45%;
+    --info-light: 210 80% 70%;
 
-    /* Tech - Neon Cyan */
-    --tech: 176 84% 47%;
-    --tech-foreground: 210 40% 98%;
-    --tech-glow: 176 84% 57%;
-    --tech-dark: 176 84% 37%;
+    /* Tech - Professional Teal */
+    --tech: 185 55% 45%;
+    --tech-foreground: 210 20% 98%;
+    --tech-glow: 185 55% 55%;
+    --tech-dark: 185 55% 35%;
 
-    /* Innovation - Magenta */
-    --innovation: 328 86% 70%;
-    --innovation-foreground: 222 47% 4%;
-    --innovation-glow: 328 86% 80%;
-    --innovation-dark: 328 86% 60%;
+    /* Innovation - Corporate Indigo */
+    --innovation: 230 60% 50%;
+    --innovation-foreground: 210 20% 98%;
+    --innovation-glow: 230 60% 60%;
+    --innovation-dark: 230 60% 40%;
 
     /* Destructive */
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 210 20% 98%;
 
     /* Border & Input */
-    --border: 217 33% 17%;
-    --input: 217 33% 12%;
-    --ring: 189 94% 43%;
+    --border: 220 18% 22%;
+    --input: 220 18% 15%;
+    --ring: 210 80% 45%;
 
 
-    /* Modern Crowdfunding Shadows */
-    --shadow-tech: 0 0 40px hsl(var(--primary) / 0.4), 0 8px 32px -8px hsl(var(--primary) / 0.3);
-    --shadow-invest: 0 0 40px hsl(var(--secondary) / 0.3), 0 8px 32px -8px hsl(var(--secondary) / 0.25);
-    --shadow-glow: 0 0 60px hsl(var(--primary-glow) / 0.5), 0 0 30px hsl(var(--accent-glow) / 0.3);
-    --shadow-elevated: 0 20px 60px -15px hsl(222 47% 0% / 0.6), 0 0 40px hsl(var(--primary) / 0.2);
-    --shadow-vibrant: 0 0 50px hsl(var(--accent) / 0.4), 0 8px 32px -8px hsl(var(--accent) / 0.3);
-    --shadow-rainbow: 0 0 60px hsl(var(--primary) / 0.3), 0 0 40px hsl(var(--accent) / 0.25), 0 0 20px hsl(var(--secondary) / 0.2);
+    /* Professional Corporate Shadows */
+    --shadow-tech: 0 4px 20px -4px hsl(var(--primary) / 0.2);
+    --shadow-invest: 0 4px 20px -4px hsl(var(--secondary) / 0.15);
+    --shadow-glow: 0 8px 24px -6px hsl(var(--primary) / 0.25);
+    --shadow-elevated: 0 12px 40px -10px hsl(220 20% 0% / 0.4);
+    --shadow-vibrant: 0 6px 24px -6px hsl(var(--accent) / 0.2);
+    --shadow-rainbow: 0 8px 32px -8px hsl(var(--primary) / 0.15);
 
     /* Smooth Professional Animations */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);

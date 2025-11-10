@@ -2,8 +2,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import alexTur from "@/assets/team/alex-tur.jpg";
-import karinaGorfin from "@/assets/team/karina-gorfin.jpg";
+import professionalPlaceholder from "@/assets/team/professional-placeholder.jpg";
 import { Award, Users, Globe, Building2 } from "lucide-react";
 
 const Team = () => {
@@ -12,15 +11,15 @@ const Team = () => {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="py-20 px-4 bg-gradient-to-br from-primary/5 via-background to-secondary/5">
+      <section className="py-20 px-4 bg-gradient-to-br from-card/20 via-background to-card/10">
         <div className="max-w-6xl mx-auto text-center">
           <Badge variant="secondary" className="mb-4 px-4 py-2">
             Executive Leadership
           </Badge>
-          <h1 className="text-5xl md:text-6xl font-bold text-foreground mb-6">
-            Visionary Leaders in
-            <span className="block text-primary">Precision Medicine</span>
-          </h1>
+            <h1 className="text-5xl md:text-6xl font-bold text-foreground mb-6">
+              Visionary Leaders in
+              <span className="block text-primary mt-2">Precision Medicine</span>
+            </h1>
           <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
             Our leadership team combines decades of experience in biotechnology, healthcare innovation, 
             and business development to drive the future of precision medicine.
@@ -33,11 +32,11 @@ const Team = () => {
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             {/* Michael Kofman */}
-            <Card className="card-hover border-0 shadow-tech">
+            <Card className="hover:-translate-y-1 transition-all duration-300 border border-border/50 bg-card hover:shadow-elevated">
               <CardHeader className="text-center">
-                <div className="w-48 h-48 rounded-full mx-auto mb-6 overflow-hidden shadow-glow bg-primary/10">
+                <div className="w-48 h-48 rounded-full mx-auto mb-6 overflow-hidden bg-primary/10 border-2 border-primary/20">
                   <img 
-                    src="/lovable-uploads/649e2294-dd2f-4267-955e-efae9202adb9.png" 
+                    src={professionalPlaceholder}
                     alt="Michael Kofman, CEO/President" 
                     className="w-full h-full object-cover object-center"
                   />
@@ -69,8 +68,8 @@ const Team = () => {
                     <span className="text-sm font-medium">Expert in biotech strategy & innovation</span>
                   </div>
                 </div>
-                <div className="bg-secondary/10 rounded-lg p-4 border border-secondary/20">
-                  <h4 className="font-semibold text-secondary mb-2">Key Achievements</h4>
+                <div className="bg-primary/5 rounded-lg p-4 border border-primary/20">
+                  <h4 className="font-semibold text-primary mb-2">Key Achievements</h4>
                   <ul className="text-sm text-muted-foreground space-y-1">
                     <li>• Led 9 Net Avenue to $19.5B market cap acquisition</li>
                     <li>• Pioneer in biotechnology mathematical modeling</li>
@@ -82,11 +81,11 @@ const Team = () => {
             </Card>
 
             {/* Alex Tur */}
-            <Card className="card-hover border-0 shadow-tech">
+            <Card className="hover:-translate-y-1 transition-all duration-300 border border-border/50 bg-card hover:shadow-elevated">
               <CardHeader className="text-center">
-                <div className="w-48 h-48 rounded-full mx-auto mb-6 overflow-hidden shadow-glow bg-primary/10">
+                <div className="w-48 h-48 rounded-full mx-auto mb-6 overflow-hidden bg-primary/10 border-2 border-primary/20">
                   <img 
-                    src={alexTur} 
+                    src={professionalPlaceholder}
                     alt="Alex Tur, CTO" 
                     className="w-full h-full object-cover"
                   />
@@ -118,8 +117,8 @@ const Team = () => {
                     <span className="text-sm font-medium">Cloud architecture & data processing expert</span>
                   </div>
                 </div>
-                <div className="bg-secondary/10 rounded-lg p-4 border border-secondary/20">
-                  <h4 className="font-semibold text-secondary mb-2">Technical Expertise</h4>
+                <div className="bg-primary/5 rounded-lg p-4 border border-primary/20">
+                  <h4 className="font-semibold text-primary mb-2">Technical Expertise</h4>
                   <ul className="text-sm text-muted-foreground space-y-1">
                     <li>• Enterprise cloud architecture design</li>
                     <li>• Big Data processing & machine learning</li>
@@ -131,11 +130,11 @@ const Team = () => {
             </Card>
 
             {/* Karina Gorfin */}
-            <Card className="card-hover border-0 shadow-tech">
+            <Card className="hover:-translate-y-1 transition-all duration-300 border border-border/50 bg-card hover:shadow-elevated">
               <CardHeader className="text-center">
-                <div className="w-48 h-48 rounded-full mx-auto mb-6 overflow-hidden shadow-glow bg-primary/10">
+                <div className="w-48 h-48 rounded-full mx-auto mb-6 overflow-hidden bg-primary/10 border-2 border-primary/20">
                   <img 
-                    src={karinaGorfin} 
+                    src={professionalPlaceholder}
                     alt="Karina Gorfin, CLO" 
                     className="w-full h-full object-cover"
                   />
@@ -167,8 +166,8 @@ const Team = () => {
                     <span className="text-sm font-medium">Healthcare regulatory compliance expert</span>
                   </div>
                 </div>
-                <div className="bg-secondary/10 rounded-lg p-4 border border-secondary/20">
-                  <h4 className="font-semibold text-secondary mb-2">Legal Specializations</h4>
+                <div className="bg-primary/5 rounded-lg p-4 border border-primary/20">
+                  <h4 className="font-semibold text-primary mb-2">Legal Specializations</h4>
                   <ul className="text-sm text-muted-foreground space-y-1">
                     <li>• Healthcare & biotechnology regulation</li>
                     <li>• Intellectual property & patent law</li>
@@ -183,7 +182,7 @@ const Team = () => {
       </section>
 
       {/* Company Stats */}
-      <section className="py-16 px-4 bg-secondary/20">
+      <section className="py-16 px-4 bg-card/30">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-foreground mb-4">
