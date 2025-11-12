@@ -33,7 +33,7 @@ const Index = () => {
       description: "Revolutionary precision medicine platform combining mathematical modeling with AI-driven diagnostics for personalized healthcare solutions.",
       category: "Healthcare Technology",
       image: biomathPlatform,
-      link: "/projects/biomath-life"
+      link: "/projects/biomathlife"
     },
     {
       title: "Investment Portfolio Management",
@@ -47,7 +47,7 @@ const Index = () => {
       description: "Comprehensive biomathematical simulation tools for predicting treatment outcomes and disease progression with unprecedented accuracy.",
       category: "Research & Development",
       image: mathModeling,
-      link: "/projects/biomath-core"
+      link: "/projects/biomathcore"
     },
     {
       title: "BioTech Visualization Engine",
@@ -131,7 +131,7 @@ const Index = () => {
           </div>
           
           <div className="text-center">
-            <Link to="/projects/biomath-life">
+            <Link to="/projects/biomathlife">
               <Button size="lg" variant="outline" className="px-8 py-6 text-lg group border-2">
                 View All Projects
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
