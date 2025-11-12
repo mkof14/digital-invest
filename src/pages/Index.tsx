@@ -30,31 +30,31 @@ const Index = () => {
   const projects = [
     {
       title: "BioMath Life Platform",
-      description: "Revolutionary precision medicine platform combining mathematical modeling with AI-driven diagnostics for personalized healthcare solutions.",
-      category: "Healthcare Technology",
+      description: "Comprehensive 5-service technological chain for precision medicine, from DNA sequencing to personalized medication selection and production.",
+      category: "Precision Medicine",
       image: biomathPlatform,
       link: "/projects/biomathlife"
     },
     {
-      title: "Investment Portfolio Management",
-      description: "Advanced investment tracking and portfolio optimization platform specifically designed for biotechnology and healthcare investments.",
-      category: "Financial Technology",
-      image: investmentDashboard,
-      link: "/start-investing"
+      title: "TerraAero",
+      description: "Advanced drone solutions for agriculture and delivery operations, including precision irrigation, fertilization, field analysis, and express delivery services.",
+      category: "Agricultural Technology",
+      image: biotechViz,
+      link: "/projects/terraaero"
     },
     {
-      title: "Mathematical Modeling Suite",
-      description: "Comprehensive biomathematical simulation tools for predicting treatment outcomes and disease progression with unprecedented accuracy.",
-      category: "Research & Development",
+      title: "BioMath Core",
+      description: "AI-powered wellness platform with 200+ health services, dual AI health analysis, secure data vault, and personalized daily wellness insights.",
+      category: "Digital Health",
       image: mathModeling,
       link: "/projects/biomathcore"
     },
     {
-      title: "BioTech Visualization Engine",
-      description: "State-of-the-art 3D visualization platform for molecular structures, genetic data, and biological processes in real-time.",
-      category: "Visualization Technology",
-      image: biotechViz,
-      link: "/platform"
+      title: "Digital Invest Inc.",
+      description: "Strategic technology consulting and comprehensive investment portfolio management across multiple innovative biotechnology projects.",
+      category: "Investment Platform",
+      image: investmentDashboard,
+      link: "/projects/digitalinvest"
     }
   ];
 
