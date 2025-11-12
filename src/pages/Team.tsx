@@ -2,7 +2,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import professionalPlaceholder from "@/assets/team/professional-placeholder.jpg";
+import teamHero from "@/assets/team-hero.jpg";
 import { Award, Users, Globe, Building2 } from "lucide-react";
 
 const Team = () => {
@@ -11,16 +11,26 @@ const Team = () => {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="py-20 px-4 bg-gradient-to-br from-card/20 via-background to-card/10">
-        <div className="max-w-6xl mx-auto text-center">
-          <Badge variant="secondary" className="mb-4 px-4 py-2">
+      <section className="relative py-32 px-4 overflow-hidden">
+        <div className="absolute inset-0">
+          <img 
+            src={teamHero} 
+            alt="Professional team collaboration"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-background/90" />
+        </div>
+        
+        <div className="relative z-10 max-w-6xl mx-auto text-center">
+          <Badge variant="secondary" className="mb-6 px-6 py-3 text-base">
+            <Users className="w-4 h-4 mr-2 inline" />
             Executive Leadership
           </Badge>
-            <h1 className="text-5xl md:text-6xl font-bold text-foreground mb-6">
-              Visionary Leaders in
-              <span className="block text-primary mt-2">Precision Medicine</span>
-            </h1>
-          <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+          <h1 className="text-5xl md:text-7xl font-bold text-foreground mb-8">
+            Visionary Leaders in
+            <span className="block text-primary mt-3">Precision Medicine</span>
+          </h1>
+          <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
             Our leadership team combines decades of experience in biotechnology, healthcare innovation, 
             and business development to drive the future of precision medicine.
           </p>
@@ -33,16 +43,9 @@ const Team = () => {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             {/* Michael Kofman */}
             <Card className="hover:-translate-y-1 transition-all duration-300 border border-border/50 bg-card hover:shadow-elevated">
-              <CardHeader className="text-center">
-                <div className="w-48 h-48 rounded-full mx-auto mb-6 overflow-hidden bg-primary/10 border-2 border-primary/20">
-                  <img 
-                    src={professionalPlaceholder}
-                    alt="Michael Kofman, CEO/President" 
-                    className="w-full h-full object-cover object-center"
-                  />
-                </div>
-                <CardTitle className="text-2xl text-foreground">Michael Kofman</CardTitle>
-                <CardDescription className="text-lg font-medium text-primary">CEO/President & Founder</CardDescription>
+              <CardHeader>
+                <CardTitle className="text-3xl text-foreground">Michael Kofman</CardTitle>
+                <CardDescription className="text-xl font-semibold text-primary">CEO/President & Founder</CardDescription>
               </CardHeader>
               <CardContent className="space-y-6">
                 <p className="text-muted-foreground leading-relaxed">
@@ -82,16 +85,9 @@ const Team = () => {
 
             {/* Alex Tur */}
             <Card className="hover:-translate-y-1 transition-all duration-300 border border-border/50 bg-card hover:shadow-elevated">
-              <CardHeader className="text-center">
-                <div className="w-48 h-48 rounded-full mx-auto mb-6 overflow-hidden bg-primary/10 border-2 border-primary/20">
-                  <img 
-                    src={professionalPlaceholder}
-                    alt="Alex Tur, CTO" 
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <CardTitle className="text-2xl text-foreground">Alex Tur</CardTitle>
-                <CardDescription className="text-lg font-medium text-primary">Chief Technology Officer</CardDescription>
+              <CardHeader>
+                <CardTitle className="text-3xl text-foreground">Alex Tur</CardTitle>
+                <CardDescription className="text-xl font-semibold text-primary">Chief Technology Officer</CardDescription>
               </CardHeader>
               <CardContent className="space-y-6">
                 <p className="text-muted-foreground leading-relaxed">
@@ -131,16 +127,9 @@ const Team = () => {
 
             {/* Karina Gorfin */}
             <Card className="hover:-translate-y-1 transition-all duration-300 border border-border/50 bg-card hover:shadow-elevated">
-              <CardHeader className="text-center">
-                <div className="w-48 h-48 rounded-full mx-auto mb-6 overflow-hidden bg-primary/10 border-2 border-primary/20">
-                  <img 
-                    src={professionalPlaceholder}
-                    alt="Karina Gorfin, CLO" 
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <CardTitle className="text-2xl text-foreground">Karina Gorfin</CardTitle>
-                <CardDescription className="text-lg font-medium text-primary">Chief Legal Officer</CardDescription>
+              <CardHeader>
+                <CardTitle className="text-3xl text-foreground">Karina Gorfin</CardTitle>
+                <CardDescription className="text-xl font-semibold text-primary">Chief Legal Officer</CardDescription>
               </CardHeader>
               <CardContent className="space-y-6">
                 <p className="text-muted-foreground leading-relaxed">
