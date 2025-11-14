@@ -5,6 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Heart, Brain, Activity, Shield, Lock, CheckCircle } from "lucide-react";
 import { Link } from "react-router-dom";
+import biomathCoreLogo from "@/assets/biomath-core-logo.png";
 
 const BioMathCore = () => {
   const healthCategories = [
@@ -71,12 +72,15 @@ const BioMathCore = () => {
       <Navigation />
       
       <main className="container mx-auto px-4 py-12 mt-20">
-        {/* Hero Section */}
-        <div className="mb-16 text-center animate-fade-in">
-          <Badge className="mb-4">Digital Health Platform</Badge>
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent">
-            BioMath Core
-          </h1>
+      {/* Hero Section */}
+      <div className="mb-16 text-center animate-fade-in">
+        <div className="flex justify-center mb-6">
+          <img src={biomathCoreLogo} alt="BioMath Core Logo" className="w-32 h-32 md:w-40 md:h-40" />
+        </div>
+        <Badge className="mb-4">Digital Health Platform</Badge>
+        <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent">
+          BioMath Core
+        </h1>
           <p className="text-2xl md:text-3xl font-light text-muted-foreground mb-4">
             Where Data Meets Daily Life
           </p>
