@@ -6,6 +6,7 @@ import { Progress } from "@/components/ui/progress";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Droplets, Wheat, BarChart3, FileText, Package, Zap, TrendingUp, Users } from "lucide-react";
 import { Link } from "react-router-dom";
+import terraaeroLogo from "@/assets/terraaero-logo.png";
 
 const TerraAero = () => {
   const fundingProgress = 45;
@@ -70,6 +71,9 @@ const TerraAero = () => {
       <main className="container mx-auto px-4 py-12 mt-20">
         {/* Hero Section */}
         <div className="mb-12">
+          <div className="flex justify-center mb-6">
+            <img src={terraaeroLogo} alt="TerraAero Logo" className="w-32 h-32 md:w-40 md:h-40" />
+          </div>
           <Badge className="mb-4">Agricultural Innovation</Badge>
           <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent">
             TerraAero
