@@ -72,7 +72,7 @@ const TerraAero = () => {
         {/* Hero Section */}
         <div className="mb-12">
           <div className="flex justify-center mb-6">
-            <img src={terraaeroLogo} alt="TerraAero Logo" className="w-32 h-32 md:w-40 md:h-40" />
+            <img src={terraaeroLogo} alt="TerraAero Logo" className="w-48 h-48 md:w-64 md:h-64" />
           </div>
           <Badge className="mb-4">Agricultural Innovation</Badge>
           <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent">
