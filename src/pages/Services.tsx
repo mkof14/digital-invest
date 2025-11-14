@@ -148,7 +148,7 @@ const Services = () => {
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-6">
               Our comprehensive 5-service technological chain for precision medicine
             </p>
-            <Link to="/projects/biomath-life">
+            <Link to="/projects/biomathlife">
               <Button variant="outline">
                 View Full Platform
                 <ArrowRight className="ml-2 w-4 h-4" />
@@ -219,7 +219,7 @@ const Services = () => {
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-6">
               AI-powered wellness platform with 200+ health services
             </p>
-            <Link to="/projects/biomath-core">
+            <Link to="/projects/biomathcore">
               <Button variant="outline">
                 View BioMath Core
                 <ArrowRight className="ml-2 w-4 h-4" />
