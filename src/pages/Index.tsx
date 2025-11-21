@@ -1,9 +1,12 @@
+import { useEffect, useState } from 'react';
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Progress } from "@/components/ui/progress";
 import { Link } from "react-router-dom";
+import { supabase } from '@/integrations/supabase/client';
 import {
   Rocket,
   Lightbulb,
@@ -20,51 +23,79 @@ import {
   Sparkles,
   Building2
 } from "lucide-react";
-import CrowdfundingProjectCard from "@/components/CrowdfundingProjectCard";
-import biomathLifeHero from "@/assets/projects/biomathlife-hero.jpg";
 import terraaeroHero from "@/assets/projects/terraaero-hero.jpg";
 import biomathCoreHero from "@/assets/projects/biomathcore-hero.jpg";
 import dishcoreHero from "@/assets/projects/dishcore-hero.jpg";
 import digitalInvestHero from "@/assets/projects/digitalinvest-hero.jpg";
+import biomathLifeHero from "@/assets/projects/biomathlife-hero.jpg";
+
+interface FeaturedProject {
+  id: string;
+  slug: string;
+  title: string;
+  short_description: string;
+  category: string;
+  status: string;
+  target_amount: number | null;
+  current_raised: number;
+  currency: string;
+  hero_image_url: string;
+}
 
 const Index = () => {
-  const projects = [
-    {
-      title: "BioMath Life Platform",
-      description: "Comprehensive 5-service technological chain for precision medicine, from DNA sequencing to personalized medication selection and production.",
-      category: "Precision Medicine",
-      image: biomathLifeHero,
-      link: "/projects/biomathlife"
-    },
-    {
-      title: "TerraAero",
-      description: "Advanced drone solutions for agriculture and delivery operations, including precision irrigation, fertilization, field analysis, and express delivery services.",
-      category: "Agricultural Technology",
-      image: terraaeroHero,
-      link: "/projects/terraaero"
-    },
-    {
-      title: "BioMath Core",
-      description: "AI-powered wellness platform with 200+ health services, dual AI health analysis, secure data vault, and personalized daily wellness insights.",
-      category: "Digital Health",
-      image: biomathCoreHero,
-      link: "/projects/biomathcore"
-    },
-    {
-      title: "DishCore",
-      description: "Personal nutrition and body-tracking platform that helps you eat smarter, feel better, and stay in shape with personalized menus, progress tracking, and smart insights.",
-      category: "Nutrition Platform",
-      image: dishcoreHero,
-      link: "/projects/dishcore"
-    },
-    {
-      title: "Digital Invest Inc.",
-      description: "Strategic technology consulting and comprehensive investment portfolio management across multiple innovative biotechnology projects.",
-      category: "Investment Platform",
-      image: digitalInvestHero,
-      link: "/projects/digitalinvest"
+  const [featuredProjects, setFeaturedProjects] = useState<FeaturedProject[]>([]);
+
+  // Map slugs to actual imported images
+  const projectImages: Record<string, string> = {
+    'terraaero': terraaeroHero,
+    'biomathcore': biomathCoreHero,
+    'biomath-core': biomathCoreHero,
+    'dishcore': dishcoreHero,
+    'digital-invest-portfolio': digitalInvestHero,
+    'digital-invest-ai-lab': digitalInvestHero,
+    'digital-invest-manufacturing': digitalInvestHero,
+    'biomathlife': biomathLifeHero,
+  };
+
+  useEffect(() => {
+    fetchFeaturedProjects();
+  }, []);
+
+  const fetchFeaturedProjects = async () => {
+    try {
+      const { data, error } = await supabase
+        .from('projects')
+        .select('*')
+        .eq('is_visible', true)
+        .eq('status', 'OPEN')
+        .order('priority', { ascending: false })
+        .order('created_at', { ascending: false })
+        .limit(3);
+
+      if (error) throw error;
+      setFeaturedProjects(data || []);
+    } catch (error) {
+      console.error('Error fetching featured projects:', error);
     }
-  ];
+  };
+
+  const calculateProgress = (current: number, target: number | null) => {
+    if (!target || target === 0) return 0;
+    return Math.min((current / target) * 100, 100);
+  };
+
+  const getStatusColor = (status: string) => {
+    switch (status) {
+      case 'OPEN':
+        return 'bg-success text-success-foreground';
+      case 'CLOSED':
+        return 'bg-muted text-muted-foreground';
+      case 'COMING_SOON':
+        return 'bg-info text-info-foreground';
+      default:
+        return 'bg-muted text-muted-foreground';
+    }
+  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -131,22 +162,84 @@ const Index = () => {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-            {projects.slice(0, 3).map((project, index) => (
-              <div key={index} className="animate-fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
-                <CrowdfundingProjectCard {...project} />
+          {featuredProjects.length > 0 ? (
+            <>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+                {featuredProjects.map((project, index) => (
+                  <Link key={project.id} to={`/projects/${project.slug}`}>
+                    <Card className="group overflow-hidden border border-border/50 bg-card hover:shadow-elevated transition-all duration-300 hover:-translate-y-1 h-full flex flex-col animate-fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
+                      <div className="relative h-48 overflow-hidden bg-muted">
+                        <img
+                          src={projectImages[project.slug] || project.hero_image_url || '/placeholder.svg'}
+                          alt={project.title}
+                          className="w-full h-full object-cover group-hover:scale-110 transition-all duration-700 ease-out"
+                          onError={(e) => {
+                            const target = e.target as HTMLImageElement;
+                            target.src = '/placeholder.svg';
+                          }}
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                        <Badge className={`absolute top-4 left-4 ${getStatusColor(project.status)}`}>
+                          {project.status.replace('_', ' ')}
+                        </Badge>
+                        <Badge className="absolute top-4 right-4 bg-background/95 backdrop-blur-sm border-primary/20 text-foreground">
+                          {project.category}
+                        </Badge>
+                      </div>
+
+                      <CardHeader className="flex-1">
+                        <CardTitle className="text-xl group-hover:text-primary transition-colors duration-300">
+                          {project.title}
+                        </CardTitle>
+                        <CardDescription className="text-base line-clamp-3 mt-2">
+                          {project.short_description}
+                        </CardDescription>
+                      </CardHeader>
+
+                      {project.target_amount && project.target_amount > 0 && (
+                        <CardContent className="pt-0">
+                          <div className="space-y-2">
+                            <div className="flex justify-between text-sm">
+                              <span className="text-muted-foreground">Progress</span>
+                              <span className="font-semibold text-foreground">
+                                {project.currency} {project.current_raised.toLocaleString()} / {project.target_amount.toLocaleString()}
+                              </span>
+                            </div>
+                            <Progress 
+                              value={calculateProgress(project.current_raised, project.target_amount)} 
+                              className="h-2"
+                            />
+                            <p className="text-xs text-muted-foreground text-right">
+                              {calculateProgress(project.current_raised, project.target_amount).toFixed(1)}% funded
+                            </p>
+                          </div>
+                        </CardContent>
+                      )}
+                    </Card>
+                  </Link>
+                ))}
               </div>
-            ))}
-          </div>
-          
-          <div className="text-center">
-            <Link to="/projects">
-              <Button size="lg" variant="outline" className="px-8 py-6 text-lg group border-2">
-                View All Projects
-                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-              </Button>
-            </Link>
-          </div>
+              
+              <div className="text-center">
+                <Link to="/projects">
+                  <Button size="lg" variant="outline" className="px-8 py-6 text-lg group border-2">
+                    View All Projects
+                    <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                  </Button>
+                </Link>
+              </div>
+            </>
+          ) : (
+            <div className="text-center py-12">
+              <p className="text-muted-foreground mb-6">No featured projects available at this time.</p>
+              <Link to="/projects">
+                <Button size="lg" variant="outline">
+                  View All Projects
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+              </Link>
+            </div>
+          )}
         </div>
       </section>
 
