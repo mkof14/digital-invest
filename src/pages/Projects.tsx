@@ -9,6 +9,11 @@ import { TrendingUp, ArrowRight, Loader2 } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
+import terraaeroHero from '@/assets/projects/terraaero-hero.jpg';
+import biomathcoreHero from '@/assets/projects/biomathcore-hero.jpg';
+import dishcoreHero from '@/assets/projects/dishcore-hero.jpg';
+import digitalinvestHero from '@/assets/projects/digitalinvest-hero.jpg';
+import biomathlifeHero from '@/assets/projects/biomathlife-hero.jpg';
 
 interface Project {
   id: string;
@@ -27,6 +32,18 @@ const Projects = () => {
   const [projects, setProjects] = useState<Project[]>([]);
   const [loading, setLoading] = useState(true);
   const { toast } = useToast();
+
+  // Map slugs to actual imported images
+  const projectImages: Record<string, string> = {
+    'terraaero': terraaeroHero,
+    'biomathcore': biomathcoreHero,
+    'biomath-core': biomathcoreHero,
+    'dishcore': dishcoreHero,
+    'digital-invest-portfolio': digitalinvestHero,
+    'digital-invest-ai-lab': digitalinvestHero,
+    'digital-invest-manufacturing': digitalinvestHero,
+    'biomathlife': biomathlifeHero,
+  };
 
   useEffect(() => {
     fetchProjects();
@@ -117,58 +134,70 @@ const Projects = () => {
             {projects.map((project) => (
               <Card
                 key={project.id}
-                className="group overflow-hidden border border-border/50 bg-card hover:shadow-elevated transition-all duration-300 hover:-translate-y-1"
+                className="group overflow-hidden border border-border/50 bg-card hover:shadow-elevated transition-all duration-300 hover:-translate-y-1 flex flex-col"
               >
-                <div className="relative h-48 overflow-hidden">
+                <div className="relative h-56 overflow-hidden bg-muted">
                   <img
-                    src={project.hero_image_url}
+                    src={projectImages[project.slug] || project.hero_image_url || '/placeholder.svg'}
                     alt={project.title}
                     className="w-full h-full object-cover group-hover:scale-110 transition-all duration-700 ease-out"
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement;
+                      target.src = '/placeholder.svg';
+                    }}
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   <Badge className={`absolute top-4 left-4 ${getStatusColor(project.status)}`}>
                     {project.status.replace('_', ' ')}
                   </Badge>
-                  <Badge className="absolute top-4 right-4 bg-background/95 backdrop-blur-sm border-primary/20">
+                  <Badge className="absolute top-4 right-4 bg-background/95 backdrop-blur-sm border-primary/20 text-foreground">
                     {project.category}
                   </Badge>
                 </div>
 
-                <CardHeader>
-                  <CardTitle className="text-xl group-hover:text-primary transition-colors duration-300">
+                <CardHeader className="flex-1">
+                  <CardTitle className="text-xl group-hover:text-primary transition-colors duration-300 line-clamp-2">
                     {project.title}
                   </CardTitle>
-                  <CardDescription className="text-base line-clamp-3">
+                  <CardDescription className="text-base line-clamp-3 mt-2">
                     {project.short_description}
                   </CardDescription>
                 </CardHeader>
 
-                <CardContent>
-                  {project.target_amount && (
-                    <div className="space-y-2">
+                <CardContent className="pt-0">
+                  {project.target_amount && project.target_amount > 0 ? (
+                    <div className="space-y-3">
                       <div className="flex justify-between text-sm">
-                        <span className="text-muted-foreground">Raised</span>
-                        <span className="font-semibold text-foreground">
+                        <span className="text-muted-foreground font-medium">Progress</span>
+                        <span className="font-bold text-foreground">
                           {project.currency} {project.current_raised.toLocaleString()} / {project.target_amount.toLocaleString()}
                         </span>
                       </div>
-                      <Progress value={calculateProgress(project.current_raised, project.target_amount)} className="h-2" />
-                      <p className="text-xs text-muted-foreground text-right">
+                      <Progress 
+                        value={calculateProgress(project.current_raised, project.target_amount)} 
+                        className="h-2.5"
+                      />
+                      <p className="text-xs text-muted-foreground text-right font-medium">
                         {calculateProgress(project.current_raised, project.target_amount).toFixed(1)}% funded
                       </p>
+                    </div>
+                  ) : (
+                    <div className="text-sm text-muted-foreground py-2">
+                      Investment details available upon inquiry
                     </div>
                   )}
                 </CardContent>
 
-                <CardFooter className="flex gap-3">
+                <CardFooter className="flex gap-3 pt-4">
                   <Link to={`/projects/${project.slug}`} className="flex-1">
-                    <Button className="w-full" size="lg">
-                      <TrendingUp className="w-4 h-4 mr-2" />
+                    <Button className="w-full group/btn" size="lg">
+                      <TrendingUp className="w-4 h-4 mr-2 group-hover/btn:scale-110 transition-transform" />
                       View Details
                     </Button>
                   </Link>
                   <Link to={`/projects/${project.slug}`}>
-                    <Button variant="outline" size="lg">
-                      <ArrowRight className="w-4 h-4" />
+                    <Button variant="outline" size="lg" className="px-4">
+                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </Button>
                   </Link>
                 </CardFooter>
