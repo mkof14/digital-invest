@@ -1,173 +1,42 @@
 import { Link } from 'react-router-dom';
-import { Linkedin, Facebook, Youtube, MapPin, Mail, Phone, Send } from 'lucide-react';
-import { useState, useEffect, useRef } from 'react';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { useToast } from '@/hooks/use-toast';
-import { z } from 'zod';
-
-const emailSchema = z.string().trim().email({ message: "Please enter a valid email address" }).max(255, { message: "Email must be less than 255 characters" });
+import { Linkedin, MapPin, Mail } from 'lucide-react';
 
 const Footer = () => {
-  const [email, setEmail] = useState('');
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isVisible, setIsVisible] = useState(false);
-  const footerRef = useRef<HTMLElement>(null);
-  const { toast } = useToast();
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-      }
-    );
-
-    if (footerRef.current) {
-      observer.observe(footerRef.current);
-    }
-
-    return () => {
-      if (footerRef.current) {
-        observer.unobserve(footerRef.current);
-      }
-    };
-  }, []);
-
-  const handleNewsletterSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    const validation = emailSchema.safeParse(email);
-    
-    if (!validation.success) {
-      toast({
-        title: "Invalid Email",
-        description: validation.error.errors[0].message,
-        variant: "destructive",
-      });
-      return;
-    }
-
-    setIsSubmitting(true);
-    
-    // Simulate API call - replace with actual backend integration
-    setTimeout(() => {
-      toast({
-        title: "Successfully Subscribed!",
-        description: "Thank you for your interest. We'll keep you updated on investment opportunities.",
-      });
-      setEmail('');
-      setIsSubmitting(false);
-    }, 1000);
-  };
+  const currentYear = new Date().getFullYear();
 
   return (
-    <footer 
-      ref={footerRef}
-      className={`bg-background border-t border-border transition-all duration-1000 ${
-        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-4 py-16">
-        {/* Newsletter Section */}
-        <div className="mb-12 pb-12 border-b border-border">
-          <div className="max-w-2xl mx-auto text-center space-y-4">
-            <h3 className="text-2xl font-bold text-foreground">Stay Informed</h3>
-            <p className="text-muted-foreground">
-              Subscribe to receive updates on investment opportunities and portfolio developments
-            </p>
-            <form onSubmit={handleNewsletterSubmit} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto pt-2">
-              <Input
-                type="email"
-                placeholder="Enter your email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="flex-1"
-                disabled={isSubmitting}
-                required
-              />
-              <Button type="submit" disabled={isSubmitting} className="sm:w-auto">
-                {isSubmitting ? (
-                  "Subscribing..."
-                ) : (
-                  <>
-                    Subscribe
-                    <Send className="ml-2 h-4 w-4" />
-                  </>
-                )}
-              </Button>
-            </form>
-          </div>
-        </div>
+    <footer className="bg-background border-t border-border">
+      <div className="max-w-7xl mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
-          {/* Company Info */}
+          {/* LEFT BLOCK - Company Info */}
           <div className="space-y-4 lg:col-span-1">
-            <div className="flex items-center space-x-3 mb-4">
-              <img 
-                src="/lovable-uploads/d1011e6f-955a-48d9-adef-662af751c3b9.png" 
-                alt="Digital Invest Inc. Logo" 
-                className="w-10 h-10 object-contain"
-              />
-              <h3 className="text-lg font-bold text-foreground">Digital Invest Inc.</h3>
-            </div>
+            <h3 className="text-lg font-bold text-foreground">Digital Invest Inc.</h3>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              Building and scaling technology projects in real-economy sectors, AI, manufacturing, and healthcare.
+              Building and scaling real-economy, AI, manufacturing, and health-technology projects across the United States.
             </p>
-            <div className="flex space-x-3 pt-2">
-              <a href="https://www.linkedin.com/company/digital-invest-inc/" 
-                 target="_blank" 
-                 rel="noopener noreferrer"
-                 className="p-2 bg-secondary rounded-lg hover:bg-secondary/80 transition-colors"
-                 aria-label="LinkedIn">
-                <Linkedin className="h-5 w-5" style={{ color: '#0077B5' }} />
-              </a>
-              <a href="https://www.facebook.com/digitalinvestcompany" 
-                 target="_blank" 
-                 rel="noopener noreferrer"
-                 className="p-2 bg-secondary rounded-lg hover:bg-secondary/80 transition-colors"
-                 aria-label="Facebook">
-                <Facebook className="h-5 w-5" style={{ color: '#1877F2' }} />
-              </a>
-              <a href="https://www.youtube.com/@BiomathLife" 
-                 target="_blank" 
-                 rel="noopener noreferrer"
-                 className="p-2 bg-secondary rounded-lg hover:bg-secondary/80 transition-colors"
-                 aria-label="YouTube">
-                <Youtube className="h-5 w-5" style={{ color: '#FF0000' }} />
-              </a>
-            </div>
           </div>
 
-          {/* Our Projects */}
+          {/* MIDDLE COLUMNS - Projects */}
           <div className="space-y-4">
-            <h4 className="font-semibold text-foreground">Projects & Company</h4>
+            <h4 className="font-semibold text-foreground">Projects</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li><Link to="/" className="hover:text-primary transition-colors">Home</Link></li>
               <li><Link to="/projects" className="hover:text-primary transition-colors">Projects</Link></li>
               <li><Link to="/how-it-works" className="hover:text-primary transition-colors">How It Works</Link></li>
               <li><Link to="/news" className="hover:text-primary transition-colors">News</Link></li>
+            </ul>
+          </div>
+
+          {/* MIDDLE COLUMNS - Company */}
+          <div className="space-y-4">
+            <h4 className="font-semibold text-foreground">Company</h4>
+            <ul className="space-y-2 text-sm text-muted-foreground">
               <li><Link to="/team-members" className="hover:text-primary transition-colors">Team</Link></li>
               <li><Link to="/contact" className="hover:text-primary transition-colors">Contact</Link></li>
             </ul>
           </div>
 
-          {/* Company */}
-          <div className="space-y-4">
-            <h4 className="font-semibold text-foreground">Our Projects</h4>
-            <ul className="space-y-2 text-sm text-muted-foreground">
-              <li><Link to="/projects/biomathlife" className="hover:text-primary transition-colors">BioMath Life Platform</Link></li>
-              <li><Link to="/projects/biomathcore" className="hover:text-primary transition-colors">BioMath Core</Link></li>
-              <li><Link to="/projects/terraaero" className="hover:text-primary transition-colors">TerraAero</Link></li>
-              <li><Link to="/projects/dishcore" className="hover:text-primary transition-colors">DishCore</Link></li>
-            </ul>
-          </div>
-
-          {/* Legal */}
+          {/* MIDDLE COLUMNS - Legal */}
           <div className="space-y-4">
             <h4 className="font-semibold text-foreground">Legal</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
@@ -177,46 +46,45 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Contact */}
+          {/* RIGHT BLOCK - Contact */}
           <div className="space-y-4">
             <h4 className="font-semibold text-foreground">Contact</h4>
             <div className="space-y-3">
-              <div className="flex items-start space-x-3 text-muted-foreground">
-                <MapPin className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />
-                <div className="text-sm">
-                  <p className="font-medium">Digital Invest Inc.</p>
-                  <p>Charlotte, NC 28204</p>
-                  <p>United States</p>
-                </div>
-              </div>
               <div className="flex items-center space-x-3 text-muted-foreground">
                 <Mail className="h-4 w-4 text-primary flex-shrink-0" />
-                <a href="mailto:info@digitalinvest.com" className="text-sm hover:text-primary transition-colors">
-                  info@digitalinvest.com
+                <a href="mailto:info@digitalinvest.inc" className="text-sm hover:text-primary transition-colors">
+                  info@digitalinvest.inc
+                </a>
+              </div>
+              <div className="flex items-start space-x-3 text-muted-foreground">
+                <MapPin className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />
+                <p className="text-sm">United States</p>
+              </div>
+              <div className="pt-2">
+                <a 
+                  href="https://www.linkedin.com/company/digital-invest-inc/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
+                  aria-label="LinkedIn">
+                  <Linkedin className="h-4 w-4" />
+                  <span>LinkedIn</span>
                 </a>
               </div>
             </div>
           </div>
         </div>
         
-        <div className="border-t border-border mt-12 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 text-center md:text-left">
-            <div className="text-xs text-muted-foreground max-w-2xl">
-              <p className="mb-2">
-                <strong>Digital Invest Inc.</strong> — Building and scaling real-economy, AI, manufacturing, and health-technology projects.
-              </p>
-              <p>
-                All investments involve risk, including the possible loss of capital. Past performance is not indicative of future results. This website is for informational purposes only and does not constitute a public offer or solicitation to buy securities.
-              </p>
-            </div>
+        {/* BOTTOM BAR */}
+        <div className="border-t border-border mt-10 pt-6">
+          <div className="text-center space-y-2">
+            <p className="text-xs text-muted-foreground">
+              © {currentYear} Digital Invest Inc. All rights reserved.
+            </p>
+            <p className="text-xs text-muted-foreground max-w-3xl mx-auto">
+              All investments involve risk and may result in loss of capital. Information on this website is for informational purposes only.
+            </p>
           </div>
-        </div>
-        
-        {/* Copyright - Bottom */}
-        <div className="border-t border-border mt-8 pt-6 text-center">
-          <p className="text-xs text-muted-foreground">
-            © 2010-2025 Digital Invest Inc. All rights reserved.
-          </p>
         </div>
       </div>
     </footer>
