@@ -12,9 +12,7 @@ const Footer = () => {
   const [email, setEmail] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
-  const [scrollOffset, setScrollOffset] = useState(0);
   const footerRef = useRef<HTMLElement>(null);
-  const logoRef = useRef<HTMLDivElement>(null);
   const { toast } = useToast();
 
   useEffect(() => {
@@ -39,23 +37,6 @@ const Footer = () => {
         observer.unobserve(footerRef.current);
       }
     };
-  }, []);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (footerRef.current && logoRef.current) {
-        const footerTop = footerRef.current.getBoundingClientRect().top;
-        const windowHeight = window.innerHeight;
-        
-        if (footerTop < windowHeight) {
-          const offset = (windowHeight - footerTop) * 0.15;
-          setScrollOffset(offset);
-        }
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const handleNewsletterSubmit = async (e: React.FormEvent) => {
@@ -126,11 +107,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
           {/* Company Info */}
           <div className="space-y-4 lg:col-span-1">
-            <div 
-              ref={logoRef}
-              className="flex items-center space-x-3 mb-4 transition-transform duration-300 ease-out"
-              style={{ transform: `translateY(-${scrollOffset}px)` }}
-            >
+            <div className="flex items-center space-x-3 mb-4">
               <img 
                 src="/lovable-uploads/d1011e6f-955a-48d9-adef-662af751c3b9.png" 
                 alt="Digital Invest Inc. Logo" 
