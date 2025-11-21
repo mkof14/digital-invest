@@ -50,6 +50,13 @@ const Index = () => {
       link: "/projects/biomathcore"
     },
     {
+      title: "DishCore",
+      description: "Personal nutrition and body-tracking platform that helps you eat smarter, feel better, and stay in shape with personalized menus, progress tracking, and smart insights.",
+      category: "Nutrition Platform",
+      image: biotechViz,
+      link: "/projects/dishcore"
+    },
+    {
       title: "Digital Invest Inc.",
       description: "Strategic technology consulting and comprehensive investment portfolio management across multiple innovative biotechnology projects.",
       category: "Investment Platform",
@@ -97,7 +104,7 @@ const Index = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 pt-16 max-w-5xl mx-auto animate-fade-in">
             {[
               { value: "25+", label: "Years Experience" },
-              { value: "4", label: "Active Projects" },
+              { value: "5", label: "Active Projects" },
               { value: "$19.5B", label: "Previous Exit Value" },
               { value: "15+", label: "Countries Served" }
             ].map((stat, index) => (
