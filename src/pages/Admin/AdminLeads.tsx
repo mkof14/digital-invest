@@ -26,7 +26,7 @@ interface Lead {
 const AdminLeads = () => {
   const [leads, setLeads] = useState<Lead[]>([]);
   const [loading, setLoading] = useState(true);
-  const [filterStatus, setFilterStatus] = useState<string>('all');
+  const [filterStatus, setFilterStatus] = useState<string | 'all'>('all');
   const { toast } = useToast();
 
   useEffect(() => {
@@ -46,7 +46,7 @@ const AdminLeads = () => {
         .order('created_at', { ascending: false });
 
       if (filterStatus !== 'all') {
-        query = query.eq('status', filterStatus);
+        query = query.eq('status', filterStatus as any);
       }
 
       const { data, error } = await query;
@@ -64,7 +64,7 @@ const AdminLeads = () => {
     }
   };
 
-  const updateLeadStatus = async (leadId: string, newStatus: string) => {
+  const updateLeadStatus = async (leadId: string, newStatus: any) => {
     try {
       const { error } = await supabase
         .from('investor_leads')

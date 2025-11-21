@@ -20,6 +20,15 @@ import BioMathCore from "./pages/Projects/BioMathCore";
 import TerraAero from "./pages/Projects/TerraAero";
 import DigitalInvest from "./pages/Projects/DigitalInvest";
 import DishCore from "./pages/Projects/DishCore";
+import Projects from "./pages/Projects";
+import ProjectDetail from "./pages/ProjectDetail";
+import HowItWorks from "./pages/HowItWorks";
+import ForInvestors from "./pages/ForInvestors";
+import Auth from "./pages/Auth";
+import AdminLayout from "./pages/Admin/AdminLayout";
+import AdminDashboard from "./pages/Admin/AdminDashboard";
+import AdminProjects from "./pages/Admin/AdminProjects";
+import AdminLeads from "./pages/Admin/AdminLeads";
 
 const queryClient = new QueryClient();
 
@@ -41,13 +50,23 @@ const App = () => (
             <Route path="/privacy" element={<Privacy />} />
             <Route path="/terms" element={<Terms />} />
             <Route path="/cookies" element={<Cookies />} />
-            <Route path="/projects/biomathlife" element={<BioMathLife />} />
-            <Route path="/projects/biomathcore" element={<BioMathCore />} />
-            <Route path="/projects/terraaero" element={<TerraAero />} />
-            <Route path="/projects/digital-invest" element={<DigitalInvest />} />
-            <Route path="/projects/dishcore" element={<DishCore />} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-            <Route path="*" element={<NotFound />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/projects/:slug" element={<ProjectDetail />} />
+          <Route path="/how-it-works" element={<HowItWorks />} />
+          <Route path="/for-investors" element={<ForInvestors />} />
+          <Route path="/auth" element={<Auth />} />
+          <Route path="/admin" element={<AdminLayout />}>
+            <Route index element={<AdminDashboard />} />
+            <Route path="projects" element={<AdminProjects />} />
+            <Route path="leads" element={<AdminLeads />} />
+          </Route>
+          <Route path="/projects/biomathlife" element={<BioMathLife />} />
+          <Route path="/projects/biomathcore" element={<BioMathCore />} />
+          <Route path="/projects/terraaero" element={<TerraAero />} />
+          <Route path="/projects/digital-invest" element={<DigitalInvest />} />
+          <Route path="/projects/dishcore" element={<DishCore />} />
+          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+          <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
       </TooltipProvider>

@@ -23,6 +23,7 @@ export type Database = {
           email: string
           id: string
           name: string
+          notes: string | null
           phone: string | null
           project_id: string
           status: Database["public"]["Enums"]["lead_status"] | null
@@ -35,6 +36,7 @@ export type Database = {
           email: string
           id?: string
           name: string
+          notes?: string | null
           phone?: string | null
           project_id: string
           status?: Database["public"]["Enums"]["lead_status"] | null
@@ -47,6 +49,7 @@ export type Database = {
           email?: string
           id?: string
           name?: string
+          notes?: string | null
           phone?: string | null
           project_id?: string
           status?: Database["public"]["Enums"]["lead_status"] | null
@@ -60,6 +63,42 @@ export type Database = {
             referencedColumns: ["id"]
           },
         ]
+      }
+      news_posts: {
+        Row: {
+          body: string
+          created_at: string
+          excerpt: string
+          id: string
+          is_published: boolean | null
+          published_at: string | null
+          slug: string
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          body: string
+          created_at?: string
+          excerpt: string
+          id?: string
+          is_published?: boolean | null
+          published_at?: string | null
+          slug: string
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          body?: string
+          created_at?: string
+          excerpt?: string
+          id?: string
+          is_published?: boolean | null
+          published_at?: string | null
+          slug?: string
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
       }
       project_updates: {
         Row: {
@@ -106,8 +145,10 @@ export type Database = {
           hero_image_url: string
           id: string
           is_visible: boolean | null
+          location: string | null
           long_description: string
           min_ticket: number | null
+          priority: number | null
           short_description: string
           slug: string
           status: Database["public"]["Enums"]["project_status"]
@@ -124,8 +165,10 @@ export type Database = {
           hero_image_url: string
           id?: string
           is_visible?: boolean | null
+          location?: string | null
           long_description: string
           min_ticket?: number | null
+          priority?: number | null
           short_description: string
           slug: string
           status?: Database["public"]["Enums"]["project_status"]
@@ -142,12 +185,56 @@ export type Database = {
           hero_image_url?: string
           id?: string
           is_visible?: boolean | null
+          location?: string | null
           long_description?: string
           min_ticket?: number | null
+          priority?: number | null
           short_description?: string
           slug?: string
           status?: Database["public"]["Enums"]["project_status"]
           target_amount?: number | null
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      team_members: {
+        Row: {
+          bio: string | null
+          created_at: string
+          email: string | null
+          full_name: string
+          id: string
+          is_visible: boolean | null
+          linkedin_url: string | null
+          order_index: number | null
+          photo_url: string | null
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          bio?: string | null
+          created_at?: string
+          email?: string | null
+          full_name: string
+          id?: string
+          is_visible?: boolean | null
+          linkedin_url?: string | null
+          order_index?: number | null
+          photo_url?: string | null
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          bio?: string | null
+          created_at?: string
+          email?: string | null
+          full_name?: string
+          id?: string
+          is_visible?: boolean | null
+          linkedin_url?: string | null
+          order_index?: number | null
+          photo_url?: string | null
           title?: string
           updated_at?: string
         }
