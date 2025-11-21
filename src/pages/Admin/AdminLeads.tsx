@@ -3,8 +3,9 @@ import { supabase } from '@/integrations/supabase/client';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Loader2, Mail, Phone, MapPin, MessageSquare } from 'lucide-react';
+import { Loader2, Mail, Phone, MapPin, MessageSquare, Search } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
 interface Lead {
@@ -27,6 +28,7 @@ const AdminLeads = () => {
   const [leads, setLeads] = useState<Lead[]>([]);
   const [loading, setLoading] = useState(true);
   const [filterStatus, setFilterStatus] = useState<string | 'all'>('all');
+  const [searchQuery, setSearchQuery] = useState('');
   const { toast } = useToast();
 
   useEffect(() => {
@@ -63,6 +65,16 @@ const AdminLeads = () => {
       setLoading(false);
     }
   };
+
+  const filteredLeads = leads.filter((lead) => {
+    if (!searchQuery) return true;
+    const search = searchQuery.toLowerCase();
+    return (
+      lead.name.toLowerCase().includes(search) ||
+      lead.email.toLowerCase().includes(search) ||
+      (lead.phone?.toLowerCase().includes(search) ?? false)
+    );
+  });
 
   const updateLeadStatus = async (leadId: string, newStatus: any) => {
     try {
@@ -122,22 +134,33 @@ const AdminLeads = () => {
           <h2 className="text-3xl font-bold text-foreground">Investor Leads</h2>
           <p className="text-muted-foreground">Manage expressions of interest from potential investors</p>
         </div>
-        <Select value={filterStatus} onValueChange={setFilterStatus}>
-          <SelectTrigger className="w-[180px]">
-            <SelectValue placeholder="Filter by status" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="all">All Leads</SelectItem>
-            <SelectItem value="NEW">New</SelectItem>
-            <SelectItem value="CONTACTED">Contacted</SelectItem>
-            <SelectItem value="QUALIFIED">Qualified</SelectItem>
-            <SelectItem value="DECLINED">Declined</SelectItem>
-          </SelectContent>
-        </Select>
+        <div className="flex gap-2">
+          <div className="relative">
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+            <Input
+              placeholder="Search by name or email..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="pl-9 w-[250px]"
+            />
+          </div>
+          <Select value={filterStatus} onValueChange={setFilterStatus}>
+            <SelectTrigger className="w-[180px]">
+              <SelectValue placeholder="Filter by status" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="all">All Leads</SelectItem>
+              <SelectItem value="NEW">New</SelectItem>
+              <SelectItem value="CONTACTED">Contacted</SelectItem>
+              <SelectItem value="QUALIFIED">Qualified</SelectItem>
+              <SelectItem value="DECLINED">Declined</SelectItem>
+            </SelectContent>
+          </Select>
+        </div>
       </div>
 
       <div className="grid gap-6">
-        {leads.map((lead) => (
+        {filteredLeads.map((lead) => (
           <Card key={lead.id} className="border border-border/50">
             <CardHeader>
               <div className="flex justify-between items-start">
@@ -242,10 +265,14 @@ const AdminLeads = () => {
           </Card>
         ))}
 
-        {leads.length === 0 && (
+        {filteredLeads.length === 0 && (
           <div className="text-center py-12">
             <p className="text-muted-foreground">
-              {filterStatus === 'all' ? 'No leads yet.' : `No leads with status "${filterStatus}".`}
+              {searchQuery 
+                ? `No leads matching "${searchQuery}"`
+                : filterStatus === 'all' 
+                  ? 'No leads yet.' 
+                  : `No leads with status "${filterStatus}".`}
             </p>
           </div>
         )}
