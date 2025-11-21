@@ -118,20 +118,21 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Our Projects Section */}
+      {/* Featured Projects Section */}
       <section className="py-24 px-4 bg-card/30">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16 space-y-4">
+            <Badge variant="secondary" className="mb-2">Investment Opportunities</Badge>
             <h2 className="text-3xl md:text-5xl font-bold text-foreground">
-              Our Innovation Portfolio
+              Featured Projects
             </h2>
             <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
-              Four flagship projects at the intersection of biotechnology, mathematics, and artificial intelligence
+              Explore our active investment opportunities across technology, healthcare, and real-economy sectors
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 mb-12">
-            {projects.map((project, index) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+            {projects.slice(0, 3).map((project, index) => (
               <div key={index} className="animate-fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
                 <CrowdfundingProjectCard {...project} />
               </div>
@@ -139,7 +140,7 @@ const Index = () => {
           </div>
           
           <div className="text-center">
-            <Link to="/projects/biomathlife">
+            <Link to="/projects">
               <Button size="lg" variant="outline" className="px-8 py-6 text-lg group border-2">
                 View All Projects
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />

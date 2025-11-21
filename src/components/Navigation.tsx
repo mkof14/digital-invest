@@ -12,10 +12,9 @@ const Navigation = () => {
     { label: 'Home', href: '/' },
     { label: 'Projects', href: '/projects' },
     { label: 'How It Works', href: '/how-it-works' },
-    { label: 'Platform', href: '/platform' },
-    { label: 'Services', href: '/services' },
-    { label: 'Team', href: '/team' },
-    { label: 'For Investors', href: '/for-investors' }
+    { label: 'Team', href: '/team-members' },
+    { label: 'News', href: '/news' },
+    { label: 'Contact', href: '/contact' }
   ];
 
   return (

@@ -42,6 +42,8 @@ const AdminLayout = () => {
     { icon: LayoutDashboard, label: 'Dashboard', path: '/admin' },
     { icon: FolderOpen, label: 'Projects', path: '/admin/projects' },
     { icon: Users, label: 'Investor Leads', path: '/admin/leads' },
+    { icon: Users, label: 'Team Members', path: '/admin/team' },
+    { icon: FolderOpen, label: 'News & Updates', path: '/admin/news' },
   ];
 
   if (loading) {

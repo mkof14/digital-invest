@@ -116,7 +116,7 @@ const Footer = () => {
               <h3 className="text-lg font-bold text-foreground">Digital Invest Inc.</h3>
             </div>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              Innovative technology investment portfolio focused on precision medicine, digital health, and agricultural solutions.
+              Building and scaling technology projects in real-economy sectors, AI, manufacturing, and healthcare.
             </p>
             <div className="flex space-x-3 pt-2">
               <a href="https://www.linkedin.com/company/digital-invest-inc/" 
@@ -145,28 +145,25 @@ const Footer = () => {
 
           {/* Our Projects */}
           <div className="space-y-4">
+            <h4 className="font-semibold text-foreground">Projects & Company</h4>
+            <ul className="space-y-2 text-sm text-muted-foreground">
+              <li><Link to="/" className="hover:text-primary transition-colors">Home</Link></li>
+              <li><Link to="/projects" className="hover:text-primary transition-colors">Projects</Link></li>
+              <li><Link to="/how-it-works" className="hover:text-primary transition-colors">How It Works</Link></li>
+              <li><Link to="/news" className="hover:text-primary transition-colors">News</Link></li>
+              <li><Link to="/team-members" className="hover:text-primary transition-colors">Team</Link></li>
+              <li><Link to="/contact" className="hover:text-primary transition-colors">Contact</Link></li>
+            </ul>
+          </div>
+
+          {/* Company */}
+          <div className="space-y-4">
             <h4 className="font-semibold text-foreground">Our Projects</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li><Link to="/projects/biomathlife" className="hover:text-primary transition-colors">BioMath Life Platform</Link></li>
               <li><Link to="/projects/biomathcore" className="hover:text-primary transition-colors">BioMath Core</Link></li>
               <li><Link to="/projects/terraaero" className="hover:text-primary transition-colors">TerraAero</Link></li>
               <li><Link to="/projects/dishcore" className="hover:text-primary transition-colors">DishCore</Link></li>
-              <li><Link to="/projects/digital-invest" className="hover:text-primary transition-colors">Investment Portfolio</Link></li>
-            </ul>
-          </div>
-
-          {/* Company */}
-          <div className="space-y-4">
-            <h4 className="font-semibold text-foreground">Company</h4>
-            <ul className="space-y-2 text-sm text-muted-foreground">
-              <li><Link to="/team" className="hover:text-primary transition-colors">Leadership Team</Link></li>
-              <li><Link to="/recognition" className="hover:text-primary transition-colors">Recognition & Awards</Link></li>
-              <li><Link to="/partnerships" className="hover:text-primary transition-colors">Partnerships</Link></li>
-              <li><Link to="/services" className="hover:text-primary transition-colors">Our Services</Link></li>
-              <li><a href="https://www.healthcaretechoutlook.com/digital-invest-inc" 
-                     target="_blank" 
-                     rel="noopener noreferrer"
-                     className="hover:text-primary transition-colors">Press Coverage</a></li>
             </ul>
           </div>
 
@@ -174,9 +171,9 @@ const Footer = () => {
           <div className="space-y-4">
             <h4 className="font-semibold text-foreground">Legal</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li><Link to="/privacy" className="hover:text-primary transition-colors">Privacy Policy</Link></li>
-              <li><Link to="/terms" className="hover:text-primary transition-colors">Terms of Service</Link></li>
-              <li><Link to="/cookies" className="hover:text-primary transition-colors">Cookie Policy</Link></li>
+              <li><Link to="/legal/terms" className="hover:text-primary transition-colors">Terms of Use</Link></li>
+              <li><Link to="/legal/privacy" className="hover:text-primary transition-colors">Privacy Policy</Link></li>
+              <li><Link to="/legal/risk-disclosure" className="hover:text-primary transition-colors">Risk Disclosure</Link></li>
             </ul>
           </div>
 
@@ -206,10 +203,10 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 text-center md:text-left">
             <div className="text-xs text-muted-foreground max-w-2xl">
               <p className="mb-2">
-                <strong>Digital Invest Inc.</strong>
+                <strong>Digital Invest Inc.</strong> — Building and scaling real-economy, AI, manufacturing, and health-technology projects.
               </p>
               <p>
-                Investment involves risk. Past performance is not indicative of future results. Healthcare technology services are for informational purposes and do not replace professional medical advice.
+                All investments involve risk, including the possible loss of capital. Past performance is not indicative of future results. This website is for informational purposes only and does not constitute a public offer or solicitation to buy securities.
               </p>
             </div>
           </div>
