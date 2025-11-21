@@ -57,6 +57,10 @@ const Navigation = () => {
               )}
             </Button>
             
+            <Button variant="outline" size="sm" asChild>
+              <Link to="/auth">Admin</Link>
+            </Button>
+            
             <Button variant="default" asChild className="hover:scale-105 transition-transform">
               <Link to="/start-investing">Start Investing</Link>
             </Button>
@@ -102,7 +106,11 @@ const Navigation = () => {
                 {theme === "light" ? "Dark Mode" : "Light Mode"}
               </Button>
               
-              <Button variant="default" className="mt-4 hover:scale-105 transition-transform" asChild>
+              <Button variant="outline" className="mt-4" asChild>
+                <Link to="/auth">Admin Login</Link>
+              </Button>
+              
+              <Button variant="default" className="mt-2 hover:scale-105 transition-transform" asChild>
                 <Link to="/start-investing">Start Investing</Link>
               </Button>
             </div>
