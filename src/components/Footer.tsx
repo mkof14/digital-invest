@@ -1,10 +1,78 @@
 import { Link } from 'react-router-dom';
-import { Linkedin, Facebook, Youtube, MapPin, Mail, Phone } from 'lucide-react';
+import { Linkedin, Facebook, Youtube, MapPin, Mail, Phone, Send } from 'lucide-react';
+import { useState } from 'react';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { useToast } from '@/hooks/use-toast';
+import { z } from 'zod';
+
+const emailSchema = z.string().trim().email({ message: "Please enter a valid email address" }).max(255, { message: "Email must be less than 255 characters" });
 
 const Footer = () => {
+  const [email, setEmail] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { toast } = useToast();
+
+  const handleNewsletterSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    const validation = emailSchema.safeParse(email);
+    
+    if (!validation.success) {
+      toast({
+        title: "Invalid Email",
+        description: validation.error.errors[0].message,
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setIsSubmitting(true);
+    
+    // Simulate API call - replace with actual backend integration
+    setTimeout(() => {
+      toast({
+        title: "Successfully Subscribed!",
+        description: "Thank you for your interest. We'll keep you updated on investment opportunities.",
+      });
+      setEmail('');
+      setIsSubmitting(false);
+    }, 1000);
+  };
+
   return (
     <footer className="bg-background border-t border-border">
       <div className="max-w-7xl mx-auto px-4 py-16">
+        {/* Newsletter Section */}
+        <div className="mb-12 pb-12 border-b border-border">
+          <div className="max-w-2xl mx-auto text-center space-y-4">
+            <h3 className="text-2xl font-bold text-foreground">Stay Informed</h3>
+            <p className="text-muted-foreground">
+              Subscribe to receive updates on investment opportunities and portfolio developments
+            </p>
+            <form onSubmit={handleNewsletterSubmit} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto pt-2">
+              <Input
+                type="email"
+                placeholder="Enter your email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="flex-1"
+                disabled={isSubmitting}
+                required
+              />
+              <Button type="submit" disabled={isSubmitting} className="sm:w-auto">
+                {isSubmitting ? (
+                  "Subscribing..."
+                ) : (
+                  <>
+                    Subscribe
+                    <Send className="ml-2 h-4 w-4" />
+                  </>
+                )}
+              </Button>
+            </form>
+          </div>
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
           {/* Company Info */}
           <div className="space-y-4 lg:col-span-1">
