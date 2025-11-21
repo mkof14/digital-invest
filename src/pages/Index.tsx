@@ -124,7 +124,7 @@ const Index = () => {
                 <TrendingUp className="ml-2 h-5 w-5" />
               </Button>
             </Link>
-            <Link to="/platform">
+            <Link to="/projects/biomathlife">
               <Button size="lg" variant="outline" className="px-10 py-6 text-base">
                 Our Platform
                 <ArrowRight className="ml-2 h-5 w-5" />
@@ -248,34 +248,34 @@ const Index = () => {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16 space-y-4">
             <h2 className="text-3xl md:text-5xl font-bold text-foreground">
-              Proven Excellence in Biotech Innovation
+              Strategic Capabilities Across Key Sectors
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              Strategic advantages that position us as leaders in precision medicine investment
+              Diverse expertise spanning health technology, AI systems, advanced manufacturing, and agricultural innovation
             </p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
               {
-                icon: <Target className="w-12 h-12" />,
-                title: "Precision Focus",
-                description: "Deep specialization in mathematical modeling and AI-driven precision medicine solutions"
-              },
-              {
-                icon: <Award className="w-12 h-12" />,
-                title: "Proven Leadership",
-                description: "Executive team with 70+ combined years and $19.5B previous exit success"
+                icon: <Lightbulb className="w-12 h-12" />,
+                title: "Health & AI Technology",
+                description: "Advanced platforms combining precision health, genomics, AI diagnostics, and personalized care systems"
               },
               {
                 icon: <Building2 className="w-12 h-12" />,
-                title: "Corporate Excellence",
-                description: "Full regulatory compliance with healthcare and investment industry standards"
+                title: "Smart Manufacturing",
+                description: "Intelligent production systems for food tech, drone manufacturing, and scalable operations"
               },
               {
-                icon: <Lightbulb className="w-12 h-12" />,
-                title: "Innovation Pipeline",
-                description: "Proprietary technology platforms spanning diagnostics, treatment, and data analytics"
+                icon: <Target className="w-12 h-12" />,
+                title: "Agricultural Innovation",
+                description: "Precision drone operations, field analytics, and agritech solutions across the Southern U.S."
+              },
+              {
+                icon: <Award className="w-12 h-12" />,
+                title: "Proven Execution",
+                description: "Executive team with 70+ combined years and $19.5B previous exit success driving real results"
               }
             ].map((feature, index) => (
               <Card key={index} className="hover:-translate-y-1 transition-all duration-300 border border-border/50 bg-card hover:shadow-lg">
