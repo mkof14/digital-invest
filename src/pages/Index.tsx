@@ -124,12 +124,6 @@ const Index = () => {
                 <TrendingUp className="ml-2 h-5 w-5" />
               </Button>
             </Link>
-            <Link to="/projects/biomathlife">
-              <Button size="lg" variant="outline" className="px-10 py-6 text-base">
-                Our Platform
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-            </Link>
           </div>
 
           {/* Key Metrics */}
