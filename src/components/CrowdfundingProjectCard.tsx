@@ -25,7 +25,7 @@ const CrowdfundingProjectCard = ({
         <img 
           src={image} 
           alt={title}
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          className="w-full h-full object-cover group-hover:scale-110 transition-all duration-700 ease-out group-hover:brightness-105"
         />
         <Badge className="absolute top-4 left-4 bg-background/95 backdrop-blur-sm border-primary/20">
           {category}
