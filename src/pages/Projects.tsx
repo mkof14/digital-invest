@@ -7,6 +7,8 @@ import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
 import { TrendingUp, ArrowRight, Loader2 } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+import Navigation from '@/components/Navigation';
+import Footer from '@/components/Footer';
 
 interface Project {
   id: string;
@@ -71,19 +73,25 @@ const Projects = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen pt-24 pb-16">
-        <div className="container mx-auto px-4">
-          <div className="flex justify-center items-center h-64">
-            <Loader2 className="h-12 w-12 animate-spin text-primary" />
+      <div className="min-h-screen bg-background">
+        <Navigation />
+        <div className="pt-24 pb-16">
+          <div className="container mx-auto px-4">
+            <div className="flex justify-center items-center h-64">
+              <Loader2 className="h-12 w-12 animate-spin text-primary" />
+            </div>
           </div>
         </div>
+        <Footer />
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen pt-24 pb-16">
-      <div className="container mx-auto px-4">
+    <div className="min-h-screen bg-background">
+      <Navigation />
+      <div className="pt-24 pb-16">
+        <div className="container mx-auto px-4">
         {/* Header */}
         <div className="mb-12 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
@@ -168,7 +176,9 @@ const Projects = () => {
             ))}
           </div>
         )}
+        </div>
       </div>
+      <Footer />
     </div>
   );
 };
