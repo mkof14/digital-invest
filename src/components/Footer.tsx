@@ -147,14 +147,6 @@ const Footer = () => {
               <li><Link to="/terms" className="hover:text-primary transition-colors">Terms of Service</Link></li>
               <li><Link to="/cookies" className="hover:text-primary transition-colors">Cookie Policy</Link></li>
             </ul>
-            <div className="pt-4">
-              <p className="text-xs text-muted-foreground">
-                © 2010-2025 Digital Invest Inc.
-              </p>
-              <p className="text-xs text-muted-foreground">
-                All rights reserved.
-              </p>
-            </div>
           </div>
 
           {/* Contact */}
@@ -190,6 +182,13 @@ const Footer = () => {
               </p>
             </div>
           </div>
+        </div>
+        
+        {/* Copyright - Bottom */}
+        <div className="border-t border-border mt-8 pt-6 text-center">
+          <p className="text-xs text-muted-foreground">
+            © 2010-2025 Digital Invest Inc. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>
