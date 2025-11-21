@@ -19,6 +19,7 @@ import BioMathLife from "./pages/Projects/BioMathLife";
 import BioMathCore from "./pages/Projects/BioMathCore";
 import TerraAero from "./pages/Projects/TerraAero";
 import DigitalInvest from "./pages/Projects/DigitalInvest";
+import DishCore from "./pages/Projects/DishCore";
 
 const queryClient = new QueryClient();
 
@@ -44,6 +45,7 @@ const App = () => (
             <Route path="/projects/biomathcore" element={<BioMathCore />} />
             <Route path="/projects/terraaero" element={<TerraAero />} />
             <Route path="/projects/digital-invest" element={<DigitalInvest />} />
+            <Route path="/projects/dishcore" element={<DishCore />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

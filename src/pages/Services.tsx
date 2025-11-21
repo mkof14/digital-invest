@@ -114,6 +114,29 @@ const Services = () => {
     }
   ];
 
+  const dishCoreServices = [
+    {
+      icon: <Activity className="h-12 w-12 text-primary mb-4" />,
+      title: "Personalized Meal Planning",
+      description: "Custom daily menus and recipes tailored to your goals, preferences, and body data."
+    },
+    {
+      icon: <Brain className="h-12 w-12 text-primary mb-4" />,
+      title: "Smart Food Analysis",
+      description: "Analyze what you eat and how it affects your body with intelligent insights."
+    },
+    {
+      icon: <BarChart3 className="h-12 w-12 text-primary mb-4" />,
+      title: "Progress Tracking",
+      description: "Visual tracking of body changes and nutritional progress with weekly reports."
+    },
+    {
+      icon: <Heart className="h-12 w-12 text-primary mb-4" />,
+      title: "Goal-Aligned Nutrition",
+      description: "Every recommendation based on your specific health objectives and lifestyle."
+    }
+  ];
+
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
@@ -269,6 +292,41 @@ const Services = () => {
                   {service.icon}
                   <h3 className="text-xl font-bold mb-4">{service.title}</h3>
                   <p className="text-muted-foreground">{service.description}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* DishCore Services */}
+      <section className="py-20 px-4">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <Badge className="mb-4 bg-success/10 text-success border-success/20">
+              Nutrition Platform
+            </Badge>
+            <h2 className="text-4xl font-bold text-foreground mb-4">
+              DishCore Platform
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-6">
+              Personal nutrition and body-tracking platform for smarter eating
+            </p>
+            <Link to="/projects/dishcore">
+              <Button variant="outline">
+                View DishCore
+                <ArrowRight className="ml-2 w-4 h-4" />
+              </Button>
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {dishCoreServices.map((service, index) => (
+              <Card key={index} className="hover-scale border-primary/20">
+                <CardContent className="pt-6 text-center">
+                  {service.icon}
+                  <h3 className="text-lg font-bold mb-3">{service.title}</h3>
+                  <p className="text-sm text-muted-foreground">{service.description}</p>
                 </CardContent>
               </Card>
             ))}
