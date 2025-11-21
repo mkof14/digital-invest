@@ -21,7 +21,7 @@ const HowItWorks = () => {
       number: 3,
       icon: Users,
       title: 'Personal Consultation',
-      description: 'Our investment team will contact you personally to discuss the opportunity in detail. We'll share comprehensive documentation, financial projections, and answer all your questions.',
+      description: 'Our investment team will contact you personally to discuss the opportunity in detail. We will share comprehensive documentation, financial projections, and answer all your questions.',
     },
     {
       number: 4,
