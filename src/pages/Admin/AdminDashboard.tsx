@@ -5,7 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Button } from '@/components/ui/button';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { Badge } from '@/components/ui/badge';
-import { FolderOpen, Users, TrendingUp, Eye } from 'lucide-react';
+import { FolderOpen, Users, TrendingUp, Eye, DollarSign, Percent } from 'lucide-react';
 
 interface Stats {
   totalProjects: number;
@@ -14,6 +14,8 @@ interface Stats {
   newLeads: number;
   contactedLeads: number;
   qualifiedLeads: number;
+  totalRaised: number;
+  conversionRate: number;
 }
 
 interface RecentLead {
@@ -35,6 +37,8 @@ const AdminDashboard = () => {
     newLeads: 0,
     contactedLeads: 0,
     qualifiedLeads: 0,
+    totalRaised: 0,
+    conversionRate: 0,
   });
   const [recentLeads, setRecentLeads] = useState<RecentLead[]>([]);
 
@@ -47,19 +51,26 @@ const AdminDashboard = () => {
     try {
       const { data: projects } = await supabase
         .from('projects')
-        .select('id, status');
+        .select('id, status, current_raised');
 
       const { data: leads } = await supabase
         .from('investor_leads')
         .select('id, status');
 
+      const totalRaised = projects?.reduce((sum, p) => sum + (Number(p.current_raised) || 0), 0) || 0;
+      const totalLeadsCount = leads?.length || 0;
+      const qualifiedLeadsCount = leads?.filter(l => l.status === 'QUALIFIED').length || 0;
+      const conversionRate = totalLeadsCount > 0 ? (qualifiedLeadsCount / totalLeadsCount) * 100 : 0;
+
       setStats({
         totalProjects: projects?.length || 0,
         openProjects: projects?.filter(p => p.status === 'OPEN').length || 0,
-        totalLeads: leads?.length || 0,
+        totalLeads: totalLeadsCount,
         newLeads: leads?.filter(l => l.status === 'NEW').length || 0,
         contactedLeads: leads?.filter(l => l.status === 'CONTACTED').length || 0,
-        qualifiedLeads: leads?.filter(l => l.status === 'QUALIFIED').length || 0,
+        qualifiedLeads: qualifiedLeadsCount,
+        totalRaised,
+        conversionRate,
       });
     } catch (error) {
       console.error('Error fetching stats:', error);
@@ -109,6 +120,22 @@ const AdminDashboard = () => {
       link: '/admin/leads',
     },
     {
+      title: 'Total Raised',
+      value: `$${(stats.totalRaised / 1000).toFixed(0)}k`,
+      description: 'Across all projects',
+      icon: DollarSign,
+      color: 'text-success',
+      link: '/admin/projects',
+    },
+    {
+      title: 'Conversion Rate',
+      value: `${stats.conversionRate.toFixed(1)}%`,
+      description: 'Leads to qualified',
+      icon: Percent,
+      color: 'text-info',
+      link: '/admin/leads',
+    },
+    {
       title: 'Open Opportunities',
       value: stats.openProjects,
       description: 'Active investment opportunities',
@@ -134,7 +161,7 @@ const AdminDashboard = () => {
       </div>
 
       {/* Stats Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {statCards.map((stat) => {
           const Icon = stat.icon;
           return (
