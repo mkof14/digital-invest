@@ -115,7 +115,7 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 text-center md:text-left">
             <div className="text-xs text-muted-foreground max-w-2xl">
               <p className="mb-2">
-                <strong>Digital Invest Inc.</strong> - Formerly GENEX Company (est. 2010). Registered in North Carolina, USA.
+                <strong>Digital Invest Inc.</strong>
               </p>
               <p>
                 Investment involves risk. Past performance is not indicative of future results. Healthcare technology services are for informational purposes and do not replace professional medical advice.
