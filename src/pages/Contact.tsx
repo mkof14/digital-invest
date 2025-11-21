@@ -11,6 +11,7 @@ import { Mail, Phone, MapPin, Loader2, Send, AlertCircle } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
+import { supabase } from '@/integrations/supabase/client';
 
 const formSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters').max(100),
@@ -36,16 +37,34 @@ const Contact = () => {
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     setIsSubmitting(true);
     
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    
-    toast({
-      title: 'Message Sent',
-      description: 'Thank you for reaching out. Our team will respond to your inquiry within 1-2 business days.',
-    });
-    
-    form.reset();
-    setIsSubmitting(false);
+    try {
+      const { error } = await supabase.from('investor_leads').insert({
+        project_id: null,
+        name: values.name,
+        email: values.email,
+        phone: null,
+        country: null,
+        amount_range: 'undisclosed',
+        comments: `Subject: ${values.subject}\n\n${values.message}`,
+      });
+
+      if (error) throw error;
+
+      toast({
+        title: 'Message Sent',
+        description: 'Thank you for reaching out. We will get back to you shortly.',
+      });
+      
+      form.reset();
+    } catch (error: any) {
+      toast({
+        title: 'Error',
+        description: error.message || 'There was an error sending your message. Please try again.',
+        variant: 'destructive',
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (

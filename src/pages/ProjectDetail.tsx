@@ -8,6 +8,8 @@ import { Separator } from '@/components/ui/separator';
 import { ArrowLeft, TrendingUp, Target, Calendar, Users, AlertTriangle, FileText, Loader2 } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import InterestForm from '@/components/InterestForm';
+import Navigation from '@/components/Navigation';
+import Footer from '@/components/Footer';
 
 interface Project {
   id: string;
@@ -108,8 +110,10 @@ const ProjectDetail = () => {
   }
 
   return (
-    <div className="min-h-screen pt-24 pb-16">
-      <div className="container mx-auto px-4">
+    <div className="min-h-screen bg-background">
+      <Navigation />
+      <div className="pt-24 pb-16">
+        <div className="container mx-auto px-4">
         {/* Back Button */}
         <Link to="/projects" className="inline-block mb-6">
           <Button variant="ghost" size="sm">
@@ -308,6 +312,7 @@ const ProjectDetail = () => {
             </div>
           </div>
         </div>
+        </div>
       </div>
 
       {/* Interest Form Modal */}
@@ -317,6 +322,8 @@ const ProjectDetail = () => {
         open={showInterestForm}
         onOpenChange={setShowInterestForm}
       />
+      
+      <Footer />
     </div>
   );
 };
