@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
 import { Separator } from '@/components/ui/separator';
-import { ArrowLeft, TrendingUp, Target, Calendar, Users, AlertTriangle, FileText, Loader2 } from 'lucide-react';
+import { ArrowLeft, TrendingUp, Target, Calendar, Users, AlertTriangle, FileText, Loader2, ExternalLink } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import InterestForm from '@/components/InterestForm';
 import Navigation from '@/components/Navigation';
@@ -25,6 +25,7 @@ interface Project {
   category: string;
   hero_image_url: string;
   deck_url: string | null;
+  website_url: string | null;
 }
 
 const ProjectDetail = () => {
@@ -275,6 +276,22 @@ const ProjectDetail = () => {
 
           {/* Sidebar */}
           <div className="space-y-8">
+            {/* Website Link */}
+            {project.website_url && (
+              <div className="bg-card border border-border p-6 rounded-lg">
+                <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
+                  <ExternalLink className="h-5 w-5 text-primary" />
+                  Project Website
+                </h3>
+                <Button variant="outline" className="w-full" asChild>
+                  <a href={project.website_url} target="_blank" rel="noopener noreferrer">
+                    Visit Website
+                    <ExternalLink className="ml-2 h-4 w-4" />
+                  </a>
+                </Button>
+              </div>
+            )}
+
             {/* Documents */}
             {project.deck_url && (
               <div className="bg-card border border-border p-6 rounded-lg">
