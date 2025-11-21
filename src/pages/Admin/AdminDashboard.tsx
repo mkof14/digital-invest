@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import { supabase } from '@/integrations/supabase/client';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
+import { Badge } from '@/components/ui/badge';
 import { FolderOpen, Users, TrendingUp, Eye } from 'lucide-react';
 
 interface Stats {
@@ -10,6 +12,19 @@ interface Stats {
   openProjects: number;
   totalLeads: number;
   newLeads: number;
+  contactedLeads: number;
+  qualifiedLeads: number;
+}
+
+interface RecentLead {
+  id: string;
+  name: string;
+  email: string;
+  status: string;
+  created_at: string;
+  projects: {
+    title: string;
+  } | null;
 }
 
 const AdminDashboard = () => {
@@ -18,20 +33,22 @@ const AdminDashboard = () => {
     openProjects: 0,
     totalLeads: 0,
     newLeads: 0,
+    contactedLeads: 0,
+    qualifiedLeads: 0,
   });
+  const [recentLeads, setRecentLeads] = useState<RecentLead[]>([]);
 
   useEffect(() => {
     fetchStats();
+    fetchRecentLeads();
   }, []);
 
   const fetchStats = async () => {
     try {
-      // Fetch project stats
       const { data: projects } = await supabase
         .from('projects')
         .select('id, status');
 
-      // Fetch lead stats
       const { data: leads } = await supabase
         .from('investor_leads')
         .select('id, status');
@@ -41,9 +58,36 @@ const AdminDashboard = () => {
         openProjects: projects?.filter(p => p.status === 'OPEN').length || 0,
         totalLeads: leads?.length || 0,
         newLeads: leads?.filter(l => l.status === 'NEW').length || 0,
+        contactedLeads: leads?.filter(l => l.status === 'CONTACTED').length || 0,
+        qualifiedLeads: leads?.filter(l => l.status === 'QUALIFIED').length || 0,
       });
     } catch (error) {
       console.error('Error fetching stats:', error);
+    }
+  };
+
+  const fetchRecentLeads = async () => {
+    try {
+      const { data, error } = await supabase
+        .from('investor_leads')
+        .select('id, name, email, status, created_at, projects(title)')
+        .order('created_at', { ascending: false })
+        .limit(5);
+
+      if (error) throw error;
+      setRecentLeads(data || []);
+    } catch (error) {
+      console.error('Error fetching recent leads:', error);
+    }
+  };
+
+  const getStatusColor = (status: string) => {
+    switch (status) {
+      case 'NEW': return 'bg-info text-info-foreground';
+      case 'CONTACTED': return 'bg-warning text-warning-foreground';
+      case 'QUALIFIED': return 'bg-success text-success-foreground';
+      case 'DECLINED': return 'bg-muted text-muted-foreground';
+      default: return 'bg-muted text-muted-foreground';
     }
   };
 
@@ -143,16 +187,47 @@ const AdminDashboard = () => {
         </CardContent>
       </Card>
 
-      {/* Recent Activity */}
+      {/* Recent Leads */}
       <Card className="border border-border/50">
         <CardHeader>
-          <CardTitle>Recent Activity</CardTitle>
-          <CardDescription>Latest platform updates</CardDescription>
+          <CardTitle>Recent Investor Leads</CardTitle>
+          <CardDescription>Latest expressions of interest</CardDescription>
         </CardHeader>
         <CardContent>
-          <p className="text-sm text-muted-foreground text-center py-8">
-            Activity tracking will be available soon
-          </p>
+          {recentLeads.length > 0 ? (
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  <TableHead>Name</TableHead>
+                  <TableHead>Email</TableHead>
+                  <TableHead>Project</TableHead>
+                  <TableHead>Status</TableHead>
+                  <TableHead>Date</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {recentLeads.map((lead) => (
+                  <TableRow key={lead.id}>
+                    <TableCell className="font-medium">{lead.name}</TableCell>
+                    <TableCell>{lead.email}</TableCell>
+                    <TableCell>{lead.projects?.title || 'General'}</TableCell>
+                    <TableCell>
+                      <Badge className={getStatusColor(lead.status)}>
+                        {lead.status}
+                      </Badge>
+                    </TableCell>
+                    <TableCell>
+                      {new Date(lead.created_at).toLocaleDateString()}
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          ) : (
+            <p className="text-sm text-muted-foreground text-center py-8">
+              No leads yet
+            </p>
+          )}
         </CardContent>
       </Card>
     </div>

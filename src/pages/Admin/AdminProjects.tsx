@@ -264,7 +264,6 @@ const AdminProjects = () => {
           <h2 className="text-3xl font-bold text-foreground">Manage Projects</h2>
           <p className="text-muted-foreground">Create and manage investment opportunities</p>
         </div>
-        <Link to="/admin/projects/new">
         <Dialog open={createDialogOpen} onOpenChange={setCreateDialogOpen}>
           <DialogTrigger asChild>
             <Button>
@@ -539,7 +538,6 @@ const AdminProjects = () => {
             </Form>
           </DialogContent>
         </Dialog>
-        </Link>
       </div>
 
       <div className="grid gap-6">

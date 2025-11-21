@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Outlet, Link, useNavigate, useLocation } from 'react-router-dom';
 import { supabase } from '@/integrations/supabase/client';
 import { Button } from '@/components/ui/button';
-import { LayoutDashboard, FolderOpen, Users, LogOut, Loader2 } from 'lucide-react';
+import { LayoutDashboard, FolderOpen, Users, LogOut, Loader2, UsersRound, Newspaper } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const AdminLayout = () => {
@@ -42,8 +42,8 @@ const AdminLayout = () => {
     { icon: LayoutDashboard, label: 'Dashboard', path: '/admin' },
     { icon: FolderOpen, label: 'Projects', path: '/admin/projects' },
     { icon: Users, label: 'Investor Leads', path: '/admin/leads' },
-    { icon: Users, label: 'Team Members', path: '/admin/team' },
-    { icon: FolderOpen, label: 'News & Updates', path: '/admin/news' },
+    { icon: UsersRound, label: 'Team Members', path: '/admin/team' },
+    { icon: Newspaper, label: 'News & Updates', path: '/admin/news' },
   ];
 
   if (loading) {
