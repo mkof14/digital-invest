@@ -21,10 +21,11 @@ import {
   Building2
 } from "lucide-react";
 import CrowdfundingProjectCard from "@/components/CrowdfundingProjectCard";
-import biomathPlatform from "@/assets/biomath-platform.jpg";
-import investmentDashboard from "@/assets/investment-dashboard.jpg";
-import mathModeling from "@/assets/math-modeling-visual.jpg";
-import biotechViz from "@/assets/biotech-visualization.jpg";
+import biomathLifeHero from "@/assets/projects/biomathlife-hero.jpg";
+import terraaeroHero from "@/assets/projects/terraaero-hero.jpg";
+import biomathCoreHero from "@/assets/projects/biomathcore-hero.jpg";
+import dishcoreHero from "@/assets/projects/dishcore-hero.jpg";
+import digitalInvestHero from "@/assets/projects/digitalinvest-hero.jpg";
 
 const Index = () => {
   const projects = [
@@ -32,35 +33,35 @@ const Index = () => {
       title: "BioMath Life Platform",
       description: "Comprehensive 5-service technological chain for precision medicine, from DNA sequencing to personalized medication selection and production.",
       category: "Precision Medicine",
-      image: biomathPlatform,
+      image: biomathLifeHero,
       link: "/projects/biomathlife"
     },
     {
       title: "TerraAero",
       description: "Advanced drone solutions for agriculture and delivery operations, including precision irrigation, fertilization, field analysis, and express delivery services.",
       category: "Agricultural Technology",
-      image: biotechViz,
+      image: terraaeroHero,
       link: "/projects/terraaero"
     },
     {
       title: "BioMath Core",
       description: "AI-powered wellness platform with 200+ health services, dual AI health analysis, secure data vault, and personalized daily wellness insights.",
       category: "Digital Health",
-      image: mathModeling,
+      image: biomathCoreHero,
       link: "/projects/biomathcore"
     },
     {
       title: "DishCore",
       description: "Personal nutrition and body-tracking platform that helps you eat smarter, feel better, and stay in shape with personalized menus, progress tracking, and smart insights.",
       category: "Nutrition Platform",
-      image: biotechViz,
+      image: dishcoreHero,
       link: "/projects/dishcore"
     },
     {
       title: "Digital Invest Inc.",
       description: "Strategic technology consulting and comprehensive investment portfolio management across multiple innovative biotechnology projects.",
       category: "Investment Platform",
-      image: investmentDashboard,
+      image: digitalInvestHero,
       link: "/projects/digitalinvest"
     }
   ];
