@@ -22,8 +22,9 @@ const Footer = () => {
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li><Link to="/" className="hover:text-primary transition-colors">Home</Link></li>
               <li><Link to="/projects" className="hover:text-primary transition-colors">Projects</Link></li>
+              <li><Link to="/why-digital-invest" className="hover:text-primary transition-colors">Why Digital Invest</Link></li>
               <li><Link to="/how-it-works" className="hover:text-primary transition-colors">How It Works</Link></li>
-              <li><Link to="/news" className="hover:text-primary transition-colors">News</Link></li>
+              <li><Link to="/news" className="hover:text-primary transition-colors">News & Insights</Link></li>
             </ul>
           </div>
 
@@ -33,6 +34,7 @@ const Footer = () => {
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li><Link to="/team-members" className="hover:text-primary transition-colors">Team</Link></li>
               <li><Link to="/contact" className="hover:text-primary transition-colors">Contact</Link></li>
+              <li><Link to="/auth" className="hover:text-primary transition-colors">Admin</Link></li>
             </ul>
           </div>
 

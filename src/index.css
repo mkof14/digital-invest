@@ -19,13 +19,13 @@
     --popover: 220 18% 10%;
     --popover-foreground: 210 20% 96%;
 
-    /* Primary - Professional Blue */
-    --primary: 210 80% 45%;
+    /* Primary - Neutral Dark Grey */
+    --primary: 220 15% 25%;
     --primary-foreground: 210 20% 98%;
-    --primary-glow: 210 80% 55%;
-    --primary-vibrant: 210 80% 40%;
-    --primary-dark: 210 80% 35%;
-    --primary-light: 210 80% 60%;
+    --primary-glow: 220 15% 35%;
+    --primary-vibrant: 220 15% 20%;
+    --primary-dark: 220 15% 15%;
+    --primary-light: 220 15% 40%;
 
     /* Secondary - Corporate Navy */
     --secondary: 215 40% 30%;
@@ -129,13 +129,13 @@
     --popover: 210 20% 96%;
     --popover-foreground: 225 15% 15%;
 
-    /* Primary - Deep Corporate Blue (adjusted for light) */
-    --primary: 220 60% 45%;
+    /* Primary - Neutral Dark Grey (adjusted for light) */
+    --primary: 220 15% 30%;
     --primary-foreground: 210 15% 98%;
-    --primary-glow: 220 60% 55%;
-    --primary-vibrant: 220 60% 40%;
-    --primary-dark: 220 60% 35%;
-    --primary-light: 220 60% 65%;
+    --primary-glow: 220 15% 40%;
+    --primary-vibrant: 220 15% 25%;
+    --primary-dark: 220 15% 20%;
+    --primary-light: 220 15% 50%;
 
     /* Secondary - Muted Slate (adjusted for light) */
     --secondary: 215 25% 85%;

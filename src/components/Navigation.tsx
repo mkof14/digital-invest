@@ -10,14 +10,11 @@ const Navigation = () => {
 
   const navItems = [
     { label: 'Home', href: '/' },
-    { label: 'Why Digital Invest', href: '/why-digital-invest' },
     { label: 'Projects', href: '/projects' },
     { label: 'For Investors', href: '/for-investors' },
     { label: 'Documents', href: '/investor-documents' },
-    { label: 'How It Works', href: '/how-it-works' },
     { label: 'About Us', href: '/about' },
     { label: 'Team', href: '/team-members' },
-    { label: 'News & Insights', href: '/news' },
     { label: 'Contact', href: '/contact' }
   ];
 
@@ -65,7 +62,7 @@ const Navigation = () => {
               <Link to="/auth">Admin</Link>
             </Button>
             
-            <Button variant="default" asChild className="hover:scale-105 transition-transform">
+            <Button variant="outline" asChild className="hover:bg-muted/50 transition-all">
               <Link to="/start-investing">Start Investing</Link>
             </Button>
           </div>
@@ -114,7 +111,7 @@ const Navigation = () => {
                 <Link to="/auth">Admin Login</Link>
               </Button>
               
-              <Button variant="default" className="mt-2 hover:scale-105 transition-transform" asChild>
+              <Button variant="outline" className="mt-2 hover:bg-muted/50 transition-all" asChild>
                 <Link to="/start-investing">Start Investing</Link>
               </Button>
             </div>
