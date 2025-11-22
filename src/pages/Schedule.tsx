@@ -13,6 +13,7 @@ import { toast } from 'sonner';
 import { cn } from '@/lib/utils';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
+import InvestorPageDisclaimer from '@/components/InvestorPageDisclaimer';
 
 interface Project {
   slug: string;
@@ -226,10 +227,10 @@ digitalinvest.com`}
           <div className="text-center mb-12">
             <h1 className="text-4xl font-bold mb-4">Request Consultation</h1>
             <p className="text-xl text-muted-foreground">
-              Choose a time for a private, non-binding conversation about Digital Invest Inc. projects.
+              Request a private conversation to discuss Digital Invest Inc. projects.
             </p>
-            <p className="text-sm text-muted-foreground mt-2">
-              This is a request for information only. No commitments or agreements are created.
+            <p className="text-sm text-muted-foreground mt-4 max-w-2xl mx-auto">
+              This is a non-binding request for a consultation. Submitting this form does not constitute any offer, commitment, or approval. Any potential participation, if pursued, is handled offline through proper legal channels separate from this website.
             </p>
           </div>
 
@@ -350,6 +351,11 @@ digitalinvest.com`}
               This is a non-binding consultation request. We will follow up to confirm availability.
             </p>
           </form>
+
+          {/* Legal Disclaimer */}
+          <div className="mt-12">
+            <InvestorPageDisclaimer variant="compact" />
+          </div>
         </div>
       </main>
       <Footer />

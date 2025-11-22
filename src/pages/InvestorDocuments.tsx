@@ -92,11 +92,14 @@ const InvestorDocuments = () => {
               </h1>
             </div>
             <p className="text-xl text-muted-foreground mb-8">
-              Download project overview materials for review. Private, non-binding.
+              Download project overview materials for informational review.
             </p>
             
-            {/* Disclaimer Block */}
-            <InvestorPageDisclaimer variant="compact" />
+            <div className="max-w-3xl mx-auto">
+              <p className="text-sm text-muted-foreground px-6 py-4 bg-muted/30 rounded-lg border border-border/50 mb-6">
+                Access to these documents is intended for informational review by qualified individuals or entities. Accessing or downloading these materials does not create any agreement, offer, or commitment. All terms are defined in separate legal documents, if and when such documents are executed offline.
+              </p>
+            </div>
           </div>
 
           {/* Loading State */}
