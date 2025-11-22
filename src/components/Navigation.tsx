@@ -24,7 +24,7 @@ const Navigation = () => {
           {/* Logo */}
           <div className="flex items-center space-x-3">
             <img 
-              src="/digital-invest-logo.png" 
+              src="/lovable-uploads/d1011e6f-955a-48d9-adef-662af751c3b9.png" 
               alt="Digital Invest Logo" 
               className="w-10 h-10 object-contain"
             />
