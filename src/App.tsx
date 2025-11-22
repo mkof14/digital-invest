@@ -55,6 +55,7 @@ import Careers from "./pages/Careers";
 import InternalDocuments from "./pages/InternalDocuments";
 import API from "./pages/API";
 import Infrastructure from "./pages/Infrastructure";
+import InvestorHandbook from "./pages/InvestorHandbook";
 
 const queryClient = new QueryClient();
 
@@ -104,6 +105,7 @@ const App = () => (
             <Route path="/internal-documents" element={<InternalDocuments />} />
             <Route path="/api" element={<API />} />
             <Route path="/infrastructure" element={<Infrastructure />} />
+            <Route path="/investor-handbook" element={<InvestorHandbook />} />
             
             {/* Legal Routes */}
             <Route path="/legal/terms" element={<TermsOfUse />} />
