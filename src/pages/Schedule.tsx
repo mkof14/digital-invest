@@ -178,9 +178,9 @@ digitalinvest.com`;
               <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Check className="w-8 h-8 text-primary" />
               </div>
-              <h1 className="text-3xl font-bold mb-4">Consultation Request Received</h1>
+              <h1 className="text-3xl font-bold mb-4">Request Received</h1>
               <p className="text-muted-foreground mb-6">
-                Thank you, {formData.name}. Your consultation request has been received. We will follow up shortly to confirm your preferred time.
+                Thank you, {formData.name}. Your consultation request has been received. This is a non-binding request for information. We will follow up privately to confirm your preferred time.
               </p>
               
               <div className="bg-muted/30 border border-border rounded-lg p-6 mb-6 text-left">
@@ -224,9 +224,12 @@ digitalinvest.com`}
       <main className="min-h-screen pt-24 pb-16 bg-background">
         <div className="container mx-auto px-4 max-w-2xl">
           <div className="text-center mb-12">
-            <h1 className="text-4xl font-bold mb-4">Schedule Consultation</h1>
+            <h1 className="text-4xl font-bold mb-4">Request Consultation</h1>
             <p className="text-xl text-muted-foreground">
-              Choose a time to speak with Digital Invest Inc. about our projects and opportunities.
+              Choose a time for a private, non-binding conversation about Digital Invest Inc. projects.
+            </p>
+            <p className="text-sm text-muted-foreground mt-2">
+              This is a request for information only. No commitments or agreements are created.
             </p>
           </div>
 

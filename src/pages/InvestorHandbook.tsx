@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
+import InvestorDisclaimer from '@/components/InvestorDisclaimer';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -95,7 +96,7 @@ const InvestorHandbook = () => {
             </h1>
             
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Digital Invest Inc. — Multi-Sector Portfolio Overview & Private Investor Guide
+              Digital Invest Inc. — Informational Overview of Multi-Sector Portfolio
             </p>
 
             {!emailSubmitted ? (
@@ -123,10 +124,10 @@ const InvestorHandbook = () => {
                 </div>
                 <Button type="submit" size="lg" className="w-full gap-2">
                   <FileText className="w-5 h-5" />
-                  Get Download Access
+                  Request Download Access
                 </Button>
                 <p className="text-xs text-muted-foreground text-center">
-                  We'll use your email to send you updates about Digital Invest projects.
+                  This is informational material only. No commitment or agreement is created by downloading.
                 </p>
               </form>
             ) : (
@@ -212,14 +213,10 @@ const InvestorHandbook = () => {
           </div>
         </section>
 
-        {/* Disclaimer */}
-        <section className="py-12 px-4 border-t border-border bg-muted/30">
+        {/* Legal Notice */}
+        <section className="py-16 px-4 bg-card/30">
           <div className="max-w-4xl mx-auto">
-            <p className="text-sm text-muted-foreground text-center leading-relaxed">
-              <strong>Legal Notice:</strong> This Investor Handbook is informational only. It is not financial advice, 
-              legal advice, or a public offering. Digital Invest Inc. provides materials solely for qualified individuals 
-              and private discussions. All investments involve risk and may result in loss of capital.
-            </p>
+            <InvestorDisclaimer variant="detailed" />
           </div>
         </section>
       </main>

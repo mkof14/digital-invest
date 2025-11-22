@@ -112,8 +112,8 @@ const ForInvestors = () => {
               },
               {
                 step: "2",
-                title: "Submit non-binding interest",
-                description: "Use a short form to express interest in one or more projects. This creates no commitment and requires no payment at this stage.",
+                title: "Request more information",
+                description: "Use a short form to request more information about one or more projects. This is non-binding, creates no commitment, and requires no payment.",
                 icon: <Mail className="w-6 h-6" />
               },
               {
@@ -130,8 +130,8 @@ const ForInvestors = () => {
               },
               {
                 step: "5",
-                title: "Offline agreement",
-                description: "If both sides agree to proceed, the legal investment process happens offline through proper documentation, not on the website.",
+                title: "Offline agreements (if applicable)",
+                description: "If both sides agree to proceed after thorough discussion, any participation is formalized offline through proper legal documentation, separate from this website.",
                 icon: <Shield className="w-6 h-6" />
               },
               {
@@ -185,8 +185,8 @@ const ForInvestors = () => {
               <CardContent className="space-y-4">
                 {[
                   "An informational overview of Digital Invest projects",
-                  "A way to submit non-binding expressions of interest",
-                  "A place to understand the portfolio structure"
+                  "A way to request more information privately",
+                  "A resource to understand the portfolio structure"
                 ].map((item, index) => (
                   <div key={index} className="flex items-start gap-3">
                     <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
@@ -206,10 +206,10 @@ const ForInvestors = () => {
               </CardHeader>
               <CardContent className="space-y-4">
                 {[
-                  "Not a crowdfunding platform",
-                  "Not a public offering",
-                  "Not a place to invest online",
-                  "Not a source of financial or tax advice"
+                  "Not a crowdfunding platform or public offering",
+                  "Not a place to transact or invest online",
+                  "Not a source of investment, legal, or tax advice",
+                  "Not creating any commitments or agreements"
                 ].map((item, index) => (
                   <div key={index} className="flex items-start gap-3">
                     <X className="w-5 h-5 text-muted-foreground flex-shrink-0 mt-0.5" />
@@ -232,8 +232,7 @@ const ForInvestors = () => {
           <Card className="border border-border/50 bg-card">
             <CardContent className="pt-8 pb-8">
               <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-                If you want to explore potential participation, the best next step is to review the projects 
-                and submit a short, non-binding expression of interest. We will reach out personally.
+                To learn more, review the projects and submit a brief, non-binding request for information. We will follow up privately to discuss your interests and answer your questions.
               </p>
               
               <Link to="/projects">
