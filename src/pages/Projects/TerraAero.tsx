@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 import terraaeroLogo from "@/assets/terraaero-logo.png";
 import DownloadInvestorBriefButton from "@/components/DownloadInvestorBriefButton";
 import OptimizedImage from "@/components/OptimizedImage";
+import InvestorPageDisclaimer from "@/components/InvestorPageDisclaimer";
 
 const TerraAero = () => {
   const fundingProgress = 45;
@@ -225,7 +226,7 @@ const TerraAero = () => {
             <div className="flex gap-4 justify-center">
               <Link to="/start-investing">
                 <Button size="lg" variant="secondary">
-                  Start Investing
+                  Request Information
                   <ArrowRight className="ml-2 w-4 h-4" />
                 </Button>
               </Link>
@@ -235,6 +236,11 @@ const TerraAero = () => {
             </div>
           </CardContent>
         </Card>
+
+        {/* Legal Disclaimer */}
+        <div className="mt-16">
+          <InvestorPageDisclaimer />
+        </div>
       </main>
 
       <Footer />

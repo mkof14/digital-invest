@@ -19,6 +19,7 @@ import {
 import dishcoreLogo from "@/assets/dishcore-logo.png";
 import DownloadInvestorBriefButton from "@/components/DownloadInvestorBriefButton";
 import OptimizedImage from "@/components/OptimizedImage";
+import InvestorPageDisclaimer from "@/components/InvestorPageDisclaimer";
 
 const DishCore = () => {
   const features = [
@@ -246,6 +247,13 @@ const DishCore = () => {
               </div>
             </CardContent>
           </Card>
+        </div>
+      </section>
+
+      {/* Legal Disclaimer */}
+      <section className="py-16 px-4">
+        <div className="max-w-5xl mx-auto">
+          <InvestorPageDisclaimer />
         </div>
       </section>
 

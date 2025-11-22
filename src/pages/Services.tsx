@@ -346,7 +346,7 @@ const Services = () => {
               <div className="flex gap-4 justify-center flex-wrap">
                 <Link to="/start-investing">
                   <Button size="lg">
-                    Start Investing
+                    Request Information
                     <ArrowRight className="ml-2 w-4 h-4" />
                   </Button>
                 </Link>
