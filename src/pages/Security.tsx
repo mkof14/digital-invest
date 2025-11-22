@@ -70,6 +70,17 @@ const Security = () => {
               </p>
             </div>
 
+            {/* Security Limitations */}
+            <div className="bg-muted/30 rounded-lg p-8">
+              <h2 className="text-3xl font-bold mb-4">Security Limitations & Residual Risk</h2>
+              <p className="text-lg text-muted-foreground leading-relaxed mb-4">
+                <strong>Important Notice:</strong> While Digital Invest Inc. takes security seriously and implements reasonable measures to protect data and documents, no system can be guaranteed to be completely secure.
+              </p>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                Cyber threats, operational risks, human error, and unforeseen vulnerabilities remain possible despite protective measures. Users, partners, and investors should take appropriate precautions and understand that residual security risks cannot be eliminated entirely.
+              </p>
+            </div>
+
           </div>
         </section>
       </main>
