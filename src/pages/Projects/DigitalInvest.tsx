@@ -145,6 +145,247 @@ const DigitalInvest = () => {
 
           <Separator className="my-12" />
 
+          {/* Portfolio Synergy Visualization */}
+          <section className="mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+              Portfolio Synergy Map
+            </h2>
+            <p className="text-lg text-muted-foreground mb-12 max-w-3xl">
+              Visual representation of how our projects interconnect and strengthen each other through shared infrastructure, data, and operations.
+            </p>
+
+            {/* Desktop View - Circular Layout */}
+            <div className="hidden lg:block relative">
+              <div className="relative w-full max-w-5xl mx-auto" style={{ height: '600px' }}>
+                {/* Central Hub - Digital Invest */}
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
+                  <Card className="border-2 border-primary bg-card shadow-elevated w-64">
+                    <CardContent className="pt-6 pb-6 text-center space-y-3">
+                      <div className="p-4 bg-primary/10 rounded-lg w-fit mx-auto">
+                        <Network className="w-12 h-12 text-primary" />
+                      </div>
+                      <h3 className="text-xl font-bold text-foreground">Digital Invest</h3>
+                      <p className="text-xs text-muted-foreground">Portfolio Hub</p>
+                    </CardContent>
+                  </Card>
+                </div>
+
+                {/* Connection Lines - SVG */}
+                <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ zIndex: 1 }}>
+                  <defs>
+                    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                      <polygon points="0 0, 10 3.5, 0 7" fill="hsl(var(--primary))" opacity="0.3" />
+                    </marker>
+                  </defs>
+                  
+                  {/* Center to TerraAero (top) */}
+                  <path
+                    d="M 50% 50% L 50% 15%"
+                    stroke="hsl(var(--primary))"
+                    strokeWidth="2"
+                    strokeDasharray="5,5"
+                    fill="none"
+                    opacity="0.3"
+                    markerEnd="url(#arrowhead)"
+                    className="animate-pulse"
+                  />
+                  
+                  {/* Center to BioMath Core (top-right) */}
+                  <path
+                    d="M 50% 50% L 80% 25%"
+                    stroke="hsl(var(--primary))"
+                    strokeWidth="2"
+                    strokeDasharray="5,5"
+                    fill="none"
+                    opacity="0.3"
+                    markerEnd="url(#arrowhead)"
+                    className="animate-pulse"
+                    style={{ animationDelay: '0.2s' }}
+                  />
+                  
+                  {/* Center to BioMath Life (bottom-right) */}
+                  <path
+                    d="M 50% 50% L 80% 75%"
+                    stroke="hsl(var(--primary))"
+                    strokeWidth="2"
+                    strokeDasharray="5,5"
+                    fill="none"
+                    opacity="0.3"
+                    markerEnd="url(#arrowhead)"
+                    className="animate-pulse"
+                    style={{ animationDelay: '0.4s' }}
+                  />
+                  
+                  {/* Center to DishCore (bottom-left) */}
+                  <path
+                    d="M 50% 50% L 20% 75%"
+                    stroke="hsl(var(--primary))"
+                    strokeWidth="2"
+                    strokeDasharray="5,5"
+                    fill="none"
+                    opacity="0.3"
+                    markerEnd="url(#arrowhead)"
+                    className="animate-pulse"
+                    style={{ animationDelay: '0.6s' }}
+                  />
+
+                  {/* Inter-project connections */}
+                  <path
+                    d="M 50% 15% Q 65% 20% 80% 25%"
+                    stroke="hsl(var(--muted-foreground))"
+                    strokeWidth="1"
+                    strokeDasharray="3,3"
+                    fill="none"
+                    opacity="0.2"
+                  />
+                  
+                  <path
+                    d="M 80% 25% Q 82% 50% 80% 75%"
+                    stroke="hsl(var(--muted-foreground))"
+                    strokeWidth="1"
+                    strokeDasharray="3,3"
+                    fill="none"
+                    opacity="0.2"
+                  />
+                </svg>
+
+                {/* Surrounding Projects */}
+                {/* TerraAero - Top */}
+                <div className="absolute top-0 left-1/2 transform -translate-x-1/2" style={{ zIndex: 5 }}>
+                  <Link to="/projects/terraaero">
+                    <Card className="border border-border/50 bg-card hover:shadow-lg transition-all duration-300 w-56 group">
+                      <CardContent className="pt-6 pb-6 text-center space-y-2">
+                        <div className="p-3 bg-primary/10 rounded-lg w-fit mx-auto">
+                          <Sprout className="w-8 h-8 text-primary" />
+                        </div>
+                        <h3 className="text-base font-bold text-foreground">TerraAero</h3>
+                        <p className="text-xs text-muted-foreground">AgroTech</p>
+                        <div className="flex items-center justify-center text-primary text-xs font-medium pt-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                          View <ArrowRight className="ml-1 h-3 w-3" />
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </Link>
+                </div>
+
+                {/* BioMath Core - Top Right */}
+                <div className="absolute top-12 right-4" style={{ zIndex: 5 }}>
+                  <Link to="/projects/biomathcore">
+                    <Card className="border border-border/50 bg-card hover:shadow-lg transition-all duration-300 w-56 group">
+                      <CardContent className="pt-6 pb-6 text-center space-y-2">
+                        <div className="p-3 bg-primary/10 rounded-lg w-fit mx-auto">
+                          <Heart className="w-8 h-8 text-primary" />
+                        </div>
+                        <h3 className="text-base font-bold text-foreground">BioMath Core</h3>
+                        <p className="text-xs text-muted-foreground">Health OS</p>
+                        <div className="flex items-center justify-center text-primary text-xs font-medium pt-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                          View <ArrowRight className="ml-1 h-3 w-3" />
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </Link>
+                </div>
+
+                {/* BioMath Life - Bottom Right */}
+                <div className="absolute bottom-12 right-4" style={{ zIndex: 5 }}>
+                  <Link to="/projects/biomathlife">
+                    <Card className="border border-border/50 bg-card hover:shadow-lg transition-all duration-300 w-56 group">
+                      <CardContent className="pt-6 pb-6 text-center space-y-2">
+                        <div className="p-3 bg-primary/10 rounded-lg w-fit mx-auto">
+                          <Heart className="w-8 h-8 text-primary" />
+                        </div>
+                        <h3 className="text-base font-bold text-foreground">BioMath Life</h3>
+                        <p className="text-xs text-muted-foreground">Longevity</p>
+                        <div className="flex items-center justify-center text-primary text-xs font-medium pt-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                          View <ArrowRight className="ml-1 h-3 w-3" />
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </Link>
+                </div>
+
+                {/* DishCore - Bottom Left */}
+                <div className="absolute bottom-12 left-4" style={{ zIndex: 5 }}>
+                  <Link to="/projects/dishcore">
+                    <Card className="border border-border/50 bg-card hover:shadow-lg transition-all duration-300 w-56 group">
+                      <CardContent className="pt-6 pb-6 text-center space-y-2">
+                        <div className="p-3 bg-primary/10 rounded-lg w-fit mx-auto">
+                          <Utensils className="w-8 h-8 text-primary" />
+                        </div>
+                        <h3 className="text-base font-bold text-foreground">DishCore</h3>
+                        <p className="text-xs text-muted-foreground">Food Tech</p>
+                        <div className="flex items-center justify-center text-primary text-xs font-medium pt-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                          View <ArrowRight className="ml-1 h-3 w-3" />
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </Link>
+                </div>
+              </div>
+
+              {/* Legend */}
+              <div className="mt-12 flex justify-center gap-8 text-sm">
+                <div className="flex items-center gap-2">
+                  <div className="w-8 h-0.5 bg-primary opacity-30" style={{ borderTop: '2px dashed' }}></div>
+                  <span className="text-muted-foreground">Shared Infrastructure</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-8 h-0.5 bg-muted-foreground opacity-20" style={{ borderTop: '1px dashed' }}></div>
+                  <span className="text-muted-foreground">Data Exchange</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Mobile/Tablet View - Vertical Flow */}
+            <div className="lg:hidden space-y-6">
+              <Card className="border-2 border-primary bg-card shadow-elevated">
+                <CardContent className="pt-8 pb-8 text-center space-y-4">
+                  <div className="p-4 bg-primary/10 rounded-lg w-fit mx-auto">
+                    <Network className="w-12 h-12 text-primary" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-foreground">Digital Invest</h3>
+                  <p className="text-sm text-muted-foreground">Central Portfolio Hub</p>
+                  <div className="pt-4 border-t border-border/50">
+                    <p className="text-xs text-muted-foreground">Connects & powers all projects below</p>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Connection Arrow */}
+              <div className="flex justify-center">
+                <ArrowRight className="w-6 h-6 text-primary rotate-90 animate-pulse" />
+              </div>
+
+              {portfolioProjects.slice(0, 4).map((project, index) => (
+                <div key={index}>
+                  <Link to={`/projects/${project.slug}`}>
+                    <Card className="border border-border/50 bg-card hover:shadow-lg transition-all duration-300">
+                      <CardContent className="pt-6 pb-6">
+                        <div className="flex items-center gap-4">
+                          <div className="p-3 bg-primary/10 rounded-lg">
+                            <div className="text-primary">{project.icon}</div>
+                          </div>
+                          <div className="flex-1">
+                            <h3 className="text-lg font-bold text-foreground">{project.name}</h3>
+                            <p className="text-sm text-muted-foreground">{project.description}</p>
+                          </div>
+                          <ArrowRight className="w-5 h-5 text-primary" />
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </Link>
+                  {index < 3 && (
+                    <div className="flex justify-center py-2">
+                      <div className="w-0.5 h-6 bg-primary/30"></div>
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <Separator className="my-12" />
+
           {/* How the Portfolio Works Section */}
           <section className="mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-8">
