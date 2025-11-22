@@ -7,9 +7,13 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Separator } from '@/components/ui/separator';
-import { Loader2, Mail, Phone, MapPin, MessageSquare, Search, Copy, Check, Clock, FileText } from 'lucide-react';
+import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
+import { Calendar } from '@/components/ui/calendar';
+import { Loader2, Mail, Phone, MapPin, MessageSquare, Search, Copy, Check, Clock, FileText, Calendar as CalendarIcon, AlertCircle } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { getIntroEmailTemplate, getFollowUpWithBriefTemplate, getCheckInTemplate, emailTemplateTypes, type EmailTemplate } from '@/lib/investorEmailTemplates';
+import { format } from 'date-fns';
+import { cn } from '@/lib/utils';
 
 interface Lead {
   id: string;
@@ -37,7 +41,9 @@ interface Lead {
 const AdminLeads = () => {
   const [leads, setLeads] = useState<Lead[]>([]);
   const [loading, setLoading] = useState(true);
+  const [projects, setProjects] = useState<{ id: string; title: string }[]>([]);
   const [filterStatus, setFilterStatus] = useState<string | 'all'>('all');
+  const [filterProject, setFilterProject] = useState<string | 'all'>('all');
   const [filterEmailType, setFilterEmailType] = useState<string | 'all'>('all');
   const [searchQuery, setSearchQuery] = useState('');
   const [expandedLeadId, setExpandedLeadId] = useState<string | null>(null);
@@ -47,7 +53,23 @@ const AdminLeads = () => {
 
   useEffect(() => {
     fetchLeads();
+    fetchProjects();
   }, []);
+
+  const fetchProjects = async () => {
+    try {
+      const { data, error } = await supabase
+        .from('projects')
+        .select('id, title')
+        .eq('is_visible', true)
+        .order('title');
+
+      if (error) throw error;
+      setProjects(data || []);
+    } catch (error: any) {
+      console.error('Error loading projects:', error);
+    }
+  };
 
   const fetchLeads = async () => {
     try {
@@ -61,10 +83,15 @@ const AdminLeads = () => {
             category
           )
         `)
+        .order('status')
         .order('created_at', { ascending: false });
 
       if (filterStatus !== 'all') {
         query = query.eq('status', filterStatus as any);
+      }
+
+      if (filterProject !== 'all') {
+        query = query.eq('project_id', filterProject);
       }
 
       const { data, error } = await query;
@@ -182,6 +209,39 @@ const AdminLeads = () => {
     }
   };
 
+  const updateNextActionDate = async (leadId: string, date: Date | undefined) => {
+    try {
+      const { error } = await supabase
+        .from('investor_leads')
+        .update({ next_action_at: date?.toISOString() || null })
+        .eq('id', leadId);
+
+      if (error) throw error;
+
+      toast({
+        title: 'Success',
+        description: 'Follow-up date updated',
+      });
+
+      fetchLeads();
+    } catch (error: any) {
+      toast({
+        title: 'Error',
+        description: error.message,
+        variant: 'destructive',
+      });
+    }
+  };
+
+  const isFollowUpDue = (lead: Lead) => {
+    if (!lead.next_action_at) return false;
+    return new Date(lead.next_action_at) < new Date();
+  };
+
+  const needsFirstContact = (lead: Lead) => {
+    return lead.status === 'NEW' && !lead.last_contacted_at;
+  };
+
   const generateEmailTemplate = (lead: Lead, type: 'intro' | 'followup' | 'checkin') => {
     const project = lead.projects ? {
       title: lead.projects.title,
@@ -247,7 +307,7 @@ const AdminLeads = () => {
 
   useEffect(() => {
     fetchLeads();
-  }, [filterStatus]);
+  }, [filterStatus, filterProject]);
 
   if (loading) {
     return (
@@ -264,7 +324,7 @@ const AdminLeads = () => {
           <h2 className="text-3xl font-bold text-foreground">Investor Leads</h2>
           <p className="text-muted-foreground">Manage expressions of interest from potential investors</p>
         </div>
-        <div className="flex gap-2">
+        <div className="flex gap-2 flex-wrap">
           <div className="relative">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
             <Input
@@ -286,6 +346,19 @@ const AdminLeads = () => {
               <SelectItem value="DECLINED">Declined</SelectItem>
             </SelectContent>
           </Select>
+          <Select value={filterProject} onValueChange={setFilterProject}>
+            <SelectTrigger className="w-[180px]">
+              <SelectValue placeholder="Project" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="all">All Projects</SelectItem>
+              {projects.map((project) => (
+                <SelectItem key={project.id} value={project.id}>
+                  {project.title}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
           <Select value={filterEmailType} onValueChange={setFilterEmailType}>
             <SelectTrigger className="w-[150px]">
               <SelectValue placeholder="Email Type" />
@@ -303,15 +376,29 @@ const AdminLeads = () => {
 
       <div className="grid gap-6">
         {filteredLeads.map((lead) => (
-          <Card key={lead.id} className="border border-border/50">
+          <Card 
+            key={lead.id} 
+            className={cn(
+              "border border-border/50",
+              needsFirstContact(lead) && "border-l-4 border-l-info",
+              isFollowUpDue(lead) && "border-l-4 border-l-warning"
+            )}
+          >
             <CardHeader>
               <div className="flex justify-between items-start">
                 <div>
                   <CardTitle className="flex items-center gap-2">
                     {lead.name}
-                    {!lead.last_contacted_at && (
-                      <Badge variant="outline" className="text-xs">
-                        Not contacted
+                    {needsFirstContact(lead) && (
+                      <Badge className="bg-info text-info-foreground text-xs">
+                        <AlertCircle className="h-3 w-3 mr-1" />
+                        Needs First Contact
+                      </Badge>
+                    )}
+                    {isFollowUpDue(lead) && (
+                      <Badge className="bg-warning text-warning-foreground text-xs">
+                        <Clock className="h-3 w-3 mr-1" />
+                        Follow-up Due
                       </Badge>
                     )}
                   </CardTitle>
@@ -534,6 +621,51 @@ const AdminLeads = () => {
                         rows={3}
                         className="text-sm"
                       />
+                    </div>
+
+                    {/* Next Action Date */}
+                    <div className="space-y-2">
+                      <label className="text-sm font-medium flex items-center gap-2">
+                        <CalendarIcon className="h-4 w-4" />
+                        Next Follow-up Date
+                      </label>
+                      <Popover>
+                        <PopoverTrigger asChild>
+                          <Button
+                            variant="outline"
+                            className={cn(
+                              "w-full justify-start text-left font-normal",
+                              !lead.next_action_at && "text-muted-foreground"
+                            )}
+                          >
+                            <CalendarIcon className="mr-2 h-4 w-4" />
+                            {lead.next_action_at ? (
+                              format(new Date(lead.next_action_at), "PPP")
+                            ) : (
+                              <span>Pick a date</span>
+                            )}
+                          </Button>
+                        </PopoverTrigger>
+                        <PopoverContent className="w-auto p-0" align="start">
+                          <Calendar
+                            mode="single"
+                            selected={lead.next_action_at ? new Date(lead.next_action_at) : undefined}
+                            onSelect={(date) => updateNextActionDate(lead.id, date)}
+                            initialFocus
+                            className="pointer-events-auto"
+                          />
+                        </PopoverContent>
+                      </Popover>
+                      {lead.next_action_at && (
+                        <Button
+                          variant="ghost"
+                          size="sm"
+                          onClick={() => updateNextActionDate(lead.id, undefined)}
+                          className="w-full"
+                        >
+                          Clear Date
+                        </Button>
+                      )}
                     </div>
                   </div>
                 )}
