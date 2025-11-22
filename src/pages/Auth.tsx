@@ -12,6 +12,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { Loader2, Chrome, Shield, ArrowRight } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+import OptimizedImage from '@/components/OptimizedImage';
 
 const authSchema = z.object({
   email: z.string().email('Invalid email address'),
@@ -214,10 +215,11 @@ const Auth = () => {
         <Card className="border border-border/50">
           <CardHeader className="text-center">
             <div className="flex justify-center mb-4">
-              <img 
+              <OptimizedImage 
                 src="/lovable-uploads/d1011e6f-955a-48d9-adef-662af751c3b9.png" 
-                alt="Digital Invest Logo" 
+                alt="Digital Invest Inc. authentication logo" 
                 className="w-16 h-16 object-contain"
+                showSkeleton={false}
               />
             </div>
             <CardTitle className="text-2xl">Admin Access</CardTitle>

@@ -7,6 +7,7 @@ import { ArrowRight, Heart, Brain, Activity, Shield, Lock, CheckCircle } from "l
 import { Link } from "react-router-dom";
 import biomathCoreLogo from "@/assets/biomath-core-logo.png";
 import DownloadInvestorBriefButton from "@/components/DownloadInvestorBriefButton";
+import OptimizedImage from "@/components/OptimizedImage";
 
 const BioMathCore = () => {
   const healthCategories = [
@@ -76,7 +77,12 @@ const BioMathCore = () => {
       {/* Hero Section */}
       <div className="mb-16 text-center animate-fade-in">
         <div className="flex justify-center mb-6">
-          <img src={biomathCoreLogo} alt="BioMath Core Logo" className="w-32 h-32 md:w-40 md:h-40" />
+          <OptimizedImage 
+            src={biomathCoreLogo} 
+            alt="BioMath Core - Intelligent health operating system logo" 
+            className="w-32 h-32 md:w-40 md:h-40"
+            showSkeleton={false}
+          />
         </div>
         <Badge className="mb-4">Digital Health Platform</Badge>
         <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent">

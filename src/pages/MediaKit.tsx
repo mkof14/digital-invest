@@ -2,6 +2,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Link } from "react-router-dom";
 import { Download } from "lucide-react";
+import OptimizedImage from "@/components/OptimizedImage";
 
 const MediaKit = () => {
   const projects = [
@@ -49,11 +50,11 @@ const MediaKit = () => {
               <div className="grid md:grid-cols-2 gap-8">
                 <div className="bg-card border border-border rounded-lg p-8 text-center space-y-4">
                   <div className="bg-white rounded-lg p-8 mb-4">
-                    <img 
+                    <OptimizedImage 
                       src="/lovable-uploads/d1011e6f-955a-48d9-adef-662af751c3b9.png"
-                      alt="Digital Invest Inc. Logo (Light)"
+                      alt="Digital Invest Inc. logo for light backgrounds"
                       className="h-16 mx-auto"
-                      loading="lazy"
+                      showSkeleton={false}
                     />
                   </div>
                   <h3 className="font-semibold">Primary Logo (Light Background)</h3>
@@ -62,11 +63,11 @@ const MediaKit = () => {
 
                 <div className="bg-card border border-border rounded-lg p-8 text-center space-y-4">
                   <div className="bg-slate-900 rounded-lg p-8 mb-4">
-                    <img 
+                    <OptimizedImage 
                       src="/lovable-uploads/d1011e6f-955a-48d9-adef-662af751c3b9.png"
-                      alt="Digital Invest Inc. Logo (Dark)"
+                      alt="Digital Invest Inc. logo for dark backgrounds"
                       className="h-16 mx-auto brightness-0 invert"
-                      loading="lazy"
+                      showSkeleton={false}
                     />
                   </div>
                   <h3 className="font-semibold">Reversed Logo (Dark Background)</h3>

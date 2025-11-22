@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Menu, X, Sun, Moon } from 'lucide-react';
 import { useTheme } from '@/components/ThemeProvider';
+import OptimizedImage from '@/components/OptimizedImage';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -23,10 +24,11 @@ const Navigation = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center space-x-3">
-            <img 
+            <OptimizedImage 
               src="/lovable-uploads/d1011e6f-955a-48d9-adef-662af751c3b9.png" 
-              alt="Digital Invest Logo" 
+              alt="Digital Invest Inc. company logo" 
               className="w-10 h-10 object-contain"
+              showSkeleton={false}
             />
             <span className="text-primary text-2xl font-bold">Digital Invest</span>
           </div>

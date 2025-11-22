@@ -5,6 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import biomathPlatform from "@/assets/biomath-platform.jpg";
+import OptimizedImage from "@/components/OptimizedImage";
 import { 
   Dna, 
   Brain, 
@@ -107,10 +108,11 @@ const Platform = () => {
             
             <div className="relative">
               <div className="absolute -inset-4 bg-primary/5 rounded-2xl blur-2xl"></div>
-              <img 
+              <OptimizedImage 
                 src={biomathPlatform} 
-                alt="BioMath Life Platform Visualization" 
+                alt="BioMath Life Platform dashboard showing genomic analysis and AI-driven predictions" 
                 className="relative w-full rounded-xl shadow-elevated border border-border/50"
+                aspectRatio="video"
               />
             </div>
           </div>

@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { LayoutDashboard, FolderOpen, Users, LogOut, Loader2, UsersRound, Newspaper, Shield, Layout, FileText, Mail, FileEdit, Calendar, Clock, Map } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { toast } from 'sonner';
+import OptimizedImage from '@/components/OptimizedImage';
 
 const AdminLayout = () => {
   const [loading, setLoading] = useState(true);
@@ -79,10 +80,11 @@ const AdminLayout = () => {
       <header className="fixed top-0 left-0 right-0 z-50 bg-background border-b border-border">
         <div className="container mx-auto px-4 py-3 flex items-center justify-between">
           <div className="flex items-center space-x-3">
-            <img 
+            <OptimizedImage 
               src="/lovable-uploads/d1011e6f-955a-48d9-adef-662af751c3b9.png" 
-              alt="Digital Invest Logo" 
+              alt="Digital Invest Inc. admin logo" 
               className="w-8 h-8 object-contain"
+              showSkeleton={false}
             />
             <span className="text-xl font-bold text-primary">Admin Panel</span>
             {role && (

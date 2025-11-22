@@ -8,6 +8,7 @@ import { ArrowRight, Droplets, Wheat, BarChart3, FileText, Package, Zap, Trendin
 import { Link } from "react-router-dom";
 import terraaeroLogo from "@/assets/terraaero-logo.png";
 import DownloadInvestorBriefButton from "@/components/DownloadInvestorBriefButton";
+import OptimizedImage from "@/components/OptimizedImage";
 
 const TerraAero = () => {
   const fundingProgress = 45;
@@ -73,7 +74,12 @@ const TerraAero = () => {
         {/* Hero Section */}
         <div className="mb-12">
           <div className="flex justify-center mb-6">
-            <img src={terraaeroLogo} alt="TerraAero Logo" className="w-48 h-48 md:w-64 md:h-64" />
+            <OptimizedImage 
+              src={terraaeroLogo} 
+              alt="TerraAero - Advanced drone solutions for agriculture and delivery logo" 
+              className="w-48 h-48 md:w-64 md:h-64"
+              showSkeleton={false}
+            />
           </div>
           <Badge className="mb-4">Agricultural Innovation</Badge>
           <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent">
