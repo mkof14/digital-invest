@@ -39,7 +39,6 @@ import AdminTeam from "./pages/Admin/AdminTeam";
 import AdminNews from "./pages/Admin/AdminNews";
 import WhyDigitalInvest from "./pages/WhyDigitalInvest";
 import ForInvestors from "./pages/ForInvestors";
-import Founder from "./pages/Founder";
 
 const queryClient = new QueryClient();
 
@@ -72,7 +71,6 @@ const App = () => (
             <Route path="/team-members" element={<TeamPage />} />
             <Route path="/why-digital-invest" element={<WhyDigitalInvest />} />
             <Route path="/for-investors" element={<ForInvestors />} />
-            <Route path="/founder" element={<Founder />} />
             
             {/* Legal Routes */}
             <Route path="/legal/terms" element={<TermsOfUse />} />
