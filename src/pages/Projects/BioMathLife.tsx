@@ -5,6 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight, CheckCircle2, TrendingUp, Target, Calendar } from "lucide-react";
 import { Link } from "react-router-dom";
+import biomathLifeHero from "@/assets/projects/biomathlife-hero.jpg";
 import DownloadInvestorBriefButton from "@/components/DownloadInvestorBriefButton";
 import InvestorPageDisclaimer from "@/components/InvestorPageDisclaimer";
 
@@ -50,17 +51,34 @@ const BioMathLife = () => {
     <div className="min-h-screen bg-gradient-to-br from-background via-background to-primary/5">
       <Navigation />
       
-      <main className="container mx-auto px-4 py-12 mt-20">
-        {/* Hero Section */}
-        <div className="mb-12">
-          <Badge className="mb-4">Healthcare Innovation</Badge>
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent">
-            BioMath Life Platform
-          </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mb-8">
-            Towards precision medicine through biomathematical modeling of the human body using breakthrough technologies in genetics, biomathematics, Artificial Intelligence, and pharmacology.
-          </p>
-        </div>
+      <main>
+        {/* Hero Section with Background */}
+        <section className="relative py-32 overflow-hidden">
+          {/* Background Image */}
+          <div 
+            className="absolute inset-0 z-0"
+            style={{
+              backgroundImage: `url(${biomathLifeHero})`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+            }}
+          >
+            <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/90 to-background/70" />
+          </div>
+
+          {/* Content */}
+          <div className="container mx-auto px-4 relative z-10">
+            <div className="max-w-4xl">
+              <Badge className="mb-4">Healthcare Innovation</Badge>
+              <h1 className="text-5xl md:text-6xl font-bold mb-6">
+                BioMath Life Platform
+              </h1>
+              <p className="text-xl text-foreground max-w-3xl mb-8">
+                Towards precision medicine through biomathematical modeling of the human body using breakthrough technologies in genetics, biomathematics, Artificial Intelligence, and pharmacology.
+              </p>
+            </div>
+          </div>
+        </section>
 
         {/* Key Goals */}
         <div className="mb-12">

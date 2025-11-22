@@ -24,6 +24,7 @@ import {
   Rocket
 } from "lucide-react";
 import { Link } from "react-router-dom";
+import digitalInvestHero from "@/assets/projects/digitalinvest-hero.jpg";
 import InterestForm from "@/components/InterestForm";
 import DownloadInvestorBriefButton from "@/components/DownloadInvestorBriefButton";
 import InvestorPageDisclaimer from "@/components/InvestorPageDisclaimer";
@@ -78,47 +79,61 @@ const DigitalInvest = () => {
             </Button>
           </Link>
 
-          {/* Hero Section */}
-          <section className="mb-16">
-            <div className="space-y-6">
-              <div className="flex gap-3 mb-4">
-                <Badge className="bg-primary text-primary-foreground">Portfolio</Badge>
-                <Badge variant="outline">Infrastructure</Badge>
-              </div>
-              
-              <h1 className="text-4xl md:text-6xl font-bold text-foreground">
-                Digital Invest Inc.
-              </h1>
-              
-              <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl leading-relaxed">
-                The multi-sector portfolio that unifies all Digital Invest projects across AI, health, 
-                agriculture, food production, and manufacturing.
-              </p>
+          {/* Hero Section with Background */}
+          <section className="relative -mt-24 mb-16">
+            <div 
+              className="absolute inset-0 z-0"
+              style={{
+                backgroundImage: `url(${digitalInvestHero})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                height: '500px'
+              }}
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/90 to-background/70" />
+            </div>
 
-              {/* Summary Metrics */}
-              <div className="grid grid-cols-2 md:grid-cols-5 gap-4 pt-8">
-                {[
-                  { value: "5", label: "Proprietary Projects" },
-                  { value: "3", label: "Core Industries" },
-                  { value: "20+", label: "Years Experience" },
-                  { value: "U.S.", label: "Based Development" },
-                  { value: "Multi", label: "Sector Synergy" }
-                ].map((metric, index) => (
-                  <Card key={index} className="border border-border/50 bg-card/50 backdrop-blur-sm">
-                    <CardContent className="pt-6 pb-6 text-center space-y-1">
-                      <p className="text-3xl font-bold text-primary">{metric.value}</p>
-                      <p className="text-sm text-muted-foreground">{metric.label}</p>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
+            <div className="relative z-10 pt-32 pb-16">
+              <div className="space-y-6">
+                <div className="flex gap-3 mb-4">
+                  <Badge className="bg-primary text-primary-foreground">Portfolio</Badge>
+                  <Badge variant="outline">Infrastructure</Badge>
+                </div>
+                
+                <h1 className="text-4xl md:text-6xl font-bold text-foreground">
+                  Digital Invest Inc.
+                </h1>
+                
+                <p className="text-xl md:text-2xl text-foreground max-w-4xl leading-relaxed">
+                  The multi-sector portfolio that unifies all Digital Invest projects across AI, health, 
+                  agriculture, food production, and manufacturing.
+                </p>
 
-              <div className="flex gap-4 justify-center flex-wrap mt-8">
-                <Button size="lg" onClick={() => setShowInterestForm(true)}>
-                  Submit Interest
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-                <DownloadInvestorBriefButton projectSlug="digital-invest" size="lg" />
+                {/* Summary Metrics */}
+                <div className="grid grid-cols-2 md:grid-cols-5 gap-4 pt-8">
+                  {[
+                    { value: "5", label: "Proprietary Projects" },
+                    { value: "3", label: "Core Industries" },
+                    { value: "20+", label: "Years Experience" },
+                    { value: "U.S.", label: "Based Development" },
+                    { value: "Multi", label: "Sector Synergy" }
+                  ].map((metric, index) => (
+                    <Card key={index} className="border border-border/50 bg-card/50 backdrop-blur-sm">
+                      <CardContent className="pt-6 pb-6 text-center space-y-1">
+                        <p className="text-3xl font-bold text-primary">{metric.value}</p>
+                        <p className="text-sm text-muted-foreground">{metric.label}</p>
+                      </CardContent>
+                    </Card>
+                  ))}
+                </div>
+
+                <div className="flex gap-4 flex-wrap mt-8">
+                  <Button size="lg" onClick={() => setShowInterestForm(true)}>
+                    Submit Interest
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Button>
+                  <DownloadInvestorBriefButton projectSlug="digital-invest" size="lg" />
+                </div>
               </div>
             </div>
           </section>

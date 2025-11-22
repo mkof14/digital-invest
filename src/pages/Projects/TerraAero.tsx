@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Droplets, Wheat, BarChart3, FileText, Package, Zap } from "lucide-react";
 import { Link } from "react-router-dom";
 import terraaeroLogo from "@/assets/terraaero-logo.png";
+import terraaeroHero from "@/assets/projects/terraaero-hero.jpg";
 import DownloadInvestorBriefButton from "@/components/DownloadInvestorBriefButton";
 import OptimizedImage from "@/components/OptimizedImage";
 import InvestorPageDisclaimer from "@/components/InvestorPageDisclaimer";
@@ -66,25 +67,44 @@ const TerraAero = () => {
     <div className="min-h-screen bg-gradient-to-br from-background via-background to-primary/5">
       <Navigation />
       
-      <main className="container mx-auto px-4 py-12 mt-20">
-        {/* Hero Section */}
-        <div className="mb-12">
-          <div className="flex justify-center mb-6">
-            <OptimizedImage 
-              src={terraaeroLogo} 
-              alt="TerraAero - Advanced drone solutions for agriculture and delivery logo" 
-              className="w-48 h-48 md:w-64 md:h-64"
-              showSkeleton={false}
-            />
+      <main>
+        {/* Hero Section with Background */}
+        <section className="relative py-32 overflow-hidden">
+          {/* Background Image */}
+          <div 
+            className="absolute inset-0 z-0"
+            style={{
+              backgroundImage: `url(${terraaeroHero})`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+            }}
+          >
+            <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/90 to-background/70" />
           </div>
-          <Badge className="mb-4">Agricultural Innovation</Badge>
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent">
-            TerraAero
-          </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mb-8">
-            Advanced drone solutions for agriculture and delivery. Transform your operations with cutting-edge drone technology - from precision farming to rapid delivery services.
-          </p>
-        </div>
+
+          {/* Content */}
+          <div className="container mx-auto px-4 relative z-10">
+            <div className="max-w-4xl">
+              <div className="flex items-center gap-6 mb-8">
+                <OptimizedImage 
+                  src={terraaeroLogo} 
+                  alt="TerraAero - Advanced drone solutions for agriculture and delivery logo" 
+                  className="w-24 h-24 md:w-32 md:h-32"
+                  showSkeleton={false}
+                />
+                <div>
+                  <Badge className="mb-4">Agricultural Innovation</Badge>
+                  <h1 className="text-4xl md:text-6xl font-bold">
+                    TerraAero
+                  </h1>
+                </div>
+              </div>
+              <p className="text-xl text-foreground max-w-3xl mb-8">
+                Advanced drone solutions for agriculture and delivery. Transform your operations with cutting-edge drone technology - from precision farming to rapid delivery services.
+              </p>
+            </div>
+          </div>
+        </section>
 
         {/* Stats Section */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">

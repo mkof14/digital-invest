@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Heart, Brain, Activity, Shield, Lock, CheckCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 import biomathCoreLogo from "@/assets/biomath-core-logo.png";
+import biomathCoreHero from "@/assets/projects/biomath-core-hero.jpg";
 import DownloadInvestorBriefButton from "@/components/DownloadInvestorBriefButton";
 import OptimizedImage from "@/components/OptimizedImage";
 import InvestorPageDisclaimer from "@/components/InvestorPageDisclaimer";
@@ -74,41 +75,60 @@ const BioMathCore = () => {
     <div className="min-h-screen bg-gradient-to-br from-background via-background to-primary/5">
       <Navigation />
       
-      <main className="container mx-auto px-4 py-12 mt-20">
-      {/* Hero Section */}
-      <div className="mb-16 text-center animate-fade-in">
-        <div className="flex justify-center mb-6">
-          <OptimizedImage 
-            src={biomathCoreLogo} 
-            alt="BioMath Core - Intelligent health operating system logo" 
-            className="w-32 h-32 md:w-40 md:h-40"
-            showSkeleton={false}
-          />
+      <main>
+      {/* Hero Section with Background */}
+      <section className="relative py-32 overflow-hidden">
+        {/* Background Image */}
+        <div 
+          className="absolute inset-0 z-0"
+          style={{
+            backgroundImage: `url(${biomathCoreHero})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/90 to-background/70" />
         </div>
-        <Badge className="mb-4">Digital Health Platform</Badge>
-        <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent">
-          BioMath Core
-        </h1>
-          <p className="text-2xl md:text-3xl font-light text-muted-foreground mb-4">
-            Where Data Meets Daily Life
-          </p>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-            From sleep to cognition, from movement to mood — BioMath Core brings clarity to your health journey. 
-            Track, understand, and optimize your wellbeing through intelligent, real-time insights tailored to you.
-          </p>
-          <div className="flex gap-4 justify-center flex-wrap">
-            <Link to="/start-investing">
-              <Button size="lg" className="px-8">
-                Start Free Today
-                <ArrowRight className="ml-2 w-5 h-5" />
+
+        {/* Content */}
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="max-w-4xl animate-fade-in">
+            <div className="flex items-center gap-6 mb-8">
+              <OptimizedImage 
+                src={biomathCoreLogo} 
+                alt="BioMath Core - Intelligent health operating system logo" 
+                className="w-24 h-24 md:w-32 md:h-32"
+                showSkeleton={false}
+              />
+              <div>
+                <Badge className="mb-4">Digital Health Platform</Badge>
+                <h1 className="text-4xl md:text-6xl font-bold">
+                  BioMath Core
+                </h1>
+              </div>
+            </div>
+            <p className="text-2xl md:text-3xl font-light text-foreground mb-4">
+              Where Data Meets Daily Life
+            </p>
+            <p className="text-xl text-muted-foreground max-w-3xl mb-8">
+              From sleep to cognition, from movement to mood — BioMath Core brings clarity to your health journey. 
+              Track, understand, and optimize your wellbeing through intelligent, real-time insights tailored to you.
+            </p>
+            <div className="flex gap-4 flex-wrap">
+              <Link to="/start-investing">
+                <Button size="lg" className="px-8">
+                  Start Free Today
+                  <ArrowRight className="ml-2 w-5 h-5" />
+                </Button>
+              </Link>
+              <Button size="lg" variant="outline" className="px-8">
+                Explore Learning Center
               </Button>
-            </Link>
-            <Button size="lg" variant="outline" className="px-8">
-              Explore Learning Center
-            </Button>
-            <DownloadInvestorBriefButton projectSlug="biomathcore" size="lg" />
+              <DownloadInvestorBriefButton projectSlug="biomathcore" size="lg" />
+            </div>
           </div>
         </div>
+      </section>
 
         {/* Key Features */}
         <div className="mb-16">
