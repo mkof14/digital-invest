@@ -5,10 +5,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Heart, Brain, Activity, Shield, Lock, CheckCircle } from "lucide-react";
 import { Link } from "react-router-dom";
-import biomathCoreLogo from "@/assets/biomath-core-logo.png";
 import biomathCoreHero from "@/assets/projects/biomath-core-hero.jpg";
 import DownloadInvestorBriefButton from "@/components/DownloadInvestorBriefButton";
-import OptimizedImage from "@/components/OptimizedImage";
 import InvestorPageDisclaimer from "@/components/InvestorPageDisclaimer";
 
 const BioMathCore = () => {
@@ -94,11 +92,10 @@ const BioMathCore = () => {
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl animate-fade-in">
             <div className="flex items-center gap-6 mb-8">
-              <OptimizedImage 
-                src={biomathCoreLogo} 
+              <img 
+                src="/lovable-uploads/biomath-core-logo.png" 
                 alt="BioMath Core logo" 
                 className="w-20 h-20 md:w-24 md:h-24 object-contain"
-                showSkeleton={false}
               />
               <div>
                 <Badge className="mb-4">Digital Health Platform</Badge>

@@ -25,10 +25,8 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import digitalInvestHero from "@/assets/projects/digitalinvest-hero.jpg";
-import digitalInvestLogo from "/lovable-uploads/d1011e6f-955a-48d9-adef-662af751c3b9.png";
 import InterestForm from "@/components/InterestForm";
 import DownloadInvestorBriefButton from "@/components/DownloadInvestorBriefButton";
-import OptimizedImage from "@/components/OptimizedImage";
 import InvestorPageDisclaimer from "@/components/InvestorPageDisclaimer";
 
 const DigitalInvest = () => {
@@ -98,11 +96,10 @@ const DigitalInvest = () => {
             <div className="relative z-10 pt-32 pb-16">
               <div className="space-y-6">
                 <div className="flex items-center gap-6 mb-8">
-                  <OptimizedImage 
-                    src={digitalInvestLogo} 
+                  <img 
+                    src="/lovable-uploads/d1011e6f-955a-48d9-adef-662af751c3b9.png" 
                     alt="Digital Invest Inc. logo" 
                     className="w-20 h-20 md:w-24 md:h-24 object-contain"
-                    showSkeleton={false}
                   />
                   <div>
                     <div className="flex gap-3 mb-4">
