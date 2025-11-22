@@ -87,18 +87,7 @@ const TeamPage = () => {
           </h2>
           
           <div className="bg-card/30 border border-border/50 rounded-lg p-8 md:p-12 mb-12">
-            <div className="flex flex-col md:flex-row gap-12 items-start">
-              {/* Profile Image Placeholder */}
-              <div className="flex-shrink-0">
-                <div className="w-48 h-48 rounded-lg bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center border border-border/50">
-                  <div className="text-center">
-                    <Building2 className="w-16 h-16 text-primary mx-auto mb-2" />
-                    <p className="text-sm font-semibold text-foreground">Michael Kofman</p>
-                    <p className="text-xs text-muted-foreground">Founder & CEO</p>
-                  </div>
-                </div>
-              </div>
-
+            <div className="flex flex-col gap-12 items-start">
               {/* Bio Text */}
               <div className="flex-1 space-y-6">
                 <div>
