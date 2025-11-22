@@ -1,245 +1,253 @@
-import { useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import * as z from 'zod';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { Button } from '@/components/ui/button';
-import { Mail, Phone, MapPin, Loader2, Send, AlertCircle } from 'lucide-react';
-import { useToast } from '@/hooks/use-toast';
-
-const formSchema = z.object({
-  name: z.string().min(2, 'Name must be at least 2 characters').max(100),
-  email: z.string().email('Invalid email address').max(255),
-  subject: z.string().min(5, 'Subject must be at least 5 characters').max(200),
-  message: z.string().min(10, 'Message must be at least 10 characters').max(1000),
-});
+import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Link } from "react-router-dom";
+import {
+  Users,
+  FileText,
+  Shield,
+  TrendingUp,
+  ArrowRight,
+  CheckCircle2,
+  X,
+  Briefcase,
+  Building2,
+  Search,
+  Mail,
+  Clock
+} from "lucide-react";
 
 const ForInvestors = () => {
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const { toast } = useToast();
-
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
-    defaultValues: {
-      name: '',
-      email: '',
-      subject: '',
-      message: '',
-    },
-  });
-
-  const onSubmit = async (values: z.infer<typeof formSchema>) => {
-    setIsSubmitting(true);
-    
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    
-    toast({
-      title: 'Message Sent',
-      description: 'Thank you for reaching out. Our team will respond to your inquiry within 1-2 business days.',
-    });
-    
-    form.reset();
-    setIsSubmitting(false);
-  };
-
   return (
-    <div className="min-h-screen pt-24 pb-16">
-      <div className="container mx-auto px-4">
-        {/* Header */}
-        <div className="mb-12 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
+    <div className="min-h-screen bg-background">
+      <Navigation />
+
+      {/* Hero Section */}
+      <section className="pt-32 pb-24 px-4">
+        <div className="max-w-4xl mx-auto text-center space-y-6 animate-fade-in">
+          <h1 className="text-4xl md:text-6xl font-bold text-foreground">
             For Investors
           </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Have questions about our investment opportunities? Our team is here to help. 
-            Reach out to discuss how we can work together.
+          <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed">
+            A private way to explore and discuss participation in Digital Invest projects.
           </p>
         </div>
+      </section>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {/* Contact Form */}
-          <div className="lg:col-span-2">
-            <Card className="border border-border/50">
-              <CardHeader>
-                <CardTitle className="text-2xl">Send Us a Message</CardTitle>
-                <CardDescription>
-                  Fill out the form below and we'll get back to you as soon as possible.
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <Form {...form}>
-                  <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                    <FormField
-                      control={form.control}
-                      name="name"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Full Name</FormLabel>
-                          <FormControl>
-                            <Input placeholder="John Doe" {...field} />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-
-                    <FormField
-                      control={form.control}
-                      name="email"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Email Address</FormLabel>
-                          <FormControl>
-                            <Input type="email" placeholder="john@example.com" {...field} />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-
-                    <FormField
-                      control={form.control}
-                      name="subject"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Subject</FormLabel>
-                          <FormControl>
-                            <Input placeholder="Investment inquiry" {...field} />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-
-                    <FormField
-                      control={form.control}
-                      name="message"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Message</FormLabel>
-                          <FormControl>
-                            <Textarea
-                              placeholder="Tell us about your investment interests, questions, or how we can help..."
-                              className="min-h-[150px]"
-                              {...field}
-                            />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-
-                    <Button type="submit" size="lg" className="w-full" disabled={isSubmitting}>
-                      {isSubmitting ? (
-                        <>
-                          <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                          Sending...
-                        </>
-                      ) : (
-                        <>
-                          <Send className="mr-2 h-4 w-4" />
-                          Send Message
-                        </>
-                      )}
-                    </Button>
-                  </form>
-                </Form>
-              </CardContent>
-            </Card>
+      {/* Who We Work With Section */}
+      <section className="py-16 px-4 bg-card/30">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-12 text-center">
+            Who We Work With
+          </h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              { icon: <Briefcase className="w-6 h-6" />, text: "Entrepreneurs and operators" },
+              { icon: <TrendingUp className="w-6 h-6" />, text: "Long-term private investors" },
+              { icon: <Building2 className="w-6 h-6" />, text: "Family offices" },
+              { icon: <Users className="w-6 h-6" />, text: "Partners interested in real-economy and AI projects" }
+            ].map((item, index) => (
+              <Card key={index} className="border border-border/50 bg-card">
+                <CardContent className="pt-6 pb-6">
+                  <div className="flex flex-col items-center text-center gap-4">
+                    <div className="p-3 bg-primary/10 rounded-lg">
+                      <div className="text-primary">{item.icon}</div>
+                    </div>
+                    <p className="text-sm text-foreground font-medium leading-relaxed">{item.text}</p>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
           </div>
+        </div>
+      </section>
 
-          {/* Contact Information & Additional Info */}
-          <div className="space-y-8">
-            {/* Contact Details */}
-            <Card className="border border-border/50">
+      {/* What You Can Expect Section */}
+      <section className="py-24 px-4">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-12 text-center">
+            What You Can Expect
+          </h2>
+          
+          <div className="space-y-4">
+            {[
+              "Direct access to project overviews and roadmaps",
+              "Clear explanation of business logic and operations",
+              "Structured risk overview",
+              "Personal calls and Q&A sessions",
+              "Offline legal agreements",
+              "Project updates and milestones after onboarding"
+            ].map((item, index) => (
+              <Card key={index} className="border border-border/50 bg-card">
+                <CardContent className="pt-6 pb-6">
+                  <div className="flex items-start gap-4">
+                    <div className="p-2 bg-primary/10 rounded-lg flex-shrink-0">
+                      <CheckCircle2 className="w-5 h-5 text-primary" />
+                    </div>
+                    <p className="text-base text-foreground leading-relaxed">{item}</p>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Your Path as an Investor Section */}
+      <section className="py-24 px-4 bg-card/30">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-12 text-center">
+            Your Path as an Investor
+          </h2>
+          
+          <div className="space-y-6">
+            {[
+              {
+                step: "1",
+                title: "Explore projects",
+                description: "Review the platforms across health, agriculture, food production, and infrastructure. Read detailed project pages, roadmaps, and business models.",
+                icon: <Search className="w-6 h-6" />
+              },
+              {
+                step: "2",
+                title: "Submit non-binding interest",
+                description: "Use a short form to express interest in one or more projects. This creates no commitment and requires no payment at this stage.",
+                icon: <Mail className="w-6 h-6" />
+              },
+              {
+                step: "3",
+                title: "Personal follow-up",
+                description: "We contact you directly via email or phone to share additional materials, answer your questions, and understand your interests.",
+                icon: <Users className="w-6 h-6" />
+              },
+              {
+                step: "4",
+                title: "Due diligence",
+                description: "We review the project together in detail: roadmap, business model, risks, structure, timelines, and expected milestones.",
+                icon: <FileText className="w-6 h-6" />
+              },
+              {
+                step: "5",
+                title: "Offline agreement",
+                description: "If both sides agree to proceed, the legal investment process happens offline through proper documentation, not on the website.",
+                icon: <Shield className="w-6 h-6" />
+              },
+              {
+                step: "6",
+                title: "Updates & growth",
+                description: "You receive periodic updates, milestone notifications, and insights as projects progress and develop over time.",
+                icon: <TrendingUp className="w-6 h-6" />
+              }
+            ].map((item, index) => (
+              <Card key={index} className="border border-border/50 bg-card hover:shadow-lg transition-all duration-300">
+                <CardContent className="pt-6 pb-6">
+                  <div className="flex items-start gap-6">
+                    <div className="flex-shrink-0">
+                      <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+                        <span className="text-xl font-bold text-primary">{item.step}</span>
+                      </div>
+                    </div>
+                    <div className="flex-1 space-y-2">
+                      <div className="flex items-center gap-3">
+                        <h3 className="text-xl font-bold text-foreground">{item.title}</h3>
+                        <div className="text-primary">{item.icon}</div>
+                      </div>
+                      <p className="text-sm text-muted-foreground leading-relaxed">
+                        {item.description}
+                      </p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* What This Website Is/Is Not Section */}
+      <section className="py-24 px-4">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-12 text-center">
+            What This Website Is and Is Not
+          </h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* This Website IS */}
+            <Card className="border border-primary/30 bg-card">
               <CardHeader>
-                <CardTitle>Contact Information</CardTitle>
+                <CardTitle className="text-2xl text-foreground flex items-center gap-3">
+                  <CheckCircle2 className="w-6 h-6 text-primary" />
+                  This Website IS
+                </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
-                <div className="flex items-start gap-3">
-                  <Mail className="h-5 w-5 text-primary mt-1" />
-                  <div>
-                    <p className="font-semibold text-foreground">Email</p>
-                    <a href="mailto:investors@digitalinvest.com" className="text-muted-foreground hover:text-primary transition-colors">
-                      investors@digitalinvest.com
-                    </a>
+                {[
+                  "An informational overview of Digital Invest projects",
+                  "A way to submit non-binding expressions of interest",
+                  "A place to understand the portfolio structure"
+                ].map((item, index) => (
+                  <div key={index} className="flex items-start gap-3">
+                    <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                    <p className="text-foreground leading-relaxed">{item}</p>
                   </div>
-                </div>
-
-                <div className="flex items-start gap-3">
-                  <Phone className="h-5 w-5 text-primary mt-1" />
-                  <div>
-                    <p className="font-semibold text-foreground">Phone</p>
-                    <a href="tel:+1234567890" className="text-muted-foreground hover:text-primary transition-colors">
-                      +1 (234) 567-890
-                    </a>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-3">
-                  <MapPin className="h-5 w-5 text-primary mt-1" />
-                  <div>
-                    <p className="font-semibold text-foreground">Office</p>
-                    <p className="text-muted-foreground">
-                      Digital Invest Inc.<br />
-                      123 Business Street<br />
-                      New York, NY 10001
-                    </p>
-                  </div>
-                </div>
+                ))}
               </CardContent>
             </Card>
 
-            {/* Response Time */}
-            <Card className="border border-border/50">
+            {/* This Website is NOT */}
+            <Card className="border border-border/50 bg-card">
               <CardHeader>
-                <CardTitle>What to Expect</CardTitle>
+                <CardTitle className="text-2xl text-foreground flex items-center gap-3">
+                  <X className="w-6 h-6 text-muted-foreground" />
+                  This Website is NOT
+                </CardTitle>
               </CardHeader>
-              <CardContent>
-                <ul className="space-y-3 text-muted-foreground">
-                  <li className="flex items-start gap-2">
-                    <span className="text-primary mt-1">•</span>
-                    <span>Response within 1-2 business days</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-primary mt-1">•</span>
-                    <span>Personalized consultation from our investment team</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-primary mt-1">•</span>
-                    <span>Comprehensive project documentation</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-primary mt-1">•</span>
-                    <span>Clear next steps and timeline</span>
-                  </li>
-                </ul>
-              </CardContent>
-            </Card>
-
-            {/* Disclaimer */}
-            <Card className="bg-muted/30 border border-border">
-              <CardContent className="pt-6">
-                <div className="flex gap-3">
-                  <AlertCircle className="h-5 w-5 text-warning flex-shrink-0 mt-0.5" />
-                  <div className="text-sm text-muted-foreground">
-                    <p className="font-semibold text-foreground mb-2">Legal Disclaimer</p>
-                    <p>
-                      Digital Invest Inc. does not provide investment, legal, or tax advice. 
-                      Information provided is for informational purposes only and does not constitute 
-                      a public offer or solicitation. All investments require proper legal documentation.
-                    </p>
+              <CardContent className="space-y-4">
+                {[
+                  "Not a crowdfunding platform",
+                  "Not a public offering",
+                  "Not a place to invest online",
+                  "Not a source of financial or tax advice"
+                ].map((item, index) => (
+                  <div key={index} className="flex items-start gap-3">
+                    <X className="w-5 h-5 text-muted-foreground flex-shrink-0 mt-0.5" />
+                    <p className="text-muted-foreground leading-relaxed">{item}</p>
                   </div>
-                </div>
+                ))}
               </CardContent>
             </Card>
           </div>
         </div>
-      </div>
+      </section>
+
+      {/* Contact / Next Steps Section */}
+      <section className="py-24 px-4 bg-card/30">
+        <div className="max-w-4xl mx-auto text-center space-y-8">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground">
+            Contact / Next Steps
+          </h2>
+          
+          <Card className="border border-border/50 bg-card">
+            <CardContent className="pt-8 pb-8">
+              <p className="text-lg text-muted-foreground leading-relaxed mb-8">
+                If you want to explore potential participation, the best next step is to review the projects 
+                and submit a short, non-binding expression of interest. We will reach out personally.
+              </p>
+              
+              <Link to="/projects">
+                <Button size="lg" className="px-10 py-6 text-base">
+                  View Projects
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+              </Link>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      <Footer />
     </div>
   );
 };

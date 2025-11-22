@@ -37,6 +37,8 @@ import AdminProjects from "./pages/Admin/AdminProjects";
 import AdminLeads from "./pages/Admin/AdminLeads";
 import AdminTeam from "./pages/Admin/AdminTeam";
 import AdminNews from "./pages/Admin/AdminNews";
+import WhyDigitalInvest from "./pages/WhyDigitalInvest";
+import ForInvestors from "./pages/ForInvestors";
 
 const queryClient = new QueryClient();
 
@@ -67,6 +69,8 @@ const App = () => (
             <Route path="/news" element={<News />} />
             <Route path="/news/:slug" element={<NewsDetail />} />
             <Route path="/team-members" element={<TeamPage />} />
+            <Route path="/why-digital-invest" element={<WhyDigitalInvest />} />
+            <Route path="/for-investors" element={<ForInvestors />} />
             
             {/* Legal Routes */}
             <Route path="/legal/terms" element={<TermsOfUse />} />
