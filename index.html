@@ -56,6 +56,27 @@
         'send_page_view': true
       });
     </script>
+
+    <!-- Microsoft Clarity -->
+    <!-- 
+      TO GET YOUR CLARITY PROJECT ID:
+      1. Go to https://clarity.microsoft.com/
+      2. Sign in with Microsoft account
+      3. Click "Add new project"
+      4. Enter your website URL (digitalinvest.com)
+      5. Copy the Project ID from the setup page
+      6. Replace YOUR_CLARITY_PROJECT_ID below with that ID
+      7. Clarity will start collecting data within 2 hours
+      
+      Features: Heat maps, session recordings, user behavior analytics
+    -->
+    <script type="text/javascript">
+      (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+      })(window, document, "clarity", "script", "YOUR_CLARITY_PROJECT_ID");
+    </script>
     
     <!-- Structured Data - Organization -->
     <script type="application/ld+json">
