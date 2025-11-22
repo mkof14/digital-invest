@@ -17,6 +17,7 @@ import {
   Heart
 } from "lucide-react";
 import dishcoreLogo from "@/assets/dishcore-logo.png";
+import dishcoreHero from "@/assets/projects/dishcore-hero.jpg";
 import DownloadInvestorBriefButton from "@/components/DownloadInvestorBriefButton";
 import OptimizedImage from "@/components/OptimizedImage";
 import InvestorPageDisclaimer from "@/components/InvestorPageDisclaimer";
@@ -68,36 +69,50 @@ const DishCore = () => {
     <div className="min-h-screen bg-background">
       <Navigation />
 
-      {/* Hero Section */}
-      <section className="py-20 px-4 bg-secondary/10">
-        <div className="max-w-6xl mx-auto">
-          <div className="flex flex-col items-center text-center space-y-8">
-            <OptimizedImage 
-              src={dishcoreLogo} 
-              alt="DishCore - Personal nutrition and body-tracking platform logo" 
-              className="w-48 h-48 md:w-64 md:h-64 object-contain"
-              showSkeleton={false}
-            />
-            
-            <div className="space-y-4">
-              <Badge className="mb-2 bg-success/10 text-success border-success/20">
-                Personal Nutrition Platform
-              </Badge>
-              <h1 className="text-5xl md:text-6xl font-bold text-foreground">
-                DishCore
-              </h1>
-              <p className="text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-                Eat Smarter, Feel Better, Stay in Shape
-              </p>
-              <div className="flex gap-4 justify-center flex-wrap mt-6">
-                <Link to="/start-investing">
-                  <Button size="lg">
-                    Learn More
-                    <ArrowRight className="ml-2 w-5 h-5" />
-                  </Button>
-                </Link>
-                <DownloadInvestorBriefButton projectSlug="dishcore" size="lg" />
+      {/* Hero Section with Background */}
+      <section className="relative py-32 overflow-hidden">
+        {/* Background Image */}
+        <div 
+          className="absolute inset-0 z-0"
+          style={{
+            backgroundImage: `url(${dishcoreHero})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/90 to-background/70" />
+        </div>
+
+        {/* Content */}
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="max-w-4xl">
+            <div className="flex items-center gap-6 mb-8">
+              <OptimizedImage 
+                src={dishcoreLogo} 
+                alt="DishCore - Personal nutrition and body-tracking platform logo" 
+                className="w-24 h-24 md:w-32 md:h-32 object-contain"
+                showSkeleton={false}
+              />
+              <div>
+                <Badge className="mb-2 bg-success/10 text-success border-success/20">
+                  Personal Nutrition Platform
+                </Badge>
+                <h1 className="text-4xl md:text-6xl font-bold text-foreground">
+                  DishCore
+                </h1>
               </div>
+            </div>
+            <p className="text-2xl text-foreground max-w-3xl leading-relaxed mb-6">
+              Eat Smarter, Feel Better, Stay in Shape
+            </p>
+            <div className="flex gap-4 flex-wrap">
+              <Link to="/start-investing">
+                <Button size="lg">
+                  Learn More
+                  <ArrowRight className="ml-2 w-5 h-5" />
+                </Button>
+              </Link>
+              <DownloadInvestorBriefButton projectSlug="dishcore" size="lg" />
             </div>
           </div>
         </div>
