@@ -60,6 +60,7 @@ const InterestForm = ({ projectId, projectTitle, open, onOpenChange }: InterestF
         country: values.country || null,
         amount_range: values.amount_range,
         comments: values.comments || null,
+        source: 'project-page',
       });
 
       if (error) throw error;

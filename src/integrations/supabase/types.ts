@@ -22,10 +22,15 @@ export type Database = {
           created_at: string
           email: string
           id: string
+          internal_notes: string | null
+          last_contacted_at: string | null
+          last_email_type: string | null
           name: string
+          next_action_at: string | null
           notes: string | null
           phone: string | null
           project_id: string
+          source: string | null
           status: Database["public"]["Enums"]["lead_status"] | null
         }
         Insert: {
@@ -35,10 +40,15 @@ export type Database = {
           created_at?: string
           email: string
           id?: string
+          internal_notes?: string | null
+          last_contacted_at?: string | null
+          last_email_type?: string | null
           name: string
+          next_action_at?: string | null
           notes?: string | null
           phone?: string | null
           project_id: string
+          source?: string | null
           status?: Database["public"]["Enums"]["lead_status"] | null
         }
         Update: {
@@ -48,10 +58,15 @@ export type Database = {
           created_at?: string
           email?: string
           id?: string
+          internal_notes?: string | null
+          last_contacted_at?: string | null
+          last_email_type?: string | null
           name?: string
+          next_action_at?: string | null
           notes?: string | null
           phone?: string | null
           project_id?: string
+          source?: string | null
           status?: Database["public"]["Enums"]["lead_status"] | null
         }
         Relationships: [
