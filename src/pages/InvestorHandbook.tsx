@@ -95,9 +95,15 @@ const InvestorHandbook = () => {
               Investor Handbook
             </h1>
             
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-6">
               Digital Invest Inc. — Informational Overview of Multi-Sector Portfolio
             </p>
+
+            <div className="max-w-2xl mx-auto">
+              <p className="text-sm text-muted-foreground px-6 py-4 bg-muted/30 rounded-lg border border-border/50">
+                <strong>Important:</strong> This handbook is not a prospectus, public offering document, or solicitation material. It is provided only for informational purposes for qualified individuals who have been invited to review it.
+              </p>
+            </div>
 
             {!emailSubmitted ? (
               <form onSubmit={handleSubmit} className="pt-8 max-w-md mx-auto space-y-4">

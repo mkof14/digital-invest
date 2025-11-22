@@ -8,6 +8,7 @@ import { TrendingUp, ArrowRight, Loader2 } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
+import InvestorPageDisclaimer from '@/components/InvestorPageDisclaimer';
 import terraaeroHero from '@/assets/projects/terraaero-hero.jpg';
 import biomathcoreHero from '@/assets/projects/biomathcore-hero.jpg';
 import dishcoreHero from '@/assets/projects/dishcore-hero.jpg';
@@ -178,6 +179,11 @@ const Projects = () => {
             ))}
           </div>
         )}
+        </div>
+
+        {/* Legal Disclaimer */}
+        <div className="mt-16 max-w-5xl mx-auto">
+          <InvestorPageDisclaimer />
         </div>
       </div>
       <Footer />
