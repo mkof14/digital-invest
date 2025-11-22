@@ -135,6 +135,12 @@ const Index = () => {
                 <TrendingUp className="ml-2 h-5 w-5" />
               </Button>
             </Link>
+            <Link to="/why-digital-invest">
+              <Button size="lg" variant="outline" className="px-10 py-6 text-base">
+                Learn Why Digital Invest
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </Link>
           </div>
 
           {/* Key Metrics */}

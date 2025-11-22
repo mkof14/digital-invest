@@ -10,7 +10,9 @@ const Navigation = () => {
 
   const navItems = [
     { label: 'Home', href: '/' },
+    { label: 'Why Digital Invest', href: '/why-digital-invest' },
     { label: 'Projects', href: '/projects' },
+    { label: 'For Investors', href: '/for-investors' },
     { label: 'How It Works', href: '/how-it-works' },
     { label: 'Team', href: '/team-members' },
     { label: 'News', href: '/news' },
