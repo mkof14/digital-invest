@@ -81,7 +81,11 @@ const TeamPage = () => {
 
         {/* Founder Section */}
         <section className="mb-16">
-          <div className="bg-card/30 border border-border/50 rounded-lg p-8 md:p-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-8 text-center">
+            About the Founder
+          </h2>
+          
+          <div className="bg-card/30 border border-border/50 rounded-lg p-8 md:p-12 mb-12">
             <div className="flex flex-col md:flex-row gap-12 items-start">
               {/* Profile Image Placeholder */}
               <div className="flex-shrink-0">
@@ -97,8 +101,8 @@ const TeamPage = () => {
               {/* Bio Text */}
               <div className="flex-1 space-y-6">
                 <div>
-                  <h2 className="text-3xl font-bold text-foreground mb-2">About the Founder</h2>
-                  <p className="text-primary font-semibold">Michael Kofman, Founder & CEO</p>
+                  <h3 className="text-2xl font-bold text-foreground mb-2">Michael Kofman</h3>
+                  <p className="text-primary font-semibold">Founder & CEO</p>
                 </div>
                 
                 <div className="space-y-4 text-base text-muted-foreground leading-relaxed">
@@ -114,35 +118,77 @@ const TeamPage = () => {
                     portfolio, built with a long-term, structured approach to real-world impact.
                   </p>
                 </div>
-
-                {/* Key Highlights */}
-                <div className="pt-4">
-                  <h3 className="text-lg font-semibold text-foreground mb-4">Key Highlights</h3>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    {[
-                      "Multi-company builder",
-                      "U.S. operations experience",
-                      "AI & data systems expert",
-                      "Multi-sector execution"
-                    ].map((highlight, index) => (
-                      <div key={index} className="flex items-center gap-2">
-                        <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0" />
-                        <span className="text-sm text-foreground">{highlight}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Philosophy Quote */}
-                <div className="pt-6 border-t border-border/50">
-                  <blockquote className="text-sm text-muted-foreground italic">
-                    "My approach is based on real execution, practical systems, and long-term thinking. 
-                    Digital Invest is not about hype, trends, or shortcuts — it is about building real 
-                    platforms that create real value over time."
-                  </blockquote>
-                </div>
               </div>
             </div>
+          </div>
+
+          {/* Professional Background and Achievements */}
+          <div className="mb-12">
+            <h3 className="text-2xl font-bold text-foreground mb-6">
+              Professional Background and Achievements
+            </h3>
+            
+            <div className="space-y-4">
+              {[
+                "Built and scaled multiple technology and real-economy companies",
+                "Experience with U.S. operations, infrastructure, and enterprise systems",
+                "Led teams across technology, data platforms, and manufacturing",
+                "Deep expertise in AI-driven health analytics and system design",
+                "Multi-sector operational execution (healthtech, foodtech, agriculture, manufacturing)"
+              ].map((achievement, index) => (
+                <Card key={index} className="border border-border/50 bg-card">
+                  <CardContent className="pt-6 pb-6">
+                    <div className="flex items-start gap-4">
+                      <div className="p-2 bg-primary/10 rounded-lg flex-shrink-0">
+                        <CheckCircle2 className="w-5 h-5 text-primary" />
+                      </div>
+                      <p className="text-base text-foreground leading-relaxed">
+                        {achievement}
+                      </p>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+
+          {/* Visual Achievement Highlights */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
+            {[
+              { icon: <Building2 className="w-8 h-8" />, label: "Multi-Company Builder" },
+              { icon: <Linkedin className="w-8 h-8" />, label: "Team Leadership" },
+              { icon: <Mail className="w-8 h-8" />, label: "AI & Data Systems" },
+              { icon: <CheckCircle2 className="w-8 h-8" />, label: "Operational Excellence" }
+            ].map((item, index) => (
+              <Card key={index} className="border border-border/50 bg-card">
+                <CardContent className="pt-6 pb-6 text-center space-y-3">
+                  <div className="p-3 bg-primary/10 rounded-lg w-fit mx-auto">
+                    <div className="text-primary">{item.icon}</div>
+                  </div>
+                  <p className="text-sm font-medium text-foreground">{item.label}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+
+          {/* Founder's Philosophy */}
+          <div>
+            <h3 className="text-2xl font-bold text-foreground mb-6">
+              Founder's Philosophy
+            </h3>
+            
+            <Card className="border border-primary/30 bg-card">
+              <CardContent className="pt-8 pb-8">
+                <blockquote className="text-lg text-foreground leading-relaxed text-center italic">
+                  "My approach is based on real execution, practical systems, and long-term thinking. 
+                  Digital Invest is not about hype, trends, or shortcuts — it is about building real 
+                  platforms that create real value over time."
+                </blockquote>
+                <div className="mt-6 pt-6 border-t border-border/50 text-center">
+                  <p className="text-sm text-muted-foreground">— Michael Kofman, Founder & CEO</p>
+                </div>
+              </CardContent>
+            </Card>
           </div>
         </section>
 
