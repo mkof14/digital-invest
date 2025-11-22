@@ -96,8 +96,8 @@ const BioMathCore = () => {
             <div className="flex items-center gap-6 mb-8">
               <OptimizedImage 
                 src={biomathCoreLogo} 
-                alt="BioMath Core - Intelligent health operating system logo" 
-                className="w-24 h-24 md:w-32 md:h-32"
+                alt="BioMath Core logo" 
+                className="w-20 h-20 md:w-24 md:h-24 object-contain"
                 showSkeleton={false}
               />
               <div>
