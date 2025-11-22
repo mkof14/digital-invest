@@ -198,7 +198,7 @@ const ProjectDetail = () => {
       const pageTitle = `${project.title} - Investment Opportunity | Digital Invest Inc.`;
       const pageDescription = truncateForMeta(project.short_description, 160);
       const canonicalUrl = `https://digitalinvest.com/projects/${project.slug}`;
-      const ogImage = project.hero_image_url || 'https://digitalinvest.com/digital-invest-logo.png';
+      const ogImage = project.hero_image_url || 'https://digitalinvest.com/lovable-uploads/d1011e6f-955a-48d9-adef-662af751c3b9.png';
 
       updateMetaTags({
         title: pageTitle,

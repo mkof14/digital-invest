@@ -12,7 +12,7 @@ const Footer = () => {
           <div className="space-y-4 lg:col-span-1">
             <div className="flex items-center gap-3 mb-2">
               <img 
-                src="/digital-invest-logo.png" 
+                src="/lovable-uploads/d1011e6f-955a-48d9-adef-662af751c3b9.png" 
                 alt="Digital Invest Inc." 
                 className="h-8 w-8"
               />
