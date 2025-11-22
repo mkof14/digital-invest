@@ -14,6 +14,7 @@ import Footer from '@/components/Footer';
 import { updateMetaTags, resetMetaTags, truncateForMeta } from '@/lib/metaTags';
 import { generateProjectSchema, generateBreadcrumbSchema, injectStructuredData, removeStructuredData } from '@/lib/structuredData';
 import OptimizedImage from '@/components/OptimizedImage';
+import { MarkdownContent } from '@/components/MarkdownContent';
 
 interface Project {
   id: string;
@@ -527,9 +528,10 @@ const ProjectDetail = () => {
               <h2 className="text-3xl font-bold mb-6 flex items-center gap-3">
                 <span className="text-primary">Overview</span>
               </h2>
-              <div className="prose prose-lg max-w-none text-foreground">
-                <p className="whitespace-pre-wrap">{project.long_description}</p>
-              </div>
+              <MarkdownContent 
+                content={project.long_description} 
+                className="prose-lg"
+              />
             </section>
 
             {/* Use of Funds */}
