@@ -43,6 +43,9 @@ import AdminTeam from "./pages/Admin/AdminTeam";
 import AdminNews from "./pages/Admin/AdminNews";
 import AdminEmailTemplates from "./pages/Admin/AdminEmailTemplates";
 import AdminContent from "./pages/Admin/AdminContent";
+import AdminConsultations from "./pages/Admin/AdminConsultations";
+import AdminAvailability from "./pages/Admin/AdminAvailability";
+import AdminSitemap from "./pages/Admin/AdminSitemap";
 import WhyDigitalInvest from "./pages/WhyDigitalInvest";
 import ForInvestors from "./pages/ForInvestors";
 import InvestorDocuments from "./pages/InvestorDocuments";
@@ -61,9 +64,8 @@ import InternalDocuments from "./pages/InternalDocuments";
 import API from "./pages/API";
 import Infrastructure from "./pages/Infrastructure";
 import InvestorHandbook from "./pages/InvestorHandbook";
-import AdminConsultations from './pages/Admin/AdminConsultations';
-import AdminAvailability from './pages/Admin/AdminAvailability';
 import Schedule from './pages/Schedule';
+import CookieConsent from './components/CookieConsent';
 
 const queryClient = new QueryClient();
 
@@ -73,6 +75,7 @@ const App = () => (
       <TooltipProvider>
         <Toaster />
         <Sonner />
+        <CookieConsent />
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Index />} />
@@ -139,6 +142,9 @@ const App = () => (
             <Route path="news" element={<AdminNews />} />
             <Route path="email-templates" element={<AdminEmailTemplates />} />
             <Route path="content" element={<AdminContent />} />
+            <Route path="consultations" element={<AdminConsultations />} />
+            <Route path="availability" element={<AdminAvailability />} />
+            <Route path="sitemap" element={<AdminSitemap />} />
           </Route>
             
             {/* Legacy Project Routes (keep for backwards compatibility) */}
