@@ -61,6 +61,9 @@ import InternalDocuments from "./pages/InternalDocuments";
 import API from "./pages/API";
 import Infrastructure from "./pages/Infrastructure";
 import InvestorHandbook from "./pages/InvestorHandbook";
+import AdminConsultations from './pages/Admin/AdminConsultations';
+import AdminAvailability from './pages/Admin/AdminAvailability';
+import Schedule from './pages/Schedule';
 
 const queryClient = new QueryClient();
 
@@ -78,7 +81,8 @@ const App = () => (
             <Route path="/team" element={<Team />} />
             <Route path="/recognition" element={<Recognition />} />
             <Route path="/partnerships" element={<Partnerships />} />
-            <Route path="/start-investing" element={<StartInvesting />} />
+          <Route path="/start-investing" element={<StartInvesting />} />
+          <Route path="/schedule" element={<Schedule />} />
             <Route path="/privacy" element={<Privacy />} />
             <Route path="/terms" element={<Terms />} />
             <Route path="/cookies" element={<Cookies />} />
