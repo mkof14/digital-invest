@@ -58,13 +58,13 @@ const InvestorForm = () => {
     await new Promise(resolve => setTimeout(resolve, 2000));
     
     toast({
-      title: "Application Submitted!",
-      description: "Our manager will contact you within 24 hours.",
+      title: "Request Received",
+      description: "Your information request has been received. We will review it and follow up privately. This does not constitute any commitment or agreement.",
       duration: 5000,
     });
     
     setIsLoading(false);
-    setStep(4); // Показать страницу успеха
+    setStep(4);
   };
 
   const nextStep = () => {
@@ -79,13 +79,12 @@ const InvestorForm = () => {
     return (
       <Card className="max-w-md mx-auto p-8 text-center">
         <CheckCircle className="w-16 h-16 text-success mx-auto mb-4" />
-        <h3 className="text-2xl font-bold mb-2">Thank You for Your Interest!</h3>
+        <h3 className="text-2xl font-bold mb-2">Request Received</h3>
         <p className="text-muted-foreground mb-6">
-          Your application has been successfully submitted. We will analyze your profile and propose 
-          suitable investment opportunities.
+          Your information request has been successfully submitted. We will review your profile and follow up privately to discuss potential opportunities. This does not constitute any commitment or agreement.
         </p>
         <Button variant="default" onClick={() => setStep(1)} className="hover:scale-105 transition-transform">
-          Submit Another Application
+          Submit Another Request
         </Button>
       </Card>
     );
@@ -94,10 +93,13 @@ const InvestorForm = () => {
   return (
     <Card className="max-w-2xl mx-auto p-6">
       <div className="mb-6">
-        <h2 className="text-2xl font-bold mb-2">Investor Application</h2>
-        <p className="text-muted-foreground">
-          Fill out the form to receive personalized investment recommendations
+        <h2 className="text-2xl font-bold mb-2">Information Request Form</h2>
+        <p className="text-muted-foreground mb-4">
+          Request information about Digital Invest Inc. projects and portfolio
         </p>
+        <div className="text-xs text-muted-foreground px-4 py-3 bg-muted/30 rounded-lg border border-border/50">
+          <strong>Important:</strong> This form is for informational purposes only and does not constitute an offer, commitment, or agreement. Any potential participation is handled privately and offline through proper legal channels.
+        </div>
         
         {/* Progress Bar */}
         <div className="mt-4">
@@ -208,18 +210,20 @@ const InvestorForm = () => {
             </div>
 
             <div>
-              <Label>Planned Investment Amount</Label>
+              <Label>Approximate Level of Interest (Optional, Non-Binding)</Label>
               <Select onValueChange={(value) => setFormData({...formData, investmentAmount: value})}>
                 <SelectTrigger>
-                  <SelectValue placeholder="Select amount" />
+                  <SelectValue placeholder="Select indicative interest level" />
                 </SelectTrigger>
                 <SelectContent>
                   <SelectItem value="10-50k">$10,000 - $50,000</SelectItem>
                   <SelectItem value="50-100k">$50,000 - $100,000</SelectItem>
                   <SelectItem value="100-500k">$100,000 - $500,000</SelectItem>
                   <SelectItem value="500k+">$500,000+</SelectItem>
+                  <SelectItem value="undisclosed">Prefer not to say</SelectItem>
                 </SelectContent>
               </Select>
+              <p className="text-xs text-muted-foreground mt-1">This information is indicative only and does not create any commitment</p>
             </div>
 
             <div>
@@ -255,10 +259,10 @@ const InvestorForm = () => {
             <h3 className="text-lg font-semibold mb-4">Additional Information</h3>
             
             <div>
-              <Label htmlFor="goals">Investment Goals</Label>
+              <Label htmlFor="goals">Areas of Interest</Label>
               <Textarea
                 id="goals"
-                placeholder="Describe your investment goals..."
+                placeholder="Describe what interests you about Digital Invest projects..."
                 value={formData.investmentGoals}
                 onChange={(e) => setFormData({...formData, investmentGoals: e.target.value})}
               />
@@ -300,7 +304,7 @@ const InvestorForm = () => {
                   onCheckedChange={(checked) => setFormData({...formData, agreesToTerms: checked as boolean})}
                   required
                 />
-                <Label htmlFor="terms">I agree to the terms and privacy policy</Label>
+                <Label htmlFor="terms" className="text-sm">I understand this is a non-binding information request and does not constitute an offer, commitment, or agreement. *</Label>
               </div>
             </div>
 
@@ -315,7 +319,7 @@ const InvestorForm = () => {
                 className="hover:scale-105 transition-transform"
               >
                 {isLoading && <Loader2 className="w-4 h-4 mr-2 animate-spin" />}
-                Submit Application
+                Submit Information Request
               </Button>
             </div>
           </div>
