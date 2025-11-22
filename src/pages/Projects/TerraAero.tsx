@@ -61,6 +61,17 @@ const TerraAero = () => {
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
               </Link>
+              <Button
+                size="lg"
+                variant="outline"
+                asChild
+                className="border-primary/30 hover:border-primary"
+              >
+                <a href="https://terraaero.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+                  <Globe className="h-5 w-5" />
+                  terraaero.com
+                </a>
+              </Button>
               <DownloadInvestorBriefButton projectSlug="terraaero" size="lg" />
             </div>
           </div>

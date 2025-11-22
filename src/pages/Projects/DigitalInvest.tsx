@@ -21,7 +21,8 @@ import {
   Shield,
   AlertTriangle,
   CheckCircle2,
-  Rocket
+  Rocket,
+  Globe
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import digitalInvestHero from "@/assets/projects/digitalinvest-hero.jpg";
@@ -144,6 +145,17 @@ const DigitalInvest = () => {
                   <Button size="lg" onClick={() => setShowInterestForm(true)}>
                     Submit Interest
                     <ArrowRight className="ml-2 h-5 w-5" />
+                  </Button>
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    asChild
+                    className="border-primary/30 hover:border-primary"
+                  >
+                    <a href="https://digitalinvest.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+                      <Globe className="h-5 w-5" />
+                      digitalinvest.com
+                    </a>
                   </Button>
                   <DownloadInvestorBriefButton projectSlug="digital-invest" size="lg" />
                 </div>

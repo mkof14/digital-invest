@@ -56,6 +56,17 @@ const BioMathLife = () => {
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
               </Link>
+              <Button
+                size="lg"
+                variant="outline"
+                asChild
+                className="border-primary/30 hover:border-primary"
+              >
+                <a href="https://biomathlife.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+                  <Globe className="h-5 w-5" />
+                  biomathlife.com
+                </a>
+              </Button>
               <DownloadInvestorBriefButton projectSlug="biomathlife" size="lg" />
             </div>
           </div>
