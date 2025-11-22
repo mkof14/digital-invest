@@ -12,7 +12,6 @@ const Navigation = () => {
     { label: 'Home', href: '/' },
     { label: 'Projects', href: '/projects' },
     { label: 'For Investors', href: '/for-investors' },
-    { label: 'Documents', href: '/investor-documents' },
     { label: 'About Us', href: '/about' },
     { label: 'Team', href: '/team-members' },
     { label: 'Contact', href: '/contact' }
@@ -56,10 +55,6 @@ const Navigation = () => {
               ) : (
                 <Sun className="h-5 w-5" />
               )}
-            </Button>
-            
-            <Button variant="outline" size="sm" asChild>
-              <Link to="/auth">Admin</Link>
             </Button>
             
             <Button variant="outline" asChild className="hover:bg-muted/50 transition-all">
@@ -107,11 +102,7 @@ const Navigation = () => {
                 {theme === "light" ? "Dark Mode" : "Light Mode"}
               </Button>
               
-              <Button variant="outline" className="mt-4" asChild>
-                <Link to="/auth">Admin Login</Link>
-              </Button>
-              
-              <Button variant="outline" className="mt-2 hover:bg-muted/50 transition-all" asChild>
+              <Button variant="outline" className="mt-4 hover:bg-muted/50 transition-all" asChild>
                 <Link to="/start-investing">Start Investing</Link>
               </Button>
             </div>
