@@ -38,6 +38,7 @@ import AdminLeads from "./pages/Admin/AdminLeads";
 import AdminHandbookDownloads from "./pages/Admin/AdminHandbookDownloads";
 import AdminUsers from "./pages/Admin/AdminUsers";
 import AdminSiteSections from "./pages/Admin/AdminSiteSections";
+import AdminSetup from "./pages/Admin/AdminSetup";
 import AdminTeam from "./pages/Admin/AdminTeam";
 import AdminNews from "./pages/Admin/AdminNews";
 import AdminEmailTemplates from "./pages/Admin/AdminEmailTemplates";
@@ -117,6 +118,9 @@ const App = () => (
             
             {/* Auth */}
             <Route path="/auth" element={<Auth />} />
+            
+            {/* Admin Setup (outside AdminLayout - no role required) */}
+            <Route path="/admin/setup" element={<AdminSetup />} />
             
             {/* Admin Routes */}
           <Route path="/admin" element={<AdminLayout />}>
