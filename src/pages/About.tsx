@@ -1,11 +1,67 @@
+import { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Award, Heart, TrendingUp, Shield, Users, Globe } from 'lucide-react';
+import { Award, Heart, TrendingUp, Shield, Users, Globe, Loader2 } from 'lucide-react';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
+import { MarkdownContent } from '@/components/MarkdownContent';
+import { getContentBlock, renderContentBlock, ContentBlock } from '@/lib/contentService';
 
 const About = () => {
+  const [loading, setLoading] = useState(true);
+  const [content, setContent] = useState<{
+    story: ContentBlock | null;
+    recognition: ContentBlock | null;
+    mission: ContentBlock | null;
+    vision: ContentBlock | null;
+    commitment: ContentBlock | null;
+  }>({
+    story: null,
+    recognition: null,
+    mission: null,
+    vision: null,
+    commitment: null,
+  });
+
+  useEffect(() => {
+    const fetchContent = async () => {
+      const [story, recognition, mission, vision, commitment] = await Promise.all([
+        getContentBlock('about.story'),
+        getContentBlock('about.recognition'),
+        getContentBlock('about.mission'),
+        getContentBlock('about.vision'),
+        getContentBlock('about.commitment'),
+      ]);
+      setContent({ story, recognition, mission, vision, commitment });
+      setLoading(false);
+    };
+    fetchContent();
+  }, []);
+
+  // Fallback content
+  const fallbacks = {
+    story: `Digital Invest Inc. is a U.S.-based technology and innovation company with roots dating back to 2010, originally operating under the GENEX name. Over more than a decade, we have focused on research, development, and the commercialization of advanced technologies that bridge health, engineering, data, and real-world operations.
+
+From the early years in biomolecular research, genetic diagnostics, and precision medicine, we have continued to expand into AI systems, data platforms, industrial automation, and intelligent real-economy infrastructures.
+
+Today, Digital Invest brings together this multi-sector expertise into a unified portfolio of long-term, practical, and scalable projects.`,
+    recognition: `Digital Invest Inc. and its portfolio projects have been recognized by leading industry publications including Healthcare Tech Outlook and AgTech Innovation Journal for pioneering work in precision medicine, agricultural technology, and AI-driven platforms.`,
+    mission: `Digital Invest Inc.'s mission is to revolutionize healthcare through biomathematical modeling and personalized medicine, enabling individuals to make informed, proactive decisions for healthier, longer lives. We combine cutting-edge AI, genomic science, and real-world operational systems to deliver tangible, scalable, and meaningful innovations across multiple industries.`,
+  };
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-background">
+        <Navigation />
+        <div className="flex items-center justify-center min-h-[400px]">
+          <Loader2 className="h-8 w-8 animate-spin text-muted-foreground" />
+        </div>
+        <Footer />
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
@@ -28,22 +84,10 @@ const About = () => {
       <section className="py-16 px-4 bg-muted/30">
         <div className="container mx-auto max-w-4xl">
           <h2 className="text-3xl font-bold text-foreground mb-8">Our Story</h2>
-          <div className="prose prose-lg max-w-none text-muted-foreground space-y-4">
-            <p>
-              Digital Invest Inc. is a U.S.-based technology and innovation company with roots dating back to 2010, 
-              originally operating under the GENEX name. Over more than a decade, we have focused on research, 
-              development, and the commercialization of advanced technologies that bridge health, engineering, data, 
-              and real-world operations.
-            </p>
-            <p>
-              From the early years in biomolecular research, genetic diagnostics, and precision medicine, we have 
-              continued to expand into AI systems, data platforms, industrial automation, and intelligent real-economy 
-              infrastructures.
-            </p>
-            <p>
-              Today, Digital Invest brings together this multi-sector expertise into a unified portfolio of long-term, 
-              practical, and scalable projects.
-            </p>
+          <div className="text-muted-foreground">
+            <MarkdownContent
+              content={renderContentBlock(content.story, fallbacks.story)}
+            />
           </div>
         </div>
       </section>
@@ -52,6 +96,11 @@ const About = () => {
       <section className="py-16 px-4">
         <div className="container mx-auto max-w-6xl">
           <h2 className="text-3xl font-bold text-foreground mb-8">Recognitions & Awards</h2>
+          <div className="mb-8 text-muted-foreground">
+            <MarkdownContent
+              content={renderContentBlock(content.recognition, fallbacks.recognition)}
+            />
+          </div>
           <div className="grid md:grid-cols-2 gap-8">
             <Card>
               <CardHeader>
@@ -164,12 +213,11 @@ const About = () => {
           <h2 className="text-3xl font-bold text-foreground mb-8">Our Mission</h2>
           <Card>
             <CardContent className="pt-6">
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                Digital Invest Inc.'s mission is to revolutionize healthcare through biomathematical modeling and 
-                personalized medicine, enabling individuals to make informed, proactive decisions for healthier, 
-                longer lives. We combine cutting-edge AI, genomic science, and real-world operational systems to 
-                deliver tangible, scalable, and meaningful innovations across multiple industries.
-              </p>
+              <div className="text-muted-foreground">
+                <MarkdownContent
+                  content={renderContentBlock(content.mission, fallbacks.mission)}
+                />
+              </div>
             </CardContent>
           </Card>
         </div>
