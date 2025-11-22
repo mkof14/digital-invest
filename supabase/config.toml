@@ -2,3 +2,6 @@ project_id = "jhpgdswputzzsskmzabv"
 
 [functions.investor-brief]
 verify_jwt = false
+
+[functions.investor-handbook-pdf]
+verify_jwt = false
