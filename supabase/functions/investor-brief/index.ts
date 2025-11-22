@@ -514,7 +514,7 @@ serve(async (req) => {
 
     console.log(`PDF generated successfully for ${slug}, size: ${pdfBytes.length} bytes`);
 
-    return new Response(pdfBytes, {
+    return new Response(pdfBytes.buffer, {
       headers: {
         ...corsHeaders,
         'Content-Type': 'application/pdf',
@@ -524,7 +524,8 @@ serve(async (req) => {
 
   } catch (error) {
     console.error('Error generating PDF:', error);
-    return new Response(JSON.stringify({ error: error.message }), {
+    const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+    return new Response(JSON.stringify({ error: errorMessage }), {
       status: 500,
       headers: { ...corsHeaders, 'Content-Type': 'application/json' },
     });
