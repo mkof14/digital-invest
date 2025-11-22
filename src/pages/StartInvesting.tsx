@@ -136,10 +136,6 @@ const StartInvesting = () => {
               <FileText className="mr-2 h-5 w-5" />
               Download Investor Deck
             </Button>
-            <Button size="lg" variant="secondary" className="px-8 py-3">
-              <Video className="mr-2 h-5 w-5" />
-              Watch Demo
-            </Button>
           </div>
         </div>
       </section>
@@ -395,13 +391,6 @@ const StartInvesting = () => {
               <h3 className="text-lg font-semibold mb-2">Financial Model</h3>
               <p className="text-sm text-muted-foreground mb-4">Detailed financial projections and scenario analysis spreadsheet</p>
               <Button variant="outline" size="sm" className="w-full">Access Model</Button>
-            </Card>
-            
-            <Card className="text-center p-6 hover-scale border-0 shadow-elevated">
-              <Video className="h-12 w-12 text-innovation mx-auto mb-4" />
-              <h3 className="text-lg font-semibold mb-2">Platform Demo</h3>
-              <p className="text-sm text-muted-foreground mb-4">Interactive demonstration of our BioMath Life Platform capabilities</p>
-              <Button variant="outline" size="sm" className="w-full">Watch Demo</Button>
             </Card>
             
             <Card className="text-center p-6 hover-scale border-0 shadow-elevated">
