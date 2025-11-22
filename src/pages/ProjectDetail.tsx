@@ -11,6 +11,7 @@ import { useToast } from '@/hooks/use-toast';
 import InterestForm from '@/components/InterestForm';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
+import { updateMetaTags, resetMetaTags, truncateForMeta } from '@/lib/metaTags';
 
 interface Project {
   id: string;
@@ -190,6 +191,29 @@ const ProjectDetail = () => {
       fetchProject();
     }
   }, [slug]);
+
+  useEffect(() => {
+    if (project) {
+      const pageTitle = `${project.title} - Investment Opportunity | Digital Invest Inc.`;
+      const pageDescription = truncateForMeta(project.short_description, 160);
+      const canonicalUrl = `https://digitalinvest.com/projects/${project.slug}`;
+      const ogImage = project.hero_image_url || 'https://digitalinvest.com/digital-invest-logo.png';
+
+      updateMetaTags({
+        title: pageTitle,
+        description: pageDescription,
+        ogTitle: project.title,
+        ogDescription: pageDescription,
+        ogImage: ogImage,
+        ogType: 'article',
+        canonicalUrl: canonicalUrl,
+      });
+    }
+
+    return () => {
+      resetMetaTags();
+    };
+  }, [project]);
 
   const fetchProject = async () => {
     try {
