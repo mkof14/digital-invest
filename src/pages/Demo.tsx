@@ -372,7 +372,7 @@ const Demo = () => {
                 For press inquiries, partnership opportunities, or media requests, please contact:
               </p>
               <div className="space-y-2">
-                <div className="text-foreground">Email: <a href="mailto:info@digitalinvest.inc" className="hover:underline">info@digitalinvest.inc</a></div>
+                <div className="text-foreground">Email: <a href="mailto:info@digitalinvest.com" className="hover:underline">info@digitalinvest.com</a></div>
               </div>
             </div>
 
@@ -566,7 +566,7 @@ const Demo = () => {
             <div className="pt-8 space-y-4">
               <h3 className="text-xl font-semibold text-foreground">Don't See Your Role?</h3>
               <p className="text-muted-foreground">
-                We're always interested in exceptional talent. Send your resume and a brief note about what you want to build to <a href="mailto:careers@digitalinvest.inc" className="text-foreground hover:underline">careers@digitalinvest.inc</a>
+                We're always interested in exceptional talent. Send your resume and a brief note about what you want to build to <a href="mailto:careers@digitalinvest.com" className="text-foreground hover:underline">careers@digitalinvest.com</a>
               </p>
             </div>
           </div>
@@ -624,7 +624,7 @@ const Demo = () => {
             <div className="pt-8 p-6 border border-border rounded-lg bg-muted/20">
               <h3 className="font-semibold text-foreground mb-3">Document Access</h3>
               <p className="text-sm text-muted-foreground">
-                Some materials are restricted to current investors, partners, or employees. For access requests, contact <a href="mailto:info@digitalinvest.inc" className="text-foreground hover:underline">info@digitalinvest.inc</a>
+                Some materials are restricted to current investors, partners, or employees. For access requests, contact <a href="mailto:info@digitalinvest.com" className="text-foreground hover:underline">info@digitalinvest.com</a>
               </p>
             </div>
           </div>
