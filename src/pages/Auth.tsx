@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
@@ -9,7 +9,8 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Loader2, Chrome } from 'lucide-react';
+import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
+import { Loader2, Chrome, Shield, ArrowRight } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
 const authSchema = z.object({
@@ -24,6 +25,9 @@ const resetSchema = z.object({
 const Auth = () => {
   const [loading, setLoading] = useState(false);
   const [activeTab, setActiveTab] = useState('signin');
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [showSetupBanner, setShowSetupBanner] = useState(false);
+  const [checkingSetup, setCheckingSetup] = useState(false);
   const navigate = useNavigate();
   const { toast } = useToast();
 
@@ -49,7 +53,33 @@ const Auth = () => {
   const checkUser = async () => {
     const { data: { session } } = await supabase.auth.getSession();
     if (session) {
-      navigate('/admin');
+      setIsAuthenticated(true);
+      await checkSuperAdminExists();
+    }
+  };
+
+  const checkSuperAdminExists = async () => {
+    setCheckingSetup(true);
+    try {
+      const { data: superAdmins, error } = await supabase
+        .from('user_roles')
+        .select('id')
+        .eq('role', 'SUPER_ADMIN')
+        .limit(1);
+
+      if (error) {
+        console.error('Error checking super admin:', error);
+        // If there's an error checking (might be RLS), don't show banner
+        setShowSetupBanner(false);
+      } else {
+        // Show banner if no super admin exists
+        setShowSetupBanner(!superAdmins || superAdmins.length === 0);
+      }
+    } catch (error) {
+      console.error('Error in checkSuperAdminExists:', error);
+      setShowSetupBanner(false);
+    } finally {
+      setCheckingSetup(false);
     }
   };
 
@@ -68,7 +98,8 @@ const Auth = () => {
         description: 'Signed in successfully',
       });
 
-      navigate('/admin');
+      setIsAuthenticated(true);
+      await checkSuperAdminExists();
     } catch (error: any) {
       toast({
         title: 'Error',
@@ -160,19 +191,39 @@ const Auth = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-background p-4">
-      <Card className="w-full max-w-md border border-border/50">
-        <CardHeader className="text-center">
-          <div className="flex justify-center mb-4">
-            <img 
-              src="/lovable-uploads/d1011e6f-955a-48d9-adef-662af751c3b9.png" 
-              alt="Digital Invest Logo" 
-              className="w-16 h-16 object-contain"
-            />
-          </div>
-          <CardTitle className="text-2xl">Admin Access</CardTitle>
-          <CardDescription>Sign in to manage your investment platform</CardDescription>
-        </CardHeader>
-        <CardContent>
+      <div className="w-full max-w-md space-y-4">
+        {/* Setup Banner */}
+        {isAuthenticated && showSetupBanner && !checkingSetup && (
+          <Alert className="border-primary bg-primary/10">
+            <Shield className="h-4 w-4" />
+            <AlertTitle>Admin Setup Required</AlertTitle>
+            <AlertDescription className="space-y-3">
+              <p className="text-sm">
+                No Super Admin has been configured yet. You can claim this role to set up the admin panel.
+              </p>
+              <Link to="/admin/setup">
+                <Button size="sm" className="w-full gap-2">
+                  Go to Admin Setup
+                  <ArrowRight className="h-3 w-3" />
+                </Button>
+              </Link>
+            </AlertDescription>
+          </Alert>
+        )}
+
+        <Card className="border border-border/50">
+          <CardHeader className="text-center">
+            <div className="flex justify-center mb-4">
+              <img 
+                src="/lovable-uploads/d1011e6f-955a-48d9-adef-662af751c3b9.png" 
+                alt="Digital Invest Logo" 
+                className="w-16 h-16 object-contain"
+              />
+            </div>
+            <CardTitle className="text-2xl">Admin Access</CardTitle>
+            <CardDescription>Sign in to manage your investment platform</CardDescription>
+          </CardHeader>
+          <CardContent>
           <Tabs value={activeTab} onValueChange={setActiveTab}>
             <TabsList className="grid w-full grid-cols-3 mb-6">
               <TabsTrigger value="signin">Sign In</TabsTrigger>
@@ -307,8 +358,9 @@ const Auth = () => {
               </Form>
             </TabsContent>
           </Tabs>
-        </CardContent>
-      </Card>
+          </CardContent>
+        </Card>
+      </div>
     </div>
   );
 };
