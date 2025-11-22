@@ -135,9 +135,11 @@ const StartInvesting = () => {
                 Schedule Consultation
               </Link>
             </Button>
-            <Button size="lg" variant="outline" className="px-8 py-3 electric-hover">
-              <FileText className="mr-2 h-5 w-5" />
-              Download Investor Deck
+            <Button size="lg" variant="outline" className="px-8 py-3 electric-hover" asChild>
+              <Link to="/investor-handbook">
+                <FileText className="mr-2 h-5 w-5" />
+                Download Investor Deck
+              </Link>
             </Button>
           </div>
         </div>
@@ -386,21 +388,27 @@ const StartInvesting = () => {
               <Download className="h-12 w-12 text-primary mx-auto mb-4" />
               <h3 className="text-lg font-semibold mb-2">Investor Deck</h3>
               <p className="text-sm text-muted-foreground mb-4">Comprehensive presentation with market analysis, financials, and growth strategy</p>
-              <Button variant="outline" size="sm" className="w-full">Download PDF</Button>
+              <Button variant="outline" size="sm" className="w-full" asChild>
+                <Link to="/investor-handbook">Download PDF</Link>
+              </Button>
             </Card>
             
             <Card className="text-center p-6 hover-scale border-0 shadow-elevated">
               <BarChart3 className="h-12 w-12 text-tech mx-auto mb-4" />
               <h3 className="text-lg font-semibold mb-2">Financial Model</h3>
               <p className="text-sm text-muted-foreground mb-4">Detailed financial projections and scenario analysis spreadsheet</p>
-              <Button variant="outline" size="sm" className="w-full">Access Model</Button>
+              <Button variant="outline" size="sm" className="w-full" asChild>
+                <Link to="/investor-documents">Access Model</Link>
+              </Button>
             </Card>
             
             <Card className="text-center p-6 hover-scale border-0 shadow-elevated">
               <Briefcase className="h-12 w-12 text-accent mx-auto mb-4" />
               <h3 className="text-lg font-semibold mb-2">Due Diligence</h3>
               <p className="text-sm text-muted-foreground mb-4">Virtual data room with legal documents, audited financials, and IP portfolio</p>
-              <Button variant="outline" size="sm" className="w-full">Request Access</Button>
+              <Button variant="outline" size="sm" className="w-full" asChild>
+                <Link to="/contact">Request Access</Link>
+              </Button>
             </Card>
           </div>
         </div>
