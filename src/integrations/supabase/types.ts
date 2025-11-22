@@ -82,38 +82,55 @@ export type Database = {
       news_posts: {
         Row: {
           body: string
+          category: string | null
           created_at: string
           excerpt: string
           id: string
           is_published: boolean | null
+          project_id: string | null
           published_at: string | null
           slug: string
           title: string
+          type: string | null
           updated_at: string
         }
         Insert: {
           body: string
+          category?: string | null
           created_at?: string
           excerpt: string
           id?: string
           is_published?: boolean | null
+          project_id?: string | null
           published_at?: string | null
           slug: string
           title: string
+          type?: string | null
           updated_at?: string
         }
         Update: {
           body?: string
+          category?: string | null
           created_at?: string
           excerpt?: string
           id?: string
           is_published?: boolean | null
+          project_id?: string | null
           published_at?: string | null
           slug?: string
           title?: string
+          type?: string | null
           updated_at?: string
         }
-        Relationships: []
+        Relationships: [
+          {
+            foreignKeyName: "news_posts_project_id_fkey"
+            columns: ["project_id"]
+            isOneToOne: false
+            referencedRelation: "projects"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       project_updates: {
         Row: {
