@@ -13,7 +13,7 @@ const Footer = () => {
           <div className="space-y-4 lg:col-span-1">
             <div className="flex items-center gap-3 mb-2">
               <OptimizedImage 
-                src="/lovable-uploads/d1011e6f-955a-48d9-adef-662af751c3b9.png" 
+                src="/lovable-uploads/digital-invest-logo-new.png" 
                 alt="Digital Invest Inc. company logo" 
                 className="h-8 w-8"
                 showSkeleton={false}
