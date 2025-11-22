@@ -17,6 +17,7 @@ import {
   Mail,
   Clock
 } from "lucide-react";
+import InvestorPageDisclaimer from '@/components/InvestorPageDisclaimer';
 
 const ForInvestors = () => {
   return (
@@ -232,7 +233,7 @@ const ForInvestors = () => {
           <Card className="border border-border/50 bg-card">
             <CardContent className="pt-8 pb-8">
               <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-                To learn more, review the projects and submit a brief, non-binding request for information. We will follow up privately to discuss your interests and answer your questions.
+                To learn more, review the projects and submit a non-binding request for private information. We will follow up privately to discuss your interests and answer questions.
               </p>
               
               <Link to="/projects">
@@ -243,6 +244,13 @@ const ForInvestors = () => {
               </Link>
             </CardContent>
           </Card>
+        </div>
+      </section>
+
+      {/* Legal Disclaimer */}
+      <section className="py-16 px-4">
+        <div className="max-w-5xl mx-auto">
+          <InvestorPageDisclaimer />
         </div>
       </section>
 

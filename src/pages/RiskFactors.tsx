@@ -72,8 +72,27 @@ const RiskFactors = () => {
             {/* No Guarantees */}
             <div className="bg-muted/30 rounded-lg p-8">
               <h2 className="text-3xl font-bold mb-4">No Guarantees</h2>
-              <p className="text-lg text-muted-foreground leading-relaxed">
+              <p className="text-lg text-muted-foreground leading-relaxed mb-4">
                 Nothing on this website, nor any documents or communications from Digital Invest Inc., should be interpreted as a guarantee of financial performance, valuation, or return.
+              </p>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                <strong className="text-foreground">No assurance of performance or outcomes is provided.</strong> All projects entail significant risks, including operational, market, regulatory, technological, and financial risks. Only individuals who fully understand and accept such risks should request further information. Participation, if any, may result in partial or total loss of capital.
+              </p>
+            </div>
+
+            {/* Forward-Looking Statements */}
+            <div className="space-y-4">
+              <h2 className="text-3xl font-bold">Forward-Looking Statements</h2>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                Any statements regarding future plans, projections, timelines, or anticipated outcomes are forward-looking and involve substantial risks and uncertainties. Actual results may differ materially from any projected or anticipated scenarios. No reliance should be placed on forward-looking statements.
+              </p>
+            </div>
+
+            {/* Suitability & Eligibility */}
+            <div className="space-y-4">
+              <h2 className="text-3xl font-bold">Suitability & Eligibility</h2>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                Participation in Digital Invest projects is not suitable for all individuals. Potential participants must meet eligibility requirements, which may include accredited investor status, financial suitability, and risk tolerance assessments conducted offline through proper legal channels.
               </p>
             </div>
 

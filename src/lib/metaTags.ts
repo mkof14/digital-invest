@@ -81,10 +81,10 @@ export const updateMetaTags = ({
 
 export const resetMetaTags = () => {
   // Reset to default title
-  document.title = 'Digital Invest Inc. - Multi-Sector Investment Platform | AI, HealthTech & AgroTech';
+  document.title = 'Digital Invest Inc. - Private Multi-Sector Portfolio | Technology & Innovation';
   
-  // Reset description
-  const description = 'Private investment platform for qualified investors. Portfolio of AI, biotechnology, precision medicine, and agricultural technology projects. U.S.-based operations with global impact.';
+  // Reset description - legal-safe wording
+  const description = 'Private portfolio company operating AI, biotechnology, and agricultural technology projects. Information for qualified parties only. U.S.-based operations. Not a public offering platform.';
   updateMetaTags({
     title: document.title,
     description,

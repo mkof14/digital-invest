@@ -130,6 +130,19 @@ These processes, when required, are handled securely and privately.`,
               </div>
             </div>
 
+            {/* Legal Status Determination */}
+            <div className="space-y-4">
+              <h2 className="text-3xl font-bold">Legal Status & Agreements</h2>
+              <div className="text-muted-foreground">
+                <p className="text-lg leading-relaxed mb-4">
+                  The actual legal status, structure of participation, rights, and obligations are defined only in formal agreements and documents executed offline, not by website content.
+                </p>
+                <p className="text-lg leading-relaxed">
+                  This website provides informational overviews. Any potential participation requires separate legal documentation, eligibility verification, and regulatory compliance review conducted through proper offline channels.
+                </p>
+              </div>
+            </div>
+
             {/* Contact */}
             <div className="bg-muted/30 rounded-lg p-8 text-center space-y-4">
               <h3 className="text-2xl font-semibold">Contact for Compliance Questions</h3>

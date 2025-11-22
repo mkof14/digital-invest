@@ -10,6 +10,7 @@ import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { updateMetaTags, resetMetaTags, truncateForMeta } from '@/lib/metaTags';
 import { generateArticleSchema, generateBreadcrumbSchema, injectStructuredData, removeStructuredData } from '@/lib/structuredData';
+import InvestorPageDisclaimer from '@/components/InvestorPageDisclaimer';
 
 interface NewsPost {
   id: string;
@@ -301,6 +302,19 @@ const NewsDetail = () => {
                 ))}
               </div>
 
+              {/* Financial Disclaimer if applicable */}
+              {(post.body.toLowerCase().includes('performance') || 
+                post.body.toLowerCase().includes('valuation') || 
+                post.body.toLowerCase().includes('project success') ||
+                post.body.toLowerCase().includes('market') ||
+                post.body.toLowerCase().includes('return')) && (
+                <div className="mt-8 pt-8 border-t border-border">
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    <strong className="text-foreground">Forward-Looking Statements:</strong> This article may contain forward-looking statements involving risks and uncertainties. Actual results may differ materially. Nothing in this article constitutes investment advice, a solicitation, or a public offer.
+                  </p>
+                </div>
+              )}
+
               {/* Back to News */}
               <div className="mt-12 pt-8 border-t border-border">
                 <Link to="/news">
@@ -368,7 +382,7 @@ const NewsDetail = () => {
                 </CardHeader>
                 <CardContent>
                   <p className="text-sm text-muted-foreground mb-4">
-                    Review our projects and submit a non-binding expression of interest to receive updates.
+                    Review our projects and request private information to stay informed.
                   </p>
                   <div className="space-y-2">
                     <Button asChild size="sm" className="w-full">

@@ -108,15 +108,13 @@ const Projects = () => {
         {/* Header */}
         <div className="mb-12 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
-            Investment Opportunities
+            Project Portfolio
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Explore our portfolio of carefully selected projects. Each opportunity represents innovation, 
-            growth potential, and strategic value.
+            Explore our portfolio of multi-sector projects. Each represents innovation, real-world operations, and strategic development.
           </p>
           <p className="text-sm text-muted-foreground mt-4 max-w-2xl mx-auto border-l-4 border-primary pl-4 py-2">
-            <strong>Important:</strong> These are private investment opportunities managed by Digital Invest Inc. 
-            This is not a public crowdfunding platform. All investments are discussed individually through proper legal channels.
+            <strong>Important:</strong> These are private project opportunities. This is not a public offering platform or marketplace. All participation is discussed individually, offline, and subject to eligibility and due diligence.
           </p>
         </div>
 
@@ -167,7 +165,7 @@ const Projects = () => {
                   <Link to={`/projects/${project.slug}`} className="flex-1">
                     <Button className="w-full group/btn" size="lg">
                       <TrendingUp className="w-4 h-4 mr-2 group-hover/btn:scale-110 transition-transform" />
-                      View Details
+                      Learn More
                     </Button>
                   </Link>
                   <Link to={`/projects/${project.slug}`}>

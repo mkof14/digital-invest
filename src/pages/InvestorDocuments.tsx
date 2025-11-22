@@ -7,6 +7,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Badge } from '@/components/ui/badge';
 import DownloadInvestorBriefButton from '@/components/DownloadInvestorBriefButton';
 import { Loader2, FileText } from 'lucide-react';
+import InvestorPageDisclaimer from '@/components/InvestorPageDisclaimer';
 
 interface Project {
   id: string;
@@ -91,17 +92,11 @@ const InvestorDocuments = () => {
               </h1>
             </div>
             <p className="text-xl text-muted-foreground mb-8">
-              Download brief project overviews for the Digital Invest portfolio.
+              Download project overview materials for review. Private, non-binding.
             </p>
             
             {/* Disclaimer Block */}
-            <Card className="bg-muted/30 border-border/50">
-              <CardContent className="pt-6">
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  This page provides informational PDF briefs for internal review. These documents are not public offerings or investment advice. Any potential participation is discussed individually and handled offline.
-                </p>
-              </CardContent>
-            </Card>
+            <InvestorPageDisclaimer variant="compact" />
           </div>
 
           {/* Loading State */}

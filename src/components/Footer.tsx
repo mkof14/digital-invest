@@ -130,14 +130,21 @@ const Footer = () => {
           </div>
         </div>
         
+        {/* Global Legal Notice */}
+        <div className="border-t border-border pt-8 pb-6">
+          <p className="text-xs text-muted-foreground text-center leading-relaxed max-w-5xl mx-auto mb-6">
+            <strong className="text-foreground">Important Legal Notice:</strong> Digital Invest Inc. is not an investment advisor, broker-dealer, public offering platform, or marketplace. This website is for informational purposes only. Participation in any project is handled privately, offline, and only for eligible individuals or entities following due diligence. We do not guarantee any outcomes, performance, or returns.
+          </p>
+        </div>
+
         {/* BOTTOM BAR */}
-        <div className="border-t border-border mt-10 pt-6">
+        <div className="border-t border-border pt-6">
           <div className="text-center space-y-3">
             <p className="text-xs text-muted-foreground">
               © {currentYear} Digital Invest Inc. All rights reserved.
             </p>
             <p className="text-xs text-muted-foreground max-w-4xl mx-auto leading-relaxed">
-              <strong>Important Notice:</strong> Digital Invest Inc. operates as a private multi-sector portfolio. This website is for informational purposes only and does not constitute a public offering, investment advice, or solicitation. Any potential participation is private, by invitation, and handled offline through proper legal channels. All participation is subject to due diligence and eligibility. All investments involve risk and may result in loss of capital. The actual legal status, structure, rights, and obligations are defined only in formal agreements executed offline, not by website content.
+              <strong>Risk Disclosure:</strong> All participation involves significant risk, including potential loss of capital. Private, invitation-only process. The actual legal status, structure, rights, and obligations are defined only in formal agreements executed offline, not by website content.
             </p>
           </div>
         </div>
