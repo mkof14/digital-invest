@@ -138,7 +138,7 @@ const TerraAero = () => {
             <div className="flex gap-4">
               <Link to="/start-investing" className="flex-1">
                 <Button size="lg" className="w-full">
-                  Invest Now
+                  Request Information
                   <ArrowRight className="ml-2 w-4 w-4" />
                 </Button>
               </Link>

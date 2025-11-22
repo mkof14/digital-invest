@@ -60,7 +60,7 @@ const Navigation = () => {
             </Button>
             
             <Button variant="outline" asChild className="hover:bg-muted/50 transition-all">
-              <Link to="/start-investing">Start Investing</Link>
+              <Link to="/start-investing">Investor Information</Link>
             </Button>
           </div>
 
@@ -105,7 +105,7 @@ const Navigation = () => {
               </Button>
               
               <Button variant="outline" className="mt-4 hover:bg-muted/50 transition-all" asChild>
-                <Link to="/start-investing">Start Investing</Link>
+                <Link to="/start-investing">Investor Information</Link>
               </Button>
             </div>
           </div>

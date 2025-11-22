@@ -65,6 +65,7 @@ import API from "./pages/API";
 import Infrastructure from "./pages/Infrastructure";
 import InvestorHandbook from "./pages/InvestorHandbook";
 import Schedule from './pages/Schedule';
+import LegalOverview from './pages/LegalOverview';
 import CookieConsent from './components/CookieConsent';
 
 const queryClient = new QueryClient();
@@ -120,6 +121,7 @@ const App = () => (
             <Route path="/investor-handbook" element={<InvestorHandbook />} />
             
             {/* Legal Routes */}
+            <Route path="/legal-overview" element={<LegalOverview />} />
             <Route path="/legal/terms" element={<TermsOfUse />} />
             <Route path="/legal/privacy" element={<PrivacyPolicy />} />
             <Route path="/legal/risk-disclosure" element={<RiskDisclosure />} />
