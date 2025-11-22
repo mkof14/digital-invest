@@ -15,6 +15,7 @@ const Navigation = () => {
     { label: 'For Investors', href: '/for-investors' },
     { label: 'Documents', href: '/investor-documents' },
     { label: 'How It Works', href: '/how-it-works' },
+    { label: 'About Us', href: '/about' },
     { label: 'Team', href: '/team-members' },
     { label: 'News & Insights', href: '/news' },
     { label: 'Contact', href: '/contact' }
