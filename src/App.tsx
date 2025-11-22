@@ -36,6 +36,8 @@ import AdminDashboard from "./pages/Admin/AdminDashboard";
 import AdminProjects from "./pages/Admin/AdminProjects";
 import AdminLeads from "./pages/Admin/AdminLeads";
 import AdminHandbookDownloads from "./pages/Admin/AdminHandbookDownloads";
+import AdminUsers from "./pages/Admin/AdminUsers";
+import AdminSiteSections from "./pages/Admin/AdminSiteSections";
 import AdminTeam from "./pages/Admin/AdminTeam";
 import AdminNews from "./pages/Admin/AdminNews";
 import AdminEmailTemplates from "./pages/Admin/AdminEmailTemplates";
@@ -122,6 +124,8 @@ const App = () => (
             <Route path="projects" element={<AdminProjects />} />
             <Route path="leads" element={<AdminLeads />} />
             <Route path="handbook-downloads" element={<AdminHandbookDownloads />} />
+            <Route path="users" element={<AdminUsers />} />
+            <Route path="site-sections" element={<AdminSiteSections />} />
             <Route path="team" element={<AdminTeam />} />
             <Route path="news" element={<AdminNews />} />
             <Route path="email-templates" element={<AdminEmailTemplates />} />

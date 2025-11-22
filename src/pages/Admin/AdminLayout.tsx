@@ -1,15 +1,18 @@
 import { useEffect, useState } from 'react';
 import { Outlet, Link, useNavigate, useLocation } from 'react-router-dom';
 import { supabase } from '@/integrations/supabase/client';
+import { useUserRole } from '@/hooks/useUserRole';
 import { Button } from '@/components/ui/button';
-import { LayoutDashboard, FolderOpen, Users, LogOut, Loader2, UsersRound, Newspaper } from 'lucide-react';
+import { LayoutDashboard, FolderOpen, Users, LogOut, Loader2, UsersRound, Newspaper, Shield, Layout, FileText } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { toast } from 'sonner';
 
 const AdminLayout = () => {
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState<any>(null);
   const navigate = useNavigate();
   const location = useLocation();
+  const { role, isLoading: roleLoading, hasRole } = useUserRole();
 
   useEffect(() => {
     checkAuth();
@@ -33,20 +36,31 @@ const AdminLayout = () => {
     }
   };
 
+  // Check if user has minimum required role
+  useEffect(() => {
+    if (!loading && !roleLoading && !hasRole('VIEWER')) {
+      toast.error('Access denied. You need admin access to view this page.');
+      navigate('/');
+    }
+  }, [loading, roleLoading, role, navigate, hasRole]);
+
   const handleSignOut = async () => {
     await supabase.auth.signOut();
     navigate('/');
   };
 
   const navItems = [
-    { icon: LayoutDashboard, label: 'Dashboard', path: '/admin' },
-    { icon: FolderOpen, label: 'Projects', path: '/admin/projects' },
-    { icon: Users, label: 'Investor Leads', path: '/admin/leads' },
-    { icon: UsersRound, label: 'Team Members', path: '/admin/team' },
-    { icon: Newspaper, label: 'News & Updates', path: '/admin/news' },
+    { icon: LayoutDashboard, label: 'Dashboard', path: '/admin', minRole: 'VIEWER' },
+    { icon: FolderOpen, label: 'Projects', path: '/admin/projects', minRole: 'EDITOR' },
+    { icon: Users, label: 'Investor Leads', path: '/admin/leads', minRole: 'EDITOR' },
+    { icon: FileText, label: 'Handbook Downloads', path: '/admin/handbook-downloads', minRole: 'EDITOR' },
+    { icon: UsersRound, label: 'Team Members', path: '/admin/team', minRole: 'EDITOR' },
+    { icon: Newspaper, label: 'News & Updates', path: '/admin/news', minRole: 'EDITOR' },
+    { icon: Shield, label: 'Users & Roles', path: '/admin/users', minRole: 'ADMIN' },
+    { icon: Layout, label: 'Site Sections', path: '/admin/site-sections', minRole: 'ADMIN' },
   ];
 
-  if (loading) {
+  if (loading || roleLoading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <Loader2 className="h-12 w-12 animate-spin text-primary" />
@@ -66,6 +80,11 @@ const AdminLayout = () => {
               className="w-8 h-8 object-contain"
             />
             <span className="text-xl font-bold text-primary">Admin Panel</span>
+            {role && (
+              <span className="text-xs px-2 py-1 rounded bg-primary/10 text-primary">
+                {role}
+              </span>
+            )}
           </div>
           <div className="flex items-center gap-4">
             <span className="text-sm text-muted-foreground">{user?.email}</span>
@@ -81,24 +100,26 @@ const AdminLayout = () => {
         {/* Sidebar */}
         <aside className="fixed left-0 top-16 bottom-0 w-64 bg-card border-r border-border overflow-y-auto">
           <nav className="p-4 space-y-2">
-            {navItems.map((item) => {
-              const Icon = item.icon;
-              const isActive = location.pathname === item.path;
-              return (
-                <Link key={item.path} to={item.path}>
-                  <Button
-                    variant={isActive ? 'default' : 'ghost'}
-                    className={cn(
-                      'w-full justify-start',
-                      isActive && 'bg-primary text-primary-foreground'
-                    )}
-                  >
-                    <Icon className="mr-2 h-4 w-4" />
-                    {item.label}
-                  </Button>
-                </Link>
-              );
-            })}
+            {navItems
+              .filter(item => hasRole(item.minRole as any))
+              .map((item) => {
+                const Icon = item.icon;
+                const isActive = location.pathname === item.path;
+                return (
+                  <Link key={item.path} to={item.path}>
+                    <Button
+                      variant={isActive ? 'default' : 'ghost'}
+                      className={cn(
+                        'w-full justify-start',
+                        isActive && 'bg-primary text-primary-foreground'
+                      )}
+                    >
+                      <Icon className="mr-2 h-4 w-4" />
+                      {item.label}
+                    </Button>
+                  </Link>
+                );
+              })}
           </nav>
         </aside>
 

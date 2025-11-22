@@ -5,7 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Button } from '@/components/ui/button';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { Badge } from '@/components/ui/badge';
-import { FolderOpen, Users, TrendingUp, Eye, DollarSign, Percent, AlertCircle, Clock, Mail, FileText } from 'lucide-react';
+import { FolderOpen, Users, TrendingUp, Eye, DollarSign, Percent, AlertCircle, Clock, Mail, FileText, Shield, Layout as LayoutIcon } from 'lucide-react';
 
 interface Stats {
   totalProjects: number;
@@ -266,29 +266,53 @@ const AdminDashboard = () => {
           <CardTitle>Quick Actions</CardTitle>
           <CardDescription>Common administrative tasks</CardDescription>
         </CardHeader>
-        <CardContent className="grid grid-cols-1 md:grid-cols-4 gap-4">
+        <CardContent className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           <Link to="/admin/projects/new">
-            <Button className="w-full" size="lg">
-              <FolderOpen className="mr-2 h-4 w-4" />
+            <Button className="w-full h-20" size="lg">
+              <FolderOpen className="mr-2 h-5 w-5" />
               Create New Project
             </Button>
           </Link>
-          <Link to="/admin/projects">
-            <Button variant="outline" className="w-full" size="lg">
-              <Eye className="mr-2 h-4 w-4" />
-              Manage Projects
-            </Button>
-          </Link>
           <Link to="/admin/leads">
-            <Button variant="outline" className="w-full" size="lg">
-              <Users className="mr-2 h-4 w-4" />
+            <Button variant="outline" className="w-full h-20" size="lg">
+              <Users className="mr-2 h-5 w-5" />
               Review Leads
             </Button>
           </Link>
           <Link to="/admin/handbook-downloads">
-            <Button variant="outline" className="w-full" size="lg">
-              <FileText className="mr-2 h-4 w-4" />
+            <Button variant="outline" className="w-full h-20" size="lg">
+              <FileText className="mr-2 h-5 w-5" />
               Handbook Downloads
+            </Button>
+          </Link>
+          <Link to="/admin/users">
+            <Button variant="outline" className="w-full h-20" size="lg">
+              <Shield className="mr-2 h-5 w-5" />
+              Users & Roles
+            </Button>
+          </Link>
+          <Link to="/admin/site-sections">
+            <Button variant="outline" className="w-full h-20" size="lg">
+              <LayoutIcon className="mr-2 h-5 w-5" />
+              Site Sections
+            </Button>
+          </Link>
+          <Link to="/admin/news">
+            <Button variant="outline" className="w-full h-20" size="lg">
+              <Eye className="mr-2 h-5 w-5" />
+              Manage News
+            </Button>
+          </Link>
+          <Link to="/admin/team">
+            <Button variant="outline" className="w-full h-20" size="lg">
+              <Users className="mr-2 h-5 w-5" />
+              Manage Team
+            </Button>
+          </Link>
+          <Link to="/admin/email-templates">
+            <Button variant="outline" className="w-full h-20" size="lg">
+              <Mail className="mr-2 h-5 w-5" />
+              Email Templates
             </Button>
           </Link>
         </CardContent>
