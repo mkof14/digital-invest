@@ -5,7 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Button } from '@/components/ui/button';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { Badge } from '@/components/ui/badge';
-import { FolderOpen, Users, TrendingUp, Eye, DollarSign, Percent, AlertCircle, Clock, Mail } from 'lucide-react';
+import { FolderOpen, Users, TrendingUp, Eye, DollarSign, Percent, AlertCircle, Clock, Mail, FileText } from 'lucide-react';
 
 interface Stats {
   totalProjects: number;
@@ -285,10 +285,10 @@ const AdminDashboard = () => {
               Review Leads
             </Button>
           </Link>
-          <Link to="/admin/email-templates">
+          <Link to="/admin/handbook-downloads">
             <Button variant="outline" className="w-full" size="lg">
-              <Mail className="mr-2 h-4 w-4" />
-              Email Templates
+              <FileText className="mr-2 h-4 w-4" />
+              Handbook Downloads
             </Button>
           </Link>
         </CardContent>
