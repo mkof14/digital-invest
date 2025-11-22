@@ -42,6 +42,7 @@ import AdminSetup from "./pages/Admin/AdminSetup";
 import AdminTeam from "./pages/Admin/AdminTeam";
 import AdminNews from "./pages/Admin/AdminNews";
 import AdminEmailTemplates from "./pages/Admin/AdminEmailTemplates";
+import AdminContent from "./pages/Admin/AdminContent";
 import WhyDigitalInvest from "./pages/WhyDigitalInvest";
 import ForInvestors from "./pages/ForInvestors";
 import InvestorDocuments from "./pages/InvestorDocuments";
@@ -133,6 +134,7 @@ const App = () => (
             <Route path="team" element={<AdminTeam />} />
             <Route path="news" element={<AdminNews />} />
             <Route path="email-templates" element={<AdminEmailTemplates />} />
+            <Route path="content" element={<AdminContent />} />
           </Route>
             
             {/* Legacy Project Routes (keep for backwards compatibility) */}

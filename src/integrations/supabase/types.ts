@@ -14,6 +14,48 @@ export type Database = {
   }
   public: {
     Tables: {
+      content_blocks: {
+        Row: {
+          content: string
+          created_at: string
+          description: string | null
+          id: string
+          is_locked: boolean
+          key: string
+          min_role_to_edit: string
+          section: string
+          title: string
+          updated_at: string
+          updated_by_user_id: string | null
+        }
+        Insert: {
+          content?: string
+          created_at?: string
+          description?: string | null
+          id?: string
+          is_locked?: boolean
+          key: string
+          min_role_to_edit?: string
+          section: string
+          title: string
+          updated_at?: string
+          updated_by_user_id?: string | null
+        }
+        Update: {
+          content?: string
+          created_at?: string
+          description?: string | null
+          id?: string
+          is_locked?: boolean
+          key?: string
+          min_role_to_edit?: string
+          section?: string
+          title?: string
+          updated_at?: string
+          updated_by_user_id?: string | null
+        }
+        Relationships: []
+      }
       investor_leads: {
         Row: {
           amount_range: string
