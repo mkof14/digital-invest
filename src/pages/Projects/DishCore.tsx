@@ -87,9 +87,9 @@ const DishCore = () => {
                 asChild
                 className="border-primary/30 hover:border-primary"
               >
-                <a href="https://dishcore.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+                <a href="https://dishcore.life" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
                   <Globe className="h-5 w-5" />
-                  dishcore.com
+                  dishcore.life
                 </a>
               </Button>
               <DownloadInvestorBriefButton projectSlug="dishcore" size="lg" />
