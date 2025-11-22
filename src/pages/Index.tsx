@@ -197,71 +197,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* What We Build Section */}
-      <section className="py-24 px-4">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16 space-y-4">
-            <h2 className="text-3xl md:text-5xl font-bold text-foreground">
-              What We Build
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              Five proprietary platforms across health, agriculture, food production, and infrastructure
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <Card className="border border-border/50 bg-card hover:shadow-lg transition-all duration-300">
-              <CardContent className="pt-8 pb-6 space-y-4">
-                <div className="p-3 bg-primary/10 rounded-lg w-fit mx-auto">
-                  <Heart className="w-10 h-10 text-primary" />
-                </div>
-                <h3 className="text-xl font-bold text-foreground text-center">Health & Longevity</h3>
-                <p className="text-sm text-muted-foreground text-center leading-relaxed">
-                  BioMath Core and BioMath Life — data-driven platforms for understanding health, risks, and longevity in a structured, intelligent way.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="border border-border/50 bg-card hover:shadow-lg transition-all duration-300">
-              <CardContent className="pt-8 pb-6 space-y-4">
-                <div className="p-3 bg-primary/10 rounded-lg w-fit mx-auto">
-                  <Sprout className="w-10 h-10 text-primary" />
-                </div>
-                <h3 className="text-xl font-bold text-foreground text-center">Agricultural Technology</h3>
-                <p className="text-sm text-muted-foreground text-center leading-relaxed">
-                  TerraAero — advanced agricultural drone operations with a roadmap toward U.S.-based drone manufacturing.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="border border-border/50 bg-card hover:shadow-lg transition-all duration-300">
-              <CardContent className="pt-8 pb-6 space-y-4">
-                <div className="p-3 bg-primary/10 rounded-lg w-fit mx-auto">
-                  <Utensils className="w-10 h-10 text-primary" />
-                </div>
-                <h3 className="text-xl font-bold text-foreground text-center">Intelligent Food Production</h3>
-                <p className="text-sm text-muted-foreground text-center leading-relaxed">
-                  DishCore — AI-driven food manufacturing and recipe engine for standardized, scalable, nutritionally precise meals.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="border border-border/50 bg-card hover:shadow-lg transition-all duration-300">
-              <CardContent className="pt-8 pb-6 space-y-4">
-                <div className="p-3 bg-primary/10 rounded-lg w-fit mx-auto">
-                  <Network className="w-10 h-10 text-primary" />
-                </div>
-                <h3 className="text-xl font-bold text-foreground text-center">Multi-Sector Infrastructure</h3>
-                <p className="text-sm text-muted-foreground text-center leading-relaxed">
-                  Digital Invest — the portfolio backbone that combines AI, infrastructure, manufacturing, and long-term project strategy.
-                </p>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* Featured Projects Section */}
+      {/* Featured Projects Section - MOVED UP */}
       <section className="py-24 px-4 bg-card/30">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16 space-y-4">
@@ -349,6 +285,70 @@ const Index = () => {
               </Link>
             </div>
           )}
+        </div>
+      </section>
+
+      {/* What We Build Section */}
+      <section className="py-24 px-4">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16 space-y-4">
+            <h2 className="text-3xl md:text-5xl font-bold text-foreground">
+              What We Build
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              Five proprietary platforms across health, agriculture, food production, and infrastructure
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <Card className="border border-border/50 bg-card hover:shadow-lg transition-all duration-300">
+              <CardContent className="pt-8 pb-6 space-y-4">
+                <div className="p-3 bg-primary/10 rounded-lg w-fit mx-auto">
+                  <Heart className="w-10 h-10 text-primary" />
+                </div>
+                <h3 className="text-xl font-bold text-foreground text-center">Health & Longevity</h3>
+                <p className="text-sm text-muted-foreground text-center leading-relaxed">
+                  BioMath Core and BioMath Life — data-driven platforms for understanding health, risks, and longevity in a structured, intelligent way.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="border border-border/50 bg-card hover:shadow-lg transition-all duration-300">
+              <CardContent className="pt-8 pb-6 space-y-4">
+                <div className="p-3 bg-primary/10 rounded-lg w-fit mx-auto">
+                  <Sprout className="w-10 h-10 text-primary" />
+                </div>
+                <h3 className="text-xl font-bold text-foreground text-center">Agricultural Technology</h3>
+                <p className="text-sm text-muted-foreground text-center leading-relaxed">
+                  TerraAero — advanced agricultural drone operations with a roadmap toward U.S.-based drone manufacturing.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="border border-border/50 bg-card hover:shadow-lg transition-all duration-300">
+              <CardContent className="pt-8 pb-6 space-y-4">
+                <div className="p-3 bg-primary/10 rounded-lg w-fit mx-auto">
+                  <Utensils className="w-10 h-10 text-primary" />
+                </div>
+                <h3 className="text-xl font-bold text-foreground text-center">Intelligent Food Production</h3>
+                <p className="text-sm text-muted-foreground text-center leading-relaxed">
+                  DishCore — AI-driven food manufacturing and recipe engine for standardized, scalable, nutritionally precise meals.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="border border-border/50 bg-card hover:shadow-lg transition-all duration-300">
+              <CardContent className="pt-8 pb-6 space-y-4">
+                <div className="p-3 bg-primary/10 rounded-lg w-fit mx-auto">
+                  <Network className="w-10 h-10 text-primary" />
+                </div>
+                <h3 className="text-xl font-bold text-foreground text-center">Multi-Sector Infrastructure</h3>
+                <p className="text-sm text-muted-foreground text-center leading-relaxed">
+                  Digital Invest — the portfolio backbone that combines AI, infrastructure, manufacturing, and long-term project strategy.
+                </p>
+              </CardContent>
+            </Card>
+          </div>
         </div>
       </section>
 
