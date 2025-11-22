@@ -12,12 +12,9 @@ const Footer = () => {
           <div className="space-y-4 lg:col-span-1">
             <div className="flex items-center gap-3 mb-2">
               <img 
-                src="https://jhpgdswputzzsskmzabv.supabase.co/storage/v1/object/public/project-assets/digital-invest-logo.png" 
+                src="/digital-invest-logo.png" 
                 alt="Digital Invest Inc." 
                 className="h-8 w-8"
-                onError={(e) => {
-                  e.currentTarget.style.display = 'none';
-                }}
               />
               <h3 className="text-lg font-bold text-foreground">Digital Invest Inc.</h3>
             </div>
