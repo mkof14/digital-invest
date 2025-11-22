@@ -4,6 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import ScrollToTop from "@/components/ScrollToTop";
 import Index from "./pages/Index";
 import Platform from "./pages/Platform";
 import Services from "./pages/Services";
@@ -78,6 +79,7 @@ const App = () => (
         <Sonner />
         <CookieConsent />
         <BrowserRouter>
+          <ScrollToTop />
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/platform" element={<Platform />} />
