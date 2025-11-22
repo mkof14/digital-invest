@@ -43,6 +43,18 @@ import ForInvestors from "./pages/ForInvestors";
 import InvestorDocuments from "./pages/InvestorDocuments";
 import About from "./pages/About";
 import Demo from "./pages/Demo";
+import Compliance from "./pages/Compliance";
+import RiskFactors from "./pages/RiskFactors";
+import Security from "./pages/Security";
+import Governance from "./pages/Governance";
+import ESG from "./pages/ESG";
+import Values from "./pages/Values";
+import PressCenter from "./pages/PressCenter";
+import MediaKit from "./pages/MediaKit";
+import Careers from "./pages/Careers";
+import InternalDocuments from "./pages/InternalDocuments";
+import API from "./pages/API";
+import Infrastructure from "./pages/Infrastructure";
 
 const queryClient = new QueryClient();
 
@@ -78,6 +90,20 @@ const App = () => (
             <Route path="/for-investors" element={<ForInvestors />} />
             <Route path="/investor-documents" element={<InvestorDocuments />} />
             <Route path="/demo" element={<Demo />} />
+            
+            {/* Financial & Professional Pages */}
+            <Route path="/compliance" element={<Compliance />} />
+            <Route path="/risk-factors" element={<RiskFactors />} />
+            <Route path="/security" element={<Security />} />
+            <Route path="/governance" element={<Governance />} />
+            <Route path="/esg" element={<ESG />} />
+            <Route path="/values" element={<Values />} />
+            <Route path="/press-center" element={<PressCenter />} />
+            <Route path="/media-kit" element={<MediaKit />} />
+            <Route path="/careers" element={<Careers />} />
+            <Route path="/internal-documents" element={<InternalDocuments />} />
+            <Route path="/api" element={<API />} />
+            <Route path="/infrastructure" element={<Infrastructure />} />
             
             {/* Legal Routes */}
             <Route path="/legal/terms" element={<TermsOfUse />} />
