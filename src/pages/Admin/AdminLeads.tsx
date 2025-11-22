@@ -4,9 +4,12 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Loader2, Mail, Phone, MapPin, MessageSquare, Search } from 'lucide-react';
+import { Separator } from '@/components/ui/separator';
+import { Loader2, Mail, Phone, MapPin, MessageSquare, Search, Copy, Check, Clock, FileText } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+import { getIntroEmailTemplate, getFollowUpWithBriefTemplate, getCheckInTemplate, emailTemplateTypes, type EmailTemplate } from '@/lib/investorEmailTemplates';
 
 interface Lead {
   id: string;
@@ -19,8 +22,15 @@ interface Lead {
   comments: string | null;
   status: string;
   created_at: string;
+  source: string | null;
+  last_contacted_at: string | null;
+  last_email_type: string | null;
+  next_action_at: string | null;
+  internal_notes: string | null;
   projects: {
     title: string;
+    slug: string;
+    category: string;
   };
 }
 
@@ -28,7 +38,11 @@ const AdminLeads = () => {
   const [leads, setLeads] = useState<Lead[]>([]);
   const [loading, setLoading] = useState(true);
   const [filterStatus, setFilterStatus] = useState<string | 'all'>('all');
+  const [filterEmailType, setFilterEmailType] = useState<string | 'all'>('all');
   const [searchQuery, setSearchQuery] = useState('');
+  const [expandedLeadId, setExpandedLeadId] = useState<string | null>(null);
+  const [selectedTemplate, setSelectedTemplate] = useState<{ leadId: string; template: EmailTemplate; type: string } | null>(null);
+  const [copiedField, setCopiedField] = useState<string | null>(null);
   const { toast } = useToast();
 
   useEffect(() => {
@@ -42,7 +56,9 @@ const AdminLeads = () => {
         .select(`
           *,
           projects (
-            title
+            title,
+            slug,
+            category
           )
         `)
         .order('created_at', { ascending: false });
@@ -67,13 +83,19 @@ const AdminLeads = () => {
   };
 
   const filteredLeads = leads.filter((lead) => {
-    if (!searchQuery) return true;
-    const search = searchQuery.toLowerCase();
-    return (
-      lead.name.toLowerCase().includes(search) ||
-      lead.email.toLowerCase().includes(search) ||
-      (lead.phone?.toLowerCase().includes(search) ?? false)
+    if (!searchQuery && filterEmailType === 'all') return true;
+    
+    const matchesSearch = !searchQuery || (
+      lead.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      lead.email.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      (lead.phone?.toLowerCase().includes(searchQuery.toLowerCase()) ?? false)
     );
+
+    const matchesEmailType = filterEmailType === 'all' || 
+      (filterEmailType === 'none' && !lead.last_email_type) ||
+      lead.last_email_type === filterEmailType;
+
+    return matchesSearch && matchesEmailType;
   });
 
   const updateLeadStatus = async (leadId: string, newStatus: any) => {
@@ -95,6 +117,114 @@ const AdminLeads = () => {
       toast({
         title: 'Error',
         description: error.message,
+        variant: 'destructive',
+      });
+    }
+  };
+
+  const markAsContacted = async (leadId: string, emailType: string) => {
+    try {
+      const updates: any = {
+        last_contacted_at: new Date().toISOString(),
+        last_email_type: emailType,
+      };
+
+      // If status is NEW, update to CONTACTED
+      const lead = leads.find(l => l.id === leadId);
+      if (lead?.status === 'NEW') {
+        updates.status = 'CONTACTED';
+      }
+
+      const { error } = await supabase
+        .from('investor_leads')
+        .update(updates)
+        .eq('id', leadId);
+
+      if (error) throw error;
+
+      toast({
+        title: 'Success',
+        description: 'Lead marked as contacted',
+      });
+
+      setSelectedTemplate(null);
+      fetchLeads();
+    } catch (error: any) {
+      toast({
+        title: 'Error',
+        description: error.message,
+        variant: 'destructive',
+      });
+    }
+  };
+
+  const updateInternalNotes = async (leadId: string, notes: string) => {
+    try {
+      const { error } = await supabase
+        .from('investor_leads')
+        .update({ internal_notes: notes })
+        .eq('id', leadId);
+
+      if (error) throw error;
+
+      toast({
+        title: 'Success',
+        description: 'Notes updated successfully',
+      });
+
+      fetchLeads();
+    } catch (error: any) {
+      toast({
+        title: 'Error',
+        description: error.message,
+        variant: 'destructive',
+      });
+    }
+  };
+
+  const generateEmailTemplate = (lead: Lead, type: 'intro' | 'followup' | 'checkin') => {
+    const project = lead.projects ? {
+      title: lead.projects.title,
+      slug: lead.projects.slug,
+      category: lead.projects.category,
+    } : null;
+
+    const leadData = {
+      name: lead.name,
+      email: lead.email,
+      amount_range: lead.amount_range,
+      country: lead.country || undefined,
+    };
+
+    let template: EmailTemplate;
+    switch (type) {
+      case 'intro':
+        template = getIntroEmailTemplate(leadData, project);
+        break;
+      case 'followup':
+        template = getFollowUpWithBriefTemplate(leadData, project);
+        break;
+      case 'checkin':
+        template = getCheckInTemplate(leadData, project);
+        break;
+    }
+
+    setSelectedTemplate({ leadId: lead.id, template, type });
+  };
+
+  const copyToClipboard = async (text: string, field: string) => {
+    try {
+      await navigator.clipboard.writeText(text);
+      setCopiedField(field);
+      toast({
+        title: 'Copied!',
+        description: 'Text copied to clipboard',
+      });
+      setTimeout(() => setCopiedField(null), 2000);
+    } catch (error) {
+      toast({
+        title: 'Error',
+        description: 'Failed to copy to clipboard',
         variant: 'destructive',
       });
     }
@@ -145,15 +275,27 @@ const AdminLeads = () => {
             />
           </div>
           <Select value={filterStatus} onValueChange={setFilterStatus}>
-            <SelectTrigger className="w-[180px]">
-              <SelectValue placeholder="Filter by status" />
+            <SelectTrigger className="w-[150px]">
+              <SelectValue placeholder="Status" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="all">All Leads</SelectItem>
+              <SelectItem value="all">All Status</SelectItem>
               <SelectItem value="NEW">New</SelectItem>
               <SelectItem value="CONTACTED">Contacted</SelectItem>
               <SelectItem value="QUALIFIED">Qualified</SelectItem>
               <SelectItem value="DECLINED">Declined</SelectItem>
+            </SelectContent>
+          </Select>
+          <Select value={filterEmailType} onValueChange={setFilterEmailType}>
+            <SelectTrigger className="w-[150px]">
+              <SelectValue placeholder="Email Type" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="all">All Emails</SelectItem>
+              <SelectItem value="none">Not Contacted</SelectItem>
+              <SelectItem value="intro">Intro</SelectItem>
+              <SelectItem value="followup">Follow-up</SelectItem>
+              <SelectItem value="checkin">Check-in</SelectItem>
             </SelectContent>
           </Select>
         </div>
@@ -165,12 +307,27 @@ const AdminLeads = () => {
             <CardHeader>
               <div className="flex justify-between items-start">
                 <div>
-                  <CardTitle>{lead.name}</CardTitle>
+                  <CardTitle className="flex items-center gap-2">
+                    {lead.name}
+                    {!lead.last_contacted_at && (
+                      <Badge variant="outline" className="text-xs">
+                        Not contacted
+                      </Badge>
+                    )}
+                  </CardTitle>
                   <CardDescription>
                     Project: {lead.projects.title} • Submitted {new Date(lead.created_at).toLocaleDateString()}
+                    {lead.last_contacted_at && (
+                      <> • Last contact: {new Date(lead.last_contacted_at).toLocaleDateString()}</>
+                    )}
                   </CardDescription>
                 </div>
                 <div className="flex items-center gap-2">
+                  {lead.last_email_type && (
+                    <Badge variant="secondary" className="text-xs">
+                      {lead.last_email_type}
+                    </Badge>
+                  )}
                   <Badge className={getStatusColor(lead.status)}>
                     {lead.status}
                   </Badge>
@@ -245,7 +402,146 @@ const AdminLeads = () => {
                 </div>
               )}
 
-              <div className="mt-4 flex gap-2">
+              <Separator className="my-4" />
+
+              {/* Email Tools Section */}
+              <div className="space-y-4">
+                <div className="flex items-center justify-between">
+                  <h4 className="text-sm font-semibold flex items-center gap-2">
+                    <FileText className="h-4 w-4" />
+                    Email Tools
+                  </h4>
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    onClick={() => setExpandedLeadId(expandedLeadId === lead.id ? null : lead.id)}
+                  >
+                    {expandedLeadId === lead.id ? 'Hide' : 'Show'}
+                  </Button>
+                </div>
+
+                {expandedLeadId === lead.id && (
+                  <div className="space-y-4 p-4 bg-muted/20 rounded-lg">
+                    <div className="flex gap-2 flex-wrap">
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={() => generateEmailTemplate(lead, 'intro')}
+                      >
+                        <Mail className="mr-2 h-4 w-4" />
+                        Copy Intro Email
+                      </Button>
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={() => generateEmailTemplate(lead, 'followup')}
+                      >
+                        <Mail className="mr-2 h-4 w-4" />
+                        Copy Follow-up with Brief
+                      </Button>
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={() => generateEmailTemplate(lead, 'checkin')}
+                      >
+                        <Mail className="mr-2 h-4 w-4" />
+                        Copy Check-in Email
+                      </Button>
+                    </div>
+
+                    {selectedTemplate && selectedTemplate.leadId === lead.id && (
+                      <div className="space-y-3 p-4 border border-border rounded-lg bg-background">
+                        <div>
+                          <div className="flex justify-between items-center mb-2">
+                            <label className="text-sm font-medium">Subject</label>
+                            <Button
+                              variant="ghost"
+                              size="sm"
+                              onClick={() => copyToClipboard(selectedTemplate.template.subject, `subject-${lead.id}`)}
+                            >
+                              {copiedField === `subject-${lead.id}` ? (
+                                <Check className="h-4 w-4" />
+                              ) : (
+                                <Copy className="h-4 w-4" />
+                              )}
+                            </Button>
+                          </div>
+                          <Input
+                            value={selectedTemplate.template.subject}
+                            readOnly
+                            className="font-medium"
+                          />
+                        </div>
+
+                        <div>
+                          <div className="flex justify-between items-center mb-2">
+                            <label className="text-sm font-medium">Body</label>
+                            <Button
+                              variant="ghost"
+                              size="sm"
+                              onClick={() => copyToClipboard(selectedTemplate.template.body, `body-${lead.id}`)}
+                            >
+                              {copiedField === `body-${lead.id}` ? (
+                                <Check className="h-4 w-4" />
+                              ) : (
+                                <Copy className="h-4 w-4" />
+                              )}
+                            </Button>
+                          </div>
+                          <Textarea
+                            value={selectedTemplate.template.body}
+                            readOnly
+                            rows={12}
+                            className="font-mono text-sm"
+                          />
+                        </div>
+
+                        <div className="flex gap-2">
+                          <Button
+                            onClick={() => markAsContacted(lead.id, selectedTemplate.type)}
+                            size="sm"
+                          >
+                            <Check className="mr-2 h-4 w-4" />
+                            Mark as Contacted
+                          </Button>
+                          <Button
+                            variant="outline"
+                            onClick={() => setSelectedTemplate(null)}
+                            size="sm"
+                          >
+                            Close
+                          </Button>
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Internal Notes */}
+                    <div className="space-y-2">
+                      <label className="text-sm font-medium flex items-center gap-2">
+                        <MessageSquare className="h-4 w-4" />
+                        Internal Notes
+                      </label>
+                      <Textarea
+                        placeholder="Add private notes about this lead..."
+                        value={lead.internal_notes || ''}
+                        onChange={(e) => {
+                          const updatedLeads = leads.map(l => 
+                            l.id === lead.id ? { ...l, internal_notes: e.target.value } : l
+                          );
+                          setLeads(updatedLeads);
+                        }}
+                        onBlur={(e) => updateInternalNotes(lead.id, e.target.value)}
+                        rows={3}
+                        className="text-sm"
+                      />
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              <Separator className="my-4" />
+
+              <div className="flex gap-2">
                 <Button variant="outline" size="sm" asChild>
                   <a href={`mailto:${lead.email}`}>
                     <Mail className="mr-2 h-4 w-4" />
