@@ -2,9 +2,8 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Progress } from "@/components/ui/progress";
 import { Badge } from "@/components/ui/badge";
-import { ArrowRight, Droplets, Wheat, BarChart3, FileText, Package, Zap, TrendingUp, Users } from "lucide-react";
+import { ArrowRight, Droplets, Wheat, BarChart3, FileText, Package, Zap } from "lucide-react";
 import { Link } from "react-router-dom";
 import terraaeroLogo from "@/assets/terraaero-logo.png";
 import DownloadInvestorBriefButton from "@/components/DownloadInvestorBriefButton";
@@ -12,10 +11,6 @@ import OptimizedImage from "@/components/OptimizedImage";
 import InvestorPageDisclaimer from "@/components/InvestorPageDisclaimer";
 
 const TerraAero = () => {
-  const fundingProgress = 45;
-  const targetAmount = 15000000;
-  const currentAmount = 6750000;
-
   const agriculturalServices = [
     {
       icon: Droplets,
@@ -90,63 +85,6 @@ const TerraAero = () => {
             Advanced drone solutions for agriculture and delivery. Transform your operations with cutting-edge drone technology - from precision farming to rapid delivery services.
           </p>
         </div>
-
-        {/* Investment Overview */}
-        <Card className="mb-12 border-primary/20 shadow-tech">
-          <CardHeader>
-            <div className="flex items-center justify-between">
-              <div>
-                <CardTitle className="text-3xl mb-2">Investment Opportunity</CardTitle>
-                <CardDescription>Invest in the future of drone technology</CardDescription>
-              </div>
-              <Badge variant="secondary" className="text-lg px-4 py-2">
-                <TrendingUp className="w-4 h-4 mr-2" />
-                Active
-              </Badge>
-            </div>
-          </CardHeader>
-          <CardContent className="space-y-6">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="space-y-2">
-                <p className="text-sm text-muted-foreground">Target Amount</p>
-                <p className="text-2xl font-bold text-primary">
-                  ${(targetAmount / 1000000).toFixed(1)}M
-                </p>
-              </div>
-              <div className="space-y-2">
-                <p className="text-sm text-muted-foreground">Current Funding</p>
-                <p className="text-2xl font-bold">
-                  ${(currentAmount / 1000000).toFixed(1)}M
-                </p>
-              </div>
-              <div className="space-y-2">
-                <p className="text-sm text-muted-foreground">Investors</p>
-                <p className="text-2xl font-bold flex items-center gap-2">
-                  <Users className="w-6 h-6" />
-                  18
-                </p>
-              </div>
-            </div>
-            
-            <div className="space-y-2">
-              <div className="flex justify-between text-sm">
-                <span className="text-muted-foreground">Progress</span>
-                <span className="font-semibold">{fundingProgress}%</span>
-              </div>
-              <Progress value={fundingProgress} className="h-3" />
-            </div>
-
-            <div className="flex gap-4">
-              <Link to="/start-investing" className="flex-1">
-                <Button size="lg" className="w-full">
-                  Request Information
-                  <ArrowRight className="ml-2 w-4 w-4" />
-                </Button>
-              </Link>
-              <DownloadInvestorBriefButton projectSlug="terraaero" size="lg" className="flex-1" />
-            </div>
-          </CardContent>
-        </Card>
 
         {/* Stats Section */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">

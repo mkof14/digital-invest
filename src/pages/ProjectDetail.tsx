@@ -3,7 +3,6 @@ import { useParams, Link } from 'react-router-dom';
 import { supabase } from '@/integrations/supabase/client';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Progress } from '@/components/ui/progress';
 import { Separator } from '@/components/ui/separator';
 import { ArrowLeft, TrendingUp, Target, Calendar, Users, AlertTriangle, FileText, Loader2, ExternalLink, CheckCircle2, DollarSign, Clock, Rocket } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
@@ -268,11 +267,6 @@ const ProjectDetail = () => {
     }
   };
 
-  const calculateProgress = (current: number, target: number | null) => {
-    if (!target || target === 0) return 0;
-    return Math.min((current / target) * 100, 100);
-  };
-
   if (loading) {
     return (
       <div className="min-h-screen pt-24 pb-16">
@@ -357,58 +351,6 @@ const ProjectDetail = () => {
               </p>
             </div>
           </div>
-
-          {/* Investment Stats */}
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-            <div className="bg-card border border-border p-6 rounded-lg">
-              <div className="flex items-center gap-2 text-muted-foreground mb-2">
-                <Target className="h-4 w-4" />
-                <span className="text-sm">Target Amount</span>
-              </div>
-              <p className="text-2xl font-bold text-foreground">
-                {project.target_amount ? `${project.currency} ${project.target_amount.toLocaleString()}` : 'TBD'}
-              </p>
-            </div>
-
-            <div className="bg-card border border-border p-6 rounded-lg">
-              <div className="flex items-center gap-2 text-muted-foreground mb-2">
-                <TrendingUp className="h-4 w-4" />
-                <span className="text-sm">Current Raised</span>
-              </div>
-              <p className="text-2xl font-bold text-foreground">
-                {project.currency} {project.current_raised.toLocaleString()}
-              </p>
-            </div>
-
-            <div className="bg-card border border-border p-6 rounded-lg">
-              <div className="flex items-center gap-2 text-muted-foreground mb-2">
-                <Users className="h-4 w-4" />
-                <span className="text-sm">Minimum Ticket</span>
-              </div>
-              <p className="text-2xl font-bold text-foreground">
-                {project.min_ticket ? `${project.currency} ${project.min_ticket.toLocaleString()}` : 'Negotiable'}
-              </p>
-            </div>
-
-            <div className="bg-card border border-border p-6 rounded-lg">
-              <div className="flex items-center gap-2 text-muted-foreground mb-2">
-                <Calendar className="h-4 w-4" />
-                <span className="text-sm">Progress</span>
-              </div>
-              <p className="text-2xl font-bold text-foreground">
-                {project.target_amount ? `${calculateProgress(project.current_raised, project.target_amount).toFixed(1)}%` : 'N/A'}
-              </p>
-            </div>
-          </div>
-
-          {project.target_amount && (
-            <div className="bg-card border border-border p-6 rounded-lg mb-8">
-              <Progress value={calculateProgress(project.current_raised, project.target_amount)} className="h-3 mb-2" />
-              <p className="text-sm text-muted-foreground text-center">
-                {project.currency} {project.current_raised.toLocaleString()} raised of {project.currency} {project.target_amount.toLocaleString()} goal
-              </p>
-            </div>
-          )}
 
           {/* CTA Button */}
           {project.status === 'OPEN' && (

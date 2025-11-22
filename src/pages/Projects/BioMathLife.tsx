@@ -2,18 +2,13 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Progress } from "@/components/ui/progress";
 import { Badge } from "@/components/ui/badge";
-import { ArrowRight, CheckCircle2, TrendingUp, Users, Target, Calendar } from "lucide-react";
+import { ArrowRight, CheckCircle2, TrendingUp, Target, Calendar } from "lucide-react";
 import { Link } from "react-router-dom";
 import DownloadInvestorBriefButton from "@/components/DownloadInvestorBriefButton";
 import InvestorPageDisclaimer from "@/components/InvestorPageDisclaimer";
 
 const BioMathLife = () => {
-  const fundingProgress = 68; // Example progress
-  const targetAmount = 25000000;
-  const currentAmount = 17000000;
-
   const services = [
     {
       number: "1",
@@ -66,63 +61,6 @@ const BioMathLife = () => {
             Towards precision medicine through biomathematical modeling of the human body using breakthrough technologies in genetics, biomathematics, Artificial Intelligence, and pharmacology.
           </p>
         </div>
-
-        {/* Investment Overview */}
-        <Card className="mb-12 border-primary/20 shadow-tech">
-          <CardHeader>
-            <div className="flex items-center justify-between">
-              <div>
-                <CardTitle className="text-3xl mb-2">Investment Opportunity</CardTitle>
-                <CardDescription>Join the future of precision medicine</CardDescription>
-              </div>
-              <Badge variant="secondary" className="text-lg px-4 py-2">
-                <TrendingUp className="w-4 h-4 mr-2" />
-                Active
-              </Badge>
-            </div>
-          </CardHeader>
-          <CardContent className="space-y-6">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="space-y-2">
-                <p className="text-sm text-muted-foreground">Target Amount</p>
-                <p className="text-2xl font-bold text-primary">
-                  ${(targetAmount / 1000000).toFixed(1)}M
-                </p>
-              </div>
-              <div className="space-y-2">
-                <p className="text-sm text-muted-foreground">Current Funding</p>
-                <p className="text-2xl font-bold">
-                  ${(currentAmount / 1000000).toFixed(1)}M
-                </p>
-              </div>
-              <div className="space-y-2">
-                <p className="text-sm text-muted-foreground">Investors</p>
-                <p className="text-2xl font-bold flex items-center gap-2">
-                  <Users className="w-6 h-6" />
-                  24
-                </p>
-              </div>
-            </div>
-            
-            <div className="space-y-2">
-              <div className="flex justify-between text-sm">
-                <span className="text-muted-foreground">Progress</span>
-                <span className="font-semibold">{fundingProgress}%</span>
-              </div>
-              <Progress value={fundingProgress} className="h-3" />
-            </div>
-
-            <div className="flex gap-4">
-              <Link to="/start-investing" className="flex-1">
-                <Button size="lg" className="w-full">
-                  Request Information
-                  <ArrowRight className="ml-2 w-4 h-4" />
-                </Button>
-              </Link>
-              <DownloadInvestorBriefButton projectSlug="biomathlife" size="lg" className="flex-1" />
-            </div>
-          </CardContent>
-        </Card>
 
         {/* Key Goals */}
         <div className="mb-12">
