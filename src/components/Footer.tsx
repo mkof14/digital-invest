@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Linkedin, MapPin, Mail } from 'lucide-react';
+import { Linkedin, MapPin, Mail, Facebook, Youtube, Twitter } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -10,7 +10,17 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
           {/* LEFT BLOCK - Company Info */}
           <div className="space-y-4 lg:col-span-1">
-            <h3 className="text-lg font-bold text-foreground">Digital Invest Inc.</h3>
+            <div className="flex items-center gap-3 mb-2">
+              <img 
+                src="https://jhpgdswputzzsskmzabv.supabase.co/storage/v1/object/public/project-assets/digital-invest-logo.png" 
+                alt="Digital Invest Inc." 
+                className="h-8 w-8"
+                onError={(e) => {
+                  e.currentTarget.style.display = 'none';
+                }}
+              />
+              <h3 className="text-lg font-bold text-foreground">Digital Invest Inc.</h3>
+            </div>
             <p className="text-sm text-muted-foreground leading-relaxed">
               Building and scaling real-economy, AI, manufacturing, and health-technology projects across the United States.
             </p>
@@ -35,6 +45,10 @@ const Footer = () => {
               <li><Link to="/team-members" className="hover:text-primary transition-colors">Team</Link></li>
               <li><Link to="/contact" className="hover:text-primary transition-colors">Contact</Link></li>
               <li><Link to="/demo" className="hover:text-primary transition-colors">Corporate Demo</Link></li>
+              <li><Link to="/investor-documents" className="hover:text-primary transition-colors">Documents</Link></li>
+              <li><Link to="/why-digital-invest" className="hover:text-primary transition-colors">Why Digital Invest</Link></li>
+              <li><Link to="/how-it-works" className="hover:text-primary transition-colors">How It Works</Link></li>
+              <li><Link to="/news" className="hover:text-primary transition-colors">News & Insights</Link></li>
               <li><Link to="/auth" className="hover:text-primary transition-colors">Admin</Link></li>
             </ul>
           </div>
@@ -63,15 +77,38 @@ const Footer = () => {
                 <MapPin className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />
                 <p className="text-sm">United States</p>
               </div>
-              <div className="pt-2">
+              <div className="pt-2 flex items-center gap-4">
                 <a 
                   href="https://www.linkedin.com/company/digital-invest-inc/" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
+                  className="text-muted-foreground hover:text-primary transition-colors"
                   aria-label="LinkedIn">
-                  <Linkedin className="h-4 w-4" />
-                  <span>LinkedIn</span>
+                  <Linkedin className="h-5 w-5" />
+                </a>
+                <a 
+                  href="https://facebook.com" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                  aria-label="Facebook">
+                  <Facebook className="h-5 w-5" />
+                </a>
+                <a 
+                  href="https://youtube.com" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                  aria-label="Youtube">
+                  <Youtube className="h-5 w-5" />
+                </a>
+                <a 
+                  href="https://x.com" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                  aria-label="X (Twitter)">
+                  <Twitter className="h-5 w-5" />
                 </a>
               </div>
             </div>
