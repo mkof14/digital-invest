@@ -5,7 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Button } from '@/components/ui/button';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { Badge } from '@/components/ui/badge';
-import { FolderOpen, Users, TrendingUp, Eye, DollarSign, Percent } from 'lucide-react';
+import { FolderOpen, Users, TrendingUp, Eye, DollarSign, Percent, AlertCircle, Clock } from 'lucide-react';
 
 interface Stats {
   totalProjects: number;
@@ -24,6 +24,19 @@ interface RecentLead {
   email: string;
   status: string;
   created_at: string;
+  last_contacted_at: string | null;
+  projects: {
+    title: string;
+  } | null;
+}
+
+interface ActionQueueLead {
+  id: string;
+  name: string;
+  email: string;
+  status: string;
+  last_contacted_at: string | null;
+  last_email_type: string | null;
   projects: {
     title: string;
   } | null;
@@ -41,10 +54,12 @@ const AdminDashboard = () => {
     conversionRate: 0,
   });
   const [recentLeads, setRecentLeads] = useState<RecentLead[]>([]);
+  const [actionQueue, setActionQueue] = useState<ActionQueueLead[]>([]);
 
   useEffect(() => {
     fetchStats();
     fetchRecentLeads();
+    fetchActionQueue();
   }, []);
 
   const fetchStats = async () => {
@@ -81,14 +96,33 @@ const AdminDashboard = () => {
     try {
       const { data, error } = await supabase
         .from('investor_leads')
-        .select('id, name, email, status, created_at, projects(title)')
+        .select('id, name, email, status, created_at, last_contacted_at, projects(title)')
         .order('created_at', { ascending: false })
-        .limit(5);
+        .limit(10);
 
       if (error) throw error;
       setRecentLeads(data || []);
     } catch (error) {
       console.error('Error fetching recent leads:', error);
+    }
+  };
+
+  const fetchActionQueue = async () => {
+    try {
+      const sevenDaysAgo = new Date();
+      sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
+
+      const { data, error } = await supabase
+        .from('investor_leads')
+        .select('id, name, email, status, last_contacted_at, last_email_type, projects(title)')
+        .or(`status.eq.NEW,and(status.eq.CONTACTED,last_contacted_at.lt.${sevenDaysAgo.toISOString()})`)
+        .order('created_at', { ascending: false })
+        .limit(10);
+
+      if (error) throw error;
+      setActionQueue(data || []);
+    } catch (error) {
+      console.error('Error fetching action queue:', error);
     }
   };
 
@@ -160,6 +194,46 @@ const AdminDashboard = () => {
         <p className="text-muted-foreground">Overview of your investment platform</p>
       </div>
 
+      {/* Leads by Status */}
+      <Card className="border border-border/50">
+        <CardHeader>
+          <CardTitle>Leads by Status</CardTitle>
+          <CardDescription>Distribution of investor leads</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div className="p-4 border border-border rounded-lg">
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-sm text-muted-foreground">New</span>
+                <Badge className="bg-info text-info-foreground">{stats.newLeads}</Badge>
+              </div>
+              <div className="text-2xl font-bold">{stats.newLeads}</div>
+            </div>
+            <div className="p-4 border border-border rounded-lg">
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-sm text-muted-foreground">Contacted</span>
+                <Badge className="bg-warning text-warning-foreground">{stats.contactedLeads}</Badge>
+              </div>
+              <div className="text-2xl font-bold">{stats.contactedLeads}</div>
+            </div>
+            <div className="p-4 border border-border rounded-lg">
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-sm text-muted-foreground">Qualified</span>
+                <Badge className="bg-success text-success-foreground">{stats.qualifiedLeads}</Badge>
+              </div>
+              <div className="text-2xl font-bold">{stats.qualifiedLeads}</div>
+            </div>
+            <div className="p-4 border border-border rounded-lg">
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-sm text-muted-foreground">Total</span>
+                <Badge variant="outline">{stats.totalLeads}</Badge>
+              </div>
+              <div className="text-2xl font-bold">{stats.totalLeads}</div>
+            </div>
+          </div>
+        </CardContent>
+      </Card>
+
       {/* Stats Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {statCards.map((stat) => {
@@ -214,11 +288,84 @@ const AdminDashboard = () => {
         </CardContent>
       </Card>
 
+      {/* Action Queue */}
+      <Card className="border border-border/50 border-l-4 border-l-warning">
+        <CardHeader>
+          <div className="flex items-center gap-2">
+            <AlertCircle className="h-5 w-5 text-warning" />
+            <div>
+              <CardTitle>Action Queue</CardTitle>
+              <CardDescription>Leads requiring follow-up attention</CardDescription>
+            </div>
+          </div>
+        </CardHeader>
+        <CardContent>
+          {actionQueue.length > 0 ? (
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  <TableHead>Name</TableHead>
+                  <TableHead>Project</TableHead>
+                  <TableHead>Status</TableHead>
+                  <TableHead>Last Contacted</TableHead>
+                  <TableHead>Last Email</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {actionQueue.map((lead) => (
+                  <TableRow key={lead.id}>
+                    <TableCell className="font-medium">{lead.name}</TableCell>
+                    <TableCell>{lead.projects?.title || 'General'}</TableCell>
+                    <TableCell>
+                      <Badge className={getStatusColor(lead.status)}>
+                        {lead.status}
+                      </Badge>
+                    </TableCell>
+                    <TableCell>
+                      {lead.last_contacted_at ? (
+                        <div className="flex items-center gap-1">
+                          <Clock className="h-3 w-3 text-muted-foreground" />
+                          {new Date(lead.last_contacted_at).toLocaleDateString()}
+                        </div>
+                      ) : (
+                        <span className="text-muted-foreground italic">Never</span>
+                      )}
+                    </TableCell>
+                    <TableCell>
+                      {lead.last_email_type ? (
+                        <Badge variant="secondary" className="text-xs">
+                          {lead.last_email_type}
+                        </Badge>
+                      ) : (
+                        <span className="text-muted-foreground text-xs">None</span>
+                      )}
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          ) : (
+            <p className="text-sm text-muted-foreground text-center py-8">
+              No leads requiring immediate follow-up
+            </p>
+          )}
+          {actionQueue.length > 0 && (
+            <div className="mt-4 text-center">
+              <Link to="/admin/leads">
+                <Button variant="outline" size="sm">
+                  View All Leads
+                </Button>
+              </Link>
+            </div>
+          )}
+        </CardContent>
+      </Card>
+
       {/* Recent Leads */}
       <Card className="border border-border/50">
         <CardHeader>
           <CardTitle>Recent Investor Leads</CardTitle>
-          <CardDescription>Latest expressions of interest</CardDescription>
+          <CardDescription>Latest 10 expressions of interest</CardDescription>
         </CardHeader>
         <CardContent>
           {recentLeads.length > 0 ? (
@@ -229,7 +376,8 @@ const AdminDashboard = () => {
                   <TableHead>Email</TableHead>
                   <TableHead>Project</TableHead>
                   <TableHead>Status</TableHead>
-                  <TableHead>Date</TableHead>
+                  <TableHead>Submitted</TableHead>
+                  <TableHead>Last Contact</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
@@ -245,6 +393,13 @@ const AdminDashboard = () => {
                     </TableCell>
                     <TableCell>
                       {new Date(lead.created_at).toLocaleDateString()}
+                    </TableCell>
+                    <TableCell>
+                      {lead.last_contacted_at ? (
+                        new Date(lead.last_contacted_at).toLocaleDateString()
+                      ) : (
+                        <span className="text-muted-foreground italic text-xs">Not yet</span>
+                      )}
                     </TableCell>
                   </TableRow>
                 ))}
