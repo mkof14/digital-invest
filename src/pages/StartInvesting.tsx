@@ -8,6 +8,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Link } from "react-router-dom";
 import { 
   TrendingUp, 
   DollarSign, 
@@ -128,9 +129,11 @@ const StartInvesting = () => {
             opportunities from $50K to $10M+ with exceptional growth potential.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="px-8 py-3 glow-hover">
-              <Calendar className="mr-2 h-5 w-5" />
-              Schedule Consultation
+            <Button size="lg" className="px-8 py-3 glow-hover" asChild>
+              <Link to="/schedule">
+                <Calendar className="mr-2 h-5 w-5" />
+                Schedule Consultation
+              </Link>
             </Button>
             <Button size="lg" variant="outline" className="px-8 py-3 electric-hover">
               <FileText className="mr-2 h-5 w-5" />
