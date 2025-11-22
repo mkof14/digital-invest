@@ -12,6 +12,7 @@ import InterestForm from '@/components/InterestForm';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { updateMetaTags, resetMetaTags, truncateForMeta } from '@/lib/metaTags';
+import { generateProjectSchema, generateBreadcrumbSchema, injectStructuredData, removeStructuredData } from '@/lib/structuredData';
 
 interface Project {
   id: string;
@@ -208,10 +209,24 @@ const ProjectDetail = () => {
         ogType: 'article',
         canonicalUrl: canonicalUrl,
       });
+
+      // Add structured data for SEO
+      const projectSchema = generateProjectSchema(project);
+      injectStructuredData(projectSchema, 'project-structured-data');
+
+      // Add breadcrumb schema
+      const breadcrumbSchema = generateBreadcrumbSchema([
+        { name: 'Home', url: 'https://digitalinvest.com/' },
+        { name: 'Projects', url: 'https://digitalinvest.com/projects' },
+        { name: project.title, url: `https://digitalinvest.com/projects/${project.slug}` }
+      ]);
+      injectStructuredData(breadcrumbSchema, 'breadcrumb-structured-data');
     }
 
     return () => {
       resetMetaTags();
+      removeStructuredData('project-structured-data');
+      removeStructuredData('breadcrumb-structured-data');
     };
   }, [project]);
 

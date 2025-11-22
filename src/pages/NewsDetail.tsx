@@ -9,6 +9,7 @@ import { useToast } from '@/hooks/use-toast';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { updateMetaTags, resetMetaTags, truncateForMeta } from '@/lib/metaTags';
+import { generateArticleSchema, generateBreadcrumbSchema, injectStructuredData, removeStructuredData } from '@/lib/structuredData';
 
 interface NewsPost {
   id: string;
@@ -80,10 +81,24 @@ const NewsDetail = () => {
         meta.setAttribute('content', publishedDate);
         document.head.appendChild(meta);
       }
+
+      // Add Article structured data
+      const articleSchema = generateArticleSchema(post);
+      injectStructuredData(articleSchema, 'article-structured-data');
+
+      // Add breadcrumb schema
+      const breadcrumbSchema = generateBreadcrumbSchema([
+        { name: 'Home', url: 'https://digitalinvest.com/' },
+        { name: 'News & Insights', url: 'https://digitalinvest.com/news' },
+        { name: post.title, url: `https://digitalinvest.com/news/${post.slug}` }
+      ]);
+      injectStructuredData(breadcrumbSchema, 'breadcrumb-structured-data');
     }
 
     return () => {
       resetMetaTags();
+      removeStructuredData('article-structured-data');
+      removeStructuredData('breadcrumb-structured-data');
     };
   }, [post]);
 

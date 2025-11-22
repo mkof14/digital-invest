@@ -8,6 +8,7 @@ import { Progress } from "@/components/ui/progress";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Link } from "react-router-dom";
 import { supabase } from '@/integrations/supabase/client';
+import { generateFAQSchema, injectStructuredData, removeStructuredData } from '@/lib/structuredData';
 import {
   Rocket,
   Lightbulb,
@@ -70,6 +71,41 @@ const Index = () => {
 
   useEffect(() => {
     fetchFeaturedProjects();
+
+    // Add FAQ structured data
+    const faqData = [
+      {
+        question: "Is this a crowdfunding platform?",
+        answer: "No. Digital Invest Inc. is not a crowdfunding platform. This website is informational only. All potential participation is discussed individually offline through proper legal documentation."
+      },
+      {
+        question: "Can I invest online through this website?",
+        answer: "No. This website does not process payments or facilitate direct online investment. It provides information about our projects and allows you to submit a non-binding expression of interest."
+      },
+      {
+        question: "Are returns guaranteed?",
+        answer: "No. All investments carry risk, and returns are never guaranteed. Early-stage projects may experience delays, operational challenges, or loss of capital. Please review our Risk Disclosure page."
+      },
+      {
+        question: "What happens after I submit interest?",
+        answer: "If you submit an expression of interest, we will review your submission and may reach out personally to discuss the project, answer questions, and provide additional details. All agreements are handled offline."
+      },
+      {
+        question: "Who can participate?",
+        answer: "Participation is typically limited to qualified investors, accredited investors, or individuals who meet regulatory requirements. Requirements vary by jurisdiction and project structure."
+      },
+      {
+        question: "Why is everything handled privately?",
+        answer: "We believe in building strong, trust-based relationships with our investors. A private format allows for thorough due diligence, detailed discussions, and alignment of expectations—something mass crowdfunding platforms cannot provide."
+      }
+    ];
+
+    const faqSchema = generateFAQSchema(faqData);
+    injectStructuredData(faqSchema, 'faq-structured-data');
+
+    return () => {
+      removeStructuredData('faq-structured-data');
+    };
   }, []);
 
   const fetchFeaturedProjects = async () => {
