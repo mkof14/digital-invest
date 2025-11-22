@@ -46,13 +46,14 @@ const Contact = () => {
         country: null,
         amount_range: 'undisclosed',
         comments: `Subject: ${values.subject}\n\n${values.message}`,
+        source: 'contact-form',
       });
 
       if (error) throw error;
 
       toast({
-        title: 'Message Sent',
-        description: 'Thank you for reaching out. We will get back to you shortly.',
+        title: 'Request Received',
+        description: 'Thank you for your message. Your request has been received. We will review it and follow up privately. This does not constitute any commitment or agreement.',
       });
       
       form.reset();
@@ -78,10 +79,14 @@ const Contact = () => {
             <h1 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
               Contact Us
             </h1>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Have questions about our projects or investment opportunities? Our team is here to help. 
-              Reach out to discuss how we can work together.
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-6">
+              Have questions? Get in touch with our team.
             </p>
+            <div className="max-w-2xl mx-auto">
+              <p className="text-sm text-muted-foreground px-6 py-4 bg-muted/30 rounded-lg border border-border/50">
+                <strong>Important:</strong> This form allows you to request more information about Digital Invest Inc. and its projects. Submitting this form does not constitute an offer, commitment, or agreement. Any potential participation, if pursued, will be handled privately and offline.
+              </p>
+            </div>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -89,9 +94,9 @@ const Contact = () => {
             <div className="lg:col-span-2">
               <Card className="border border-border/50">
                 <CardHeader>
-                  <CardTitle className="text-2xl">Send Us a Message</CardTitle>
+                  <CardTitle className="text-2xl">Request Information</CardTitle>
                   <CardDescription>
-                    Fill out the form below and we'll get back to you as soon as possible.
+                    Submit your inquiry and we'll follow up privately. No commitment is created by this message.
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
@@ -166,10 +171,13 @@ const Contact = () => {
                         ) : (
                           <>
                             <Send className="mr-2 h-4 w-4" />
-                            Send Message
+                            Submit Request
                           </>
                         )}
                       </Button>
+                      <p className="text-xs text-center text-muted-foreground mt-2">
+                        This is a non-binding information request only
+                      </p>
                     </form>
                   </Form>
                 </CardContent>
@@ -221,33 +229,30 @@ const Contact = () => {
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-primary mt-1">•</span>
-                      <span>Personalized consultation from our investment team</span>
+                      <span>Private consultation with our team</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-primary mt-1">•</span>
-                      <span>Comprehensive project documentation</span>
+                      <span>Informational materials and documentation</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-primary mt-1">•</span>
-                      <span>Clear next steps and timeline</span>
+                      <span>Clear next steps for exploratory discussion</span>
                     </li>
                   </ul>
                 </CardContent>
               </Card>
 
               {/* Disclaimer */}
-              <Card className="bg-muted/30 border border-border">
+              <Card className="bg-muted/30 border border-border/50">
                 <CardContent className="pt-6">
-                  <div className="flex gap-3">
-                    <AlertCircle className="h-5 w-5 text-warning flex-shrink-0 mt-0.5" />
-                    <div className="text-sm text-muted-foreground">
-                      <p className="font-semibold text-foreground mb-2">Legal Disclaimer</p>
-                      <p>
-                        Digital Invest Inc. does not provide investment, legal, or tax advice. 
-                        Information provided is for informational purposes only and does not constitute 
-                        a public offer or solicitation. All investments require proper legal documentation.
-                      </p>
-                    </div>
+                  <div className="text-sm text-muted-foreground">
+                    <p className="font-medium text-foreground mb-2">Legal Notice</p>
+                    <p>
+                      Digital Invest Inc. does not provide investment, legal, or tax advice through this website. 
+                      Information provided is for informational purposes only and does not constitute 
+                      a public offer or solicitation. All participation is private, invitation-only, and requires formal legal agreements executed offline.
+                    </p>
                   </div>
                 </CardContent>
               </Card>
