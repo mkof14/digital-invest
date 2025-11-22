@@ -50,9 +50,10 @@ const MediaKit = () => {
                 <div className="bg-card border border-border rounded-lg p-8 text-center space-y-4">
                   <div className="bg-white rounded-lg p-8 mb-4">
                     <img 
-                      src="https://jhpgdswputzzsskmzabv.supabase.co/storage/v1/object/public/project-assets/digital-invest-logo.png"
+                      src="/lovable-uploads/d1011e6f-955a-48d9-adef-662af751c3b9.png"
                       alt="Digital Invest Inc. Logo (Light)"
                       className="h-16 mx-auto"
+                      loading="lazy"
                     />
                   </div>
                   <h3 className="font-semibold">Primary Logo (Light Background)</h3>
@@ -62,9 +63,10 @@ const MediaKit = () => {
                 <div className="bg-card border border-border rounded-lg p-8 text-center space-y-4">
                   <div className="bg-slate-900 rounded-lg p-8 mb-4">
                     <img 
-                      src="https://jhpgdswputzzsskmzabv.supabase.co/storage/v1/object/public/project-assets/digital-invest-logo.png"
+                      src="/lovable-uploads/d1011e6f-955a-48d9-adef-662af751c3b9.png"
                       alt="Digital Invest Inc. Logo (Dark)"
                       className="h-16 mx-auto brightness-0 invert"
+                      loading="lazy"
                     />
                   </div>
                   <h3 className="font-semibold">Reversed Logo (Dark Background)</h3>
