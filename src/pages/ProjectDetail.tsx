@@ -15,6 +15,8 @@ import { generateProjectSchema, generateBreadcrumbSchema, injectStructuredData, 
 import OptimizedImage from '@/components/OptimizedImage';
 import { MarkdownContent } from '@/components/MarkdownContent';
 import InvestorPageDisclaimer from '@/components/InvestorPageDisclaimer';
+import biomathCoreHero from '@/assets/projects/biomath-core-hero.jpg';
+import digitalInvestHero from '@/assets/projects/digitalinvest-hero.jpg';
 
 interface Project {
   id: string;
@@ -296,6 +298,14 @@ const ProjectDetail = () => {
     );
   }
 
+  const isBioMathCore = project.slug === 'biomath-core';
+  const isDigitalInvestPortfolio = project.slug === 'digital-invest-portfolio';
+  const heroImageSrc = isBioMathCore
+    ? biomathCoreHero
+    : isDigitalInvestPortfolio
+      ? digitalInvestHero
+      : project.hero_image_url;
+
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
@@ -313,7 +323,7 @@ const ProjectDetail = () => {
         <div className="mb-12">
           <div className="relative h-[400px] rounded-lg overflow-hidden mb-8">
             <OptimizedImage
-              src={project.hero_image_url}
+              src={heroImageSrc}
               alt={`${project.title} - ${project.category} project overview`}
               className="w-full h-full object-cover"
               containerClassName="w-full h-full"
@@ -321,34 +331,45 @@ const ProjectDetail = () => {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />
             <div className="absolute bottom-8 left-8 right-8">
-              <div className="flex gap-3 mb-4">
-                <Badge className={getStatusColor(project.status)}>
-                  {project.status.replace('_', ' ')}
-                </Badge>
-                <Badge variant="outline">{project.category}</Badge>
-              </div>
-              <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-                {project.title}
-              </h1>
-              <div className="flex flex-wrap items-center gap-2 text-sm text-muted-foreground mb-4">
-                <span>{project.category}</span>
-                {project.location && (
-                  <>
-                    <span>·</span>
-                    <span>{project.location}</span>
-                  </>
+              <div className="flex items-center gap-4 mb-4">
+                {(isBioMathCore || isDigitalInvestPortfolio) && (
+                  <img
+                    src={isBioMathCore ? '/lovable-uploads/biomath-core-logo.png' : '/lovable-uploads/d1011e6f-955a-48d9-adef-662af751c3b9.png'}
+                    alt={isBioMathCore ? 'BioMath Core logo' : 'Digital Invest Inc. logo'}
+                    className="w-16 h-16 md:w-20 md:h-20 object-contain"
+                  />
                 )}
-                <span>·</span>
-                <Badge className={getStatusColor(project.status)}>
-                  {project.status.replace('_', ' ')}
-                </Badge>
+                <div>
+                  <div className="flex gap-3 mb-3">
+                    <Badge className={getStatusColor(project.status)}>
+                      {project.status.replace('_', ' ')}
+                    </Badge>
+                    <Badge variant="outline">{project.category}</Badge>
+                  </div>
+                  <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-2">
+                    {project.title}
+                  </h1>
+                  <div className="flex flex-wrap items-center gap-2 text-sm text-muted-foreground mb-2">
+                    <span>{project.category}</span>
+                    {project.location && (
+                      <>
+                        <span>·</span>
+                        <span>{project.location}</span>
+                      </>
+                    )}
+                    <span>·</span>
+                    <Badge className={getStatusColor(project.status)}>
+                      {project.status.replace('_', ' ')}
+                    </Badge>
+                  </div>
+                  <p className="text-lg text-muted-foreground/90 mb-1">
+                    A portfolio project developed and operated by Digital Invest Inc.
+                  </p>
+                  <p className="text-xl text-foreground">
+                    {project.short_description}
+                  </p>
+                </div>
               </div>
-              <p className="text-lg text-muted-foreground/90 mb-2">
-                A portfolio project developed and operated by Digital Invest Inc.
-              </p>
-              <p className="text-xl text-foreground">
-                {project.short_description}
-              </p>
             </div>
           </div>
 
