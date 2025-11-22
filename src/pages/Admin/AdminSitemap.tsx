@@ -59,90 +59,151 @@ const AdminSitemap = () => {
         </CardContent>
       </Card>
 
-      {/* Submit to Search Engines */}
+      {/* Google Search Console Submission */}
       <Card>
         <CardHeader>
-          <CardTitle>Submit to Search Engines</CardTitle>
+          <CardTitle>Google Search Console Submission</CardTitle>
           <CardDescription>
-            Submit your sitemap to Google and Bing for better indexing
+            Step-by-step guide to submit your sitemap to Google
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
           <div className="space-y-3">
-            <div className="flex items-center justify-between p-4 border rounded-lg">
-              <div className="flex items-center gap-3">
-                <FileText className="h-5 w-5 text-muted-foreground" />
-                <div>
-                  <p className="font-medium">Google Search Console</p>
-                  <p className="text-sm text-muted-foreground">
-                    Submit to Google for search indexing
-                  </p>
-                </div>
+            <div className="p-4 bg-muted rounded-lg space-y-3">
+              <h4 className="font-semibold">Step 1: Add Property</h4>
+              <p className="text-sm text-muted-foreground">
+                Go to Google Search Console and add your domain as a property
+              </p>
+              <Button
+                variant="outline"
+                onClick={() => window.open('https://search.google.com/search-console/welcome', '_blank')}
+                className="w-full"
+              >
+                <ExternalLink className="h-4 w-4 mr-2" />
+                Open Google Search Console
+              </Button>
+            </div>
+
+            <div className="p-4 bg-muted rounded-lg space-y-3">
+              <h4 className="font-semibold">Step 2: Verify Ownership</h4>
+              <p className="text-sm text-muted-foreground mb-2">
+                Use the HTML meta tag method (already added to your site):
+              </p>
+              <code className="block px-3 py-2 bg-background rounded text-xs overflow-x-auto">
+                {`<meta name="google-site-verification" content="YOUR_CODE" />`}
+              </code>
+              <p className="text-xs text-muted-foreground mt-2">
+                Replace YOUR_CODE with the verification code from Google Search Console
+              </p>
+            </div>
+
+            <div className="p-4 bg-muted rounded-lg space-y-3">
+              <h4 className="font-semibold">Step 3: Submit Sitemap</h4>
+              <p className="text-sm text-muted-foreground mb-2">
+                Navigate to Sitemaps section and paste this URL:
+              </p>
+              <div className="flex gap-2">
+                <code className="flex-1 px-3 py-2 bg-background rounded text-sm">
+                  {sitemapUrl}
+                </code>
+                <Button variant="outline" size="sm" onClick={handleCopySitemapUrl}>
+                  {copied ? 'Copied!' : 'Copy'}
+                </Button>
               </div>
               <Button
                 variant="outline"
                 onClick={() => window.open(googleSearchConsoleUrl, '_blank')}
+                className="w-full mt-2"
               >
                 <ExternalLink className="h-4 w-4 mr-2" />
-                Submit to Google
-              </Button>
-            </div>
-
-            <div className="flex items-center justify-between p-4 border rounded-lg">
-              <div className="flex items-center gap-3">
-                <FileText className="h-5 w-5 text-muted-foreground" />
-                <div>
-                  <p className="font-medium">Bing Webmaster Tools</p>
-                  <p className="text-sm text-muted-foreground">
-                    Submit to Bing for search indexing
-                  </p>
-                </div>
-              </div>
-              <Button
-                variant="outline"
-                onClick={() => window.open(bingWebmasterUrl, '_blank')}
-              >
-                <ExternalLink className="h-4 w-4 mr-2" />
-                Submit to Bing
+                Go to Sitemaps Section
               </Button>
             </div>
           </div>
         </CardContent>
       </Card>
 
-      {/* Sitemap Instructions */}
+      {/* Bing Webmaster Tools Submission */}
+      <Card>
+        <CardHeader>
+          <CardTitle>Bing Webmaster Tools Submission</CardTitle>
+          <CardDescription>
+            Step-by-step guide to submit your sitemap to Bing
+          </CardDescription>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          <div className="space-y-3">
+            <div className="p-4 bg-muted rounded-lg space-y-3">
+              <h4 className="font-semibold">Step 1: Add Your Site</h4>
+              <p className="text-sm text-muted-foreground">
+                Sign in with your Microsoft account and add digitalinvest.com
+              </p>
+              <Button
+                variant="outline"
+                onClick={() => window.open('https://www.bing.com/webmasters/about', '_blank')}
+                className="w-full"
+              >
+                <ExternalLink className="h-4 w-4 mr-2" />
+                Open Bing Webmaster Tools
+              </Button>
+            </div>
+
+            <div className="p-4 bg-muted rounded-lg space-y-3">
+              <h4 className="font-semibold">Step 2: Verify Ownership</h4>
+              <p className="text-sm text-muted-foreground">
+                Options: Import from Google Search Console OR use XML file method
+              </p>
+            </div>
+
+            <div className="p-4 bg-muted rounded-lg space-y-3">
+              <h4 className="font-semibold">Step 3: Submit Sitemap</h4>
+              <p className="text-sm text-muted-foreground mb-2">
+                Go to Configure My Site → Sitemaps and paste this URL:
+              </p>
+              <div className="flex gap-2">
+                <code className="flex-1 px-3 py-2 bg-background rounded text-sm">
+                  {sitemapUrl}
+                </code>
+                <Button variant="outline" size="sm" onClick={handleCopySitemapUrl}>
+                  {copied ? 'Copied!' : 'Copy'}
+                </Button>
+              </div>
+              <Button
+                variant="outline"
+                onClick={() => window.open(bingWebmasterUrl, '_blank')}
+                className="w-full mt-2"
+              >
+                <ExternalLink className="h-4 w-4 mr-2" />
+                Go to Sitemaps Section
+              </Button>
+            </div>
+          </div>
+        </CardContent>
+      </Card>
+
+      {/* Sitemap Information */}
       <Card>
         <CardHeader>
           <CardTitle>Sitemap Information</CardTitle>
+          <CardDescription>What's included in your sitemap</CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
           <div className="space-y-2">
-            <h3 className="font-medium">What's Included:</h3>
+            <h3 className="font-medium">Pages Included:</h3>
             <ul className="list-disc list-inside text-sm text-muted-foreground space-y-1">
               <li>Homepage and main pages</li>
               <li>All project pages</li>
               <li>Investment resources pages</li>
               <li>Company and legal pages</li>
               <li>News and blog posts</li>
+              <li>Team and corporate pages</li>
             </ul>
-          </div>
-
-          <div className="space-y-2">
-            <h3 className="font-medium">How to Submit:</h3>
-            <ol className="list-decimal list-inside text-sm text-muted-foreground space-y-1">
-              <li>Click "Submit to Google" or "Submit to Bing" above</li>
-              <li>Sign in to your Search Console / Webmaster Tools account</li>
-              <li>Add your property (digitalinvest.com) if not already added</li>
-              <li>Navigate to Sitemaps section</li>
-              <li>Paste the sitemap URL and submit</li>
-            </ol>
           </div>
 
           <div className="p-4 bg-muted rounded-lg">
             <p className="text-sm text-muted-foreground">
-              <strong>Note:</strong> Sitemap submission helps search engines discover and index
-              your pages more efficiently. It may take a few days for search engines to process
-              your sitemap after submission.
+              <strong>Note:</strong> After submission, it may take 1-7 days for search engines to 
+              process your sitemap. Monitor indexing status in Google Search Console and Bing Webmaster Tools.
             </p>
           </div>
         </CardContent>
