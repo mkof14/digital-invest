@@ -4,7 +4,6 @@ import { supabase } from '@/integrations/supabase/client';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Progress } from '@/components/ui/progress';
 import { TrendingUp, ArrowRight, Loader2 } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import Navigation from '@/components/Navigation';
@@ -84,10 +83,6 @@ const Projects = () => {
     }
   };
 
-  const calculateProgress = (current: number, target: number | null) => {
-    if (!target || target === 0) return 0;
-    return Math.min((current / target) * 100, 100);
-  };
 
   if (loading) {
     return (
@@ -163,27 +158,9 @@ const Projects = () => {
                 </CardHeader>
 
                 <CardContent className="pt-0">
-                  {project.target_amount && project.target_amount > 0 ? (
-                    <div className="space-y-3">
-                      <div className="flex justify-between text-sm">
-                        <span className="text-muted-foreground font-medium">Progress</span>
-                        <span className="font-bold text-foreground">
-                          {project.currency} {project.current_raised.toLocaleString()} / {project.target_amount.toLocaleString()}
-                        </span>
-                      </div>
-                      <Progress 
-                        value={calculateProgress(project.current_raised, project.target_amount)} 
-                        className="h-2.5"
-                      />
-                      <p className="text-xs text-muted-foreground text-right font-medium">
-                        {calculateProgress(project.current_raised, project.target_amount).toFixed(1)}% funded
-                      </p>
-                    </div>
-                  ) : (
-                    <div className="text-sm text-muted-foreground py-2">
-                      Investment details available upon inquiry
-                    </div>
-                  )}
+                  <div className="text-sm text-muted-foreground">
+                    Investment details available upon inquiry
+                  </div>
                 </CardContent>
 
                 <CardFooter className="flex gap-3 pt-4">

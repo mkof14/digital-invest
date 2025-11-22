@@ -637,7 +637,7 @@ Deno.serve(async (req) => {
 
     const pdfBytes = await pdfDoc.save();
 
-    return new Response(pdfBytes, {
+    return new Response(pdfBytes.buffer, {
       headers: {
         ...corsHeaders,
         'Content-Type': 'application/pdf',
@@ -646,7 +646,8 @@ Deno.serve(async (req) => {
     });
   } catch (error) {
     console.error('Error generating PDF:', error);
-    return new Response(JSON.stringify({ error: error.message }), {
+    const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+    return new Response(JSON.stringify({ error: errorMessage }), {
       status: 500,
       headers: { ...corsHeaders, 'Content-Type': 'application/json' },
     });
