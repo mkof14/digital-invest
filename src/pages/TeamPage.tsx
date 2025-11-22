@@ -108,8 +108,8 @@ const TeamPage = () => {
                 <div className="space-y-4 text-base text-muted-foreground leading-relaxed">
                   <p>
                     Michael Kofman is a technology entrepreneur with decades of experience building large-scale 
-                    platforms in data, AI, health, manufacturing, and real-economy operations. He previously led 
-                    and built companies in data storage, hosting, analytics, and enterprise-level infrastructures. 
+                    platforms in data, AI, Digital Health, BioTech, manufacturing, and real-economy operations. He previously led 
+                    and built companies in data storage, analytics, and enterprise-level infrastructures. 
                     Michael's background spans operational leadership, complex project execution, and strategic 
                     development across multiple industries.
                   </p>
