@@ -4,6 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import teamHero from "@/assets/team-hero.jpg";
 import { Award, Users, Globe, Building2 } from "lucide-react";
+import OptimizedImage from "@/components/OptimizedImage";
 
 const Team = () => {
   return (
@@ -13,10 +14,11 @@ const Team = () => {
       {/* Hero Section */}
       <section className="relative py-32 px-4 overflow-hidden">
         <div className="absolute inset-0">
-          <img 
+          <OptimizedImage 
             src={teamHero} 
-            alt="Professional team collaboration"
+            alt="Digital Invest leadership team collaborating on precision medicine innovation"
             className="w-full h-full object-cover"
+            containerClassName="w-full h-full"
           />
           <div className="absolute inset-0 bg-background/90" />
         </div>

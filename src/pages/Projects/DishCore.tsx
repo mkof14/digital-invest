@@ -18,6 +18,7 @@ import {
 } from "lucide-react";
 import dishcoreLogo from "@/assets/dishcore-logo.png";
 import DownloadInvestorBriefButton from "@/components/DownloadInvestorBriefButton";
+import OptimizedImage from "@/components/OptimizedImage";
 
 const DishCore = () => {
   const features = [
@@ -70,10 +71,11 @@ const DishCore = () => {
       <section className="py-20 px-4 bg-secondary/10">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col items-center text-center space-y-8">
-            <img 
+            <OptimizedImage 
               src={dishcoreLogo} 
-              alt="DishCore Logo" 
+              alt="DishCore - Personal nutrition and body-tracking platform logo" 
               className="w-48 h-48 md:w-64 md:h-64 object-contain"
+              showSkeleton={false}
             />
             
             <div className="space-y-4">

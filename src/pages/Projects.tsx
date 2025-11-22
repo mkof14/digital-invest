@@ -14,6 +14,7 @@ import biomathcoreHero from '@/assets/projects/biomathcore-hero.jpg';
 import dishcoreHero from '@/assets/projects/dishcore-hero.jpg';
 import digitalinvestHero from '@/assets/projects/digitalinvest-hero.jpg';
 import biomathlifeHero from '@/assets/projects/biomathlife-hero.jpg';
+import OptimizedImage from '@/components/OptimizedImage';
 
 interface Project {
   id: string;
@@ -137,14 +138,11 @@ const Projects = () => {
                 className="group overflow-hidden border border-border/50 bg-card hover:shadow-elevated transition-all duration-300 hover:-translate-y-1 flex flex-col"
               >
                 <div className="relative h-56 overflow-hidden bg-muted">
-                  <img
+                  <OptimizedImage
                     src={projectImages[project.slug] || project.hero_image_url || '/placeholder.svg'}
-                    alt={project.title}
+                    alt={`${project.title} - ${project.category} investment project`}
                     className="w-full h-full object-cover group-hover:scale-110 transition-all duration-700 ease-out"
-                    onError={(e) => {
-                      const target = e.target as HTMLImageElement;
-                      target.src = '/placeholder.svg';
-                    }}
+                    containerClassName="w-full h-full"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   <Badge className={`absolute top-4 left-4 ${getStatusColor(project.status)}`}>

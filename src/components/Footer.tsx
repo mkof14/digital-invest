@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Linkedin, MapPin, Mail, Facebook, Youtube, X } from 'lucide-react';
+import OptimizedImage from '@/components/OptimizedImage';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -11,10 +12,11 @@ const Footer = () => {
           {/* LEFT BLOCK - Company Info */}
           <div className="space-y-4 lg:col-span-1">
             <div className="flex items-center gap-3 mb-2">
-              <img 
+              <OptimizedImage 
                 src="/lovable-uploads/d1011e6f-955a-48d9-adef-662af751c3b9.png" 
-                alt="Digital Invest Inc." 
+                alt="Digital Invest Inc. company logo" 
                 className="h-8 w-8"
+                showSkeleton={false}
               />
               <h3 className="text-lg font-bold text-foreground">Digital Invest Inc.</h3>
             </div>

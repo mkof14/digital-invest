@@ -9,6 +9,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { Link } from "react-router-dom";
 import { supabase } from '@/integrations/supabase/client';
 import { generateFAQSchema, injectStructuredData, removeStructuredData } from '@/lib/structuredData';
+import OptimizedImage from "@/components/OptimizedImage";
 import {
   Rocket,
   Lightbulb,
@@ -277,17 +278,14 @@ const Index = () => {
             <>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
                 {featuredProjects.map((project, index) => (
-                  <Link key={project.id} to={`/projects/${project.slug}`}>
+                   <Link key={project.id} to={`/projects/${project.slug}`}>
                     <Card className="group overflow-hidden border border-border/50 bg-card hover:shadow-elevated transition-all duration-300 hover:-translate-y-1 h-full flex flex-col animate-fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
                       <div className="relative h-48 overflow-hidden bg-muted">
-                        <img
+                        <OptimizedImage
                           src={projectImages[project.slug] || project.hero_image_url || '/placeholder.svg'}
-                          alt={project.title}
+                          alt={`${project.title} - ${project.category} investment opportunity`}
                           className="w-full h-full object-cover group-hover:scale-110 transition-all duration-700 ease-out"
-                          onError={(e) => {
-                            const target = e.target as HTMLImageElement;
-                            target.src = '/placeholder.svg';
-                          }}
+                          containerClassName="w-full h-full"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                         <Badge className={`absolute top-4 left-4 ${getStatusColor(project.status)}`}>

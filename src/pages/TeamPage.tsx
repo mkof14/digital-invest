@@ -7,6 +7,7 @@ import { useToast } from '@/hooks/use-toast';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { Separator } from '@/components/ui/separator';
+import OptimizedImage from '@/components/OptimizedImage';
 
 interface TeamMember {
   id: string;
@@ -216,10 +217,12 @@ const TeamPage = () => {
               >
                 {member.photo_url && (
                   <div className="relative h-64 overflow-hidden bg-muted">
-                    <img
+                    <OptimizedImage
                       src={member.photo_url}
-                      alt={member.full_name}
+                      alt={`${member.full_name} - ${member.title}`}
                       className="w-full h-full object-cover group-hover:scale-110 transition-all duration-700 ease-out"
+                      containerClassName="w-full h-full"
+                      aspectRatio="auto"
                     />
                   </div>
                 )}

@@ -13,6 +13,7 @@ import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { updateMetaTags, resetMetaTags, truncateForMeta } from '@/lib/metaTags';
 import { generateProjectSchema, generateBreadcrumbSchema, injectStructuredData, removeStructuredData } from '@/lib/structuredData';
+import OptimizedImage from '@/components/OptimizedImage';
 
 interface Project {
   id: string;
@@ -315,10 +316,12 @@ const ProjectDetail = () => {
         {/* Hero Section */}
         <div className="mb-12">
           <div className="relative h-[400px] rounded-lg overflow-hidden mb-8">
-            <img
+            <OptimizedImage
               src={project.hero_image_url}
-              alt={project.title}
+              alt={`${project.title} - ${project.category} project overview`}
               className="w-full h-full object-cover"
+              containerClassName="w-full h-full"
+              aspectRatio="video"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />
             <div className="absolute bottom-8 left-8 right-8">
