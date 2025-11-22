@@ -4,7 +4,7 @@ import { supabase } from '@/integrations/supabase/client';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
-import { ArrowLeft, TrendingUp, Target, Calendar, Users, AlertTriangle, FileText, Loader2, ExternalLink, CheckCircle2, DollarSign, Clock, Rocket } from 'lucide-react';
+import { ArrowLeft, TrendingUp, Target, Calendar, Users, AlertTriangle, FileText, Loader2, ExternalLink, CheckCircle2, DollarSign, Clock, Rocket, Globe } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { useToast } from '@/hooks/use-toast';
 import InterestForm from '@/components/InterestForm';
@@ -306,6 +306,26 @@ const ProjectDetail = () => {
       ? digitalInvestHero
       : project.hero_image_url;
 
+  const fallbackWebsiteUrl = (() => {
+    switch (project.slug) {
+      case 'biomath-core':
+        return 'https://biomathcore.com';
+      case 'biomathlife':
+        return 'https://biomathlife.com';
+      case 'terraaero':
+        return 'https://terraaero.com';
+      case 'dishcore':
+        return 'https://dishcore.life';
+      case 'digital-invest-portfolio':
+      case 'digital-invest':
+        return 'https://digitalinvest.com';
+      default:
+        return null;
+    }
+  })();
+
+  const websiteUrl = project.website_url || fallbackWebsiteUrl;
+
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
@@ -373,14 +393,29 @@ const ProjectDetail = () => {
             </div>
           </div>
 
-          {/* CTA Button */}
+          {/* CTA Buttons */}
           {project.status === 'OPEN' && (
-            <div className="text-center mb-12">
-              <Button size="lg" className="text-lg px-8 py-6" onClick={() => setShowInterestForm(true)}>
-                <TrendingUp className="mr-2 h-5 w-5" />
-                Request Private Information
-              </Button>
-              <p className="text-sm text-muted-foreground mt-4">
+            <div className="text-center mb-12 space-y-4">
+              <div className="flex flex-wrap justify-center gap-4">
+                <Button size="lg" className="text-lg px-8 py-6" onClick={() => setShowInterestForm(true)}>
+                  <TrendingUp className="mr-2 h-5 w-5" />
+                  Request Private Information
+                </Button>
+                {websiteUrl && (
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    asChild
+                    className="text-lg px-8 py-6 border-primary/40 hover:border-primary"
+                  >
+                    <a href={websiteUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+                      <Globe className="h-5 w-5" />
+                      <span>Visit Website</span>
+                    </a>
+                  </Button>
+                )}
+              </div>
+              <p className="text-sm text-muted-foreground mt-2">
                 Non-binding request • No payment required
               </p>
             </div>
