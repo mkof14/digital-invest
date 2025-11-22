@@ -12,6 +12,7 @@ import { Calendar } from '@/components/ui/calendar';
 import { Loader2, Mail, Phone, MapPin, MessageSquare, Search, Copy, Check, Clock, FileText, Calendar as CalendarIcon, AlertCircle } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { getIntroEmailTemplate, getFollowUpWithBriefTemplate, getCheckInTemplate, emailTemplateTypes, type EmailTemplate } from '@/lib/investorEmailTemplates';
+import { allTemplates, getTemplateById, type EmailTemplateId, type TemplateParams } from '@/lib/brandedEmailTemplates';
 import { format } from 'date-fns';
 import { cn } from '@/lib/utils';
 
@@ -48,6 +49,8 @@ const AdminLeads = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [expandedLeadId, setExpandedLeadId] = useState<string | null>(null);
   const [selectedTemplate, setSelectedTemplate] = useState<{ leadId: string; template: EmailTemplate; type: string } | null>(null);
+  const [selectedBrandedTemplate, setSelectedBrandedTemplate] = useState<EmailTemplateId | null>(null);
+  const [brandedTemplatePreview, setBrandedTemplatePreview] = useState<{ leadId: string; subject: string; body: string; templateId: string } | null>(null);
   const [copiedField, setCopiedField] = useState<string | null>(null);
   const { toast } = useToast();
 
@@ -175,6 +178,7 @@ const AdminLeads = () => {
       });
 
       setSelectedTemplate(null);
+      setBrandedTemplatePreview(null);
       fetchLeads();
     } catch (error: any) {
       toast({
@@ -270,6 +274,29 @@ const AdminLeads = () => {
     }
 
     setSelectedTemplate({ leadId: lead.id, template, type });
+  };
+
+  const generateBrandedTemplate = (lead: Lead, templateId: EmailTemplateId) => {
+    const template = getTemplateById(templateId);
+    if (!template) return;
+
+    const params: TemplateParams = {
+      recipientName: lead.name,
+      projectName: lead.projects?.title || undefined,
+      senderName: 'Digital Invest Team',
+      customNotes: undefined,
+      meetingLink: undefined
+    };
+
+    const subject = template.subject(params);
+    const body = template.textBody(params);
+
+    setBrandedTemplatePreview({
+      leadId: lead.id,
+      subject,
+      body,
+      templateId
+    });
   };
 
   const copyToClipboard = async (text: string, field: string) => {
@@ -508,101 +535,212 @@ const AdminLeads = () => {
                 </div>
 
                 {expandedLeadId === lead.id && (
-                  <div className="space-y-4 p-4 bg-muted/20 rounded-lg">
-                    <div className="flex gap-2 flex-wrap">
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        onClick={() => generateEmailTemplate(lead, 'intro')}
-                      >
-                        <Mail className="mr-2 h-4 w-4" />
-                        Copy Intro Email
-                      </Button>
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        onClick={() => generateEmailTemplate(lead, 'followup')}
-                      >
-                        <Mail className="mr-2 h-4 w-4" />
-                        Copy Follow-up with Brief
-                      </Button>
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        onClick={() => generateEmailTemplate(lead, 'checkin')}
-                      >
-                        <Mail className="mr-2 h-4 w-4" />
-                        Copy Check-in Email
-                      </Button>
+                  <div className="space-y-6 p-4 bg-muted/20 rounded-lg">
+                    {/* Legacy Quick Templates */}
+                    <div className="space-y-3">
+                      <label className="text-xs font-medium text-muted-foreground uppercase">Quick Templates (Legacy)</label>
+                      <div className="flex gap-2 flex-wrap">
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          onClick={() => generateEmailTemplate(lead, 'intro')}
+                        >
+                          <Mail className="mr-2 h-4 w-4" />
+                          Copy Intro Email
+                        </Button>
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          onClick={() => generateEmailTemplate(lead, 'followup')}
+                        >
+                          <Mail className="mr-2 h-4 w-4" />
+                          Copy Follow-up with Brief
+                        </Button>
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          onClick={() => generateEmailTemplate(lead, 'checkin')}
+                        >
+                          <Mail className="mr-2 h-4 w-4" />
+                          Copy Check-in Email
+                        </Button>
+                      </div>
+
+                      {selectedTemplate && selectedTemplate.leadId === lead.id && (
+                        <div className="space-y-3 p-4 border border-border rounded-lg bg-background">
+                          <div>
+                            <div className="flex justify-between items-center mb-2">
+                              <label className="text-sm font-medium">Subject</label>
+                              <Button
+                                variant="ghost"
+                                size="sm"
+                                onClick={() => copyToClipboard(selectedTemplate.template.subject, `subject-${lead.id}`)}
+                              >
+                                {copiedField === `subject-${lead.id}` ? (
+                                  <Check className="h-4 w-4" />
+                                ) : (
+                                  <Copy className="h-4 w-4" />
+                                )}
+                              </Button>
+                            </div>
+                            <Input
+                              value={selectedTemplate.template.subject}
+                              readOnly
+                              className="font-medium"
+                            />
+                          </div>
+
+                          <div>
+                            <div className="flex justify-between items-center mb-2">
+                              <label className="text-sm font-medium">Body</label>
+                              <Button
+                                variant="ghost"
+                                size="sm"
+                                onClick={() => copyToClipboard(selectedTemplate.template.body, `body-${lead.id}`)}
+                              >
+                                {copiedField === `body-${lead.id}` ? (
+                                  <Check className="h-4 w-4" />
+                                ) : (
+                                  <Copy className="h-4 w-4" />
+                                )}
+                              </Button>
+                            </div>
+                            <Textarea
+                              value={selectedTemplate.template.body}
+                              readOnly
+                              rows={12}
+                              className="font-mono text-sm"
+                            />
+                          </div>
+
+                          <div className="flex gap-2">
+                            <Button
+                              onClick={() => markAsContacted(lead.id, selectedTemplate.type)}
+                              size="sm"
+                            >
+                              <Check className="mr-2 h-4 w-4" />
+                              Mark as Contacted
+                            </Button>
+                            <Button
+                              variant="outline"
+                              onClick={() => setSelectedTemplate(null)}
+                              size="sm"
+                            >
+                              Close
+                            </Button>
+                          </div>
+                        </div>
+                      )}
                     </div>
 
-                    {selectedTemplate && selectedTemplate.leadId === lead.id && (
-                      <div className="space-y-3 p-4 border border-border rounded-lg bg-background">
-                        <div>
-                          <div className="flex justify-between items-center mb-2">
-                            <label className="text-sm font-medium">Subject</label>
+                    <Separator />
+
+                    {/* Branded Email Templates */}
+                    <div className="space-y-3">
+                      <label className="text-xs font-medium text-muted-foreground uppercase">Branded Email Templates</label>
+                      <Select 
+                        value={selectedBrandedTemplate || ''} 
+                        onValueChange={(value) => {
+                          const templateId = value as EmailTemplateId;
+                          setSelectedBrandedTemplate(templateId);
+                          generateBrandedTemplate(lead, templateId);
+                        }}
+                      >
+                        <SelectTrigger>
+                          <SelectValue placeholder="Choose a template..." />
+                        </SelectTrigger>
+                        <SelectContent>
+                          {allTemplates.map((template) => (
+                            <SelectItem key={template.id} value={template.id}>
+                              {template.label}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+
+                      {brandedTemplatePreview && brandedTemplatePreview.leadId === lead.id && (
+                        <div className="space-y-3 p-4 border border-border rounded-lg bg-background">
+                          <div>
+                            <div className="flex justify-between items-center mb-2">
+                              <label className="text-sm font-medium">Subject</label>
+                              <Button
+                                variant="ghost"
+                                size="sm"
+                                onClick={() => copyToClipboard(brandedTemplatePreview.subject, `branded-subject-${lead.id}`)}
+                              >
+                                {copiedField === `branded-subject-${lead.id}` ? (
+                                  <>
+                                    <Check className="h-4 w-4 mr-1" />
+                                    Copied
+                                  </>
+                                ) : (
+                                  <>
+                                    <Copy className="h-4 w-4 mr-1" />
+                                    Copy
+                                  </>
+                                )}
+                              </Button>
+                            </div>
+                            <Input
+                              value={brandedTemplatePreview.subject}
+                              readOnly
+                              className="font-medium"
+                            />
+                          </div>
+
+                          <div>
+                            <div className="flex justify-between items-center mb-2">
+                              <label className="text-sm font-medium">Body (Plain Text)</label>
+                              <Button
+                                variant="ghost"
+                                size="sm"
+                                onClick={() => copyToClipboard(brandedTemplatePreview.body, `branded-body-${lead.id}`)}
+                              >
+                                {copiedField === `branded-body-${lead.id}` ? (
+                                  <>
+                                    <Check className="h-4 w-4 mr-1" />
+                                    Copied
+                                  </>
+                                ) : (
+                                  <>
+                                    <Copy className="h-4 w-4 mr-1" />
+                                    Copy
+                                  </>
+                                )}
+                              </Button>
+                            </div>
+                            <Textarea
+                              value={brandedTemplatePreview.body}
+                              readOnly
+                              rows={14}
+                              className="font-mono text-xs"
+                            />
+                          </div>
+
+                          <div className="flex gap-2">
                             <Button
-                              variant="ghost"
+                              onClick={() => markAsContacted(lead.id, brandedTemplatePreview.templateId)}
                               size="sm"
-                              onClick={() => copyToClipboard(selectedTemplate.template.subject, `subject-${lead.id}`)}
                             >
-                              {copiedField === `subject-${lead.id}` ? (
-                                <Check className="h-4 w-4" />
-                              ) : (
-                                <Copy className="h-4 w-4" />
-                              )}
+                              <Check className="mr-2 h-4 w-4" />
+                              Mark as Contacted
+                            </Button>
+                            <Button
+                              variant="outline"
+                              onClick={() => {
+                                setBrandedTemplatePreview(null);
+                                setSelectedBrandedTemplate(null);
+                              }}
+                              size="sm"
+                            >
+                              Close
                             </Button>
                           </div>
-                          <Input
-                            value={selectedTemplate.template.subject}
-                            readOnly
-                            className="font-medium"
-                          />
                         </div>
+                      )}
+                    </div>
 
-                        <div>
-                          <div className="flex justify-between items-center mb-2">
-                            <label className="text-sm font-medium">Body</label>
-                            <Button
-                              variant="ghost"
-                              size="sm"
-                              onClick={() => copyToClipboard(selectedTemplate.template.body, `body-${lead.id}`)}
-                            >
-                              {copiedField === `body-${lead.id}` ? (
-                                <Check className="h-4 w-4" />
-                              ) : (
-                                <Copy className="h-4 w-4" />
-                              )}
-                            </Button>
-                          </div>
-                          <Textarea
-                            value={selectedTemplate.template.body}
-                            readOnly
-                            rows={12}
-                            className="font-mono text-sm"
-                          />
-                        </div>
-
-                        <div className="flex gap-2">
-                          <Button
-                            onClick={() => markAsContacted(lead.id, selectedTemplate.type)}
-                            size="sm"
-                          >
-                            <Check className="mr-2 h-4 w-4" />
-                            Mark as Contacted
-                          </Button>
-                          <Button
-                            variant="outline"
-                            onClick={() => setSelectedTemplate(null)}
-                            size="sm"
-                          >
-                            Close
-                          </Button>
-                        </div>
-                      </div>
-                    )}
-
-                    {/* Internal Notes */}
+                    <Separator />
                     <div className="space-y-2">
                       <label className="text-sm font-medium flex items-center gap-2">
                         <MessageSquare className="h-4 w-4" />
