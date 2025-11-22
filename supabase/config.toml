@@ -1,0 +1,4 @@
+project_id = "jhpgdswputzzsskmzabv"
+
+[functions.investor-brief]
+verify_jwt = false

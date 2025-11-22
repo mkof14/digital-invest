@@ -1,0 +1,401 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Digital Invest - Professional Corporate Design System */
+
+@layer base {
+  :root {
+    /* Traditional Corporate - Professional Dark Theme */
+    --background: 220 20% 6%;
+    --foreground: 210 20% 96%;
+
+    /* Card System - Corporate Clean */
+    --card: 220 18% 10%;
+    --card-foreground: 210 20% 96%;
+    --card-hover: 220 18% 13%;
+
+    /* Popover */
+    --popover: 220 18% 10%;
+    --popover-foreground: 210 20% 96%;
+
+    /* Primary - Neutral Dark Grey */
+    --primary: 220 15% 25%;
+    --primary-foreground: 210 20% 98%;
+    --primary-glow: 220 15% 35%;
+    --primary-vibrant: 220 15% 20%;
+    --primary-dark: 220 15% 15%;
+    --primary-light: 220 15% 40%;
+
+    /* Secondary - Corporate Navy */
+    --secondary: 215 40% 30%;
+    --secondary-foreground: 210 20% 98%;
+    --secondary-glow: 215 40% 40%;
+    --secondary-vibrant: 215 40% 25%;
+    --secondary-dark: 215 40% 20%;
+    --secondary-light: 215 40% 45%;
+
+    /* Muted */
+    --muted: 220 18% 18%;
+    --muted-foreground: 215 15% 60%;
+
+    /* Accent - Professional Green */
+    --accent: 145 60% 40%;
+    --accent-foreground: 210 20% 98%;
+    --accent-glow: 145 60% 50%;
+    --accent-vibrant: 145 60% 35%;
+    --accent-dark: 145 60% 30%;
+    --accent-light: 145 60% 55%;
+
+    /* Success - Business Green */
+    --success: 145 60% 40%;
+    --success-foreground: 210 20% 98%;
+    --success-glow: 145 60% 50%;
+    --success-dark: 145 60% 30%;
+    --success-light: 145 60% 55%;
+
+    /* Warning - Professional Amber */
+    --warning: 35 80% 50%;
+    --warning-foreground: 220 20% 6%;
+    --warning-glow: 35 80% 60%;
+    --warning-dark: 35 80% 40%;
+    --warning-light: 35 80% 65%;
+
+    /* Error - Corporate Red */
+    --error: 0 70% 50%;
+    --error-foreground: 210 20% 98%;
+    --error-glow: 0 70% 60%;
+    --error-dark: 0 70% 40%;
+    --error-light: 0 70% 65%;
+
+    /* Info - Professional Blue */
+    --info: 210 80% 55%;
+    --info-foreground: 210 20% 98%;
+    --info-glow: 210 80% 65%;
+    --info-dark: 210 80% 45%;
+    --info-light: 210 80% 70%;
+
+    /* Tech - Professional Teal */
+    --tech: 185 55% 45%;
+    --tech-foreground: 210 20% 98%;
+    --tech-glow: 185 55% 55%;
+    --tech-dark: 185 55% 35%;
+
+    /* Innovation - Corporate Indigo */
+    --innovation: 230 60% 50%;
+    --innovation-foreground: 210 20% 98%;
+    --innovation-glow: 230 60% 60%;
+    --innovation-dark: 230 60% 40%;
+
+    /* Destructive */
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 210 20% 98%;
+
+    /* Border & Input */
+    --border: 220 18% 22%;
+    --input: 220 18% 15%;
+    --ring: 210 80% 45%;
+
+
+    /* Professional Corporate Shadows */
+    --shadow-tech: 0 4px 20px -4px hsl(var(--primary) / 0.2);
+    --shadow-invest: 0 4px 20px -4px hsl(var(--secondary) / 0.15);
+    --shadow-glow: 0 8px 24px -6px hsl(var(--primary) / 0.25);
+    --shadow-elevated: 0 12px 40px -10px hsl(220 20% 0% / 0.4);
+    --shadow-vibrant: 0 6px 24px -6px hsl(var(--accent) / 0.2);
+    --shadow-rainbow: 0 8px 32px -8px hsl(var(--primary) / 0.15);
+
+    /* Smooth Professional Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-fast: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+
+    --radius: 0.5rem;
+
+    /* Modern Grid Pattern */
+    --pattern-corporate: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2300d9ff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  :root.light {
+    /* Core Background & Text - Light Corporate */
+    --background: 210 20% 98%;
+    --foreground: 225 15% 15%;
+
+    /* Card System - Light Corporate */
+    --card: 210 20% 96%;
+    --card-foreground: 225 15% 15%;
+    --card-hover: 210 20% 94%;
+
+    /* Popover */
+    --popover: 210 20% 96%;
+    --popover-foreground: 225 15% 15%;
+
+    /* Primary - Neutral Dark Grey (adjusted for light) */
+    --primary: 220 15% 30%;
+    --primary-foreground: 210 15% 98%;
+    --primary-glow: 220 15% 40%;
+    --primary-vibrant: 220 15% 25%;
+    --primary-dark: 220 15% 20%;
+    --primary-light: 220 15% 50%;
+
+    /* Secondary - Muted Slate (adjusted for light) */
+    --secondary: 215 25% 85%;
+    --secondary-foreground: 225 15% 15%;
+    --secondary-glow: 215 25% 75%;
+    --secondary-vibrant: 215 25% 80%;
+    --secondary-dark: 215 25% 70%;
+    --secondary-light: 215 25% 90%;
+
+    /* Muted */
+    --muted: 215 20% 90%;
+    --muted-foreground: 215 15% 40%;
+
+    /* Accent - Deep Amber (adjusted for light) */
+    --accent: 35 60% 45%;
+    --accent-foreground: 210 20% 98%;
+    --accent-glow: 35 60% 55%;
+    --accent-vibrant: 35 60% 40%;
+    --accent-dark: 35 60% 35%;
+    --accent-light: 35 60% 65%;
+
+    /* Success - Deep Teal (adjusted for light) */
+    --success: 180 50% 40%;
+    --success-foreground: 210 15% 98%;
+    --success-glow: 180 50% 50%;
+    --success-dark: 180 50% 35%;
+    --success-light: 180 50% 60%;
+
+    /* Warning - Muted Orange (adjusted for light) */
+    --warning: 25 60% 45%;
+    --warning-foreground: 225 20% 6%;
+    --warning-glow: 25 60% 55%;
+    --warning-dark: 25 60% 35%;
+    --warning-light: 25 60% 65%;
+
+    /* Error - Elegant Red (adjusted for light) */
+    --error: 0 75% 55%;
+    --error-foreground: 210 15% 98%;
+    --error-glow: 0 75% 65%;
+    --error-dark: 0 75% 45%;
+    --error-light: 0 75% 70%;
+
+    /* Info - Deep Purple (adjusted for light) */
+    --info: 250 80% 60%;
+    --info-foreground: 210 15% 98%;
+    --info-glow: 250 80% 70%;
+    --info-dark: 250 80% 50%;
+    --info-light: 250 80% 75%;
+
+    /* Tech - Deep Cyan (adjusted for light) */
+    --tech: 195 55% 40%;
+    --tech-foreground: 210 15% 98%;
+    --tech-glow: 195 55% 50%;
+    --tech-dark: 195 55% 35%;
+
+    /* Innovation - Muted Rose (adjusted for light) */
+    --innovation: 350 50% 45%;
+    --innovation-foreground: 210 15% 98%;
+    --innovation-glow: 350 50% 55%;
+    --innovation-dark: 350 50% 35%;
+
+    /* Destructive */
+    --destructive: 0 62% 58%;
+    --destructive-foreground: 210 15% 96%;
+
+    /* Border & Input */
+    --border: 215 20% 85%;
+    --input: 215 20% 88%;
+    --ring: 220 60% 45%;
+
+    /* Subtle Corporate Pattern for light mode */
+    --pattern-corporate: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='0.02'%3E%3Ccircle cx='30' cy='30' r='1.5'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  :root.light {
+    /* Core Background & Text - Light Corporate */
+    --background: 210 20% 98%;
+    --foreground: 225 15% 15%;
+
+    /* Card System - Light Corporate */
+    --card: 210 20% 96%;
+    --card-foreground: 225 15% 15%;
+    --card-hover: 210 20% 94%;
+
+    /* Popover */
+    --popover: 210 20% 96%;
+    --popover-foreground: 225 15% 15%;
+
+    /* Primary - Deep Corporate Blue (adjusted for light) */
+    --primary: 220 60% 45%;
+    --primary-foreground: 210 15% 98%;
+    --primary-glow: 220 60% 55%;
+    --primary-vibrant: 220 60% 40%;
+    --primary-dark: 220 60% 35%;
+    --primary-light: 220 60% 65%;
+
+    /* Secondary - Muted Slate (adjusted for light) */
+    --secondary: 215 25% 85%;
+    --secondary-foreground: 225 15% 15%;
+    --secondary-glow: 215 25% 75%;
+    --secondary-vibrant: 215 25% 80%;
+    --secondary-dark: 215 25% 70%;
+    --secondary-light: 215 25% 90%;
+
+    /* Muted */
+    --muted: 215 20% 90%;
+    --muted-foreground: 215 15% 40%;
+
+    /* Accent - Deep Amber (adjusted for light) */
+    --accent: 35 60% 45%;
+    --accent-foreground: 210 20% 98%;
+    --accent-glow: 35 60% 55%;
+    --accent-vibrant: 35 60% 40%;
+    --accent-dark: 35 60% 35%;
+    --accent-light: 35 60% 65%;
+
+    /* Border & Input */
+    --border: 215 20% 85%;
+    --input: 215 20% 88%;
+    --ring: 220 60% 45%;
+
+    /* Subtle Corporate Pattern for light mode */
+    --pattern-corporate: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='0.02'%3E%3Ccircle cx='30' cy='30' r='1.5'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .corporate-pattern {
+    background-image: var(--pattern-corporate);
+  }
+
+  .solid-text {
+    @apply text-primary;
+  }
+
+  .professional-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .elevated-card {
+    box-shadow: var(--shadow-elevated);
+    @apply border border-border/30 bg-gradient-to-br from-card via-card to-card/95;
+  }
+
+  .corporate-border {
+    @apply border border-border/30 bg-card;
+  }
+
+  /* Dynamic Animations */
+  @keyframes subtle-float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+
+  @keyframes gentle-pulse {
+    0%, 100% { 
+      box-shadow: 0 0 20px hsl(var(--primary) / 0.2);
+      transform: scale(1);
+    }
+    50% { 
+      box-shadow: 0 0 32px hsl(var(--primary) / 0.35), 0 0 16px hsl(var(--accent) / 0.2);
+      transform: scale(1.02);
+    }
+  }
+
+  @keyframes vibrant-glow {
+    0%, 100% { 
+      box-shadow: 0 0 16px hsl(var(--primary) / 0.3);
+    }
+    25% { 
+      box-shadow: 0 0 24px hsl(var(--secondary) / 0.3);
+    }
+    50% { 
+      box-shadow: 0 0 32px hsl(var(--accent) / 0.4);
+    }
+    75% { 
+      box-shadow: 0 0 24px hsl(var(--info) / 0.3);
+    }
+  }
+
+  @keyframes rainbow-pulse {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  @keyframes smooth-fade-in {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes scale-fade-in {
+    0% { opacity: 0; transform: scale(0.95); }
+    100% { opacity: 1; transform: scale(1); }
+  }
+
+  @keyframes electric-border {
+    0%, 100% { border-color: hsl(var(--primary) / 0.5); }
+    25% { border-color: hsl(var(--secondary) / 0.5); }
+    50% { border-color: hsl(var(--accent) / 0.5); }
+    75% { border-color: hsl(var(--info) / 0.5); }
+  }
+
+  .animate-subtle-float {
+    animation: subtle-float 8s ease-in-out infinite;
+  }
+
+  .animate-gentle-pulse {
+    animation: gentle-pulse 4s ease-in-out infinite;
+  }
+
+  .animate-vibrant-glow {
+    animation: vibrant-glow 6s ease-in-out infinite;
+  }
+
+  .animate-rainbow-pulse {
+    animation: rainbow-pulse 8s ease infinite;
+    background-size: 300% 300%;
+  }
+
+  .animate-electric-border {
+    animation: electric-border 3s ease-in-out infinite;
+  }
+
+  .animate-fade-in {
+    animation: smooth-fade-in 0.6s ease-out;
+  }
+
+  .animate-scale-in {
+    animation: scale-fade-in 0.4s ease-out;
+  }
+
+  /* Interactive States */
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-vibrant hover:-translate-y-2 hover:border-primary/30 hover:scale-105;
+  }
+
+  .electric-hover {
+    @apply transition-all duration-300 hover:shadow-rainbow hover:-translate-y-1 hover:animate-electric-border;
+  }
+
+  .gradient-hover {
+    @apply transition-all duration-500 hover:bg-primary/10 hover:scale-105;
+  }
+
+  .glow-hover {
+    @apply transition-all duration-300 hover:animate-vibrant-glow hover:scale-105;
+  }
+}
