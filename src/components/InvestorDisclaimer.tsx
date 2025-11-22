@@ -59,10 +59,12 @@ const InvestorDisclaimer = ({ variant = 'default', className = '' }: InvestorDis
           <AlertCircle className="h-5 w-5 text-warning flex-shrink-0 mt-0.5" />
           <div className="space-y-2 text-sm text-muted-foreground">
             <p>
-              <strong className="text-foreground">Important:</strong> This page is for informational purposes only and does not constitute a public offering, investment advice, or solicitation to buy securities.
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                <strong className="text-foreground">Important Notice:</strong> Information on this page is not an offer or solicitation. Digital Invest Inc. engages only in private discussions with qualified individuals. All details are subject to change and provided for informational purposes only.
+              </p>
             </p>
             <p>
-              Any potential participation with Digital Invest Inc. is discussed privately, by invitation, and handled offline through proper legal documentation. All participation is subject to due diligence, eligibility requirements, and regulatory compliance.
+              Any potential participation with Digital Invest Inc. is discussed privately, by invitation, and handled offline through proper legal documentation. All participation is subject to due diligence, eligibility requirements, and regulatory compliance. No guarantees of outcomes are provided.
             </p>
           </div>
         </div>

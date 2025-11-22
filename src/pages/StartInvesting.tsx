@@ -1,6 +1,7 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import InvestorDisclaimer from "@/components/InvestorDisclaimer";
+import InvestorPageDisclaimer from '@/components/InvestorPageDisclaimer';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -285,7 +286,7 @@ const StartInvesting = () => {
             Ready to Learn More?
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Review our projects and request more information. All discussions are private and non-binding.
+            Review our projects and request private information. All discussions are private and non-binding.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-6">
             <Link to="/projects">
@@ -301,6 +302,13 @@ const StartInvesting = () => {
               </Button>
             </Link>
           </div>
+        </div>
+      </section>
+
+      {/* Legal Disclaimer */}
+      <section className="py-16 px-4">
+        <div className="max-w-5xl mx-auto">
+          <InvestorPageDisclaimer />
         </div>
       </section>
 

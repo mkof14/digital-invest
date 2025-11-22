@@ -320,19 +320,33 @@ Today, Digital Invest brings together this multi-sector expertise into a unified
         </div>
       </section>
 
+      {/* Corporate Legal Statement */}
+      <section className="py-16 px-4">
+        <div className="container mx-auto max-w-4xl">
+          <Card className="border border-border/50 bg-muted/30">
+            <CardContent className="pt-8 pb-8">
+              <h3 className="text-2xl font-bold text-foreground mb-4">Corporate Legal Framework</h3>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                Digital Invest Inc. operates exclusively through private, offline contractual engagements with qualified individuals and organizations. We do not raise capital publicly, do not conduct public offerings through this website, and do not operate as a crowdfunding platform or public marketplace. All participation, if any, is discussed individually, subject to due diligence and eligibility verification, and formalized through separate legal agreements executed offline.
+              </p>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-16 px-4 bg-muted/30">
         <div className="container mx-auto max-w-4xl text-center">
           <h2 className="text-3xl font-bold text-foreground mb-6">Ready to Learn More?</h2>
           <p className="text-lg text-muted-foreground mb-8">
-            Explore our portfolio projects or get in touch to discuss potential collaboration.
+            Explore our portfolio projects or request private information about potential collaboration opportunities.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" asChild>
               <a href="/projects">View Projects</a>
             </Button>
             <Button size="lg" variant="outline" asChild>
-              <a href="/contact">Contact Us</a>
+              <a href="/contact">Request Information</a>
             </Button>
           </div>
         </div>

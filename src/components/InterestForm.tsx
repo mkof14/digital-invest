@@ -67,7 +67,7 @@ const InterestForm = ({ projectId, projectTitle, open, onOpenChange }: InterestF
 
       toast({
         title: 'Request Received',
-        description: 'Thank you. Your request has been received and is non-binding. We will review it and follow up privately. This does not constitute any commitment or agreement.',
+        description: 'Thank you. Your non-binding request has been received. We will review it and follow up privately through appropriate offline channels. This does not constitute any commitment or agreement.',
       });
 
       form.reset();
@@ -87,11 +87,11 @@ const InterestForm = ({ projectId, projectTitle, open, onOpenChange }: InterestF
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
         <DialogHeader>
-          <DialogTitle className="text-2xl">Request More Information</DialogTitle>
-          <DialogDescription className="text-base">
-            {projectTitle}
-            <span className="block mt-2 text-sm text-muted-foreground">This is a non-binding request for information. No commitment is created by submitting this form.</span>
-          </DialogDescription>
+            <DialogTitle className="text-2xl">Request Private Information</DialogTitle>
+            <DialogDescription className="text-base">
+              {projectTitle}
+              <span className="block mt-2 text-sm text-muted-foreground">This is a non-binding information request only. No commitment is created by submitting this form. Participation, if any, is subject to due diligence and formal agreements.</span>
+            </DialogDescription>
         </DialogHeader>
 
         <Form {...form}>
@@ -159,7 +159,7 @@ const InterestForm = ({ projectId, projectTitle, open, onOpenChange }: InterestF
               name="amount_range"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Approximate Level of Interest (Optional) *</FormLabel>
+                  <FormLabel>Approximate Level of Interest (Optional, Non-Binding) *</FormLabel>
                   <Select onValueChange={field.onChange} defaultValue={field.value}>
                     <FormControl>
                       <SelectTrigger>
@@ -206,7 +206,7 @@ const InterestForm = ({ projectId, projectTitle, open, onOpenChange }: InterestF
                   </FormControl>
                   <div className="space-y-1 leading-none">
                     <FormLabel className="text-sm font-normal">
-                      I understand this is a non-binding expression of interest and not a public offer or investment agreement. *
+                      I understand this is a non-binding information request and not a public offer, solicitation, or agreement to participate. *
                     </FormLabel>
                     <FormMessage />
                   </div>

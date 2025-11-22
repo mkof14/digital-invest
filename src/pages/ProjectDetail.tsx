@@ -15,6 +15,7 @@ import { updateMetaTags, resetMetaTags, truncateForMeta } from '@/lib/metaTags';
 import { generateProjectSchema, generateBreadcrumbSchema, injectStructuredData, removeStructuredData } from '@/lib/structuredData';
 import OptimizedImage from '@/components/OptimizedImage';
 import { MarkdownContent } from '@/components/MarkdownContent';
+import InvestorPageDisclaimer from '@/components/InvestorPageDisclaimer';
 
 interface Project {
   id: string;
@@ -414,10 +415,10 @@ const ProjectDetail = () => {
             <div className="text-center mb-12">
               <Button size="lg" className="text-lg px-8 py-6" onClick={() => setShowInterestForm(true)}>
                 <TrendingUp className="mr-2 h-5 w-5" />
-                Submit Expression of Interest
+                Request Private Information
               </Button>
               <p className="text-sm text-muted-foreground mt-4">
-                Non-binding • No payment required at this stage
+                Non-binding request • No payment required
               </p>
             </div>
           )}
@@ -614,46 +615,43 @@ const ProjectDetail = () => {
               </div>
             )}
 
-            {/* Contact */}
             <div className="bg-card border border-border p-6 rounded-lg">
               <h3 className="text-xl font-bold mb-4">Questions?</h3>
               <p className="text-muted-foreground mb-4">
-                Our investment team is here to answer your questions and discuss this opportunity in detail.
+                Contact our team for private information and to discuss this project opportunity.
               </p>
-              <Link to="/for-investors">
+              <Link to="/contact">
                 <Button variant="outline" className="w-full">
-                  Contact Us
+                  Request Information
                 </Button>
               </Link>
             </div>
 
             {/* Disclaimer */}
-            <div className="bg-muted/30 border border-border p-6 rounded-lg text-sm text-muted-foreground">
-              <p className="font-semibold text-foreground mb-2">Legal Disclaimer</p>
-              <p>
-                Digital Invest Inc. does not provide investment, legal, or tax advice. Information on this page is for informational purposes only and does not constitute a public offer or solicitation.
-              </p>
-            </div>
+            <InvestorPageDisclaimer variant="compact" />
           </div>
         </div>
+
+        {/* Investor Page Disclaimer - Bottom of Page */}
+        <InvestorPageDisclaimer className="mt-12" />
 
         {/* Final Call to Action */}
         <section className="mt-16 pt-12 border-t border-border/50">
           <div className="max-w-3xl mx-auto text-center space-y-6">
             <h2 className="text-3xl font-bold text-foreground">
-              Interested in This Project?
+              Request More Information
             </h2>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Submitting interest is non-binding and does not create any agreement. All potential participation is discussed individually and offline.
+              Submitting a request is non-binding and does not create any agreement. All participation is discussed privately and offline.
             </p>
             {project.status === 'OPEN' && (
               <Button size="lg" className="text-lg px-10 py-6" onClick={() => setShowInterestForm(true)}>
                 <Rocket className="mr-2 h-5 w-5" />
-                Submit Expression of Interest
+                Request Private Information
               </Button>
             )}
             <p className="text-sm text-muted-foreground">
-              No payment required • Private conversations only
+              No payment required • Private consultation only
             </p>
           </div>
         </section>
