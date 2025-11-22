@@ -216,7 +216,7 @@ const Auth = () => {
           <CardHeader className="text-center">
             <div className="flex justify-center mb-4">
             <OptimizedImage 
-              src="/lovable-uploads/d1011e6f-955a-48d9-adef-662af751c3b9.png?v=2" 
+              src="/lovable-uploads/digital-invest-logo-new.png" 
               alt="Digital Invest Inc. authentication logo" 
               className="w-16 h-16 object-contain"
               showSkeleton={false}

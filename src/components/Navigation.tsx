@@ -25,7 +25,7 @@ const Navigation = () => {
           {/* Logo */}
           <div className="flex items-center space-x-3">
             <OptimizedImage 
-              src="/lovable-uploads/d1011e6f-955a-48d9-adef-662af751c3b9.png" 
+              src="/lovable-uploads/digital-invest-logo-new.png" 
               alt="Digital Invest Inc. company logo" 
               className="w-10 h-10 object-contain"
               showSkeleton={false}

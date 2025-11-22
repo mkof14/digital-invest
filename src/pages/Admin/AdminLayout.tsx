@@ -81,7 +81,7 @@ const AdminLayout = () => {
         <div className="container mx-auto px-4 py-3 flex items-center justify-between">
           <div className="flex items-center space-x-3">
             <OptimizedImage 
-              src="/lovable-uploads/d1011e6f-955a-48d9-adef-662af751c3b9.png" 
+              src="/lovable-uploads/digital-invest-logo-new.png" 
               alt="Digital Invest Inc. admin logo" 
               className="w-8 h-8 object-contain"
               showSkeleton={false}
