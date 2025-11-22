@@ -7,6 +7,7 @@ import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Droplets, Wheat, BarChart3, FileText, Package, Zap, TrendingUp, Users } from "lucide-react";
 import { Link } from "react-router-dom";
 import terraaeroLogo from "@/assets/terraaero-logo.png";
+import DownloadInvestorBriefButton from "@/components/DownloadInvestorBriefButton";
 
 const TerraAero = () => {
   const fundingProgress = 45;
@@ -132,12 +133,10 @@ const TerraAero = () => {
               <Link to="/start-investing" className="flex-1">
                 <Button size="lg" className="w-full">
                   Invest Now
-                  <ArrowRight className="ml-2 w-4 h-4" />
+                  <ArrowRight className="ml-2 w-4 w-4" />
                 </Button>
               </Link>
-              <Button size="lg" variant="outline" className="flex-1">
-                Download Prospectus
-              </Button>
+              <DownloadInvestorBriefButton projectSlug="terraaero" size="lg" className="flex-1" />
             </div>
           </CardContent>
         </Card>

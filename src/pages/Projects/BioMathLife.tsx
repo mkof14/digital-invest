@@ -6,6 +6,7 @@ import { Progress } from "@/components/ui/progress";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight, CheckCircle2, TrendingUp, Users, Target, Calendar } from "lucide-react";
 import { Link } from "react-router-dom";
+import DownloadInvestorBriefButton from "@/components/DownloadInvestorBriefButton";
 
 const BioMathLife = () => {
   const fundingProgress = 68; // Example progress
@@ -117,9 +118,7 @@ const BioMathLife = () => {
                   <ArrowRight className="ml-2 w-4 h-4" />
                 </Button>
               </Link>
-              <Button size="lg" variant="outline" className="flex-1">
-                Download Prospectus
-              </Button>
+              <DownloadInvestorBriefButton projectSlug="biomathlife" size="lg" className="flex-1" />
             </div>
           </CardContent>
         </Card>
