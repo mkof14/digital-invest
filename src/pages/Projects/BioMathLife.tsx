@@ -7,6 +7,7 @@ import { Badge } from "@/components/ui/badge";
 import { ArrowRight, CheckCircle2, TrendingUp, Users, Target, Calendar } from "lucide-react";
 import { Link } from "react-router-dom";
 import DownloadInvestorBriefButton from "@/components/DownloadInvestorBriefButton";
+import InvestorPageDisclaimer from "@/components/InvestorPageDisclaimer";
 
 const BioMathLife = () => {
   const fundingProgress = 68; // Example progress
@@ -215,7 +216,7 @@ const BioMathLife = () => {
             <div className="flex gap-4 justify-center">
               <Link to="/start-investing">
                 <Button size="lg" variant="secondary">
-                  Start Investing
+                  Request Information
                   <ArrowRight className="ml-2 w-4 h-4" />
                 </Button>
               </Link>
@@ -225,6 +226,11 @@ const BioMathLife = () => {
             </div>
           </CardContent>
         </Card>
+
+        {/* Legal Disclaimer */}
+        <div className="mt-16">
+          <InvestorPageDisclaimer />
+        </div>
       </main>
 
       <Footer />

@@ -26,6 +26,7 @@ import {
 import { Link } from "react-router-dom";
 import InterestForm from "@/components/InterestForm";
 import DownloadInvestorBriefButton from "@/components/DownloadInvestorBriefButton";
+import InvestorPageDisclaimer from "@/components/InvestorPageDisclaimer";
 
 const DigitalInvest = () => {
   const [showInterestForm, setShowInterestForm] = useState(false);
@@ -594,6 +595,11 @@ const DigitalInvest = () => {
                 No payment required • Private conversations only
               </p>
             </div>
+          </section>
+
+          {/* Legal Disclaimer */}
+          <section className="mt-16">
+            <InvestorPageDisclaimer />
           </section>
         </div>
       </div>

@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 import biomathCoreLogo from "@/assets/biomath-core-logo.png";
 import DownloadInvestorBriefButton from "@/components/DownloadInvestorBriefButton";
 import OptimizedImage from "@/components/OptimizedImage";
+import InvestorPageDisclaimer from "@/components/InvestorPageDisclaimer";
 
 const BioMathCore = () => {
   const healthCategories = [
@@ -264,6 +265,11 @@ const BioMathCore = () => {
             </div>
           </CardContent>
         </Card>
+
+        {/* Legal Disclaimer */}
+        <div className="mt-16">
+          <InvestorPageDisclaimer />
+        </div>
       </main>
 
       <Footer />
