@@ -21,7 +21,17 @@ import {
   Lock,
   CheckCircle2,
   Sparkles,
-  Building2
+  Building2,
+  Heart,
+  Sprout,
+  Utensils,
+  Network,
+  BarChart3,
+  FileText,
+  Clock,
+  Mail,
+  Search,
+  Briefcase
 } from "lucide-react";
 import terraaeroHero from "@/assets/projects/terraaero-hero.jpg";
 import biomathCoreHero from "@/assets/projects/biomathcore-hero.jpg";
@@ -143,6 +153,70 @@ const Index = () => {
         </div>
       </section>
 
+      {/* What We Build Section */}
+      <section className="py-24 px-4">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16 space-y-4">
+            <h2 className="text-3xl md:text-5xl font-bold text-foreground">
+              What We Build
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              Five proprietary platforms across health, agriculture, food production, and infrastructure
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <Card className="border border-border/50 bg-card hover:shadow-lg transition-all duration-300">
+              <CardContent className="pt-8 pb-6 space-y-4">
+                <div className="p-3 bg-primary/10 rounded-lg w-fit mx-auto">
+                  <Heart className="w-10 h-10 text-primary" />
+                </div>
+                <h3 className="text-xl font-bold text-foreground text-center">Health & Longevity</h3>
+                <p className="text-sm text-muted-foreground text-center leading-relaxed">
+                  BioMath Core and BioMath Life — data-driven platforms for understanding health, risks, and longevity in a structured, intelligent way.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="border border-border/50 bg-card hover:shadow-lg transition-all duration-300">
+              <CardContent className="pt-8 pb-6 space-y-4">
+                <div className="p-3 bg-primary/10 rounded-lg w-fit mx-auto">
+                  <Sprout className="w-10 h-10 text-primary" />
+                </div>
+                <h3 className="text-xl font-bold text-foreground text-center">Agricultural Technology</h3>
+                <p className="text-sm text-muted-foreground text-center leading-relaxed">
+                  TerraAero — advanced agricultural drone operations with a roadmap toward U.S.-based drone manufacturing.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="border border-border/50 bg-card hover:shadow-lg transition-all duration-300">
+              <CardContent className="pt-8 pb-6 space-y-4">
+                <div className="p-3 bg-primary/10 rounded-lg w-fit mx-auto">
+                  <Utensils className="w-10 h-10 text-primary" />
+                </div>
+                <h3 className="text-xl font-bold text-foreground text-center">Intelligent Food Production</h3>
+                <p className="text-sm text-muted-foreground text-center leading-relaxed">
+                  DishCore — AI-driven food manufacturing and recipe engine for standardized, scalable, nutritionally precise meals.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="border border-border/50 bg-card hover:shadow-lg transition-all duration-300">
+              <CardContent className="pt-8 pb-6 space-y-4">
+                <div className="p-3 bg-primary/10 rounded-lg w-fit mx-auto">
+                  <Network className="w-10 h-10 text-primary" />
+                </div>
+                <h3 className="text-xl font-bold text-foreground text-center">Multi-Sector Infrastructure</h3>
+                <p className="text-sm text-muted-foreground text-center leading-relaxed">
+                  Digital Invest — the portfolio backbone that combines AI, infrastructure, manufacturing, and long-term project strategy.
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
       {/* Featured Projects Section */}
       <section className="py-24 px-4 bg-card/30">
         <div className="max-w-7xl mx-auto">
@@ -237,6 +311,97 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Why Digital Invest Section */}
+      <section className="py-24 px-4">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16 space-y-4">
+            <h2 className="text-3xl md:text-5xl font-bold text-foreground">
+              Why Digital Invest
+            </h2>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            {[
+              { icon: <Building2 className="w-6 h-6" />, text: "Five independent proprietary projects" },
+              { icon: <BarChart3 className="w-6 h-6" />, text: "Three high-growth industries: HealthTech, AgroTech, FoodTech" },
+              { icon: <Award className="w-6 h-6" />, text: "20+ years of operational and entrepreneurial experience" },
+              { icon: <CheckCircle2 className="w-6 h-6" />, text: "Real platforms, not just concepts or slideware" },
+              { icon: <Shield className="w-6 h-6" />, text: "Fully U.S.-based development and operations" },
+              { icon: <Target className="w-6 h-6" />, text: "Long-term strategy across real-economy and AI-driven sectors" }
+            ].map((item, index) => (
+              <Card key={index} className="border border-border/50 bg-card">
+                <CardContent className="pt-6 pb-6">
+                  <div className="flex items-start gap-4">
+                    <div className="p-2 bg-primary/10 rounded-lg flex-shrink-0">
+                      <div className="text-primary">{item.icon}</div>
+                    </div>
+                    <p className="text-sm text-foreground font-medium leading-relaxed">{item.text}</p>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Investment Highlights Section */}
+      <section className="py-24 px-4 bg-card/30">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16 space-y-4">
+            <h2 className="text-3xl md:text-5xl font-bold text-foreground">
+              Investment Highlights
+            </h2>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
+                title: "Real projects",
+                description: "Structured, operational, and designed to scale over time.",
+                icon: <CheckCircle2 className="w-8 h-8" />
+              },
+              {
+                title: "Clear economics",
+                description: "Each platform has a defined business model and unit logic.",
+                icon: <LineChart className="w-8 h-8" />
+              },
+              {
+                title: "Shared infrastructure",
+                description: "Core AI, backend, analytics, and manufacturing work across the portfolio.",
+                icon: <Network className="w-8 h-8" />
+              },
+              {
+                title: "Multi-sector diversification",
+                description: "Exposure to HealthTech, AgroTech, FoodTech, and infrastructure.",
+                icon: <Target className="w-8 h-8" />
+              },
+              {
+                title: "Defined roadmaps",
+                description: "Every project has a phased, realistic roadmap instead of vague promises.",
+                icon: <FileText className="w-8 h-8" />
+              },
+              {
+                title: "Private and individual",
+                description: "No public offering. All potential participation is discussed individually.",
+                icon: <Lock className="w-8 h-8" />
+              }
+            ].map((highlight, index) => (
+              <Card key={index} className="border border-border/50 bg-card hover:shadow-lg transition-all duration-300">
+                <CardHeader>
+                  <div className="p-3 bg-primary/10 rounded-lg w-fit mb-4">
+                    <div className="text-primary">{highlight.icon}</div>
+                  </div>
+                  <CardTitle className="text-xl">{highlight.title}</CardTitle>
+                  <CardDescription className="text-base leading-relaxed">
+                    {highlight.description}
+                  </CardDescription>
+                </CardHeader>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Our Expertise Section */}
       <section className="py-24 px-4">
         <div className="max-w-7xl mx-auto">
@@ -286,6 +451,131 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Investment Journey Section */}
+      <section className="py-24 px-4 bg-card/30">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16 space-y-4">
+            <h2 className="text-3xl md:text-5xl font-bold text-foreground">
+              Your Journey with Digital Invest
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              A transparent, step-by-step process from exploration to partnership
+            </p>
+          </div>
+          
+          <div className="space-y-8 max-w-4xl mx-auto">
+            {[
+              {
+                step: "1",
+                title: "Explore projects",
+                description: "Review the platforms across health, agriculture, food production, and infrastructure.",
+                icon: <Search className="w-6 h-6" />
+              },
+              {
+                step: "2",
+                title: "Submit non-binding interest",
+                description: "Use a short form to express interest in one or more projects. No commitment, no payments.",
+                icon: <Mail className="w-6 h-6" />
+              },
+              {
+                step: "3",
+                title: "Personal follow-up",
+                description: "We contact you directly, share materials, and answer your questions.",
+                icon: <Users className="w-6 h-6" />
+              },
+              {
+                step: "4",
+                title: "Due diligence",
+                description: "We review the project together: roadmap, risks, structure, and expected timelines.",
+                icon: <Search className="w-6 h-6" />
+              },
+              {
+                step: "5",
+                title: "Offline agreement",
+                description: "If both sides agree, the legal investment process happens offline, not on the website.",
+                icon: <FileText className="w-6 h-6" />
+              },
+              {
+                step: "6",
+                title: "Updates & growth",
+                description: "You receive periodic updates, milestones, and insights as projects progress.",
+                icon: <TrendingUp className="w-6 h-6" />
+              }
+            ].map((item, index) => (
+              <Card key={index} className="border border-border/50 bg-card hover:shadow-lg transition-all duration-300">
+                <CardContent className="pt-6 pb-6">
+                  <div className="flex items-start gap-6">
+                    <div className="flex-shrink-0">
+                      <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+                        <span className="text-xl font-bold text-primary">{item.step}</span>
+                      </div>
+                    </div>
+                    <div className="flex-1 space-y-2">
+                      <div className="flex items-center gap-3">
+                        <h3 className="text-xl font-bold text-foreground">{item.title}</h3>
+                        <div className="text-primary">{item.icon}</div>
+                      </div>
+                      <p className="text-sm text-muted-foreground leading-relaxed">
+                        {item.description}
+                      </p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-24 px-4">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-16 space-y-4">
+            <h2 className="text-3xl md:text-5xl font-bold text-foreground">
+              Top Questions from Investors
+            </h2>
+          </div>
+          
+          <div className="space-y-4">
+            {[
+              {
+                question: "Is this a crowdfunding platform?",
+                answer: "No. Digital Invest is a private environment for selected projects and individual conversations. There is no public crowdfunding."
+              },
+              {
+                question: "Can I invest directly on the website?",
+                answer: "No. This website does not accept investments or process payments. We only collect non-binding expressions of interest."
+              },
+              {
+                question: "Are returns guaranteed?",
+                answer: "No. All early-stage projects involve risk, including possible loss of capital. No results or returns are guaranteed."
+              },
+              {
+                question: "What happens after I submit interest?",
+                answer: "Our team reviews your submission and contacts you personally to share more information and discuss next steps."
+              },
+              {
+                question: "Who can participate?",
+                answer: "Participation depends on your jurisdiction, regulatory requirements, and the structure of each project. We discuss this individually."
+              },
+              {
+                question: "Why do you work in a private format?",
+                answer: "It allows us to keep communication direct, transparent, and tailored to serious long-term partners."
+              }
+            ].map((faq, index) => (
+              <Card key={index} className="border border-border/50 bg-card">
+                <CardHeader>
+                  <CardTitle className="text-lg text-foreground">{faq.question}</CardTitle>
+                  <CardDescription className="text-base leading-relaxed pt-2">
+                    {faq.answer}
+                  </CardDescription>
+                </CardHeader>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Contact Section */}
       <section className="py-24 px-4 bg-card/30">
         <div className="max-w-4xl mx-auto text-center space-y-8">
@@ -326,6 +616,23 @@ const Index = () => {
                 <span className="text-xs text-muted-foreground text-center">{badge.text}</span>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Compliance Disclaimer */}
+      <section className="py-12 px-4 border-t border-border/50">
+        <div className="max-w-4xl mx-auto">
+          <div className="bg-muted/30 border border-border/50 rounded-lg p-8">
+            <div className="flex items-start gap-4">
+              <Shield className="w-6 h-6 text-muted-foreground flex-shrink-0 mt-1" />
+              <div className="space-y-2">
+                <h3 className="font-semibold text-foreground">Important Disclosure</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  Digital Invest Inc. does not provide investment, legal, or tax advice. This website is for informational purposes only and does not constitute a public offer or solicitation. All potential participation is discussed individually and offline.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
