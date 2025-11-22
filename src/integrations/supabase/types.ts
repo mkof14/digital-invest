@@ -14,6 +14,84 @@ export type Database = {
   }
   public: {
     Tables: {
+      availability_windows: {
+        Row: {
+          created_at: string
+          day_of_week: number
+          end_time: string
+          id: string
+          is_active: boolean
+          start_time: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          day_of_week: number
+          end_time: string
+          id?: string
+          is_active?: boolean
+          start_time: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          day_of_week?: number
+          end_time?: string
+          id?: string
+          is_active?: boolean
+          start_time?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      consultation_bookings: {
+        Row: {
+          admin_notes: string | null
+          created_at: string
+          date: string
+          email: string
+          end_time: string
+          id: string
+          name: string
+          notes: string | null
+          phone: string | null
+          project: string
+          start_time: string
+          status: string
+          updated_at: string
+        }
+        Insert: {
+          admin_notes?: string | null
+          created_at?: string
+          date: string
+          email: string
+          end_time: string
+          id?: string
+          name: string
+          notes?: string | null
+          phone?: string | null
+          project: string
+          start_time: string
+          status?: string
+          updated_at?: string
+        }
+        Update: {
+          admin_notes?: string | null
+          created_at?: string
+          date?: string
+          email?: string
+          end_time?: string
+          id?: string
+          name?: string
+          notes?: string | null
+          phone?: string | null
+          project?: string
+          start_time?: string
+          status?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       content_blocks: {
         Row: {
           content: string
