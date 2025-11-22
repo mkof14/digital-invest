@@ -4,7 +4,6 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Progress } from "@/components/ui/progress";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Link } from "react-router-dom";
 import { supabase } from '@/integrations/supabase/client';
@@ -127,11 +126,6 @@ const Index = () => {
     }
   };
 
-  const calculateProgress = (current: number, target: number | null) => {
-    if (!target || target === 0) return 0;
-    return Math.min((current / target) * 100, 100);
-  };
-
   const getStatusColor = (status: string) => {
     switch (status) {
       case 'OPEN':
@@ -241,25 +235,14 @@ const Index = () => {
                         </CardDescription>
                       </CardHeader>
 
-                      {project.target_amount && project.target_amount > 0 && (
-                        <CardContent className="pt-0">
-                          <div className="space-y-2">
-                            <div className="flex justify-between text-sm">
-                              <span className="text-muted-foreground">Progress</span>
-                              <span className="font-semibold text-foreground">
-                                {project.currency} {project.current_raised.toLocaleString()} / {project.target_amount.toLocaleString()}
-                              </span>
-                            </div>
-                            <Progress 
-                              value={calculateProgress(project.current_raised, project.target_amount)} 
-                              className="h-2"
-                            />
-                            <p className="text-xs text-muted-foreground text-right">
-                              {calculateProgress(project.current_raised, project.target_amount).toFixed(1)}% funded
-                            </p>
-                          </div>
-                        </CardContent>
-                      )}
+                      <CardFooter className="pt-4">
+                        <Button className="w-full group" asChild>
+                          <Link to={`/projects/${project.slug}`}>
+                            View Details
+                            <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                          </Link>
+                        </Button>
+                      </CardFooter>
                     </Card>
                   </Link>
                 ))}
