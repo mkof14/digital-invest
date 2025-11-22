@@ -131,32 +131,26 @@ const Footer = () => {
         </div>
         
         {/* Legal Notices */}
-        <div className="mt-12 pt-8 border-t border-border/50">
-          <div className="grid md:grid-cols-2 gap-6 mb-8">
+        <div className="mt-12 pt-8 border-t border-border/30">
+          <div className="max-w-5xl mx-auto space-y-6 mb-8">
             {/* Important Legal Notice */}
-            <div className="bg-muted/30 rounded-lg p-6 border border-border/50">
-              <h5 className="text-xs font-semibold text-foreground mb-2 uppercase tracking-wide">
-                Important Legal Notice
-              </h5>
-              <p className="text-xs text-muted-foreground leading-relaxed">
-                Digital Invest Inc. is not an investment advisor, broker-dealer, public offering platform, or marketplace. This website is for informational purposes only. Participation in any project is handled privately, offline, and only for eligible individuals or entities following due diligence. We do not guarantee any outcomes, performance, or returns.
+            <div className="space-y-1.5">
+              <p className="text-xs text-muted-foreground/80 leading-relaxed">
+                <span className="text-muted-foreground font-medium">Important Legal Notice:</span> Digital Invest Inc. is not an investment advisor, broker-dealer, public offering platform, or marketplace. This website is for informational purposes only. Participation in any project is handled privately, offline, and only for eligible individuals or entities following due diligence. We do not guarantee any outcomes, performance, or returns.
               </p>
             </div>
 
             {/* Risk Disclosure */}
-            <div className="bg-muted/30 rounded-lg p-6 border border-border/50">
-              <h5 className="text-xs font-semibold text-foreground mb-2 uppercase tracking-wide">
-                Risk Disclosure
-              </h5>
-              <p className="text-xs text-muted-foreground leading-relaxed">
-                All participation involves significant risk, including potential loss of capital. Private, invitation-only process. The actual legal status, structure, rights, and obligations are defined only in formal agreements executed offline, not by website content.
+            <div className="space-y-1.5">
+              <p className="text-xs text-muted-foreground/80 leading-relaxed">
+                <span className="text-muted-foreground font-medium">Risk Disclosure:</span> All participation involves significant risk, including potential loss of capital. Private, invitation-only process. The actual legal status, structure, rights, and obligations are defined only in formal agreements executed offline, not by website content.
               </p>
             </div>
           </div>
 
           {/* Copyright */}
-          <div className="text-center pt-4">
-            <p className="text-xs text-muted-foreground">
+          <div className="text-center pt-6 border-t border-border/20">
+            <p className="text-xs text-muted-foreground/70">
               © {currentYear} Digital Invest Inc. All rights reserved.
             </p>
           </div>
