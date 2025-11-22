@@ -47,8 +47,11 @@ const PrivacyPolicy = () => {
 
             <section>
               <h2 className="text-2xl font-bold mb-4">Data security</h2>
+              <p className="text-muted-foreground mb-3">
+                We use reasonable technical measures to protect data submitted through this website. However, no system can be guaranteed to be completely secure.
+              </p>
               <p className="text-muted-foreground">
-                We use reasonable technical measures to protect data, but no system is completely secure.
+                <strong>Security Limitation:</strong> While Digital Invest Inc. implements security protocols, cyber and operational risks remain. Users should take appropriate precautions and understand that residual security risks cannot be eliminated entirely.
               </p>
             </section>
 

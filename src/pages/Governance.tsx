@@ -24,8 +24,11 @@ const Governance = () => {
             {/* Governance Approach */}
             <div className="space-y-4">
               <h2 className="text-3xl font-bold">Governance Approach</h2>
-              <p className="text-lg text-muted-foreground leading-relaxed">
+              <p className="text-lg text-muted-foreground leading-relaxed mb-3">
                 Digital Invest Inc. follows a governance framework oriented around clarity, accountability, and long-term responsibility. We operate as a focused portfolio company with clear decision lines and technical, operational, and strategic oversight.
+              </p>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                <strong>Governance Purpose:</strong> Governance structures are designed to support disciplined operations, risk oversight, and strategic coordination. However, governance does not eliminate project risks, guarantee outcomes, or ensure success of any specific initiative.
               </p>
             </div>
 
