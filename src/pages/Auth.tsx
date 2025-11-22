@@ -215,12 +215,12 @@ const Auth = () => {
         <Card className="border border-border/50">
           <CardHeader className="text-center">
             <div className="flex justify-center mb-4">
-              <OptimizedImage 
-                src="/lovable-uploads/d1011e6f-955a-48d9-adef-662af751c3b9.png" 
-                alt="Digital Invest Inc. authentication logo" 
-                className="w-16 h-16 object-contain"
-                showSkeleton={false}
-              />
+            <OptimizedImage 
+              src="/lovable-uploads/d1011e6f-955a-48d9-adef-662af751c3b9.png?v=2" 
+              alt="Digital Invest Inc. authentication logo" 
+              className="w-16 h-16 object-contain"
+              showSkeleton={false}
+            />
             </div>
             <CardTitle className="text-2xl">Admin Access</CardTitle>
             <CardDescription>Sign in to manage your investment platform</CardDescription>
