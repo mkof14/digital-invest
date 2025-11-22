@@ -41,6 +41,7 @@ import WhyDigitalInvest from "./pages/WhyDigitalInvest";
 import ForInvestors from "./pages/ForInvestors";
 import InvestorDocuments from "./pages/InvestorDocuments";
 import About from "./pages/About";
+import Demo from "./pages/Demo";
 
 const queryClient = new QueryClient();
 
@@ -75,6 +76,7 @@ const App = () => (
             <Route path="/why-digital-invest" element={<WhyDigitalInvest />} />
             <Route path="/for-investors" element={<ForInvestors />} />
             <Route path="/investor-documents" element={<InvestorDocuments />} />
+            <Route path="/demo" element={<Demo />} />
             
             {/* Legal Routes */}
             <Route path="/legal/terms" element={<TermsOfUse />} />
