@@ -132,12 +132,12 @@ const Footer = () => {
         
         {/* BOTTOM BAR */}
         <div className="border-t border-border mt-10 pt-6">
-          <div className="text-center space-y-2">
+          <div className="text-center space-y-3">
             <p className="text-xs text-muted-foreground">
               © {currentYear} Digital Invest Inc. All rights reserved.
             </p>
-            <p className="text-xs text-muted-foreground max-w-3xl mx-auto">
-              All investments involve risk and may result in loss of capital. Information on this website is for informational purposes only.
+            <p className="text-xs text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+              <strong>Important Notice:</strong> Digital Invest Inc. operates as a private multi-sector portfolio. This website is for informational purposes only and does not constitute a public offering, investment advice, or solicitation. Any potential participation is private, by invitation, and handled offline through proper legal channels. All participation is subject to due diligence and eligibility. All investments involve risk and may result in loss of capital. The actual legal status, structure, rights, and obligations are defined only in formal agreements executed offline, not by website content.
             </p>
           </div>
         </div>

@@ -66,8 +66,8 @@ const InterestForm = ({ projectId, projectTitle, open, onOpenChange }: InterestF
       if (error) throw error;
 
       toast({
-        title: 'Expression of Interest Submitted',
-        description: 'Thank you. Your non-binding expression of interest has been received. We will contact you personally to discuss details.',
+        title: 'Request Received',
+        description: 'Thank you. Your request has been received and is non-binding. We will review it and follow up privately. This does not constitute any commitment or agreement.',
       });
 
       form.reset();
@@ -87,9 +87,10 @@ const InterestForm = ({ projectId, projectTitle, open, onOpenChange }: InterestF
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
         <DialogHeader>
-          <DialogTitle className="text-2xl">Submit Expression of Interest</DialogTitle>
+          <DialogTitle className="text-2xl">Request More Information</DialogTitle>
           <DialogDescription className="text-base">
             {projectTitle}
+            <span className="block mt-2 text-sm text-muted-foreground">This is a non-binding request for information. No commitment is created by submitting this form.</span>
           </DialogDescription>
         </DialogHeader>
 
@@ -158,7 +159,7 @@ const InterestForm = ({ projectId, projectTitle, open, onOpenChange }: InterestF
               name="amount_range"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Approximate Investment Amount *</FormLabel>
+                  <FormLabel>Approximate Level of Interest (Optional) *</FormLabel>
                   <Select onValueChange={field.onChange} defaultValue={field.value}>
                     <FormControl>
                       <SelectTrigger>
@@ -182,10 +183,10 @@ const InterestForm = ({ projectId, projectTitle, open, onOpenChange }: InterestF
               name="comments"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Additional Comments (Optional)</FormLabel>
+                  <FormLabel>Your Message or Questions (Optional)</FormLabel>
                   <FormControl>
                     <Textarea
-                      placeholder="Tell us about your investment interests, experience, or any questions you have..."
+                      placeholder="Tell us about your background, experience, or any questions you have..."
                       className="min-h-[100px]"
                       {...field}
                     />
@@ -225,7 +226,7 @@ const InterestForm = ({ projectId, projectTitle, open, onOpenChange }: InterestF
               </Button>
               <Button type="submit" disabled={isSubmitting} className="flex-1">
                 {isSubmitting && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-                Submit Interest
+                Submit Request
               </Button>
             </div>
           </form>

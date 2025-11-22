@@ -166,9 +166,9 @@ const Index = () => {
           </div>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in pt-4">
-            <Link to="/start-investing">
+            <Link to="/projects">
               <Button size="lg" className="px-10 py-6 text-base">
-                Investment Opportunities
+                Explore Projects
                 <TrendingUp className="ml-2 h-5 w-5" />
               </Button>
             </Link>
@@ -265,12 +265,12 @@ const Index = () => {
       <section className="py-24 px-4 bg-card/30">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16 space-y-4">
-            <Badge variant="secondary" className="mb-2">Investment Opportunities</Badge>
+            <Badge variant="secondary" className="mb-2">Portfolio Projects</Badge>
             <h2 className="text-3xl md:text-5xl font-bold text-foreground">
               Featured Projects
             </h2>
             <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
-              Explore our active investment opportunities across technology, healthcare, and real-economy sectors
+              Explore our portfolio of real-economy and advanced technology projects
             </p>
           </div>
           
@@ -686,9 +686,9 @@ const Index = () => {
             <div className="flex items-start gap-4">
               <Shield className="w-6 h-6 text-muted-foreground flex-shrink-0 mt-1" />
               <div className="space-y-2">
-                <h3 className="font-semibold text-foreground">Important Disclosure</h3>
+                <h3 className="font-semibold text-foreground">Important Notice</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">
-                  Digital Invest Inc. does not provide investment, legal, or tax advice. This website is for informational purposes only and does not constitute a public offer or solicitation. All potential participation is discussed individually and offline.
+                  Digital Invest Inc. operates as a private multi-sector portfolio. This website is for informational purposes only and does not constitute a public offering, investment advice, or solicitation. Any potential participation is private, by invitation, and handled offline through proper legal channels. All participation is subject to due diligence and eligibility. All investments involve risk and may result in loss of capital. The actual legal status, structure, rights, and obligations are defined only in formal agreements executed offline, not by website content.
                 </p>
               </div>
             </div>

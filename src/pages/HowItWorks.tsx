@@ -13,24 +13,24 @@ const HowItWorks = () => {
       title: 'Browse Projects',
       description: 'Explore our curated portfolio of investment opportunities. Each project is owned and managed by Digital Invest Inc., ensuring quality and strategic alignment.',
     },
-    {
-      number: 2,
-      icon: FileText,
-      title: 'Submit Expression of Interest',
-      description: 'Found a project that aligns with your investment goals? Submit a non-binding expression of interest through our secure online form. No payment is required at this stage.',
-    },
+      {
+        number: 2,
+        icon: FileText,
+        title: 'Request More Information',
+        description: 'Found a project that interests you? Submit a non-binding request for information through our secure online form. This creates no commitment and requires no payment.',
+      },
     {
       number: 3,
       icon: Users,
       title: 'Personal Consultation',
       description: 'Our investment team will contact you personally to discuss the opportunity in detail. We will share comprehensive documentation, financial projections, and answer all your questions.',
     },
-    {
-      number: 4,
-      icon: CheckCircle,
-      title: 'Formal Investment Process',
-      description: 'If both parties agree to proceed, the investment is executed through proper legal channels. All agreements are formalized with appropriate legal documentation and regulatory compliance.',
-    },
+      {
+        number: 4,
+        icon: CheckCircle,
+        title: 'Offline Agreements (If Applicable)',
+        description: 'If both parties agree to proceed after thorough discussion, any participation is formalized offline through proper legal channels with appropriate documentation and regulatory compliance. The website plays no role in this process.',
+      },
   ];
 
   return (
@@ -44,8 +44,7 @@ const HowItWorks = () => {
             How It Works
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            A transparent, professional process designed for serious investors looking to participate 
-            in high-quality private investment opportunities.
+            A transparent, private process for exploring potential participation in Digital Invest Inc. projects. All discussions are handled individually, by invitation, and offline.
           </p>
         </div>
 
@@ -98,7 +97,7 @@ const HowItWorks = () => {
             </CardHeader>
             <CardContent>
               <p className="text-muted-foreground">
-                This is not a public crowdfunding site. All projects are owned by Digital Invest Inc. and managed through professional investment channels.
+                This is not a crowdfunding platform or public offering. All projects are owned and operated by Digital Invest Inc. Any potential participation is private, by invitation, and handled offline.
               </p>
             </CardContent>
           </Card>
@@ -126,7 +125,7 @@ const HowItWorks = () => {
             </CardHeader>
             <CardContent>
               <p className="text-muted-foreground">
-                All investments are executed through appropriate legal frameworks, with full documentation and regulatory compliance.
+                Any participation, if applicable, is formalized offline through appropriate legal frameworks with full documentation and regulatory compliance, separate from this website.
               </p>
             </CardContent>
           </Card>
@@ -143,7 +142,7 @@ const HowItWorks = () => {
                   <strong className="text-foreground">Not Investment Advice:</strong> Digital Invest Inc. does not provide investment, legal, or tax advice. All information on this website is for informational purposes only.
                 </p>
                 <p>
-                  <strong className="text-foreground">Not a Public Offer:</strong> Nothing on this website constitutes a public offer or a solicitation to buy securities. Any potential participation must be discussed individually and may require additional legal documentation.
+                  <strong className="text-foreground">Not a Public Offer:</strong> Nothing on this website constitutes a public offering or a solicitation to buy securities. This website is informational only. Any potential participation is discussed privately, by invitation, and handled offline through proper legal channels.
                 </p>
                 <p>
                   <strong className="text-foreground">Regulatory Compliance:</strong> All investment opportunities are subject to applicable securities laws and regulations. Investments may only be available to accredited investors or qualified purchasers as defined by applicable law.
@@ -158,9 +157,9 @@ const HowItWorks = () => {
 
         {/* CTA Section */}
         <div className="text-center bg-card border border-border/50 rounded-lg p-12">
-          <h2 className="text-3xl font-bold mb-4 text-foreground">Ready to Explore Opportunities?</h2>
+          <h2 className="text-3xl font-bold mb-4 text-foreground">Ready to Learn More?</h2>
           <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Browse our current portfolio and submit your expression of interest for projects that align with your investment goals.
+            Browse our portfolio and request more information about projects that interest you. All discussions are private and non-binding.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/projects">
