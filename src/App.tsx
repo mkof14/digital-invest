@@ -37,6 +37,7 @@ import AdminProjects from "./pages/Admin/AdminProjects";
 import AdminLeads from "./pages/Admin/AdminLeads";
 import AdminTeam from "./pages/Admin/AdminTeam";
 import AdminNews from "./pages/Admin/AdminNews";
+import AdminEmailTemplates from "./pages/Admin/AdminEmailTemplates";
 import WhyDigitalInvest from "./pages/WhyDigitalInvest";
 import ForInvestors from "./pages/ForInvestors";
 import InvestorDocuments from "./pages/InvestorDocuments";
@@ -87,13 +88,14 @@ const App = () => (
             <Route path="/auth" element={<Auth />} />
             
             {/* Admin Routes */}
-            <Route path="/admin" element={<AdminLayout />}>
-              <Route index element={<AdminDashboard />} />
-              <Route path="projects" element={<AdminProjects />} />
-              <Route path="leads" element={<AdminLeads />} />
-              <Route path="team" element={<AdminTeam />} />
-              <Route path="news" element={<AdminNews />} />
-            </Route>
+          <Route path="/admin" element={<AdminLayout />}>
+            <Route index element={<AdminDashboard />} />
+            <Route path="projects" element={<AdminProjects />} />
+            <Route path="leads" element={<AdminLeads />} />
+            <Route path="team" element={<AdminTeam />} />
+            <Route path="news" element={<AdminNews />} />
+            <Route path="email-templates" element={<AdminEmailTemplates />} />
+          </Route>
             
             {/* Legacy Project Routes (keep for backwards compatibility) */}
             <Route path="/projects/biomathlife" element={<BioMathLife />} />
