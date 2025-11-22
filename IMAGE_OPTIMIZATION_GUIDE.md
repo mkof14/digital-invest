@@ -167,12 +167,28 @@ For above-the-fold hero images:
 
 ## 🛠️ Quick Implementation Guide
 
-### Step 1: Batch Convert Images
+### Step 1: Install Dependencies
+```bash
+npm install --save-dev sharp
+```
+
+### Step 2: Run Optimization Scripts
+
+**Option A: Full Automation (Recommended)**
+```bash
+# 1. Compress existing images
+node scripts/optimize-images.js
+
+# 2. Convert to WebP
+node scripts/convert-images-to-webp.js
+```
+
+**Option B: Manual Conversion**
 1. Download all images from `src/assets/` and `public/lovable-uploads/`
 2. Use [Squoosh.app](https://squoosh.app) to convert batch to WebP at 85% quality
 3. Upload WebP versions alongside originals
 
-### Step 2: Update Components
+### Step 3: Update Components
 Replace standard `<img>` tags with `<OptimizedImage>`:
 
 ```tsx
@@ -187,7 +203,7 @@ import OptimizedImage from '@/components/OptimizedImage';
 />
 ```
 
-### Step 3: Verify
+### Step 4: Verify
 - Test in Chrome DevTools (Network tab → filter by Img)
 - Check file sizes are reduced
 - Verify WebP is served to modern browsers
@@ -206,9 +222,26 @@ import OptimizedImage from '@/components/OptimizedImage';
 
 ## 🚀 Next Steps
 
-1. **TODAY:** Add descriptive alt tags to all existing images
-2. **THIS WEEK:** Convert and compress all images to WebP
-3. **POST-LAUNCH:** Set up CDN and implement responsive images
+### Automated Scripts Available
+
+Two Node.js scripts have been created in `scripts/` folder:
+
+1. **`convert-images-to-webp.js`** - Converts all images to WebP format
+2. **`optimize-images.js`** - Compresses existing images without format change
+
+See `scripts/README.md` for full documentation and usage instructions.
+
+### Immediate Actions
+
+1. **TODAY:** Run automated optimization scripts
+   ```bash
+   npm install --save-dev sharp
+   node scripts/optimize-images.js
+   node scripts/convert-images-to-webp.js
+   ```
+2. **TODAY:** Add descriptive alt tags to all existing images
+3. **THIS WEEK:** Update components to use OptimizedImage with webpSrc
+4. **POST-LAUNCH:** Set up CDN and implement responsive images
 
 For questions or technical assistance with image optimization, refer to:
 - [Web.dev Image Optimization Guide](https://web.dev/fast/#optimize-your-images)
