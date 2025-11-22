@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Link } from "react-router-dom";
 import { supabase } from '@/integrations/supabase/client';
 import {
@@ -536,43 +537,61 @@ const Index = () => {
             </h2>
           </div>
           
-          <div className="space-y-4">
-            {[
-              {
-                question: "Is this a crowdfunding platform?",
-                answer: "No. Digital Invest is a private environment for selected projects and individual conversations. There is no public crowdfunding."
-              },
-              {
-                question: "Can I invest directly on the website?",
-                answer: "No. This website does not accept investments or process payments. We only collect non-binding expressions of interest."
-              },
-              {
-                question: "Are returns guaranteed?",
-                answer: "No. All early-stage projects involve risk, including possible loss of capital. No results or returns are guaranteed."
-              },
-              {
-                question: "What happens after I submit interest?",
-                answer: "Our team reviews your submission and contacts you personally to share more information and discuss next steps."
-              },
-              {
-                question: "Who can participate?",
-                answer: "Participation depends on your jurisdiction, regulatory requirements, and the structure of each project. We discuss this individually."
-              },
-              {
-                question: "Why do you work in a private format?",
-                answer: "It allows us to keep communication direct, transparent, and tailored to serious long-term partners."
-              }
-            ].map((faq, index) => (
-              <Card key={index} className="border border-border/50 bg-card">
-                <CardHeader>
-                  <CardTitle className="text-lg text-foreground">{faq.question}</CardTitle>
-                  <CardDescription className="text-base leading-relaxed pt-2">
-                    {faq.answer}
-                  </CardDescription>
-                </CardHeader>
-              </Card>
-            ))}
-          </div>
+          <Accordion type="single" collapsible className="space-y-4">
+            <AccordionItem value="item-1" className="border border-border/50 bg-card rounded-lg px-6">
+              <AccordionTrigger className="text-lg font-semibold text-foreground hover:text-primary">
+                Is this a crowdfunding platform?
+              </AccordionTrigger>
+              <AccordionContent className="text-base text-muted-foreground leading-relaxed">
+                No. Digital Invest is a private environment for selected projects and individual conversations. There is no public crowdfunding.
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-2" className="border border-border/50 bg-card rounded-lg px-6">
+              <AccordionTrigger className="text-lg font-semibold text-foreground hover:text-primary">
+                Can I invest directly on the website?
+              </AccordionTrigger>
+              <AccordionContent className="text-base text-muted-foreground leading-relaxed">
+                No. This website does not accept investments or process payments. We only collect non-binding expressions of interest.
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-3" className="border border-border/50 bg-card rounded-lg px-6">
+              <AccordionTrigger className="text-lg font-semibold text-foreground hover:text-primary">
+                Are returns guaranteed?
+              </AccordionTrigger>
+              <AccordionContent className="text-base text-muted-foreground leading-relaxed">
+                No. All early-stage projects involve risk, including possible loss of capital. No results or returns are guaranteed.
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-4" className="border border-border/50 bg-card rounded-lg px-6">
+              <AccordionTrigger className="text-lg font-semibold text-foreground hover:text-primary">
+                What happens after I submit interest?
+              </AccordionTrigger>
+              <AccordionContent className="text-base text-muted-foreground leading-relaxed">
+                Our team reviews your submission and contacts you personally to share more information and discuss next steps.
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-5" className="border border-border/50 bg-card rounded-lg px-6">
+              <AccordionTrigger className="text-lg font-semibold text-foreground hover:text-primary">
+                Who can participate?
+              </AccordionTrigger>
+              <AccordionContent className="text-base text-muted-foreground leading-relaxed">
+                Participation depends on your jurisdiction, regulatory requirements, and the structure of each project. We discuss this individually.
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-6" className="border border-border/50 bg-card rounded-lg px-6">
+              <AccordionTrigger className="text-lg font-semibold text-foreground hover:text-primary">
+                Why do you work in a private format?
+              </AccordionTrigger>
+              <AccordionContent className="text-base text-muted-foreground leading-relaxed">
+                It allows us to keep communication direct, transparent, and tailored to serious long-term partners.
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
         </div>
       </section>
 
