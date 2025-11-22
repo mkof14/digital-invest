@@ -3,7 +3,7 @@ import { Outlet, Link, useNavigate, useLocation } from 'react-router-dom';
 import { supabase } from '@/integrations/supabase/client';
 import { useUserRole } from '@/hooks/useUserRole';
 import { Button } from '@/components/ui/button';
-import { LayoutDashboard, FolderOpen, Users, LogOut, Loader2, UsersRound, Newspaper, Shield, Layout, FileText } from 'lucide-react';
+import { LayoutDashboard, FolderOpen, Users, LogOut, Loader2, UsersRound, Newspaper, Shield, Layout, FileText, Mail } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { toast } from 'sonner';
 
@@ -56,6 +56,7 @@ const AdminLayout = () => {
     { icon: FileText, label: 'Handbook Downloads', path: '/admin/handbook-downloads', minRole: 'EDITOR' },
     { icon: UsersRound, label: 'Team Members', path: '/admin/team', minRole: 'EDITOR' },
     { icon: Newspaper, label: 'News & Updates', path: '/admin/news', minRole: 'EDITOR' },
+    { icon: Mail, label: 'Email Templates', path: '/admin/email-templates', minRole: 'EDITOR' },
     { icon: Shield, label: 'Users & Roles', path: '/admin/users', minRole: 'ADMIN' },
     { icon: Layout, label: 'Site Sections', path: '/admin/site-sections', minRole: 'ADMIN' },
   ];
