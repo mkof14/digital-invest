@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Download, ExternalLink, FileText, CheckCircle2 } from 'lucide-react';
+import { Badge } from '@/components/ui/badge';
+import { Separator } from '@/components/ui/separator';
+import { Download, ExternalLink, FileText, CheckCircle2, AlertCircle, Activity } from 'lucide-react';
 import { toast } from 'sonner';
 
 const AdminSitemap = () => {
@@ -26,11 +28,83 @@ const AdminSitemap = () => {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-3xl font-bold mb-2">Sitemap Management</h1>
+        <h1 className="text-3xl font-bold mb-2">SEO & Analytics</h1>
         <p className="text-muted-foreground">
-          Manage and submit your sitemap to search engines
+          Manage sitemaps, analytics, and search engine optimization
         </p>
       </div>
+
+      {/* Analytics & Tracking Status */}
+      <Card>
+        <CardHeader>
+          <CardTitle className="flex items-center gap-2">
+            <Activity className="h-5 w-5" />
+            Analytics & Tracking Status
+          </CardTitle>
+          <CardDescription>
+            Monitor your analytics and tracking tools setup
+          </CardDescription>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          <div className="grid gap-3">
+            {/* Google Analytics 4 */}
+            <div className="flex items-center justify-between p-4 bg-muted rounded-lg">
+              <div className="flex items-center gap-3">
+                <div className="p-2 bg-success/10 rounded-full">
+                  <CheckCircle2 className="h-4 w-4 text-success" />
+                </div>
+                <div>
+                  <p className="font-medium">Google Analytics 4</p>
+                  <p className="text-xs text-muted-foreground">ID: G-75E86NT2XC</p>
+                </div>
+              </div>
+              <Badge variant="outline" className="bg-success/10 text-success border-success/20">
+                Active
+              </Badge>
+            </div>
+
+            {/* Microsoft Clarity */}
+            <div className="flex items-center justify-between p-4 bg-muted rounded-lg">
+              <div className="flex items-center gap-3">
+                <div className="p-2 bg-warning/10 rounded-full">
+                  <AlertCircle className="h-4 w-4 text-warning" />
+                </div>
+                <div>
+                  <p className="font-medium">Microsoft Clarity</p>
+                  <p className="text-xs text-muted-foreground">Heat maps & Session recordings</p>
+                </div>
+              </div>
+              <Badge variant="outline" className="bg-warning/10 text-warning border-warning/20">
+                Setup Required
+              </Badge>
+            </div>
+          </div>
+
+          <Separator />
+
+          <div className="p-4 bg-blue-500/5 border border-blue-500/20 rounded-lg space-y-2">
+            <div className="flex items-start gap-2">
+              <AlertCircle className="h-4 w-4 text-blue-500 mt-0.5 flex-shrink-0" />
+              <div className="space-y-2">
+                <p className="text-sm font-medium text-blue-500">Setup Microsoft Clarity</p>
+                <p className="text-xs text-muted-foreground">
+                  To enable heat maps and session recordings, visit the Clarity dashboard,
+                  create a project, and replace <code className="px-1 py-0.5 bg-muted rounded text-[10px]">YOUR_CLARITY_PROJECT_ID</code> in <code className="px-1 py-0.5 bg-muted rounded text-[10px]">index.html</code>.
+                </p>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => window.open('https://clarity.microsoft.com/', '_blank')}
+                  className="mt-2"
+                >
+                  <ExternalLink className="h-3 w-3 mr-2" />
+                  Open Microsoft Clarity
+                </Button>
+              </div>
+            </div>
+          </div>
+        </CardContent>
+      </Card>
 
       {/* Sitemap Status */}
       <Card>
