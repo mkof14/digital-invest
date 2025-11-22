@@ -16,7 +16,7 @@ const Navigation = () => {
     { label: 'Documents', href: '/investor-documents' },
     { label: 'How It Works', href: '/how-it-works' },
     { label: 'Team', href: '/team-members' },
-    { label: 'News', href: '/news' },
+    { label: 'News & Insights', href: '/news' },
     { label: 'Contact', href: '/contact' }
   ];
 
