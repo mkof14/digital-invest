@@ -12,6 +12,7 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { Loader2 } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
+import { trackInvestorLead } from '@/lib/analytics';
 
 const formSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters').max(100),
@@ -64,6 +65,9 @@ const InterestForm = ({ projectId, projectTitle, open, onOpenChange }: InterestF
       });
 
       if (error) throw error;
+
+      // Track successful lead submission
+      trackInvestorLead(projectTitle, values.amount_range);
 
       toast({
         title: 'Request Received',

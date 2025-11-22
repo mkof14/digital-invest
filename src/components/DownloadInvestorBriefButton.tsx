@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Download, Loader2 } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { supabase } from '@/integrations/supabase/client';
+import { trackPDFDownload } from '@/lib/analytics';
 
 interface DownloadInvestorBriefButtonProps {
   projectSlug: string;
@@ -42,6 +43,9 @@ const DownloadInvestorBriefButton = ({
       link.click();
       document.body.removeChild(link);
       window.URL.revokeObjectURL(url);
+
+      // Track PDF download
+      trackPDFDownload('investor_brief', projectSlug);
 
       toast({
         title: 'Download started',

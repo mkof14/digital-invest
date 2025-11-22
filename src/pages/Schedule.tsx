@@ -14,6 +14,7 @@ import { cn } from '@/lib/utils';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import InvestorPageDisclaimer from '@/components/InvestorPageDisclaimer';
+import { trackConsultationBooking } from '@/lib/analytics';
 
 interface Project {
   slug: string;
@@ -143,6 +144,9 @@ const Schedule = () => {
       toast.error('Failed to submit booking');
       return;
     }
+
+    // Track successful consultation booking
+    trackConsultationBooking(formData.project, format(formData.date, 'yyyy-MM-dd'));
 
     setConfirmed(true);
   };
