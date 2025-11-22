@@ -43,23 +43,36 @@ const Footer = () => {
             <h4 className="font-semibold text-foreground">Company</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li><Link to="/team-members" className="hover:text-primary transition-colors">Team</Link></li>
-              <li><Link to="/contact" className="hover:text-primary transition-colors">Contact</Link></li>
-              <li><Link to="/demo" className="hover:text-primary transition-colors">Corporate Demo</Link></li>
-              <li><Link to="/investor-documents" className="hover:text-primary transition-colors">Documents</Link></li>
-              <li><Link to="/why-digital-invest" className="hover:text-primary transition-colors">Why Digital Invest</Link></li>
-              <li><Link to="/how-it-works" className="hover:text-primary transition-colors">How It Works</Link></li>
-              <li><Link to="/news" className="hover:text-primary transition-colors">News & Insights</Link></li>
-              <li><Link to="/auth" className="hover:text-primary transition-colors">Admin</Link></li>
+              <li><Link to="/about" className="hover:text-primary transition-colors">About</Link></li>
+              <li><Link to="/governance" className="hover:text-primary transition-colors">Governance</Link></li>
+              <li><Link to="/esg" className="hover:text-primary transition-colors">ESG</Link></li>
+              <li><Link to="/values" className="hover:text-primary transition-colors">Values</Link></li>
+              <li><Link to="/careers" className="hover:text-primary transition-colors">Careers</Link></li>
             </ul>
           </div>
 
-          {/* MIDDLE COLUMNS - Legal */}
+          {/* MIDDLE COLUMNS - Legal & Risk */}
           <div className="space-y-4">
-            <h4 className="font-semibold text-foreground">Legal</h4>
+            <h4 className="font-semibold text-foreground">Legal & Risk</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li><Link to="/legal/terms" className="hover:text-primary transition-colors">Terms of Use</Link></li>
               <li><Link to="/legal/privacy" className="hover:text-primary transition-colors">Privacy Policy</Link></li>
               <li><Link to="/legal/risk-disclosure" className="hover:text-primary transition-colors">Risk Disclosure</Link></li>
+              <li><Link to="/compliance" className="hover:text-primary transition-colors">Compliance</Link></li>
+              <li><Link to="/risk-factors" className="hover:text-primary transition-colors">Risk Factors</Link></li>
+              <li><Link to="/security" className="hover:text-primary transition-colors">Security</Link></li>
+            </ul>
+          </div>
+
+          {/* MIDDLE COLUMNS - Press & Resources */}
+          <div className="space-y-4">
+            <h4 className="font-semibold text-foreground">Press & Resources</h4>
+            <ul className="space-y-2 text-sm text-muted-foreground">
+              <li><Link to="/press-center" className="hover:text-primary transition-colors">Press Center</Link></li>
+              <li><Link to="/media-kit" className="hover:text-primary transition-colors">Media Kit</Link></li>
+              <li><Link to="/investor-documents" className="hover:text-primary transition-colors">Investor Documents</Link></li>
+              <li><Link to="/api" className="hover:text-primary transition-colors">API Overview</Link></li>
+              <li><Link to="/infrastructure" className="hover:text-primary transition-colors">Infrastructure</Link></li>
             </ul>
           </div>
 
