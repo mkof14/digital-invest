@@ -61,9 +61,9 @@ const BioMathLife = () => {
           </div>
         </section>
 
-        {/* Executive Summary */}
-        <section className="mb-16">
-          <Card className="border-primary/20">
+        {/* Overview - Positioned High */}
+        <section className="mb-16 -mt-8">
+          <Card className="border-primary/20 shadow-lg">
             <CardContent className="pt-8 space-y-4">
               <h2 className="text-3xl font-bold mb-4">Overview</h2>
               <p className="text-lg leading-relaxed">
