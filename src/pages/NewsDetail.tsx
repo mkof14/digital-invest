@@ -8,6 +8,7 @@ import { ArrowLeft, Calendar, Loader2, BookOpen, TrendingUp, Newspaper } from 'l
 import { useToast } from '@/hooks/use-toast';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
+import { updateMetaTags, resetMetaTags, truncateForMeta } from '@/lib/metaTags';
 
 interface NewsPost {
   id: string;
@@ -51,6 +52,40 @@ const NewsDetail = () => {
       fetchPost();
     }
   }, [slug]);
+
+  useEffect(() => {
+    if (post) {
+      const typeLabel = post.type === 'insight' ? 'Insight' : post.type === 'update' ? 'Update' : 'News';
+      const pageTitle = `${post.title} - ${typeLabel} | Digital Invest Inc.`;
+      const pageDescription = truncateForMeta(post.body, 160);
+      const canonicalUrl = `https://digitalinvest.com/news/${post.slug}`;
+      const publishedDate = new Date(post.published_at).toISOString();
+
+      updateMetaTags({
+        title: pageTitle,
+        description: pageDescription,
+        ogTitle: post.title,
+        ogDescription: pageDescription,
+        ogType: 'article',
+        canonicalUrl: canonicalUrl,
+      });
+
+      // Add article-specific meta tags
+      const articlePublishedTime = document.querySelector('[property="article:published_time"]') as HTMLMetaElement;
+      if (articlePublishedTime) {
+        articlePublishedTime.setAttribute('content', publishedDate);
+      } else {
+        const meta = document.createElement('meta');
+        meta.setAttribute('property', 'article:published_time');
+        meta.setAttribute('content', publishedDate);
+        document.head.appendChild(meta);
+      }
+    }
+
+    return () => {
+      resetMetaTags();
+    };
+  }, [post]);
 
   const fetchPost = async () => {
     try {
