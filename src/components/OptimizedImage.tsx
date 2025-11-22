@@ -9,6 +9,8 @@ interface OptimizedImageProps extends React.ImgHTMLAttributes<HTMLImageElement> 
   containerClassName?: string;
   aspectRatio?: 'square' | 'video' | 'portrait' | 'auto';
   showSkeleton?: boolean;
+  webpSrc?: string; // Optional WebP version
+  avifSrc?: string; // Optional AVIF version
 }
 
 const OptimizedImage = ({
@@ -18,6 +20,8 @@ const OptimizedImage = ({
   containerClassName,
   aspectRatio = 'auto',
   showSkeleton = true,
+  webpSrc,
+  avifSrc,
   ...props
 }: OptimizedImageProps) => {
   const [isLoading, setIsLoading] = useState(true);
@@ -41,23 +45,30 @@ const OptimizedImage = ({
           <p className="text-sm text-muted-foreground">Image not available</p>
         </div>
       ) : (
-        <img
-          src={src}
-          alt={alt}
-          loading="lazy"
-          decoding="async"
-          className={cn(
-            'transition-opacity duration-300',
-            isLoading ? 'opacity-0' : 'opacity-100',
-            className
-          )}
-          onLoad={() => setIsLoading(false)}
-          onError={() => {
-            setIsLoading(false);
-            setHasError(true);
-          }}
-          {...props}
-        />
+        <picture>
+          {/* Modern formats with fallbacks */}
+          {avifSrc && <source srcSet={avifSrc} type="image/avif" />}
+          {webpSrc && <source srcSet={webpSrc} type="image/webp" />}
+          
+          <img
+            src={src}
+            alt={alt}
+            loading="lazy"
+            decoding="async"
+            fetchPriority="low"
+            className={cn(
+              'transition-opacity duration-300',
+              isLoading ? 'opacity-0' : 'opacity-100',
+              className
+            )}
+            onLoad={() => setIsLoading(false)}
+            onError={() => {
+              setIsLoading(false);
+              setHasError(true);
+            }}
+            {...props}
+          />
+        </picture>
       )}
     </div>
   );
