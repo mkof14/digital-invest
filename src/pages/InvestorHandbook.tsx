@@ -8,6 +8,7 @@ import { Label } from '@/components/ui/label';
 import { Download, FileText } from 'lucide-react';
 import { toast } from 'sonner';
 import { supabase } from '@/integrations/supabase/client';
+import { trackHandbookDownload } from '@/lib/analytics';
 
 const InvestorHandbook = () => {
   const [isDownloading, setIsDownloading] = useState(false);
@@ -69,6 +70,9 @@ const InvestorHandbook = () => {
       a.click();
       window.URL.revokeObjectURL(url);
       document.body.removeChild(a);
+      
+      // Track handbook download
+      trackHandbookDownload();
       
       toast.success('Investor Handbook downloaded successfully');
     } catch (error) {
