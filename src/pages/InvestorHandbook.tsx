@@ -2,11 +2,49 @@ import { useState } from 'react';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
 import { Download, FileText } from 'lucide-react';
 import { toast } from 'sonner';
+import { supabase } from '@/integrations/supabase/client';
 
 const InvestorHandbook = () => {
   const [isDownloading, setIsDownloading] = useState(false);
+  const [emailSubmitted, setEmailSubmitted] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: ''
+  });
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    if (!formData.email) {
+      toast.error('Email is required');
+      return;
+    }
+
+    try {
+      const { error } = await supabase
+        .from('investor_leads')
+        .insert({
+          name: formData.name || 'Handbook Download',
+          email: formData.email,
+          project_id: null,
+          amount_range: 'undisclosed',
+          source: 'investor-handbook',
+          comments: 'Downloaded Investor Handbook'
+        });
+
+      if (error) throw error;
+
+      setEmailSubmitted(true);
+      toast.success('Thank you! You can now download the handbook.');
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      toast.error('Failed to submit form');
+    }
+  };
 
   const handleDownload = async () => {
     setIsDownloading(true);
@@ -60,17 +98,50 @@ const InvestorHandbook = () => {
               Digital Invest Inc. — Multi-Sector Portfolio Overview & Private Investor Guide
             </p>
 
-            <div className="pt-8">
-              <Button 
-                size="lg" 
-                onClick={handleDownload}
-                disabled={isDownloading}
-                className="gap-2"
-              >
-                <Download className="w-5 h-5" />
-                {isDownloading ? 'Generating PDF...' : 'Download Investor Handbook (PDF)'}
-              </Button>
-            </div>
+            {!emailSubmitted ? (
+              <form onSubmit={handleSubmit} className="pt-8 max-w-md mx-auto space-y-4">
+                <div className="space-y-2">
+                  <Label htmlFor="name">Name (Optional)</Label>
+                  <Input
+                    id="name"
+                    type="text"
+                    placeholder="Your name"
+                    value={formData.name}
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="email">Email *</Label>
+                  <Input
+                    id="email"
+                    type="email"
+                    placeholder="your@email.com"
+                    required
+                    value={formData.email}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  />
+                </div>
+                <Button type="submit" size="lg" className="w-full gap-2">
+                  <FileText className="w-5 h-5" />
+                  Get Download Access
+                </Button>
+                <p className="text-xs text-muted-foreground text-center">
+                  We'll use your email to send you updates about Digital Invest projects.
+                </p>
+              </form>
+            ) : (
+              <div className="pt-8">
+                <Button 
+                  size="lg" 
+                  onClick={handleDownload}
+                  disabled={isDownloading}
+                  className="gap-2"
+                >
+                  <Download className="w-5 h-5" />
+                  {isDownloading ? 'Generating PDF...' : 'Download Investor Handbook (PDF)'}
+                </Button>
+              </div>
+            )}
           </div>
         </section>
 

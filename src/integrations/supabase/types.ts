@@ -29,12 +29,12 @@ export type Database = {
           next_action_at: string | null
           notes: string | null
           phone: string | null
-          project_id: string
+          project_id: string | null
           source: string | null
           status: Database["public"]["Enums"]["lead_status"] | null
         }
         Insert: {
-          amount_range: string
+          amount_range?: string
           comments?: string | null
           country?: string | null
           created_at?: string
@@ -47,7 +47,7 @@ export type Database = {
           next_action_at?: string | null
           notes?: string | null
           phone?: string | null
-          project_id: string
+          project_id?: string | null
           source?: string | null
           status?: Database["public"]["Enums"]["lead_status"] | null
         }
@@ -65,7 +65,7 @@ export type Database = {
           next_action_at?: string | null
           notes?: string | null
           phone?: string | null
-          project_id?: string
+          project_id?: string | null
           source?: string | null
           status?: Database["public"]["Enums"]["lead_status"] | null
         }
