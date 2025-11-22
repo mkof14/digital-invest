@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Heart, Brain, Activity, Shield, Lock, CheckCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 import biomathCoreLogo from "@/assets/biomath-core-logo.png";
+import DownloadInvestorBriefButton from "@/components/DownloadInvestorBriefButton";
 
 const BioMathCore = () => {
   const healthCategories = [
@@ -98,6 +99,7 @@ const BioMathCore = () => {
             <Button size="lg" variant="outline" className="px-8">
               Explore Learning Center
             </Button>
+            <DownloadInvestorBriefButton projectSlug="biomathcore" size="lg" />
           </div>
         </div>
 

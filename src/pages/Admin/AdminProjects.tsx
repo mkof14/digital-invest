@@ -15,6 +15,7 @@ import { Switch } from '@/components/ui/switch';
 import { Plus, Edit, Eye, EyeOff, Loader2, Save } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { Link } from 'react-router-dom';
+import DownloadInvestorBriefButton from '@/components/DownloadInvestorBriefButton';
 
 interface Project {
   id: string;
@@ -587,7 +588,7 @@ const AdminProjects = () => {
                 </div>
               </div>
 
-              <div className="flex gap-2">
+              <div className="flex gap-2 flex-wrap">
                 <Link to={`/admin/projects/edit/${project.id}`}>
                   <Button variant="outline" size="sm">
                     <Edit className="mr-2 h-4 w-4" />
@@ -617,6 +618,7 @@ const AdminProjects = () => {
                     View Public
                   </Button>
                 </Link>
+                <DownloadInvestorBriefButton projectSlug={project.slug} variant="outline" size="sm" />
               </div>
             </CardContent>
           </Card>

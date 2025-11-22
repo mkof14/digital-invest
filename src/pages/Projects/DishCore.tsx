@@ -17,6 +17,7 @@ import {
   Heart
 } from "lucide-react";
 import dishcoreLogo from "@/assets/dishcore-logo.png";
+import DownloadInvestorBriefButton from "@/components/DownloadInvestorBriefButton";
 
 const DishCore = () => {
   const features = [
@@ -85,6 +86,15 @@ const DishCore = () => {
               <p className="text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
                 Eat Smarter, Feel Better, Stay in Shape
               </p>
+              <div className="flex gap-4 justify-center flex-wrap mt-6">
+                <Link to="/start-investing">
+                  <Button size="lg">
+                    Learn More
+                    <ArrowRight className="ml-2 w-5 h-5" />
+                  </Button>
+                </Link>
+                <DownloadInvestorBriefButton projectSlug="dishcore" size="lg" />
+              </div>
             </div>
           </div>
         </div>

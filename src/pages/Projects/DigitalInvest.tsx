@@ -25,6 +25,7 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import InterestForm from "@/components/InterestForm";
+import DownloadInvestorBriefButton from "@/components/DownloadInvestorBriefButton";
 
 const DigitalInvest = () => {
   const [showInterestForm, setShowInterestForm] = useState(false);
@@ -100,15 +101,23 @@ const DigitalInvest = () => {
                   { value: "3", label: "Core Industries" },
                   { value: "20+", label: "Years Experience" },
                   { value: "U.S.", label: "Based Development" },
-                  { value: "∞", label: "Multi-Sector Synergy" }
+                  { value: "Multi", label: "Sector Synergy" }
                 ].map((metric, index) => (
-                  <Card key={index} className="border border-border/50 bg-card">
-                    <CardContent className="pt-6 pb-6 text-center">
-                      <div className="text-3xl font-bold text-primary mb-1">{metric.value}</div>
-                      <div className="text-xs text-muted-foreground">{metric.label}</div>
+                  <Card key={index} className="border border-border/50 bg-card/50 backdrop-blur-sm">
+                    <CardContent className="pt-6 pb-6 text-center space-y-1">
+                      <p className="text-3xl font-bold text-primary">{metric.value}</p>
+                      <p className="text-sm text-muted-foreground">{metric.label}</p>
                     </CardContent>
                   </Card>
                 ))}
+              </div>
+
+              <div className="flex gap-4 justify-center flex-wrap mt-8">
+                <Button size="lg" onClick={() => setShowInterestForm(true)}>
+                  Submit Interest
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+                <DownloadInvestorBriefButton projectSlug="digital-invest" size="lg" />
               </div>
             </div>
           </section>
