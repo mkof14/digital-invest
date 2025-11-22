@@ -47,6 +47,7 @@ import AdminContent from "./pages/Admin/AdminContent";
 import AdminConsultations from "./pages/Admin/AdminConsultations";
 import AdminAvailability from "./pages/Admin/AdminAvailability";
 import AdminSitemap from "./pages/Admin/AdminSitemap";
+import AdminLaunchChecklist from "./pages/Admin/AdminLaunchChecklist";
 import WhyDigitalInvest from "./pages/WhyDigitalInvest";
 import ForInvestors from "./pages/ForInvestors";
 import InvestorDocuments from "./pages/InvestorDocuments";
@@ -149,6 +150,7 @@ const App = () => (
             <Route path="consultations" element={<AdminConsultations />} />
             <Route path="availability" element={<AdminAvailability />} />
             <Route path="sitemap" element={<AdminSitemap />} />
+            <Route path="launch-checklist" element={<AdminLaunchChecklist />} />
           </Route>
             
             {/* Legacy Project Routes (keep for backwards compatibility) */}
