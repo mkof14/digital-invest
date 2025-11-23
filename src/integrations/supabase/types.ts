@@ -440,6 +440,42 @@ export type Database = {
         }
         Relationships: []
       }
+      social_media_links: {
+        Row: {
+          created_at: string
+          display_name: string
+          icon_name: string
+          id: string
+          is_visible: boolean
+          platform: string
+          sort_order: number
+          updated_at: string
+          url: string | null
+        }
+        Insert: {
+          created_at?: string
+          display_name: string
+          icon_name: string
+          id?: string
+          is_visible?: boolean
+          platform: string
+          sort_order?: number
+          updated_at?: string
+          url?: string | null
+        }
+        Update: {
+          created_at?: string
+          display_name?: string
+          icon_name?: string
+          id?: string
+          is_visible?: boolean
+          platform?: string
+          sort_order?: number
+          updated_at?: string
+          url?: string | null
+        }
+        Relationships: []
+      }
       team_members: {
         Row: {
           bio: string | null

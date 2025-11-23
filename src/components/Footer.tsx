@@ -1,9 +1,36 @@
 import { Link } from 'react-router-dom';
 import { Linkedin, MapPin, Mail, Facebook, Youtube, X } from 'lucide-react';
 import OptimizedImage from '@/components/OptimizedImage';
+import { useQuery } from '@tanstack/react-query';
+import { supabase } from '@/integrations/supabase/client';
+import * as LucideIcons from 'lucide-react';
+
+interface SocialMediaLink {
+  id: string;
+  platform: string;
+  display_name: string;
+  url: string | null;
+  is_visible: boolean;
+  sort_order: number;
+  icon_name: string;
+}
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+
+  const { data: socialLinks } = useQuery({
+    queryKey: ['social-media-links'],
+    queryFn: async () => {
+      const { data, error } = await supabase
+        .from('social_media_links')
+        .select('*')
+        .eq('is_visible', true)
+        .order('sort_order', { ascending: true });
+
+      if (error) throw error;
+      return data as SocialMediaLink[];
+    },
+  });
 
   return (
     <footer className="bg-background border-t border-border">
@@ -94,38 +121,22 @@ const Footer = () => {
                 <p className="text-sm">United States</p>
               </div>
               <div className="pt-2 flex items-center gap-4">
-                <a 
-                  href="https://www.linkedin.com/company/96294379/admin/dashboard/" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-muted-foreground hover:text-primary transition-colors"
-                  aria-label="LinkedIn">
-                  <Linkedin className="h-5 w-5" />
-                </a>
-                <a 
-                  href="https://www.facebook.com/digitalinvestcompany" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-muted-foreground hover:text-primary transition-colors"
-                  aria-label="Facebook">
-                  <Facebook className="h-5 w-5" />
-                </a>
-                <a 
-                  href="https://www.youtube.com/@BiomathLife" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-muted-foreground hover:text-primary transition-colors"
-                  aria-label="Youtube">
-                  <Youtube className="h-5 w-5" />
-                </a>
-                <a 
-                  href="https://x.com" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-muted-foreground hover:text-primary transition-colors"
-                  aria-label="X (Twitter)">
-                  <X className="h-5 w-5" />
-                </a>
+                {socialLinks?.map((link) => {
+                  const IconComponent = (LucideIcons as any)[link.icon_name];
+                  if (!link.url || !IconComponent) return null;
+                  
+                  return (
+                    <a 
+                      key={link.id}
+                      href={link.url} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="text-muted-foreground hover:text-primary transition-colors"
+                      aria-label={link.display_name}>
+                      <IconComponent className="h-5 w-5" />
+                    </a>
+                  );
+                })}
               </div>
             </div>
           </div>
