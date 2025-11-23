@@ -151,7 +151,7 @@ const Index = () => {
           <div className="space-y-6 animate-fade-in">
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight">
               <span className="block text-foreground">Strategic Investment in</span>
-              <span className="block mt-2 text-3xl md:text-5xl lg:text-6xl bg-gradient-to-r from-primary via-primary-light to-accent bg-clip-text text-transparent animate-gradient">
+              <span className="block mt-4 text-3xl md:text-5xl lg:text-6xl bg-gradient-to-r from-primary via-primary-light to-accent bg-clip-text text-transparent animate-gradient">
                 Real-Economy and Advanced Technology
               </span>
             </h1>
