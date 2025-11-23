@@ -49,13 +49,24 @@ const Auth = () => {
 
   useEffect(() => {
     checkUser();
-  }, []);
+    
+    // Listen for auth state changes
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
+      if (event === 'SIGNED_IN' && session) {
+        navigate('/admin');
+      }
+    });
+
+    return () => subscription.unsubscribe();
+  }, [navigate]);
 
   const checkUser = async () => {
     const { data: { session } } = await supabase.auth.getSession();
     if (session) {
       setIsAuthenticated(true);
       await checkSuperAdminExists();
+      // Redirect to admin if already authenticated
+      navigate('/admin');
     }
   };
 
@@ -101,6 +112,7 @@ const Auth = () => {
 
       setIsAuthenticated(true);
       await checkSuperAdminExists();
+      navigate('/admin');
     } catch (error: any) {
       toast({
         title: 'Error',
