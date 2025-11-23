@@ -4,7 +4,6 @@ import { Button } from '@/components/ui/button';
 import { Menu, X, Sun, Moon } from 'lucide-react';
 import { useTheme } from '@/components/ThemeProvider';
 import OptimizedImage from '@/components/OptimizedImage';
-import SearchBar from './SearchBar';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -47,8 +46,6 @@ const Navigation = () => {
                 </Link>
               ))}
             </nav>
-            
-            <SearchBar />
             
             {/* Theme Toggle */}
             <Button
