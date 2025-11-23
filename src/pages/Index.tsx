@@ -13,6 +13,7 @@ import FloatingElements from "@/components/FloatingElements";
 import ROICalculator from "@/components/ROICalculator";
 import SearchBar from "@/components/SearchBar";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { useLanguage } from "@/contexts/LanguageContext";
 import {
   Rocket,
   Lightbulb,
@@ -60,6 +61,7 @@ interface FeaturedProject {
 
 const Index = () => {
   const [featuredProjects, setFeaturedProjects] = useState<FeaturedProject[]>([]);
+  const { t } = useLanguage();
   
   // Scroll animation hooks
   const featuredSection = useScrollAnimation({ threshold: 0.2 });
@@ -217,12 +219,12 @@ const Index = () => {
       <section ref={featuredSection.ref} className={`py-24 px-4 bg-card/30 scroll-fade-in ${featuredSection.isVisible ? 'visible' : ''}`}>
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16 space-y-4">
-            <Badge variant="secondary" className="mb-3 text-sm">Portfolio Projects</Badge>
+            <Badge variant="secondary" className="mb-3 text-sm">{t('projects.featured')}</Badge>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground tracking-tight">
-              Featured Projects
+              {t('projects.featured')}
             </h2>
             <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto font-light leading-relaxed">
-              Explore our portfolio of real-economy and advanced technology projects
+              {t('projects.subtitle')}
             </p>
           </div>
           
@@ -260,7 +262,7 @@ const Index = () => {
                       <CardFooter className="pt-4">
                         <Button className="w-full group" asChild>
                           <Link to={`/projects/${project.slug}`}>
-                            View Details
+                            {t('common.viewDetails')}
                             <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                           </Link>
                         </Button>
@@ -273,7 +275,7 @@ const Index = () => {
               <div className="text-center">
                 <Link to="/projects">
                   <Button size="lg" variant="outline" className="px-8 py-6 text-lg group border-2">
-                    View All Projects
+                    {t('projects.viewAll')}
                     <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </Link>
