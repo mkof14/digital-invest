@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { supabase } from '@/integrations/supabase/client';
-import { Database } from '@/integrations/supabase/types';
 import { useUserRole } from '@/hooks/useUserRole';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -9,7 +8,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { ArrowLeft, Users as UsersIcon, AlertCircle, UserPlus, Shield } from 'lucide-react';
+import { ArrowLeft, Users as UsersIcon, AlertCircle, UserPlus, Shield, Trash2, RefreshCw } from 'lucide-react';
 import { toast } from 'sonner';
 import { Badge } from '@/components/ui/badge';
 import {
@@ -23,26 +22,23 @@ import {
   AlertDialogTitle,
 } from '@/components/ui/alert-dialog';
 
-interface UserRole {
+interface UserWithRole {
   id: string;
-  user_id: string;
-  role: string;
+  email: string;
   created_at: string;
+  role: string | null;
+  role_id: string | null;
 }
 
 const AdminUsers = () => {
   const navigate = useNavigate();
   const { role: currentUserRole, isLoading: roleLoading, isSuperAdmin } = useUserRole();
-  const [userRoles, setUserRoles] = useState<UserRole[]>([]);
+  const [users, setUsers] = useState<UserWithRole[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [newUserEmail, setNewUserEmail] = useState('');
   const [newUserRole, setNewUserRole] = useState<string>('VIEWER');
   const [isAdding, setIsAdding] = useState(false);
-  const [changeRoleDialog, setChangeRoleDialog] = useState<{
-    userId: string;
-    currentRole: string | null;
-    newRole: string;
-  } | null>(null);
+  const [deleteConfirm, setDeleteConfirm] = useState<string | null>(null);
 
   useEffect(() => {
     if (!roleLoading && (!currentUserRole || !['ADMIN', 'SUPER_ADMIN'].includes(currentUserRole))) {
@@ -58,17 +54,20 @@ const AdminUsers = () => {
   }, [currentUserRole]);
 
   const fetchUsers = async () => {
+    setIsLoading(true);
     try {
-      const { data, error } = await supabase
-        .from('user_roles')
-        .select('*')
-        .order('created_at', { ascending: false });
+      const { data, error } = await supabase.functions.invoke('manage-users', {
+        body: { action: 'list' }
+      });
 
       if (error) throw error;
-      setUserRoles(data || []);
-    } catch (error) {
-      console.error('Error fetching user roles:', error);
-      toast.error('Failed to load users');
+      
+      if (data?.users) {
+        setUsers(data.users);
+      }
+    } catch (error: any) {
+      console.error('Error fetching users:', error);
+      toast.error(error.message || 'Failed to load users');
     } finally {
       setIsLoading(false);
     }
@@ -95,28 +94,31 @@ const AdminUsers = () => {
 
     setIsAdding(true);
     try {
-      toast.info('Please ensure the user has signed up at /auth first. Assigning role now...');
-      
-      // For now, we'll accept any email and let the database handle validation
-      // In a production app, you'd use an edge function to verify the user exists
-      
-      // Check if role already exists for this email
-      // We can't easily check by email without auth.admin access
-      // So we'll just try to insert and let the unique constraint handle it
-      
-      toast.error('To assign a role: 1) User must sign up at /auth 2) Contact your developer to assign roles via database or edge function. Client-side role assignment requires additional backend setup for security.');
-      
-    } catch (error) {
+      const { data, error } = await supabase.functions.invoke('manage-users', {
+        body: { 
+          action: 'assign-role',
+          email: newUserEmail,
+          role: newUserRole
+        }
+      });
+
+      if (error) throw error;
+
+      toast.success(data.message || `Role ${newUserRole} assigned successfully`);
+      setNewUserEmail('');
+      setNewUserRole('VIEWER');
+      fetchUsers();
+    } catch (error: any) {
       console.error('Error adding user role:', error);
-      toast.error('Failed to assign role. Please contact your developer for backend role assignment.');
+      toast.error(error.message || 'Failed to assign role');
     } finally {
       setIsAdding(false);
     }
   };
 
   const handleRoleChange = async (userId: string, newRole: string) => {
-    const userRole = userRoles.find(u => u.user_id === userId);
-    const currentRole = userRole?.role || null;
+    const user = users.find(u => u.id === userId);
+    if (!user) return;
 
     // Validation: Admin cannot assign SUPER_ADMIN or edit SUPER_ADMIN users
     if (currentUserRole === 'ADMIN') {
@@ -124,52 +126,57 @@ const AdminUsers = () => {
         toast.error('Only Super Admins can assign the Super Admin role');
         return;
       }
-      if (currentRole === 'SUPER_ADMIN') {
+      if (user.role === 'SUPER_ADMIN') {
         toast.error('You cannot modify a Super Admin user');
         return;
       }
     }
 
-    // Show confirmation dialog
-    setChangeRoleDialog({
-      userId,
-      currentRole,
-      newRole,
-    });
+    try {
+      const { data, error } = await supabase.functions.invoke('manage-users', {
+        body: {
+          action: 'assign-role',
+          email: user.email,
+          role: newRole
+        }
+      });
+
+      if (error) throw error;
+
+      toast.success(data.message || `Role updated to ${newRole}`);
+      fetchUsers();
+    } catch (error: any) {
+      console.error('Error updating role:', error);
+      toast.error(error.message || 'Failed to update role');
+    }
   };
 
-  const confirmRoleChange = async () => {
-    if (!changeRoleDialog) return;
+  const handleRemoveRole = async (userId: string) => {
+    const user = users.find(u => u.id === userId);
+    if (!user) return;
 
-    const { userId, currentRole, newRole } = changeRoleDialog;
+    // Validation: Admin cannot remove SUPER_ADMIN users
+    if (currentUserRole === 'ADMIN' && user.role === 'SUPER_ADMIN') {
+      toast.error('You cannot remove a Super Admin user');
+      return;
+    }
 
     try {
-      const roleValue = newRole as Database['public']['Enums']['app_role'];
-      
-      if (currentRole) {
-        // Update existing role
-        const { error } = await supabase
-          .from('user_roles')
-          .update({ role: roleValue })
-          .eq('user_id', userId);
+      const { data, error } = await supabase.functions.invoke('manage-users', {
+        body: {
+          action: 'remove-role',
+          userId: userId
+        }
+      });
 
-        if (error) throw error;
-      } else {
-        // Insert new role
-        const { error } = await supabase
-          .from('user_roles')
-          .insert([{ user_id: userId, role: roleValue }]);
+      if (error) throw error;
 
-        if (error) throw error;
-      }
-
-      toast.success(`Role updated to ${newRole}`);
+      toast.success(data.message || 'Role removed successfully');
+      setDeleteConfirm(null);
       fetchUsers();
-    } catch (error) {
-      console.error('Error updating role:', error);
-      toast.error('Failed to update role');
-    } finally {
-      setChangeRoleDialog(null);
+    } catch (error: any) {
+      console.error('Error removing role:', error);
+      toast.error(error.message || 'Failed to remove role');
     }
   };
 
@@ -196,12 +203,18 @@ const AdminUsers = () => {
       <div className="flex items-center justify-between">
         <div>
           <h2 className="text-3xl font-bold text-foreground">Users & Roles</h2>
-          <p className="text-muted-foreground">Manage who can access the admin panel and what they can do</p>
+          <p className="text-muted-foreground">Manage admin panel access and user permissions</p>
         </div>
-        <Button variant="ghost" onClick={() => navigate('/admin')}>
-          <ArrowLeft className="mr-2 h-4 w-4" />
-          Back to Dashboard
-        </Button>
+        <div className="flex gap-2">
+          <Button variant="outline" size="sm" onClick={fetchUsers} disabled={isLoading}>
+            <RefreshCw className={`mr-2 h-4 w-4 ${isLoading ? 'animate-spin' : ''}`} />
+            Refresh
+          </Button>
+          <Button variant="ghost" onClick={() => navigate('/admin')}>
+            <ArrowLeft className="mr-2 h-4 w-4" />
+            Back
+          </Button>
+        </div>
       </div>
 
       {/* Add New User Card */}
@@ -212,31 +225,59 @@ const AdminUsers = () => {
             Assign Role to User
           </CardTitle>
           <CardDescription>
-            Shows users who have been assigned admin roles. To add new users: they must sign up at /auth, then use /admin/setup to claim Super Admin or contact existing admin to assign a role.
+            Enter the email of a registered user to assign them an admin role. User must have an account first.
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <div className="bg-muted/50 border border-border rounded-lg p-4 mb-4">
-            <p className="text-sm text-muted-foreground">
-              <strong>How to grant admin access:</strong>
-            </p>
-            <ol className="text-sm text-muted-foreground mt-2 space-y-1 list-decimal list-inside">
-              <li>New user signs up at <code className="text-foreground">/auth</code></li>
-              <li>If no Super Admin exists, they go to <code className="text-foreground">/admin/setup</code> to claim Super Admin</li>
-              <li>Super Admin can then assign roles to other users manually in the database or via /admin/setup page</li>
-            </ol>
+          <div className="grid gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div className="md:col-span-1">
+                <Label htmlFor="email">User Email</Label>
+                <Input
+                  id="email"
+                  type="email"
+                  placeholder="user@example.com"
+                  value={newUserEmail}
+                  onChange={(e) => setNewUserEmail(e.target.value)}
+                  disabled={isAdding}
+                  onKeyDown={(e) => e.key === 'Enter' && handleAddUser()}
+                />
+              </div>
+              <div className="md:col-span-1">
+                <Label htmlFor="role">Role</Label>
+                <Select value={newUserRole} onValueChange={setNewUserRole} disabled={isAdding}>
+                  <SelectTrigger id="role">
+                    <SelectValue />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="VIEWER">Viewer</SelectItem>
+                    <SelectItem value="EDITOR">Editor</SelectItem>
+                    <SelectItem value="ADMIN">Admin</SelectItem>
+                    {isSuperAdmin() && (
+                      <SelectItem value="SUPER_ADMIN">Super Admin</SelectItem>
+                    )}
+                  </SelectContent>
+                </Select>
+              </div>
+              <div className="flex items-end">
+                <Button onClick={handleAddUser} disabled={isAdding} className="w-full">
+                  {isAdding ? 'Assigning...' : 'Assign Role'}
+                </Button>
+              </div>
+            </div>
           </div>
         </CardContent>
       </Card>
 
+      {/* Users List Card */}
       <Card>
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
             <UsersIcon className="h-5 w-5" />
-            Users with Admin Access
+            All Registered Users
           </CardTitle>
           <CardDescription>
-            Manage roles for users who have been granted admin panel access.
+            View all registered users and manage their admin access roles.
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -245,51 +286,73 @@ const AdminUsers = () => {
               <TableHeader>
                 <TableRow>
                   <TableHead>Email</TableHead>
-                  <TableHead>Role</TableHead>
+                  <TableHead>Current Role</TableHead>
                   <TableHead>Member Since</TableHead>
                   <TableHead className="text-right">Actions</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {userRoles.map((userRole) => {
+                {users.map((user) => {
                   const isCurrentUserSuperAdmin = isSuperAdmin();
-                  const isTargetSuperAdmin = userRole.role === 'SUPER_ADMIN';
+                  const isTargetSuperAdmin = user.role === 'SUPER_ADMIN';
                   const canEdit = isCurrentUserSuperAdmin || !isTargetSuperAdmin;
 
                   return (
-                    <TableRow key={userRole.id}>
-                      <TableCell className="font-medium text-muted-foreground">
-                        User ID: {userRole.user_id.substring(0, 8)}...
+                    <TableRow key={user.id}>
+                      <TableCell className="font-medium">{user.email}</TableCell>
+                      <TableCell>
+                        {user.role ? (
+                          <Badge className={getRoleBadgeColor(user.role)}>
+                            {user.role}
+                          </Badge>
+                        ) : (
+                          <span className="text-muted-foreground italic text-sm">No role</span>
+                        )}
                       </TableCell>
                       <TableCell>
-                        <Badge className={getRoleBadgeColor(userRole.role)}>
-                          {userRole.role}
-                        </Badge>
-                      </TableCell>
-                      <TableCell>
-                        {new Date(userRole.created_at).toLocaleDateString()}
+                        {new Date(user.created_at).toLocaleDateString()}
                       </TableCell>
                       <TableCell className="text-right">
-                        {canEdit ? (
-                          <Select
-                            value={userRole.role}
-                            onValueChange={(value) => handleRoleChange(userRole.user_id, value)}
-                          >
-                            <SelectTrigger className="w-[140px] ml-auto">
-                              <SelectValue placeholder="Assign role" />
-                            </SelectTrigger>
-                            <SelectContent>
-                              <SelectItem value="VIEWER">Viewer</SelectItem>
-                              <SelectItem value="EDITOR">Editor</SelectItem>
-                              <SelectItem value="ADMIN">Admin</SelectItem>
-                              {isCurrentUserSuperAdmin && (
-                                <SelectItem value="SUPER_ADMIN">Super Admin</SelectItem>
+                        <div className="flex justify-end gap-2">
+                          {canEdit && (
+                            <>
+                              <Select
+                                value={user.role || 'NO_ROLE'}
+                                onValueChange={(value) => {
+                                  if (value !== 'NO_ROLE') {
+                                    handleRoleChange(user.id, value);
+                                  }
+                                }}
+                              >
+                                <SelectTrigger className="w-[140px]">
+                                  <SelectValue placeholder="Assign role" />
+                                </SelectTrigger>
+                                <SelectContent>
+                                  <SelectItem value="VIEWER">Viewer</SelectItem>
+                                  <SelectItem value="EDITOR">Editor</SelectItem>
+                                  <SelectItem value="ADMIN">Admin</SelectItem>
+                                  {isCurrentUserSuperAdmin && (
+                                    <SelectItem value="SUPER_ADMIN">Super Admin</SelectItem>
+                                  )}
+                                </SelectContent>
+                              </Select>
+                              
+                              {user.role && (
+                                <Button
+                                  variant="ghost"
+                                  size="sm"
+                                  onClick={() => setDeleteConfirm(user.id)}
+                                  className="text-destructive hover:text-destructive"
+                                >
+                                  <Trash2 className="h-4 w-4" />
+                                </Button>
                               )}
-                            </SelectContent>
-                          </Select>
-                        ) : (
-                          <span className="text-sm text-muted-foreground">Protected</span>
-                        )}
+                            </>
+                          )}
+                          {!canEdit && (
+                            <span className="text-sm text-muted-foreground">Protected</span>
+                          )}
+                        </div>
                       </TableCell>
                     </TableRow>
                   );
@@ -298,14 +361,15 @@ const AdminUsers = () => {
             </Table>
           </div>
 
-          {userRoles.length === 0 && (
+          {users.length === 0 && !isLoading && (
             <div className="text-center py-8 text-muted-foreground">
-              No users with admin access yet. Use the form above to assign roles.
+              No users found. Once users sign up, they will appear here.
             </div>
           )}
         </CardContent>
       </Card>
 
+      {/* Info Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <Card className="border-warning">
           <CardHeader>
@@ -354,18 +418,23 @@ const AdminUsers = () => {
         </Card>
       </div>
 
-      <AlertDialog open={!!changeRoleDialog} onOpenChange={(open) => !open && setChangeRoleDialog(null)}>
+      {/* Delete Confirmation Dialog */}
+      <AlertDialog open={!!deleteConfirm} onOpenChange={(open) => !open && setDeleteConfirm(null)}>
         <AlertDialogContent>
           <AlertDialogHeader>
-            <AlertDialogTitle>Confirm Role Change</AlertDialogTitle>
+            <AlertDialogTitle>Remove Admin Access</AlertDialogTitle>
             <AlertDialogDescription>
-              Are you sure you want to change this user's role to <strong>{changeRoleDialog?.newRole}</strong>?
-              This will change their access permissions immediately.
+              Are you sure you want to remove this user's admin role? They will no longer be able to access the admin panel.
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
             <AlertDialogCancel>Cancel</AlertDialogCancel>
-            <AlertDialogAction onClick={confirmRoleChange}>Confirm</AlertDialogAction>
+            <AlertDialogAction 
+              onClick={() => deleteConfirm && handleRemoveRole(deleteConfirm)}
+              className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
+            >
+              Remove Role
+            </AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialog>
