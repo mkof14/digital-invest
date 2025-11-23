@@ -18,7 +18,7 @@ import { cn } from '@/lib/utils';
 
 interface Lead {
   id: string;
-  project_id: string;
+  project_id: string | null;
   name: string;
   email: string;
   phone: string | null;
@@ -36,7 +36,7 @@ interface Lead {
     title: string;
     slug: string;
     category: string;
-  };
+  } | null;
 }
 
 const AdminLeads = () => {
@@ -430,7 +430,7 @@ const AdminLeads = () => {
                     )}
                   </CardTitle>
                   <CardDescription>
-                    Project: {lead.projects.title} • Submitted {new Date(lead.created_at).toLocaleDateString()}
+                    {lead.projects ? `Project: ${lead.projects.title}` : 'General Inquiry'} • Submitted {new Date(lead.created_at).toLocaleDateString()}
                     {lead.last_contacted_at && (
                       <> • Last contact: {new Date(lead.last_contacted_at).toLocaleDateString()}</>
                     )}
