@@ -144,7 +144,7 @@ const Index = () => {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden px-4 pt-20 md:pt-24">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden px-4 pt-32 md:pt-40">
         <div className="absolute inset-0 bg-gradient-to-b from-background via-card/5 to-background" />
         
         <div className="relative z-10 max-w-7xl mx-auto text-center space-y-10">
