@@ -12,6 +12,7 @@ import { useToast } from '@/hooks/use-toast';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { supabase } from '@/integrations/supabase/client';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const formSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters').max(100),
@@ -23,6 +24,7 @@ const formSchema = z.object({
 const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
+  const { t } = useLanguage();
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -77,14 +79,14 @@ const Contact = () => {
           {/* Header */}
           <div className="mb-12 text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
-              Contact Us
+              {t('contact.title')}
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-6">
-              Have questions? Get in touch with our team.
+              {t('contact.subtitle')}
             </p>
             <div className="max-w-2xl mx-auto">
               <p className="text-sm text-muted-foreground px-6 py-4 bg-muted/30 rounded-lg border border-border/50">
-                <strong>Important:</strong> This form allows you to request more information about Digital Invest Inc. and its projects. Submitting this form does not constitute an offer, commitment, or agreement. Any potential participation, if pursued, will be handled privately and offline.
+                <strong>{t('common.important')}:</strong> {t('form.disclaimer')}
               </p>
             </div>
           </div>
@@ -94,9 +96,9 @@ const Contact = () => {
             <div className="lg:col-span-2">
               <Card className="border border-border/50">
                 <CardHeader>
-                  <CardTitle className="text-2xl">Request Information</CardTitle>
+                  <CardTitle className="text-2xl">{t('contact.formTitle')}</CardTitle>
                   <CardDescription>
-                    Submit your inquiry and we'll follow up privately. No commitment is created by this message.
+                    {t('contact.formDescription')}
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
@@ -107,9 +109,9 @@ const Contact = () => {
                         name="name"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel>Full Name</FormLabel>
+                            <FormLabel>{t('contact.fullName')}</FormLabel>
                             <FormControl>
-                              <Input placeholder="John Doe" {...field} />
+                              <Input placeholder={t('form.name')} {...field} />
                             </FormControl>
                             <FormMessage />
                           </FormItem>

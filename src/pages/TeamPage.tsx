@@ -8,6 +8,7 @@ import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { Separator } from '@/components/ui/separator';
 import OptimizedImage from '@/components/OptimizedImage';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface TeamMember {
   id: string;
@@ -23,6 +24,7 @@ const TeamPage = () => {
   const [members, setMembers] = useState<TeamMember[]>([]);
   const [loading, setLoading] = useState(true);
   const { toast } = useToast();
+  const { t } = useLanguage();
 
   useEffect(() => {
     fetchTeam();
@@ -73,10 +75,10 @@ const TeamPage = () => {
         {/* Header */}
         <div className="mb-12 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
-            Our Team
+            {t('team.title')}
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Meet the professionals driving innovation and growth at Digital Invest Inc.
+            {t('team.subtitle')}
           </p>
         </div>
 
