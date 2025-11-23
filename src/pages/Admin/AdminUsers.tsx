@@ -39,6 +39,7 @@ const AdminUsers = () => {
   const [newUserRole, setNewUserRole] = useState<string>('VIEWER');
   const [isAdding, setIsAdding] = useState(false);
   const [deleteConfirm, setDeleteConfirm] = useState<string | null>(null);
+  const [deleteUserConfirm, setDeleteUserConfirm] = useState<string | null>(null);
 
   useEffect(() => {
     if (!roleLoading && (!currentUserRole || !['ADMIN', 'SUPER_ADMIN'].includes(currentUserRole))) {
@@ -177,6 +178,35 @@ const AdminUsers = () => {
     } catch (error: any) {
       console.error('Error removing role:', error);
       toast.error(error.message || 'Failed to remove role');
+    }
+  };
+
+  const handleDeleteUser = async (userId: string) => {
+    const user = users.find(u => u.id === userId);
+    if (!user) return;
+
+    // Only SUPER_ADMIN can delete users
+    if (!isSuperAdmin()) {
+      toast.error('Only Super Admins can delete users');
+      return;
+    }
+
+    try {
+      const { data, error } = await supabase.functions.invoke('manage-users', {
+        body: {
+          action: 'delete-user',
+          userId: userId
+        }
+      });
+
+      if (error) throw error;
+
+      toast.success(data.message || 'User deleted successfully');
+      setDeleteUserConfirm(null);
+      fetchUsers();
+    } catch (error: any) {
+      console.error('Error deleting user:', error);
+      toast.error(error.message || 'Failed to delete user');
     }
   };
 
@@ -343,8 +373,21 @@ const AdminUsers = () => {
                                   size="sm"
                                   onClick={() => setDeleteConfirm(user.id)}
                                   className="text-destructive hover:text-destructive"
+                                  title="Remove role"
                                 >
                                   <Trash2 className="h-4 w-4" />
+                                </Button>
+                              )}
+                              
+                              {isCurrentUserSuperAdmin && (
+                                <Button
+                                  variant="ghost"
+                                  size="sm"
+                                  onClick={() => setDeleteUserConfirm(user.id)}
+                                  className="text-destructive hover:text-destructive hover:bg-destructive/10"
+                                  title="Delete user permanently"
+                                >
+                                  <Trash2 className="h-4 w-4 fill-destructive" />
                                 </Button>
                               )}
                             </>
@@ -418,13 +461,13 @@ const AdminUsers = () => {
         </Card>
       </div>
 
-      {/* Delete Confirmation Dialog */}
+      {/* Remove Role Confirmation Dialog */}
       <AlertDialog open={!!deleteConfirm} onOpenChange={(open) => !open && setDeleteConfirm(null)}>
         <AlertDialogContent>
           <AlertDialogHeader>
             <AlertDialogTitle>Remove Admin Access</AlertDialogTitle>
             <AlertDialogDescription>
-              Are you sure you want to remove this user's admin role? They will no longer be able to access the admin panel.
+              Are you sure you want to remove this user's admin role? They will no longer be able to access the admin panel, but their account will remain active.
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
@@ -434,6 +477,28 @@ const AdminUsers = () => {
               className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
             >
               Remove Role
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
+
+      {/* Delete User Confirmation Dialog */}
+      <AlertDialog open={!!deleteUserConfirm} onOpenChange={(open) => !open && setDeleteUserConfirm(null)}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle className="text-destructive">Delete User Permanently</AlertDialogTitle>
+            <AlertDialogDescription>
+              Are you sure you want to permanently delete this user? This action cannot be undone. 
+              The user's account, role, and all associated data will be deleted from the system.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel>Cancel</AlertDialogCancel>
+            <AlertDialogAction 
+              onClick={() => deleteUserConfirm && handleDeleteUser(deleteUserConfirm)}
+              className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
+            >
+              Delete User
             </AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>

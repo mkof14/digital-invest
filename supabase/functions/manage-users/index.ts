@@ -6,7 +6,7 @@ const corsHeaders = {
 };
 
 interface ManageUsersRequest {
-  action: 'list' | 'assign-role' | 'remove-role';
+  action: 'list' | 'assign-role' | 'remove-role' | 'delete-user';
   email?: string;
   role?: 'VIEWER' | 'EDITOR' | 'ADMIN' | 'SUPER_ADMIN';
   userId?: string;
@@ -287,6 +287,71 @@ Deno.serve(async (req) => {
       console.log(`Removed role from user ${body.userId}`);
       return new Response(
         JSON.stringify({ success: true, message: 'Role removed successfully' }),
+        { headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+      );
+    }
+
+    // DELETE USER COMPLETELY (SUPER_ADMIN ONLY)
+    if (body.action === 'delete-user') {
+      // Only SUPER_ADMIN can delete users
+      if (currentUserRole !== 'SUPER_ADMIN') {
+        return new Response(
+          JSON.stringify({ error: 'Only Super Admins can delete users' }),
+          { status: 403, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+        );
+      }
+
+      if (!body.userId) {
+        return new Response(
+          JSON.stringify({ error: 'User ID is required' }),
+          { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+        );
+      }
+
+      // Prevent deleting yourself
+      if (body.userId === user.id) {
+        return new Response(
+          JSON.stringify({ error: 'You cannot delete your own account' }),
+          { status: 403, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+        );
+      }
+
+      // Check if target is SUPER_ADMIN
+      const { data: targetRole } = await supabaseClient
+        .from('user_roles')
+        .select('role')
+        .eq('user_id', body.userId)
+        .single();
+
+      // Prevent deleting the last SUPER_ADMIN
+      if (targetRole?.role === 'SUPER_ADMIN') {
+        const { data: superAdmins } = await supabaseClient
+          .from('user_roles')
+          .select('id')
+          .eq('role', 'SUPER_ADMIN');
+
+        if (!superAdmins || superAdmins.length <= 1) {
+          return new Response(
+            JSON.stringify({ error: 'Cannot delete the last Super Admin' }),
+            { status: 403, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+          );
+        }
+      }
+
+      // Delete user from auth system (this will cascade delete the role)
+      const { error: deleteError } = await supabaseAdmin.auth.admin.deleteUser(body.userId);
+
+      if (deleteError) {
+        console.error('Error deleting user:', deleteError);
+        return new Response(
+          JSON.stringify({ error: 'Failed to delete user' }),
+          { status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+        );
+      }
+
+      console.log(`Deleted user ${body.userId}`);
+      return new Response(
+        JSON.stringify({ success: true, message: 'User deleted successfully' }),
         { headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
       );
     }
