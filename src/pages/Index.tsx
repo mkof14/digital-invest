@@ -147,21 +147,21 @@ const Index = () => {
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden px-4 pt-32 md:pt-40">
         <div className="absolute inset-0 bg-gradient-to-b from-background via-card/5 to-background" />
         
-        <div className="relative z-10 max-w-7xl mx-auto text-center space-y-10">
-          <div className="space-y-6 animate-fade-in">
+        <div className="relative z-10 max-w-7xl mx-auto text-center space-y-14">
+          <div className="space-y-8 animate-fade-in">
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight">
               <span className="block text-foreground">Strategic Investment in</span>
               <span className="block mt-4 text-3xl md:text-5xl lg:text-6xl bg-gradient-to-r from-primary via-primary-light to-accent bg-clip-text text-transparent animate-gradient">
                 Real-Economy and Advanced Technology
               </span>
             </h1>
-            <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed pt-2">
               Digital Invest Inc. develops and scales innovative projects across AI, precision health, 
               advanced manufacturing, and agricultural technology—delivering measurable impact in critical sectors of the American economy.
             </p>
           </div>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in pt-4">
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center animate-fade-in pt-6">
             <Link to="/projects">
               <Button size="lg" className="px-10 py-6 text-base">
                 Explore Projects
@@ -177,7 +177,7 @@ const Index = () => {
           </div>
 
           {/* Key Metrics */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 pt-16 max-w-5xl mx-auto animate-fade-in">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-10 pt-20 max-w-5xl mx-auto animate-fade-in">
             {[
               { value: "25+", label: "Years Experience" },
               { value: "5", label: "Active Projects" },
@@ -185,7 +185,7 @@ const Index = () => {
               { value: "15+", label: "Countries Served" }
             ].map((stat, index) => (
               <div key={index} className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-primary mb-1">{stat.value}</div>
+                <div className="text-3xl md:text-4xl font-bold text-primary mb-2">{stat.value}</div>
                 <div className="text-sm text-muted-foreground">{stat.label}</div>
               </div>
             ))}
