@@ -37,7 +37,7 @@ interface InvestorDocument {
 
 const AdminHandbookDownloads = () => {
   const navigate = useNavigate();
-  const { isAdmin } = useUserRole();
+  const { isAdmin, isLoading: roleLoading } = useUserRole();
   const [downloads, setDownloads] = useState<HandbookDownload[]>([]);
   const [documents, setDocuments] = useState<InvestorDocument[]>([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -51,13 +51,15 @@ const AdminHandbookDownloads = () => {
   const [uploadCategory, setUploadCategory] = useState('general');
 
   useEffect(() => {
+    if (roleLoading) return;
+    
     if (!isAdmin()) {
       navigate('/admin');
       return;
     }
     fetchDownloads();
     fetchDocuments();
-  }, []);
+  }, [roleLoading, isAdmin]);
 
   const fetchDownloads = async () => {
     try {
