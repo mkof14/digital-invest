@@ -440,35 +440,73 @@ export type Database = {
         }
         Relationships: []
       }
+      social_media_clicks: {
+        Row: {
+          clicked_at: string
+          id: string
+          referrer: string | null
+          social_media_id: string
+          user_agent: string | null
+        }
+        Insert: {
+          clicked_at?: string
+          id?: string
+          referrer?: string | null
+          social_media_id: string
+          user_agent?: string | null
+        }
+        Update: {
+          clicked_at?: string
+          id?: string
+          referrer?: string | null
+          social_media_id?: string
+          user_agent?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "social_media_clicks_social_media_id_fkey"
+            columns: ["social_media_id"]
+            isOneToOne: false
+            referencedRelation: "social_media_links"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       social_media_links: {
         Row: {
+          click_count: number
           created_at: string
           display_name: string
           icon_name: string
           id: string
           is_visible: boolean
+          last_clicked_at: string | null
           platform: string
           sort_order: number
           updated_at: string
           url: string | null
         }
         Insert: {
+          click_count?: number
           created_at?: string
           display_name: string
           icon_name: string
           id?: string
           is_visible?: boolean
+          last_clicked_at?: string | null
           platform: string
           sort_order?: number
           updated_at?: string
           url?: string | null
         }
         Update: {
+          click_count?: number
           created_at?: string
           display_name?: string
           icon_name?: string
           id?: string
           is_visible?: boolean
+          last_clicked_at?: string | null
           platform?: string
           sort_order?: number
           updated_at?: string
@@ -557,6 +595,10 @@ export type Database = {
           user_id: string
         }
         Returns: boolean
+      }
+      increment_social_click: {
+        Args: { social_id: string }
+        Returns: undefined
       }
     }
     Enums: {
