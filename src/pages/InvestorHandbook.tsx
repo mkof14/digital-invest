@@ -9,6 +9,7 @@ import { Download, FileText } from 'lucide-react';
 import { toast } from 'sonner';
 import { supabase } from '@/integrations/supabase/client';
 import { trackHandbookDownload } from '@/lib/analytics';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const InvestorHandbook = () => {
   const [isDownloading, setIsDownloading] = useState(false);
@@ -17,6 +18,7 @@ const InvestorHandbook = () => {
     name: '',
     email: ''
   });
+  const { t } = useLanguage();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

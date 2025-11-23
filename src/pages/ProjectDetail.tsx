@@ -17,6 +17,7 @@ import { MarkdownContent } from '@/components/MarkdownContent';
 import InvestorPageDisclaimer from '@/components/InvestorPageDisclaimer';
 import biomathCoreHero from '@/assets/projects/biomath-core-hero.jpg';
 import digitalInvestHero from '@/assets/projects/digitalinvest-hero.jpg';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface Project {
   id: string;
@@ -190,6 +191,7 @@ const ProjectDetail = () => {
   const [loading, setLoading] = useState(true);
   const [showInterestForm, setShowInterestForm] = useState(false);
   const { toast } = useToast();
+  const { t } = useLanguage();
 
   useEffect(() => {
     if (slug) {
@@ -335,7 +337,7 @@ const ProjectDetail = () => {
         <Link to="/projects" className="inline-block mb-6">
           <Button variant="ghost" size="sm">
             <ArrowLeft className="mr-2 h-4 w-4" />
-            Back to Projects
+            {t('projectDetail.backToProjects')}
           </Button>
         </Link>
 
@@ -383,7 +385,7 @@ const ProjectDetail = () => {
                     </Badge>
                   </div>
                   <p className="text-lg text-muted-foreground/90 mb-1">
-                    A portfolio project developed and operated by Digital Invest Inc.
+                    {t('projectDetail.portfolioProject')}
                   </p>
                   <p className="text-xl text-foreground">
                     {project.short_description}
@@ -399,7 +401,7 @@ const ProjectDetail = () => {
               <div className="flex flex-wrap justify-center gap-4">
                 <Button size="lg" className="text-lg px-8 py-6" onClick={() => setShowInterestForm(true)}>
                   <TrendingUp className="mr-2 h-5 w-5" />
-                  Request Private Information
+                  {t('projectDetail.requestInfo')}
                 </Button>
                 {websiteUrl && (
                   <Button
@@ -410,13 +412,13 @@ const ProjectDetail = () => {
                   >
                     <a href={websiteUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
                       <Globe className="h-5 w-5" />
-                      <span>Visit Website</span>
+                      <span>{t('projectDetail.visitWebsite')}</span>
                     </a>
                   </Button>
                 )}
               </div>
               <p className="text-sm text-muted-foreground mt-2">
-                Non-binding request • No payment required
+                {t('projectDetail.nonBinding')}
               </p>
             </div>
           )}
@@ -427,7 +429,7 @@ const ProjectDetail = () => {
         {/* Investment Highlights Section */}
         <section className="mb-16">
           <h2 className="text-3xl font-bold mb-8 text-foreground">
-            Investment Highlights
+            {t('projectDetail.investmentHighlights')}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {getInvestmentHighlights(project.category).map((highlight, index) => (
