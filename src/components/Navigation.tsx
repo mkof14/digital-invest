@@ -93,12 +93,6 @@ const Navigation = () => {
                 <DropdownMenuItem onClick={() => setLanguage('pt')}>
                   Português {language === 'pt' && '✓'}
                 </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setLanguage('it')}>
-                  Italiano {language === 'it' && '✓'}
-                </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setLanguage('nl')}>
-                  Nederlands {language === 'nl' && '✓'}
-                </DropdownMenuItem>
                 <DropdownMenuItem onClick={() => setLanguage('pl')}>
                   Polski {language === 'pl' && '✓'}
                 </DropdownMenuItem>
@@ -171,8 +165,6 @@ const Navigation = () => {
                     {language === 'ja' && '日本語'}
                     {language === 'ar' && 'العربية'}
                     {language === 'pt' && 'Português'}
-                    {language === 'it' && 'Italiano'}
-                    {language === 'nl' && 'Nederlands'}
                     {language === 'pl' && 'Polski'}
                     {language === 'tr' && 'Türkçe'}
                     {language === 'ko' && '한국어'}
@@ -208,12 +200,6 @@ const Navigation = () => {
                   </DropdownMenuItem>
                   <DropdownMenuItem onClick={() => setLanguage('pt')}>
                     Português {language === 'pt' && '✓'}
-                  </DropdownMenuItem>
-                  <DropdownMenuItem onClick={() => setLanguage('it')}>
-                    Italiano {language === 'it' && '✓'}
-                  </DropdownMenuItem>
-                  <DropdownMenuItem onClick={() => setLanguage('nl')}>
-                    Nederlands {language === 'nl' && '✓'}
                   </DropdownMenuItem>
                   <DropdownMenuItem onClick={() => setLanguage('pl')}>
                     Polski {language === 'pl' && '✓'}
