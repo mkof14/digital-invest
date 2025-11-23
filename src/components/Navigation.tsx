@@ -62,12 +62,51 @@ const Navigation = () => {
                   <Globe className="h-5 w-5" />
                 </Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="end">
+              <DropdownMenuContent align="end" className="max-h-96 overflow-y-auto">
                 <DropdownMenuItem onClick={() => setLanguage('en')}>
                   English {language === 'en' && '✓'}
                 </DropdownMenuItem>
                 <DropdownMenuItem onClick={() => setLanguage('ru')}>
                   Русский {language === 'ru' && '✓'}
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => setLanguage('uk')}>
+                  Українська {language === 'uk' && '✓'}
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => setLanguage('es')}>
+                  Español {language === 'es' && '✓'}
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => setLanguage('fr')}>
+                  Français {language === 'fr' && '✓'}
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => setLanguage('de')}>
+                  Deutsch {language === 'de' && '✓'}
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => setLanguage('zh')}>
+                  中文 {language === 'zh' && '✓'}
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => setLanguage('ja')}>
+                  日本語 {language === 'ja' && '✓'}
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => setLanguage('ar')}>
+                  العربية {language === 'ar' && '✓'}
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => setLanguage('pt')}>
+                  Português {language === 'pt' && '✓'}
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => setLanguage('it')}>
+                  Italiano {language === 'it' && '✓'}
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => setLanguage('nl')}>
+                  Nederlands {language === 'nl' && '✓'}
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => setLanguage('pl')}>
+                  Polski {language === 'pl' && '✓'}
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => setLanguage('tr')}>
+                  Türkçe {language === 'tr' && '✓'}
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => setLanguage('ko')}>
+                  한국어 {language === 'ko' && '✓'}
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
@@ -122,15 +161,68 @@ const Navigation = () => {
                 <DropdownMenuTrigger asChild>
                   <Button variant="ghost" className="justify-start py-2 w-full">
                     <Globe className="h-5 w-5 mr-2" />
-                    {language === 'en' ? 'English' : 'Русский'}
+                    {language === 'en' && 'English'}
+                    {language === 'ru' && 'Русский'}
+                    {language === 'uk' && 'Українська'}
+                    {language === 'es' && 'Español'}
+                    {language === 'fr' && 'Français'}
+                    {language === 'de' && 'Deutsch'}
+                    {language === 'zh' && '中文'}
+                    {language === 'ja' && '日本語'}
+                    {language === 'ar' && 'العربية'}
+                    {language === 'pt' && 'Português'}
+                    {language === 'it' && 'Italiano'}
+                    {language === 'nl' && 'Nederlands'}
+                    {language === 'pl' && 'Polski'}
+                    {language === 'tr' && 'Türkçe'}
+                    {language === 'ko' && '한국어'}
                   </Button>
                 </DropdownMenuTrigger>
-                <DropdownMenuContent align="start" className="w-full">
+                <DropdownMenuContent align="start" className="w-full max-h-96 overflow-y-auto">
                   <DropdownMenuItem onClick={() => setLanguage('en')}>
                     English {language === 'en' && '✓'}
                   </DropdownMenuItem>
                   <DropdownMenuItem onClick={() => setLanguage('ru')}>
                     Русский {language === 'ru' && '✓'}
+                  </DropdownMenuItem>
+                  <DropdownMenuItem onClick={() => setLanguage('uk')}>
+                    Українська {language === 'uk' && '✓'}
+                  </DropdownMenuItem>
+                  <DropdownMenuItem onClick={() => setLanguage('es')}>
+                    Español {language === 'es' && '✓'}
+                  </DropdownMenuItem>
+                  <DropdownMenuItem onClick={() => setLanguage('fr')}>
+                    Français {language === 'fr' && '✓'}
+                  </DropdownMenuItem>
+                  <DropdownMenuItem onClick={() => setLanguage('de')}>
+                    Deutsch {language === 'de' && '✓'}
+                  </DropdownMenuItem>
+                  <DropdownMenuItem onClick={() => setLanguage('zh')}>
+                    中文 {language === 'zh' && '✓'}
+                  </DropdownMenuItem>
+                  <DropdownMenuItem onClick={() => setLanguage('ja')}>
+                    日本語 {language === 'ja' && '✓'}
+                  </DropdownMenuItem>
+                  <DropdownMenuItem onClick={() => setLanguage('ar')}>
+                    العربية {language === 'ar' && '✓'}
+                  </DropdownMenuItem>
+                  <DropdownMenuItem onClick={() => setLanguage('pt')}>
+                    Português {language === 'pt' && '✓'}
+                  </DropdownMenuItem>
+                  <DropdownMenuItem onClick={() => setLanguage('it')}>
+                    Italiano {language === 'it' && '✓'}
+                  </DropdownMenuItem>
+                  <DropdownMenuItem onClick={() => setLanguage('nl')}>
+                    Nederlands {language === 'nl' && '✓'}
+                  </DropdownMenuItem>
+                  <DropdownMenuItem onClick={() => setLanguage('pl')}>
+                    Polski {language === 'pl' && '✓'}
+                  </DropdownMenuItem>
+                  <DropdownMenuItem onClick={() => setLanguage('tr')}>
+                    Türkçe {language === 'tr' && '✓'}
+                  </DropdownMenuItem>
+                  <DropdownMenuItem onClick={() => setLanguage('ko')}>
+                    한국어 {language === 'ko' && '✓'}
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
