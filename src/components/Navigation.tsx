@@ -30,7 +30,7 @@ const Navigation = () => {
               className="w-10 h-10 object-contain"
               showSkeleton={false}
             />
-            <span className="text-primary text-2xl font-bold">Digital Invest</span>
+            <span className="text-foreground text-2xl font-bold">Digital Invest</span>
           </div>
 
           {/* Desktop Navigation */}
