@@ -33,24 +33,27 @@ export const generateOrganizationSchema = () => {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "Digital Invest Inc.",
-    "url": "https://digitalinvest.com",
-    "logo": "https://digitalinvest.com/lovable-uploads/d1011e6f-955a-48d9-adef-662af751c3b9.png",
-    "description": "Private investment platform for qualified investors in AI, biotechnology, precision medicine, and agricultural technology projects.",
+    "url": "https://www.digitalinvest.com",
+    "logo": "https://www.digitalinvest.com/lovable-uploads/d1011e6f-955a-48d9-adef-662af751c3b9.png",
+    "description": "Private investment platform managing a diverse portfolio across health technology, agricultural systems, and food intelligence.",
+    "foundingDate": "2004",
     "founder": {
       "@type": "Person",
       "name": "Michael Kofman"
     },
     "sameAs": [
-      "https://www.linkedin.com/company/digitalinvestinc",
-      "https://www.facebook.com/digitalinvestinc",
-      "https://www.youtube.com/@digitalinvestinc",
-      "https://twitter.com/digitalinvestinc"
+      "https://www.linkedin.com/company/digital-invest-inc"
     ],
     "contactPoint": {
       "@type": "ContactPoint",
-      "contactType": "Investor Relations",
+      "contactType": "Investment Inquiries",
       "email": "info@digitalinvest.com"
-    }
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "US"
+    },
+    "industry": "Investment Management"
   };
 };
 

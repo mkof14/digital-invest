@@ -10,6 +10,9 @@ import { supabase } from '@/integrations/supabase/client';
 import { generateFAQSchema, injectStructuredData, removeStructuredData } from '@/lib/structuredData';
 import OptimizedImage from "@/components/OptimizedImage";
 import FloatingElements from "@/components/FloatingElements";
+import InvestmentTimeline from "@/components/InvestmentTimeline";
+import PortfolioDashboard from "@/components/PortfolioDashboard";
+import ROICalculator from "@/components/ROICalculator";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import {
   Rocket,
@@ -281,6 +284,46 @@ const Index = () => {
               </Link>
             </div>
           )}
+        </div>
+      </section>
+
+      {/* Portfolio Dashboard */}
+      <section className="py-24 px-4 bg-muted/30">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16 space-y-4">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground tracking-tight">
+              Portfolio Overview
+            </h2>
+            <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto font-light leading-relaxed">
+              Real-time portfolio metrics and activity
+            </p>
+          </div>
+          <PortfolioDashboard />
+        </div>
+      </section>
+
+      {/* ROI Calculator */}
+      <section className="py-24 px-4">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-16 space-y-4">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground tracking-tight">
+              Investment Calculator
+            </h2>
+            <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto font-light leading-relaxed">
+              Informational calculator to understand potential scale
+            </p>
+            <p className="text-sm text-muted-foreground">
+              Not a guarantee or promise of returns. For illustrative purposes only.
+            </p>
+          </div>
+          <ROICalculator />
+        </div>
+      </section>
+
+      {/* Investment Timeline */}
+      <section className="py-24 px-4 bg-muted/30">
+        <div className="max-w-7xl mx-auto">
+          <InvestmentTimeline />
         </div>
       </section>
 

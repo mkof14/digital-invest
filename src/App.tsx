@@ -52,6 +52,8 @@ import AdminLaunchChecklist from "./pages/Admin/AdminLaunchChecklist";
 import WhyDigitalInvest from "./pages/WhyDigitalInvest";
 import ForInvestors from "./pages/ForInvestors";
 import InvestorDocuments from "./pages/InvestorDocuments";
+import Glossary from "./pages/Glossary";
+import DocumentLibrary from "./pages/DocumentLibrary";
 import About from "./pages/About";
 import Demo from "./pages/Demo";
 import Compliance from "./pages/Compliance";
@@ -123,6 +125,8 @@ const App = () => (
             <Route path="/api" element={<API />} />
             <Route path="/infrastructure" element={<Infrastructure />} />
             <Route path="/investor-handbook" element={<InvestorHandbook />} />
+            <Route path="/glossary" element={<Glossary />} />
+            <Route path="/document-library" element={<DocumentLibrary />} />
             
             {/* Legal Routes */}
             <Route path="/legal-overview" element={<LegalOverview />} />
