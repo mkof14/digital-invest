@@ -71,33 +71,44 @@ serve(async (req) => {
 
     // Helper function to draw wrapped text
     const drawWrappedText = (text: string, fontSize: number, font: any, maxWidth: number) => {
-      const words = text.split(' ');
-      const lines: string[] = [];
-      let currentLine = '';
-
-      for (const word of words) {
-        const testLine = currentLine ? `${currentLine} ${word}` : word;
-        const width = font.widthOfTextAtSize(testLine, fontSize);
-        
-        if (width > maxWidth && currentLine) {
-          lines.push(currentLine);
-          currentLine = word;
-        } else {
-          currentLine = testLine;
+      // First split by newlines to handle paragraph breaks
+      const paragraphs = text.split('\n');
+      
+      for (const paragraph of paragraphs) {
+        // Skip empty lines
+        if (!paragraph.trim()) {
+          yPosition -= fontSize + 5;
+          continue;
         }
-      }
-      if (currentLine) lines.push(currentLine);
+        
+        const words = paragraph.split(' ');
+        const lines: string[] = [];
+        let currentLine = '';
 
-      for (const line of lines) {
-        checkAndAddNewPage(fontSize + 5);
-        currentPage.drawText(line, {
-          x: margin,
-          y: yPosition,
-          size: fontSize,
-          font: font,
-          color: rgb(0.2, 0.2, 0.2),
-        });
-        yPosition -= fontSize + 5;
+        for (const word of words) {
+          const testLine = currentLine ? `${currentLine} ${word}` : word;
+          const width = font.widthOfTextAtSize(testLine, fontSize);
+          
+          if (width > maxWidth && currentLine) {
+            lines.push(currentLine);
+            currentLine = word;
+          } else {
+            currentLine = testLine;
+          }
+        }
+        if (currentLine) lines.push(currentLine);
+
+        for (const line of lines) {
+          checkAndAddNewPage(fontSize + 5);
+          currentPage.drawText(line, {
+            x: margin,
+            y: yPosition,
+            size: fontSize,
+            font: font,
+            color: rgb(0.2, 0.2, 0.2),
+          });
+          yPosition -= fontSize + 5;
+        }
       }
       yPosition -= 5;
     };
