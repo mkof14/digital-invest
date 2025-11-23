@@ -1,24 +1,85 @@
 import { useEffect, useState } from 'react';
 
 const FloatingElements = () => {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      // Normalize mouse position to -1 to 1 range
-      const x = (e.clientX / window.innerWidth) * 2 - 1;
-      const y = (e.clientY / window.innerHeight) * 2 - 1;
-      setMousePosition({ x, y });
+    // Detect mobile device
+    const checkMobile = () => {
+      setIsMobile(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
+    };
+    checkMobile();
+
+    // Gyroscope-based parallax for mobile devices
+    const handleOrientation = (e: DeviceOrientationEvent) => {
+      if (!isMobile) return;
+      
+      // Normalize orientation values to -1 to 1 range
+      // Beta: front-to-back tilt (-180 to 180)
+      // Gamma: left-to-right tilt (-90 to 90)
+      const beta = e.beta || 0;
+      const gamma = e.gamma || 0;
+      
+      const x = Math.max(-1, Math.min(1, gamma / 45)); // Normalize to -1 to 1
+      const y = Math.max(-1, Math.min(1, (beta - 45) / 45)); // Normalize to -1 to 1
+      
+      setPosition({ x, y });
     };
 
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, []);
+    // Touch-based parallax as fallback for mobile
+    const handleTouchMove = (e: TouchEvent) => {
+      if (!isMobile) return;
+      
+      const touch = e.touches[0];
+      const x = (touch.clientX / window.innerWidth) * 2 - 1;
+      const y = (touch.clientY / window.innerHeight) * 2 - 1;
+      setPosition({ x, y });
+    };
+
+    // Mouse-based parallax for desktop
+    const handleMouseMove = (e: MouseEvent) => {
+      if (isMobile) return;
+      
+      const x = (e.clientX / window.innerWidth) * 2 - 1;
+      const y = (e.clientY / window.innerHeight) * 2 - 1;
+      setPosition({ x, y });
+    };
+
+    // Request permission for iOS 13+ devices
+    const requestOrientationPermission = async () => {
+      if (isMobile && typeof (DeviceOrientationEvent as any).requestPermission === 'function') {
+        try {
+          const permission = await (DeviceOrientationEvent as any).requestPermission();
+          if (permission === 'granted') {
+            window.addEventListener('deviceorientation', handleOrientation);
+          }
+        } catch (error) {
+          console.log('Orientation permission denied, using touch fallback');
+        }
+      } else if (isMobile) {
+        window.addEventListener('deviceorientation', handleOrientation);
+      }
+    };
+
+    if (isMobile) {
+      requestOrientationPermission();
+      window.addEventListener('touchmove', handleTouchMove, { passive: true });
+    } else {
+      window.addEventListener('mousemove', handleMouseMove);
+    }
+
+    return () => {
+      window.removeEventListener('deviceorientation', handleOrientation);
+      window.removeEventListener('touchmove', handleTouchMove);
+      window.removeEventListener('mousemove', handleMouseMove);
+    };
+  }, [isMobile]);
 
   // Calculate parallax offset for different layers
   const getParallaxStyle = (depth: number) => {
     return {
-      transform: `translate(${mousePosition.x * depth}px, ${mousePosition.y * depth}px)`,
+      transform: `translate(${position.x * depth}px, ${position.y * depth}px)`,
       transition: 'transform 0.3s ease-out',
     };
   };
