@@ -38,7 +38,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
           {/* LEFT BLOCK - Company Info */}
           <div className="space-y-4 lg:col-span-1">
-            <div className="flex items-center gap-3 mb-2">
+            <Link to="/" className="flex items-center gap-3 mb-2 hover:opacity-80 transition-opacity w-fit">
               <OptimizedImage 
                 src="/lovable-uploads/digital-invest-logo-new.png" 
                 alt="Digital Invest Inc. company logo" 
@@ -46,7 +46,7 @@ const Footer = () => {
                 showSkeleton={false}
               />
               <h3 className="text-lg font-bold text-foreground">Digital Invest Inc.</h3>
-            </div>
+            </Link>
             <p className="text-sm text-muted-foreground leading-relaxed">
               Building and scaling real-economy, AI, manufacturing, and health-technology projects across the United States.
             </p>
