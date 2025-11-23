@@ -23,7 +23,7 @@ const BioMathLife = () => {
     <div className="min-h-screen bg-gradient-to-br from-background via-background to-primary/5">
       <Navigation />
       
-      <main className="container mx-auto px-4 py-8">
+      <main className="container mx-auto px-4 pt-24 md:pt-28 pb-8">
         {/* Hero Section */}
         <section className="relative py-32 -mx-4 px-4 overflow-hidden mb-16">
           <div 
