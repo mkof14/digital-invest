@@ -13,8 +13,10 @@ import {
   ArrowRight,
   Building2
 } from "lucide-react";
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const WhyDigitalInvest = () => {
+  const { t } = useLanguage();
   return (
     <div className="min-h-screen bg-background">
       <Navigation />

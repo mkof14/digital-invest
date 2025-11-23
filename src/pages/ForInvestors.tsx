@@ -18,8 +18,10 @@ import {
   Clock
 } from "lucide-react";
 import InvestorPageDisclaimer from '@/components/InvestorPageDisclaimer';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const ForInvestors = () => {
+  const { t } = useLanguage();
   return (
     <div className="min-h-screen bg-background">
       <Navigation />

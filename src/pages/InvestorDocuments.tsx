@@ -8,6 +8,7 @@ import { Badge } from '@/components/ui/badge';
 import DownloadInvestorBriefButton from '@/components/DownloadInvestorBriefButton';
 import { Loader2, FileText } from 'lucide-react';
 import InvestorPageDisclaimer from '@/components/InvestorPageDisclaimer';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface Project {
   id: string;
@@ -23,6 +24,7 @@ const InvestorDocuments = () => {
   const [projects, setProjects] = useState<Project[]>([]);
   const [loading, setLoading] = useState(true);
   const { toast } = useToast();
+  const { t } = useLanguage();
 
   useEffect(() => {
     fetchProjects();
