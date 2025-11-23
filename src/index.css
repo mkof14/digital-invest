@@ -392,6 +392,66 @@
     animation: gradient-shift 4s ease infinite;
   }
 
+  @keyframes float-slow {
+    0%, 100% { 
+      transform: translateY(0px) translateX(0px) rotate(0deg);
+      opacity: 0.3;
+    }
+    50% { 
+      transform: translateY(-30px) translateX(20px) rotate(180deg);
+      opacity: 0.6;
+    }
+  }
+
+  @keyframes float-medium {
+    0%, 100% { 
+      transform: translateY(0px) translateX(0px) rotate(0deg);
+      opacity: 0.4;
+    }
+    50% { 
+      transform: translateY(-20px) translateX(-15px) rotate(180deg);
+      opacity: 0.7;
+    }
+  }
+
+  @keyframes float-fast {
+    0%, 100% { 
+      transform: translateY(0px) translateX(0px) scale(1);
+      opacity: 0.2;
+    }
+    50% { 
+      transform: translateY(-40px) translateX(10px) scale(1.1);
+      opacity: 0.5;
+    }
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% { 
+      opacity: 0.3;
+      transform: scale(1);
+    }
+    50% { 
+      opacity: 1;
+      transform: scale(1.5);
+    }
+  }
+
+  .animate-float-slow {
+    animation: float-slow 20s ease-in-out infinite;
+  }
+
+  .animate-float-medium {
+    animation: float-medium 15s ease-in-out infinite;
+  }
+
+  .animate-float-fast {
+    animation: float-fast 12s ease-in-out infinite;
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 3s ease-in-out infinite;
+  }
+
   /* Interactive States */
   .card-hover {
     @apply transition-all duration-300 hover:shadow-vibrant hover:-translate-y-2 hover:border-primary/30 hover:scale-105;
