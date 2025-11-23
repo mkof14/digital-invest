@@ -185,13 +185,13 @@ digitalinvest.com`;
               <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Check className="w-8 h-8 text-primary" />
               </div>
-              <h1 className="text-3xl font-bold mb-4">Request Received</h1>
+              <h1 className="text-3xl font-bold mb-4">{t('schedule.confirmationTitle')}</h1>
               <p className="text-muted-foreground mb-6">
-                Thank you, {formData.name}. Your consultation request has been received. This is a non-binding request for information. We will follow up privately to confirm your preferred time.
+                {t('schedule.confirmationText').replace('{name}', formData.name)}
               </p>
               
               <div className="bg-muted/30 border border-border rounded-lg p-6 mb-6 text-left">
-                <h3 className="font-semibold mb-3">Confirmation Email Template</h3>
+                <h3 className="font-semibold mb-3">{t('schedule.confirmationEmailTitle')}</h3>
                 <pre className="text-sm whitespace-pre-wrap text-muted-foreground mb-4">
 {`Hi ${formData.name},
 
@@ -210,12 +210,12 @@ digitalinvest.com`}
                 </pre>
                 <Button onClick={copyEmailToClipboard} variant="outline" className="w-full">
                   {copied ? <Check className="w-4 h-4 mr-2" /> : <Copy className="w-4 h-4 mr-2" />}
-                  {copied ? 'Copied!' : 'Copy Email Template'}
+                  {copied ? t('schedule.copied') : t('schedule.copyEmail')}
                 </Button>
               </div>
 
               <Button asChild>
-                <a href="/">Return to Home</a>
+                <a href="/">{t('schedule.returnHome')}</a>
               </Button>
             </div>
           </div>
@@ -242,7 +242,7 @@ digitalinvest.com`}
 
           <form onSubmit={handleSubmit} className="bg-card border border-border rounded-lg p-8 space-y-6">
             <div className="space-y-2">
-              <Label htmlFor="name">Name *</Label>
+              <Label htmlFor="name">{t('schedule.nameLabel')} *</Label>
               <Input
                 id="name"
                 required
@@ -252,7 +252,7 @@ digitalinvest.com`}
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="email">Email *</Label>
+              <Label htmlFor="email">{t('schedule.emailLabel')} *</Label>
               <Input
                 id="email"
                 type="email"
@@ -263,7 +263,7 @@ digitalinvest.com`}
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="phone">Phone (Optional)</Label>
+              <Label htmlFor="phone">{t('schedule.phoneLabel')}</Label>
               <Input
                 id="phone"
                 type="tel"
@@ -273,10 +273,10 @@ digitalinvest.com`}
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="project">Project of Interest *</Label>
+              <Label htmlFor="project">{t('schedule.projectLabel')} *</Label>
               <Select required value={formData.project} onValueChange={(value) => setFormData({ ...formData, project: value })}>
                 <SelectTrigger>
-                  <SelectValue placeholder="Select a project" />
+                  <SelectValue placeholder={t('schedule.projectLabel')} />
                 </SelectTrigger>
                 <SelectContent>
                   {projects.map((project) => (
@@ -289,18 +289,18 @@ digitalinvest.com`}
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="notes">Notes (Optional)</Label>
+              <Label htmlFor="notes">{t('schedule.notesLabel')}</Label>
               <Textarea
                 id="notes"
                 rows={4}
-                placeholder="Tell us what you'd like to discuss..."
+                placeholder={t('schedule.notesPlaceholder')}
                 value={formData.notes}
                 onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
               />
             </div>
 
             <div className="space-y-2">
-              <Label>Select Date *</Label>
+              <Label>{t('schedule.selectDate')} *</Label>
               <Popover>
                 <PopoverTrigger asChild>
                   <Button
@@ -311,7 +311,7 @@ digitalinvest.com`}
                     )}
                   >
                     <CalendarIcon className="mr-2 h-4 w-4" />
-                    {formData.date ? format(formData.date, "PPP") : <span>Pick a date</span>}
+                    {formData.date ? format(formData.date, "PPP") : <span>{t('schedule.pickDate')}</span>}
                   </Button>
                 </PopoverTrigger>
                 <PopoverContent className="w-auto p-0" align="start">
@@ -329,13 +329,13 @@ digitalinvest.com`}
 
             {formData.date && (
               <div className="space-y-2">
-                <Label>Select Time Slot *</Label>
+                <Label>{t('schedule.selectTimeSlot')} *</Label>
                 {availableSlots.length === 0 ? (
-                  <p className="text-sm text-muted-foreground">No available slots for this date</p>
+                  <p className="text-sm text-muted-foreground">{t('schedule.noSlots')}</p>
                 ) : (
                   <Select required value={formData.selectedSlot} onValueChange={(value) => setFormData({ ...formData, selectedSlot: value })}>
                     <SelectTrigger>
-                      <SelectValue placeholder="Select a time slot" />
+                      <SelectValue placeholder={t('schedule.selectTimeSlot')} />
                     </SelectTrigger>
                     <SelectContent>
                       {availableSlots.map((slot, idx) => (
@@ -350,11 +350,11 @@ digitalinvest.com`}
             )}
 
             <Button type="submit" className="w-full" disabled={loading || !formData.selectedSlot}>
-              {loading ? 'Submitting...' : 'Submit Consultation Request'}
+              {loading ? t('schedule.submitting') : t('schedule.submitButton')}
             </Button>
 
             <p className="text-xs text-muted-foreground text-center">
-              This is a non-binding consultation request. We will follow up to confirm availability.
+              {t('schedule.bottomDisclaimer')}
             </p>
           </form>
 
