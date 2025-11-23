@@ -39,7 +39,7 @@ const Navigation = () => {
               <Link
                 key={item.label}
                 to={item.href}
-                className="text-muted-foreground hover:text-foreground transition-colors duration-300"
+                className="text-muted-foreground hover:text-foreground transition-all duration-300 hover:scale-110 inline-block"
               >
                 {item.label}
               </Link>
@@ -83,7 +83,7 @@ const Navigation = () => {
                 <Link
                   key={item.label}
                   to={item.href}
-                  className="text-muted-foreground hover:text-foreground transition-colors duration-300 py-2"
+                  className="text-muted-foreground hover:text-foreground transition-all duration-300 hover:scale-110 inline-block py-2"
                   onClick={() => setIsOpen(false)}
                 >
                   {item.label}

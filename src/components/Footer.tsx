@@ -56,12 +56,12 @@ const Footer = () => {
           <div className="space-y-4">
             <h4 className="font-semibold text-foreground">Projects</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li><Link to="/" className="hover:text-primary transition-colors">Home</Link></li>
-              <li><Link to="/projects" className="hover:text-primary transition-colors">Projects</Link></li>
-              <li><Link to="/why-digital-invest" className="hover:text-primary transition-colors">Why Digital Invest</Link></li>
-              <li><Link to="/how-it-works" className="hover:text-primary transition-colors">How It Works</Link></li>
-              <li><Link to="/news" className="hover:text-primary transition-colors">News & Insights</Link></li>
-              <li><Link to="/schedule" className="hover:text-primary transition-colors">Schedule Consultation</Link></li>
+              <li><Link to="/" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">Home</Link></li>
+              <li><Link to="/projects" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">Projects</Link></li>
+              <li><Link to="/why-digital-invest" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">Why Digital Invest</Link></li>
+              <li><Link to="/how-it-works" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">How It Works</Link></li>
+              <li><Link to="/news" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">News & Insights</Link></li>
+              <li><Link to="/schedule" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">Schedule Consultation</Link></li>
             </ul>
           </div>
 
@@ -69,13 +69,13 @@ const Footer = () => {
           <div className="space-y-4">
             <h4 className="font-semibold text-foreground">Company</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li><Link to="/team-members" className="hover:text-primary transition-colors">Team</Link></li>
-              <li><Link to="/about" className="hover:text-primary transition-colors">About</Link></li>
-              <li><Link to="/governance" className="hover:text-primary transition-colors">Governance</Link></li>
-              <li><Link to="/esg" className="hover:text-primary transition-colors">ESG</Link></li>
-              <li><Link to="/values" className="hover:text-primary transition-colors">Values</Link></li>
-              <li><Link to="/careers" className="hover:text-primary transition-colors">Careers</Link></li>
-              <li><Link to="/admin" className="hover:text-primary transition-colors">Admin</Link></li>
+              <li><Link to="/team-members" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">Team</Link></li>
+              <li><Link to="/about" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">About</Link></li>
+              <li><Link to="/governance" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">Governance</Link></li>
+              <li><Link to="/esg" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">ESG</Link></li>
+              <li><Link to="/values" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">Values</Link></li>
+              <li><Link to="/careers" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">Careers</Link></li>
+              <li><Link to="/admin" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">Admin</Link></li>
             </ul>
           </div>
 
@@ -83,13 +83,13 @@ const Footer = () => {
           <div className="space-y-4">
             <h4 className="font-semibold text-foreground">Legal & Risk</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li><Link to="/legal-overview" className="hover:text-primary transition-colors">Legal Overview</Link></li>
-              <li><Link to="/legal/terms" className="hover:text-primary transition-colors">Terms of Use</Link></li>
-              <li><Link to="/legal/privacy" className="hover:text-primary transition-colors">Privacy Policy</Link></li>
-              <li><Link to="/legal/risk-disclosure" className="hover:text-primary transition-colors">Risk Disclosure</Link></li>
-              <li><Link to="/compliance" className="hover:text-primary transition-colors">Compliance</Link></li>
-              <li><Link to="/risk-factors" className="hover:text-primary transition-colors">Risk Factors</Link></li>
-              <li><Link to="/security" className="hover:text-primary transition-colors">Security</Link></li>
+              <li><Link to="/legal-overview" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">Legal Overview</Link></li>
+              <li><Link to="/legal/terms" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">Terms of Use</Link></li>
+              <li><Link to="/legal/privacy" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">Privacy Policy</Link></li>
+              <li><Link to="/legal/risk-disclosure" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">Risk Disclosure</Link></li>
+              <li><Link to="/compliance" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">Compliance</Link></li>
+              <li><Link to="/risk-factors" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">Risk Factors</Link></li>
+              <li><Link to="/security" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">Security</Link></li>
             </ul>
           </div>
 
@@ -97,12 +97,12 @@ const Footer = () => {
           <div className="space-y-4">
             <h4 className="font-semibold text-foreground">Press & Resources</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li><Link to="/press-center" className="hover:text-primary transition-colors">Press Center</Link></li>
-              <li><Link to="/media-kit" className="hover:text-primary transition-colors">Media Kit</Link></li>
-              <li><Link to="/investor-documents" className="hover:text-primary transition-colors">Investor Documents</Link></li>
-              <li><Link to="/investor-handbook" className="hover:text-primary transition-colors">Investor Handbook</Link></li>
-              <li><Link to="/api" className="hover:text-primary transition-colors">API Overview</Link></li>
-              <li><Link to="/infrastructure" className="hover:text-primary transition-colors">Infrastructure</Link></li>
+              <li><Link to="/press-center" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">Press Center</Link></li>
+              <li><Link to="/media-kit" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">Media Kit</Link></li>
+              <li><Link to="/investor-documents" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">Investor Documents</Link></li>
+              <li><Link to="/investor-handbook" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">Investor Handbook</Link></li>
+              <li><Link to="/api" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">API Overview</Link></li>
+              <li><Link to="/infrastructure" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">Infrastructure</Link></li>
             </ul>
           </div>
 
