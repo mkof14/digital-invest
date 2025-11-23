@@ -7,8 +7,10 @@ import { LayoutDashboard, FolderOpen, Users, LogOut, Loader2, UsersRound, Newspa
 import { cn } from '@/lib/utils';
 import { toast } from 'sonner';
 import OptimizedImage from '@/components/OptimizedImage';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const AdminLayout = () => {
+  const { t } = useLanguage();
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState<any>(null);
   const navigate = useNavigate();
@@ -88,7 +90,7 @@ const AdminLayout = () => {
               className="w-8 h-8 object-contain"
               showSkeleton={false}
             />
-            <span className="text-xl font-bold text-primary">Admin Panel</span>
+            <span className="text-xl font-bold text-primary">{t('admin.adminPanel')}</span>
             {role && (
               <span className="text-xs px-2 py-1 rounded bg-primary/10 text-primary">
                 {role}
@@ -99,7 +101,7 @@ const AdminLayout = () => {
             <span className="text-sm text-muted-foreground">{user?.email}</span>
             <Button variant="outline" size="sm" onClick={handleSignOut}>
               <LogOut className="mr-2 h-4 w-4" />
-              Sign Out
+              {t('admin.signOut')}
             </Button>
           </div>
         </div>

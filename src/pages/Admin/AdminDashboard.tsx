@@ -141,49 +141,49 @@ const AdminDashboard = () => {
 
   const statCards = [
     {
-      title: 'Total Projects',
+      title: t('admin.totalProjects'),
       value: stats.totalProjects,
-      description: `${stats.openProjects} currently open`,
+      description: `${stats.openProjects} ${t('admin.currentlyOpen')}`,
       icon: FolderOpen,
       color: 'text-primary',
       link: '/admin/projects',
     },
     {
-      title: 'Total Leads',
+      title: t('admin.totalLeads'),
       value: stats.totalLeads,
-      description: `${stats.newLeads} new leads`,
+      description: `${stats.newLeads} ${t('admin.newLeads').toLowerCase()}`,
       icon: Users,
       color: 'text-success',
       link: '/admin/leads',
     },
     {
-      title: 'Total Raised',
+      title: t('admin.totalRaised'),
       value: `$${(stats.totalRaised / 1000).toFixed(0)}k`,
-      description: 'Across all projects',
+      description: t('admin.acrossAll'),
       icon: DollarSign,
       color: 'text-success',
       link: '/admin/projects',
     },
     {
-      title: 'Conversion Rate',
+      title: t('admin.conversionRate'),
       value: `${stats.conversionRate.toFixed(1)}%`,
-      description: 'Leads to qualified',
+      description: t('admin.leadsToQualified'),
       icon: Percent,
       color: 'text-info',
       link: '/admin/leads',
     },
     {
-      title: 'Open Opportunities',
+      title: t('admin.openOpportunities'),
       value: stats.openProjects,
-      description: 'Active investment opportunities',
+      description: t('admin.activeOpportunities'),
       icon: TrendingUp,
       color: 'text-info',
       link: '/admin/projects',
     },
     {
-      title: 'New Inquiries',
+      title: t('admin.newInquiries'),
       value: stats.newLeads,
-      description: 'Requires attention',
+      description: t('admin.requiresAttention'),
       icon: Eye,
       color: 'text-warning',
       link: '/admin/leads',
@@ -200,8 +200,8 @@ const AdminDashboard = () => {
       {/* Portfolio Overview */}
       <Card className="border border-border/50">
         <CardHeader>
-          <CardTitle>Portfolio Overview</CardTitle>
-          <CardDescription>Real-time portfolio metrics and activity</CardDescription>
+          <CardTitle>{t('admin.portfolioOverview')}</CardTitle>
+          <CardDescription>{t('admin.portfolioMetrics')}</CardDescription>
         </CardHeader>
         <CardContent>
           <PortfolioDashboard />
@@ -211,35 +211,35 @@ const AdminDashboard = () => {
       {/* Leads by Status */}
       <Card className="border border-border/50">
         <CardHeader>
-          <CardTitle>Leads by Status</CardTitle>
-          <CardDescription>Distribution of investor leads</CardDescription>
+          <CardTitle>{t('admin.leadsByStatus')}</CardTitle>
+          <CardDescription>{t('admin.leadsDistribution')}</CardDescription>
         </CardHeader>
         <CardContent>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             <div className="p-4 border border-border rounded-lg">
               <div className="flex items-center justify-between mb-2">
-                <span className="text-sm text-muted-foreground">New</span>
+                <span className="text-sm text-muted-foreground">{t('admin.newLeads')}</span>
                 <Badge className="bg-info text-info-foreground">{stats.newLeads}</Badge>
               </div>
               <div className="text-2xl font-bold">{stats.newLeads}</div>
             </div>
             <div className="p-4 border border-border rounded-lg">
               <div className="flex items-center justify-between mb-2">
-                <span className="text-sm text-muted-foreground">Contacted</span>
+                <span className="text-sm text-muted-foreground">{t('admin.contacted')}</span>
                 <Badge className="bg-warning text-warning-foreground">{stats.contactedLeads}</Badge>
               </div>
               <div className="text-2xl font-bold">{stats.contactedLeads}</div>
             </div>
             <div className="p-4 border border-border rounded-lg">
               <div className="flex items-center justify-between mb-2">
-                <span className="text-sm text-muted-foreground">Qualified</span>
+                <span className="text-sm text-muted-foreground">{t('admin.qualified')}</span>
                 <Badge className="bg-success text-success-foreground">{stats.qualifiedLeads}</Badge>
               </div>
               <div className="text-2xl font-bold">{stats.qualifiedLeads}</div>
             </div>
             <div className="p-4 border border-border rounded-lg">
               <div className="flex items-center justify-between mb-2">
-                <span className="text-sm text-muted-foreground">Total</span>
+                <span className="text-sm text-muted-foreground">{t('admin.total')}</span>
                 <Badge variant="outline">{stats.totalLeads}</Badge>
               </div>
               <div className="text-2xl font-bold">{stats.totalLeads}</div>
@@ -265,7 +265,7 @@ const AdminDashboard = () => {
                 </p>
                 <Link to={stat.link}>
                   <Button variant="ghost" size="sm" className="mt-2 w-full">
-                    View Details
+                    {t('admin.viewDetails')}
                   </Button>
                 </Link>
               </CardContent>
@@ -277,56 +277,56 @@ const AdminDashboard = () => {
       {/* Quick Actions */}
       <Card className="border border-border/50">
         <CardHeader>
-          <CardTitle>Quick Actions</CardTitle>
-          <CardDescription>Common administrative tasks</CardDescription>
+          <CardTitle>{t('admin.quickActions')}</CardTitle>
+          <CardDescription>{t('admin.commonTasks')}</CardDescription>
         </CardHeader>
         <CardContent className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           <Link to="/admin/projects/new">
             <Button className="w-full h-20" size="lg">
               <FolderOpen className="mr-2 h-5 w-5" />
-              Create New Project
+              {t('admin.createProject')}
             </Button>
           </Link>
           <Link to="/admin/leads">
             <Button variant="outline" className="w-full h-20" size="lg">
               <Users className="mr-2 h-5 w-5" />
-              Review Leads
+              {t('admin.reviewLeads')}
             </Button>
           </Link>
           <Link to="/admin/handbook-downloads">
             <Button variant="outline" className="w-full h-20" size="lg">
               <FileText className="mr-2 h-5 w-5" />
-              Handbook Downloads
+              {t('admin.handbookDownloads')}
             </Button>
           </Link>
           <Link to="/admin/users">
             <Button variant="outline" className="w-full h-20" size="lg">
               <Shield className="mr-2 h-5 w-5" />
-              Users & Roles
+              {t('admin.usersRoles')}
             </Button>
           </Link>
           <Link to="/admin/site-sections">
             <Button variant="outline" className="w-full h-20" size="lg">
               <LayoutIcon className="mr-2 h-5 w-5" />
-              Site Sections
+              {t('admin.siteSections')}
             </Button>
           </Link>
           <Link to="/admin/news">
             <Button variant="outline" className="w-full h-20" size="lg">
               <Eye className="mr-2 h-5 w-5" />
-              Manage News
+              {t('admin.manageNews')}
             </Button>
           </Link>
           <Link to="/admin/team">
             <Button variant="outline" className="w-full h-20" size="lg">
               <Users className="mr-2 h-5 w-5" />
-              Manage Team
+              {t('admin.manageTeam')}
             </Button>
           </Link>
           <Link to="/admin/email-templates">
             <Button variant="outline" className="w-full h-20" size="lg">
               <Mail className="mr-2 h-5 w-5" />
-              Email Templates
+              {t('admin.emailTemplates')}
             </Button>
           </Link>
         </CardContent>
@@ -338,8 +338,8 @@ const AdminDashboard = () => {
           <div className="flex items-center gap-2">
             <AlertCircle className="h-5 w-5 text-warning" />
             <div>
-              <CardTitle>Action Queue</CardTitle>
-              <CardDescription>Leads requiring follow-up attention</CardDescription>
+              <CardTitle>{t('admin.actionQueue')}</CardTitle>
+              <CardDescription>{t('admin.actionQueueDesc')}</CardDescription>
             </div>
           </div>
         </CardHeader>
@@ -348,11 +348,11 @@ const AdminDashboard = () => {
             <Table>
               <TableHeader>
                 <TableRow>
-                  <TableHead>Name</TableHead>
-                  <TableHead>Project</TableHead>
-                  <TableHead>Status</TableHead>
-                  <TableHead>Last Contacted</TableHead>
-                  <TableHead>Last Email</TableHead>
+                  <TableHead>{t('admin.name')}</TableHead>
+                  <TableHead>{t('admin.project')}</TableHead>
+                  <TableHead>{t('admin.status')}</TableHead>
+                  <TableHead>{t('admin.lastContacted')}</TableHead>
+                  <TableHead>{t('admin.lastEmail')}</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
@@ -372,7 +372,7 @@ const AdminDashboard = () => {
                           {new Date(lead.last_contacted_at).toLocaleDateString()}
                         </div>
                       ) : (
-                        <span className="text-muted-foreground italic">Never</span>
+                        <span className="text-muted-foreground italic">{t('admin.never')}</span>
                       )}
                     </TableCell>
                     <TableCell>
@@ -390,14 +390,14 @@ const AdminDashboard = () => {
             </Table>
           ) : (
             <p className="text-sm text-muted-foreground text-center py-8">
-              No leads requiring immediate follow-up
+              {t('admin.noLeadsFollowup')}
             </p>
           )}
           {actionQueue.length > 0 && (
             <div className="mt-4 text-center">
               <Link to="/admin/leads">
                 <Button variant="outline" size="sm">
-                  View All Leads
+                  {t('admin.viewAllLeads')}
                 </Button>
               </Link>
             </div>
@@ -408,20 +408,20 @@ const AdminDashboard = () => {
       {/* Recent Leads */}
       <Card className="border border-border/50">
         <CardHeader>
-          <CardTitle>Recent Investor Leads</CardTitle>
-          <CardDescription>Latest 10 expressions of interest</CardDescription>
+          <CardTitle>{t('admin.recentLeads')}</CardTitle>
+          <CardDescription>{t('admin.latestExpressions')}</CardDescription>
         </CardHeader>
         <CardContent>
           {recentLeads.length > 0 ? (
             <Table>
               <TableHeader>
                 <TableRow>
-                  <TableHead>Name</TableHead>
-                  <TableHead>Email</TableHead>
-                  <TableHead>Project</TableHead>
-                  <TableHead>Status</TableHead>
-                  <TableHead>Submitted</TableHead>
-                  <TableHead>Last Contact</TableHead>
+                  <TableHead>{t('admin.name')}</TableHead>
+                  <TableHead>{t('admin.email')}</TableHead>
+                  <TableHead>{t('admin.project')}</TableHead>
+                  <TableHead>{t('admin.status')}</TableHead>
+                  <TableHead>{t('admin.submitted')}</TableHead>
+                  <TableHead>{t('admin.lastContact')}</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
@@ -442,7 +442,7 @@ const AdminDashboard = () => {
                       {lead.last_contacted_at ? (
                         new Date(lead.last_contacted_at).toLocaleDateString()
                       ) : (
-                        <span className="text-muted-foreground italic text-xs">Not yet</span>
+                        <span className="text-muted-foreground italic text-xs">{t('admin.notYet')}</span>
                       )}
                     </TableCell>
                   </TableRow>
@@ -451,7 +451,7 @@ const AdminDashboard = () => {
             </Table>
           ) : (
             <p className="text-sm text-muted-foreground text-center py-8">
-              No leads yet
+              {t('admin.noLeads')}
             </p>
           )}
         </CardContent>
