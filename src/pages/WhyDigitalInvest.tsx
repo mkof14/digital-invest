@@ -17,6 +17,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 
 const WhyDigitalInvest = () => {
   const { t } = useLanguage();
+  
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
@@ -25,10 +26,10 @@ const WhyDigitalInvest = () => {
       <section className="pt-32 pb-24 px-4">
         <div className="max-w-4xl mx-auto text-center space-y-6 animate-fade-in">
           <h1 className="text-4xl md:text-6xl font-bold text-foreground">
-            Why Digital Invest
+            {t('whyDigital.pageTitle')}
           </h1>
           <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed">
-            Building long-term real-economy and AI-driven platforms under one portfolio.
+            {t('whyDigital.pageSubtitle')}
           </p>
         </div>
       </section>
@@ -37,13 +38,12 @@ const WhyDigitalInvest = () => {
       <section className="py-16 px-4 bg-card/30">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-8 text-center">
-            Our Philosophy
+            {t('whyDigital.philosophyTitle')}
           </h2>
           <Card className="border border-border/50 bg-card">
             <CardContent className="pt-8 pb-8">
               <p className="text-lg text-muted-foreground leading-relaxed text-center">
-                We focus on building real companies and platforms, not short-lived concepts. 
-                Each project is designed with clear operations, technology, and long-term scalability in mind.
+                {t('whyDigital.philosophyText')}
               </p>
             </CardContent>
           </Card>
@@ -54,7 +54,7 @@ const WhyDigitalInvest = () => {
       <section className="py-24 px-4">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-12 text-center">
-            Multi-Sector Strength
+            {t('whyDigital.multiSectorTitle')}
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -64,10 +64,10 @@ const WhyDigitalInvest = () => {
                   <Heart className="w-10 h-10 text-primary" />
                 </div>
                 <h3 className="text-xl font-bold text-foreground text-center">
-                  Health & Longevity Platforms
+                  {t('whyDigital.healthPlatforms')}
                 </h3>
                 <p className="text-sm text-muted-foreground text-center leading-relaxed">
-                  BioMath Core, BioMath Life
+                  {t('whyDigital.healthList')}
                 </p>
               </CardContent>
             </Card>
@@ -78,10 +78,10 @@ const WhyDigitalInvest = () => {
                   <Sprout className="w-10 h-10 text-primary" />
                 </div>
                 <h3 className="text-xl font-bold text-foreground text-center">
-                  Agricultural Drone Technology
+                  {t('whyDigital.agriDrone')}
                 </h3>
                 <p className="text-sm text-muted-foreground text-center leading-relaxed">
-                  TerraAero
+                  {t('whyDigital.agriList')}
                 </p>
               </CardContent>
             </Card>
@@ -92,10 +92,10 @@ const WhyDigitalInvest = () => {
                   <Utensils className="w-10 h-10 text-primary" />
                 </div>
                 <h3 className="text-xl font-bold text-foreground text-center">
-                  Intelligent Food Manufacturing
+                  {t('whyDigital.foodManufacturing')}
                 </h3>
                 <p className="text-sm text-muted-foreground text-center leading-relaxed">
-                  DishCore
+                  {t('whyDigital.foodList')}
                 </p>
               </CardContent>
             </Card>
@@ -106,10 +106,10 @@ const WhyDigitalInvest = () => {
                   <Network className="w-10 h-10 text-primary" />
                 </div>
                 <h3 className="text-xl font-bold text-foreground text-center">
-                  Portfolio-Level Backbone
+                  {t('whyDigital.portfolioBackbone')}
                 </h3>
                 <p className="text-sm text-muted-foreground text-center leading-relaxed">
-                  Digital Invest
+                  {t('whyDigital.portfolioList')}
                 </p>
               </CardContent>
             </Card>
@@ -121,14 +121,12 @@ const WhyDigitalInvest = () => {
       <section className="py-16 px-4 bg-card/30">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-8 text-center">
-            Execution and Experience
+            {t('whyDigital.executionTitle')}
           </h2>
           <Card className="border border-border/50 bg-card">
             <CardContent className="pt-8 pb-8">
               <p className="text-lg text-muted-foreground leading-relaxed text-center">
-                Digital Invest is led by a founder with decades of experience in technology, infrastructure, 
-                health, manufacturing, and data systems. The focus is on practical execution, measurable progress, 
-                and sustainable growth.
+                {t('whyDigital.executionText')}
               </p>
             </CardContent>
           </Card>
@@ -139,7 +137,7 @@ const WhyDigitalInvest = () => {
       <section className="py-24 px-4">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-12 text-center">
-            Why a Private Format
+            {t('whyDigital.privateTitle')}
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -150,7 +148,7 @@ const WhyDigitalInvest = () => {
                     <CheckCircle2 className="w-5 h-5 text-primary" />
                   </div>
                   <p className="text-sm text-foreground leading-relaxed">
-                    We prefer direct, clear communication
+                    {t('whyDigital.privateReason1')}
                   </p>
                 </div>
               </CardContent>
@@ -163,7 +161,7 @@ const WhyDigitalInvest = () => {
                     <Target className="w-5 h-5 text-primary" />
                   </div>
                   <p className="text-sm text-foreground leading-relaxed">
-                    We can tailor information to serious, long-term partners
+                    {t('whyDigital.privateReason2')}
                   </p>
                 </div>
               </CardContent>
@@ -176,7 +174,7 @@ const WhyDigitalInvest = () => {
                     <Building2 className="w-5 h-5 text-primary" />
                   </div>
                   <p className="text-sm text-foreground leading-relaxed">
-                    We avoid public hype and keep the focus on real work
+                    {t('whyDigital.privateReason3')}
                   </p>
                 </div>
               </CardContent>
@@ -189,19 +187,19 @@ const WhyDigitalInvest = () => {
       <section className="py-24 px-4 bg-card/30">
         <div className="max-w-4xl mx-auto text-center space-y-8">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-            Ready to Explore Our Projects?
+            {t('whyDigital.readyTitle')}
           </h2>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-6">
             <Link to="/projects">
               <Button size="lg" className="px-10 py-6 text-base">
-                View Projects
+                {t('whyDigital.viewProjectsBtn')}
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>
             <Link to="/for-investors">
               <Button size="lg" variant="outline" className="px-10 py-6 text-base">
-                For Investors
+                {t('whyDigital.forInvestorsBtn')}
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>

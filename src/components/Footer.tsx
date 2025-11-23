@@ -4,6 +4,7 @@ import OptimizedImage from '@/components/OptimizedImage';
 import { useQuery } from '@tanstack/react-query';
 import { supabase } from '@/integrations/supabase/client';
 import * as LucideIcons from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface SocialMediaLink {
   id: string;
@@ -17,6 +18,7 @@ interface SocialMediaLink {
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const { t } = useLanguage();
 
   const { data: socialLinks } = useQuery({
     queryKey: ['social-media-links'],
@@ -48,69 +50,69 @@ const Footer = () => {
               <h3 className="text-lg font-bold text-foreground">Digital Invest Inc.</h3>
             </Link>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              Building and scaling real-economy, AI, manufacturing, and health-technology projects across the United States.
+              {t('footer.description2')}
             </p>
           </div>
 
           {/* MIDDLE COLUMNS - Projects */}
           <div className="space-y-4">
-            <h4 className="font-semibold text-foreground">Projects</h4>
+            <h4 className="font-semibold text-foreground">{t('footer.projects')}</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li><Link to="/" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">Home</Link></li>
-              <li><Link to="/projects" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">Projects</Link></li>
-              <li><Link to="/why-digital-invest" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">Why Digital Invest</Link></li>
-              <li><Link to="/how-it-works" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">How It Works</Link></li>
-              <li><Link to="/news" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">News & Insights</Link></li>
-              <li><Link to="/schedule" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">Schedule Consultation</Link></li>
+              <li><Link to="/" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">{t('footer.home')}</Link></li>
+              <li><Link to="/projects" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">{t('footer.allProjects')}</Link></li>
+              <li><Link to="/why-digital-invest" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">{t('footer.whyDigitalInvest')}</Link></li>
+              <li><Link to="/how-it-works" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">{t('footer.howItWorks')}</Link></li>
+              <li><Link to="/news" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">{t('footer.newsInsights')}</Link></li>
+              <li><Link to="/schedule" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">{t('footer.scheduleConsultation')}</Link></li>
             </ul>
           </div>
 
           {/* MIDDLE COLUMNS - Company */}
           <div className="space-y-4">
-            <h4 className="font-semibold text-foreground">Company</h4>
+            <h4 className="font-semibold text-foreground">{t('footer.company')}</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li><Link to="/team" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">Team</Link></li>
-              <li><Link to="/about" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">About</Link></li>
-              <li><Link to="/governance" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">Governance</Link></li>
-              <li><Link to="/esg" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">ESG</Link></li>
-              <li><Link to="/values" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">Values</Link></li>
-              <li><Link to="/careers" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">Careers</Link></li>
-              <li><Link to="/admin" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">Admin</Link></li>
+              <li><Link to="/team" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">{t('footer.team')}</Link></li>
+              <li><Link to="/about" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">{t('footer.about')}</Link></li>
+              <li><Link to="/governance" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">{t('footer.governance')}</Link></li>
+              <li><Link to="/esg" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">{t('footer.esg')}</Link></li>
+              <li><Link to="/values" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">{t('footer.values')}</Link></li>
+              <li><Link to="/careers" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">{t('footer.careers')}</Link></li>
+              <li><Link to="/admin" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">{t('footer.admin')}</Link></li>
             </ul>
           </div>
 
           {/* MIDDLE COLUMNS - Legal & Risk */}
           <div className="space-y-4">
-            <h4 className="font-semibold text-foreground">Legal & Risk</h4>
+            <h4 className="font-semibold text-foreground">{t('footer.legalRisk')}</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li><Link to="/legal-overview" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">Legal Overview</Link></li>
-              <li><Link to="/legal/terms" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">Terms of Use</Link></li>
-              <li><Link to="/legal/privacy" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">Privacy Policy</Link></li>
-              <li><Link to="/legal/risk-disclosure" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">Risk Disclosure</Link></li>
-              <li><Link to="/compliance" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">Compliance</Link></li>
-              <li><Link to="/risk-factors" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">Risk Factors</Link></li>
-              <li><Link to="/security" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">Security</Link></li>
+              <li><Link to="/legal-overview" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">{t('footer.legalOverview')}</Link></li>
+              <li><Link to="/legal/terms" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">{t('footer.termsOfUse')}</Link></li>
+              <li><Link to="/legal/privacy" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">{t('footer.privacyPolicy')}</Link></li>
+              <li><Link to="/legal/risk-disclosure" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">{t('footer.riskDisclosure')}</Link></li>
+              <li><Link to="/compliance" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">{t('footer.compliance')}</Link></li>
+              <li><Link to="/risk-factors" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">{t('footer.riskFactors')}</Link></li>
+              <li><Link to="/security" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">{t('footer.security')}</Link></li>
             </ul>
           </div>
 
           {/* MIDDLE COLUMNS - Press & Resources */}
           <div className="space-y-4">
-            <h4 className="font-semibold text-foreground">Press & Resources</h4>
+            <h4 className="font-semibold text-foreground">{t('footer.pressResources')}</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li><Link to="/press-center" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">Press Center</Link></li>
-              <li><Link to="/media-kit" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">Media Kit</Link></li>
-              <li><Link to="/investor-documents" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">Investor Documents</Link></li>
-              <li><Link to="/investor-handbook" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">Investor Handbook</Link></li>
-              <li><Link to="/glossary" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">Glossary</Link></li>
-              <li><Link to="/document-library" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">Document Library</Link></li>
-              <li><Link to="/api" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">API Overview</Link></li>
-              <li><Link to="/infrastructure" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">Infrastructure</Link></li>
+              <li><Link to="/press-center" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">{t('footer.pressCenter')}</Link></li>
+              <li><Link to="/media-kit" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">{t('footer.mediaKit')}</Link></li>
+              <li><Link to="/investor-documents" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">{t('footer.investorDocuments')}</Link></li>
+              <li><Link to="/investor-handbook" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">{t('footer.investorHandbook')}</Link></li>
+              <li><Link to="/glossary" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">{t('footer.glossary')}</Link></li>
+              <li><Link to="/document-library" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">{t('footer.documentLibrary')}</Link></li>
+              <li><Link to="/api" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">{t('footer.apiOverview')}</Link></li>
+              <li><Link to="/infrastructure" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">{t('footer.infrastructure')}</Link></li>
             </ul>
           </div>
 
           {/* RIGHT BLOCK - Contact */}
           <div className="space-y-4">
-            <h4 className="font-semibold text-foreground">Contact</h4>
+            <h4 className="font-semibold text-foreground">{t('footer.contact')}</h4>
             <div className="space-y-3">
               <div className="flex items-center space-x-3 text-muted-foreground">
                 <Mail className="h-4 w-4 text-primary flex-shrink-0" />
@@ -120,7 +122,7 @@ const Footer = () => {
               </div>
               <div className="flex items-start space-x-3 text-muted-foreground">
                 <MapPin className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />
-                <p className="text-sm">United States</p>
+                <p className="text-sm">{t('footer.location')}</p>
               </div>
               <div className="pt-2 flex items-center gap-4">
                 {socialLinks?.map((link) => {
@@ -169,14 +171,14 @@ const Footer = () => {
             {/* Important Legal Notice */}
             <div className="space-y-1.5">
               <p className="text-xs text-muted-foreground/80 leading-relaxed">
-                <span className="text-muted-foreground font-medium">Important Legal Notice:</span> Digital Invest Inc. is not an investment advisor, broker-dealer, public offering platform, or marketplace. This website is for informational purposes only. Participation in any project is handled privately, offline, and only for eligible individuals or entities following due diligence. We do not guarantee any outcomes, performance, or returns.
+                <span className="text-muted-foreground font-medium">{t('footer.importantLegalNotice')}</span> {t('footer.legalNoticeText')}
               </p>
             </div>
 
             {/* Risk Disclosure */}
             <div className="space-y-1.5">
               <p className="text-xs text-muted-foreground/80 leading-relaxed">
-                <span className="text-muted-foreground font-medium">Risk Disclosure:</span> All participation involves significant risk, including potential loss of capital. Private, invitation-only process. The actual legal status, structure, rights, and obligations are defined only in formal agreements executed offline, not by website content.
+                <span className="text-muted-foreground font-medium">{t('footer.riskDisclosureLabel')}</span> {t('footer.riskText')}
               </p>
             </div>
           </div>
@@ -184,7 +186,7 @@ const Footer = () => {
           {/* Copyright */}
           <div className="text-center pt-6 border-t border-border/20">
             <p className="text-xs text-muted-foreground/70">
-              © {currentYear} Digital Invest Inc. All rights reserved.
+              {t('footer.copyright').replace('{year}', currentYear.toString())}
             </p>
           </div>
         </div>
