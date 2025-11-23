@@ -10,6 +10,7 @@ import { supabase } from '@/integrations/supabase/client';
 import { generateFAQSchema, injectStructuredData, removeStructuredData } from '@/lib/structuredData';
 import OptimizedImage from "@/components/OptimizedImage";
 import FloatingElements from "@/components/FloatingElements";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import {
   Rocket,
   Lightbulb,
@@ -57,6 +58,14 @@ interface FeaturedProject {
 
 const Index = () => {
   const [featuredProjects, setFeaturedProjects] = useState<FeaturedProject[]>([]);
+  
+  // Scroll animation hooks
+  const featuredSection = useScrollAnimation({ threshold: 0.2 });
+  const whatWeBuildSection = useScrollAnimation({ threshold: 0.2 });
+  const whyDigitalSection = useScrollAnimation({ threshold: 0.2 });
+  const investmentSection = useScrollAnimation({ threshold: 0.2 });
+  const journeySection = useScrollAnimation({ threshold: 0.2 });
+  const faqSection = useScrollAnimation({ threshold: 0.2 });
 
   // Map slugs to actual imported images
   const projectImages: Record<string, string> = {
@@ -151,44 +160,44 @@ const Index = () => {
         
         <div className="relative z-10 max-w-7xl mx-auto text-center space-y-14">
           <div className="space-y-8 animate-fade-in">
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight">
-              <span className="block text-foreground">Strategic Investment in</span>
-              <span className="block mt-4 text-3xl md:text-5xl lg:text-6xl bg-gradient-to-r from-primary via-primary-light to-accent bg-clip-text text-transparent animate-gradient">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-tight tracking-tight">
+              <span className="block text-foreground mb-2">Strategic Investment in</span>
+              <span className="block text-4xl md:text-5xl lg:text-6xl xl:text-7xl bg-gradient-to-r from-primary via-primary-light to-accent bg-clip-text text-transparent">
                 Real-Economy and Advanced Technology
               </span>
             </h1>
-            <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed pt-2">
+            <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed pt-4 font-light">
               Digital Invest Inc. develops and scales innovative projects across AI, precision health, 
               advanced manufacturing, and agricultural technology—delivering measurable impact in critical sectors of the American economy.
             </p>
           </div>
           
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center animate-fade-in pt-6">
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center animate-fade-in pt-8">
             <Link to="/projects">
-              <Button size="lg" className="px-10 py-6 text-base">
+              <Button size="lg" className="px-12 py-7 text-lg ripple-effect shadow-elegant hover:shadow-elevated">
                 Explore Projects
-                <TrendingUp className="ml-2 h-5 w-5" />
+                <TrendingUp className="ml-3 h-6 w-6" />
               </Button>
             </Link>
             <Link to="/why-digital-invest">
-              <Button size="lg" variant="outline" className="px-10 py-6 text-base">
+              <Button size="lg" variant="outline" className="px-12 py-7 text-lg ripple-effect border-2 hover:border-primary">
                 Learn Why Digital Invest
-                <ArrowRight className="ml-2 h-5 w-5" />
+                <ArrowRight className="ml-3 h-6 w-6" />
               </Button>
             </Link>
           </div>
 
           {/* Key Metrics */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-10 pt-20 max-w-5xl mx-auto animate-fade-in">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-12 pt-24 max-w-6xl mx-auto animate-fade-in">
             {[
               { value: "25+", label: "Years Experience" },
               { value: "5", label: "Active Projects" },
               { value: "$19.5B", label: "Previous Exit Value" },
               { value: "15+", label: "Countries Served" }
             ].map((stat, index) => (
-              <div key={index} className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-primary mb-2">{stat.value}</div>
-                <div className="text-sm text-muted-foreground">{stat.label}</div>
+              <div key={index} className="text-center space-y-2">
+                <div className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary">{stat.value}</div>
+                <div className="text-sm md:text-base text-muted-foreground font-medium">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -196,14 +205,14 @@ const Index = () => {
       </section>
 
       {/* Featured Projects Section - MOVED UP */}
-      <section className="py-24 px-4 bg-card/30">
+      <section ref={featuredSection.ref} className={`py-24 px-4 bg-card/30 scroll-fade-in ${featuredSection.isVisible ? 'visible' : ''}`}>
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16 space-y-4">
-            <Badge variant="secondary" className="mb-2">Portfolio Projects</Badge>
-            <h2 className="text-3xl md:text-5xl font-bold text-foreground">
+            <Badge variant="secondary" className="mb-3 text-sm">Portfolio Projects</Badge>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground tracking-tight">
               Featured Projects
             </h2>
-            <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto font-light leading-relaxed">
               Explore our portfolio of real-economy and advanced technology projects
             </p>
           </div>
@@ -276,61 +285,61 @@ const Index = () => {
       </section>
 
       {/* What We Build Section */}
-      <section className="py-24 px-4">
+      <section ref={whatWeBuildSection.ref} className={`py-24 px-4 scroll-slide-up ${whatWeBuildSection.isVisible ? 'visible' : ''}`}>
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16 space-y-4">
-            <h2 className="text-3xl md:text-5xl font-bold text-foreground">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground tracking-tight">
               What We Build
             </h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto font-light leading-relaxed">
               Five proprietary platforms across health, agriculture, food production, and infrastructure
             </p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <Card className="border border-border/50 bg-card hover:shadow-lg transition-all duration-300">
-              <CardContent className="pt-8 pb-6 space-y-4">
-                <div className="p-3 bg-primary/10 rounded-lg w-fit mx-auto">
-                  <Heart className="w-10 h-10 text-primary" />
+            <Card className="border border-border/50 bg-card hover:shadow-elevated transition-all duration-500 hover:-translate-y-2 group">
+              <CardContent className="pt-10 pb-8 space-y-5">
+                <div className="p-4 bg-primary/10 rounded-xl w-fit mx-auto group-hover:scale-110 transition-transform duration-300">
+                  <Heart className="w-12 h-12 text-primary" />
                 </div>
                 <h3 className="text-xl font-bold text-foreground text-center">Health & Longevity</h3>
-                <p className="text-sm text-muted-foreground text-center leading-relaxed">
+                <p className="text-base text-muted-foreground text-center leading-relaxed">
                   BioMath Core and BioMath Life — data-driven platforms for understanding health, risks, and longevity in a structured, intelligent way.
                 </p>
               </CardContent>
             </Card>
 
-            <Card className="border border-border/50 bg-card hover:shadow-lg transition-all duration-300">
-              <CardContent className="pt-8 pb-6 space-y-4">
-                <div className="p-3 bg-primary/10 rounded-lg w-fit mx-auto">
-                  <Sprout className="w-10 h-10 text-primary" />
+            <Card className="border border-border/50 bg-card hover:shadow-elevated transition-all duration-500 hover:-translate-y-2 group delay-100">
+              <CardContent className="pt-10 pb-8 space-y-5">
+                <div className="p-4 bg-primary/10 rounded-xl w-fit mx-auto group-hover:scale-110 transition-transform duration-300">
+                  <Sprout className="w-12 h-12 text-primary" />
                 </div>
                 <h3 className="text-xl font-bold text-foreground text-center">Agricultural Technology</h3>
-                <p className="text-sm text-muted-foreground text-center leading-relaxed">
+                <p className="text-base text-muted-foreground text-center leading-relaxed">
                   TerraAero — advanced agricultural drone operations with a roadmap toward U.S.-based drone manufacturing.
                 </p>
               </CardContent>
             </Card>
 
-            <Card className="border border-border/50 bg-card hover:shadow-lg transition-all duration-300">
-              <CardContent className="pt-8 pb-6 space-y-4">
-                <div className="p-3 bg-primary/10 rounded-lg w-fit mx-auto">
-                  <Utensils className="w-10 h-10 text-primary" />
+            <Card className="border border-border/50 bg-card hover:shadow-elevated transition-all duration-500 hover:-translate-y-2 group delay-200">
+              <CardContent className="pt-10 pb-8 space-y-5">
+                <div className="p-4 bg-primary/10 rounded-xl w-fit mx-auto group-hover:scale-110 transition-transform duration-300">
+                  <Utensils className="w-12 h-12 text-primary" />
                 </div>
                 <h3 className="text-xl font-bold text-foreground text-center">Intelligent Food Production</h3>
-                <p className="text-sm text-muted-foreground text-center leading-relaxed">
+                <p className="text-base text-muted-foreground text-center leading-relaxed">
                   DishCore — AI-driven food manufacturing and recipe engine for standardized, scalable, nutritionally precise meals.
                 </p>
               </CardContent>
             </Card>
 
-            <Card className="border border-border/50 bg-card hover:shadow-lg transition-all duration-300">
-              <CardContent className="pt-8 pb-6 space-y-4">
-                <div className="p-3 bg-primary/10 rounded-lg w-fit mx-auto">
-                  <Network className="w-10 h-10 text-primary" />
+            <Card className="border border-border/50 bg-card hover:shadow-elevated transition-all duration-500 hover:-translate-y-2 group delay-300">
+              <CardContent className="pt-10 pb-8 space-y-5">
+                <div className="p-4 bg-primary/10 rounded-xl w-fit mx-auto group-hover:scale-110 transition-transform duration-300">
+                  <Network className="w-12 h-12 text-primary" />
                 </div>
                 <h3 className="text-xl font-bold text-foreground text-center">Multi-Sector Infrastructure</h3>
-                <p className="text-sm text-muted-foreground text-center leading-relaxed">
+                <p className="text-base text-muted-foreground text-center leading-relaxed">
                   Digital Invest — the portfolio backbone that combines AI, infrastructure, manufacturing, and long-term project strategy.
                 </p>
               </CardContent>
@@ -340,30 +349,30 @@ const Index = () => {
       </section>
 
       {/* Why Digital Invest Section */}
-      <section className="py-24 px-4">
+      <section ref={whyDigitalSection.ref} className={`py-24 px-4 scroll-scale-in ${whyDigitalSection.isVisible ? 'visible' : ''}`}>
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16 space-y-4">
-            <h2 className="text-3xl md:text-5xl font-bold text-foreground">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground tracking-tight">
               Why Digital Invest
             </h2>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {[
-              { icon: <Building2 className="w-6 h-6" />, text: "Five independent proprietary projects" },
-              { icon: <BarChart3 className="w-6 h-6" />, text: "Three high-growth industries: HealthTech, AgroTech, FoodTech" },
-              { icon: <Award className="w-6 h-6" />, text: "20+ years of operational and entrepreneurial experience" },
-              { icon: <CheckCircle2 className="w-6 h-6" />, text: "Real platforms, not just concepts or slideware" },
-              { icon: <Shield className="w-6 h-6" />, text: "Fully U.S.-based development and operations" },
-              { icon: <Target className="w-6 h-6" />, text: "Long-term strategy across real-economy and AI-driven sectors" }
+              { icon: <Building2 className="w-7 h-7" />, text: "Five independent proprietary projects" },
+              { icon: <BarChart3 className="w-7 h-7" />, text: "Three high-growth industries: HealthTech, AgroTech, FoodTech" },
+              { icon: <Award className="w-7 h-7" />, text: "20+ years of operational and entrepreneurial experience" },
+              { icon: <CheckCircle2 className="w-7 h-7" />, text: "Real platforms, not just concepts or slideware" },
+              { icon: <Shield className="w-7 h-7" />, text: "Fully U.S.-based development and operations" },
+              { icon: <Target className="w-7 h-7" />, text: "Long-term strategy across real-economy and AI-driven sectors" }
             ].map((item, index) => (
-              <Card key={index} className="border border-border/50 bg-card">
-                <CardContent className="pt-6 pb-6">
-                  <div className="flex items-start gap-4">
-                    <div className="p-2 bg-primary/10 rounded-lg flex-shrink-0">
+              <Card key={index} className="border border-border/50 bg-card hover:shadow-elevated transition-all duration-500 hover:-translate-y-1 group">
+                <CardContent className="pt-8 pb-8">
+                  <div className="flex items-start gap-5">
+                    <div className="p-3 bg-primary/10 rounded-xl flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
                       <div className="text-primary">{item.icon}</div>
                     </div>
-                    <p className="text-sm text-foreground font-medium leading-relaxed">{item.text}</p>
+                    <p className="text-base text-foreground font-semibold leading-relaxed">{item.text}</p>
                   </div>
                 </CardContent>
               </Card>
@@ -373,10 +382,10 @@ const Index = () => {
       </section>
 
       {/* Investment Highlights Section */}
-      <section className="py-24 px-4 bg-card/30">
+      <section ref={investmentSection.ref} className={`py-24 px-4 bg-card/30 scroll-fade-in ${investmentSection.isVisible ? 'visible' : ''}`}>
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16 space-y-4">
-            <h2 className="text-3xl md:text-5xl font-bold text-foreground">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground tracking-tight">
               Investment Highlights
             </h2>
           </div>
@@ -386,40 +395,40 @@ const Index = () => {
               {
                 title: "Real projects",
                 description: "Structured, operational, and designed to scale over time.",
-                icon: <CheckCircle2 className="w-8 h-8" />
+                icon: <CheckCircle2 className="w-10 h-10" />
               },
               {
                 title: "Clear economics",
                 description: "Each platform has a defined business model and unit logic.",
-                icon: <LineChart className="w-8 h-8" />
+                icon: <LineChart className="w-10 h-10" />
               },
               {
                 title: "Shared infrastructure",
                 description: "Core AI, backend, analytics, and manufacturing work across the portfolio.",
-                icon: <Network className="w-8 h-8" />
+                icon: <Network className="w-10 h-10" />
               },
               {
                 title: "Multi-sector diversification",
                 description: "Exposure to HealthTech, AgroTech, FoodTech, and infrastructure.",
-                icon: <Target className="w-8 h-8" />
+                icon: <Target className="w-10 h-10" />
               },
               {
                 title: "Defined roadmaps",
                 description: "Every project has a phased, realistic roadmap instead of vague promises.",
-                icon: <FileText className="w-8 h-8" />
+                icon: <FileText className="w-10 h-10" />
               },
               {
                 title: "Private and individual",
                 description: "No public offering. All potential participation is discussed individually.",
-                icon: <Lock className="w-8 h-8" />
+                icon: <Lock className="w-10 h-10" />
               }
             ].map((highlight, index) => (
-              <Card key={index} className="border border-border/50 bg-card hover:shadow-lg transition-all duration-300">
-                <CardHeader>
-                  <div className="p-3 bg-primary/10 rounded-lg w-fit mb-4">
+              <Card key={index} className={`border border-border/50 bg-card hover:shadow-elevated transition-all duration-500 hover:-translate-y-2 group delay-${index * 100}`}>
+                <CardHeader className="space-y-4">
+                  <div className="p-4 bg-primary/10 rounded-xl w-fit group-hover:scale-110 transition-transform duration-300">
                     <div className="text-primary">{highlight.icon}</div>
                   </div>
-                  <CardTitle className="text-xl">{highlight.title}</CardTitle>
+                  <CardTitle className="text-2xl font-bold">{highlight.title}</CardTitle>
                   <CardDescription className="text-base leading-relaxed">
                     {highlight.description}
                   </CardDescription>
