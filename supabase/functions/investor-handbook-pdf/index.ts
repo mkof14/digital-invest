@@ -54,34 +54,56 @@ Deno.serve(async (req) => {
       }
     };
 
+    // Helper function to sanitize text for PDF encoding
+    const sanitizeText = (text: string): string => {
+      return text
+        .replace(/→/g, '->')
+        .replace(/'/g, "'")  // left single quote
+        .replace(/'/g, "'")  // right single quote
+        .replace(/"/g, '"')  // left double quote
+        .replace(/"/g, '"')  // right double quote
+        .replace(/–/g, '-')  // en dash
+        .replace(/—/g, '-')  // em dash
+        .replace(/…/g, '...') // ellipsis
+        .replace(/[\u0080-\uFFFF]/g, '?'); // Replace any remaining non-ASCII with ?
+    };
+
     // Helper function to draw text with wrapping
     const drawWrappedText = (text: string, x: number, maxWidth: number, fontSize: number, font: any, color: any, lineHeight: number) => {
-      const words = text.split(' ');
-      let line = '';
+      // Sanitize the text first
+      const sanitizedText = sanitizeText(text);
       
-      for (const word of words) {
-        const testLine = line + (line ? ' ' : '') + word;
-        const textWidth = font.widthOfTextAtSize(testLine, fontSize);
+      // Split into paragraphs first to handle newlines
+      const paragraphs = sanitizedText.split('\n');
+      
+      for (const paragraph of paragraphs) {
+        const words = paragraph.split(' ');
+        let line = '';
         
-        if (textWidth > maxWidth && line) {
+        for (const word of words) {
+          const testLine = line + (line ? ' ' : '') + word;
+          const textWidth = font.widthOfTextAtSize(testLine, fontSize);
+          
+          if (textWidth > maxWidth && line) {
+            checkPageBreak(lineHeight);
+            currentPage.drawText(line, { x, y: yPosition, size: fontSize, font, color });
+            yPosition -= lineHeight;
+            line = word;
+          } else {
+            line = testLine;
+          }
+        }
+        
+        if (line) {
           checkPageBreak(lineHeight);
           currentPage.drawText(line, { x, y: yPosition, size: fontSize, font, color });
           yPosition -= lineHeight;
-          line = word;
-        } else {
-          line = testLine;
         }
-      }
-      
-      if (line) {
-        checkPageBreak(lineHeight);
-        currentPage.drawText(line, { x, y: yPosition, size: fontSize, font, color });
-        yPosition -= lineHeight;
       }
     };
 
     // COVER PAGE
-    currentPage.drawText('DIGITAL INVEST INC.', {
+    currentPage.drawText(sanitizeText('DIGITAL INVEST INC.'), {
       x: margin,
       y: pageHeight - 200,
       size: 36,
@@ -89,7 +111,7 @@ Deno.serve(async (req) => {
       color: darkColor,
     });
 
-    currentPage.drawText('Investor Handbook — 2025 Edition', {
+    currentPage.drawText(sanitizeText('Investor Handbook - 2025 Edition'), {
       x: margin,
       y: pageHeight - 240,
       size: 18,
@@ -97,7 +119,7 @@ Deno.serve(async (req) => {
       color: lightColor,
     });
 
-    currentPage.drawText('Engineering the Future of Health, Agriculture, Food, and AI Infrastructure', {
+    currentPage.drawText(sanitizeText('Engineering the Future of Health, Agriculture, Food, and AI Infrastructure'), {
       x: margin,
       y: pageHeight - 280,
       size: 12,
@@ -155,7 +177,7 @@ Deno.serve(async (req) => {
 
     for (const project of projects) {
       checkPageBreak(20);
-      currentPage.drawText('• ' + project, {
+      currentPage.drawText(sanitizeText('• ' + project), {
         x: margin + 10,
         y: yPosition,
         size: 11,
@@ -263,7 +285,7 @@ Deno.serve(async (req) => {
 
     for (const principle of principles) {
       checkPageBreak(45);
-      currentPage.drawText(`${principle.num} ${principle.title}`, {
+      currentPage.drawText(sanitizeText(`${principle.num} ${principle.title}`), {
         x: margin,
         y: yPosition,
         size: 12,
@@ -298,7 +320,7 @@ Deno.serve(async (req) => {
 
     for (const proj of projectSummaries) {
       checkPageBreak(60);
-      currentPage.drawText(proj.name, {
+      currentPage.drawText(sanitizeText(proj.name), {
         x: margin,
         y: yPosition,
         size: 13,
@@ -498,7 +520,7 @@ Deno.serve(async (req) => {
 
     for (const item of esg) {
       checkPageBreak(40);
-      currentPage.drawText(item.title, {
+      currentPage.drawText(sanitizeText(item.title), {
         x: margin,
         y: yPosition,
         size: 12,
@@ -569,10 +591,10 @@ Deno.serve(async (req) => {
     drawWrappedText("Step-by-step (informational):", margin, contentWidth, 11, helveticaFont, darkColor, 16);
     yPosition -= 5;
 
-    const steps = ["1. Initial contact →", "2. Optional NDA →", "3. High-level discussion →", "4. Document sharing →", "5. Due diligence →", "6. Offline legal agreements"];
+    const steps = ["1. Initial contact ->", "2. Optional NDA ->", "3. High-level discussion ->", "4. Document sharing ->", "5. Due diligence ->", "6. Offline legal agreements"];
     for (const step of steps) {
       checkPageBreak(18);
-      currentPage.drawText(step, {
+      currentPage.drawText(sanitizeText(step), {
         x: margin + 10,
         y: yPosition,
         size: 10,
@@ -608,7 +630,7 @@ Deno.serve(async (req) => {
     for (const contact of contacts) {
       checkPageBreak(18);
       if (contact) {
-        currentPage.drawText(contact, {
+        currentPage.drawText(sanitizeText(contact), {
           x: margin,
           y: yPosition,
           size: contact.includes('@') ? 10 : 11,
