@@ -69,7 +69,7 @@ const Footer = () => {
           <div className="space-y-4">
             <h4 className="font-semibold text-foreground">Company</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li><Link to="/team-members" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">Team</Link></li>
+              <li><Link to="/team" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">Team</Link></li>
               <li><Link to="/about" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">About</Link></li>
               <li><Link to="/governance" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">Governance</Link></li>
               <li><Link to="/esg" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">ESG</Link></li>

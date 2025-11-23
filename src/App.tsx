@@ -4,11 +4,12 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import { LanguageProvider } from "@/contexts/LanguageContext";
 import ScrollToTop from "@/components/ScrollToTop";
 import Index from "./pages/Index";
 import Platform from "./pages/Platform";
 import Services from "./pages/Services";
-import Team from "./pages/Team";
+
 import Recognition from "./pages/Recognition";
 import Partnerships from "./pages/Partnerships";
 import StartInvesting from "./pages/StartInvesting";
@@ -78,17 +79,18 @@ const queryClient = new QueryClient();
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <ThemeProvider defaultTheme="dark" storageKey="digital-invest-theme">
-      <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <CookieConsent />
-        <BrowserRouter>
-          <ScrollToTop />
-          <Routes>
+      <LanguageProvider>
+        <TooltipProvider>
+          <Toaster />
+          <Sonner />
+          <CookieConsent />
+          <BrowserRouter>
+            <ScrollToTop />
+            <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/platform" element={<Platform />} />
             <Route path="/services" element={<Services />} />
-            <Route path="/team" element={<Team />} />
+            <Route path="/team" element={<TeamPage />} />
             <Route path="/recognition" element={<Recognition />} />
             <Route path="/partnerships" element={<Partnerships />} />
           <Route path="/start-investing" element={<StartInvesting />} />
@@ -104,7 +106,7 @@ const App = () => (
             <Route path="/contact" element={<Contact />} />
             <Route path="/news" element={<News />} />
             <Route path="/news/:slug" element={<NewsDetail />} />
-            <Route path="/team-members" element={<TeamPage />} />
+            
             <Route path="/about" element={<About />} />
             <Route path="/why-digital-invest" element={<WhyDigitalInvest />} />
             <Route path="/for-investors" element={<ForInvestors />} />
@@ -171,6 +173,7 @@ const App = () => (
           </Routes>
         </BrowserRouter>
       </TooltipProvider>
+      </LanguageProvider>
     </ThemeProvider>
   </QueryClientProvider>
 );
