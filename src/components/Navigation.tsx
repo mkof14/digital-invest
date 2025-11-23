@@ -27,7 +27,7 @@ const Navigation = () => {
             <OptimizedImage 
               src="/lovable-uploads/digital-invest-logo-new.png" 
               alt="Digital Invest Inc. company logo" 
-              className="w-10 h-10 object-contain"
+              className="w-14 h-14 object-contain"
               showSkeleton={false}
             />
             <span className="text-foreground text-2xl font-bold">Digital Invest</span>
