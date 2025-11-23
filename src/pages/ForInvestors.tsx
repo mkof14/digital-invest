@@ -30,10 +30,10 @@ const ForInvestors = () => {
       <section className="pt-32 pb-24 px-4">
         <div className="max-w-4xl mx-auto text-center space-y-6 animate-fade-in">
           <h1 className="text-4xl md:text-6xl font-bold text-foreground">
-            For Investors
+            {t('forInvestors.title')}
           </h1>
           <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed">
-            A private way to explore and discuss participation in Digital Invest projects.
+            {t('forInvestors.subtitle')}
           </p>
         </div>
       </section>
@@ -42,7 +42,7 @@ const ForInvestors = () => {
       <section className="py-16 px-4 bg-card/30">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-12 text-center">
-            Who We Work With
+            {t('forInvestors.whoWeWorkWith')}
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -71,7 +71,7 @@ const ForInvestors = () => {
       <section className="py-24 px-4">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-12 text-center">
-            What You Can Expect
+            {t('forInvestors.whatToExpect')}
           </h2>
           
           <div className="space-y-4">
@@ -102,7 +102,7 @@ const ForInvestors = () => {
       <section className="py-24 px-4 bg-card/30">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-12 text-center">
-            Your Path as an Investor
+            {t('forInvestors.yourPath')}
           </h2>
           
           <div className="space-y-6">
@@ -173,7 +173,7 @@ const ForInvestors = () => {
       <section className="py-24 px-4">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-12 text-center">
-            What This Website Is and Is Not
+            {t('forInvestors.whatThisIs')} / {t('forInvestors.whatThisIsNot')}
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -182,7 +182,7 @@ const ForInvestors = () => {
               <CardHeader>
                 <CardTitle className="text-2xl text-foreground flex items-center gap-3">
                   <CheckCircle2 className="w-6 h-6 text-primary" />
-                  This Website IS
+                  {t('forInvestors.whatThisIs')}
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
@@ -204,7 +204,7 @@ const ForInvestors = () => {
               <CardHeader>
                 <CardTitle className="text-2xl text-foreground flex items-center gap-3">
                   <X className="w-6 h-6 text-muted-foreground" />
-                  This Website is NOT
+                  {t('forInvestors.whatThisIsNot')}
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
@@ -229,7 +229,7 @@ const ForInvestors = () => {
       <section className="py-24 px-4 bg-card/30">
         <div className="max-w-4xl mx-auto text-center space-y-8">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-            Contact / Next Steps
+            {t('forInvestors.nextSteps')}
           </h2>
           
           <Card className="border border-border/50 bg-card">
