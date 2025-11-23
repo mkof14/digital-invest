@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Menu, X, Sun, Moon } from 'lucide-react';
 import { useTheme } from '@/components/ThemeProvider';
 import OptimizedImage from '@/components/OptimizedImage';
+import SearchBar from './SearchBar';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -34,16 +35,20 @@ const Navigation = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            {navItems.map((item) => (
-              <Link
-                key={item.label}
-                to={item.href}
-                className="text-muted-foreground hover:text-foreground transition-all duration-300 hover:scale-110 inline-block"
-              >
-                {item.label}
-              </Link>
-            ))}
+          <div className="hidden md:flex items-center gap-6">
+            <nav className="flex items-center space-x-8">
+              {navItems.map((item) => (
+                <Link
+                  key={item.label}
+                  to={item.href}
+                  className="text-muted-foreground hover:text-foreground transition-all duration-300 hover:scale-110 inline-block"
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </nav>
+            
+            <SearchBar />
             
             {/* Theme Toggle */}
             <Button

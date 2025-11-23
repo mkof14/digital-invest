@@ -101,6 +101,8 @@ const Footer = () => {
               <li><Link to="/media-kit" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">Media Kit</Link></li>
               <li><Link to="/investor-documents" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">Investor Documents</Link></li>
               <li><Link to="/investor-handbook" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">Investor Handbook</Link></li>
+              <li><Link to="/glossary" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">Glossary</Link></li>
+              <li><Link to="/document-library" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">Document Library</Link></li>
               <li><Link to="/api" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">API Overview</Link></li>
               <li><Link to="/infrastructure" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">Infrastructure</Link></li>
             </ul>
