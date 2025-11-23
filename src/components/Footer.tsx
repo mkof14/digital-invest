@@ -95,7 +95,7 @@ const Footer = () => {
               </div>
               <div className="pt-2 flex items-center gap-4">
                 <a 
-                  href="https://www.linkedin.com/company/digital-invest-inc/" 
+                  href="https://www.linkedin.com/company/96294379/admin/dashboard/" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="text-muted-foreground hover:text-primary transition-colors"
