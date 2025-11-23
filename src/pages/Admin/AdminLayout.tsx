@@ -3,7 +3,7 @@ import { Outlet, Link, useNavigate, useLocation } from 'react-router-dom';
 import { supabase } from '@/integrations/supabase/client';
 import { useUserRole } from '@/hooks/useUserRole';
 import { Button } from '@/components/ui/button';
-import { LayoutDashboard, FolderOpen, Users, LogOut, Loader2, UsersRound, Newspaper, Shield, Layout, FileText, Mail, FileEdit, Calendar, Clock, Map, Rocket } from 'lucide-react';
+import { LayoutDashboard, FolderOpen, Users, LogOut, Loader2, UsersRound, Newspaper, Shield, Layout, FileText, Mail, FileEdit, Calendar, Clock, Map, Rocket, Share2 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { toast } from 'sonner';
 import OptimizedImage from '@/components/OptimizedImage';
@@ -63,6 +63,7 @@ const AdminLayout = () => {
     { icon: Clock, label: 'Availability', path: '/admin/availability', minRole: 'ADMIN' },
     { icon: Shield, label: 'Users & Roles', path: '/admin/users', minRole: 'ADMIN' },
     { icon: Layout, label: 'Site Sections', path: '/admin/site-sections', minRole: 'ADMIN' },
+    { icon: Share2, label: 'Social Media', path: '/admin/social-media', minRole: 'ADMIN' },
     { icon: Map, label: 'Sitemap & SEO', path: '/admin/sitemap', minRole: 'ADMIN' },
     { icon: Rocket, label: 'Launch Checklist', path: '/admin/launch-checklist', minRole: 'ADMIN' },
   ];

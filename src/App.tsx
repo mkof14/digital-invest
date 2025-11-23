@@ -43,6 +43,7 @@ import AdminSetup from "./pages/Admin/AdminSetup";
 import AdminTeam from "./pages/Admin/AdminTeam";
 import AdminNews from "./pages/Admin/AdminNews";
 import AdminEmailTemplates from "./pages/Admin/AdminEmailTemplates";
+import AdminSocialMedia from "./pages/Admin/AdminSocialMedia";
 import AdminContent from "./pages/Admin/AdminContent";
 import AdminConsultations from "./pages/Admin/AdminConsultations";
 import AdminAvailability from "./pages/Admin/AdminAvailability";
@@ -146,6 +147,7 @@ const App = () => (
             <Route path="team" element={<AdminTeam />} />
             <Route path="news" element={<AdminNews />} />
             <Route path="email-templates" element={<AdminEmailTemplates />} />
+            <Route path="social-media" element={<AdminSocialMedia />} />
             <Route path="content" element={<AdminContent />} />
             <Route path="consultations" element={<AdminConsultations />} />
             <Route path="availability" element={<AdminAvailability />} />
