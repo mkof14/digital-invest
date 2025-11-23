@@ -7,6 +7,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@
 import { Badge } from '@/components/ui/badge';
 import { FolderOpen, Users, TrendingUp, Eye, DollarSign, Percent, AlertCircle, Clock, Mail, FileText, Shield, Layout as LayoutIcon } from 'lucide-react';
 import PortfolioDashboard from '@/components/PortfolioDashboard';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface Stats {
   totalProjects: number;
@@ -44,6 +45,7 @@ interface ActionQueueLead {
 }
 
 const AdminDashboard = () => {
+  const { t } = useLanguage();
   const [stats, setStats] = useState<Stats>({
     totalProjects: 0,
     openProjects: 0,
@@ -191,8 +193,8 @@ const AdminDashboard = () => {
   return (
     <div className="space-y-6">
       <div>
-        <h2 className="text-3xl font-bold text-foreground">Dashboard</h2>
-        <p className="text-muted-foreground">Overview of your investment platform</p>
+        <h2 className="text-3xl font-bold text-foreground">{t('admin.dashboard')}</h2>
+        <p className="text-muted-foreground">{t('admin.overview')}</p>
       </div>
 
       {/* Portfolio Overview */}

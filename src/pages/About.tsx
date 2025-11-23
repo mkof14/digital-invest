@@ -7,8 +7,10 @@ import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { MarkdownContent } from '@/components/MarkdownContent';
 import { getContentBlock, renderContentBlock, ContentBlock } from '@/lib/contentService';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const About = () => {
+  const { t } = useLanguage();
   const [loading, setLoading] = useState(true);
   const [content, setContent] = useState<{
     story: ContentBlock | null;
@@ -69,12 +71,12 @@ Today, Digital Invest brings together this multi-sector expertise into a unified
       <section className="relative py-24 px-4">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center space-y-6">
-            <Badge variant="secondary" className="mb-4">About Us</Badge>
+            <Badge variant="secondary" className="mb-4">{t('about.badge')}</Badge>
             <h1 className="text-5xl md:text-6xl font-bold text-foreground">
-              About Us
+              {t('about.title')}
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Digital Invest Inc. — Innovation across HealthTech, AI, Agriculture, and Real-Economy Systems.
+              {t('about.subtitle')}
             </p>
           </div>
         </div>
@@ -83,7 +85,7 @@ Today, Digital Invest brings together this multi-sector expertise into a unified
       {/* Our Story */}
       <section className="py-16 px-4 bg-muted/30">
         <div className="container mx-auto max-w-4xl">
-          <h2 className="text-3xl font-bold text-foreground mb-8">Our Story</h2>
+          <h2 className="text-3xl font-bold text-foreground mb-8">{t('about.ourStory')}</h2>
           <div className="text-muted-foreground">
             <MarkdownContent
               content={renderContentBlock(content.story, fallbacks.story)}
@@ -95,7 +97,7 @@ Today, Digital Invest brings together this multi-sector expertise into a unified
       {/* Recognition */}
       <section className="py-16 px-4">
         <div className="container mx-auto max-w-6xl">
-          <h2 className="text-3xl font-bold text-foreground mb-8">Recognitions & Awards</h2>
+          <h2 className="text-3xl font-bold text-foreground mb-8">{t('about.recognitions')}</h2>
           <div className="mb-8 text-muted-foreground">
             <MarkdownContent
               content={renderContentBlock(content.recognition, fallbacks.recognition)}
@@ -148,7 +150,7 @@ Today, Digital Invest brings together this multi-sector expertise into a unified
       {/* Our Expertise */}
       <section className="py-16 px-4 bg-muted/30">
         <div className="container mx-auto max-w-6xl">
-          <h2 className="text-3xl font-bold text-foreground mb-8">Our Expertise</h2>
+          <h2 className="text-3xl font-bold text-foreground mb-8">{t('about.ourExpertise')}</h2>
           <div className="grid md:grid-cols-2 gap-6">
             <Card>
               <CardContent className="pt-6">
@@ -210,7 +212,7 @@ Today, Digital Invest brings together this multi-sector expertise into a unified
       {/* Our Mission */}
       <section className="py-16 px-4">
         <div className="container mx-auto max-w-4xl">
-          <h2 className="text-3xl font-bold text-foreground mb-8">Our Mission</h2>
+          <h2 className="text-3xl font-bold text-foreground mb-8">{t('about.ourMission')}</h2>
           <Card>
             <CardContent className="pt-6">
               <div className="text-muted-foreground">
@@ -226,7 +228,7 @@ Today, Digital Invest brings together this multi-sector expertise into a unified
       {/* The Vision Ahead */}
       <section className="py-16 px-4 bg-muted/30">
         <div className="container mx-auto max-w-6xl">
-          <h2 className="text-3xl font-bold text-foreground mb-8">The Vision Ahead</h2>
+          <h2 className="text-3xl font-bold text-foreground mb-8">{t('about.visionAhead')}</h2>
           <div className="space-y-8">
             <Card>
               <CardHeader>
@@ -286,7 +288,7 @@ Today, Digital Invest brings together this multi-sector expertise into a unified
       {/* Our Commitment */}
       <section className="py-16 px-4">
         <div className="container mx-auto max-w-4xl">
-          <h2 className="text-3xl font-bold text-foreground mb-8">Our Commitment</h2>
+          <h2 className="text-3xl font-bold text-foreground mb-8">{t('about.ourCommitment')}</h2>
           <Card>
             <CardContent className="pt-6">
               <ul className="space-y-4">
@@ -325,9 +327,9 @@ Today, Digital Invest brings together this multi-sector expertise into a unified
         <div className="container mx-auto max-w-4xl">
           <Card className="border border-border/50 bg-muted/30">
             <CardContent className="pt-8 pb-8">
-              <h3 className="text-2xl font-bold text-foreground mb-4">Corporate Legal Framework</h3>
+              <h3 className="text-2xl font-bold text-foreground mb-4">{t('about.legalFramework')}</h3>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Digital Invest Inc. operates exclusively through private, offline contractual engagements with qualified individuals and organizations. We do not raise capital publicly, do not conduct public offerings through this website, and do not operate as a crowdfunding platform or public marketplace. All participation, if any, is discussed individually, subject to due diligence and eligibility verification, and formalized through separate legal agreements executed offline.
+                {t('about.legalText')}
               </p>
             </CardContent>
           </Card>
@@ -337,16 +339,16 @@ Today, Digital Invest brings together this multi-sector expertise into a unified
       {/* CTA Section */}
       <section className="py-16 px-4 bg-muted/30">
         <div className="container mx-auto max-w-4xl text-center">
-          <h2 className="text-3xl font-bold text-foreground mb-6">Ready to Learn More?</h2>
+          <h2 className="text-3xl font-bold text-foreground mb-6">{t('about.readyToLearn')}</h2>
           <p className="text-lg text-muted-foreground mb-8">
-            Explore our portfolio projects or request private information about potential collaboration opportunities.
+            {t('about.exploreText')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" asChild>
-              <a href="/projects">View Projects</a>
+              <a href="/projects">{t('about.viewProjects')}</a>
             </Button>
             <Button size="lg" variant="outline" asChild>
-              <a href="/contact">Request Information</a>
+              <a href="/contact">{t('about.requestInfo')}</a>
             </Button>
           </div>
         </div>

@@ -10,6 +10,7 @@ import { Calendar, ArrowRight, Loader2, BookOpen, TrendingUp, Newspaper } from '
 import { useToast } from '@/hooks/use-toast';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface NewsPost {
   id: string;
@@ -34,6 +35,7 @@ interface Project {
 }
 
 const News = () => {
+  const { t } = useLanguage();
   const [posts, setPosts] = useState<NewsPost[]>([]);
   const [projects, setProjects] = useState<Project[]>([]);
   const [loading, setLoading] = useState(true);
@@ -138,21 +140,21 @@ const News = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-5xl md:text-6xl font-bold mb-6 text-foreground">
-              News & Insights
+              {t('news.title')}
             </h1>
             <p className="text-xl text-muted-foreground mb-4">
-              Updates, project milestones, and in-depth perspectives from the Digital Invest portfolio.
+              {t('news.subtitle')}
             </p>
             <p className="text-base text-muted-foreground mb-8">
-              Stay informed about developments across HealthTech, AgroTech, FoodTech, and multi-sector infrastructure.
+              {t('news.subtitleSecondary')}
             </p>
             <div className="flex gap-4 justify-center flex-wrap">
               <Button size="lg" onClick={() => document.getElementById('articles')?.scrollIntoView({ behavior: 'smooth' })}>
-                All Articles
+                {t('news.allArticles')}
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
               <Button variant="outline" size="lg" asChild>
-                <Link to="/projects">View Projects</Link>
+                <Link to="/projects">{t('news.viewProjects')}</Link>
               </Button>
             </div>
           </div>
@@ -163,7 +165,7 @@ const News = () => {
         {/* Featured Highlight */}
         {featuredPost && (
           <div className="mb-16">
-            <h2 className="text-2xl font-bold mb-6 text-foreground">Featured</h2>
+            <h2 className="text-2xl font-bold mb-6 text-foreground">{t('news.featured')}</h2>
             <Card className="border-2 border-primary/20 bg-card hover:shadow-elevated transition-all duration-300">
               <CardHeader>
                 <div className="flex items-center gap-3 mb-4 flex-wrap">
@@ -200,7 +202,7 @@ const News = () => {
                 </CardDescription>
                 <Link to={`/news/${featuredPost.slug}`}>
                   <Button size="lg">
-                    Read More
+                    {t('news.readMore')}
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
                 </Link>
@@ -211,24 +213,24 @@ const News = () => {
 
         {/* Filter Bar */}
         <div id="articles" className="mb-8 space-y-4">
-          <h2 className="text-2xl font-bold text-foreground">Latest News & Insights</h2>
+          <h2 className="text-2xl font-bold text-foreground">{t('news.latestNews')}</h2>
           
           <div className="flex flex-col md:flex-row gap-4 items-start md:items-center">
             <Tabs value={filterType} onValueChange={setFilterType} className="w-full md:w-auto">
               <TabsList className="grid w-full md:w-auto grid-cols-4">
-                <TabsTrigger value="all">All</TabsTrigger>
-                <TabsTrigger value="news">News</TabsTrigger>
-                <TabsTrigger value="insight">Insights</TabsTrigger>
-                <TabsTrigger value="update">Updates</TabsTrigger>
+                <TabsTrigger value="all">{t('news.all')}</TabsTrigger>
+                <TabsTrigger value="news">{t('news.newsType')}</TabsTrigger>
+                <TabsTrigger value="insight">{t('news.insights')}</TabsTrigger>
+                <TabsTrigger value="update">{t('news.updates')}</TabsTrigger>
               </TabsList>
             </Tabs>
 
             <Select value={filterProject} onValueChange={setFilterProject}>
               <SelectTrigger className="w-full md:w-[200px]">
-                <SelectValue placeholder="All Projects" />
+                <SelectValue placeholder={t('news.allProjects')} />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="all">All Projects</SelectItem>
+                <SelectItem value="all">{t('news.allProjects')}</SelectItem>
                 {projects.map((project) => (
                   <SelectItem key={project.id} value={project.id}>
                     {project.title}
@@ -239,10 +241,10 @@ const News = () => {
 
             <Select value={filterCategory} onValueChange={setFilterCategory}>
               <SelectTrigger className="w-full md:w-[150px]">
-                <SelectValue placeholder="Category" />
+                <SelectValue placeholder={t('news.category')} />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="all">All</SelectItem>
+                <SelectItem value="all">{t('news.all')}</SelectItem>
                 <SelectItem value="Health">Health</SelectItem>
                 <SelectItem value="Agro">Agro</SelectItem>
                 <SelectItem value="Food">Food</SelectItem>
@@ -260,7 +262,7 @@ const News = () => {
                 }}
                 className="text-sm"
               >
-                Clear Filters
+                {t('news.clearFilters')}
               </Button>
             )}
           </div>
@@ -269,7 +271,7 @@ const News = () => {
         {/* Main List */}
         {filteredPosts.length === 0 ? (
           <div className="text-center py-16">
-            <p className="text-muted-foreground text-lg">No articles found for the selected filters.</p>
+            <p className="text-muted-foreground text-lg">{t('news.noArticles')}</p>
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
@@ -317,7 +319,7 @@ const News = () => {
 
                   <Link to={`/news/${post.slug}`} className="mt-auto">
                     <Button variant="outline" size="sm" className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
-                      Read More
+                      {t('news.readMore')}
                       <ArrowRight className="ml-2 h-3 w-3" />
                     </Button>
                   </Link>
@@ -330,7 +332,7 @@ const News = () => {
         {/* Per-Project Quick Sections */}
         {projects.length > 0 && (
           <div className="mb-16">
-            <h2 className="text-2xl font-bold mb-6 text-foreground">Updates by Project</h2>
+            <h2 className="text-2xl font-bold mb-6 text-foreground">{t('news.updatesByProject')}</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {projects.map((project) => {
                 const projectPosts = getProjectPosts(project.id);
@@ -370,7 +372,7 @@ const News = () => {
                             document.getElementById('articles')?.scrollIntoView({ behavior: 'smooth' });
                           }}
                         >
-                          View all →
+                          {t('news.viewAll')}
                         </Button>
                       </div>
                     </CardContent>
@@ -384,18 +386,18 @@ const News = () => {
         {/* Stay Informed Block */}
         <Card className="border-2 border-border bg-muted/30">
           <CardHeader>
-            <CardTitle className="text-2xl">Stay Informed</CardTitle>
+            <CardTitle className="text-2xl">{t('news.stayInformed')}</CardTitle>
           </CardHeader>
           <CardContent>
             <p className="text-muted-foreground mb-6">
-              Digital Invest is actively building and evolving its portfolio. If you want to stay informed about key updates, new phases, and insights, the best path is to review the projects and submit a non-binding expression of interest. We will follow up individually.
+              {t('news.stayInformedText')}
             </p>
             <div className="flex gap-4 flex-wrap">
               <Button asChild>
-                <Link to="/projects">View Projects</Link>
+                <Link to="/projects">{t('news.viewProjects')}</Link>
               </Button>
               <Button variant="outline" asChild>
-                <Link to="/for-investors">For Investors</Link>
+                <Link to="/for-investors">{t('news.forInvestors')}</Link>
               </Button>
             </div>
           </CardContent>

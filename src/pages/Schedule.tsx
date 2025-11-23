@@ -15,6 +15,7 @@ import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import InvestorPageDisclaimer from '@/components/InvestorPageDisclaimer';
 import { trackConsultationBooking } from '@/lib/analytics';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface Project {
   slug: string;
@@ -27,6 +28,7 @@ interface TimeSlot {
 }
 
 const Schedule = () => {
+  const { t } = useLanguage();
   const [projects, setProjects] = useState<Project[]>([]);
   const [availableSlots, setAvailableSlots] = useState<TimeSlot[]>([]);
   const [loading, setLoading] = useState(false);
@@ -229,12 +231,12 @@ digitalinvest.com`}
       <main className="min-h-screen pt-24 pb-16 bg-background">
         <div className="container mx-auto px-4 max-w-2xl">
           <div className="text-center mb-12">
-            <h1 className="text-4xl font-bold mb-4">Request Consultation</h1>
+            <h1 className="text-4xl font-bold mb-4">{t('schedule.title')}</h1>
             <p className="text-xl text-muted-foreground">
-              Request a private conversation to discuss Digital Invest Inc. projects.
+              {t('schedule.subtitle')}
             </p>
             <p className="text-sm text-muted-foreground mt-4 max-w-2xl mx-auto">
-              This is a non-binding request for a consultation. Submitting this form does not constitute any offer, commitment, or approval. Any potential participation, if pursued, is handled offline through proper legal channels separate from this website.
+              {t('schedule.disclaimer')}
             </p>
           </div>
 
