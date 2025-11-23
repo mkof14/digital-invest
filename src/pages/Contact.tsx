@@ -123,9 +123,9 @@ const Contact = () => {
                         name="email"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel>Email Address</FormLabel>
+                            <FormLabel>{t('contact.emailAddress')}</FormLabel>
                             <FormControl>
-                              <Input type="email" placeholder="john@example.com" {...field} />
+                              <Input type="email" placeholder={t('contact.emailPlaceholder')} {...field} />
                             </FormControl>
                             <FormMessage />
                           </FormItem>
@@ -137,9 +137,9 @@ const Contact = () => {
                         name="subject"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel>Subject</FormLabel>
+                            <FormLabel>{t('contact.subjectLabel')}</FormLabel>
                             <FormControl>
-                              <Input placeholder="Investment inquiry" {...field} />
+                              <Input placeholder={t('contact.subjectPlaceholder')} {...field} />
                             </FormControl>
                             <FormMessage />
                           </FormItem>
@@ -151,10 +151,10 @@ const Contact = () => {
                         name="message"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel>Message</FormLabel>
+                            <FormLabel>{t('contact.messageLabel')}</FormLabel>
                             <FormControl>
                               <Textarea
-                                placeholder="Tell us about your investment interests, questions, or how we can help..."
+                                placeholder={t('contact.messagePlaceholder')}
                                 className="min-h-[150px]"
                                 {...field}
                               />
@@ -168,17 +168,17 @@ const Contact = () => {
                         {isSubmitting ? (
                           <>
                             <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                            Sending...
+                            {t('contact.sending')}
                           </>
                         ) : (
                           <>
                             <Send className="mr-2 h-4 w-4" />
-                            Submit Request
+                            {t('contact.submitRequest')}
                           </>
                         )}
                       </Button>
                       <p className="text-xs text-center text-muted-foreground mt-2">
-                        This is a non-binding information request only
+                        {t('contact.nonBindingNote')}
                       </p>
                     </form>
                   </Form>
@@ -191,13 +191,13 @@ const Contact = () => {
               {/* Contact Details */}
               <Card className="border border-border/50">
                 <CardHeader>
-                  <CardTitle>Contact Information</CardTitle>
+                  <CardTitle>{t('contact.contactInfo')}</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div className="flex items-start gap-3">
                     <Mail className="h-5 w-5 text-primary mt-1" />
                     <div>
-                      <p className="font-semibold text-foreground">Email</p>
+                      <p className="font-semibold text-foreground">{t('contact.emailLabel')}</p>
                       <a href="mailto:info@digitalinvest.com" className="text-muted-foreground hover:text-primary transition-colors">
                         info@digitalinvest.com
                       </a>
@@ -207,11 +207,9 @@ const Contact = () => {
                   <div className="flex items-start gap-3">
                     <MapPin className="h-5 w-5 text-primary mt-1" />
                     <div>
-                      <p className="font-semibold text-foreground">Office</p>
-                      <p className="text-muted-foreground">
-                        Digital Invest Inc.<br />
-                        Charlotte, NC<br />
-                        United States
+                      <p className="font-semibold text-foreground">{t('contact.officeLabel')}</p>
+                      <p className="text-muted-foreground whitespace-pre-line">
+                        {t('contact.officeAddress')}
                       </p>
                     </div>
                   </div>
@@ -221,25 +219,25 @@ const Contact = () => {
               {/* Response Time */}
               <Card className="border border-border/50">
                 <CardHeader>
-                  <CardTitle>What to Expect</CardTitle>
+                  <CardTitle>{t('contact.whatToExpect')}</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <ul className="space-y-3 text-muted-foreground">
                     <li className="flex items-start gap-2">
                       <span className="text-primary mt-1">•</span>
-                      <span>Response within 1-2 business days</span>
+                      <span>{t('contact.expect1')}</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-primary mt-1">•</span>
-                      <span>Private consultation with our team</span>
+                      <span>{t('contact.expect2')}</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-primary mt-1">•</span>
-                      <span>Informational materials and documentation</span>
+                      <span>{t('contact.expect3')}</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-primary mt-1">•</span>
-                      <span>Clear next steps for exploratory discussion</span>
+                      <span>{t('contact.expect4')}</span>
                     </li>
                   </ul>
                 </CardContent>
@@ -249,12 +247,8 @@ const Contact = () => {
               <Card className="bg-muted/30 border border-border/50">
                 <CardContent className="pt-6">
                   <div className="text-sm text-muted-foreground">
-                    <p className="font-medium text-foreground mb-2">Legal Notice</p>
-                    <p>
-                      Digital Invest Inc. does not provide investment, legal, or tax advice through this website. 
-                      Information provided is for informational purposes only and does not constitute 
-                      a public offer or solicitation. All participation is private, invitation-only, and requires formal legal agreements executed offline.
-                    </p>
+                    <p className="font-medium text-foreground mb-2">{t('contact.legalNotice')}</p>
+                    <p>{t('contact.legalNoticeText')}</p>
                   </div>
                 </CardContent>
               </Card>
