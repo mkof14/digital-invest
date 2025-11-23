@@ -795,15 +795,9 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
   };
 
   const t = (key: string): string => {
-    const keys = key.split('.');
-    let value: any = translations[language];
-    
-    for (const k of keys) {
-      value = value?.[k];
-      if (value === undefined) break;
-    }
-    
-    return value || key;
+    const langTranslations = translations[language] as Record<string, string> | undefined;
+    if (!langTranslations) return key;
+    return langTranslations[key] || key;
   };
 
   return (
