@@ -111,7 +111,7 @@ const Footer = () => {
                   <Facebook className="h-5 w-5" />
                 </a>
                 <a 
-                  href="https://youtube.com" 
+                  href="https://www.youtube.com/@BiomathLife" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="text-muted-foreground hover:text-primary transition-colors"
