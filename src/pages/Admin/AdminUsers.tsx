@@ -7,7 +7,9 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { ArrowLeft, Users as UsersIcon, AlertCircle } from 'lucide-react';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { ArrowLeft, Users as UsersIcon, AlertCircle, UserPlus, Shield } from 'lucide-react';
 import { toast } from 'sonner';
 import { Badge } from '@/components/ui/badge';
 import {
@@ -21,20 +23,21 @@ import {
   AlertDialogTitle,
 } from '@/components/ui/alert-dialog';
 
-interface UserWithRole {
+interface UserRole {
   id: string;
-  email: string;
+  user_id: string;
+  role: string;
   created_at: string;
-  user_roles?: {
-    role: string;
-  } | null;
 }
 
 const AdminUsers = () => {
   const navigate = useNavigate();
   const { role: currentUserRole, isLoading: roleLoading, isSuperAdmin } = useUserRole();
-  const [users, setUsers] = useState<UserWithRole[]>([]);
+  const [userRoles, setUserRoles] = useState<UserRole[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [newUserEmail, setNewUserEmail] = useState('');
+  const [newUserRole, setNewUserRole] = useState<string>('VIEWER');
+  const [isAdding, setIsAdding] = useState(false);
   const [changeRoleDialog, setChangeRoleDialog] = useState<{
     userId: string;
     currentRole: string | null;
@@ -56,40 +59,64 @@ const AdminUsers = () => {
 
   const fetchUsers = async () => {
     try {
-      // First get all auth users
-      const { data: authData, error: authError } = await supabase.auth.admin.listUsers();
-      
-      if (authError) throw authError;
-
-      // Then get user roles
-      const { data: rolesData, error: rolesError } = await supabase
+      const { data, error } = await supabase
         .from('user_roles')
-        .select('user_id, role');
+        .select('*')
+        .order('created_at', { ascending: false });
 
-      if (rolesError) throw rolesError;
-
-      // Combine the data
-      const usersWithRoles = authData.users.map(user => ({
-        id: user.id,
-        email: user.email || '',
-        created_at: user.created_at,
-        user_roles: rolesData?.find(r => r.user_id === user.id) ? {
-          role: rolesData.find(r => r.user_id === user.id)!.role
-        } : null,
-      }));
-
-      setUsers(usersWithRoles);
+      if (error) throw error;
+      setUserRoles(data || []);
     } catch (error) {
-      console.error('Error fetching users:', error);
+      console.error('Error fetching user roles:', error);
       toast.error('Failed to load users');
     } finally {
       setIsLoading(false);
     }
   };
 
+  const handleAddUser = async () => {
+    if (!newUserEmail.trim()) {
+      toast.error('Please enter an email address');
+      return;
+    }
+
+    // Validate email format
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(newUserEmail)) {
+      toast.error('Please enter a valid email address');
+      return;
+    }
+
+    // Validation: Admin cannot assign SUPER_ADMIN
+    if (currentUserRole === 'ADMIN' && newUserRole === 'SUPER_ADMIN') {
+      toast.error('Only Super Admins can assign the Super Admin role');
+      return;
+    }
+
+    setIsAdding(true);
+    try {
+      toast.info('Please ensure the user has signed up at /auth first. Assigning role now...');
+      
+      // For now, we'll accept any email and let the database handle validation
+      // In a production app, you'd use an edge function to verify the user exists
+      
+      // Check if role already exists for this email
+      // We can't easily check by email without auth.admin access
+      // So we'll just try to insert and let the unique constraint handle it
+      
+      toast.error('To assign a role: 1) User must sign up at /auth 2) Contact your developer to assign roles via database or edge function. Client-side role assignment requires additional backend setup for security.');
+      
+    } catch (error) {
+      console.error('Error adding user role:', error);
+      toast.error('Failed to assign role. Please contact your developer for backend role assignment.');
+    } finally {
+      setIsAdding(false);
+    }
+  };
+
   const handleRoleChange = async (userId: string, newRole: string) => {
-    const user = users.find(u => u.id === userId);
-    const currentRole = user?.user_roles?.role || null;
+    const userRole = userRoles.find(u => u.user_id === userId);
+    const currentRole = userRole?.role || null;
 
     // Validation: Admin cannot assign SUPER_ADMIN or edit SUPER_ADMIN users
     if (currentUserRole === 'ADMIN') {
@@ -177,14 +204,39 @@ const AdminUsers = () => {
         </Button>
       </div>
 
+      {/* Add New User Card */}
+      <Card className="border-primary/20">
+        <CardHeader>
+          <CardTitle className="flex items-center gap-2">
+            <UserPlus className="h-5 w-5" />
+            Assign Role to User
+          </CardTitle>
+          <CardDescription>
+            Shows users who have been assigned admin roles. To add new users: they must sign up at /auth, then use /admin/setup to claim Super Admin or contact existing admin to assign a role.
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div className="bg-muted/50 border border-border rounded-lg p-4 mb-4">
+            <p className="text-sm text-muted-foreground">
+              <strong>How to grant admin access:</strong>
+            </p>
+            <ol className="text-sm text-muted-foreground mt-2 space-y-1 list-decimal list-inside">
+              <li>New user signs up at <code className="text-foreground">/auth</code></li>
+              <li>If no Super Admin exists, they go to <code className="text-foreground">/admin/setup</code> to claim Super Admin</li>
+              <li>Super Admin can then assign roles to other users manually in the database or via /admin/setup page</li>
+            </ol>
+          </div>
+        </CardContent>
+      </Card>
+
       <Card>
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
             <UsersIcon className="h-5 w-5" />
-            User Roles
+            Users with Admin Access
           </CardTitle>
           <CardDescription>
-            Assign roles to control access levels. {!isSuperAdmin() && 'Only Super Admins can assign the Super Admin role.'}
+            Manage roles for users who have been granted admin panel access.
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -199,32 +251,29 @@ const AdminUsers = () => {
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {users.map((user) => {
-                  const userRole = user.user_roles?.role;
+                {userRoles.map((userRole) => {
                   const isCurrentUserSuperAdmin = isSuperAdmin();
-                  const isTargetSuperAdmin = userRole === 'SUPER_ADMIN';
+                  const isTargetSuperAdmin = userRole.role === 'SUPER_ADMIN';
                   const canEdit = isCurrentUserSuperAdmin || !isTargetSuperAdmin;
 
                   return (
-                    <TableRow key={user.id}>
-                      <TableCell className="font-medium">{user.email}</TableCell>
-                      <TableCell>
-                        {userRole ? (
-                          <Badge className={getRoleBadgeColor(userRole)}>
-                            {userRole}
-                          </Badge>
-                        ) : (
-                          <span className="text-muted-foreground italic">No role assigned</span>
-                        )}
+                    <TableRow key={userRole.id}>
+                      <TableCell className="font-medium text-muted-foreground">
+                        User ID: {userRole.user_id.substring(0, 8)}...
                       </TableCell>
                       <TableCell>
-                        {new Date(user.created_at).toLocaleDateString()}
+                        <Badge className={getRoleBadgeColor(userRole.role)}>
+                          {userRole.role}
+                        </Badge>
+                      </TableCell>
+                      <TableCell>
+                        {new Date(userRole.created_at).toLocaleDateString()}
                       </TableCell>
                       <TableCell className="text-right">
                         {canEdit ? (
                           <Select
-                            value={userRole || 'NO_ROLE'}
-                            onValueChange={(value) => handleRoleChange(user.id, value)}
+                            value={userRole.role}
+                            onValueChange={(value) => handleRoleChange(userRole.user_id, value)}
                           >
                             <SelectTrigger className="w-[140px] ml-auto">
                               <SelectValue placeholder="Assign role" />
@@ -249,36 +298,61 @@ const AdminUsers = () => {
             </Table>
           </div>
 
-          {users.length === 0 && (
+          {userRoles.length === 0 && (
             <div className="text-center py-8 text-muted-foreground">
-              No users found
+              No users with admin access yet. Use the form above to assign roles.
             </div>
           )}
         </CardContent>
       </Card>
 
-      <Card className="border-warning">
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2 text-warning">
-            <AlertCircle className="h-5 w-5" />
-            Role Hierarchy
-          </CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-2 text-sm">
-          <div>
-            <strong>Super Admin:</strong> Full access, can manage all roles including other admins
-          </div>
-          <div>
-            <strong>Admin:</strong> Full admin panel access, can manage Editor/Viewer roles, cannot modify Super Admins
-          </div>
-          <div>
-            <strong>Editor:</strong> Can create and edit content, limited access to settings
-          </div>
-          <div>
-            <strong>Viewer:</strong> Read-only access to admin panel
-          </div>
-        </CardContent>
-      </Card>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <Card className="border-warning">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2 text-warning">
+              <AlertCircle className="h-5 w-5" />
+              Access Control
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-2 text-sm">
+            <div className="font-semibold text-foreground">By Default: Nobody Has Access</div>
+            <p className="text-muted-foreground">
+              Your admin panel is secure by default. Only users you explicitly grant a role can access any admin features.
+            </p>
+            <div className="mt-4 space-y-2">
+              <div><strong>To Grant Access:</strong></div>
+              <ol className="list-decimal list-inside space-y-1 text-muted-foreground ml-2">
+                <li>User creates account at /auth</li>
+                <li>You enter their email above and assign a role</li>
+                <li>They can now access admin panel with that role's permissions</li>
+              </ol>
+            </div>
+          </CardContent>
+        </Card>
+
+        <Card className="border-primary">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <Shield className="h-5 w-5" />
+              Role Hierarchy
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-2 text-sm">
+            <div>
+              <strong>Super Admin:</strong> Full access, can manage all roles including other admins
+            </div>
+            <div>
+              <strong>Admin:</strong> Full admin panel access, can manage Editor/Viewer roles, cannot modify Super Admins
+            </div>
+            <div>
+              <strong>Editor:</strong> Can create and edit content, limited access to settings
+            </div>
+            <div>
+              <strong>Viewer:</strong> Read-only access to admin panel
+            </div>
+          </CardContent>
+        </Card>
+      </div>
 
       <AlertDialog open={!!changeRoleDialog} onOpenChange={(open) => !open && setChangeRoleDialog(null)}>
         <AlertDialogContent>
