@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { Badge } from '@/components/ui/badge';
 import { FolderOpen, Users, TrendingUp, Eye, DollarSign, Percent, AlertCircle, Clock, Mail, FileText, Shield, Layout as LayoutIcon } from 'lucide-react';
+import PortfolioDashboard from '@/components/PortfolioDashboard';
 
 interface Stats {
   totalProjects: number;
@@ -193,6 +194,17 @@ const AdminDashboard = () => {
         <h2 className="text-3xl font-bold text-foreground">Dashboard</h2>
         <p className="text-muted-foreground">Overview of your investment platform</p>
       </div>
+
+      {/* Portfolio Overview */}
+      <Card className="border border-border/50">
+        <CardHeader>
+          <CardTitle>Portfolio Overview</CardTitle>
+          <CardDescription>Real-time portfolio metrics and activity</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <PortfolioDashboard />
+        </CardContent>
+      </Card>
 
       {/* Leads by Status */}
       <Card className="border border-border/50">

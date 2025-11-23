@@ -10,9 +10,8 @@ import { supabase } from '@/integrations/supabase/client';
 import { generateFAQSchema, injectStructuredData, removeStructuredData } from '@/lib/structuredData';
 import OptimizedImage from "@/components/OptimizedImage";
 import FloatingElements from "@/components/FloatingElements";
-import InvestmentTimeline from "@/components/InvestmentTimeline";
-import PortfolioDashboard from "@/components/PortfolioDashboard";
 import ROICalculator from "@/components/ROICalculator";
+import SearchBar from "@/components/SearchBar";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import {
   Rocket,
@@ -207,6 +206,13 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Search Bar Section */}
+      <section className="py-12 px-4">
+        <div className="max-w-2xl mx-auto">
+          <SearchBar />
+        </div>
+      </section>
+
       {/* Featured Projects Section - MOVED UP */}
       <section ref={featuredSection.ref} className={`py-24 px-4 bg-card/30 scroll-fade-in ${featuredSection.isVisible ? 'visible' : ''}`}>
         <div className="max-w-7xl mx-auto">
@@ -287,21 +293,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Portfolio Dashboard */}
-      <section className="py-24 px-4 bg-muted/30">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16 space-y-4">
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground tracking-tight">
-              Portfolio Overview
-            </h2>
-            <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto font-light leading-relaxed">
-              Real-time portfolio metrics and activity
-            </p>
-          </div>
-          <PortfolioDashboard />
-        </div>
-      </section>
-
       {/* ROI Calculator */}
       <section className="py-24 px-4">
         <div className="max-w-5xl mx-auto">
@@ -317,13 +308,6 @@ const Index = () => {
             </p>
           </div>
           <ROICalculator />
-        </div>
-      </section>
-
-      {/* Investment Timeline */}
-      <section className="py-24 px-4 bg-muted/30">
-        <div className="max-w-7xl mx-auto">
-          <InvestmentTimeline />
         </div>
       </section>
 
