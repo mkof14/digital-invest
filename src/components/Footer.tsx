@@ -125,13 +125,32 @@ const Footer = () => {
                   const IconComponent = (LucideIcons as any)[link.icon_name];
                   if (!link.url || !IconComponent) return null;
                   
+                  const handleClick = async (e: React.MouseEvent) => {
+                    e.preventDefault();
+                    
+                    // Track click
+                    try {
+                      await fetch(`${import.meta.env.VITE_SUPABASE_URL}/functions/v1/track-social-click`, {
+                        method: 'POST',
+                        headers: {
+                          'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({ socialMediaId: link.id }),
+                      });
+                    } catch (error) {
+                      console.error('Failed to track click:', error);
+                    }
+                    
+                    // Open link
+                    window.open(link.url, '_blank', 'noopener,noreferrer');
+                  };
+                  
                   return (
                     <a 
                       key={link.id}
-                      href={link.url} 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="text-muted-foreground hover:text-primary transition-colors"
+                      href={link.url}
+                      onClick={handleClick}
+                      className="text-muted-foreground hover:text-primary transition-colors cursor-pointer"
                       aria-label={link.display_name}>
                       <IconComponent className="h-5 w-5" />
                     </a>
