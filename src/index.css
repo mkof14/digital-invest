@@ -20,12 +20,12 @@
     --popover-foreground: 210 20% 96%;
 
     /* Primary - Neutral Dark Grey */
-    --primary: 220 15% 25%;
+    --primary: 220 15% 32%;
     --primary-foreground: 210 20% 98%;
-    --primary-glow: 220 15% 35%;
-    --primary-vibrant: 220 15% 20%;
-    --primary-dark: 220 15% 15%;
-    --primary-light: 220 15% 40%;
+    --primary-glow: 220 15% 42%;
+    --primary-vibrant: 220 15% 28%;
+    --primary-dark: 220 15% 20%;
+    --primary-light: 220 15% 50%;
 
     /* Secondary - Corporate Navy */
     --secondary: 215 40% 30%;
@@ -37,7 +37,7 @@
 
     /* Muted */
     --muted: 220 18% 18%;
-    --muted-foreground: 215 15% 72%;
+    --muted-foreground: 215 15% 80%;
 
     /* Accent - Professional Green */
     --accent: 145 60% 40%;
