@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 import { supabase } from '@/integrations/supabase/client';
 import { generateFAQSchema, injectStructuredData, removeStructuredData } from '@/lib/structuredData';
 import OptimizedImage from "@/components/OptimizedImage";
+import FloatingElements from "@/components/FloatingElements";
 import {
   Rocket,
   Lightbulb,
@@ -146,6 +147,7 @@ const Index = () => {
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden px-4 pt-32 md:pt-40">
         <div className="absolute inset-0 bg-gradient-to-b from-background via-card/5 to-background" />
+        <FloatingElements />
         
         <div className="relative z-10 max-w-7xl mx-auto text-center space-y-14">
           <div className="space-y-8 animate-fade-in">
