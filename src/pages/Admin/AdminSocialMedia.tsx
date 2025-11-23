@@ -104,10 +104,10 @@ const AdminSocialMedia = () => {
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["social-media-links"] });
-      toast.success("Социальная сеть обновлена");
+      toast.success("Social network updated");
     },
     onError: () => {
-      toast.error("Ошибка при обновлении");
+      toast.error("Update failed");
     },
   });
 
@@ -122,10 +122,10 @@ const AdminSocialMedia = () => {
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["social-media-links"] });
-      toast.success("Социальная сеть удалена");
+      toast.success("Social network deleted");
     },
     onError: () => {
-      toast.error("Ошибка при удалении");
+      toast.error("Delete failed");
     },
   });
 
@@ -146,12 +146,12 @@ const AdminSocialMedia = () => {
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["social-media-links"] });
-      toast.success("Социальная сеть добавлена");
+      toast.success("Social network added");
       setIsAddDialogOpen(false);
       setNewPlatform({ platform: "", display_name: "", url: "", icon_name: "Share2" });
     },
     onError: () => {
-      toast.error("Ошибка при создании");
+      toast.error("Create failed");
     },
   });
 
@@ -160,7 +160,7 @@ const AdminSocialMedia = () => {
   };
 
   const handleDelete = (id: string) => {
-    if (confirm("Вы уверены, что хотите удалить эту социальную сеть?")) {
+    if (confirm("Are you sure you want to delete this social network?")) {
       deleteMutation.mutate(id);
     }
   };
@@ -177,28 +177,28 @@ const AdminSocialMedia = () => {
     <div className="container mx-auto py-8 px-4">
       <div className="mb-8 flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold mb-2">Управление социальными сетями</h1>
+          <h1 className="text-3xl font-bold mb-2">Social Media Management</h1>
           <p className="text-muted-foreground">
-            Настройте ссылки на социальные сети и отслеживайте клики
+            Configure social media links and track click analytics
           </p>
         </div>
         <Dialog open={isAddDialogOpen} onOpenChange={setIsAddDialogOpen}>
           <DialogTrigger asChild>
             <Button>
               <PlusCircle className="h-4 w-4 mr-2" />
-              Добавить сеть
+              Add Network
             </Button>
           </DialogTrigger>
           <DialogContent>
             <DialogHeader>
-              <DialogTitle>Добавить социальную сеть</DialogTitle>
+              <DialogTitle>Add Social Network</DialogTitle>
               <DialogDescription>
-                Создайте новую социальную сеть для отображения в футере
+                Create a new social network to display in the footer
               </DialogDescription>
             </DialogHeader>
             <div className="space-y-4 py-4">
               <div className="space-y-2">
-                <Label htmlFor="platform">ID платформы</Label>
+                <Label htmlFor="platform">Platform ID</Label>
                 <Input
                   id="platform"
                   placeholder="instagram"
@@ -207,7 +207,7 @@ const AdminSocialMedia = () => {
                 />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="display_name">Отображаемое название</Label>
+                <Label htmlFor="display_name">Display Name</Label>
                 <Input
                   id="display_name"
                   placeholder="Instagram"
@@ -216,7 +216,7 @@ const AdminSocialMedia = () => {
                 />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="url">URL (необязательно)</Label>
+                <Label htmlFor="url">URL (optional)</Label>
                 <Input
                   id="url"
                   type="url"
@@ -226,7 +226,7 @@ const AdminSocialMedia = () => {
                 />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="icon_name">Название иконки Lucide</Label>
+                <Label htmlFor="icon_name">Lucide Icon Name</Label>
                 <Input
                   id="icon_name"
                   placeholder="Share2, Instagram, Facebook..."
@@ -237,14 +237,14 @@ const AdminSocialMedia = () => {
             </div>
             <DialogFooter>
               <Button variant="outline" onClick={() => setIsAddDialogOpen(false)}>
-                Отмена
+                Cancel
               </Button>
               <Button 
                 onClick={() => createMutation.mutate(newPlatform)}
                 disabled={!newPlatform.platform || !newPlatform.display_name || createMutation.isPending}
               >
                 {createMutation.isPending && <Loader2 className="h-4 w-4 mr-2 animate-spin" />}
-                Создать
+                Create
               </Button>
             </DialogFooter>
           </DialogContent>
@@ -253,8 +253,8 @@ const AdminSocialMedia = () => {
 
       <Tabs defaultValue="links" className="w-full">
         <TabsList>
-          <TabsTrigger value="links">Все сети ({socialLinks?.length || 0})</TabsTrigger>
-          <TabsTrigger value="analytics">Аналитика</TabsTrigger>
+          <TabsTrigger value="links">All Networks ({socialLinks?.length || 0})</TabsTrigger>
+          <TabsTrigger value="analytics">Analytics</TabsTrigger>
         </TabsList>
 
         <TabsContent value="links" className="space-y-4 mt-6">
@@ -266,20 +266,20 @@ const AdminSocialMedia = () => {
                     <CardTitle className="flex items-center gap-2">
                       {link.display_name}
                       {!link.is_visible && (
-                        <Badge variant="outline">Отключено</Badge>
+                        <Badge variant="outline">Disabled</Badge>
                       )}
                       {link.click_count > 0 && (
                         <Badge variant="secondary" className="ml-2">
                           <TrendingUp className="h-3 w-3 mr-1" />
-                          {link.click_count} кликов
+                          {link.click_count} clicks
                         </Badge>
                       )}
                     </CardTitle>
-                    <CardDescription>Платформа: {link.platform}</CardDescription>
+                    <CardDescription>Platform: {link.platform}</CardDescription>
                   </div>
                   <div className="flex items-center gap-2">
                     <div className="flex items-center gap-2">
-                      <Label className="text-xs">Видимость</Label>
+                      <Label className="text-xs">Visibility</Label>
                       <Switch
                         checked={link.is_visible}
                         onCheckedChange={(checked) =>
@@ -300,7 +300,7 @@ const AdminSocialMedia = () => {
               <CardContent>
                 <div className="space-y-4">
                   <div className="grid gap-2">
-                    <Label htmlFor={`name-${link.id}`}>Название</Label>
+                    <Label htmlFor={`name-${link.id}`}>Name</Label>
                     <Input
                       id={`name-${link.id}`}
                       value={link.display_name}
@@ -311,7 +311,7 @@ const AdminSocialMedia = () => {
                   </div>
 
                   <div className="grid gap-2">
-                    <Label htmlFor={`url-${link.id}`}>URL ссылки</Label>
+                    <Label htmlFor={`url-${link.id}`}>Link URL</Label>
                     <Input
                       id={`url-${link.id}`}
                       type="url"
@@ -324,7 +324,7 @@ const AdminSocialMedia = () => {
                   </div>
 
                   <div className="grid gap-2">
-                    <Label htmlFor={`order-${link.id}`}>Порядок сортировки</Label>
+                    <Label htmlFor={`order-${link.id}`}>Sort Order</Label>
                     <Input
                       id={`order-${link.id}`}
                       type="number"
@@ -337,7 +337,7 @@ const AdminSocialMedia = () => {
 
                   {link.last_clicked_at && (
                     <div className="text-sm text-muted-foreground">
-                      Последний клик: {new Date(link.last_clicked_at).toLocaleString('ru-RU')}
+                      Last click: {new Date(link.last_clicked_at).toLocaleString('en-US')}
                     </div>
                   )}
                 </div>
@@ -355,16 +355,16 @@ const AdminSocialMedia = () => {
                 <Card key={link.id}>
                   <CardHeader>
                     <CardTitle className="text-lg">{link.display_name}</CardTitle>
-                    <CardDescription>Статистика кликов</CardDescription>
+                    <CardDescription>Click Statistics</CardDescription>
                   </CardHeader>
                   <CardContent>
                     <div className="space-y-3">
                       <div className="flex items-center justify-between">
-                        <span className="text-sm text-muted-foreground">Всего кликов:</span>
+                        <span className="text-sm text-muted-foreground">Total clicks:</span>
                         <span className="text-2xl font-bold">{link.click_count}</span>
                       </div>
                       <div className="flex items-center justify-between">
-                        <span className="text-sm text-muted-foreground">За последние 7 дней:</span>
+                        <span className="text-sm text-muted-foreground">Last 7 days:</span>
                         <Badge variant="secondary">
                           {stats.last7Days}
                         </Badge>
@@ -372,14 +372,14 @@ const AdminSocialMedia = () => {
                       {link.last_clicked_at && (
                         <div className="pt-2 border-t">
                           <span className="text-xs text-muted-foreground">
-                            Последний клик: {new Date(link.last_clicked_at).toLocaleDateString('ru-RU')}
+                            Last click: {new Date(link.last_clicked_at).toLocaleDateString('en-US')}
                           </span>
                         </div>
                       )}
                       {!link.is_visible && (
                         <Badge variant="outline" className="w-full justify-center">
                           <Eye className="h-3 w-3 mr-1" />
-                          Скрыто
+                          Hidden
                         </Badge>
                       )}
                     </div>
