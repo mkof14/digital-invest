@@ -1,21 +1,29 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { Menu, X, Sun, Moon } from 'lucide-react';
+import { Menu, X, Sun, Moon, Globe } from 'lucide-react';
 import { useTheme } from '@/components/ThemeProvider';
+import { useLanguage } from '@/contexts/LanguageContext';
 import OptimizedImage from '@/components/OptimizedImage';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { theme, setTheme } = useTheme();
+  const { language, setLanguage, t } = useLanguage();
 
   const navItems = [
-    { label: 'Home', href: '/' },
-    { label: 'Projects', href: '/projects' },
-    { label: 'For Investors', href: '/for-investors' },
-    { label: 'About Us', href: '/about' },
-    { label: 'Team', href: '/team-members' },
-    { label: 'Contact', href: '/contact' }
+    { label: t('nav.home'), href: '/' },
+    { label: t('nav.projects'), href: '/projects' },
+    { label: t('nav.forInvestors'), href: '/for-investors' },
+    { label: t('nav.aboutUs'), href: '/about' },
+    { label: t('nav.team'), href: '/team' },
+    { label: t('nav.contact'), href: '/contact' }
   ];
 
   return (
@@ -47,6 +55,23 @@ const Navigation = () => {
               ))}
             </nav>
             
+            {/* Language Selector */}
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="ghost" size="sm" className="p-2">
+                  <Globe className="h-5 w-5" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end">
+                <DropdownMenuItem onClick={() => setLanguage('en')}>
+                  English {language === 'en' && '✓'}
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => setLanguage('ru')}>
+                  Русский {language === 'ru' && '✓'}
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+            
             {/* Theme Toggle */}
             <Button
               variant="ghost"
@@ -62,7 +87,7 @@ const Navigation = () => {
             </Button>
             
             <Button variant="outline" asChild className="hover:bg-muted/50 transition-all">
-              <Link to="/start-investing">Investor Information</Link>
+              <Link to="/start-investing">{t('nav.investorInfo')}</Link>
             </Button>
           </div>
 
@@ -92,6 +117,24 @@ const Navigation = () => {
                 </Link>
               ))}
               
+              {/* Mobile Language Toggle */}
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="ghost" className="justify-start py-2 w-full">
+                    <Globe className="h-5 w-5 mr-2" />
+                    {language === 'en' ? 'English' : 'Русский'}
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="start" className="w-full">
+                  <DropdownMenuItem onClick={() => setLanguage('en')}>
+                    English {language === 'en' && '✓'}
+                  </DropdownMenuItem>
+                  <DropdownMenuItem onClick={() => setLanguage('ru')}>
+                    Русский {language === 'ru' && '✓'}
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+              
               {/* Mobile Theme Toggle */}
               <Button
                 variant="ghost"
@@ -107,7 +150,7 @@ const Navigation = () => {
               </Button>
               
               <Button variant="outline" className="mt-4 hover:bg-muted/50 transition-all" asChild>
-                <Link to="/start-investing">Investor Information</Link>
+                <Link to="/start-investing">{t('nav.investorInfo')}</Link>
               </Button>
             </div>
           </div>
