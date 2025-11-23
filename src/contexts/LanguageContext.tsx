@@ -973,37 +973,23 @@ export const translations: Record<Language, Record<string, string>> = {
     'forInvestors.nextStepsText': 'Чтобы узнать больше, ознакомьтесь с проектами и отправьте необязывающий запрос на частную информацию. Мы свяжемся с вами в частном порядке, чтобы обсудить ваши интересы и ответить на вопросы.',
     'forInvestors.viewProjects': 'Посмотреть Проекты',
     
-    // InvestorDocuments page
-    'investorDocs.pageTitle': 'Инвестиционные Документы',
-    'investorDocs.pageSubtitle': 'Скачайте обзорные материалы проектов для информационного ознакомления.',
+    // InvestorDocuments page - используем уже существующие ключи (548-552)
+    // investorDocs.title, subtitle, disclaimer, noDocuments уже определены выше
     'investorDocs.accessDisclaimer': 'Доступ к этим документам предназначен для информационного ознакомления квалифицированными физическими или юридическими лицами. Доступ или загрузка этих материалов не создает никакого соглашения, предложения или обязательства. Все условия определяются в отдельных юридических документах, если и когда такие документы будут заключены офлайн.',
-    'investorDocs.noProjects': 'Документы недоступны',
     'investorDocs.noProjectsText': 'Брифинги по проектам будут доступны здесь после публикации проектов.',
     
-    // InvestorHandbook page - Дополнительные ключи
-    'investorHandbook.pageTitle': 'Справочник Инвестора',
-    'investorHandbook.pageSub': 'Digital Invest Inc. — Информационный Обзор Мультисекторального Портфеля',
-    'investorHandbook.importantNotice': 'Этот справочник не является проспектом, документом публичного предложения или рекламным материалом. Он предоставляется только для информационных целей квалифицированным лицам, которые были приглашены ознакомиться с ним.',
+    // InvestorHandbook page - Дополнительные ключи (не дублирующие существующие 554-564)
     'investorHandbook.nameOptional': 'Имя (Необязательно)',
     'investorHandbook.yourName': 'Ваше имя',
     'investorHandbook.yourEmail': 'ваш@email.com',
-    'investorHandbook.requestDownload': 'Запросить Доступ к Загрузке',
     'investorHandbook.noCommitment': 'Это только информационный материал. Загрузка не создает никаких обязательств или соглашений.',
     'investorHandbook.generatingPDF': 'Генерация PDF...',
-    'investorHandbook.downloadPDF': 'Скачать Справочник Инвестора (PDF)',
-    'investorHandbook.whatsInsideTitle': 'Что Внутри',
     'investorHandbook.whatsInsideDesc': 'Справочник Инвестора Digital Invest предоставляет комплексный обзор нашего мультисекторального портфеля, стратегической философии, технологической инфраструктуры и инвестиционного процесса.',
-    'investorHandbook.companyOverviewTitle': 'Обзор Компании',
     'investorHandbook.companyOverviewDesc': 'История, миссия и стратегическое позиционирование в HealthTech, AgroTech, FoodTech и инфраструктуре ИИ.',
-    'investorHandbook.portfolioProjectsTitle': 'Портфельные Проекты',
     'investorHandbook.portfolioProjectsDesc': 'Подробные обзоры BioMath Core, BioMath Life, TerraAero, DishCore и инфраструктурных систем.',
-    'investorHandbook.technologyTitle': 'Технология и Инфраструктура',
     'investorHandbook.technologyDesc': 'Системный подход, уровни целостности, принципы безопасности и архитектурная философия.',
-    'investorHandbook.governanceRiskTitle': 'Управление и Риски',
     'investorHandbook.governanceRiskDesc': 'Структура управления, рамки ESG, факторы риска и подход к соблюдению требований.',
-    'investorHandbook.privateOfflineTitle': 'Частный и Офлайн Процесс',
     'investorHandbook.privateOfflineDesc': 'Этот справочник предназначен только для информационных целей и не является публичным предложением или финансовым советом. Все потенциальное участие обсуждается индивидуально и осуществляется офлайн.',
-    'investorHandbook.downloadHandbook': 'Скачать Справочник',
   },
   uk: {
     'nav.home': 'Головна',
