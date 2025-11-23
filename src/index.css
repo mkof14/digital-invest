@@ -346,6 +346,11 @@
     100% { opacity: 1; transform: scale(1); }
   }
 
+  @keyframes gradient-shift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+
   @keyframes electric-border {
     0%, 100% { border-color: hsl(var(--primary) / 0.5); }
     25% { border-color: hsl(var(--secondary) / 0.5); }
@@ -380,6 +385,11 @@
 
   .animate-scale-in {
     animation: scale-fade-in 0.4s ease-out;
+  }
+
+  .animate-gradient {
+    background-size: 200% auto;
+    animation: gradient-shift 4s ease infinite;
   }
 
   /* Interactive States */

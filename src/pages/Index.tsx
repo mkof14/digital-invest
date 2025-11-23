@@ -149,9 +149,11 @@ const Index = () => {
         
         <div className="relative z-10 max-w-7xl mx-auto text-center space-y-10">
           <div className="space-y-6 animate-fade-in">
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-foreground leading-tight">
-              Strategic Investment in
-              <span className="block text-primary mt-2">Real-Economy and Advanced Technology</span>
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight">
+              <span className="block text-foreground">Strategic Investment in</span>
+              <span className="block mt-2 bg-gradient-to-r from-primary via-primary-light to-accent bg-clip-text text-transparent animate-gradient">
+                Real-Economy and Advanced Technology
+              </span>
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
               Digital Invest Inc. develops and scales innovative projects across AI, precision health, 
