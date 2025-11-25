@@ -1,0 +1,735 @@
+import { useEffect, useState } from 'react';
+import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { Link } from "react-router-dom";
+import { supabase } from '@/integrations/supabase/client';
+import { generateFAQSchema, injectStructuredData, removeStructuredData } from '@/lib/structuredData';
+import OptimizedImage from "@/components/OptimizedImage";
+import FloatingElements from "@/components/FloatingElements";
+import ROICalculator from "@/components/ROICalculator";
+import SearchBar from "@/components/SearchBar";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import {
+  Rocket,
+  Lightbulb,
+  Target,
+  Users,
+  TrendingUp,
+  Shield,
+  ArrowRight,
+  Zap,
+  Award,
+  LineChart,
+  Lock,
+  CheckCircle2,
+  Sparkles,
+  Building2,
+  Heart,
+  Sprout,
+  Utensils,
+  Network,
+  BarChart3,
+  FileText,
+  Clock,
+  Mail,
+  Search,
+  Briefcase
+} from "lucide-react";
+import terraaeroHero from "@/assets/projects/terraaero-hero.jpg";
+import biomathCoreHero from "@/assets/projects/biomathcore-hero.jpg";
+import dishcoreHero from "@/assets/projects/dishcore-hero.jpg";
+import digitalInvestHero from "@/assets/projects/digitalinvest-hero.jpg";
+import biomathLifeHero from "@/assets/projects/biomathlife-hero.jpg";
+
+interface FeaturedProject {
+  id: string;
+  slug: string;
+  title: string;
+  short_description: string;
+  category: string;
+  status: string;
+  target_amount: number | null;
+  current_raised: number;
+  currency: string;
+  hero_image_url: string;
+}
+
+const Index = () => {
+  const [featuredProjects, setFeaturedProjects] = useState<FeaturedProject[]>([]);
+  
+  // Scroll animation hooks
+  const featuredSection = useScrollAnimation({ threshold: 0.2 });
+  const whatWeBuildSection = useScrollAnimation({ threshold: 0.2 });
+  const whyDigitalSection = useScrollAnimation({ threshold: 0.2 });
+  const investmentSection = useScrollAnimation({ threshold: 0.2 });
+  const journeySection = useScrollAnimation({ threshold: 0.2 });
+  const faqSection = useScrollAnimation({ threshold: 0.2 });
+
+  // Heading animation hooks
+  const featuredHeading = useScrollAnimation({ threshold: 0.3 });
+  const calculatorHeading = useScrollAnimation({ threshold: 0.3 });
+  const whatWeBuildHeading = useScrollAnimation({ threshold: 0.3 });
+  const whyDigitalHeading = useScrollAnimation({ threshold: 0.3 });
+  const investmentHeading = useScrollAnimation({ threshold: 0.3 });
+  const capabilitiesHeading = useScrollAnimation({ threshold: 0.3 });
+  const journeyHeading = useScrollAnimation({ threshold: 0.3 });
+  const faqHeading = useScrollAnimation({ threshold: 0.3 });
+
+  // Map slugs to actual imported images
+  const projectImages: Record<string, string> = {
+    'terraaero': terraaeroHero,
+    'biomathcore': biomathCoreHero,
+    'biomath-core': biomathCoreHero,
+    'dishcore': dishcoreHero,
+    'digital-invest-portfolio': digitalInvestHero,
+    'digital-invest-ai-lab': digitalInvestHero,
+    'digital-invest-manufacturing': digitalInvestHero,
+    'biomathlife': biomathLifeHero,
+  };
+
+  useEffect(() => {
+    fetchFeaturedProjects();
+
+    // Add FAQ structured data
+    const faqData = [
+      {
+        question: "Is this a crowdfunding platform?",
+        answer: "No. Digital Invest Inc. is not a crowdfunding platform. This website is informational only. All potential participation is discussed individually offline through proper legal documentation."
+      },
+      {
+        question: "Can I invest online through this website?",
+        answer: "No. This website does not process payments or facilitate direct online investment. It provides information about our projects and allows you to submit a non-binding expression of interest."
+      },
+      {
+        question: "Are returns guaranteed?",
+        answer: "No. All investments carry risk, and returns are never guaranteed. Early-stage projects may experience delays, operational challenges, or loss of capital. Please review our Risk Disclosure page."
+      },
+      {
+        question: "What happens after I submit interest?",
+        answer: "If you submit an expression of interest, we will review your submission and may reach out personally to discuss the project, answer questions, and provide additional details. All agreements are handled offline."
+      },
+      {
+        question: "Who can participate?",
+        answer: "Participation is typically limited to qualified investors, accredited investors, or individuals who meet regulatory requirements. Requirements vary by jurisdiction and project structure."
+      },
+      {
+        question: "Why is everything handled privately?",
+        answer: "We believe in building strong, trust-based relationships with our investors. A private format allows for thorough due diligence, detailed discussions, and alignment of expectations—something mass crowdfunding platforms cannot provide."
+      }
+    ];
+
+    const faqSchema = generateFAQSchema(faqData);
+    injectStructuredData(faqSchema, 'faq-structured-data');
+
+    return () => {
+      removeStructuredData('faq-structured-data');
+    };
+  }, []);
+
+  const fetchFeaturedProjects = async () => {
+    try {
+      const { data, error } = await supabase
+        .from('projects')
+        .select('*')
+        .eq('is_visible', true)
+        .eq('status', 'OPEN')
+        .order('priority', { ascending: false })
+        .order('created_at', { ascending: false })
+        .limit(3);
+
+      if (error) throw error;
+      setFeaturedProjects(data || []);
+    } catch (error) {
+      console.error('Error fetching featured projects:', error);
+    }
+  };
+
+  const getStatusColor = (status: string) => {
+    switch (status) {
+      case 'OPEN':
+        return 'bg-success text-success-foreground';
+      case 'CLOSED':
+        return 'bg-muted text-muted-foreground';
+      case 'COMING_SOON':
+        return 'bg-info text-info-foreground';
+      default:
+        return 'bg-muted text-muted-foreground';
+    }
+  };
+
+  return (
+    <div className="min-h-screen bg-background">
+      <Navigation />
+
+      {/* Hero Section */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden px-4 pt-32 md:pt-40">
+        <div className="absolute inset-0 bg-gradient-to-b from-background via-card/5 to-background" />
+        <FloatingElements />
+        
+        <div className="relative z-10 max-w-7xl mx-auto text-center space-y-14">
+          <div className="space-y-8 animate-fade-in">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-tight tracking-tight">
+              <span className="block text-foreground mb-2">Strategic Investment in</span>
+              <span className="block text-4xl md:text-5xl lg:text-6xl xl:text-7xl gradient-tech-animated">
+                Real-Economy and Advanced Technology
+              </span>
+            </h1>
+            <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed pt-4 font-light">
+              Digital Invest Inc. develops and scales innovative projects across AI, precision health, 
+              advanced manufacturing, and agricultural technology—delivering measurable impact in critical sectors of the American economy.
+            </p>
+          </div>
+          
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center animate-fade-in pt-8">
+            <Link to="/projects">
+              <Button size="lg" className="px-12 py-7 text-lg ripple-effect shadow-elegant hover:shadow-elevated">
+                Explore Projects
+                <TrendingUp className="ml-3 h-6 w-6" />
+              </Button>
+            </Link>
+            <Link to="/why-digital-invest">
+              <Button size="lg" variant="outline" className="px-12 py-7 text-lg ripple-effect border-2 hover:border-primary">
+                Learn Why Digital Invest
+                <ArrowRight className="ml-3 h-6 w-6" />
+              </Button>
+            </Link>
+          </div>
+
+          {/* Key Metrics */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-12 pt-24 max-w-6xl mx-auto animate-fade-in">
+            {[
+              { value: "25+", label: "Years Experience" },
+              { value: "5", label: "Active Projects" },
+              { value: "$19.5B", label: "Previous Exit Value" },
+              { value: "15+", label: "Countries Served" }
+            ].map((stat, index) => (
+              <div key={index} className="text-center space-y-2">
+                <div className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary">{stat.value}</div>
+                <div className="text-sm md:text-base text-muted-foreground font-medium">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Search Bar Section */}
+      <section className="py-12 px-4">
+        <div className="max-w-2xl mx-auto">
+          <SearchBar />
+        </div>
+      </section>
+
+      {/* Featured Projects Section - MOVED UP */}
+      <section ref={featuredSection.ref} className={`py-24 px-4 bg-card/30 scroll-fade-in ${featuredSection.isVisible ? 'visible' : ''}`}>
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16 space-y-4">
+            <Badge variant="secondary" className="mb-3 text-sm">Portfolio Projects</Badge>
+            <h2 ref={featuredHeading.ref} className={`text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight gradient-blue-animated animate-heading-reveal ${featuredHeading.isVisible ? 'visible' : ''}`}>
+              Featured Projects
+            </h2>
+            <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto font-light leading-relaxed">
+              Explore our portfolio of real-economy and advanced technology projects
+            </p>
+          </div>
+          
+          {featuredProjects.length > 0 ? (
+            <>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+                {featuredProjects.map((project, index) => (
+                    <Card key={project.id} className="group overflow-hidden border border-border/50 bg-card hover:shadow-elevated transition-all duration-300 hover:-translate-y-1 h-full flex flex-col animate-fade-in cursor-pointer" style={{ animationDelay: `${index * 0.1}s` }}>
+                      <div className="relative h-48 overflow-hidden bg-muted">
+                        <OptimizedImage
+                          src={projectImages[project.slug] || project.hero_image_url || '/placeholder.svg'}
+                          alt={`${project.title} - ${project.category} investment opportunity`}
+                          className="w-full h-full object-cover group-hover:scale-110 transition-all duration-700 ease-out"
+                          containerClassName="w-full h-full"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                        <Badge className={`absolute top-4 left-4 ${getStatusColor(project.status)}`}>
+                          {project.status.replace('_', ' ')}
+                        </Badge>
+                        <Badge className="absolute top-4 right-4 bg-background/95 backdrop-blur-sm border-primary/20 text-foreground">
+                          {project.category}
+                        </Badge>
+                      </div>
+
+                      <CardHeader className="flex-1">
+                        <CardTitle className="text-xl group-hover:text-primary transition-colors duration-300">
+                          {project.title}
+                        </CardTitle>
+                        <CardDescription className="text-base line-clamp-3 mt-2">
+                          {project.short_description}
+                        </CardDescription>
+                      </CardHeader>
+
+                      <CardFooter className="pt-4">
+                        <Button className="w-full group" asChild>
+                          <Link to={`/projects/${project.slug}`}>
+                            View Details
+                            <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                          </Link>
+                        </Button>
+                      </CardFooter>
+                    </Card>
+                ))}
+              </div>
+              
+              <div className="text-center">
+                <Link to="/projects">
+                  <Button size="lg" variant="outline" className="px-8 py-6 text-lg group border-2">
+                    View All Projects
+                    <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                  </Button>
+                </Link>
+              </div>
+            </>
+          ) : (
+            <div className="text-center py-12">
+              <p className="text-muted-foreground mb-6">No featured projects available at this time.</p>
+              <Link to="/projects">
+                <Button size="lg" variant="outline">
+                  View All Projects
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+              </Link>
+            </div>
+          )}
+        </div>
+      </section>
+
+      {/* ROI Calculator */}
+      <section className="py-24 px-4">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-16 space-y-4">
+            <h2 ref={calculatorHeading.ref} className={`text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight gradient-orange-animated animate-heading-reveal ${calculatorHeading.isVisible ? 'visible' : ''}`}>
+              Investment Calculator
+            </h2>
+            <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto font-light leading-relaxed">
+              Informational calculator to understand potential scale
+            </p>
+            <p className="text-sm text-muted-foreground">
+              Not a guarantee or promise of returns. For illustrative purposes only.
+            </p>
+          </div>
+          <ROICalculator />
+        </div>
+      </section>
+
+      {/* What We Build Section */}
+      <section ref={whatWeBuildSection.ref} className={`py-24 px-4 scroll-slide-up ${whatWeBuildSection.isVisible ? 'visible' : ''}`}>
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16 space-y-4">
+            <h2 ref={whatWeBuildHeading.ref} className={`text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight gradient-tech-animated animate-heading-reveal ${whatWeBuildHeading.isVisible ? 'visible' : ''}`}>
+              What We Build
+            </h2>
+            <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto font-light leading-relaxed">
+              Five proprietary platforms across health, agriculture, food production, and infrastructure
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <Card className="border border-border/50 bg-card hover:shadow-elevated transition-all duration-500 hover:-translate-y-2 group">
+              <CardContent className="pt-10 pb-8 space-y-5">
+                <div className="p-4 bg-primary/10 rounded-xl w-fit mx-auto group-hover:scale-110 transition-transform duration-300">
+                  <Heart className="w-12 h-12 text-primary" />
+                </div>
+                <h3 className="text-xl font-bold text-foreground text-center">Health & Longevity</h3>
+                <p className="text-base text-muted-foreground text-center leading-relaxed">
+                  BioMath Core and BioMath Life — data-driven platforms for understanding health, risks, and longevity in a structured, intelligent way.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="border border-border/50 bg-card hover:shadow-elevated transition-all duration-500 hover:-translate-y-2 group delay-100">
+              <CardContent className="pt-10 pb-8 space-y-5">
+                <div className="p-4 bg-primary/10 rounded-xl w-fit mx-auto group-hover:scale-110 transition-transform duration-300">
+                  <Sprout className="w-12 h-12 text-primary" />
+                </div>
+                <h3 className="text-xl font-bold text-foreground text-center">Agricultural Technology</h3>
+                <p className="text-base text-muted-foreground text-center leading-relaxed">
+                  TerraAero — advanced agricultural drone operations with a roadmap toward U.S.-based drone manufacturing.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="border border-border/50 bg-card hover:shadow-elevated transition-all duration-500 hover:-translate-y-2 group delay-200">
+              <CardContent className="pt-10 pb-8 space-y-5">
+                <div className="p-4 bg-primary/10 rounded-xl w-fit mx-auto group-hover:scale-110 transition-transform duration-300">
+                  <Utensils className="w-12 h-12 text-primary" />
+                </div>
+                <h3 className="text-xl font-bold text-foreground text-center">Intelligent Food Production</h3>
+                <p className="text-base text-muted-foreground text-center leading-relaxed">
+                  DishCore — AI-driven food manufacturing and recipe engine for standardized, scalable, nutritionally precise meals.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="border border-border/50 bg-card hover:shadow-elevated transition-all duration-500 hover:-translate-y-2 group delay-300">
+              <CardContent className="pt-10 pb-8 space-y-5">
+                <div className="p-4 bg-primary/10 rounded-xl w-fit mx-auto group-hover:scale-110 transition-transform duration-300">
+                  <Network className="w-12 h-12 text-primary" />
+                </div>
+                <h3 className="text-xl font-bold text-foreground text-center">Multi-Sector Infrastructure</h3>
+                <p className="text-base text-muted-foreground text-center leading-relaxed">
+                  Digital Invest — the portfolio backbone that combines AI, infrastructure, manufacturing, and long-term project strategy.
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Digital Invest Section */}
+      <section ref={whyDigitalSection.ref} className={`py-24 px-4 scroll-scale-in ${whyDigitalSection.isVisible ? 'visible' : ''}`}>
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16 space-y-4">
+            <h2 ref={whyDigitalHeading.ref} className={`text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight gradient-purple-animated animate-heading-reveal ${whyDigitalHeading.isVisible ? 'visible' : ''}`}>
+              Why Digital Invest
+            </h2>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {[
+              { icon: <Building2 className="w-7 h-7" />, text: "Five independent proprietary projects" },
+              { icon: <BarChart3 className="w-7 h-7" />, text: "Three high-growth industries: HealthTech, AgroTech, FoodTech" },
+              { icon: <Award className="w-7 h-7" />, text: "20+ years of operational and entrepreneurial experience" },
+              { icon: <CheckCircle2 className="w-7 h-7" />, text: "Real platforms, not just concepts or slideware" },
+              { icon: <Shield className="w-7 h-7" />, text: "Fully U.S.-based development and operations" },
+              { icon: <Target className="w-7 h-7" />, text: "Long-term strategy across real-economy and AI-driven sectors" }
+            ].map((item, index) => (
+              <Card key={index} className="border border-border/50 bg-card hover:shadow-elevated transition-all duration-500 hover:-translate-y-1 group">
+                <CardContent className="pt-8 pb-8">
+                  <div className="flex items-start gap-5">
+                    <div className="p-3 bg-primary/10 rounded-xl flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                      <div className="text-primary">{item.icon}</div>
+                    </div>
+                    <p className="text-base text-foreground font-semibold leading-relaxed">{item.text}</p>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Investment Highlights Section */}
+      <section ref={investmentSection.ref} className={`py-24 px-4 bg-card/30 scroll-fade-in ${investmentSection.isVisible ? 'visible' : ''}`}>
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16 space-y-4">
+            <h2 ref={investmentHeading.ref} className={`text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight gradient-blue-animated animate-heading-reveal ${investmentHeading.isVisible ? 'visible' : ''}`}>
+              Investment Highlights
+            </h2>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
+                title: "Real projects",
+                description: "Structured, operational, and designed to scale over time.",
+                icon: <CheckCircle2 className="w-10 h-10" />
+              },
+              {
+                title: "Clear economics",
+                description: "Each platform has a defined business model and unit logic.",
+                icon: <LineChart className="w-10 h-10" />
+              },
+              {
+                title: "Shared infrastructure",
+                description: "Core AI, backend, analytics, and manufacturing work across the portfolio.",
+                icon: <Network className="w-10 h-10" />
+              },
+              {
+                title: "Multi-sector diversification",
+                description: "Exposure to HealthTech, AgroTech, FoodTech, and infrastructure.",
+                icon: <Target className="w-10 h-10" />
+              },
+              {
+                title: "Defined roadmaps",
+                description: "Every project has a phased, realistic roadmap instead of vague promises.",
+                icon: <FileText className="w-10 h-10" />
+              },
+              {
+                title: "Private and individual",
+                description: "No public offering. All potential participation is discussed individually.",
+                icon: <Lock className="w-10 h-10" />
+              }
+            ].map((highlight, index) => (
+              <Card key={index} className={`border border-border/50 bg-card hover:shadow-elevated transition-all duration-500 hover:-translate-y-2 group delay-${index * 100}`}>
+                <CardHeader className="space-y-4">
+                  <div className="p-4 bg-primary/10 rounded-xl w-fit group-hover:scale-110 transition-transform duration-300">
+                    <div className="text-primary">{highlight.icon}</div>
+                  </div>
+                  <CardTitle className="text-2xl font-bold">{highlight.title}</CardTitle>
+                  <CardDescription className="text-base leading-relaxed">
+                    {highlight.description}
+                  </CardDescription>
+                </CardHeader>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Our Expertise Section */}
+      <section className="py-24 px-4">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16 space-y-4">
+            <h2 ref={capabilitiesHeading.ref} className={`text-3xl md:text-5xl font-bold gradient-tech-animated animate-heading-reveal ${capabilitiesHeading.isVisible ? 'visible' : ''}`}>
+              Strategic Capabilities Across Key Sectors
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              Diverse expertise spanning health technology, AI systems, advanced manufacturing, and agricultural innovation
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              {
+                icon: <Lightbulb className="w-12 h-12" />,
+                title: "Health & AI Technology",
+                description: "Advanced platforms combining precision health, genomics, AI diagnostics, and personalized care systems"
+              },
+              {
+                icon: <Building2 className="w-12 h-12" />,
+                title: "Smart Manufacturing",
+                description: "Intelligent production systems for food tech, drone manufacturing, and scalable operations"
+              },
+              {
+                icon: <Target className="w-12 h-12" />,
+                title: "Agricultural Innovation",
+                description: "Precision drone operations, field analytics, and agritech solutions across the Southern U.S."
+              },
+              {
+                icon: <Award className="w-12 h-12" />,
+                title: "Proven Execution",
+                description: "Executive team with 70+ combined years and $19.5B previous exit success driving real results"
+              }
+            ].map((feature, index) => (
+              <Card key={index} className="hover:-translate-y-1 transition-all duration-300 border border-border/50 bg-card hover:shadow-lg">
+                <CardContent className="pt-8 pb-6 space-y-4">
+                  <div className="p-3 bg-primary/10 rounded-lg w-fit mx-auto">
+                    <div className="text-primary">{feature.icon}</div>
+                  </div>
+                  <h3 className="text-xl font-bold text-foreground text-center">{feature.title}</h3>
+                  <p className="text-sm text-muted-foreground text-center leading-relaxed">{feature.description}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Investment Journey Section */}
+      <section className="py-24 px-4 bg-card/30">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16 space-y-4">
+            <h2 ref={journeyHeading.ref} className={`text-3xl md:text-5xl font-bold gradient-orange-animated animate-heading-reveal ${journeyHeading.isVisible ? 'visible' : ''}`}>
+              Your Journey with Digital Invest
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              A transparent, step-by-step process from exploration to partnership
+            </p>
+          </div>
+          
+          <div className="space-y-8 max-w-4xl mx-auto">
+            {[
+              {
+                step: "1",
+                title: "Explore projects",
+                description: "Review the platforms across health, agriculture, food production, and infrastructure.",
+                icon: <Search className="w-6 h-6" />
+              },
+              {
+                step: "2",
+                title: "Submit non-binding interest",
+                description: "Use a short form to express interest in one or more projects. No commitment, no payments.",
+                icon: <Mail className="w-6 h-6" />
+              },
+              {
+                step: "3",
+                title: "Personal follow-up",
+                description: "We contact you directly, share materials, and answer your questions.",
+                icon: <Users className="w-6 h-6" />
+              },
+              {
+                step: "4",
+                title: "Due diligence",
+                description: "We review the project together: roadmap, risks, structure, and expected timelines.",
+                icon: <Search className="w-6 h-6" />
+              },
+              {
+                step: "5",
+                title: "Offline agreement",
+                description: "If both sides agree, the legal investment process happens offline, not on the website.",
+                icon: <FileText className="w-6 h-6" />
+              },
+              {
+                step: "6",
+                title: "Updates & growth",
+                description: "You receive periodic updates, milestones, and insights as projects progress.",
+                icon: <TrendingUp className="w-6 h-6" />
+              }
+            ].map((item, index) => (
+              <Card key={index} className="border border-border/50 bg-card hover:shadow-lg transition-all duration-300">
+                <CardContent className="pt-6 pb-6">
+                  <div className="flex items-start gap-6">
+                    <div className="flex-shrink-0">
+                      <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+                        <span className="text-xl font-bold text-primary">{item.step}</span>
+                      </div>
+                    </div>
+                    <div className="flex-1 space-y-2">
+                      <div className="flex items-center gap-3">
+                        <h3 className="text-xl font-bold text-foreground">{item.title}</h3>
+                        <div className="text-primary">{item.icon}</div>
+                      </div>
+                      <p className="text-sm text-muted-foreground leading-relaxed">
+                        {item.description}
+                      </p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-24 px-4">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-16 space-y-4">
+            <h2 ref={faqHeading.ref} className={`text-3xl md:text-5xl font-bold gradient-purple-animated animate-heading-reveal ${faqHeading.isVisible ? 'visible' : ''}`}>
+              Top Questions from Investors
+            </h2>
+          </div>
+          
+          <Accordion type="single" collapsible className="space-y-4">
+            <AccordionItem value="item-1" className="border border-border/50 bg-card rounded-lg px-6">
+              <AccordionTrigger className="text-lg font-semibold text-foreground hover:text-primary">
+                Is this a crowdfunding platform?
+              </AccordionTrigger>
+              <AccordionContent className="text-base text-muted-foreground leading-relaxed">
+                No. Digital Invest is a private environment for selected projects and individual conversations. There is no public crowdfunding.
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-2" className="border border-border/50 bg-card rounded-lg px-6">
+              <AccordionTrigger className="text-lg font-semibold text-foreground hover:text-primary">
+                Can I invest directly on the website?
+              </AccordionTrigger>
+              <AccordionContent className="text-base text-muted-foreground leading-relaxed">
+                No. This website does not accept investments or process payments. We only collect non-binding expressions of interest.
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-3" className="border border-border/50 bg-card rounded-lg px-6">
+              <AccordionTrigger className="text-lg font-semibold text-foreground hover:text-primary">
+                Are returns guaranteed?
+              </AccordionTrigger>
+              <AccordionContent className="text-base text-muted-foreground leading-relaxed">
+                No. All early-stage projects involve risk, including possible loss of capital. No results or returns are guaranteed.
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-4" className="border border-border/50 bg-card rounded-lg px-6">
+              <AccordionTrigger className="text-lg font-semibold text-foreground hover:text-primary">
+                What happens after I submit interest?
+              </AccordionTrigger>
+              <AccordionContent className="text-base text-muted-foreground leading-relaxed">
+                Our team reviews your submission and contacts you personally to share more information and discuss next steps.
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-5" className="border border-border/50 bg-card rounded-lg px-6">
+              <AccordionTrigger className="text-lg font-semibold text-foreground hover:text-primary">
+                Who can participate?
+              </AccordionTrigger>
+              <AccordionContent className="text-base text-muted-foreground leading-relaxed">
+                Participation depends on your jurisdiction, regulatory requirements, and the structure of each project. We discuss this individually.
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-6" className="border border-border/50 bg-card rounded-lg px-6">
+              <AccordionTrigger className="text-lg font-semibold text-foreground hover:text-primary">
+                Why do you work in a private format?
+              </AccordionTrigger>
+              <AccordionContent className="text-base text-muted-foreground leading-relaxed">
+                It allows us to keep communication direct, transparent, and tailored to serious long-term partners.
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section className="py-24 px-4 bg-card/30">
+        <div className="max-w-4xl mx-auto text-center space-y-8">
+          <h2 className="text-3xl md:text-5xl font-bold text-foreground">
+            Partner With Us
+          </h2>
+          
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+            Explore investment opportunities in our innovative biotechnology projects. 
+            Contact our team to learn more about strategic partnerships and funding options.
+          </p>
+          
+          <div className="flex flex-col sm:flex-row gap-4 justify-center pt-6">
+            <Link to="/start-investing">
+              <Button size="lg" className="px-10 py-6 text-base">
+                Investment Information
+                <TrendingUp className="ml-2 h-5 w-5" />
+              </Button>
+            </Link>
+            <Link to="/team">
+              <Button size="lg" variant="outline" className="px-10 py-6 text-base">
+                Leadership Team
+                <Users className="ml-2 h-5 w-5" />
+              </Button>
+            </Link>
+          </div>
+          
+          {/* Trust Indicators */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-12 max-w-3xl mx-auto">
+            {[
+              { icon: <Shield className="w-5 h-5" />, text: "Regulatory Compliant" },
+              { icon: <Lock className="w-5 h-5" />, text: "Secure Platform" },
+              { icon: <Award className="w-5 h-5" />, text: "Industry Certified" },
+              { icon: <CheckCircle2 className="w-5 h-5" />, text: "Verified Projects" }
+            ].map((badge, index) => (
+              <div key={index} className="flex flex-col items-center space-y-2">
+                <div className="text-primary">{badge.icon}</div>
+                <span className="text-xs text-muted-foreground text-center">{badge.text}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Compliance Disclaimer */}
+      <section className="py-12 px-4 border-t border-border/50">
+        <div className="max-w-4xl mx-auto">
+          <div className="bg-muted/30 border border-border/50 rounded-lg p-8">
+            <div className="flex items-start gap-4">
+              <Shield className="w-6 h-6 text-muted-foreground flex-shrink-0 mt-1" />
+              <div className="space-y-2">
+                <h3 className="font-semibold text-foreground">Important Notice</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  Digital Invest Inc. operates as a private multi-sector portfolio. This website is for informational purposes only and does not constitute a public offering, investment advice, or solicitation. Any potential participation is private, by invitation, and handled offline through proper legal channels. All participation is subject to due diligence and eligibility. All investments involve risk and may result in loss of capital. The actual legal status, structure, rights, and obligations are defined only in formal agreements executed offline, not by website content.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <Footer />
+    </div>
+  );
+};
+
+export default Index;
