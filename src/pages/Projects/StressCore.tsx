@@ -21,7 +21,7 @@ const StressCore = () => {
         <div className="relative h-[60vh] min-h-[500px] overflow-hidden">
           <OptimizedImage
             src={stresscoreHero}
-            alt="StressCore (MindCore) - Psychological state intelligence platform"
+            alt="Stress (Mind) - Psychological state intelligence platform"
             containerClassName="absolute inset-0 w-full h-full"
             className="w-full h-full object-cover"
             showSkeleton={false}
@@ -40,7 +40,7 @@ const StressCore = () => {
                 Health Intelligence
               </Badge>
               <h1 className="text-4xl md:text-6xl font-bold mb-6 gradient-purple-animated">
-                StressCore (MindCore)
+                Stress (Mind)
               </h1>
               <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl">
                 Psychological state intelligence: stress, mood, energy tracking with AI-generated micro-insights
@@ -56,7 +56,7 @@ const StressCore = () => {
             <h2 className="text-3xl font-bold mb-6">Overview</h2>
             <div className="prose prose-lg max-w-none text-muted-foreground">
               <p>
-                StressCore (MindCore) is a lightweight application focusing on psychological state management. In 
+                Stress (Mind) is a lightweight application focusing on psychological state management. In 
                 today's fast-paced world, there is a strong market demand for tools that help people understand and 
                 stabilize their mental and emotional state. This platform addresses that need with simplicity and 
                 precision.
@@ -159,7 +159,7 @@ const StressCore = () => {
             <Card className="bg-muted/50">
               <CardContent className="pt-6">
                 <p className="text-muted-foreground mb-6">
-                  StressCore is built around three interconnected dimensions of psychological state:
+                  Stress is built around three interconnected dimensions of psychological state:
                 </p>
                 
                 <div className="space-y-6">
@@ -167,7 +167,7 @@ const StressCore = () => {
                     <h3 className="text-xl font-semibold mb-2">Stress: Daily Load Management</h3>
                     <p className="text-muted-foreground">
                       Stress is not always negative, but chronic or excessive stress damages health and performance. 
-                      StressCore helps users track their stress load, identify sources, and recognize when they're 
+                      Stress module helps users track their stress load, identify sources, and recognize when they're
                       approaching overload. Quick check-ins throughout the day create awareness without adding burden.
                     </p>
                   </div>
@@ -287,20 +287,20 @@ const StressCore = () => {
             <Card className="bg-muted/50">
               <CardContent className="pt-6">
                 <p className="text-muted-foreground mb-4">
-                  StressCore integrates with other components of the BioMath health intelligence platform:
+                  Stress integrates with other components of the BioMath health intelligence platform:
                 </p>
                 <ul className="space-y-3 text-muted-foreground">
                   <li>
-                    <strong>SleepCore:</strong> Stress and mood during the day directly affect sleep quality at night. 
+                    <strong>Sleep:</strong> Stress and mood during the day directly affect sleep quality at night. 
                     Understanding this connection helps users improve both.
                   </li>
                   <li>
-                    <strong>MoveCore:</strong> Physical activity can reduce stress and improve mood. StressCore and 
-                    MoveCore work together to identify activity patterns that support mental well-being.
+                    <strong>Move:</strong> Physical activity can reduce stress and improve mood. Stress and
+                    Move work together to identify activity patterns that support mental well-being.
                   </li>
                   <li>
-                    <strong>VitalCore:</strong> Chronic stress shows up in vital signs like heart rate variability and 
-                    resting heart rate. VitalCore uses StressCore data to provide early warnings about stress overload.
+                    <strong>Vital:</strong> Chronic stress shows up in vital signs like heart rate variability and
+                    resting heart rate. Vital uses Stress data to provide early warnings about stress overload.
                   </li>
                   <li>
                     <strong>BioMath Core:</strong> Advanced analysis of psychological patterns and their impact on 
@@ -336,7 +336,7 @@ const StressCore = () => {
             <Card className="bg-muted/30 border-primary/20">
               <CardContent className="pt-6">
                 <p className="text-sm text-muted-foreground">
-                  <strong>Important Notice:</strong> StressCore (MindCore) is an informational tool and is not a 
+                  <strong>Important Notice:</strong> Stress (Mind) is an informational tool and is not a 
                   mental health treatment or diagnostic system. It does not replace therapy, counseling, or medical 
                   intervention for mental health conditions. Users experiencing severe stress, anxiety, depression, 
                   or other mental health issues should consult qualified healthcare professionals. All decisions 

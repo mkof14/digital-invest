@@ -20,7 +20,7 @@ const DailyCore = () => {
       <section className="relative h-[60vh] min-h-[500px] flex items-center justify-center overflow-hidden">
         <OptimizedImage
           src={dailycoreHero}
-          alt="DailyCore - Personal AI Health Companion"
+          alt="Daily - Personal AI Health Companion"
           containerClassName="absolute inset-0 w-full h-full"
           className="w-full h-full object-cover"
           showSkeleton={false}
@@ -38,7 +38,7 @@ const DailyCore = () => {
             <div className="inline-block px-4 py-2 bg-primary/10 backdrop-blur-sm rounded-full mb-6">
               <span className="text-primary font-semibold">Health Intelligence</span>
             </div>
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 text-foreground">DailyCore</h1>
+            <h1 className="text-5xl md:text-6xl font-bold mb-6 text-foreground">Daily</h1>
             <p className="text-xl md:text-2xl text-muted-foreground mb-8">
               Personal AI health companion with daily guidance and planning
             </p>
@@ -51,7 +51,7 @@ const DailyCore = () => {
           <div className="mb-16">
             <h2 className="text-3xl font-bold mb-6">Overview</h2>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              DailyCore acts as a daily AI partner that understands personal patterns. It delivers full-day summaries, AI-driven suggestions, daily planning assistance, and motivation support, making health optimization feel natural and achievable.
+              Daily acts as a daily AI partner that understands personal patterns. It delivers full-day summaries, AI-driven suggestions, daily planning assistance, and motivation support, making health optimization feel natural and achievable.
             </p>
           </div>
 
@@ -103,7 +103,7 @@ const DailyCore = () => {
           <div className="bg-muted/20 border-l-4 border-primary p-6 rounded-lg">
             <h3 className="text-lg font-semibold mb-3">Important Legal Notice</h3>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              DailyCore is an informational companion tool. It is not a medical device and does not diagnose or treat any condition. All recommendations are for informational purposes only.
+              Daily is an informational companion tool. It is not a medical device and does not diagnose or treat any condition. All recommendations are for informational purposes only.
             </p>
           </div>
         </div>

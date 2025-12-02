@@ -20,7 +20,7 @@ const WeightCore = () => {
       <section className="relative h-[60vh] min-h-[500px] flex items-center justify-center overflow-hidden">
         <OptimizedImage
           src={weightcoreHero}
-          alt="WeightCore - Weight Intelligence Platform"
+          alt="Weight - Weight Intelligence Platform"
           containerClassName="absolute inset-0 w-full h-full"
           className="w-full h-full object-cover"
           showSkeleton={false}
@@ -39,7 +39,7 @@ const WeightCore = () => {
               <span className="text-primary font-semibold">Health Intelligence</span>
             </div>
             <h1 className="text-5xl md:text-6xl font-bold mb-6 text-foreground">
-              WeightCore
+              Weight
             </h1>
             <p className="text-xl md:text-2xl text-muted-foreground mb-8">
               Weight intelligence — understanding causes, not counting calories
@@ -56,12 +56,12 @@ const WeightCore = () => {
           <div className="mb-16">
             <h2 className="text-3xl font-bold mb-6">Overview</h2>
             <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-              WeightCore focuses on understanding the root causes behind weight changes through system-level analysis. 
-              Weight is a system-level variable, not a single number. Instead of simple calorie counting, WeightCore examines 
+              Weight module focuses on understanding the root causes behind weight changes through system-level analysis. 
+              Weight is a system-level variable, not a single number. Instead of simple calorie counting, this module examines
               the complex interplay of factors that influence weight dynamics.
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              By providing root-cause analysis across lifestyle patterns, WeightCore delivers daily insights that explain 
+              By providing root-cause analysis across lifestyle patterns, Weight delivers daily insights that explain 
               WHY weight changes occur, offering a comprehensive view that goes beyond traditional weight management approaches.
             </p>
           </div>
@@ -125,7 +125,7 @@ const WeightCore = () => {
                 </CardHeader>
                 <CardContent>
                   <p className="text-muted-foreground">
-                    Import nutrition information from DishCore for comprehensive dietary pattern analysis.
+                    Import nutrition information from Dish for comprehensive dietary pattern analysis.
                   </p>
                 </CardContent>
               </Card>
@@ -151,7 +151,7 @@ const WeightCore = () => {
               <div className="border-l-4 border-primary pl-6 py-4">
                 <h3 className="text-xl font-semibold mb-3">Data Integration</h3>
                 <p className="text-muted-foreground">
-                  WeightCore collects data from multiple sources including sleep trackers, activity monitors, nutrition logs, 
+                  Weight collects data from multiple sources including sleep trackers, activity monitors, nutrition logs, 
                   and stress indicators to build a complete picture of the factors influencing weight.
                 </p>
               </div>
@@ -167,7 +167,7 @@ const WeightCore = () => {
               <div className="border-l-4 border-primary pl-6 py-4">
                 <h3 className="text-xl font-semibold mb-3">Root-Cause Analysis</h3>
                 <p className="text-muted-foreground">
-                  Instead of focusing on weight numbers alone, WeightCore explains why weight changes occur by analyzing 
+                  Instead of focusing on weight numbers alone, Weight explains why weight changes occur by analyzing 
                   the underlying factors and their interactions.
                 </p>
               </div>
@@ -219,26 +219,26 @@ const WeightCore = () => {
           <div className="mb-16">
             <h2 className="text-3xl font-bold mb-6">Position in the Portfolio</h2>
             <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-              WeightCore is a key component of the BioMath health intelligence ecosystem, working in concert with other 
+              Weight is a key component of the BioMath health intelligence ecosystem, working in concert with other 
               specialized modules to provide comprehensive health insights.
             </p>
             <div className="bg-gradient-to-br from-primary/5 to-primary/10 rounded-lg p-8">
               <h3 className="text-xl font-semibold mb-4">Integration Points</h3>
               <div className="space-y-4">
                 <p className="text-muted-foreground">
-                  <strong className="text-foreground">With SleepCore:</strong> Sleep quality data feeds directly into weight analysis, 
+                  <strong className="text-foreground">With Sleep:</strong> Sleep quality data feeds directly into weight analysis, 
                   revealing how rest affects metabolism and appetite regulation.
                 </p>
                 <p className="text-muted-foreground">
-                  <strong className="text-foreground">With StressCore:</strong> Stress patterns are correlated with weight changes, 
+                  <strong className="text-foreground">With Stress:</strong> Stress patterns are correlated with weight changes, 
                   helping identify emotional eating triggers and stress-related metabolism shifts.
                 </p>
                 <p className="text-muted-foreground">
-                  <strong className="text-foreground">With DishCore:</strong> Nutrition data provides essential context for 
+                  <strong className="text-foreground">With Dish:</strong> Nutrition data provides essential context for 
                   understanding dietary impacts on weight dynamics.
                 </p>
                 <p className="text-muted-foreground">
-                  <strong className="text-foreground">With MoveCore:</strong> Activity levels contribute to the complete picture 
+                  <strong className="text-foreground">With Move:</strong> Activity levels contribute to the complete picture 
                   of energy balance and metabolic patterns.
                 </p>
               </div>
@@ -280,10 +280,10 @@ const WeightCore = () => {
           <div className="bg-muted/20 border-l-4 border-primary p-6 rounded-lg">
             <h3 className="text-lg font-semibold mb-3">Important Legal Notice</h3>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              WeightCore is an informational tool designed to help users understand factors that may influence weight. 
+              Weight is an informational tool designed to help users understand factors that may influence weight. 
               It is not a medical device and does not diagnose, treat, or prevent any medical condition. The insights 
               provided are for informational purposes only. All health-related decisions should be made in consultation 
-              with qualified healthcare professionals. WeightCore does not replace professional medical advice, diagnosis, 
+              with qualified healthcare professionals. Weight does not replace professional medical advice, diagnosis, 
               or treatment.
             </p>
           </div>
