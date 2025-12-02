@@ -20,19 +20,13 @@ import BioMathCore from "./pages/Projects/BioMathCore";
 import TerraAero from "./pages/Projects/TerraAero";
 import DigitalInvest from "./pages/Projects/DigitalInvest";
 import DishCore from "./pages/Projects/DishCore";
-import SleepCore from "./pages/Projects/SleepCore";
 import StressCore from "./pages/Projects/StressCore";
-import MoveCore from "./pages/Projects/MoveCore";
 import VitalCore from "./pages/Projects/VitalCore";
-import WeightCore from "./pages/Projects/WeightCore";
 import BioAgeCore from "./pages/Projects/BioAgeCore";
 import LongevityCore from "./pages/Projects/LongevityCore";
 import FamilyCore from "./pages/Projects/FamilyCore";
 import SeniorCore from "./pages/Projects/SeniorCore";
 import SkinCore from "./pages/Projects/SkinCore";
-import HeartCore from "./pages/Projects/HeartCore";
-import FocusCore from "./pages/Projects/FocusCore";
-import RebootCore from "./pages/Projects/RebootCore";
 import DailyCore from "./pages/Projects/DailyCore";
 import Projects from "./pages/Projects";
 import ProjectDetail from "./pages/ProjectDetail";
@@ -181,19 +175,13 @@ const App = () => (
             <Route path="/projects/terraaero" element={<TerraAero />} />
             <Route path="/projects/digital-invest" element={<DigitalInvest />} />
             <Route path="/projects/dishcore" element={<DishCore />} />
-          <Route path="/projects/sleepcore" element={<SleepCore />} />
           <Route path="/projects/stresscore" element={<StressCore />} />
-          <Route path="/projects/movecore" element={<MoveCore />} />
           <Route path="/projects/vitalcore" element={<VitalCore />} />
-          <Route path="/projects/weightcore" element={<WeightCore />} />
           <Route path="/projects/bioagecore" element={<BioAgeCore />} />
           <Route path="/projects/longevitycore" element={<LongevityCore />} />
           <Route path="/projects/familycore" element={<FamilyCore />} />
           <Route path="/projects/seniorcore" element={<SeniorCore />} />
           <Route path="/projects/skincore" element={<SkinCore />} />
-          <Route path="/projects/heartcore" element={<HeartCore />} />
-          <Route path="/projects/focuscore" element={<FocusCore />} />
-          <Route path="/projects/rebootcore" element={<RebootCore />} />
           <Route path="/projects/dailycore" element={<DailyCore />} />
             
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
