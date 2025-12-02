@@ -20,7 +20,7 @@ const LongevityCore = () => {
       <section className="relative h-[60vh] min-h-[500px] flex items-center justify-center overflow-hidden">
         <OptimizedImage
           src={longevitycoreHero}
-          alt="LongevityCore - Personalized Longevity Planning Platform"
+          alt="Longevity - Personalized Longevity Planning Platform"
           containerClassName="absolute inset-0 w-full h-full"
           className="w-full h-full object-cover"
           showSkeleton={false}
@@ -39,7 +39,7 @@ const LongevityCore = () => {
               <span className="text-primary font-semibold">Health Intelligence</span>
             </div>
             <h1 className="text-5xl md:text-6xl font-bold mb-6 text-foreground">
-              LongevityCore
+              Longevity
             </h1>
             <p className="text-xl md:text-2xl text-muted-foreground mb-8">
               Personalized AI longevity planning aligned with daily life
@@ -56,13 +56,13 @@ const LongevityCore = () => {
           <div className="mb-16">
             <h2 className="text-3xl font-bold mb-6">Overview</h2>
             <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-              LongevityCore delivers AI-driven longevity planning that integrates seamlessly into daily life. Rather than 
+              Longevity delivers AI-driven longevity planning that integrates seamlessly into daily life. Rather than 
               prescribing one-size-fits-all protocols, the platform adapts to personal patterns and routines, making sustainable 
               improvements realistic and achievable.
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed">
               By focusing on sleep optimization, nutritional insights, movement patterns, biorhythms, and behavior recognition, 
-              LongevityCore helps users make informed decisions about their long-term health trajectory through practical, 
+              Longevity helps users make informed decisions about their long-term health trajectory through practical, 
               evidence-based recommendations.
             </p>
           </div>
@@ -152,7 +152,7 @@ const LongevityCore = () => {
               <div className="border-l-4 border-primary pl-6 py-4">
                 <h3 className="text-xl font-semibold mb-3">Profile Assessment</h3>
                 <p className="text-muted-foreground">
-                  LongevityCore begins by understanding your current lifestyle, health patterns, constraints, and goals through 
+                  Longevity begins by understanding your current lifestyle, health patterns, constraints, and goals through 
                   comprehensive data collection and analysis.
                 </p>
               </div>
@@ -220,18 +220,18 @@ const LongevityCore = () => {
           <div className="mb-16">
             <h2 className="text-3xl font-bold mb-6">Position in the Ecosystem</h2>
             <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-              LongevityCore serves as the strategic planning layer within the BioMath ecosystem, coordinating insights from 
+              Longevity serves as the strategic planning layer within the BioMath ecosystem, coordinating insights from 
               multiple modules to create a comprehensive longevity roadmap.
             </p>
             <div className="bg-gradient-to-br from-primary/5 to-primary/10 rounded-lg p-8">
               <h3 className="text-xl font-semibold mb-4">Ecosystem Integration</h3>
               <div className="space-y-4">
                 <p className="text-muted-foreground">
-                  <strong className="text-foreground">Data Synthesis:</strong> Aggregates insights from SleepCore, StressCore, 
-                  MoveCore, VitalCore, and other modules to inform strategic recommendations.
+                  <strong className="text-foreground">Data Synthesis:</strong> Aggregates insights from Sleep, Stress,
+                  Move, Vital, and other modules to inform strategic recommendations.
                 </p>
                 <p className="text-muted-foreground">
-                  <strong className="text-foreground">Holistic Approach:</strong> Unlike single-focus modules, LongevityCore 
+                  <strong className="text-foreground">Holistic Approach:</strong> Unlike single-focus modules, Longevity 
                   coordinates across all health dimensions for maximum synergistic effect.
                 </p>
                 <p className="text-muted-foreground">
@@ -281,11 +281,11 @@ const LongevityCore = () => {
           <div className="bg-muted/20 border-l-4 border-primary p-6 rounded-lg">
             <h3 className="text-lg font-semibold mb-3">Important Legal Notice</h3>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              LongevityCore is an informational and educational tool that provides personalized lifestyle recommendations 
+              Longevity is an informational and educational tool that provides personalized lifestyle recommendations 
               based on health data and scientific research. It is not a medical device and does not diagnose, treat, cure, or 
               prevent any disease. The recommendations provided are for informational purposes only and should not replace 
               professional medical advice. All health decisions should be made in consultation with qualified healthcare 
-              professionals. LongevityCore does not provide medical, nutritional, or therapeutic services.
+              professionals. Longevity does not provide medical, nutritional, or therapeutic services.
             </p>
           </div>
         </div>

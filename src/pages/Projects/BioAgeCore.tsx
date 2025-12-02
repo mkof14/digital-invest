@@ -20,7 +20,7 @@ const BioAgeCore = () => {
       <section className="relative h-[60vh] min-h-[500px] flex items-center justify-center overflow-hidden">
         <OptimizedImage
           src={bioagecoreHero}
-          alt="BioAgeCore - Biological Age Analysis Platform"
+          alt="BioAge - Biological Age Analysis Platform"
           containerClassName="absolute inset-0 w-full h-full"
           className="w-full h-full object-cover"
           showSkeleton={false}
@@ -39,7 +39,7 @@ const BioAgeCore = () => {
               <span className="text-primary font-semibold">Health Intelligence</span>
             </div>
             <h1 className="text-5xl md:text-6xl font-bold mb-6 text-foreground">
-              BioAgeCore
+              BioAge
             </h1>
             <p className="text-xl md:text-2xl text-muted-foreground mb-8">
               AI-powered biological age analysis and optimization tracking
@@ -56,7 +56,7 @@ const BioAgeCore = () => {
           <div className="mb-16">
             <h2 className="text-3xl font-bold mb-6">Overview</h2>
             <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-              BioAgeCore provides biological age estimation based on real-life signals including sleep, recovery, stress, 
+              BioAge provides biological age estimation based on real-life signals including sleep, recovery, stress, 
               and activity patterns. Biological age serves as a high-level indicator of system health, reflecting how well 
               your body is functioning relative to your chronological age.
             </p>
@@ -151,7 +151,7 @@ const BioAgeCore = () => {
               <div className="border-l-4 border-primary pl-6 py-4">
                 <h3 className="text-xl font-semibold mb-3">Data Collection</h3>
                 <p className="text-muted-foreground">
-                  BioAgeCore gathers comprehensive data from wearables, health apps, and manual inputs to build a complete 
+                  BioAge gathers comprehensive data from wearables, health apps, and manual inputs to build a complete 
                   picture of your health signals and lifestyle patterns.
                 </p>
               </div>
@@ -219,26 +219,26 @@ const BioAgeCore = () => {
           <div className="mb-16">
             <h2 className="text-3xl font-bold mb-6">Position in the Ecosystem</h2>
             <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-              BioAgeCore serves as a high-level health indicator within the BioMath ecosystem, synthesizing insights from 
+              BioAge serves as a high-level health indicator within the BioMath ecosystem, synthesizing insights from 
               multiple specialized modules to provide an overarching view of biological health status.
             </p>
             <div className="bg-gradient-to-br from-primary/5 to-primary/10 rounded-lg p-8">
               <h3 className="text-xl font-semibold mb-4">Integration Architecture</h3>
               <div className="space-y-4">
                 <p className="text-muted-foreground">
-                  <strong className="text-foreground">SleepCore Integration:</strong> Sleep data provides crucial input for 
+                  <strong className="text-foreground">Sleep Integration:</strong> Sleep data provides crucial input for 
                   biological age estimation, as sleep quality is strongly correlated with aging processes.
                 </p>
                 <p className="text-muted-foreground">
-                  <strong className="text-foreground">StressCore Correlation:</strong> Chronic stress patterns are key factors 
+                  <strong className="text-foreground">Stress Correlation:</strong> Chronic stress patterns are key factors 
                   in accelerated biological aging, making this integration essential.
                 </p>
                 <p className="text-muted-foreground">
-                  <strong className="text-foreground">VitalCore Signals:</strong> Heart rate variability and other vital signs 
+                  <strong className="text-foreground">Vital Signals:</strong> Heart rate variability and other vital signs 
                   feed directly into bio-age calculations.
                 </p>
                 <p className="text-muted-foreground">
-                  <strong className="text-foreground">MoveCore Activity Data:</strong> Physical activity patterns contribute 
+                  <strong className="text-foreground">Move Activity Data:</strong> Physical activity patterns contribute 
                   significantly to biological age assessment.
                 </p>
               </div>
@@ -280,10 +280,10 @@ const BioAgeCore = () => {
           <div className="bg-muted/20 border-l-4 border-primary p-6 rounded-lg">
             <h3 className="text-lg font-semibold mb-3">Important Legal Notice</h3>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              BioAgeCore is an informational tool that provides estimates of biological age based on lifestyle and health data. 
+              BioAge is an informational tool that provides estimates of biological age based on lifestyle and health data.
               It is not a medical device and does not diagnose, treat, cure, or prevent any disease or medical condition. The 
               biological age estimates are for informational and educational purposes only. All health decisions should be made 
-              in consultation with qualified healthcare professionals. BioAgeCore does not replace professional medical advice, 
+              in consultation with qualified healthcare professionals. BioAge does not replace professional medical advice,
               diagnosis, or treatment.
             </p>
           </div>

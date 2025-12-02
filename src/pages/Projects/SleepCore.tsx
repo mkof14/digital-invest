@@ -21,7 +21,7 @@ const SleepCore = () => {
         <div className="relative h-[60vh] min-h-[500px] overflow-hidden">
           <OptimizedImage
             src={sleepcoreHero}
-            alt="SleepCore - Sleep intelligence platform"
+            alt="Sleep - Sleep intelligence platform"
             containerClassName="absolute inset-0 w-full h-full"
             className="w-full h-full object-cover"
             showSkeleton={false}
@@ -40,7 +40,7 @@ const SleepCore = () => {
                 Health Intelligence
               </Badge>
               <h1 className="text-4xl md:text-6xl font-bold mb-6 gradient-blue-animated">
-                SleepCore
+                Sleep
               </h1>
               <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl">
                 Sleep intelligence layer focusing on understanding and improving sleep as a key risk and fatigue factor
@@ -56,7 +56,7 @@ const SleepCore = () => {
             <h2 className="text-3xl font-bold mb-6">Overview</h2>
             <div className="prose prose-lg max-w-none text-muted-foreground">
               <p>
-                SleepCore is the sleep-intelligence layer of our ecosystem. It focuses on understanding and improving 
+                Sleep is the sleep-intelligence layer of our ecosystem. It focuses on understanding and improving 
                 sleep as one of the main risk and fatigue factors in modern life. Poor sleep quality affects cognitive 
                 performance, physical health, emotional regulation, and overall quality of life.
               </p>
@@ -162,7 +162,7 @@ const SleepCore = () => {
                 </CardHeader>
                 <CardContent>
                   <p className="text-muted-foreground">
-                    Connect your wearable devices, smartwatches, or sleep trackers. SleepCore automatically imports 
+                    Connect your wearable devices, smartwatches, or sleep trackers. Sleep automatically imports 
                     nightly sleep data including duration, stages, heart rate during sleep, movement, and environmental 
                     conditions. All data remains private and secure.
                   </p>
@@ -175,7 +175,7 @@ const SleepCore = () => {
                 </CardHeader>
                 <CardContent>
                   <p className="text-muted-foreground">
-                    Each morning, SleepCore analyzes the previous night's sleep. It evaluates sleep architecture, 
+                    Each morning, Sleep analyzes the previous night's sleep. It evaluates sleep architecture, 
                     identifies interruptions, assesses consistency with your historical patterns, and compares your 
                     sleep against optimal benchmarks for your age and activity level.
                   </p>
@@ -201,7 +201,7 @@ const SleepCore = () => {
                 </CardHeader>
                 <CardContent>
                   <p className="text-muted-foreground">
-                    Over weeks and months, SleepCore identifies broader patterns. It shows how sleep quality changes 
+                    Over weeks and months, Sleep identifies broader patterns. It shows how sleep quality changes 
                     with seasons, work schedules, travel, stress levels, and lifestyle factors. This helps users 
                     understand their unique sleep needs and optimize their routines accordingly.
                   </p>
@@ -244,7 +244,7 @@ const SleepCore = () => {
             <Card className="bg-muted/50">
               <CardContent className="pt-6">
                 <p className="text-muted-foreground mb-4">
-                  SleepCore is a foundational layer within the BioMath health intelligence ecosystem. It integrates 
+                  Sleep is a foundational layer within the BioMath health intelligence ecosystem. It integrates 
                   seamlessly with other components:
                 </p>
                 <ul className="space-y-3 text-muted-foreground">
@@ -253,14 +253,14 @@ const SleepCore = () => {
                     their relationship to overall health metrics
                   </li>
                   <li>
-                    <strong>StressCore/MindCore:</strong> Connects mental and emotional state during the day with 
+                    <strong>Stress/Mind:</strong> Connects mental and emotional state during the day with 
                     sleep quality at night
                   </li>
                   <li>
-                    <strong>MoveCore:</strong> Links physical activity levels and timing with sleep onset and quality
+                    <strong>Move:</strong> Links physical activity levels and timing with sleep onset and quality
                   </li>
                   <li>
-                    <strong>VitalCore:</strong> Uses sleep data as a critical input for early warning signals about 
+                    <strong>Vital:</strong> Uses sleep data as a critical input for early warning signals about 
                     overall health status and recovery capacity
                   </li>
                   <li>
@@ -319,7 +319,7 @@ const SleepCore = () => {
             <Card className="bg-muted/30 border-primary/20">
               <CardContent className="pt-6">
                 <p className="text-sm text-muted-foreground">
-                  <strong>Important Notice:</strong> SleepCore is an informational tool and is not a medical device. 
+                  <strong>Important Notice:</strong> Sleep is an informational tool and is not a medical device. 
                   It does not diagnose, treat, or prevent any medical condition. Sleep disorders and chronic sleep 
                   issues should be evaluated by qualified healthcare professionals. All decisions regarding health 
                   and lifestyle remain the responsibility of the user.

@@ -20,7 +20,7 @@ const HeartCore = () => {
       <section className="relative h-[60vh] min-h-[500px] flex items-center justify-center overflow-hidden">
         <OptimizedImage
           src={heartcoreHero}
-          alt="HeartCore - Heart Rate Variability Platform"
+          alt="Heart - Heart Rate Variability Platform"
           containerClassName="absolute inset-0 w-full h-full"
           className="w-full h-full object-cover"
           showSkeleton={false}
@@ -38,7 +38,7 @@ const HeartCore = () => {
             <div className="inline-block px-4 py-2 bg-primary/10 backdrop-blur-sm rounded-full mb-6">
               <span className="text-primary font-semibold">Health Intelligence</span>
             </div>
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 text-foreground">HeartCore</h1>
+            <h1 className="text-5xl md:text-6xl font-bold mb-6 text-foreground">Heart</h1>
             <p className="text-xl md:text-2xl text-muted-foreground mb-8">
               Heart rate variability and recovery signal monitoring
             </p>
@@ -51,7 +51,7 @@ const HeartCore = () => {
           <div className="mb-16">
             <h2 className="text-3xl font-bold mb-6">Overview</h2>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              HeartCore focuses on patterns rather than diagnoses, tracking HRV, heart rate trends, and their correlations with stress and sleep. The platform provides early indicators of overload or imbalance through daily recommendations based on personalized patterns.
+              Heart focuses on patterns rather than diagnoses, tracking HRV, heart rate trends, and their correlations with stress and sleep. The platform provides early indicators of overload or imbalance through daily recommendations based on personalized patterns.
             </p>
           </div>
 
@@ -103,7 +103,7 @@ const HeartCore = () => {
           <div className="bg-muted/20 border-l-4 border-primary p-6 rounded-lg">
             <h3 className="text-lg font-semibold mb-3">Important Legal Notice</h3>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              HeartCore is an informational tool for tracking cardiovascular patterns. It is not a medical device and does not diagnose, treat, or prevent any medical condition. All insights are for informational purposes only. Consult qualified healthcare professionals for medical advice.
+              Heart is an informational tool for tracking cardiovascular patterns. It is not a medical device and does not diagnose, treat, or prevent any medical condition. All insights are for informational purposes only. Consult qualified healthcare professionals for medical advice.
             </p>
           </div>
         </div>

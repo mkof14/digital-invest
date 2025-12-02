@@ -21,7 +21,7 @@ const FamilyCore = () => {
       <section className="relative h-[60vh] min-h-[500px] flex items-center justify-center overflow-hidden">
         <OptimizedImage
           src={familycoreHero}
-          alt="FamilyCore - Family Health Companion Platform"
+          alt="Family - Family Health Companion Platform"
           containerClassName="absolute inset-0 w-full h-full"
           className="w-full h-full object-cover"
           showSkeleton={false}
@@ -40,7 +40,7 @@ const FamilyCore = () => {
               <span className="text-primary font-semibold">Health Intelligence</span>
             </div>
             <h1 className="text-5xl md:text-6xl font-bold mb-6 text-foreground">
-              FamilyCore
+              Family
             </h1>
             <p className="text-xl md:text-2xl text-muted-foreground mb-8">
               A practical health companion for parents and families
@@ -57,12 +57,12 @@ const FamilyCore = () => {
           <div className="mb-16">
             <h2 className="text-3xl font-bold mb-6">Overview</h2>
             <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-              FamilyCore simplifies daily health decisions for parents by organizing health-related routines in one clear interface. 
+              Family simplifies daily health decisions for parents by organizing health-related routines in one clear interface. 
               The platform is designed to reduce complexity and provide quick access to important health information, making family 
               health management more efficient and less stressful.
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              From tracking children's health patterns to managing vaccination schedules and nutrition planning, FamilyCore helps 
+              From tracking children's health patterns to managing vaccination schedules and nutrition planning, Family helps
               parents stay organized and informed without feeling overwhelmed by medical terminology or complex systems.
             </p>
           </div>
@@ -216,7 +216,7 @@ const FamilyCore = () => {
           <div className="mb-16">
             <h2 className="text-3xl font-bold mb-6">Position in the Ecosystem</h2>
             <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-              FamilyCore extends the BioMath ecosystem to family health management, applying proven health intelligence 
+              Family extends the BioMath ecosystem to family health management, applying proven health intelligence 
               principles to the unique needs of parents and children.
             </p>
             <div className="bg-gradient-to-br from-primary/5 to-primary/10 rounded-lg p-8">
@@ -224,7 +224,7 @@ const FamilyCore = () => {
               <div className="space-y-4">
                 <p className="text-muted-foreground">
                   <strong className="text-foreground">Practical Focus:</strong> While other modules target individual optimization, 
-                  FamilyCore prioritizes practical organization and peace of mind for busy parents.
+                  Family prioritizes practical organization and peace of mind for busy parents.
                 </p>
                 <p className="text-muted-foreground">
                   <strong className="text-foreground">Age-Appropriate Guidance:</strong> Recommendations are tailored to each 
@@ -277,10 +277,10 @@ const FamilyCore = () => {
           <div className="bg-muted/20 border-l-4 border-primary p-6 rounded-lg">
             <h3 className="text-lg font-semibold mb-3">Important Legal Notice</h3>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              FamilyCore is an informational and organizational tool designed to help parents manage family health routines. 
+              Family is an informational and organizational tool designed to help parents manage family health routines. 
               It is not a medical device and does not diagnose, treat, or prevent any medical condition. The information and 
               guidance provided are for educational purposes only. All medical decisions regarding children's health should be 
-              made in consultation with qualified pediatric healthcare professionals. FamilyCore does not replace professional 
+              made in consultation with qualified pediatric healthcare professionals. Family does not replace professional 
               medical advice, diagnosis, or treatment.
             </p>
           </div>

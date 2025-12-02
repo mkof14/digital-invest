@@ -21,7 +21,7 @@ const VitalCore = () => {
         <div className="relative h-[60vh] min-h-[500px] overflow-hidden">
           <OptimizedImage
             src={vitalcoreHero}
-            alt="VitalCore - Early warning health signals platform"
+            alt="Vital - Early warning health signals platform"
             containerClassName="absolute inset-0 w-full h-full"
             className="w-full h-full object-cover"
             showSkeleton={false}
@@ -40,7 +40,7 @@ const VitalCore = () => {
                 Health Intelligence
               </Badge>
               <h1 className="text-4xl md:text-6xl font-bold mb-6 gradient-tech-animated">
-                VitalCore
+                Vital
               </h1>
               <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl">
                 Early warning system for vital signs, combining HR, HRV, sleep, stress, and activity patterns
@@ -56,7 +56,7 @@ const VitalCore = () => {
             <h2 className="text-3xl font-bold mb-6">Overview</h2>
             <div className="prose prose-lg max-w-none text-muted-foreground">
               <p>
-                VitalCore is an early warning system built around vital signs and key health patterns. It analyzes 
+                Vital is an early warning system built around vital signs and key health patterns. It analyzes 
                 heart rate, heart rate variability (HRV), sleep quality, stress levels, and activity data to detect 
                 when "something is off." By combining multiple inputs, it identifies subtle changes that indicate the 
                 body is under pressure.
@@ -64,7 +64,7 @@ const VitalCore = () => {
               <p>
                 The platform serves as an early signal engine, showing when the body is approaching overload before 
                 serious problems develop. It helps users take preventive action: rest more, reduce stress, adjust 
-                activity, or consult healthcare professionals if needed. VitalCore keeps people engaged because it 
+                activity, or consult healthcare professionals if needed. Vital keeps people engaged because it 
                 provides value by warning them early.
               </p>
             </div>
@@ -107,7 +107,7 @@ const VitalCore = () => {
                 </CardHeader>
                 <CardContent>
                   <CardDescription>
-                    Sleep data from SleepCore: duration, stages, interruptions, consistency. Poor sleep affects all 
+                    Sleep data from Sleep module: duration, stages, interruptions, consistency. Poor sleep affects all 
                     other health metrics and increases risk of illness and burnout.
                   </CardDescription>
                 </CardContent>
@@ -120,7 +120,7 @@ const VitalCore = () => {
                 </CardHeader>
                 <CardContent>
                   <CardDescription>
-                    Stress data from StressCore/MindCore. Chronic stress shows up in vital signs and contributes to 
+                    Stress data from Stress/Mind module. Chronic stress shows up in vital signs and contributes to 
                     cardiovascular risk, immune suppression, and mental health issues.
                   </CardDescription>
                 </CardContent>
@@ -133,7 +133,7 @@ const VitalCore = () => {
                 </CardHeader>
                 <CardContent>
                   <CardDescription>
-                    Movement and exercise data from MoveCore. Sudden decreases in activity can indicate fatigue or 
+                    Movement and exercise data from Move. Sudden decreases in activity can indicate fatigue or 
                     illness. Overtraining shows up as elevated resting HR and reduced HRV.
                   </CardDescription>
                 </CardContent>
@@ -146,7 +146,7 @@ const VitalCore = () => {
                 </CardHeader>
                 <CardContent>
                   <CardDescription>
-                    VitalCore doesn't just track individual metrics. It looks for patterns across all data sources. 
+                    Vital doesn't just track individual metrics. It looks for patterns across all data sources. 
                     Combinations of changes are more meaningful than single indicators.
                   </CardDescription>
                 </CardContent>
@@ -160,7 +160,7 @@ const VitalCore = () => {
             <Card className="bg-muted/50">
               <CardContent className="pt-6">
                 <p className="text-muted-foreground mb-6">
-                  VitalCore continuously analyzes your health data streams, looking for patterns that indicate the 
+                  Vital continuously analyzes your health data streams, looking for patterns that indicate the 
                   body is under pressure. These signals often appear before you feel sick or exhausted:
                 </p>
                 
@@ -169,7 +169,7 @@ const VitalCore = () => {
                     <h3 className="text-xl font-semibold mb-2">Pattern Changes</h3>
                     <p className="text-muted-foreground">
                       Deviation from your personal baselines. A sudden increase in resting heart rate, a drop in HRV, 
-                      or deteriorating sleep quality all signal that something has changed. VitalCore tracks these 
+                      or deteriorating sleep quality all signal that something has changed. Vital tracks these 
                       shifts and alerts you when they cross thresholds.
                     </p>
                   </div>
@@ -178,7 +178,7 @@ const VitalCore = () => {
                     <h3 className="text-xl font-semibold mb-2">Load Accumulation</h3>
                     <p className="text-muted-foreground">
                       Stress, poor sleep, and high activity can accumulate over days or weeks. Each day might seem 
-                      manageable, but the cumulative load can push the body toward breakdown. VitalCore tracks this 
+                      manageable, but the cumulative load can push the body toward breakdown. Vital tracks this 
                       accumulation and warns when you're approaching unsustainable levels.
                     </p>
                   </div>
@@ -187,7 +187,7 @@ const VitalCore = () => {
                     <h3 className="text-xl font-semibold mb-2">Recovery Gaps</h3>
                     <p className="text-muted-foreground">
                       When activity and stress are high but recovery (sleep, low heart rate, high HRV) is insufficient, 
-                      the body cannot repair itself. VitalCore identifies these recovery gaps and recommends adjustments 
+                      the body cannot repair itself. Vital identifies these recovery gaps and recommends adjustments 
                       before exhaustion or illness occur.
                     </p>
                   </div>
@@ -196,7 +196,7 @@ const VitalCore = () => {
                     <h3 className="text-xl font-semibold mb-2">Multi-Signal Alerts</h3>
                     <p className="text-muted-foreground">
                       A single metric out of range might not be concerning, but multiple metrics shifting together 
-                      indicate a real issue. VitalCore's strength is combining inputs to generate more accurate and 
+                      indicate a real issue. Vital's strength is combining inputs to generate more accurate and 
                       actionable alerts.
                     </p>
                   </div>
@@ -215,7 +215,7 @@ const VitalCore = () => {
                 </CardHeader>
                 <CardContent>
                   <p className="text-muted-foreground">
-                    VitalCore alerts are designed to be early and gentle. They're not medical alarms or panic-inducing 
+                    Vital alerts are designed to be early and gentle. They're not medical alarms or panic-inducing 
                     notifications. Instead, they're friendly reminders that your body is showing signs of stress and 
                     might need attention.
                   </p>
@@ -253,7 +253,7 @@ const VitalCore = () => {
                 </CardHeader>
                 <CardContent>
                   <p className="text-muted-foreground">
-                    VitalCore keeps users engaged because it provides real, tangible value. When the system warns them 
+                    Vital keeps users engaged because it provides real, tangible value. When the system warns them 
                     of approaching illness or burnout, and they take action and avoid the issue, they trust the platform 
                     more. This trust drives long-term engagement and usage.
                   </p>
@@ -268,28 +268,28 @@ const VitalCore = () => {
             <Card className="bg-primary/5 border-primary/20">
               <CardContent className="pt-6">
                 <p className="text-muted-foreground mb-4">
-                  VitalCore is the "sentry" for the BioMath ecosystem. It sits at the center of the platform, 
+                  Vital is the "sentry" for the BioMath ecosystem. It sits at the center of the platform, 
                   monitoring all incoming health data streams and watching for early warning signs:
                 </p>
                 <ul className="space-y-3 text-muted-foreground">
                   <li>
-                    <strong>SleepCore:</strong> Provides sleep quality data that feeds into VitalCore's recovery 
+                    <strong>Sleep:</strong> Provides sleep quality data that feeds into Vital's recovery 
                     assessment and early warning algorithms.
                   </li>
                   <li>
-                    <strong>StressCore/MindCore:</strong> Supplies stress and mood data that helps VitalCore understand 
+                    <strong>Stress/Mind:</strong> Supplies stress and mood data that helps Vital understand 
                     psychological load and its impact on physical health.
                   </li>
                   <li>
-                    <strong>MoveCore:</strong> Contributes activity and movement data to assess whether the user is 
+                    <strong>Move:</strong> Contributes activity and movement data to assess whether the user is 
                     balancing exertion with recovery.
                   </li>
                   <li>
                     <strong>BioMath Core:</strong> Provides advanced computational analysis and risk modeling based on 
-                    the vital signs and patterns detected by VitalCore.
+                    the vital signs and patterns detected by Vital.
                   </li>
                   <li>
-                    <strong>BioMath Life Platform:</strong> Aggregates all health streams, with VitalCore serving as 
+                    <strong>BioMath Life Platform:</strong> Aggregates all health streams, with Vital serving as 
                     the central early warning layer that protects users from overload and guides them toward sustainable 
                     health practices.
                   </li>
@@ -309,7 +309,7 @@ const VitalCore = () => {
                 <CardContent>
                   <p className="text-sm text-muted-foreground">
                     Avoid overtraining by monitoring recovery through HRV and resting heart rate. Adjust training 
-                    intensity based on VitalCore's early warnings.
+                    intensity based on Vital's early warnings.
                   </p>
                 </CardContent>
               </Card>
@@ -332,7 +332,7 @@ const VitalCore = () => {
                 </CardHeader>
                 <CardContent>
                   <p className="text-sm text-muted-foreground">
-                    Monitor overall health trends and catch potential issues early. Use VitalCore as a continuous 
+                    Monitor overall health trends and catch potential issues early. Use Vital as a continuous 
                     health check that guides lifestyle decisions.
                   </p>
                 </CardContent>
@@ -345,7 +345,7 @@ const VitalCore = () => {
             <Card className="bg-muted/30 border-primary/20">
               <CardContent className="pt-6">
                 <p className="text-sm text-muted-foreground">
-                  <strong>Important Notice:</strong> VitalCore is an informational tool and early warning system. 
+                  <strong>Important Notice:</strong> Vital is an informational tool and early warning system. 
                   It is not a medical device and does not diagnose, treat, or prevent any medical condition. Alerts 
                   and insights are based on pattern recognition and should not replace professional medical evaluation. 
                   Users experiencing concerning symptoms or health changes should consult qualified healthcare 

@@ -21,7 +21,7 @@ const MoveCore = () => {
         <div className="relative h-[60vh] min-h-[500px] overflow-hidden">
           <OptimizedImage
             src={movecoreHero}
-            alt="MoveCore - Movement and activity intelligence platform"
+            alt="Move - Movement and activity intelligence platform"
             containerClassName="absolute inset-0 w-full h-full"
             className="w-full h-full object-cover"
             showSkeleton={false}
@@ -40,7 +40,7 @@ const MoveCore = () => {
                 Daily Life
               </Badge>
               <h1 className="text-4xl md:text-6xl font-bold mb-6 gradient-orange-animated">
-                MoveCore
+                Move
               </h1>
               <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl">
                 Movement and activity intelligence layer tracking steps, activity levels, and providing behavioral nudges
@@ -56,7 +56,7 @@ const MoveCore = () => {
             <h2 className="text-3xl font-bold mb-6">Overview</h2>
             <div className="prose prose-lg max-w-none text-muted-foreground">
               <p>
-                MoveCore is the basic movement and activity layer of our ecosystem. Modern life involves long periods 
+                Move is the basic movement and activity layer of our ecosystem. Modern life involves long periods 
                 of sitting and inactivity, which have significant negative effects on health, energy, cognition, and 
                 mood. Small amounts of movement throughout the day can counteract these effects.
               </p>
@@ -202,7 +202,7 @@ const MoveCore = () => {
                 </CardHeader>
                 <CardContent>
                   <p className="text-muted-foreground">
-                    MoveCore tracks how long you've been stationary. When the period exceeds healthy limits (typically 
+                    Move tracks how long you've been stationary. When the period exceeds healthy limits (typically 
                     45-60 minutes), a gentle prompt appears. This timing ensures the nudge is relevant and useful.
                   </p>
                 </CardContent>
@@ -245,7 +245,7 @@ const MoveCore = () => {
                 </CardHeader>
                 <CardContent>
                   <p className="text-sm text-muted-foreground">
-                    Standing desks, walking meetings, brief stretches between tasks. MoveCore integrates seamlessly 
+                    Standing desks, walking meetings, brief stretches between tasks. Move integrates seamlessly 
                     into office routines, helping workers stay active without leaving their workspace.
                   </p>
                 </CardContent>
@@ -269,7 +269,7 @@ const MoveCore = () => {
                 </CardHeader>
                 <CardContent>
                   <p className="text-sm text-muted-foreground">
-                    Long flights, train rides, or car trips involve prolonged sitting. MoveCore reminds users to 
+                    Long flights, train rides, or car trips involve prolonged sitting. Move reminds users to 
                     stand, stretch, or walk briefly during stops and breaks.
                   </p>
                 </CardContent>
@@ -295,20 +295,20 @@ const MoveCore = () => {
             <Card className="bg-muted/50">
               <CardContent className="pt-6">
                 <p className="text-muted-foreground mb-4">
-                  MoveCore integrates with other components of the BioMath platform to provide comprehensive health intelligence:
+                  Move integrates with other components of the BioMath platform to provide comprehensive health intelligence:
                 </p>
                 <ul className="space-y-3 text-muted-foreground">
                   <li>
-                    <strong>SleepCore:</strong> Physical activity during the day improves sleep quality and duration. 
-                    MoveCore data helps SleepCore understand when and how much activity supports better rest.
+                    <strong>Sleep:</strong> Physical activity during the day improves sleep quality and duration. 
+                    Move data helps Sleep understand when and how much activity supports better rest.
                   </li>
                   <li>
-                    <strong>StressCore/MindCore:</strong> Movement reduces stress and improves mood. Walking breaks 
+                    <strong>Stress/Mind:</strong> Movement reduces stress and improves mood. Walking breaks 
                     and physical activity are simple interventions for managing psychological state.
                   </li>
                   <li>
-                    <strong>VitalCore:</strong> Activity levels affect heart rate, HRV, and overall cardiovascular 
-                    health. MoveCore provides critical input for VitalCore's early warning system.
+                    <strong>Vital:</strong> Activity levels affect heart rate, HRV, and overall cardiovascular
+                    health. Move provides critical input for Vital's early warning system.
                   </li>
                   <li>
                     <strong>BioMath Core:</strong> Advanced analysis of movement patterns and their relationship to 
@@ -328,7 +328,7 @@ const MoveCore = () => {
             <Card className="bg-muted/30 border-primary/20">
               <CardContent className="pt-6">
                 <p className="text-sm text-muted-foreground">
-                  <strong>Important Notice:</strong> MoveCore is an informational tool and activity tracking system. 
+                  <strong>Important Notice:</strong> Move is an informational tool and activity tracking system. 
                   It is not a medical device and does not diagnose, treat, or prevent any medical condition. Users 
                   with mobility limitations, cardiovascular conditions, or other health concerns should consult 
                   qualified healthcare professionals before making significant changes to their activity levels. All 
