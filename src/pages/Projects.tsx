@@ -14,19 +14,13 @@ import biomathcoreHero from '@/assets/projects/biomathcore-hero.jpg';
 import dishcoreHero from '@/assets/projects/dishcore-hero.jpg';
 import digitalinvestHero from '@/assets/projects/digitalinvest-hero.jpg';
 import biomathlifeHero from '@/assets/projects/biomathlife-hero.jpg';
-import sleepcoreHero from '@/assets/projects/sleepcore-hero.jpg';
 import stresscoreHero from '@/assets/projects/stresscore-hero.jpg';
-import movecoreHero from '@/assets/projects/movecore-hero.jpg';
 import vitalcoreHero from '@/assets/projects/vitalcore-hero.jpg';
-import weightcoreHero from '@/assets/projects/weightcore-hero.jpg';
 import bioagecoreHero from '@/assets/projects/bioagecore-hero.jpg';
 import longevitycoreHero from '@/assets/projects/longevitycore-hero.jpg';
 import familycoreHero from '@/assets/projects/familycore-hero.jpg';
 import seniorcoreHero from '@/assets/projects/seniorcore-hero.jpg';
 import skincoreHero from '@/assets/projects/skincore-hero.jpg';
-import heartcoreHero from '@/assets/projects/heartcore-hero.jpg';
-import focuscoreHero from '@/assets/projects/focuscore-hero.jpg';
-import rebootcoreHero from '@/assets/projects/rebootcore-hero.jpg';
 import dailycoreHero from '@/assets/projects/dailycore-hero.jpg';
 import OptimizedImage from '@/components/OptimizedImage';
 import { shimmerDataURL, getResponsiveImagePaths } from '@/lib/imageUtils';
@@ -60,19 +54,13 @@ const Projects = () => {
     'digital-invest-ai-lab': digitalinvestHero,
     'digital-invest-manufacturing': digitalinvestHero,
     biomathlife: biomathlifeHero,
-    sleepcore: sleepcoreHero,
     stresscore: stresscoreHero,
-    movecore: movecoreHero,
     vitalcore: vitalcoreHero,
-    weightcore: weightcoreHero,
     bioagecore: bioagecoreHero,
     longevitycore: longevitycoreHero,
     familycore: familycoreHero,
     seniorcore: seniorcoreHero,
     skincore: skincoreHero,
-    heartcore: heartcoreHero,
-    focuscore: focuscoreHero,
-    rebootcore: rebootcoreHero,
     dailycore: dailycoreHero,
   };
 
