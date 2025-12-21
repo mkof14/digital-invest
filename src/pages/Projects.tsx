@@ -11,7 +11,7 @@ import Footer from '@/components/Footer';
 import InvestorPageDisclaimer from '@/components/InvestorPageDisclaimer';
 import terraaeroHero from '@/assets/projects/terraaero-hero.jpg';
 import biomathcoreHero from '@/assets/projects/biomathcore-hero.jpg';
-import dishcoreHero from '@/assets/projects/dishcore-hero.jpg';
+import mydayHero from '@/assets/projects/myday-hero.jpg';
 import digitalinvestHero from '@/assets/projects/digitalinvest-hero.jpg';
 import biomathlifeHero from '@/assets/projects/biomathlife-hero.jpg';
 import stresscoreHero from '@/assets/projects/stresscore-hero.jpg';
@@ -49,7 +49,7 @@ const Projects = () => {
     terraaero: terraaeroHero,
     biomathcore: biomathcoreHero,
     'biomath-core': biomathcoreHero,
-    dishcore: dishcoreHero,
+    myday: mydayHero,
     'digital-invest-portfolio': digitalinvestHero,
     'digital-invest-ai-lab': digitalinvestHero,
     'digital-invest-manufacturing': digitalinvestHero,
