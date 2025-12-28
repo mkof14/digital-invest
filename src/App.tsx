@@ -20,6 +20,7 @@ import BioMathCore from "./pages/Projects/BioMathCore";
 import TerraAero from "./pages/Projects/TerraAero";
 import DigitalInvest from "./pages/Projects/DigitalInvest";
 import MyDay from "./pages/Projects/MyDay";
+import ItsGoodToday from "./pages/Projects/ItsGoodToday";
 import StressCore from "./pages/Projects/StressCore";
 import VitalCore from "./pages/Projects/VitalCore";
 import BioAgeCore from "./pages/Projects/BioAgeCore";
@@ -175,6 +176,7 @@ const App = () => (
             <Route path="/projects/terraaero" element={<TerraAero />} />
             <Route path="/projects/digital-invest" element={<DigitalInvest />} />
             <Route path="/projects/myday" element={<MyDay />} />
+            <Route path="/projects/itsgoodtoday" element={<ItsGoodToday />} />
           <Route path="/projects/stresscore" element={<StressCore />} />
           <Route path="/projects/vitalcore" element={<VitalCore />} />
           <Route path="/projects/bioagecore" element={<BioAgeCore />} />
