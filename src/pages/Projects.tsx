@@ -13,6 +13,7 @@ import terraaeroHero from '@/assets/projects/terraaero-hero.jpg';
 import biomathcoreHero from '@/assets/projects/biomathcore-hero.jpg';
 import mydayHero from '@/assets/projects/myday-hero.jpg';
 import itsgoodtodayHero from '@/assets/projects/itsgoodtoday-hero.jpg';
+import agronHero from '@/assets/projects/agron-hero.jpg';
 import digitalinvestHero from '@/assets/projects/digitalinvest-hero.jpg';
 import biomathlifeHero from '@/assets/projects/biomathlife-hero.jpg';
 import stresscoreHero from '@/assets/projects/stresscore-hero.jpg';
@@ -52,6 +53,7 @@ const Projects = () => {
     'biomath-core': biomathcoreHero,
     myday: mydayHero,
     itsgoodtoday: itsgoodtodayHero,
+    agron: agronHero,
     'digital-invest-portfolio': digitalinvestHero,
     'digital-invest-ai-lab': digitalinvestHero,
     'digital-invest-manufacturing': digitalinvestHero,
