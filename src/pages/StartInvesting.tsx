@@ -1,3 +1,15 @@
+// TODO: The technical audit report mentions broken buttons on this page.
+// These buttons are not present in the static code and are likely generated dynamically,
+// possibly from a CMS or a database. To fix this, a developer should:
+// 1. Identify the source of the dynamic content for this page.
+// 2. Check the rendering logic to see why these specific buttons are not functioning.
+// 3. Implement the correct `onClick` handlers or links for each button.
+// The buttons in question are:
+// - "Download PDF" (Investor Deck)
+// - "Access Model" (Financial Model)
+// - "Request Access" (Due Diligence)
+// - "Download Investor Deck" (Hero section)
+
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import InvestorDisclaimer from "@/components/InvestorDisclaimer";
