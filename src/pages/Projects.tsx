@@ -23,6 +23,7 @@ import longevitycoreHero from '@/assets/projects/longevitycore-hero.jpg';
 import familycoreHero from '@/assets/projects/familycore-hero.jpg';
 import seniorcoreHero from '@/assets/projects/seniorcore-hero.jpg';
 import skincoreHero from '@/assets/projects/skincore-hero.jpg';
+import lunaHero from '@/assets/projects/luna-hero.jpg';
 import OptimizedImage from '@/components/OptimizedImage';
 import { shimmerDataURL, getResponsiveImagePaths } from '@/lib/imageUtils';
 
@@ -64,6 +65,7 @@ const Projects = () => {
     familycore: familycoreHero,
     seniorcore: seniorcoreHero,
     skincore: skincoreHero,
+    'luna-balance': lunaHero,
   };
 
   // Get optimized image path based on format support
