@@ -235,13 +235,12 @@ const LunaBalance = () => {
         </div>
       </div>
 
-      {showInterestForm && (
-        <InterestForm
-          projectId={project?.id}
-          projectTitle="Luna Balance"
-          onClose={() => setShowInterestForm(false)}
-        />
-      )}
+      <InterestForm
+        projectId={project?.id || ''}
+        projectTitle="Luna Balance"
+        open={showInterestForm}
+        onOpenChange={setShowInterestForm}
+      />
 
       <Footer />
     </div>
