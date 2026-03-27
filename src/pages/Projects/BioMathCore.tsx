@@ -86,7 +86,7 @@ const BioMathCore = () => {
                     biomathcore.com
                   </a>
                 </Button>
-                <DownloadInvestorBriefButton projectSlug="biomathcore" size="lg" />
+                <DownloadInvestorBriefButton projectSlug="biomath-core" size="lg" />
               </div>
             </div>
           </div>
