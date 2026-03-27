@@ -417,22 +417,13 @@ const BioMathCore = () => {
         </section>
 
         {/* Platform Architecture Infographics */}
-        <section className="mb-16">
+        <section className="mb-16" id="infographics">
           <h2 className="text-3xl font-bold mb-8 text-center">Platform Architecture & Vision</h2>
           <p className="text-lg text-muted-foreground text-center max-w-3xl mx-auto mb-10">
-            Visual overview of BioMath Core's living digital model, self-learning architecture, and ecosystem scale
+            Visual overview of BioMath Core's living digital model, self-learning architecture, and ecosystem scale. 
+            Click any image to view full size with download, copy, and share options.
           </p>
-          <div className="space-y-8">
-            <Card className="border-primary/20 overflow-hidden">
-              <img src={infographic1} alt="BioMath Core: Living Digital Human Model — system principles, architecture and scale" className="w-full h-auto" />
-            </Card>
-            <Card className="border-primary/20 overflow-hidden">
-              <img src={infographic2} alt="BioMath Core: Architecture of Living Digital Modeling — fundamental principles, self-learning dynamics" className="w-full h-auto" />
-            </Card>
-            <Card className="border-primary/20 overflow-hidden">
-              <img src={infographic3} alt="BioMath Core: Living Digital Architecture — dual opinion system, ecosystem scale and protection" className="w-full h-auto" />
-            </Card>
-          </div>
+          <InfographicsGallery infographics={infographics} projectTitle="BioMath Core" />
         </section>
 
         <Separator className="my-12" />
