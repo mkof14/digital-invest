@@ -7,6 +7,9 @@ import { Separator } from "@/components/ui/separator";
 import { ArrowRight, Heart, Brain, Activity, Shield, Lock, Database, Cpu, Layers, Server, FileText, AlertCircle, Globe, Rocket, ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import biomathCoreHero from "@/assets/projects/biomath-core-hero.jpg";
+import infographic1 from "@/assets/projects/biomath-core-infographic1.jpg";
+import infographic2 from "@/assets/projects/biomath-core-infographic2.jpg";
+import infographic3 from "@/assets/projects/biomath-core-infographic3.jpg";
 import DownloadInvestorBriefButton from "@/components/DownloadInvestorBriefButton";
 import InvestorPageDisclaimer from "@/components/InvestorPageDisclaimer";
 
@@ -89,8 +92,31 @@ const BioMathCore = () => {
           </div>
         </section>
 
-        {/* Overview - Positioned High */}
+        {/* Foundation Banner */}
         <section className="mb-16 -mt-8">
+          <Card className="border-2 border-primary/40 bg-primary/5 shadow-xl">
+            <CardContent className="pt-8 pb-8">
+              <div className="flex items-start gap-4">
+                <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-1">
+                  <Rocket className="w-7 h-7 text-primary" />
+                </div>
+                <div>
+                  <h2 className="text-2xl md:text-3xl font-bold mb-3 text-primary">Core Foundation of the BioMath Ecosystem</h2>
+                  <p className="text-lg leading-relaxed">
+                    BioMath Core is the central technological foundation upon which all BioMath services are built. 
+                    Today, the platform powers <span className="font-bold text-primary">over 200 specialized AI services</span> across 
+                    20 health categories — from Critical Health and Longevity to Mental Wellness and Biohacking. 
+                    Every BioMath product in our portfolio relies on BioMath Core as its intelligent backbone for 
+                    data processing, AI analysis, and personalized insight generation.
+                  </p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </section>
+
+        {/* Overview - Positioned High */}
+        <section className="mb-16">
           <Card className="border-primary/20 shadow-lg">
             <CardContent className="pt-8 space-y-4">
               <h2 className="text-3xl font-bold mb-4">Overview</h2>
@@ -356,6 +382,25 @@ const BioMathCore = () => {
                   <li>• Research data sharing (opt-in)</li>
                 </ul>
               </CardContent>
+            </Card>
+          </div>
+        </section>
+
+        {/* Platform Architecture Infographics */}
+        <section className="mb-16">
+          <h2 className="text-3xl font-bold mb-8 text-center">Platform Architecture & Vision</h2>
+          <p className="text-lg text-muted-foreground text-center max-w-3xl mx-auto mb-10">
+            Visual overview of BioMath Core's living digital model, self-learning architecture, and ecosystem scale
+          </p>
+          <div className="space-y-8">
+            <Card className="border-primary/20 overflow-hidden">
+              <img src={infographic1} alt="BioMath Core: Living Digital Human Model — system principles, architecture and scale" className="w-full h-auto" />
+            </Card>
+            <Card className="border-primary/20 overflow-hidden">
+              <img src={infographic2} alt="BioMath Core: Architecture of Living Digital Modeling — fundamental principles, self-learning dynamics" className="w-full h-auto" />
+            </Card>
+            <Card className="border-primary/20 overflow-hidden">
+              <img src={infographic3} alt="BioMath Core: Living Digital Architecture — dual opinion system, ecosystem scale and protection" className="w-full h-auto" />
             </Card>
           </div>
         </section>

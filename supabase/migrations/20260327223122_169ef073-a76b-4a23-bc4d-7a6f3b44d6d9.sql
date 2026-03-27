@@ -1,0 +1,1 @@
+UPDATE projects SET title = 'BioMath Core' WHERE slug = 'biomath-core';
