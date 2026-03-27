@@ -86,7 +86,7 @@ const BioMathCore = () => {
                     biomathcore.com
                   </a>
                 </Button>
-                <DownloadInvestorBriefButton projectSlug="biomathcore" size="lg" />
+                <DownloadInvestorBriefButton projectSlug="biomath-core" size="lg" />
               </div>
             </div>
           </div>
@@ -844,7 +844,7 @@ const BioMathCore = () => {
                   <ArrowRight className="ml-2 w-4 h-4" />
                 </Button>
               </Link>
-              <DownloadInvestorBriefButton projectSlug="biomathcore" size="lg" variant="outline" className="bg-transparent border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10" />
+              <DownloadInvestorBriefButton projectSlug="biomath-core" size="lg" variant="outline" className="bg-transparent border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10" />
             </div>
           </CardContent>
         </Card>
