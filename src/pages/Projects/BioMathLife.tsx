@@ -100,7 +100,7 @@ const BioMathLife = () => {
           </Card>
         </section>
 
-        <Separator className="my-12" />
+        <div className="project-section-divider my-12" />
 
         {/* Core Mission */}
         <section className="mb-16">
@@ -147,7 +147,7 @@ const BioMathLife = () => {
           </div>
         </section>
 
-        <Separator className="my-12" />
+        <div className="project-section-divider my-12" />
 
         {/* How the Platform Works */}
         <section className="mb-16">
@@ -227,7 +227,7 @@ const BioMathLife = () => {
           </div>
         </section>
 
-        <Separator className="my-12" />
+        <div className="project-section-divider my-12" />
 
         {/* Technology & Architecture */}
         <section className="mb-16">
@@ -311,7 +311,7 @@ const BioMathLife = () => {
           </div>
         </section>
 
-        <Separator className="my-12" />
+        <div className="project-section-divider my-12" />
 
         {/* 20 Health Categories */}
         <section className="mb-16">
@@ -334,7 +334,7 @@ const BioMathLife = () => {
           </div>
         </section>
 
-        <Separator className="my-12" />
+        <div className="project-section-divider my-12" />
 
         {/* Operational Model */}
         <section className="mb-16">
@@ -368,7 +368,7 @@ const BioMathLife = () => {
           </Card>
         </section>
 
-        <Separator className="my-12" />
+        <div className="project-section-divider my-12" />
 
         {/* Who It Serves */}
         <section className="mb-16">
@@ -424,7 +424,7 @@ const BioMathLife = () => {
           </div>
         </section>
 
-        <Separator className="my-12" />
+        <div className="project-section-divider my-12" />
 
         {/* Market Context */}
         <section className="mb-16">
@@ -450,7 +450,7 @@ const BioMathLife = () => {
           </Card>
         </section>
 
-        <Separator className="my-12" />
+        <div className="project-section-divider my-12" />
 
         {/* What Makes This Unique */}
         <section className="mb-16">
@@ -511,7 +511,7 @@ const BioMathLife = () => {
           </div>
         </section>
 
-        <Separator className="my-12" />
+        <div className="project-section-divider my-12" />
 
         {/* Long-Term Vision */}
         <section className="mb-16">
@@ -539,7 +539,7 @@ const BioMathLife = () => {
           </Card>
         </section>
 
-        <Separator className="my-12" />
+        <div className="project-section-divider my-12" />
 
         {/* Current Stage & Roadmap */}
         <section className="mb-16">

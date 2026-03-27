@@ -124,7 +124,7 @@ const ItsGoodToday = () => {
           </Card>
         </section>
 
-        <Separator className="my-12" />
+        <div className="project-section-divider my-12" />
 
         {/* Target Audience */}
         <section className="mb-16">
@@ -180,7 +180,7 @@ const ItsGoodToday = () => {
           </div>
         </section>
 
-        <Separator className="my-12" />
+        <div className="project-section-divider my-12" />
 
         {/* Product Principles */}
         <section className="mb-16">
@@ -224,7 +224,7 @@ const ItsGoodToday = () => {
           </div>
         </section>
 
-        <Separator className="my-12" />
+        <div className="project-section-divider my-12" />
 
         {/* Core Modules */}
         <section className="mb-16">
@@ -352,7 +352,7 @@ const ItsGoodToday = () => {
           </div>
         </section>
 
-        <Separator className="my-12" />
+        <div className="project-section-divider my-12" />
 
         {/* Daily Insight */}
         <section className="mb-16">
@@ -376,7 +376,7 @@ const ItsGoodToday = () => {
           </Card>
         </section>
 
-        <Separator className="my-12" />
+        <div className="project-section-divider my-12" />
 
         {/* UX/UI & Design */}
         <section className="mb-16">
@@ -452,7 +452,7 @@ const ItsGoodToday = () => {
           </div>
         </section>
 
-        <Separator className="my-12" />
+        <div className="project-section-divider my-12" />
 
         {/* Market Context */}
         <section className="mb-16">
@@ -511,7 +511,7 @@ const ItsGoodToday = () => {
           </Card>
         </section>
 
-        <Separator className="my-12" />
+        <div className="project-section-divider my-12" />
 
         {/* Investment Opportunity */}
         <section className="mb-16">

@@ -138,7 +138,7 @@ const AGRON = () => {
           </Card>
         </section>
 
-        <Separator className="my-12" />
+        <div className="project-section-divider my-12" />
 
         {/* Core Mission */}
         <section className="mb-16">
@@ -156,7 +156,7 @@ const AGRON = () => {
           </Card>
         </section>
 
-        <Separator className="my-12" />
+        <div className="project-section-divider my-12" />
 
         {/* Problems Addressed */}
         <section className="mb-16">
@@ -212,7 +212,7 @@ const AGRON = () => {
           </div>
         </section>
 
-        <Separator className="my-12" />
+        <div className="project-section-divider my-12" />
 
         {/* AGRON Solution */}
         <section className="mb-16">
@@ -292,7 +292,7 @@ const AGRON = () => {
           </div>
         </section>
 
-        <Separator className="my-12" />
+        <div className="project-section-divider my-12" />
 
         {/* Key Domains */}
         <section className="mb-16">
@@ -389,7 +389,7 @@ const AGRON = () => {
           </div>
         </section>
 
-        <Separator className="my-12" />
+        <div className="project-section-divider my-12" />
 
         {/* Service Phases */}
         <section className="mb-16">
@@ -448,7 +448,7 @@ const AGRON = () => {
           </div>
         </section>
 
-        <Separator className="my-12" />
+        <div className="project-section-divider my-12" />
 
         {/* Target Clients */}
         <section className="mb-16">
@@ -503,7 +503,7 @@ const AGRON = () => {
           </div>
         </section>
 
-        <Separator className="my-12" />
+        <div className="project-section-divider my-12" />
 
         {/* Network Structure */}
         <section className="mb-16">
@@ -590,7 +590,7 @@ const AGRON = () => {
           </div>
         </section>
 
-        <Separator className="my-12" />
+        <div className="project-section-divider my-12" />
 
         {/* Technology Stack */}
         <section className="mb-16">
@@ -643,7 +643,7 @@ const AGRON = () => {
           </Card>
         </section>
 
-        <Separator className="my-12" />
+        <div className="project-section-divider my-12" />
 
         {/* Business Model */}
         <section className="mb-16">
@@ -682,7 +682,7 @@ const AGRON = () => {
           </Card>
         </section>
 
-        <Separator className="my-12" />
+        <div className="project-section-divider my-12" />
 
         {/* Long-term Vision */}
         <section className="mb-16">

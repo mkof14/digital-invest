@@ -124,7 +124,7 @@ const MyDay = () => {
           </Card>
         </section>
 
-        <Separator className="my-12" />
+        <div className="project-section-divider my-12" />
 
         {/* Core Mission */}
         <section className="mb-16">
@@ -171,7 +171,7 @@ const MyDay = () => {
           </div>
         </section>
 
-        <Separator className="my-12" />
+        <div className="project-section-divider my-12" />
 
         {/* How the Platform Works */}
         <section className="mb-16">
@@ -251,7 +251,7 @@ const MyDay = () => {
           </div>
         </section>
 
-        <Separator className="my-12" />
+        <div className="project-section-divider my-12" />
 
         {/* Technology & Systems */}
         <section className="mb-16">
@@ -339,7 +339,7 @@ const MyDay = () => {
           </div>
         </section>
 
-        <Separator className="my-12" />
+        <div className="project-section-divider my-12" />
 
         {/* Key Features */}
         <section className="mb-16">
@@ -425,7 +425,7 @@ const MyDay = () => {
           </div>
         </section>
 
-        <Separator className="my-12" />
+        <div className="project-section-divider my-12" />
 
         {/* Operational Model */}
         <section className="mb-16">
@@ -458,7 +458,7 @@ const MyDay = () => {
           </Card>
         </section>
 
-        <Separator className="my-12" />
+        <div className="project-section-divider my-12" />
 
         {/* Who It Serves */}
         <section className="mb-16">
@@ -518,7 +518,7 @@ const MyDay = () => {
           </div>
         </section>
 
-        <Separator className="my-12" />
+        <div className="project-section-divider my-12" />
 
         {/* Market Context */}
         <section className="mb-16">
@@ -584,7 +584,7 @@ const MyDay = () => {
           </Card>
         </section>
 
-        <Separator className="my-12" />
+        <div className="project-section-divider my-12" />
 
         {/* Long-Term Vision */}
         <section className="mb-16">
@@ -639,7 +639,7 @@ const MyDay = () => {
           </Card>
         </section>
 
-        <Separator className="my-12" />
+        <div className="project-section-divider my-12" />
 
         {/* Important Notices */}
         <section className="mb-16">

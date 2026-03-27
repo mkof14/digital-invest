@@ -165,7 +165,7 @@ const BioMathCore = () => {
           </Card>
         </section>
 
-        <Separator className="my-12" />
+        <div className="project-section-divider my-12" />
 
         {/* Core Mission */}
         <section className="mb-16">
@@ -212,7 +212,7 @@ const BioMathCore = () => {
           </div>
         </section>
 
-        <Separator className="my-12" />
+        <div className="project-section-divider my-12" />
 
         {/* How the Platform Works */}
         <section className="mb-16">
@@ -294,7 +294,7 @@ const BioMathCore = () => {
           </div>
         </section>
 
-        <Separator className="my-12" />
+        <div className="project-section-divider my-12" />
 
         {/* Technology Architecture */}
         <section className="mb-16">
@@ -426,7 +426,7 @@ const BioMathCore = () => {
           <InfographicsGallery infographics={infographics} projectTitle="BioMath Core" />
         </section>
 
-        <Separator className="my-12" />
+        <div className="project-section-divider my-12" />
 
         {/* 20 Health Categories & 200+ Services */}
         <section className="mb-16">
@@ -473,7 +473,7 @@ const BioMathCore = () => {
           </Card>
         </section>
 
-        <Separator className="my-12" />
+        <div className="project-section-divider my-12" />
 
         {/* Key Features & Capabilities */}
         <section className="mb-16">
@@ -559,7 +559,7 @@ const BioMathCore = () => {
           </div>
         </section>
 
-        <Separator className="my-12" />
+        <div className="project-section-divider my-12" />
 
         {/* Operational Model */}
         <section className="mb-16">
@@ -595,7 +595,7 @@ const BioMathCore = () => {
           </Card>
         </section>
 
-        <Separator className="my-12" />
+        <div className="project-section-divider my-12" />
 
         {/* Who It Serves */}
         <section className="mb-16">
@@ -652,7 +652,7 @@ const BioMathCore = () => {
           </div>
         </section>
 
-        <Separator className="my-12" />
+        <div className="project-section-divider my-12" />
 
         {/* Market Context */}
         <section className="mb-16">
@@ -680,7 +680,7 @@ const BioMathCore = () => {
           </Card>
         </section>
 
-        <Separator className="my-12" />
+        <div className="project-section-divider my-12" />
 
         {/* What Makes This Unique */}
         <section className="mb-16">
@@ -743,7 +743,7 @@ const BioMathCore = () => {
           </div>
         </section>
 
-        <Separator className="my-12" />
+        <div className="project-section-divider my-12" />
 
         {/* Long-Term Vision */}
         <section className="mb-16">
@@ -771,7 +771,7 @@ const BioMathCore = () => {
           </Card>
         </section>
 
-        <Separator className="my-12" />
+        <div className="project-section-divider my-12" />
 
         {/* Current Stage & Roadmap */}
         <section className="mb-16">
