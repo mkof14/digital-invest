@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
-import { ArrowRight, Heart, Brain, Activity, Shield, Lock, Database, Cpu, Layers, Server, FileText, AlertCircle, Globe, Rocket, ArrowLeft } from "lucide-react";
+import { ArrowRight, Heart, Brain, Activity, Shield, Lock, Database, Cpu, Layers, Server, FileText, AlertCircle, Globe, Rocket, ArrowLeft, Download } from "lucide-react";
 import { Link } from "react-router-dom";
 import biomathCoreHero from "@/assets/projects/biomath-core-hero.jpg";
 import infographic1 from "@/assets/projects/biomath-core-infographic1.jpg";
@@ -86,7 +86,12 @@ const BioMathCore = () => {
                     biomathcore.com
                   </a>
                 </Button>
-                <DownloadInvestorBriefButton projectSlug="biomath-core" size="lg" />
+                <Button size="lg" variant="outline" asChild>
+                  <a href="/investor-briefs/biomath-core-investor-brief.pdf" download="BioMath-Core-Investor-Brief.pdf" className="flex items-center gap-2">
+                    <Download className="w-5 h-5" />
+                    Investor Brief (PDF)
+                  </a>
+                </Button>
               </div>
             </div>
           </div>
@@ -844,7 +849,12 @@ const BioMathCore = () => {
                   <ArrowRight className="ml-2 w-4 h-4" />
                 </Button>
               </Link>
-              <DownloadInvestorBriefButton projectSlug="biomath-core" size="lg" variant="outline" className="bg-transparent border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10" />
+              <Button size="lg" variant="outline" asChild className="bg-transparent border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10">
+                <a href="/investor-briefs/biomath-core-investor-brief.pdf" download="BioMath-Core-Investor-Brief.pdf" className="flex items-center gap-2">
+                  <Download className="w-5 h-5" />
+                  Investor Brief (PDF)
+                </a>
+              </Button>
             </div>
           </CardContent>
         </Card>
