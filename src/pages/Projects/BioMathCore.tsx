@@ -92,8 +92,31 @@ const BioMathCore = () => {
           </div>
         </section>
 
-        {/* Overview - Positioned High */}
+        {/* Foundation Banner */}
         <section className="mb-16 -mt-8">
+          <Card className="border-2 border-primary/40 bg-primary/5 shadow-xl">
+            <CardContent className="pt-8 pb-8">
+              <div className="flex items-start gap-4">
+                <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-1">
+                  <Rocket className="w-7 h-7 text-primary" />
+                </div>
+                <div>
+                  <h2 className="text-2xl md:text-3xl font-bold mb-3 text-primary">Core Foundation of the BioMath Ecosystem</h2>
+                  <p className="text-lg leading-relaxed">
+                    BioMath Core is the central technological foundation upon which all BioMath services are built. 
+                    Today, the platform powers <span className="font-bold text-primary">over 200 specialized AI services</span> across 
+                    20 health categories — from Critical Health and Longevity to Mental Wellness and Biohacking. 
+                    Every BioMath product in our portfolio relies on BioMath Core as its intelligent backbone for 
+                    data processing, AI analysis, and personalized insight generation.
+                  </p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </section>
+
+        {/* Overview - Positioned High */}
+        <section className="mb-16">
           <Card className="border-primary/20 shadow-lg">
             <CardContent className="pt-8 space-y-4">
               <h2 className="text-3xl font-bold mb-4">Overview</h2>
