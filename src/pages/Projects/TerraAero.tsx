@@ -14,7 +14,7 @@ import InvestorPageDisclaimer from "@/components/InvestorPageDisclaimer";
 
 const TerraAero = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-background to-primary/5">
+    <div className="min-h-screen bg-background theme-terraaero">
       <Navigation />
       
       <main className="container mx-auto px-4 py-8">
