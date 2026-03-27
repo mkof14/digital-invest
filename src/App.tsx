@@ -31,6 +31,7 @@ import LongevityCore from "./pages/Projects/LongevityCore";
 import FamilyCore from "./pages/Projects/FamilyCore";
 import SeniorCore from "./pages/Projects/SeniorCore";
 import SkinCore from "./pages/Projects/SkinCore";
+import MRXHealth from "./pages/Projects/MRXHealth";
 import Projects from "./pages/Projects";
 import ProjectDetail from "./pages/ProjectDetail";
 import HowItWorks from "./pages/HowItWorks";
