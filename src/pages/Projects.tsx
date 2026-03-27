@@ -69,6 +69,7 @@ const Projects = () => {
     skincore: skincoreHero,
     'luna-balance': lunaHero,
     'agron-work': agronworkHero,
+    'mrx-health': mrxHero,
   };
 
   // Get optimized image path based on format support
