@@ -849,7 +849,12 @@ const BioMathCore = () => {
                   <ArrowRight className="ml-2 w-4 h-4" />
                 </Button>
               </Link>
-              <DownloadInvestorBriefButton projectSlug="biomath-core" size="lg" variant="outline" className="bg-transparent border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10" />
+              <Button size="lg" variant="outline" asChild className="bg-transparent border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10">
+                <a href="/investor-briefs/biomath-core-investor-brief.pdf" download="BioMath-Core-Investor-Brief.pdf" className="flex items-center gap-2">
+                  <Download className="w-5 h-5" />
+                  Investor Brief (PDF)
+                </a>
+              </Button>
             </div>
           </CardContent>
         </Card>
