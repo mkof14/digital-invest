@@ -22,6 +22,7 @@ import DigitalInvest from "./pages/Projects/DigitalInvest";
 import MyDay from "./pages/Projects/MyDay";
 import ItsGoodToday from "./pages/Projects/ItsGoodToday";
 import AGRON from "./pages/Projects/AGRON";
+import AGRONWork from "./pages/Projects/AGRONWork";
 import LunaBalance from "./pages/Projects/LunaBalance";
 import StressCore from "./pages/Projects/StressCore";
 import VitalCore from "./pages/Projects/VitalCore";
