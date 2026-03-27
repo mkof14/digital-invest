@@ -86,7 +86,12 @@ const BioMathCore = () => {
                     biomathcore.com
                   </a>
                 </Button>
-                <DownloadInvestorBriefButton projectSlug="biomath-core" size="lg" />
+                <Button size="lg" variant="outline" asChild>
+                  <a href="/investor-briefs/biomath-core-investor-brief.pdf" download="BioMath-Core-Investor-Brief.pdf" className="flex items-center gap-2">
+                    <Download className="w-5 h-5" />
+                    Investor Brief (PDF)
+                  </a>
+                </Button>
               </div>
             </div>
           </div>
