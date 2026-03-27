@@ -64,7 +64,7 @@ const ItsGoodToday = () => {
               />
               <div>
                 <Badge className="mb-2 project-badge">Daily Wellness Platform</Badge>
-                <h1 className="text-4xl md:text-6xl font-bold text-foreground">
+                <h1 className="text-4xl md:text-6xl font-bold project-glow-text">
                   It's Good Today
                 </h1>
               </div>

@@ -68,7 +68,7 @@ const AGRON = () => {
               />
               <div>
                 <Badge className="mb-2 project-badge">Robotics Infrastructure</Badge>
-                <h1 className="text-4xl md:text-5xl font-bold text-foreground">
+                <h1 className="text-4xl md:text-5xl font-bold project-glow-text">
                   AGRON
                 </h1>
                 <p className="text-lg text-muted-foreground mt-1">

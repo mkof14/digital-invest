@@ -47,7 +47,7 @@ const TerraAero = () => {
               />
               <div>
                 <Badge className="mb-4 project-badge">AgroTech & Drone Manufacturing</Badge>
-                <h1 className="text-4xl md:text-6xl font-bold">
+                <h1 className="text-4xl md:text-6xl font-bold project-glow-text">
                   TerraAero
                 </h1>
               </div>
