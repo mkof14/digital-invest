@@ -12,6 +12,25 @@ import infographic2 from "@/assets/projects/biomath-core-infographic2.jpg";
 import infographic3 from "@/assets/projects/biomath-core-infographic3.jpg";
 import DownloadInvestorBriefButton from "@/components/DownloadInvestorBriefButton";
 import InvestorPageDisclaimer from "@/components/InvestorPageDisclaimer";
+import { InfographicsGallery } from "@/components/InfographicsGallery";
+
+const infographics = [
+  {
+    src: infographic1,
+    title: "Living Digital Human Model",
+    alt: "BioMath Core: Living Digital Human Model — system principles, architecture and scale",
+  },
+  {
+    src: infographic2,
+    title: "Architecture of Digital Modeling",
+    alt: "BioMath Core: Architecture of Living Digital Modeling — fundamental principles, self-learning dynamics",
+  },
+  {
+    src: infographic3,
+    title: "Living Digital Architecture",
+    alt: "BioMath Core: Living Digital Architecture — dual opinion system, ecosystem scale and protection",
+  },
+];
 
 const BioMathCore = () => {
   const categories = [
