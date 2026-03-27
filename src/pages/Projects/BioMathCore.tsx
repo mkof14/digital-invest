@@ -7,6 +7,9 @@ import { Separator } from "@/components/ui/separator";
 import { ArrowRight, Heart, Brain, Activity, Shield, Lock, Database, Cpu, Layers, Server, FileText, AlertCircle, Globe, Rocket, ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import biomathCoreHero from "@/assets/projects/biomath-core-hero.jpg";
+import infographic1 from "@/assets/projects/biomath-core-infographic1.jpg";
+import infographic2 from "@/assets/projects/biomath-core-infographic2.jpg";
+import infographic3 from "@/assets/projects/biomath-core-infographic3.jpg";
 import DownloadInvestorBriefButton from "@/components/DownloadInvestorBriefButton";
 import InvestorPageDisclaimer from "@/components/InvestorPageDisclaimer";
 
