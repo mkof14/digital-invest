@@ -31,6 +31,7 @@ import LongevityCore from "./pages/Projects/LongevityCore";
 import FamilyCore from "./pages/Projects/FamilyCore";
 import SeniorCore from "./pages/Projects/SeniorCore";
 import SkinCore from "./pages/Projects/SkinCore";
+import MRXHealth from "./pages/Projects/MRXHealth";
 import Projects from "./pages/Projects";
 import ProjectDetail from "./pages/ProjectDetail";
 import HowItWorks from "./pages/HowItWorks";
@@ -189,6 +190,7 @@ const App = () => (
           <Route path="/projects/familycore" element={<FamilyCore />} />
           <Route path="/projects/seniorcore" element={<SeniorCore />} />
           <Route path="/projects/skincore" element={<SkinCore />} />
+            <Route path="/projects/mrx-health" element={<MRXHealth />} />
             
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
