@@ -440,7 +440,7 @@ const BioMathCore = () => {
           
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-8">
             {categories.map((category) => (
-              <Card key={category} className="border-primary/20 hover:border-primary/40 transition-all hover-scale cursor-pointer">
+              <Card key={category} className="border-primary/20 hover:border-[hsl(var(--project-accent)/0.4)] transition-all hover-scale cursor-pointer">
                 <CardContent className="p-4 text-center">
                   <p className="text-sm font-medium">{category}</p>
                 </CardContent>
