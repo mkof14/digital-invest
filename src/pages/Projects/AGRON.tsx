@@ -34,7 +34,7 @@ import InvestorPageDisclaimer from "@/components/InvestorPageDisclaimer";
 
 const AGRON = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background theme-agron">
       <Navigation />
 
       <main className="container mx-auto px-4 py-8">
@@ -48,7 +48,7 @@ const AGRON = () => {
               backgroundPosition: 'center',
             }}
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-background/98 via-background/95 to-background/80" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[hsl(210,30%,8%)]/98 via-background/95 to-background/70" />
           </div>
 
           <div className="relative z-10 max-w-4xl">
@@ -67,8 +67,8 @@ const AGRON = () => {
                 showSkeleton={false}
               />
               <div>
-                <Badge className="mb-2">Robotics Infrastructure</Badge>
-                <h1 className="text-4xl md:text-5xl font-bold text-foreground">
+                <Badge className="mb-2 project-badge">Robotics Infrastructure</Badge>
+                <h1 className="text-4xl md:text-5xl font-bold project-glow-text">
                   AGRON
                 </h1>
                 <p className="text-lg text-muted-foreground mt-1">
@@ -138,12 +138,12 @@ const AGRON = () => {
           </Card>
         </section>
 
-        <Separator className="my-12" />
+        <div className="project-section-divider my-12" />
 
         {/* Core Mission */}
         <section className="mb-16">
           <h2 className="text-3xl font-bold mb-8">Core Mission</h2>
-          <Card className="border-primary/20">
+          <Card className="project-card">
             <CardContent className="pt-8">
               <div className="flex items-start gap-6">
                 <Target className="w-16 h-16 text-primary flex-shrink-0" />
@@ -156,15 +156,15 @@ const AGRON = () => {
           </Card>
         </section>
 
-        <Separator className="my-12" />
+        <div className="project-section-divider my-12" />
 
         {/* Problems Addressed */}
         <section className="mb-16">
           <h2 className="text-3xl font-bold mb-8">Core Problems Addressed</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
-                <Users className="w-10 h-10 text-primary mb-2" />
+                <Users className="w-10 h-10 project-icon mb-2" />
                 <CardTitle>Operator Shortage</CardTitle>
               </CardHeader>
               <CardContent>
@@ -174,9 +174,9 @@ const AGRON = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
-                <FileCheck className="w-10 h-10 text-primary mb-2" />
+                <FileCheck className="w-10 h-10 project-icon mb-2" />
                 <CardTitle>Fragmented Standards</CardTitle>
               </CardHeader>
               <CardContent>
@@ -186,9 +186,9 @@ const AGRON = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
-                <Settings className="w-10 h-10 text-primary mb-2" />
+                <Settings className="w-10 h-10 project-icon mb-2" />
                 <CardTitle>Framework Gap</CardTitle>
               </CardHeader>
               <CardContent>
@@ -198,9 +198,9 @@ const AGRON = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
-                <Shield className="w-10 h-10 text-primary mb-2" />
+                <Shield className="w-10 h-10 project-icon mb-2" />
                 <CardTitle>High Risk Environment</CardTitle>
               </CardHeader>
               <CardContent>
@@ -212,15 +212,15 @@ const AGRON = () => {
           </div>
         </section>
 
-        <Separator className="my-12" />
+        <div className="project-section-divider my-12" />
 
         {/* AGRON Solution */}
         <section className="mb-16">
           <h2 className="text-3xl font-bold mb-8">AGRON Solution</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
-                <GraduationCap className="w-10 h-10 text-primary mb-2" />
+                <GraduationCap className="w-10 h-10 project-icon mb-2" />
                 <CardTitle>Training & Certification</CardTitle>
               </CardHeader>
               <CardContent>
@@ -230,9 +230,9 @@ const AGRON = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
-                <Cpu className="w-10 h-10 text-primary mb-2" />
+                <Cpu className="w-10 h-10 project-icon mb-2" />
                 <CardTitle>AI-Assisted Education</CardTitle>
               </CardHeader>
               <CardContent>
@@ -242,9 +242,9 @@ const AGRON = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
-                <Settings className="w-10 h-10 text-primary mb-2" />
+                <Settings className="w-10 h-10 project-icon mb-2" />
                 <CardTitle>Ops-as-a-Service</CardTitle>
               </CardHeader>
               <CardContent>
@@ -254,9 +254,9 @@ const AGRON = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
-                <Network className="w-10 h-10 text-primary mb-2" />
+                <Network className="w-10 h-10 project-icon mb-2" />
                 <CardTitle>National Network</CardTitle>
               </CardHeader>
               <CardContent>
@@ -266,9 +266,9 @@ const AGRON = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
-                <FileCheck className="w-10 h-10 text-primary mb-2" />
+                <FileCheck className="w-10 h-10 project-icon mb-2" />
                 <CardTitle>Standards Framework</CardTitle>
               </CardHeader>
               <CardContent>
@@ -278,9 +278,9 @@ const AGRON = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
-                <Zap className="w-10 h-10 text-primary mb-2" />
+                <Zap className="w-10 h-10 project-icon mb-2" />
                 <CardTitle>Evolution Path</CardTitle>
               </CardHeader>
               <CardContent>
@@ -292,15 +292,15 @@ const AGRON = () => {
           </div>
         </section>
 
-        <Separator className="my-12" />
+        <div className="project-section-divider my-12" />
 
         {/* Key Domains */}
         <section className="mb-16">
           <h2 className="text-3xl font-bold mb-8">Key Domains Covered</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
-                <Plane className="w-12 h-12 text-primary mb-4" />
+                <Plane className="w-12 h-12 project-icon mb-4" />
                 <CardTitle>Aerial Robotics</CardTitle>
               </CardHeader>
               <CardContent>
@@ -329,9 +329,9 @@ const AGRON = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
-                <Truck className="w-12 h-12 text-primary mb-4" />
+                <Truck className="w-12 h-12 project-icon mb-4" />
                 <CardTitle>Ground Robotics</CardTitle>
               </CardHeader>
               <CardContent>
@@ -360,9 +360,9 @@ const AGRON = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
-                <Network className="w-12 h-12 text-primary mb-4" />
+                <Network className="w-12 h-12 project-icon mb-4" />
                 <CardTitle>Combined Operations</CardTitle>
               </CardHeader>
               <CardContent>
@@ -389,7 +389,7 @@ const AGRON = () => {
           </div>
         </section>
 
-        <Separator className="my-12" />
+        <div className="project-section-divider my-12" />
 
         {/* Service Phases */}
         <section className="mb-16">
@@ -448,15 +448,15 @@ const AGRON = () => {
           </div>
         </section>
 
-        <Separator className="my-12" />
+        <div className="project-section-divider my-12" />
 
         {/* Target Clients */}
         <section className="mb-16">
           <h2 className="text-3xl font-bold mb-8">Target Clients</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
-                <Building2 className="w-12 h-12 text-primary mb-4" />
+                <Building2 className="w-12 h-12 project-icon mb-4" />
                 <CardTitle>Government & Public Sector</CardTitle>
               </CardHeader>
               <CardContent>
@@ -470,9 +470,9 @@ const AGRON = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
-                <Factory className="w-12 h-12 text-primary mb-4" />
+                <Factory className="w-12 h-12 project-icon mb-4" />
                 <CardTitle>Enterprise & B2B</CardTitle>
               </CardHeader>
               <CardContent>
@@ -486,9 +486,9 @@ const AGRON = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
-                <Shield className="w-12 h-12 text-primary mb-4" />
+                <Shield className="w-12 h-12 project-icon mb-4" />
                 <CardTitle>Defense & Advanced Programs</CardTitle>
               </CardHeader>
               <CardContent>
@@ -503,7 +503,7 @@ const AGRON = () => {
           </div>
         </section>
 
-        <Separator className="my-12" />
+        <div className="project-section-divider my-12" />
 
         {/* Network Structure */}
         <section className="mb-16">
@@ -513,7 +513,7 @@ const AGRON = () => {
             training facilities, simulation labs, operational command rooms, robotics labs, and certification areas.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
                 <div className="flex items-center gap-3">
                   <MapPin className="w-6 h-6 text-primary" />
@@ -528,7 +528,7 @@ const AGRON = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
                 <div className="flex items-center gap-3">
                   <MapPin className="w-6 h-6 text-primary" />
@@ -543,7 +543,7 @@ const AGRON = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
                 <div className="flex items-center gap-3">
                   <MapPin className="w-6 h-6 text-primary" />
@@ -558,7 +558,7 @@ const AGRON = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
                 <div className="flex items-center gap-3">
                   <MapPin className="w-6 h-6 text-primary" />
@@ -573,7 +573,7 @@ const AGRON = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
                 <div className="flex items-center gap-3">
                   <MapPin className="w-6 h-6 text-primary" />
@@ -590,12 +590,12 @@ const AGRON = () => {
           </div>
         </section>
 
-        <Separator className="my-12" />
+        <div className="project-section-divider my-12" />
 
         {/* Technology Stack */}
         <section className="mb-16">
           <h2 className="text-3xl font-bold mb-8">Technology Stack</h2>
-          <Card className="border-primary/20">
+          <Card className="project-card">
             <CardContent className="pt-8">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <div className="flex items-start gap-3">
@@ -643,12 +643,12 @@ const AGRON = () => {
           </Card>
         </section>
 
-        <Separator className="my-12" />
+        <div className="project-section-divider my-12" />
 
         {/* Business Model */}
         <section className="mb-16">
           <h2 className="text-3xl font-bold mb-8">Business Model</h2>
-          <Card className="border-primary/20">
+          <Card className="project-card">
             <CardContent className="pt-8">
               <p className="text-lg mb-6">Primary revenue streams:</p>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -682,12 +682,12 @@ const AGRON = () => {
           </Card>
         </section>
 
-        <Separator className="my-12" />
+        <div className="project-section-divider my-12" />
 
         {/* Long-term Vision */}
         <section className="mb-16">
           <h2 className="text-3xl font-bold mb-8">Long-Term Vision (5 Years)</h2>
-          <Card className="border-primary/20">
+          <Card className="project-card">
             <CardContent className="pt-8">
               <p className="text-lg mb-6">Within five years, AGRON is designed to become:</p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

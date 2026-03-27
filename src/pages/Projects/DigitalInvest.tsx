@@ -68,7 +68,7 @@ const DigitalInvest = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background theme-digitalinvest">
       <Navigation />
 
       <div className="pt-24 pb-16">
@@ -92,7 +92,7 @@ const DigitalInvest = () => {
                 height: '500px'
               }}
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/90 to-background/70" />
+              <div className="absolute inset-0 bg-gradient-to-r from-[hsl(42,40%,8%)]/95 via-background/90 to-background/60" />
             </div>
 
             <div className="relative z-10 pt-32 pb-16">
@@ -135,7 +135,7 @@ const DigitalInvest = () => {
                   ].map((metric, index) => (
                     <Card key={index} className="border border-border/50 bg-card/50 backdrop-blur-sm">
                       <CardContent className="pt-6 pb-6 text-center space-y-1">
-                        <p className="text-3xl font-bold text-primary">{metric.value}</p>
+                        <p className="text-3xl font-bold project-icon">{metric.value}</p>
                         <p className="text-sm text-muted-foreground">{metric.label}</p>
                       </CardContent>
                     </Card>
@@ -151,7 +151,7 @@ const DigitalInvest = () => {
                     size="lg"
                     variant="outline"
                     asChild
-                    className="border-primary/30 hover:border-primary"
+                    className="border-[hsl(var(--project-accent)/0.3)] hover:border-[hsl(var(--project-accent)/0.6)]"
                   >
                     <a href="https://digitalinvest.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
                       <Globe className="h-5 w-5" />
@@ -178,7 +178,7 @@ const DigitalInvest = () => {
                   <Card className="border border-border/50 bg-card hover:shadow-lg transition-all duration-300 h-full">
                     <CardContent className="pt-8 pb-8 space-y-4">
                       <div className="p-3 bg-primary/10 rounded-lg w-fit">
-                        <div className="text-primary">{project.icon}</div>
+                        <div className="project-icon">{project.icon}</div>
                       </div>
                       <h3 className="text-xl font-bold text-foreground">{project.name}</h3>
                       <p className="text-sm text-muted-foreground leading-relaxed">
@@ -210,10 +210,10 @@ const DigitalInvest = () => {
               <div className="relative w-full max-w-5xl mx-auto" style={{ height: '600px' }}>
                 {/* Central Hub - Digital Invest */}
                 <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
-                  <Card className="border-2 border-primary bg-card shadow-elevated w-64">
+                  <Card className="border-2 border-[hsl(var(--project-accent)/0.6)] bg-card shadow-elevated w-64">
                     <CardContent className="pt-6 pb-6 text-center space-y-3">
                       <div className="p-4 bg-primary/10 rounded-lg w-fit mx-auto">
-                        <Network className="w-12 h-12 text-primary" />
+                        <Network className="w-12 h-12 project-icon" />
                       </div>
                       <h3 className="text-xl font-bold text-foreground">Digital Invest</h3>
                       <p className="text-xs text-muted-foreground">Portfolio Hub</p>
@@ -307,7 +307,7 @@ const DigitalInvest = () => {
                     <Card className="border border-border/50 bg-card hover:shadow-lg transition-all duration-300 w-56 group">
                       <CardContent className="pt-6 pb-6 text-center space-y-2">
                         <div className="p-3 bg-primary/10 rounded-lg w-fit mx-auto">
-                          <Sprout className="w-8 h-8 text-primary" />
+                          <Sprout className="w-8 h-8 project-icon" />
                         </div>
                         <h3 className="text-base font-bold text-foreground">TerraAero</h3>
                         <p className="text-xs text-muted-foreground">AgroTech</p>
@@ -325,7 +325,7 @@ const DigitalInvest = () => {
                     <Card className="border border-border/50 bg-card hover:shadow-lg transition-all duration-300 w-56 group">
                       <CardContent className="pt-6 pb-6 text-center space-y-2">
                         <div className="p-3 bg-primary/10 rounded-lg w-fit mx-auto">
-                          <Heart className="w-8 h-8 text-primary" />
+                          <Heart className="w-8 h-8 project-icon" />
                         </div>
                         <h3 className="text-base font-bold text-foreground">BioMath Core</h3>
                         <p className="text-xs text-muted-foreground">Health OS</p>
@@ -343,7 +343,7 @@ const DigitalInvest = () => {
                     <Card className="border border-border/50 bg-card hover:shadow-lg transition-all duration-300 w-56 group">
                       <CardContent className="pt-6 pb-6 text-center space-y-2">
                         <div className="p-3 bg-primary/10 rounded-lg w-fit mx-auto">
-                          <Heart className="w-8 h-8 text-primary" />
+                          <Heart className="w-8 h-8 project-icon" />
                         </div>
                         <h3 className="text-base font-bold text-foreground">BioMath Life</h3>
                         <p className="text-xs text-muted-foreground">Longevity</p>
@@ -361,7 +361,7 @@ const DigitalInvest = () => {
                     <Card className="border border-border/50 bg-card hover:shadow-lg transition-all duration-300 w-56 group">
                       <CardContent className="pt-6 pb-6 text-center space-y-2">
                         <div className="p-3 bg-primary/10 rounded-lg w-fit mx-auto">
-                          <Utensils className="w-8 h-8 text-primary" />
+                          <Utensils className="w-8 h-8 project-icon" />
                         </div>
                         <h3 className="text-base font-bold text-foreground">DishCore</h3>
                         <p className="text-xs text-muted-foreground">Food Tech</p>
@@ -389,10 +389,10 @@ const DigitalInvest = () => {
 
             {/* Mobile/Tablet View - Vertical Flow */}
             <div className="lg:hidden space-y-6">
-              <Card className="border-2 border-primary bg-card shadow-elevated">
+              <Card className="border-2 border-[hsl(var(--project-accent)/0.6)] bg-card shadow-elevated">
                 <CardContent className="pt-8 pb-8 text-center space-y-4">
                   <div className="p-4 bg-primary/10 rounded-lg w-fit mx-auto">
-                    <Network className="w-12 h-12 text-primary" />
+                    <Network className="w-12 h-12 project-icon" />
                   </div>
                   <h3 className="text-2xl font-bold text-foreground">Digital Invest</h3>
                   <p className="text-sm text-muted-foreground">Central Portfolio Hub</p>
@@ -414,13 +414,13 @@ const DigitalInvest = () => {
                       <CardContent className="pt-6 pb-6">
                         <div className="flex items-center gap-4">
                           <div className="p-3 bg-primary/10 rounded-lg">
-                            <div className="text-primary">{project.icon}</div>
+                            <div className="project-icon">{project.icon}</div>
                           </div>
                           <div className="flex-1">
                             <h3 className="text-lg font-bold text-foreground">{project.name}</h3>
                             <p className="text-sm text-muted-foreground">{project.description}</p>
                           </div>
-                          <ArrowRight className="w-5 h-5 text-primary" />
+                          <ArrowRight className="w-5 h-5 project-icon" />
                         </div>
                       </CardContent>
                     </Card>
@@ -447,7 +447,7 @@ const DigitalInvest = () => {
               <Card className="border border-border/50 bg-card">
                 <CardHeader>
                   <div className="p-3 bg-primary/10 rounded-lg w-fit mb-4">
-                    <Cpu className="w-8 h-8 text-primary" />
+                    <Cpu className="w-8 h-8 project-icon" />
                   </div>
                   <CardTitle className="text-xl">Shared AI & Backend</CardTitle>
                 </CardHeader>
@@ -461,7 +461,7 @@ const DigitalInvest = () => {
               <Card className="border border-border/50 bg-card">
                 <CardHeader>
                   <div className="p-3 bg-primary/10 rounded-lg w-fit mb-4">
-                    <Network className="w-8 h-8 text-primary" />
+                    <Network className="w-8 h-8 project-icon" />
                   </div>
                   <CardTitle className="text-xl">Cross-Project Synergy</CardTitle>
                 </CardHeader>
@@ -475,7 +475,7 @@ const DigitalInvest = () => {
               <Card className="border border-border/50 bg-card">
                 <CardHeader>
                   <div className="p-3 bg-primary/10 rounded-lg w-fit mb-4">
-                    <Shield className="w-8 h-8 text-primary" />
+                    <Shield className="w-8 h-8 project-icon" />
                   </div>
                   <CardTitle className="text-xl">Multi-Sector Stability</CardTitle>
                 </CardHeader>
@@ -523,7 +523,7 @@ const DigitalInvest = () => {
                   <CardContent className="pt-6 pb-6">
                     <div className="flex items-start gap-4">
                       <div className="p-2 bg-primary/10 rounded-lg flex-shrink-0">
-                        <div className="text-primary">{pillar.icon}</div>
+                        <div className="project-icon">{pillar.icon}</div>
                       </div>
                       <div className="space-y-2">
                         <h3 className="text-lg font-bold text-foreground">{pillar.title}</h3>
@@ -574,13 +574,13 @@ const DigitalInvest = () => {
                     <div className="flex items-start gap-6">
                       <div className="flex-shrink-0">
                         <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                          <span className="text-xl font-bold text-primary">{phase.phase}</span>
+                          <span className="text-xl font-bold project-icon">{phase.phase}</span>
                         </div>
                       </div>
                       <div className="flex-1 space-y-2">
                         <div className="flex items-center gap-3">
                           <h3 className="text-xl font-bold text-foreground">{phase.title}</h3>
-                          <Clock className="w-5 h-5 text-primary" />
+                          <Clock className="w-5 h-5 project-icon" />
                         </div>
                         <p className="text-sm text-muted-foreground leading-relaxed">
                           {phase.description}
@@ -599,7 +599,7 @@ const DigitalInvest = () => {
           <section className="mb-16">
             <h2 className="text-3xl font-bold mb-6 flex items-center gap-3">
               <AlertTriangle className="h-8 w-8 text-warning" />
-              <span className="text-primary">Portfolio Risks</span>
+              <span className="project-icon">Portfolio Risks</span>
             </h2>
             <div className="bg-warning/10 border border-warning/30 p-6 rounded-lg space-y-4">
               <p className="text-foreground font-semibold mb-4">

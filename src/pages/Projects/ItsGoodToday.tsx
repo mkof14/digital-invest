@@ -30,7 +30,7 @@ import InvestorPageDisclaimer from "@/components/InvestorPageDisclaimer";
 
 const ItsGoodToday = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background theme-itsgoodtoday">
       <Navigation />
 
       <main className="container mx-auto px-4 py-8">
@@ -44,7 +44,7 @@ const ItsGoodToday = () => {
               backgroundPosition: 'center',
             }}
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/90 to-background/70" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[hsl(30,50%,8%)]/95 via-background/90 to-background/60" />
           </div>
 
           <div className="relative z-10 max-w-4xl">
@@ -63,8 +63,8 @@ const ItsGoodToday = () => {
                 showSkeleton={false}
               />
               <div>
-                <Badge className="mb-2">Daily Wellness Platform</Badge>
-                <h1 className="text-4xl md:text-6xl font-bold text-foreground">
+                <Badge className="mb-2 project-badge">Daily Wellness Platform</Badge>
+                <h1 className="text-4xl md:text-6xl font-bold project-glow-text">
                   It's Good Today
                 </h1>
               </div>
@@ -87,7 +87,7 @@ const ItsGoodToday = () => {
                 size="lg"
                 variant="outline"
                 asChild
-                className="border-primary/30 hover:border-primary"
+                className="border-[hsl(var(--project-accent)/0.3)] hover:border-[hsl(var(--project-accent)/0.6)]"
               >
                 <a href="https://www.itsgoodtoday.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
                   <Globe className="h-5 w-5" />
@@ -124,15 +124,15 @@ const ItsGoodToday = () => {
           </Card>
         </section>
 
-        <Separator className="my-12" />
+        <div className="project-section-divider my-12" />
 
         {/* Target Audience */}
         <section className="mb-16">
           <h2 className="text-3xl font-bold mb-8">Who It Serves</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
-                <Users className="w-12 h-12 text-primary mb-4" />
+                <Users className="w-12 h-12 project-icon mb-4" />
                 <CardTitle>Individuals & Families</CardTitle>
               </CardHeader>
               <CardContent>
@@ -142,9 +142,9 @@ const ItsGoodToday = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
-                <Globe className="w-12 h-12 text-primary mb-4" />
+                <Globe className="w-12 h-12 project-icon mb-4" />
                 <CardTitle>US-Based Users</CardTitle>
               </CardHeader>
               <CardContent>
@@ -154,9 +154,9 @@ const ItsGoodToday = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
-                <Target className="w-12 h-12 text-primary mb-4" />
+                <Target className="w-12 h-12 project-icon mb-4" />
                 <CardTitle>Ages 25–55</CardTitle>
               </CardHeader>
               <CardContent>
@@ -166,9 +166,9 @@ const ItsGoodToday = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
-                <Heart className="w-12 h-12 text-primary mb-4" />
+                <Heart className="w-12 h-12 project-icon mb-4" />
                 <CardTitle>Simplicity Seekers</CardTitle>
               </CardHeader>
               <CardContent>
@@ -180,15 +180,15 @@ const ItsGoodToday = () => {
           </div>
         </section>
 
-        <Separator className="my-12" />
+        <div className="project-section-divider my-12" />
 
         {/* Product Principles */}
         <section className="mb-16">
           <h2 className="text-3xl font-bold mb-8">Product Principles</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
-                <Sparkles className="w-10 h-10 text-primary mb-2" />
+                <Sparkles className="w-10 h-10 project-icon mb-2" />
                 <CardTitle>Extreme Simplicity</CardTitle>
               </CardHeader>
               <CardContent>
@@ -198,9 +198,9 @@ const ItsGoodToday = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
-                <Shield className="w-10 h-10 text-primary mb-2" />
+                <Shield className="w-10 h-10 project-icon mb-2" />
                 <CardTitle>No Medical Language</CardTitle>
               </CardHeader>
               <CardContent>
@@ -210,9 +210,9 @@ const ItsGoodToday = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
-                <Sun className="w-10 h-10 text-primary mb-2" />
+                <Sun className="w-10 h-10 project-icon mb-2" />
                 <CardTitle>Focus on Today</CardTitle>
               </CardHeader>
               <CardContent>
@@ -224,15 +224,15 @@ const ItsGoodToday = () => {
           </div>
         </section>
 
-        <Separator className="my-12" />
+        <div className="project-section-divider my-12" />
 
         {/* Core Modules */}
         <section className="mb-16">
           <h2 className="text-3xl font-bold mb-8">Core Product Structure</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
-                <Sun className="w-10 h-10 text-primary mb-2" />
+                <Sun className="w-10 h-10 project-icon mb-2" />
                 <CardTitle>Home / Today Screen</CardTitle>
               </CardHeader>
               <CardContent>
@@ -260,9 +260,9 @@ const ItsGoodToday = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
-                <Utensils className="w-10 h-10 text-primary mb-2" />
+                <Utensils className="w-10 h-10 project-icon mb-2" />
                 <CardTitle>Food Module</CardTitle>
               </CardHeader>
               <CardContent>
@@ -290,9 +290,9 @@ const ItsGoodToday = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
-                <Activity className="w-10 h-10 text-primary mb-2" />
+                <Activity className="w-10 h-10 project-icon mb-2" />
                 <CardTitle>Movement Module</CardTitle>
               </CardHeader>
               <CardContent>
@@ -320,9 +320,9 @@ const ItsGoodToday = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
-                <Smile className="w-10 h-10 text-primary mb-2" />
+                <Smile className="w-10 h-10 project-icon mb-2" />
                 <CardTitle>Mood & Energy Module</CardTitle>
               </CardHeader>
               <CardContent>
@@ -352,12 +352,12 @@ const ItsGoodToday = () => {
           </div>
         </section>
 
-        <Separator className="my-12" />
+        <div className="project-section-divider my-12" />
 
         {/* Daily Insight */}
         <section className="mb-16">
           <h2 className="text-3xl font-bold mb-8">Daily Insight</h2>
-          <Card className="border-primary/20">
+          <Card className="project-card">
             <CardContent className="pt-8">
               <div className="flex items-start gap-6">
                 <Lightbulb className="w-16 h-16 text-primary flex-shrink-0" />
@@ -376,13 +376,13 @@ const ItsGoodToday = () => {
           </Card>
         </section>
 
-        <Separator className="my-12" />
+        <div className="project-section-divider my-12" />
 
         {/* UX/UI & Design */}
         <section className="mb-16">
           <h2 className="text-3xl font-bold mb-8">UX / UI Design Philosophy</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
                 <CardTitle>Interface Requirements</CardTitle>
               </CardHeader>
@@ -416,7 +416,7 @@ const ItsGoodToday = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
                 <CardTitle>Visual Tone</CardTitle>
               </CardHeader>
@@ -452,12 +452,12 @@ const ItsGoodToday = () => {
           </div>
         </section>
 
-        <Separator className="my-12" />
+        <div className="project-section-divider my-12" />
 
         {/* Market Context */}
         <section className="mb-16">
           <h2 className="text-3xl font-bold mb-8">Market Context & Differentiation</h2>
-          <Card className="border-primary/20">
+          <Card className="project-card">
             <CardContent className="pt-8">
               <p className="text-lg text-muted-foreground mb-6">
                 It's Good Today sits in the wellness and lifestyle space, addressing the gap between complex health apps 
@@ -511,7 +511,7 @@ const ItsGoodToday = () => {
           </Card>
         </section>
 
-        <Separator className="my-12" />
+        <div className="project-section-divider my-12" />
 
         {/* Investment Opportunity */}
         <section className="mb-16">

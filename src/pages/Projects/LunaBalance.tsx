@@ -29,22 +29,22 @@ const LunaBalance = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background theme-luna">
       <Navigation />
       
       {/* Hero Section */}
       <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <img src={lunaHero} alt="Luna Balance - Return to Yourself" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/70 to-background/40" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[hsl(320,30%,8%)]/95 via-background/70 to-background/40" />
         </div>
         <div className="container mx-auto px-4 relative z-10 py-24">
           <div className="max-w-3xl">
             <div className="flex items-center gap-4 mb-6">
               <img src={lunaLogo} alt="Luna Logo" className="h-20 w-20 object-contain" />
-              <Badge className="bg-primary/10 text-primary border-primary/30">Women's Wellness</Badge>
+              <Badge className="project-badge">Women's Wellness</Badge>
             </div>
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+            <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight project-glow-text">
               Luna Balance
             </h1>
             <p className="text-xl md:text-2xl text-muted-foreground mb-4 italic">

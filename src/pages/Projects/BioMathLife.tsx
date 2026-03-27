@@ -20,7 +20,7 @@ const BioMathLife = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-background to-primary/5">
+    <div className="min-h-screen bg-background theme-biomath-life">
       <Navigation />
       
       <main className="container mx-auto px-4 pt-24 md:pt-28 pb-8">
@@ -34,7 +34,7 @@ const BioMathLife = () => {
               backgroundPosition: 'center',
             }}
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/90 to-background/70" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[hsl(170,40%,8%)]/95 via-background/90 to-background/60" />
           </div>
 
           <div className="relative z-10 max-w-4xl">
@@ -45,8 +45,8 @@ const BioMathLife = () => {
               </Button>
             </Link>
             <div className="animate-fade-in" style={{ animationDelay: '0.1s', animationFillMode: 'backwards' }}>
-              <Badge className="mb-4">Precision Medicine Platform</Badge>
-              <h1 className="text-5xl md:text-6xl font-bold mb-6">
+              <Badge className="mb-4 project-badge">Precision Medicine Platform</Badge>
+              <h1 className="text-5xl md:text-6xl font-bold mb-6 project-glow-text">
                 BioMath Life Platform
               </h1>
             <p className="text-2xl text-foreground mb-4">
@@ -67,7 +67,7 @@ const BioMathLife = () => {
                 size="lg"
                 variant="outline"
                 asChild
-                className="border-primary/30 hover:border-primary"
+                className="border-[hsl(var(--project-accent)/0.3)] hover:border-[hsl(var(--project-accent)/0.6)]"
               >
                 <a href="https://biomathlife.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
                   <Globe className="h-5 w-5" />
@@ -100,15 +100,15 @@ const BioMathLife = () => {
           </Card>
         </section>
 
-        <Separator className="my-12" />
+        <div className="project-section-divider my-12" />
 
         {/* Core Mission */}
         <section className="mb-16">
           <h2 className="text-3xl font-bold mb-8">Core Mission</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
-                <Microscope className="w-12 h-12 text-primary mb-4" />
+                <Microscope className="w-12 h-12 project-icon mb-4" />
                 <CardTitle>Precision Understanding</CardTitle>
               </CardHeader>
               <CardContent>
@@ -119,9 +119,9 @@ const BioMathLife = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
-                <Heart className="w-12 h-12 text-primary mb-4" />
+                <Heart className="w-12 h-12 project-icon mb-4" />
                 <CardTitle>Proactive Health</CardTitle>
               </CardHeader>
               <CardContent>
@@ -132,9 +132,9 @@ const BioMathLife = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
-                <Users className="w-12 h-12 text-primary mb-4" />
+                <Users className="w-12 h-12 project-icon mb-4" />
                 <CardTitle>Accessible Intelligence</CardTitle>
               </CardHeader>
               <CardContent>
@@ -147,16 +147,16 @@ const BioMathLife = () => {
           </div>
         </section>
 
-        <Separator className="my-12" />
+        <div className="project-section-divider my-12" />
 
         {/* How the Platform Works */}
         <section className="mb-16">
           <h2 className="text-3xl font-bold mb-8">How the Platform Works</h2>
           <div className="space-y-6">
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-xl">
+                  <div className="w-12 h-12 rounded-full bg-[hsl(var(--project-accent)/0.1)] flex items-center justify-center project-icon font-bold text-xl">
                     1
                   </div>
                   <CardTitle className="text-xl">Data Collection & Integration</CardTitle>
@@ -171,10 +171,10 @@ const BioMathLife = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-xl">
+                  <div className="w-12 h-12 rounded-full bg-[hsl(var(--project-accent)/0.1)] flex items-center justify-center project-icon font-bold text-xl">
                     2
                   </div>
                   <CardTitle className="text-xl">Biomathematical Modeling</CardTitle>
@@ -189,10 +189,10 @@ const BioMathLife = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-xl">
+                  <div className="w-12 h-12 rounded-full bg-[hsl(var(--project-accent)/0.1)] flex items-center justify-center project-icon font-bold text-xl">
                     3
                   </div>
                   <CardTitle className="text-xl">AI Analysis & Insights</CardTitle>
@@ -207,10 +207,10 @@ const BioMathLife = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-xl">
+                  <div className="w-12 h-12 rounded-full bg-[hsl(var(--project-accent)/0.1)] flex items-center justify-center project-icon font-bold text-xl">
                     4
                   </div>
                   <CardTitle className="text-xl">Personalized Recommendations</CardTitle>
@@ -227,15 +227,15 @@ const BioMathLife = () => {
           </div>
         </section>
 
-        <Separator className="my-12" />
+        <div className="project-section-divider my-12" />
 
         {/* Technology & Architecture */}
         <section className="mb-16">
           <h2 className="text-3xl font-bold mb-8">Technology & Architecture</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
-                <Database className="w-10 h-10 text-primary mb-2" />
+                <Database className="w-10 h-10 project-icon mb-2" />
                 <CardTitle>Black Box - Secure Data Vault</CardTitle>
               </CardHeader>
               <CardContent>
@@ -252,9 +252,9 @@ const BioMathLife = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
-                <Brain className="w-10 h-10 text-primary mb-2" />
+                <Brain className="w-10 h-10 project-icon mb-2" />
                 <CardTitle>AI Advisor System</CardTitle>
               </CardHeader>
               <CardContent>
@@ -271,9 +271,9 @@ const BioMathLife = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
-                <Activity className="w-10 h-10 text-primary mb-2" />
+                <Activity className="w-10 h-10 project-icon mb-2" />
                 <CardTitle>Continuous Monitoring Engine</CardTitle>
               </CardHeader>
               <CardContent>
@@ -290,9 +290,9 @@ const BioMathLife = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
-                <LineChart className="w-10 h-10 text-primary mb-2" />
+                <LineChart className="w-10 h-10 project-icon mb-2" />
                 <CardTitle>Analytics & Reporting</CardTitle>
               </CardHeader>
               <CardContent>
@@ -311,7 +311,7 @@ const BioMathLife = () => {
           </div>
         </section>
 
-        <Separator className="my-12" />
+        <div className="project-section-divider my-12" />
 
         {/* 20 Health Categories */}
         <section className="mb-16">
@@ -325,7 +325,7 @@ const BioMathLife = () => {
           
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {categories.map((category) => (
-              <Card key={category} className="border-primary/20 hover:border-primary/40 transition-all hover-scale">
+              <Card key={category} className="border-primary/20 hover:border-[hsl(var(--project-accent)/0.4)] transition-all hover-scale">
                 <CardContent className="p-4 text-center">
                   <p className="text-sm font-medium">{category}</p>
                 </CardContent>
@@ -334,12 +334,12 @@ const BioMathLife = () => {
           </div>
         </section>
 
-        <Separator className="my-12" />
+        <div className="project-section-divider my-12" />
 
         {/* Operational Model */}
         <section className="mb-16">
           <h2 className="text-3xl font-bold mb-8">Operational Model</h2>
-          <Card className="border-primary/20">
+          <Card className="project-card">
             <CardContent className="pt-8 space-y-6">
               <div>
                 <h3 className="text-xl font-bold mb-3">Individual Access</h3>
@@ -368,13 +368,13 @@ const BioMathLife = () => {
           </Card>
         </section>
 
-        <Separator className="my-12" />
+        <div className="project-section-divider my-12" />
 
         {/* Who It Serves */}
         <section className="mb-16">
           <h2 className="text-3xl font-bold mb-8">Who It Serves</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
                 <CardTitle>Health-Conscious Individuals</CardTitle>
               </CardHeader>
@@ -386,7 +386,7 @@ const BioMathLife = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
                 <CardTitle>Healthcare Practitioners</CardTitle>
               </CardHeader>
@@ -398,7 +398,7 @@ const BioMathLife = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
                 <CardTitle>Research Institutions</CardTitle>
               </CardHeader>
@@ -410,7 +410,7 @@ const BioMathLife = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
                 <CardTitle>Wellness Organizations</CardTitle>
               </CardHeader>
@@ -424,12 +424,12 @@ const BioMathLife = () => {
           </div>
         </section>
 
-        <Separator className="my-12" />
+        <div className="project-section-divider my-12" />
 
         {/* Market Context */}
         <section className="mb-16">
           <h2 className="text-3xl font-bold mb-8">Market Context</h2>
-          <Card className="border-primary/20">
+          <Card className="project-card">
             <CardContent className="pt-8 space-y-4">
               <p className="text-lg leading-relaxed">
                 The global precision medicine market is experiencing rapid growth as genomic sequencing costs decline, AI 
@@ -450,15 +450,15 @@ const BioMathLife = () => {
           </Card>
         </section>
 
-        <Separator className="my-12" />
+        <div className="project-section-divider my-12" />
 
         {/* What Makes This Unique */}
         <section className="mb-16">
           <h2 className="text-3xl font-bold mb-8">What Makes BioMath Life Unique</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
-                <Zap className="w-10 h-10 text-primary mb-2" />
+                <Zap className="w-10 h-10 project-icon mb-2" />
                 <CardTitle>Mathematical Foundation</CardTitle>
               </CardHeader>
               <CardContent>
@@ -470,9 +470,9 @@ const BioMathLife = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
-                <Lock className="w-10 h-10 text-primary mb-2" />
+                <Lock className="w-10 h-10 project-icon mb-2" />
                 <CardTitle>Comprehensive Integration</CardTitle>
               </CardHeader>
               <CardContent>
@@ -483,9 +483,9 @@ const BioMathLife = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
-                <Brain className="w-10 h-10 text-primary mb-2" />
+                <Brain className="w-10 h-10 project-icon mb-2" />
                 <CardTitle>Dual AI Analysis</CardTitle>
               </CardHeader>
               <CardContent>
@@ -496,9 +496,9 @@ const BioMathLife = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
-                <Shield className="w-10 h-10 text-primary mb-2" />
+                <Shield className="w-10 h-10 project-icon mb-2" />
                 <CardTitle>Privacy-First Architecture</CardTitle>
               </CardHeader>
               <CardContent>
@@ -511,12 +511,12 @@ const BioMathLife = () => {
           </div>
         </section>
 
-        <Separator className="my-12" />
+        <div className="project-section-divider my-12" />
 
         {/* Long-Term Vision */}
         <section className="mb-16">
           <h2 className="text-3xl font-bold mb-8">Long-Term Vision</h2>
-          <Card className="border-primary/20">
+          <Card className="project-card">
             <CardContent className="pt-8 space-y-4">
               <p className="text-lg leading-relaxed">
                 BioMath Life envisions a future where precision medicine becomes the standard of care, accessible to everyone 
@@ -539,7 +539,7 @@ const BioMathLife = () => {
           </Card>
         </section>
 
-        <Separator className="my-12" />
+        <div className="project-section-divider my-12" />
 
         {/* Current Stage & Roadmap */}
         <section className="mb-16">
@@ -561,7 +561,7 @@ const BioMathLife = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <Activity className="w-6 h-6" />
@@ -579,7 +579,7 @@ const BioMathLife = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <Rocket className="w-6 h-6" />
