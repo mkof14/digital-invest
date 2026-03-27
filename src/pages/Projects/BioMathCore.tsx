@@ -111,6 +111,12 @@ const BioMathCore = () => {
                     Investor Brief (PDF)
                   </a>
                 </Button>
+                <Button size="lg" variant="outline" asChild>
+                  <a href="#infographics" className="flex items-center gap-2">
+                    <Images className="w-5 h-5" />
+                    Infographics
+                  </a>
+                </Button>
               </div>
             </div>
           </div>
