@@ -87,7 +87,7 @@ const ItsGoodToday = () => {
                 size="lg"
                 variant="outline"
                 asChild
-                className="border-primary/30 hover:border-primary"
+                className="border-[hsl(var(--project-accent)/0.3)] hover:border-[hsl(var(--project-accent)/0.6)]"
               >
                 <a href="https://www.itsgoodtoday.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
                   <Globe className="h-5 w-5" />
