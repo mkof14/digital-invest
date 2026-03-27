@@ -67,6 +67,7 @@ const Projects = () => {
     seniorcore: seniorcoreHero,
     skincore: skincoreHero,
     'luna-balance': lunaHero,
+    'agron-work': agronworkHero,
   };
 
   // Get optimized image path based on format support
