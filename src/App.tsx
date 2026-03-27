@@ -192,6 +192,7 @@ const App = () => (
           <Route path="/projects/seniorcore" element={<SeniorCore />} />
           <Route path="/projects/skincore" element={<SkinCore />} />
             <Route path="/projects/mrx-health" element={<MRXHealth />} />
+            <Route path="/projects/table-served" element={<TableServed />} />
             
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />

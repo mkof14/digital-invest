@@ -71,6 +71,7 @@ const Projects = () => {
     'luna-balance': lunaHero,
     'agron-work': agronworkHero,
     'mrx-health': mrxHero,
+    'table-served': tableservedHero,
   };
 
   // Get optimized image path based on format support
