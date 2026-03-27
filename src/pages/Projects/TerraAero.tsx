@@ -108,9 +108,9 @@ const TerraAero = () => {
         <section className="mb-16">
           <h2 className="text-3xl font-bold mb-8">Core Mission</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
-                <Wheat className="w-12 h-12 text-primary mb-4" />
+                <Wheat className="w-12 h-12 project-icon mb-4" />
                 <CardTitle>Precision Agriculture</CardTitle>
               </CardHeader>
               <CardContent>
@@ -121,9 +121,9 @@ const TerraAero = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
-                <Package className="w-12 h-12 text-primary mb-4" />
+                <Package className="w-12 h-12 project-icon mb-4" />
                 <CardTitle>Intelligent Logistics</CardTitle>
               </CardHeader>
               <CardContent>
@@ -134,9 +134,9 @@ const TerraAero = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
-                <Factory className="w-12 h-12 text-primary mb-4" />
+                <Factory className="w-12 h-12 project-icon mb-4" />
                 <CardTitle>Domestic Manufacturing</CardTitle>
               </CardHeader>
               <CardContent>
@@ -155,10 +155,10 @@ const TerraAero = () => {
         <section className="mb-16">
           <h2 className="text-3xl font-bold mb-8">How TerraAero Works</h2>
           <div className="space-y-6">
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-xl">
+                  <div className="w-12 h-12 rounded-full bg-[hsl(var(--project-accent)/0.1)] flex items-center justify-center project-icon font-bold text-xl">
                     1
                   </div>
                   <CardTitle className="text-xl">Field Assessment & Planning</CardTitle>
@@ -173,10 +173,10 @@ const TerraAero = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-xl">
+                  <div className="w-12 h-12 rounded-full bg-[hsl(var(--project-accent)/0.1)] flex items-center justify-center project-icon font-bold text-xl">
                     2
                   </div>
                   <CardTitle className="text-xl">Autonomous Flight Operations</CardTitle>
@@ -191,10 +191,10 @@ const TerraAero = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-xl">
+                  <div className="w-12 h-12 rounded-full bg-[hsl(var(--project-accent)/0.1)] flex items-center justify-center project-icon font-bold text-xl">
                     3
                   </div>
                   <CardTitle className="text-xl">AI Analysis & Reporting</CardTitle>
@@ -209,10 +209,10 @@ const TerraAero = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-xl">
+                  <div className="w-12 h-12 rounded-full bg-[hsl(var(--project-accent)/0.1)] flex items-center justify-center project-icon font-bold text-xl">
                     4
                   </div>
                   <CardTitle className="text-xl">Continuous Monitoring & Optimization</CardTitle>
@@ -235,9 +235,9 @@ const TerraAero = () => {
         <section className="mb-16">
           <h2 className="text-3xl font-bold mb-8">Technology & Systems</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
-                <Zap className="w-10 h-10 text-primary mb-2" />
+                <Zap className="w-10 h-10 project-icon mb-2" />
                 <CardTitle>Agricultural Drone Fleet</CardTitle>
               </CardHeader>
               <CardContent>
@@ -254,9 +254,9 @@ const TerraAero = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
-                <BarChart3 className="w-10 h-10 text-primary mb-2" />
+                <BarChart3 className="w-10 h-10 project-icon mb-2" />
                 <CardTitle>AI Analytics Engine</CardTitle>
               </CardHeader>
               <CardContent>
@@ -273,9 +273,9 @@ const TerraAero = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
-                <MapPin className="w-10 h-10 text-primary mb-2" />
+                <MapPin className="w-10 h-10 project-icon mb-2" />
                 <CardTitle>Operations Command Center</CardTitle>
               </CardHeader>
               <CardContent>
@@ -292,9 +292,9 @@ const TerraAero = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
-                <Package className="w-10 h-10 text-primary mb-2" />
+                <Package className="w-10 h-10 project-icon mb-2" />
                 <CardTitle>Delivery Systems</CardTitle>
               </CardHeader>
               <CardContent>
@@ -318,7 +318,7 @@ const TerraAero = () => {
         {/* Operational Model */}
         <section className="mb-16">
           <h2 className="text-3xl font-bold mb-8">Operational Model</h2>
-          <Card className="border-primary/20">
+          <Card className="project-card">
             <CardContent className="pt-8 space-y-6">
               <div>
                 <h3 className="text-xl font-bold mb-3">Service-Based Agriculture</h3>
@@ -355,9 +355,9 @@ const TerraAero = () => {
         <section className="mb-16">
           <h2 className="text-3xl font-bold mb-8">Agricultural Services</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
-                <Droplets className="w-12 h-12 text-primary mb-4" />
+                <Droplets className="w-12 h-12 project-icon mb-4" />
                 <CardTitle>Precision Crop Treatment</CardTitle>
               </CardHeader>
               <CardContent>
@@ -375,9 +375,9 @@ const TerraAero = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
-                <Wheat className="w-12 h-12 text-primary mb-4" />
+                <Wheat className="w-12 h-12 project-icon mb-4" />
                 <CardTitle>Field Analytics & Monitoring</CardTitle>
               </CardHeader>
               <CardContent>
@@ -395,9 +395,9 @@ const TerraAero = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
-                <Droplets className="w-12 h-12 text-primary mb-4" />
+                <Droplets className="w-12 h-12 project-icon mb-4" />
                 <CardTitle>Irrigation Optimization</CardTitle>
               </CardHeader>
               <CardContent>
@@ -415,9 +415,9 @@ const TerraAero = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
-                <BarChart3 className="w-12 h-12 text-primary mb-4" />
+                <BarChart3 className="w-12 h-12 project-icon mb-4" />
                 <CardTitle>Season-Long Intelligence</CardTitle>
               </CardHeader>
               <CardContent>
@@ -443,7 +443,7 @@ const TerraAero = () => {
         <section className="mb-16">
           <h2 className="text-3xl font-bold mb-8">Who It Serves</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
                 <CardTitle>Commercial Farms</CardTitle>
               </CardHeader>
@@ -455,7 +455,7 @@ const TerraAero = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
                 <CardTitle>Agricultural Cooperatives</CardTitle>
               </CardHeader>
@@ -467,7 +467,7 @@ const TerraAero = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
                 <CardTitle>Food & Restaurant Partners</CardTitle>
               </CardHeader>
@@ -479,7 +479,7 @@ const TerraAero = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
                 <CardTitle>Retail & E-Commerce</CardTitle>
               </CardHeader>
@@ -498,7 +498,7 @@ const TerraAero = () => {
         {/* Market Context */}
         <section className="mb-16">
           <h2 className="text-3xl font-bold mb-8">Market Context</h2>
-          <Card className="border-primary/20">
+          <Card className="project-card">
             <CardContent className="pt-8 space-y-4">
               <p className="text-lg leading-relaxed">
                 Modern agriculture faces mounting pressure to increase productivity while reducing environmental impact, managing 
@@ -527,9 +527,9 @@ const TerraAero = () => {
         <section className="mb-16">
           <h2 className="text-3xl font-bold mb-8">What Makes TerraAero Unique</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
-                <Layers className="w-10 h-10 text-primary mb-2" />
+                <Layers className="w-10 h-10 project-icon mb-2" />
                 <CardTitle>Full-Stack Integration</CardTitle>
               </CardHeader>
               <CardContent>
@@ -541,9 +541,9 @@ const TerraAero = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
-                <Factory className="w-10 h-10 text-primary mb-2" />
+                <Factory className="w-10 h-10 project-icon mb-2" />
                 <CardTitle>Manufacturing Roadmap</CardTitle>
               </CardHeader>
               <CardContent>
@@ -555,9 +555,9 @@ const TerraAero = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
-                <Users className="w-10 h-10 text-primary mb-2" />
+                <Users className="w-10 h-10 project-icon mb-2" />
                 <CardTitle>Professional Operations</CardTitle>
               </CardHeader>
               <CardContent>
@@ -568,9 +568,9 @@ const TerraAero = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
-                <BarChart3 className="w-10 h-10 text-primary mb-2" />
+                <BarChart3 className="w-10 h-10 project-icon mb-2" />
                 <CardTitle>Multi-Sector Platform</CardTitle>
               </CardHeader>
               <CardContent>
@@ -588,7 +588,7 @@ const TerraAero = () => {
         {/* Geographic Expansion */}
         <section className="mb-16">
           <h2 className="text-3xl font-bold mb-8">23-State Expansion Plan</h2>
-          <Card className="border-primary/20">
+          <Card className="project-card">
             <CardContent className="pt-8 space-y-6">
               <div>
                 <h3 className="text-xl font-bold mb-3 flex items-center gap-2">
@@ -632,7 +632,7 @@ const TerraAero = () => {
         {/* Long-Term Vision */}
         <section className="mb-16">
           <h2 className="text-3xl font-bold mb-8">Long-Term Vision</h2>
-          <Card className="border-primary/20">
+          <Card className="project-card">
             <CardContent className="pt-8 space-y-4">
               <p className="text-lg leading-relaxed">
                 TerraAero envisions becoming the premier autonomous aerial services company serving North American agriculture 
@@ -677,7 +677,7 @@ const TerraAero = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <Activity className="w-6 h-6" />
@@ -696,7 +696,7 @@ const TerraAero = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <Rocket className="w-6 h-6" />

@@ -171,9 +171,9 @@ const BioMathCore = () => {
         <section className="mb-16">
           <h2 className="text-3xl font-bold mb-8">Core Mission</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
-                <Heart className="w-12 h-12 text-primary mb-4" />
+                <Heart className="w-12 h-12 project-icon mb-4" />
                 <CardTitle>Understanding, Not Overwhelm</CardTitle>
               </CardHeader>
               <CardContent>
@@ -184,9 +184,9 @@ const BioMathCore = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
-                <Shield className="w-12 h-12 text-primary mb-4" />
+                <Shield className="w-12 h-12 project-icon mb-4" />
                 <CardTitle>Reassurance, Not Urgency</CardTitle>
               </CardHeader>
               <CardContent>
@@ -197,9 +197,9 @@ const BioMathCore = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
-                <Brain className="w-12 h-12 text-primary mb-4" />
+                <Brain className="w-12 h-12 project-icon mb-4" />
                 <CardTitle>Education, Not Diagnosis</CardTitle>
               </CardHeader>
               <CardContent>
@@ -218,10 +218,10 @@ const BioMathCore = () => {
         <section className="mb-16">
           <h2 className="text-3xl font-bold mb-8">How the Platform Works</h2>
           <div className="space-y-6">
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-xl">
+                  <div className="w-12 h-12 rounded-full bg-[hsl(var(--project-accent)/0.1)] flex items-center justify-center project-icon font-bold text-xl">
                     1
                   </div>
                   <CardTitle className="text-xl">Data Aggregation & Storage</CardTitle>
@@ -237,10 +237,10 @@ const BioMathCore = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-xl">
+                  <div className="w-12 h-12 rounded-full bg-[hsl(var(--project-accent)/0.1)] flex items-center justify-center project-icon font-bold text-xl">
                     2
                   </div>
                   <CardTitle className="text-xl">Knowledge Engine Processing</CardTitle>
@@ -255,10 +255,10 @@ const BioMathCore = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-xl">
+                  <div className="w-12 h-12 rounded-full bg-[hsl(var(--project-accent)/0.1)] flex items-center justify-center project-icon font-bold text-xl">
                     3
                   </div>
                   <CardTitle className="text-xl">AI Insight Generation</CardTitle>
@@ -274,10 +274,10 @@ const BioMathCore = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-xl">
+                  <div className="w-12 h-12 rounded-full bg-[hsl(var(--project-accent)/0.1)] flex items-center justify-center project-icon font-bold text-xl">
                     4
                   </div>
                   <CardTitle className="text-xl">Daily Guidance Delivery</CardTitle>
@@ -300,9 +300,9 @@ const BioMathCore = () => {
         <section className="mb-16">
           <h2 className="text-3xl font-bold mb-8">Technology & Architecture</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
-                <Lock className="w-10 h-10 text-primary mb-2" />
+                <Lock className="w-10 h-10 project-icon mb-2" />
                 <CardTitle>Model Archive (Black Box)</CardTitle>
               </CardHeader>
               <CardContent>
@@ -319,9 +319,9 @@ const BioMathCore = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
-                <Cpu className="w-10 h-10 text-primary mb-2" />
+                <Cpu className="w-10 h-10 project-icon mb-2" />
                 <CardTitle>Data Pipelines</CardTitle>
               </CardHeader>
               <CardContent>
@@ -338,9 +338,9 @@ const BioMathCore = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
-                <Server className="w-10 h-10 text-primary mb-2" />
+                <Server className="w-10 h-10 project-icon mb-2" />
                 <CardTitle>Knowledge Engine</CardTitle>
               </CardHeader>
               <CardContent>
@@ -357,9 +357,9 @@ const BioMathCore = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
-                <Brain className="w-10 h-10 text-primary mb-2" />
+                <Brain className="w-10 h-10 project-icon mb-2" />
                 <CardTitle>AI Insight System</CardTitle>
               </CardHeader>
               <CardContent>
@@ -376,9 +376,9 @@ const BioMathCore = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
-                <FileText className="w-10 h-10 text-primary mb-2" />
+                <FileText className="w-10 h-10 project-icon mb-2" />
                 <CardTitle>Report Engine</CardTitle>
               </CardHeader>
               <CardContent>
@@ -395,9 +395,9 @@ const BioMathCore = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
-                <Layers className="w-10 h-10 text-primary mb-2" />
+                <Layers className="w-10 h-10 project-icon mb-2" />
                 <CardTitle>Integration Layer</CardTitle>
               </CardHeader>
               <CardContent>
@@ -479,9 +479,9 @@ const BioMathCore = () => {
         <section className="mb-16">
           <h2 className="text-3xl font-bold mb-8">Key Features & Capabilities</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
-                <Brain className="w-10 h-10 text-primary mb-2" />
+                <Brain className="w-10 h-10 project-icon mb-2" />
                 <CardTitle>Dual AI Analysis</CardTitle>
               </CardHeader>
               <CardContent>
@@ -492,9 +492,9 @@ const BioMathCore = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
-                <Activity className="w-10 h-10 text-primary mb-2" />
+                <Activity className="w-10 h-10 project-icon mb-2" />
                 <CardTitle>Real-Time Monitoring</CardTitle>
               </CardHeader>
               <CardContent>
@@ -505,9 +505,9 @@ const BioMathCore = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
-                <Database className="w-10 h-10 text-primary mb-2" />
+                <Database className="w-10 h-10 project-icon mb-2" />
                 <CardTitle>Unified Health Record</CardTitle>
               </CardHeader>
               <CardContent>
@@ -518,9 +518,9 @@ const BioMathCore = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
-                <FileText className="w-10 h-10 text-primary mb-2" />
+                <FileText className="w-10 h-10 project-icon mb-2" />
                 <CardTitle>Smart Insights & Reports</CardTitle>
               </CardHeader>
               <CardContent>
@@ -531,9 +531,9 @@ const BioMathCore = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
-                <Heart className="w-10 h-10 text-primary mb-2" />
+                <Heart className="w-10 h-10 project-icon mb-2" />
                 <CardTitle>Personalized Guidance</CardTitle>
               </CardHeader>
               <CardContent>
@@ -544,9 +544,9 @@ const BioMathCore = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
-                <Lock className="w-10 h-10 text-primary mb-2" />
+                <Lock className="w-10 h-10 project-icon mb-2" />
                 <CardTitle>Privacy & Security</CardTitle>
               </CardHeader>
               <CardContent>
@@ -564,7 +564,7 @@ const BioMathCore = () => {
         {/* Operational Model */}
         <section className="mb-16">
           <h2 className="text-3xl font-bold mb-8">Operational Model</h2>
-          <Card className="border-primary/20">
+          <Card className="project-card">
             <CardContent className="pt-8 space-y-6">
               <div>
                 <h3 className="text-xl font-bold mb-3">Daily User Workflow</h3>
@@ -601,7 +601,7 @@ const BioMathCore = () => {
         <section className="mb-16">
           <h2 className="text-3xl font-bold mb-8">Who It Serves</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
                 <CardTitle>Health Optimization Seekers</CardTitle>
               </CardHeader>
@@ -614,7 +614,7 @@ const BioMathCore = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
                 <CardTitle>Chronic Condition Managers</CardTitle>
               </CardHeader>
@@ -626,7 +626,7 @@ const BioMathCore = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
                 <CardTitle>Athletes & Performers</CardTitle>
               </CardHeader>
@@ -638,7 +638,7 @@ const BioMathCore = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
                 <CardTitle>Healthcare Professionals</CardTitle>
               </CardHeader>
@@ -657,7 +657,7 @@ const BioMathCore = () => {
         {/* Market Context */}
         <section className="mb-16">
           <h2 className="text-3xl font-bold mb-8">Market Context</h2>
-          <Card className="border-primary/20">
+          <Card className="project-card">
             <CardContent className="pt-8 space-y-4">
               <p className="text-lg leading-relaxed">
                 Healthcare is drowning in data but starving for insight. Wearables generate millions of data points. Genetic 
@@ -686,9 +686,9 @@ const BioMathCore = () => {
         <section className="mb-16">
           <h2 className="text-3xl font-bold mb-8">What Makes BioMath Core Unique</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
-                <Layers className="w-10 h-10 text-primary mb-2" />
+                <Layers className="w-10 h-10 project-icon mb-2" />
                 <CardTitle>True Data Integration</CardTitle>
               </CardHeader>
               <CardContent>
@@ -700,9 +700,9 @@ const BioMathCore = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
-                <Cpu className="w-10 h-10 text-primary mb-2" />
+                <Cpu className="w-10 h-10 project-icon mb-2" />
                 <CardTitle>Mathematical Rigor</CardTitle>
               </CardHeader>
               <CardContent>
@@ -714,9 +714,9 @@ const BioMathCore = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
-                <Activity className="w-10 h-10 text-primary mb-2" />
+                <Activity className="w-10 h-10 project-icon mb-2" />
                 <CardTitle>Continuous Intelligence</CardTitle>
               </CardHeader>
               <CardContent>
@@ -728,9 +728,9 @@ const BioMathCore = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
-                <Shield className="w-10 h-10 text-primary mb-2" />
+                <Shield className="w-10 h-10 project-icon mb-2" />
                 <CardTitle>Emotional Safety First</CardTitle>
               </CardHeader>
               <CardContent>
@@ -748,7 +748,7 @@ const BioMathCore = () => {
         {/* Long-Term Vision */}
         <section className="mb-16">
           <h2 className="text-3xl font-bold mb-8">Long-Term Vision</h2>
-          <Card className="border-primary/20">
+          <Card className="project-card">
             <CardContent className="pt-8 space-y-4">
               <p className="text-lg leading-relaxed">
                 BioMath Core aims to become the foundational operating system for personal health - the layer that connects 
@@ -793,7 +793,7 @@ const BioMathCore = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <Activity className="w-6 h-6" />
@@ -812,7 +812,7 @@ const BioMathCore = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <Rocket className="w-6 h-6" />

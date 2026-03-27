@@ -130,9 +130,9 @@ const MyDay = () => {
         <section className="mb-16">
           <h2 className="text-3xl font-bold mb-8">Core Mission</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
-                <Calendar className="w-12 h-12 text-primary mb-4" />
+                <Calendar className="w-12 h-12 project-icon mb-4" />
                 <CardTitle>Structure Daily Execution</CardTitle>
               </CardHeader>
               <CardContent>
@@ -143,9 +143,9 @@ const MyDay = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
-                <Brain className="w-12 h-12 text-primary mb-4" />
+                <Brain className="w-12 h-12 project-icon mb-4" />
                 <CardTitle>Intelligence-Driven Insights</CardTitle>
               </CardHeader>
               <CardContent>
@@ -156,9 +156,9 @@ const MyDay = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
-                <TrendingUp className="w-12 h-12 text-primary mb-4" />
+                <TrendingUp className="w-12 h-12 project-icon mb-4" />
                 <CardTitle>Gradual Improvement</CardTitle>
               </CardHeader>
               <CardContent>
@@ -177,10 +177,10 @@ const MyDay = () => {
         <section className="mb-16">
           <h2 className="text-3xl font-bold mb-8">How the Platform Works</h2>
           <div className="space-y-6">
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-xl">
+                  <div className="w-12 h-12 rounded-full bg-[hsl(var(--project-accent)/0.1)] flex items-center justify-center project-icon font-bold text-xl">
                     1
                   </div>
                   <CardTitle className="text-xl">Plan Your Day</CardTitle>
@@ -195,10 +195,10 @@ const MyDay = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-xl">
+                  <div className="w-12 h-12 rounded-full bg-[hsl(var(--project-accent)/0.1)] flex items-center justify-center project-icon font-bold text-xl">
                     2
                   </div>
                   <CardTitle className="text-xl">Log Key Activities</CardTitle>
@@ -213,10 +213,10 @@ const MyDay = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-xl">
+                  <div className="w-12 h-12 rounded-full bg-[hsl(var(--project-accent)/0.1)] flex items-center justify-center project-icon font-bold text-xl">
                     3
                   </div>
                   <CardTitle className="text-xl">Receive AI Insights</CardTitle>
@@ -231,10 +231,10 @@ const MyDay = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-xl">
+                  <div className="w-12 h-12 rounded-full bg-[hsl(var(--project-accent)/0.1)] flex items-center justify-center project-icon font-bold text-xl">
                     4
                   </div>
                   <CardTitle className="text-xl">Improve Over Time</CardTitle>
@@ -257,9 +257,9 @@ const MyDay = () => {
         <section className="mb-16">
           <h2 className="text-3xl font-bold mb-8">Technology & Architecture</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
-                <Cpu className="w-10 h-10 text-primary mb-2" />
+                <Cpu className="w-10 h-10 project-icon mb-2" />
                 <CardTitle>Cloud-Based SaaS Platform</CardTitle>
               </CardHeader>
               <CardContent>
@@ -277,9 +277,9 @@ const MyDay = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
-                <Brain className="w-10 h-10 text-primary mb-2" />
+                <Brain className="w-10 h-10 project-icon mb-2" />
                 <CardTitle>Modular AI Services</CardTitle>
               </CardHeader>
               <CardContent>
@@ -297,9 +297,9 @@ const MyDay = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
-                <BarChart3 className="w-10 h-10 text-primary mb-2" />
+                <BarChart3 className="w-10 h-10 project-icon mb-2" />
                 <CardTitle>Event-Driven Analytics</CardTitle>
               </CardHeader>
               <CardContent>
@@ -317,9 +317,9 @@ const MyDay = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
-                <Database className="w-10 h-10 text-primary mb-2" />
+                <Database className="w-10 h-10 project-icon mb-2" />
                 <CardTitle>Scalable Architecture</CardTitle>
               </CardHeader>
               <CardContent>
@@ -345,9 +345,9 @@ const MyDay = () => {
         <section className="mb-16">
           <h2 className="text-3xl font-bold mb-8">Key Features & Capabilities</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
-                <Calendar className="w-10 h-10 text-primary mb-2" />
+                <Calendar className="w-10 h-10 project-icon mb-2" />
                 <CardTitle>Daily Planning & Routines</CardTitle>
               </CardHeader>
               <CardContent>
@@ -358,9 +358,9 @@ const MyDay = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
-                <Target className="w-10 h-10 text-primary mb-2" />
+                <Target className="w-10 h-10 project-icon mb-2" />
                 <CardTitle>Habit & Behavior Tracking</CardTitle>
               </CardHeader>
               <CardContent>
@@ -371,9 +371,9 @@ const MyDay = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
-                <Activity className="w-10 h-10 text-primary mb-2" />
+                <Activity className="w-10 h-10 project-icon mb-2" />
                 <CardTitle>Meal & Nutrition Logging</CardTitle>
               </CardHeader>
               <CardContent>
@@ -384,9 +384,9 @@ const MyDay = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
-                <Lightbulb className="w-10 h-10 text-primary mb-2" />
+                <Lightbulb className="w-10 h-10 project-icon mb-2" />
                 <CardTitle>AI-Generated Insights</CardTitle>
               </CardHeader>
               <CardContent>
@@ -397,9 +397,9 @@ const MyDay = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
-                <BarChart3 className="w-10 h-10 text-primary mb-2" />
+                <BarChart3 className="w-10 h-10 project-icon mb-2" />
                 <CardTitle>Progress Summaries</CardTitle>
               </CardHeader>
               <CardContent>
@@ -410,9 +410,9 @@ const MyDay = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
-                <Sparkles className="w-10 h-10 text-primary mb-2" />
+                <Sparkles className="w-10 h-10 project-icon mb-2" />
                 <CardTitle>Subscription Tiers</CardTitle>
               </CardHeader>
               <CardContent>
@@ -430,7 +430,7 @@ const MyDay = () => {
         {/* Operational Model */}
         <section className="mb-16">
           <h2 className="text-3xl font-bold mb-8">Operational Model</h2>
-          <Card className="border-primary/20">
+          <Card className="project-card">
             <CardContent className="pt-8 space-y-6">
               <p className="text-lg leading-relaxed">
                 MyDay operates as a direct-to-consumer SaaS platform with a free trial and monthly subscriptions. 
@@ -464,9 +464,9 @@ const MyDay = () => {
         <section className="mb-16">
           <h2 className="text-3xl font-bold mb-8">Who It Serves</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
-                <Users className="w-10 h-10 text-primary mb-2" />
+                <Users className="w-10 h-10 project-icon mb-2" />
                 <CardTitle>Structure Seekers</CardTitle>
               </CardHeader>
               <CardContent>
@@ -477,9 +477,9 @@ const MyDay = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
-                <Target className="w-10 h-10 text-primary mb-2" />
+                <Target className="w-10 h-10 project-icon mb-2" />
                 <CardTitle>Habit Builders</CardTitle>
               </CardHeader>
               <CardContent>
@@ -490,9 +490,9 @@ const MyDay = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
-                <Lightbulb className="w-10 h-10 text-primary mb-2" />
+                <Lightbulb className="w-10 h-10 project-icon mb-2" />
                 <CardTitle>Simplicity Lovers</CardTitle>
               </CardHeader>
               <CardContent>
@@ -503,9 +503,9 @@ const MyDay = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-primary/20">
+            <Card className="project-card">
               <CardHeader>
-                <Rocket className="w-10 h-10 text-primary mb-2" />
+                <Rocket className="w-10 h-10 project-icon mb-2" />
                 <CardTitle>Early Adopters</CardTitle>
               </CardHeader>
               <CardContent>
@@ -523,7 +523,7 @@ const MyDay = () => {
         {/* Market Context */}
         <section className="mb-16">
           <h2 className="text-3xl font-bold mb-8">Market Context & Uniqueness</h2>
-          <Card className="border-primary/20">
+          <Card className="project-card">
             <CardContent className="pt-8 space-y-6">
               <p className="text-lg leading-relaxed">
                 MyDay sits at the intersection of productivity, habit tracking, and AI-assisted personal 
