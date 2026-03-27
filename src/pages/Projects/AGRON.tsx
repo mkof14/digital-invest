@@ -34,7 +34,7 @@ import InvestorPageDisclaimer from "@/components/InvestorPageDisclaimer";
 
 const AGRON = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background theme-agron">
       <Navigation />
 
       <main className="container mx-auto px-4 py-8">
