@@ -20,7 +20,7 @@ const BioMathLife = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-background to-primary/5">
+    <div className="min-h-screen bg-background theme-biomath-life">
       <Navigation />
       
       <main className="container mx-auto px-4 pt-24 md:pt-28 pb-8">
