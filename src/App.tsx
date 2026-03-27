@@ -32,6 +32,7 @@ import FamilyCore from "./pages/Projects/FamilyCore";
 import SeniorCore from "./pages/Projects/SeniorCore";
 import SkinCore from "./pages/Projects/SkinCore";
 import MRXHealth from "./pages/Projects/MRXHealth";
+import TableServed from "./pages/Projects/TableServed";
 import Projects from "./pages/Projects";
 import ProjectDetail from "./pages/ProjectDetail";
 import HowItWorks from "./pages/HowItWorks";
