@@ -343,7 +343,7 @@ serve(async (req) => {
           'Future manufacturing and hardware sales',
           'Licensing of proprietary technology'
         ];
-      } else if (slug.includes('biomathcore')) {
+      } else if (slug.includes('biomathcore') || slug.includes('biomath-core')) {
         return [
           'Platform subscriptions and licensing',
           'API integrations with healthcare systems',
