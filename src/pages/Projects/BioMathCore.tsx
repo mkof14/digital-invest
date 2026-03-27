@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
-import { ArrowRight, Heart, Brain, Activity, Shield, Lock, Database, Cpu, Layers, Server, FileText, AlertCircle, Globe, Rocket, ArrowLeft, Download } from "lucide-react";
+import { ArrowRight, Heart, Brain, Activity, Shield, Lock, Database, Cpu, Layers, Server, FileText, AlertCircle, Globe, Rocket, ArrowLeft, Download, Images } from "lucide-react";
 import { Link } from "react-router-dom";
 import biomathCoreHero from "@/assets/projects/biomath-core-hero.jpg";
 import infographic1 from "@/assets/projects/biomath-core-infographic1.jpg";
@@ -12,6 +12,25 @@ import infographic2 from "@/assets/projects/biomath-core-infographic2.jpg";
 import infographic3 from "@/assets/projects/biomath-core-infographic3.jpg";
 import DownloadInvestorBriefButton from "@/components/DownloadInvestorBriefButton";
 import InvestorPageDisclaimer from "@/components/InvestorPageDisclaimer";
+import { InfographicsGallery } from "@/components/InfographicsGallery";
+
+const infographics = [
+  {
+    src: infographic1,
+    title: "Living Digital Human Model",
+    alt: "BioMath Core: Living Digital Human Model — system principles, architecture and scale",
+  },
+  {
+    src: infographic2,
+    title: "Architecture of Digital Modeling",
+    alt: "BioMath Core: Architecture of Living Digital Modeling — fundamental principles, self-learning dynamics",
+  },
+  {
+    src: infographic3,
+    title: "Living Digital Architecture",
+    alt: "BioMath Core: Living Digital Architecture — dual opinion system, ecosystem scale and protection",
+  },
+];
 
 const BioMathCore = () => {
   const categories = [
@@ -90,6 +109,12 @@ const BioMathCore = () => {
                   <a href="/investor-briefs/biomath-core-investor-brief.pdf" download="BioMath-Core-Investor-Brief.pdf" className="flex items-center gap-2">
                     <Download className="w-5 h-5" />
                     Investor Brief (PDF)
+                  </a>
+                </Button>
+                <Button size="lg" variant="outline" asChild>
+                  <a href="#infographics" className="flex items-center gap-2">
+                    <Images className="w-5 h-5" />
+                    Infographics
                   </a>
                 </Button>
               </div>
@@ -392,22 +417,13 @@ const BioMathCore = () => {
         </section>
 
         {/* Platform Architecture Infographics */}
-        <section className="mb-16">
+        <section className="mb-16" id="infographics">
           <h2 className="text-3xl font-bold mb-8 text-center">Platform Architecture & Vision</h2>
           <p className="text-lg text-muted-foreground text-center max-w-3xl mx-auto mb-10">
-            Visual overview of BioMath Core's living digital model, self-learning architecture, and ecosystem scale
+            Visual overview of BioMath Core's living digital model, self-learning architecture, and ecosystem scale. 
+            Click any image to view full size with download, copy, and share options.
           </p>
-          <div className="space-y-8">
-            <Card className="border-primary/20 overflow-hidden">
-              <img src={infographic1} alt="BioMath Core: Living Digital Human Model — system principles, architecture and scale" className="w-full h-auto" />
-            </Card>
-            <Card className="border-primary/20 overflow-hidden">
-              <img src={infographic2} alt="BioMath Core: Architecture of Living Digital Modeling — fundamental principles, self-learning dynamics" className="w-full h-auto" />
-            </Card>
-            <Card className="border-primary/20 overflow-hidden">
-              <img src={infographic3} alt="BioMath Core: Living Digital Architecture — dual opinion system, ecosystem scale and protection" className="w-full h-auto" />
-            </Card>
-          </div>
+          <InfographicsGallery infographics={infographics} projectTitle="BioMath Core" />
         </section>
 
         <Separator className="my-12" />
