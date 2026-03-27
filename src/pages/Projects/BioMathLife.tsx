@@ -34,7 +34,7 @@ const BioMathLife = () => {
               backgroundPosition: 'center',
             }}
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/90 to-background/70" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[hsl(170,40%,8%)]/95 via-background/90 to-background/60" />
           </div>
 
           <div className="relative z-10 max-w-4xl">
