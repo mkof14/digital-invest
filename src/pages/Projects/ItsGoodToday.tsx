@@ -30,7 +30,7 @@ import InvestorPageDisclaimer from "@/components/InvestorPageDisclaimer";
 
 const ItsGoodToday = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background theme-itsgoodtoday">
       <Navigation />
 
       <main className="container mx-auto px-4 py-8">
