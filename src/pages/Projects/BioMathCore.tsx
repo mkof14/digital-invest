@@ -74,7 +74,7 @@ const BioMathCore = () => {
                   className="w-20 h-20 md:w-24 md:h-24 object-contain"
                 />
                 <div>
-                  <Badge className="mb-4">Intelligent Health OS</Badge>
+                  <Badge className="mb-4 project-badge">Digital Health</Badge>
                   <h1 className="text-4xl md:text-6xl font-bold">
                     BioMath Core
                   </h1>

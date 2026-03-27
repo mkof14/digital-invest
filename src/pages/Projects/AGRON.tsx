@@ -67,7 +67,7 @@ const AGRON = () => {
                 showSkeleton={false}
               />
               <div>
-                <Badge className="mb-2">Robotics Infrastructure</Badge>
+                <Badge className="mb-2 project-badge">Robotics Infrastructure</Badge>
                 <h1 className="text-4xl md:text-5xl font-bold text-foreground">
                   AGRON
                 </h1>

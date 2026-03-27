@@ -45,7 +45,7 @@ const BioMathLife = () => {
               </Button>
             </Link>
             <div className="animate-fade-in" style={{ animationDelay: '0.1s', animationFillMode: 'backwards' }}>
-              <Badge className="mb-4">Precision Medicine Platform</Badge>
+              <Badge className="mb-4 project-badge">Precision Medicine Platform</Badge>
               <h1 className="text-5xl md:text-6xl font-bold mb-6">
                 BioMath Life Platform
               </h1>

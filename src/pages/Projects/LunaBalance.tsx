@@ -42,7 +42,7 @@ const LunaBalance = () => {
           <div className="max-w-3xl">
             <div className="flex items-center gap-4 mb-6">
               <img src={lunaLogo} alt="Luna Logo" className="h-20 w-20 object-contain" />
-              <Badge className="bg-primary/10 text-primary border-primary/30">Women's Wellness</Badge>
+              <Badge className="project-badge">Women's Wellness</Badge>
             </div>
             <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
               Luna Balance

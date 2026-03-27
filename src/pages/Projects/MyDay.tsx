@@ -67,7 +67,7 @@ const MyDay = () => {
                 showSkeleton={false}
               />
               <div>
-                <Badge className="mb-2">AI Daily Planning Platform</Badge>
+                <Badge className="mb-2 project-badge">AI Daily Planning Platform</Badge>
                 <h1 className="text-4xl md:text-6xl font-bold text-foreground">
                   MyDay
                 </h1>
