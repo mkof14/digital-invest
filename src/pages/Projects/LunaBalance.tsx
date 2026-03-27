@@ -36,7 +36,7 @@ const LunaBalance = () => {
       <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <img src={lunaHero} alt="Luna Balance - Return to Yourself" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/70 to-background/40" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[hsl(320,30%,8%)]/95 via-background/70 to-background/40" />
         </div>
         <div className="container mx-auto px-4 relative z-10 py-24">
           <div className="max-w-3xl">
