@@ -48,7 +48,7 @@ const AGRON = () => {
               backgroundPosition: 'center',
             }}
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-background/98 via-background/95 to-background/80" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[hsl(210,30%,8%)]/98 via-background/95 to-background/70" />
           </div>
 
           <div className="relative z-10 max-w-4xl">
