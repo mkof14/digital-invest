@@ -224,7 +224,7 @@ Today, Digital Invest brings together this multi-sector expertise into a unified
       </section>
 
       {/* The Vision Ahead */}
-      <section className="py-16 px-4 bg-muted/30">
+      <section className="py-16 px-4 bg-muted/30 section-gradient-gold">
         <div className="container mx-auto max-w-6xl">
           <h2 className="text-3xl font-bold text-foreground mb-8">The Vision Ahead</h2>
           <div className="space-y-8">
