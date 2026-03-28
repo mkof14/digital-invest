@@ -346,10 +346,20 @@ const PortfolioOverview = () => {
               )}
             </h1>
 
-            <p className="mt-8 text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed">
+            <p className="mt-8 text-base md:text-lg text-muted-foreground max-w-2xl leading-relaxed">
               {lang === 'ru'
-                ? 'Здесь нет маркетинговой воды. Каждый проект — в нескольких предложениях. Кликните, чтобы погрузиться глубже.'
-                : 'No marketing fluff. Every project in a few sentences. Click to dive deeper.'}
+                ? 'Все проекты портфеля собраны на одной странице для быстрого ознакомления. Для более глубокого изучения — переходите на страницу проекта. Если этого недостаточно — свяжитесь с представителем Digital Invest или отправьте запрос через сайт для получения детальной информации. Ряд данных предоставляется индивидуально в связи с правовыми и конфиденциальными ограничениями.'
+                : lang === 'uk'
+                ? 'Усі проєкти портфеля зібрані на одній сторінці для швидкого ознайомлення. Для глибшого вивчення — переходьте на сторінку проєкту. Якщо цього недостатньо — зв\'яжіться з представником Digital Invest або надішліть запит через сайт. Частина інформації надається індивідуально через правові та конфіденційні обмеження.'
+                : lang === 'fr'
+                ? 'Tous les projets du portefeuille réunis sur une seule page. Pour en savoir plus, consultez la page dédiée. Pour des informations détaillées, contactez un représentant Digital Invest ou soumettez une demande via le site. Certaines données sont fournies individuellement en raison de restrictions légales et de confidentialité.'
+                : lang === 'ar'
+                ? 'جميع مشاريع المحفظة مجمعة في صفحة واحدة للاطلاع السريع. للتعمق أكثر، انتقل إلى صفحة المشروع. إذا لم يكن ذلك كافياً، تواصل مع ممثل Digital Invest أو أرسل طلباً عبر الموقع. يتم تقديم بعض المعلومات بشكل فردي بسبب القيود القانونية والسرية.'
+                : lang === 'ja'
+                ? 'ポートフォリオの全プロジェクトを1ページにまとめました。詳しくはプロジェクトページへ。さらに詳細な情報が必要な場合は、Digital Investの担当者にご連絡いただくか、サイトからお問い合わせください。法的および機密上の制約により、一部の情報は個別に提供されます。'
+                : lang === 'he'
+                ? 'כל פרויקטי התיק מרוכזים בעמוד אחד להיכרות מהירה. להעמקה — היכנסו לעמוד הפרויקט. למידע מפורט יותר, צרו קשר עם נציג Digital Invest או שלחו בקשה דרך האתר. חלק מהמידע מסופק באופן אישי בשל מגבלות משפטיות וסודיות.'
+                : 'All portfolio projects on one page for a quick overview. Dive deeper by clicking into any project. For detailed financial and operational information, contact a Digital Invest representative or submit a request through the website. Certain data is provided individually due to legal and confidentiality restrictions.'}
             </p>
 
             <div className="mt-10 flex items-center gap-6">
