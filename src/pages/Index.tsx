@@ -164,44 +164,66 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Navigation />
 
-      {/* ═══════════════════ HERO — Cinematic Split ═══════════════════ */}
+      {/* ═══════════════════ HERO — Vibrant Financial ═══════════════════ */}
       <section className="relative min-h-[100svh] flex items-center overflow-hidden">
+        {/* Layered background with color depth */}
         <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-card/30" />
+        
+        {/* Accent color orbs — subtle ambient light */}
+        <div className="absolute top-1/4 -left-32 w-96 h-96 rounded-full bg-accent/[0.06] blur-[120px] animate-subtle-float" />
+        <div className="absolute bottom-1/3 -right-32 w-80 h-80 rounded-full bg-info/[0.05] blur-[100px] animate-subtle-float" style={{ animationDelay: '3s' }} />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-primary/[0.03] blur-[150px]" />
+        
         <FloatingElements />
         
-        {/* Subtle grid lines */}
-        <div className="absolute inset-0 opacity-[0.03]" style={{
-          backgroundImage: 'linear-gradient(hsl(var(--foreground)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--foreground)) 1px, transparent 1px)',
+        {/* Grid pattern with accent tint */}
+        <div className="absolute inset-0 opacity-[0.025]" style={{
+          backgroundImage: 'linear-gradient(hsl(var(--primary)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--primary)) 1px, transparent 1px)',
           backgroundSize: '80px 80px'
         }} />
+
+        {/* Diagonal accent line */}
+        <div className="absolute top-0 right-0 w-px h-full bg-gradient-to-b from-transparent via-primary/20 to-transparent transform rotate-12 translate-x-[40vw]" />
 
         <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20">
           <div className="grid lg:grid-cols-12 gap-12 lg:gap-6 items-center">
             {/* Left — Text */}
             <div className="lg:col-span-7 space-y-10">
               <div className="space-y-6 animate-fade-in">
-                <div className="inline-flex items-center gap-2 text-xs tracking-[0.2em] uppercase text-muted-foreground font-medium">
-                  <Minus className="w-4 h-4 text-primary" />
-                  Digital Invest Inc.
+                {/* Animated accent bar + label */}
+                <div className="inline-flex items-center gap-3 text-xs tracking-[0.2em] uppercase font-medium">
+                  <div className="w-8 h-px bg-gradient-to-r from-accent to-primary animate-gradient" />
+                  <span className="text-accent">Digital Invest Inc.</span>
                 </div>
+
                 <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold leading-[0.95] tracking-tight">
                   <span className="block text-foreground">{t('hero.strategicTitle')}</span>
-                  <span className="block mt-2 text-primary/80">{t('hero.strategicHighlight')}</span>
+                  <span className="block mt-2 gradient-tech-animated">{t('hero.strategicHighlight')}</span>
                 </h1>
+
                 <p className="text-lg md:text-xl text-muted-foreground max-w-xl leading-relaxed font-light">
                   {t('hero.description')}
                 </p>
+
+                {/* Live pulse indicator */}
+                <div className="flex items-center gap-2 text-xs text-muted-foreground/70">
+                  <span className="relative flex h-2.5 w-2.5">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-success opacity-75" />
+                    <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-success" />
+                  </span>
+                  <span>Active Investment Opportunities</span>
+                </div>
               </div>
 
               <div className="flex flex-wrap gap-4 animate-fade-in">
                 <Link to="/projects">
-                  <Button size="lg" className="px-8 py-6 text-base group">
+                  <Button size="lg" className="px-8 py-6 text-base group shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 transition-all">
                     {t('hero.exploreProjects')}
                     <ArrowUpRight className="ml-2 h-5 w-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                   </Button>
                 </Link>
                 <Link to="/why-digital-invest">
-                  <Button size="lg" variant="ghost" className="px-8 py-6 text-base group text-muted-foreground hover:text-foreground">
+                  <Button size="lg" variant="outline" className="px-8 py-6 text-base group border-border/60 hover:border-primary/40 hover:bg-primary/5">
                     {t('hero.learnWhy')}
                     <ChevronRight className="ml-1 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                   </Button>
@@ -209,28 +231,37 @@ const Index = () => {
               </div>
             </div>
 
-            {/* Right — Metrics Column */}
+            {/* Right — Metrics Column with accent borders */}
             <div className="lg:col-span-5 animate-fade-in">
-              <div className="grid grid-cols-2 gap-px bg-border/50 rounded-2xl overflow-hidden border border-border/50">
-                {[
-                  { value: "25+", label: t('hero.yearsExp') },
-                  { value: "5", label: t('hero.activeProjects') },
-                  { value: "$19.5B", label: t('hero.exitValue') },
-                  { value: "15+", label: t('hero.countriesServed') }
-                ].map((stat, i) => (
-                  <div key={i} className="bg-card/60 backdrop-blur-sm p-8 lg:p-10 flex flex-col justify-center text-center hover:bg-card/80 transition-colors duration-500">
-                    <div className="text-3xl lg:text-4xl xl:text-5xl font-bold text-foreground tracking-tight">{stat.value}</div>
-                    <div className="text-xs md:text-sm text-muted-foreground mt-2 font-medium">{stat.label}</div>
-                  </div>
-                ))}
+              <div className="relative">
+                {/* Glow behind metrics */}
+                <div className="absolute -inset-2 bg-gradient-to-br from-primary/10 via-accent/5 to-info/10 rounded-3xl blur-xl opacity-50" />
+                
+                <div className="relative grid grid-cols-2 gap-px bg-border/50 rounded-2xl overflow-hidden border border-border/40">
+                  {[
+                    { value: "25+", label: t('hero.yearsExp'), accent: "from-accent/10 to-transparent" },
+                    { value: "5", label: t('hero.activeProjects'), accent: "from-info/10 to-transparent" },
+                    { value: "$19.5B", label: t('hero.exitValue'), accent: "from-success/10 to-transparent" },
+                    { value: "15+", label: t('hero.countriesServed'), accent: "from-primary/10 to-transparent" }
+                  ].map((stat, i) => (
+                    <div key={i} className={`relative bg-card/60 backdrop-blur-sm p-8 lg:p-10 flex flex-col justify-center text-center hover:bg-card/80 transition-all duration-500 group`}>
+                      <div className={`absolute inset-0 bg-gradient-to-br ${stat.accent} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+                      <div className="relative">
+                        <div className="text-3xl lg:text-4xl xl:text-5xl font-bold text-foreground tracking-tight">{stat.value}</div>
+                        <div className="text-xs md:text-sm text-muted-foreground mt-2 font-medium">{stat.label}</div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Scroll indicator */}
+        {/* Scroll indicator with accent color */}
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-pulse">
-          <div className="w-px h-10 bg-gradient-to-b from-transparent to-muted-foreground/30" />
+          <div className="w-px h-12 bg-gradient-to-b from-transparent via-accent/30 to-primary/40" />
+          <div className="w-1.5 h-1.5 rounded-full bg-primary/50" />
         </div>
       </section>
 
