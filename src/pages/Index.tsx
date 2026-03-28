@@ -677,10 +677,10 @@ const Index = () => {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16 space-y-4">
             <h2 ref={journeyHeading.ref} className={`text-3xl md:text-5xl font-bold gradient-orange-animated animate-heading-reveal ${journeyHeading.isVisible ? 'visible' : ''}`}>
-              Your Journey with Digital Invest
+              {t('journey.title')}
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              A transparent, step-by-step process from exploration to partnership
+              {t('journey.subtitle')}
             </p>
           </div>
           
