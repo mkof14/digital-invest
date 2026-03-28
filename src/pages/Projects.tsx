@@ -500,10 +500,10 @@ const Projects = () => {
                         </CardHeader>
 
                         <CardFooter className="pt-0 pb-4">
-                          <div className={`flex items-center gap-2 ${theme.btnBg} text-white rounded-lg px-5 py-2.5 text-sm font-semibold transition-all duration-300 group-hover:shadow-lg group-hover:gap-3`}>
-                            <TrendingUp className="w-4 h-4" />
+                          <div className="flex items-center gap-2 bg-foreground/[0.07] hover:bg-foreground/[0.12] border border-border/60 text-foreground rounded-lg px-5 py-2.5 text-sm font-medium transition-all duration-300 group-hover:shadow-md group-hover:gap-3 group-hover:border-primary/30">
+                            <TrendingUp className="w-4 h-4 text-primary/70" />
                             {t('projects.exploreProject')}
-                            <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+                            <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-all duration-300 group-hover:translate-x-1" />
                           </div>
                         </CardFooter>
                       </div>
