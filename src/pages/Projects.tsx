@@ -313,6 +313,9 @@ const Projects = () => {
                           {project.slug === 'baseline' && (
                             <img src={baselineLogo} alt="BaseLine logo" className="h-8 rounded" />
                           )}
+                          {project.slug === 'saven' && (
+                            <img src={savenLogo} alt="SAVEN logo" className="h-8 rounded" />
+                          )}
                           {project.title}
                         </CardTitle>
                         <Badge className="bg-background/95 backdrop-blur-sm border-primary/20 shadow-lg transition-all duration-300 group-hover:scale-110 shrink-0">
