@@ -248,13 +248,13 @@ const Index = () => {
                 <circle cx="5" cy="17" r="1.5" fill="currentColor" opacity="0.6"/>
                 <circle cx="5" cy="9" r="1.5" fill="currentColor" opacity="0.6"/>
               </svg>
-              Ecosystem Vision
+              {t('ecosystem.badge')}
             </div>
             <h2 ref={biomathVisionHeading.ref} className={`text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-foreground animate-heading-reveal ${biomathVisionHeading.isVisible ? 'visible' : ''}`}>
-              200+ Services. <span className="text-primary">One Living Platform.</span>
+              {t('ecosystem.title')} <span className="text-primary">{t('ecosystem.titleHighlight')}</span>
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto font-light">
-              Every product strengthens the whole — a self-evolving digital model of human health. <span className="text-primary font-semibold">This is only the beginning.</span>
+              {t('ecosystem.subtitle')} <span className="text-primary font-semibold">{t('ecosystem.beginning')}</span>
             </p>
           </div>
           
