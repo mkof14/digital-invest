@@ -27,6 +27,7 @@ const SAVEN = () => {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [lightboxImg, setLightboxImg] = useState('');
   const { toast } = useToast();
+  const { t } = useTranslation();
 
   useEffect(() => {
     const fetchProject = async () => {
@@ -45,7 +46,7 @@ const SAVEN = () => {
     link.href = src;
     link.download = name;
     link.click();
-    toast({ title: 'Download started', description: name });
+    toast({ title: t('projectSaven.downloadStarted'), description: name });
   };
 
   const handleCopy = async (src: string) => {
@@ -53,10 +54,10 @@ const SAVEN = () => {
       const res = await fetch(src);
       const blob = await res.blob();
       await navigator.clipboard.write([new ClipboardItem({ [blob.type]: blob })]);
-      toast({ title: 'Copied to clipboard' });
+      toast({ title: t('projectSaven.copiedClipboard') });
     } catch {
       await navigator.clipboard.writeText(window.location.origin + src);
-      toast({ title: 'Link copied to clipboard' });
+      toast({ title: t('projectSaven.linkCopied') });
     }
   };
 
@@ -65,7 +66,7 @@ const SAVEN = () => {
       await navigator.share({ title, url: window.location.href });
     } else {
       await navigator.clipboard.writeText(window.location.href);
-      toast({ title: 'Link copied for sharing' });
+      toast({ title: t('projectSaven.linkCopiedSharing') });
     }
   };
 
@@ -82,7 +83,6 @@ const SAVEN = () => {
     { src: acronymImg, title: 'SAVEN Acronym — S.A.V.E.N.' },
   ];
 
-  const { t } = useTranslation();
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
@@ -99,29 +99,28 @@ const SAVEN = () => {
               <ArrowLeft className="w-4 h-4 mr-2" /> {t('projectCommon.backToProjects')}
             </Link>
             <Badge className="mb-4 bg-orange-500/20 text-orange-300 border-orange-500/30 text-sm px-4 py-1">
-              Infrastructure of Continuous Execution
+              {t('projectSaven.badge')}
             </Badge>
             <h1 className="text-5xl md:text-7xl font-bold text-white mb-2 tracking-tight">
               S<span className="text-orange-400">A</span>V<span className="text-blue-400">E</span>N
             </h1>
             <p className="text-xl md:text-2xl text-gray-300/80 font-light mb-6">
-              Managing Life Between Episodes
+              {t('projectSaven.heroTagline')}
             </p>
             <p className="text-xl text-gray-300 mb-8 leading-relaxed max-w-2xl">
-              Bridging the gap between digital understanding and physical reality. 
-              We don't make medicine — we make sure life doesn't fall apart between the episodes.
+              {t('projectSaven.heroDesc')}
             </p>
             <div className="flex flex-wrap gap-4">
               <Link to="/contact">
                 <Button size="lg" className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-6 text-lg">
                   <TrendingUp className="w-5 h-5 mr-2" />
-                  Express Interest
+                  {t('projectSaven.expressInterest')}
                 </Button>
               </Link>
               {project?.website_url && (
                 <a href={project.website_url} target="_blank" rel="noopener noreferrer">
                   <Button size="lg" variant="outline" className="border-orange-400/40 text-orange-300 hover:bg-orange-500/10 px-8 py-6 text-lg">
-                    <ExternalLink className="w-5 h-5 mr-2" /> Visit Website
+                    <ExternalLink className="w-5 h-5 mr-2" /> {t('projectSaven.visitWebsite')}
                   </Button>
                 </a>
               )}
@@ -136,12 +135,10 @@ const SAVEN = () => {
           <div className="max-w-4xl mx-auto text-center mb-16">
             <img src={acronymImg} alt="S.A.V.E.N." className="h-24 mx-auto mb-6 rounded-lg" />
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              The System of <span className="text-orange-400">Continuous Execution</span>
+              {t('projectSaven.systemTitle')} <span className="text-orange-400">{t('projectSaven.systemHighlight')}</span>
             </h2>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Medicine treats episodes. But care doesn't break clinically — it breaks operationally. 
-              SAVEN is the execution layer embedded between digital understanding and physical life. 
-              A system that forces plans to be executed, not just recommended.
+              {t('projectSaven.systemDesc')}
             </p>
           </div>
 
@@ -149,17 +146,12 @@ const SAVEN = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-16">
             <Card className="bg-card/50 border-red-500/20">
               <CardContent className="p-6">
-                <h3 className="text-xl font-bold mb-4 text-red-400">What It Is NOT</h3>
+                <h3 className="text-xl font-bold mb-4 text-red-400">{t('projectSaven.whatItIsNot')}</h3>
                 <div className="space-y-3">
-                  {[
-                    'Not a medical app (requires no cognitive effort)',
-                    'Not an AI Assistant (does not rely on user words)',
-                    'Not a Robot (robots are just bodies)',
-                    'Not a generic Care Platform',
-                  ].map((item, i) => (
+                  {['notItem1', 'notItem2', 'notItem3', 'notItem4'].map((key, i) => (
                     <div key={i} className="flex items-start gap-2">
                       <XCircle className="w-5 h-5 text-red-400 mt-0.5 flex-shrink-0" />
-                      <span className="text-muted-foreground">{item}</span>
+                      <span className="text-muted-foreground">{t(`projectSaven.${key}`)}</span>
                     </div>
                   ))}
                 </div>
@@ -167,17 +159,12 @@ const SAVEN = () => {
             </Card>
             <Card className="bg-card/50 border-green-500/20">
               <CardContent className="p-6">
-                <h3 className="text-xl font-bold mb-4 text-green-400">What It IS</h3>
+                <h3 className="text-xl font-bold mb-4 text-green-400">{t('projectSaven.whatItIs')}</h3>
                 <div className="space-y-3">
-                  {[
-                    'The Execution Layer between digital understanding and physical life',
-                    'A system that forces plans to be executed, not just recommended',
-                    'The intelligence and logic — robots and devices are just the bodies',
-                    'Infrastructure for continuity of care',
-                  ].map((item, i) => (
+                  {['isItem1', 'isItem2', 'isItem3', 'isItem4'].map((key, i) => (
                     <div key={i} className="flex items-start gap-2">
                       <CheckCircle2 className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
-                      <span className="text-muted-foreground">{item}</span>
+                      <span className="text-muted-foreground">{t(`projectSaven.${key}`)}</span>
                     </div>
                   ))}
                 </div>
@@ -186,7 +173,7 @@ const SAVEN = () => {
           </div>
 
           <blockquote className="max-w-3xl mx-auto text-center text-xl italic text-orange-300/80 border-l-4 border-orange-400 pl-6 py-2">
-            "SAVEN is the intelligence and logic. Robots and devices are just the bodies."
+            "{t('projectSaven.quote')}"
           </blockquote>
         </div>
       </section>
@@ -195,28 +182,28 @@ const SAVEN = () => {
       <section className="py-20">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-            The BioMath <span className="text-orange-400">Architecture</span>
+            {t('projectSaven.archTitle')} <span className="text-orange-400">{t('projectSaven.archHighlight')}</span>
           </h2>
           <div className="max-w-3xl mx-auto space-y-4">
             {[
-              { level: 'Level 1', name: 'BioMath Life', desc: 'Strategy, Philosophy, Standards', color: 'from-blue-500/20 to-blue-600/10', border: 'border-blue-500/30' },
-              { level: 'Level 2', name: 'BioMath Core (The Brain)', desc: 'Context, Norms, Deviations — 20 Categories × 200+ Services', color: 'from-teal-500/20 to-teal-600/10', border: 'border-teal-500/30' },
-              { level: 'Level 3', name: 'SAVEN (The Execution Layer)', desc: 'Action, Verification, Control', color: 'from-orange-500/20 to-orange-600/10', border: 'border-orange-500/30' },
-              { level: 'Level 4', name: 'Body Layer', desc: 'Robots, Devices, Humans', color: 'from-gray-500/20 to-gray-600/10', border: 'border-gray-500/30' },
+              { level: 'Level 1', name: 'BioMath Life', descKey: 'archLevel1', color: 'from-blue-500/20 to-blue-600/10', border: 'border-blue-500/30' },
+              { level: 'Level 2', name: 'BioMath Core (The Brain)', descKey: 'archLevel2', color: 'from-teal-500/20 to-teal-600/10', border: 'border-teal-500/30' },
+              { level: 'Level 3', name: 'SAVEN (The Execution Layer)', descKey: 'archLevel3', color: 'from-orange-500/20 to-orange-600/10', border: 'border-orange-500/30' },
+              { level: 'Level 4', name: 'Body Layer', descKey: 'archLevel4', color: 'from-gray-500/20 to-gray-600/10', border: 'border-gray-500/30' },
             ].map((item, i) => (
               <Card key={i} className={`bg-gradient-to-r ${item.color} ${item.border} transition-all hover:-translate-y-1`}>
                 <CardContent className="p-6 flex items-center gap-6">
                   <Badge variant="outline" className="text-sm px-3 py-1 flex-shrink-0">{item.level}</Badge>
                   <div>
                     <h3 className="text-lg font-bold">{item.name}</h3>
-                    <p className="text-sm text-muted-foreground">{item.desc}</p>
+                    <p className="text-sm text-muted-foreground">{t(`projectSaven.${item.descKey}`)}</p>
                   </div>
                 </CardContent>
               </Card>
             ))}
           </div>
           <p className="text-center text-sm text-muted-foreground mt-6 italic">
-            Critical Dependency: Core can exist without SAVEN, but SAVEN is meaningless without Core.
+            {t('projectSaven.archNote')}
           </p>
         </div>
       </section>
@@ -225,27 +212,27 @@ const SAVEN = () => {
       <section className="py-20 bg-muted/30">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
-            The SAVEN <span className="text-orange-400">Cycle</span>
+            {t('projectSaven.cycleTitle')} <span className="text-orange-400">{t('projectSaven.cycleHighlight')}</span>
           </h2>
           <p className="text-center text-muted-foreground mb-16 max-w-2xl mx-auto">
-            This cycle is not about health. It is about the reliability of life.
+            {t('projectSaven.cycleDesc')}
           </p>
           <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-5 gap-4">
             {[
-              { num: '1', title: 'Context', desc: 'Core determines what is normal', icon: Brain },
-              { num: '2', title: 'Action', desc: 'Execute the planned intervention', icon: Zap },
-              { num: '3', title: 'Verification', desc: 'Confirm the fact was completed', icon: CheckCircle2 },
-              { num: '4', title: 'Control', desc: 'Track deviations from trajectory', icon: BarChart3 },
-              { num: '5', title: 'Support', desc: 'Provide continuous assistance', icon: ShieldCheck },
+              { num: '1', titleKey: 'cycleStep1', descKey: 'cycleStep1Desc', icon: Brain },
+              { num: '2', titleKey: 'cycleStep2', descKey: 'cycleStep2Desc', icon: Zap },
+              { num: '3', titleKey: 'cycleStep3', descKey: 'cycleStep3Desc', icon: CheckCircle2 },
+              { num: '4', titleKey: 'cycleStep4', descKey: 'cycleStep4Desc', icon: BarChart3 },
+              { num: '5', titleKey: 'cycleStep5', descKey: 'cycleStep5Desc', icon: ShieldCheck },
             ].map((item, i) => (
               <Card key={i} className="bg-card/50 border-orange-500/10 hover:border-orange-500/30 transition-all text-center">
                 <CardContent className="p-5">
                   <div className="w-12 h-12 rounded-full bg-orange-500/10 flex items-center justify-center mx-auto mb-3">
                     <item.icon className="w-6 h-6 text-orange-400" />
                   </div>
-                  <span className="text-xs text-orange-400 font-bold">STEP {item.num}</span>
-                  <h3 className="text-base font-semibold mt-1">{item.title}</h3>
-                  <p className="text-xs text-muted-foreground mt-1">{item.desc}</p>
+                  <span className="text-xs text-orange-400 font-bold">{t('projectSaven.step')} {item.num}</span>
+                  <h3 className="text-base font-semibold mt-1">{t(`projectSaven.${item.titleKey}`)}</h3>
+                  <p className="text-xs text-muted-foreground mt-1">{t(`projectSaven.${item.descKey}`)}</p>
                 </CardContent>
               </Card>
             ))}
@@ -257,28 +244,28 @@ const SAVEN = () => {
       <section className="py-20">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-            Three Environments. <span className="text-orange-400">One Logic.</span>
+            {t('projectSaven.envTitle')} <span className="text-orange-400">{t('projectSaven.envHighlight')}</span>
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {[
-              { icon: Home, title: 'HOME', subtitle: 'Autonomy & Routine', desc: 'SAVEN maintains daily routines and catches deviations before they escalate.' },
-              { icon: Hospital, title: 'HOSPITAL', subtitle: 'Restoration & Staffing', desc: 'Ensures continuity of care during the most vulnerable medical episodes.' },
-              { icon: Building2, title: 'INSTITUTION', subtitle: 'Transparency & Transition', desc: 'Creates seamless care bridges between environments and care teams.' },
+              { icon: Home, titleKey: 'envHome', subKey: 'envHomeSub', descKey: 'envHomeDesc' },
+              { icon: Hospital, titleKey: 'envHospital', subKey: 'envHospitalSub', descKey: 'envHospitalDesc' },
+              { icon: Building2, titleKey: 'envInstitution', subKey: 'envInstitutionSub', descKey: 'envInstitutionDesc' },
             ].map((item, i) => (
               <Card key={i} className="bg-gradient-to-b from-card to-card/50 border-orange-500/10 text-center hover:border-orange-500/30 transition-all">
                 <CardContent className="p-8">
                   <div className="w-16 h-16 rounded-full bg-orange-500/10 flex items-center justify-center mx-auto mb-6">
                     <item.icon className="w-8 h-8 text-orange-400" />
                   </div>
-                  <h3 className="text-xl font-bold mb-1">{item.title}</h3>
-                  <p className="text-sm text-orange-400 mb-3">{item.subtitle}</p>
-                  <p className="text-muted-foreground">{item.desc}</p>
+                  <h3 className="text-xl font-bold mb-1">{t(`projectSaven.${item.titleKey}`)}</h3>
+                  <p className="text-sm text-orange-400 mb-3">{t(`projectSaven.${item.subKey}`)}</p>
+                  <p className="text-muted-foreground">{t(`projectSaven.${item.descKey}`)}</p>
                 </CardContent>
               </Card>
             ))}
           </div>
           <p className="text-center text-sm text-muted-foreground mt-8 italic">
-            Policies, rules, and roles change. The logic of execution and verification remains identical.
+            {t('projectSaven.envNote')}
           </p>
         </div>
       </section>
@@ -292,15 +279,13 @@ const SAVEN = () => {
             </div>
             <div>
               <h2 className="text-3xl font-bold mb-4">
-                Agnostic to the <span className="text-orange-400">Body</span>
+                {t('projectSaven.bodyTitle')} <span className="text-orange-400">{t('projectSaven.bodyHighlight')}</span>
               </h2>
               <p className="text-muted-foreground leading-relaxed mb-6">
-                Apps require cognitive effort and break under stress. Robots make movements but take no responsibility. 
-                SAVEN is the link — independent of body form. Whether the actor is a human nurse or a robotic arm, 
-                SAVEN validates the fact.
+                {t('projectSaven.bodyDesc1')}
               </p>
               <p className="text-muted-foreground leading-relaxed">
-                It connects the digital and the physical without fantasies.
+                {t('projectSaven.bodyDesc2')}
               </p>
             </div>
           </div>
@@ -312,25 +297,25 @@ const SAVEN = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-              The Critical Use Case: <span className="text-orange-400">Post-Hospital Bridge</span>
+              {t('projectSaven.bridgeTitle')} <span className="text-orange-400">{t('projectSaven.bridgeHighlight')}</span>
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <Card className="bg-card border-red-500/20">
                 <CardContent className="p-6">
-                  <h3 className="text-lg font-bold text-red-400 mb-3">Problem</h3>
-                  <p className="text-muted-foreground">The post-hospital period is the most vulnerable moment in a person's life.</p>
+                  <h3 className="text-lg font-bold text-red-400 mb-3">{t('projectSaven.bridgeProblem')}</h3>
+                  <p className="text-muted-foreground">{t('projectSaven.bridgeProblemDesc')}</p>
                 </CardContent>
               </Card>
               <Card className="bg-card border-orange-500/20">
                 <CardContent className="p-6">
-                  <h3 className="text-lg font-bold text-orange-400 mb-3">Solution</h3>
-                  <p className="text-muted-foreground">SAVEN holds the routine together when the patient is too weak to do so. It retains routine execution and fixes deviations early.</p>
+                  <h3 className="text-lg font-bold text-orange-400 mb-3">{t('projectSaven.bridgeSolution')}</h3>
+                  <p className="text-muted-foreground">{t('projectSaven.bridgeSolutionDesc')}</p>
                 </CardContent>
               </Card>
               <Card className="bg-card border-green-500/20">
                 <CardContent className="p-6">
-                  <h3 className="text-lg font-bold text-green-400 mb-3">Impact</h3>
-                  <p className="text-muted-foreground">Fewer readmissions, less chaos, less pressure on the family.</p>
+                  <h3 className="text-lg font-bold text-green-400 mb-3">{t('projectSaven.bridgeImpact')}</h3>
+                  <p className="text-muted-foreground">{t('projectSaven.bridgeImpactDesc')}</p>
                 </CardContent>
               </Card>
             </div>
@@ -343,24 +328,24 @@ const SAVEN = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl font-bold text-white mb-4">
-              SAVEN <span className="text-orange-400">Presentation</span>
+              {t('projectSaven.presentationTitle')} <span className="text-orange-400">{t('projectSaven.presentationHighlight')}</span>
             </h2>
             <p className="text-gray-300 mb-8">
-              Download the full SAVEN Infrastructure of Continuous Execution presentation.
+              {t('projectSaven.presentationDesc')}
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
               <a href="/documents/SAVEN_Infrastructure_of_Continuous_Execution.pdf" download>
                 <Button size="lg" className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-6 text-lg">
-                  <Download className="w-5 h-5 mr-2" /> Download Presentation (PDF)
+                  <Download className="w-5 h-5 mr-2" /> {t('projectSaven.downloadPDF')}
                 </Button>
               </a>
               <Button size="lg" variant="outline" className="border-orange-400/40 text-orange-300 hover:bg-orange-500/10 px-8 py-6 text-lg"
                 onClick={() => handleShare('SAVEN Infrastructure of Continuous Execution')}>
-                <Share2 className="w-5 h-5 mr-2" /> Share
+                <Share2 className="w-5 h-5 mr-2" /> {t('projectSaven.share')}
               </Button>
               <Button size="lg" variant="outline" className="border-orange-400/40 text-orange-300 hover:bg-orange-500/10 px-8 py-6 text-lg"
                 onClick={() => handleSend('SAVEN Infrastructure of Continuous Execution')}>
-                <Mail className="w-5 h-5 mr-2" /> Send
+                <Mail className="w-5 h-5 mr-2" /> {t('projectSaven.send')}
               </Button>
             </div>
           </div>
@@ -371,7 +356,7 @@ const SAVEN = () => {
       <section className="py-20 bg-muted/30">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-            <span className="text-orange-400">Infographics</span>
+            <span className="text-orange-400">{t('projectSaven.infographicsTitle')}</span>
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {infographics.map((item, i) => (
@@ -383,16 +368,16 @@ const SAVEN = () => {
                   <p className="font-semibold text-sm mb-3">{item.title}</p>
                   <div className="flex flex-wrap gap-2">
                     <Button size="sm" variant="outline" onClick={() => handleDownload(item.src, `saven-${i + 1}.png`)}>
-                      <Download className="w-3 h-3 mr-1" /> Download
+                      <Download className="w-3 h-3 mr-1" /> {t('projectSaven.download')}
                     </Button>
                     <Button size="sm" variant="outline" onClick={() => handleCopy(item.src)}>
-                      <Copy className="w-3 h-3 mr-1" /> Copy
+                      <Copy className="w-3 h-3 mr-1" /> {t('projectSaven.copy')}
                     </Button>
                     <Button size="sm" variant="outline" onClick={() => handleShare(item.title)}>
-                      <Share2 className="w-3 h-3 mr-1" /> Share
+                      <Share2 className="w-3 h-3 mr-1" /> {t('projectSaven.share')}
                     </Button>
                     <Button size="sm" variant="outline" onClick={() => handleSend(item.title)}>
-                      <Mail className="w-3 h-3 mr-1" /> Send
+                      <Mail className="w-3 h-3 mr-1" /> {t('projectSaven.send')}
                     </Button>
                   </div>
                 </CardContent>
@@ -413,25 +398,25 @@ const SAVEN = () => {
       <section className="py-20">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-            Economic <span className="text-orange-400">Logic</span>
+            {t('projectSaven.econTitle')} <span className="text-orange-400">{t('projectSaven.econHighlight')}</span>
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
             {[
-              { icon: Network, title: 'High Cost of Exit', desc: 'History cannot be copy-pasted. Accumulated context and trajectories create deep lock-in.' },
-              { icon: BarChart3, title: 'Growing LTV', desc: 'Precision increases with duration. The longer the system runs, the more valuable it becomes.' },
-              { icon: ShieldCheck, title: 'Risk Reduction', desc: 'Predictable risk for insurers. Every verified action reduces uncertainty.' },
+              { icon: Network, titleKey: 'econCost', descKey: 'econCostDesc' },
+              { icon: BarChart3, titleKey: 'econLTV', descKey: 'econLTVDesc' },
+              { icon: ShieldCheck, titleKey: 'econRisk', descKey: 'econRiskDesc' },
             ].map((item, i) => (
               <Card key={i} className="bg-card/50 border-orange-500/10 hover:border-orange-500/30 transition-all">
                 <CardContent className="p-6 text-center">
                   <item.icon className="w-8 h-8 text-orange-400 mx-auto mb-4" />
-                  <h3 className="text-lg font-semibold mb-2">{item.title}</h3>
-                  <p className="text-sm text-muted-foreground">{item.desc}</p>
+                  <h3 className="text-lg font-semibold mb-2">{t(`projectSaven.${item.titleKey}`)}</h3>
+                  <p className="text-sm text-muted-foreground">{t(`projectSaven.${item.descKey}`)}</p>
                 </CardContent>
               </Card>
             ))}
           </div>
           <p className="text-center text-muted-foreground mt-8 text-lg italic">
-            The market doesn't need new apps. The market needs infrastructure for continuity.
+            {t('projectSaven.econNote')}
           </p>
         </div>
       </section>
@@ -440,23 +425,22 @@ const SAVEN = () => {
       <section className="py-20 bg-muted/30">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
-            Built for the <span className="text-orange-400">Providers</span>
+            {t('projectSaven.providersTitle')} <span className="text-orange-400">{t('projectSaven.providersHighlight')}</span>
           </h2>
           <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-            The human is the beneficiary of the system, but they are not the customer of the infrastructure. 
-            SAVEN enables these organizations to guarantee the care they promise.
+            {t('projectSaven.providersDesc')}
           </p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto">
             {[
-              { icon: Hospital, title: 'Care Organizations' },
-              { icon: ShieldCheck, title: 'Insurance Systems' },
-              { icon: Cpu, title: 'Device Manufacturers' },
-              { icon: Building2, title: 'Infrastructure Projects' },
+              { icon: Hospital, titleKey: 'provCare' },
+              { icon: ShieldCheck, titleKey: 'provInsurance' },
+              { icon: Cpu, titleKey: 'provDevice' },
+              { icon: Building2, titleKey: 'provInfra' },
             ].map((item, i) => (
               <Card key={i} className="bg-card/50 border-border/50 text-center hover:border-orange-500/30 transition-all">
                 <CardContent className="p-6">
                   <item.icon className="w-8 h-8 text-orange-400 mx-auto mb-3" />
-                  <p className="font-semibold text-sm">{item.title}</p>
+                  <p className="font-semibold text-sm">{t(`projectSaven.${item.titleKey}`)}</p>
                 </CardContent>
               </Card>
             ))}
@@ -468,20 +452,13 @@ const SAVEN = () => {
       <section className="py-20">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-            Investment <span className="text-orange-400">Highlights</span>
+            {t('projectSaven.investTitle')} <span className="text-orange-400">{t('projectSaven.investHighlight')}</span>
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            {[
-              'Infrastructure-level play — not an app, but the execution layer for continuous care',
-              'Private-label model: partners own the UI, SAVEN owns the continuity logic',
-              'Deep integration with BioMath Core (20 categories × 200+ services)',
-              'Body-agnostic architecture works with robots, devices, and human caregivers alike',
-              'Growing LTV with high switching costs — history and trajectories cannot be replicated',
-              'Addresses the critical post-hospital bridge — the most vulnerable moment in patient care',
-            ].map((item, i) => (
+            {[1, 2, 3, 4, 5, 6].map((i) => (
               <div key={i} className="flex items-start gap-3 p-4 rounded-lg bg-card/50 border border-border/50">
                 <ChevronRight className="w-5 h-5 text-orange-400 mt-0.5 flex-shrink-0" />
-                <p className="text-muted-foreground">{item}</p>
+                <p className="text-muted-foreground">{t(`projectSaven.invest${i}`)}</p>
               </div>
             ))}
           </div>
@@ -491,18 +468,18 @@ const SAVEN = () => {
       {/* Infrastructure Formula */}
       <section className="py-16 bg-gradient-to-r from-[#0d0f1a] to-[#1a1020]">
         <div className="container mx-auto px-4 text-center">
-          <h3 className="text-2xl font-bold text-white mb-8">The Infrastructure Formula</h3>
+          <h3 className="text-2xl font-bold text-white mb-8">{t('projectSaven.formulaTitle')}</h3>
           <div className="flex flex-wrap items-center justify-center gap-4 text-lg">
             <span className="bg-teal-500/20 text-teal-300 px-6 py-3 rounded-lg font-semibold">BioMath Core</span>
             <span className="text-white text-2xl">+</span>
             <span className="bg-orange-500/20 text-orange-300 px-6 py-3 rounded-lg font-semibold">SAVEN</span>
             <span className="text-white text-2xl">+</span>
-            <span className="bg-gray-500/20 text-gray-300 px-6 py-3 rounded-lg font-semibold">Bodies</span>
+            <span className="bg-gray-500/20 text-gray-300 px-6 py-3 rounded-lg font-semibold">{t('projectSaven.formulaBodies')}</span>
             <span className="text-white text-2xl">=</span>
-            <span className="bg-green-500/20 text-green-300 px-6 py-3 rounded-lg font-bold">System of Continuous Care</span>
+            <span className="bg-green-500/20 text-green-300 px-6 py-3 rounded-lg font-bold">{t('projectSaven.formulaResult')}</span>
           </div>
           <p className="text-gray-400 mt-6 italic">
-            It doesn't make a person healthy. It makes the care system work.
+            {t('projectSaven.formulaNote')}
           </p>
         </div>
       </section>
@@ -511,21 +488,20 @@ const SAVEN = () => {
       <section className="py-20 bg-gradient-to-r from-[#0d0f1a] to-[#1a0f0a]">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-            Interested in SAVEN?
+            {t('projectSaven.ctaTitle')}
           </h2>
           <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
-            Submitting interest is non-binding and does not create any agreement. 
-            All potential participation is discussed individually and offline.
+            {t('projectSaven.ctaDesc')}
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <Link to="/contact">
               <Button size="lg" className="bg-orange-500 hover:bg-orange-600 text-white px-10 py-6 text-lg">
-                Submit Interest <ArrowRight className="w-5 h-5 ml-2" />
+                {t('projectSaven.submitInterest')} <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
             </Link>
             <Link to="/projects">
               <Button size="lg" variant="outline" className="border-gray-500 text-gray-300 hover:bg-white/5 px-10 py-6 text-lg">
-                View All Projects
+                {t('projectSaven.viewAllProjects')}
               </Button>
             </Link>
           </div>
