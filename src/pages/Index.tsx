@@ -508,7 +508,7 @@ const Index = () => {
       </section>
 
       {/* ═══════════════════ CAPABILITIES — Minimal ═══════════════════ */}
-      <section ref={capabilitiesSection.ref} className={`py-20 md:py-28 px-4 scroll-slide-up ${capabilitiesSection.isVisible ? 'visible' : ''}`}>
+      <section ref={capabilitiesSection.ref} className={`py-20 md:py-28 px-4 section-gradient-rose scroll-slide-up ${capabilitiesSection.isVisible ? 'visible' : ''}`}>
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-14 space-y-3">
             <h2 ref={capabilitiesHeading.ref} className={`text-3xl md:text-4xl font-bold tracking-tight text-foreground animate-heading-reveal ${capabilitiesHeading.isVisible ? 'visible' : ''}`}>
