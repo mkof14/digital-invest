@@ -205,10 +205,10 @@ const BioMathCore = () => {
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {[
-              { step: "01", title: "Data Aggregation", desc: "Connect wearables, upload labs, import medical records, add genetic tests. All data flows into the encrypted Model Archive vault.", icon: Database },
-              { step: "02", title: "Knowledge Engine", desc: "Server-side engine analyzes data, identifies patterns, correlates metrics across categories, and updates your personal health model continuously.", icon: Server },
-              { step: "03", title: "AI Insight Generation", desc: "200+ specialized AI services examine sleep, nutrition, stress, recovery, cognition, metabolic health and generate personalized insights.", icon: Cpu },
-              { step: "04", title: "Daily Guidance", desc: "Personalized recommendations through clean dashboards. Visual reports, smart alerts, and context-rich explanations — designed to inform, not alarm.", icon: FileText },
+              { step: "01", title: t('projectBiomathCore.step1Title'), desc: t('projectBiomathCore.step1Desc'), icon: Database },
+              { step: "02", title: t('projectBiomathCore.step2Title'), desc: t('projectBiomathCore.step2Desc'), icon: Server },
+              { step: "03", title: t('projectBiomathCore.step3Title'), desc: t('projectBiomathCore.step3Desc'), icon: Cpu },
+              { step: "04", title: t('projectBiomathCore.step4Title'), desc: t('projectBiomathCore.step4Desc'), icon: FileText },
             ].map((item) => (
               <div key={item.step} className="bg-[hsl(220,18%,7%)] rounded-2xl p-8 border border-[hsl(210,15%,13%)] hover:border-[hsl(200,80%,50%)]/20 transition-all duration-500 group relative overflow-hidden">
                 <span className="absolute top-6 right-8 text-6xl font-bold text-[hsl(200,80%,50%)]/8 group-hover:text-[hsl(200,80%,50%)]/15 transition-colors">{item.step}</span>
