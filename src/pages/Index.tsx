@@ -472,10 +472,10 @@ const Index = () => {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16 space-y-4">
             <h2 ref={whatWeBuildHeading.ref} className={`text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight gradient-tech-animated animate-heading-reveal ${whatWeBuildHeading.isVisible ? 'visible' : ''}`}>
-              What We Build
+              {t('whatWeBuild.title')}
             </h2>
             <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto font-light leading-relaxed">
-              Five proprietary platforms across health, agriculture, food production, and infrastructure
+              {t('whatWeBuild.subtitle2')}
             </p>
           </div>
           
