@@ -50,7 +50,7 @@ const Footer = () => {
               <h3 className="text-lg font-bold text-foreground">Digital Invest Inc.</h3>
             </Link>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              Building and scaling real-economy, AI, manufacturing, and health-technology projects across the United States.
+              {t('footer.description')}
             </p>
           </div>
 
