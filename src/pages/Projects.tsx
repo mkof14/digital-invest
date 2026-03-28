@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { supabase } from '@/integrations/supabase/client';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
@@ -76,6 +76,39 @@ interface Project {
   category: string;
   hero_image_url: string;
 }
+
+const ScrollRevealCard = ({ children, index }: { children: React.ReactNode; index: number }) => {
+  const ref = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          if (ref.current) observer.unobserve(ref.current);
+        }
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+    );
+    if (ref.current) observer.observe(ref.current);
+    return () => { if (ref.current) observer.unobserve(ref.current); };
+  }, []);
+
+  return (
+    <div
+      ref={ref}
+      className="transition-all duration-700 ease-out"
+      style={{
+        opacity: isVisible ? 1 : 0,
+        transform: isVisible ? 'translateY(0) scale(1)' : 'translateY(40px) scale(0.95)',
+        transitionDelay: `${index % 3 * 120}ms`,
+      }}
+    >
+      {children}
+    </div>
+  );
+};
 
 const Projects = () => {
   const [projects, setProjects] = useState<Project[]>([]);
@@ -232,18 +265,18 @@ const Projects = () => {
             <p className="text-muted-foreground text-lg">No projects available at this time.</p>
           </div>
         ) : viewMode === 'grid' ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 animate-fade-in">
-            {projects.map((project) => {
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {projects.map((project, index) => {
               const theme = getTheme(project.slug);
               const isBioMath = project.slug === 'biomath-core' || project.slug === 'biomathcore';
               const projectImage = isBioMath ? biomathcoreCardBg : getProjectImage(project);
               const hasLogo = project.slug === 'baseline' || project.slug === 'saven' || isBioMath;
               
               return (
+                <ScrollRevealCard key={project.id} index={index}>
                 <Link
-                  key={project.id}
                   to={`/projects/${project.slug}`}
-                  className="group block"
+                  className="group block h-full"
                 >
                   <Card className={`overflow-hidden border ${theme.border} bg-card shadow-elegant hover:shadow-elevated transition-all duration-500 hover:-translate-y-3 hover:scale-[1.02] flex flex-col h-full cursor-pointer`}>
                     {/* Image */}
@@ -316,18 +349,20 @@ const Projects = () => {
                     </CardFooter>
                   </Card>
                 </Link>
+                </ScrollRevealCard>
               );
             })}
           </div>
         ) : (
-          <div className="flex flex-col gap-6 animate-fade-in">
-            {projects.map((project) => {
+          <div className="flex flex-col gap-6">
+            {projects.map((project, index) => {
               const theme = getTheme(project.slug);
               const isBioMath = project.slug === 'biomath-core' || project.slug === 'biomathcore';
               const projectImage = isBioMath ? biomathcoreCardBg : getProjectImage(project);
 
               return (
-                <Link key={project.id} to={`/projects/${project.slug}`} className="group block">
+                <ScrollRevealCard key={project.id} index={index}>
+                <Link to={`/projects/${project.slug}`} className="group block">
                   <Card className={`overflow-hidden border ${theme.border} bg-card shadow-elegant hover:shadow-elevated transition-all duration-500 hover:-translate-y-1 cursor-pointer`}>
                     <div className="flex flex-col md:flex-row">
                       <div className="relative w-full md:w-80 h-48 overflow-hidden bg-muted">
@@ -386,6 +421,7 @@ const Projects = () => {
                     </div>
                   </Card>
                 </Link>
+                </ScrollRevealCard>
               );
             })}
           </div>
