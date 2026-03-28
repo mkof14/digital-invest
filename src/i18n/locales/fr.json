@@ -1,0 +1,129 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "projects": "Projets",
+    "forInvestors": "Pour les Investisseurs",
+    "aboutUs": "À Propos",
+    "contact": "Contact",
+    "signIn": "Connexion/Inscription",
+    "signOut": "Déconnexion",
+    "myAccount": "Mon Compte",
+    "darkMode": "Mode Sombre",
+    "lightMode": "Mode Clair"
+  },
+  "hero": {
+    "badge": "Capital Risque et Innovation",
+    "title1": "Investir dans l'",
+    "titleHighlight": "Réelle Innovation",
+    "subtitle": "Digital Invest connecte les investisseurs visionnaires avec des projets à fort impact dans la santé numérique, l'agriculture, l'aérospatiale et la technologie durable.",
+    "cta1": "Commencer à Investir",
+    "cta2": "Pour les Investisseurs"
+  },
+  "ecosystem": {
+    "badge": "Vision de l'Écosystème",
+    "title": "Plus de 200 Services.",
+    "titleHighlight": "Une Plateforme Vivante.",
+    "subtitle": "Chaque produit renforce l'ensemble — un modèle numérique auto-évolutif de la santé humaine.",
+    "beginning": "Ce n'est que le début.",
+    "coreTitle": "Noyau BioMath",
+    "coreDesc": "Fondation pour",
+    "coreServices": "200+ services",
+    "coreActive": "18 actifs",
+    "dailyHealth": "Santé Quotidienne",
+    "dailyHealthDesc": "Suivi personnalisé & aperçus de longévité",
+    "unifiedData": "Données Unifiées",
+    "unifiedDataDesc": "Un seul noyau intelligent pour tous les services",
+    "selfImproving": "Auto-Amélioration",
+    "selfImprovingDesc": "Chaque point de donnée fait évoluer la plateforme",
+    "crossSynergy": "Synergie Transversale",
+    "crossSynergyDesc": "Infrastructure vivante, pas d'applications isolées",
+    "exploreAll": "Explorer les 18 Projets"
+  },
+  "featured": {
+    "badge": "Projets en Portefeuille",
+    "title": "Projets Phares",
+    "subtitle": "Découvrez notre portefeuille de projets dans l'économie réelle et les technologies avancées",
+    "viewAll": "Voir Tous les Projets",
+    "learnMore": "En Savoir Plus",
+    "target": "Objectif",
+    "raised": "Levé"
+  },
+  "whatWeBuild": {
+    "badge": "Nos Secteurs",
+    "title": "Ce Que Nous Bâtissons",
+    "subtitle": "Portefeuille diversifié à travers les secteurs clés de l'innovation"
+  },
+  "whyDigitalInvest": {
+    "badge": "Notre Avantage",
+    "title": "Pourquoi Digital Invest ?",
+    "subtitle": "Une approche moderne de l'investissement en capital-risque, axée sur la transparence et l'innovation"
+  },
+  "investment": {
+    "badge": "Comment Ça Marche",
+    "title": "Processus d'Investissement",
+    "subtitle": "Des étapes simples et transparentes de la découverte à la gestion de portefeuille"
+  },
+  "faq": {
+    "badge": "FAQ",
+    "title": "Questions Fréquemment Posées",
+    "subtitle": "Trouvez des réponses aux questions courantes sur l'investissement avec Digital Invest"
+  },
+  "footer": {
+    "company": "Digital Invest Inc.",
+    "description": "Une plateforme d'investissement moderne connectant les investisseurs avec des projets innovants dans la santé numérique, l'agriculture et la technologie.",
+    "quickLinks": "Liens Rapides",
+    "legal": "Mentions Légales",
+    "resources": "Ressources",
+    "contact": "Nous Contacter",
+    "rights": "Tous droits réservés.",
+    "privacy": "Politique de Confidentialité",
+    "terms": "Conditions d'Utilisation",
+    "risk": "Divulgation des Risques",
+    "howItWorks": "Comment Ça Marche",
+    "team": "Équipe",
+    "news": "Actualités",
+    "careers": "Carrières"
+  },
+  "common": {
+    "loading": "Chargement...",
+    "error": "Erreur",
+    "submit": "Soumettre",
+    "cancel": "Annuler",
+    "save": "Enregistrer",
+    "delete": "Supprimer",
+    "edit": "Modifier",
+    "back": "Retour",
+    "next": "Suivant",
+    "search": "Rechercher",
+    "filter": "Filtrer",
+    "all": "Tous",
+    "open": "Ouvert",
+    "closed": "Fermé",
+    "comingSoon": "Prochainement",
+    "readMore": "Lire la Suite",
+    "viewDetails": "Voir les Détails"
+  },
+  "contact": {
+    "title": "Prendre Contact",
+    "subtitle": "Des questions ? Nous serions ravis de vous entendre.",
+    "name": "Nom Complet",
+    "email": "Adresse E-mail",
+    "phone": "Numéro de Téléphone",
+    "message": "Message",
+    "send": "Envoyer le Message",
+    "success": "Message envoyé avec succès !",
+    "error": "Échec de l'envoi du message."
+  },
+  "investors": {
+    "title": "Pour les Investisseurs",
+    "subtitle": "Accédez à des opportunités d'investissement sélectionnées dans l'innovation et la technologie",
+    "minimumInvestment": "Investissement Minimum",
+    "targetReturn": "Rendement Cible",
+    "projectDuration": "Durée du Projet",
+    "submitInterest": "Exprimer votre Intérêt"
+  },
+  "about": {
+    "title": "À Propos",
+    "subtitle": "Bâtir l'avenir par l'investissement stratégique dans l'innovation"
+  }
+}

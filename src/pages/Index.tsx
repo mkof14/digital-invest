@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -64,6 +65,7 @@ interface FeaturedProject {
 }
 
 const Index = () => {
+  const { t } = useTranslation();
   const [featuredProjects, setFeaturedProjects] = useState<FeaturedProject[]>([]);
   
   // Scroll animation hooks
@@ -246,13 +248,13 @@ const Index = () => {
                 <circle cx="5" cy="17" r="1.5" fill="currentColor" opacity="0.6"/>
                 <circle cx="5" cy="9" r="1.5" fill="currentColor" opacity="0.6"/>
               </svg>
-              Ecosystem Vision
+              {t('ecosystem.badge')}
             </div>
             <h2 ref={biomathVisionHeading.ref} className={`text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-foreground animate-heading-reveal ${biomathVisionHeading.isVisible ? 'visible' : ''}`}>
-              200+ Services. <span className="text-primary">One Living Platform.</span>
+              {t('ecosystem.title')} <span className="text-primary">{t('ecosystem.titleHighlight')}</span>
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto font-light">
-              Every product strengthens the whole — a self-evolving digital model of human health. <span className="text-primary font-semibold">This is only the beginning.</span>
+              {t('ecosystem.subtitle')} <span className="text-primary font-semibold">{t('ecosystem.beginning')}</span>
             </p>
           </div>
           
@@ -279,8 +281,8 @@ const Index = () => {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-foreground">BioMath Core</h3>
-                    <p className="text-sm text-muted-foreground">Foundation for <span className="font-semibold text-primary">200+ services</span> · <span className="font-semibold text-primary">18 active</span></p>
+                    <h3 className="text-xl font-bold text-foreground">{t('ecosystem.coreTitle')}</h3>
+                    <p className="text-sm text-muted-foreground">{t('ecosystem.coreDesc')} <span className="font-semibold text-primary">{t('ecosystem.coreServices')}</span> · <span className="font-semibold text-primary">{t('ecosystem.coreActive')}</span></p>
                   </div>
                   <ArrowRight className="w-5 h-5 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all ml-2" />
                 </div>
@@ -291,8 +293,8 @@ const Index = () => {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
               {[
                 { 
-                  title: "Daily Health",
-                  desc: "Personalized tracking & longevity insights",
+                  title: t('ecosystem.dailyHealth'),
+                  desc: t('ecosystem.dailyHealthDesc'),
                   icon: (
                     <svg width="28" height="28" viewBox="0 0 28 28" fill="none" className="text-emerald-600 dark:text-emerald-400">
                       <path d="M4 20L8 12L12 16L16 8L20 14L24 10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -303,8 +305,8 @@ const Index = () => {
                   accent: "border-emerald-500/20 hover:border-emerald-500/40"
                 },
                 { 
-                  title: "Unified Data",
-                  desc: "Single intelligence core across all services",
+                  title: t('ecosystem.unifiedData'),
+                  desc: t('ecosystem.unifiedDataDesc'),
                   icon: (
                     <svg width="28" height="28" viewBox="0 0 28 28" fill="none" className="text-blue-600 dark:text-blue-400">
                       <rect x="4" y="4" width="8" height="8" rx="2" stroke="currentColor" strokeWidth="1.5" fill="currentColor" fillOpacity="0.1"/>
@@ -317,8 +319,8 @@ const Index = () => {
                   accent: "border-blue-500/20 hover:border-blue-500/40"
                 },
                 { 
-                  title: "Self-Improving",
-                  desc: "Each data point evolves the platform",
+                  title: t('ecosystem.selfImproving'),
+                  desc: t('ecosystem.selfImprovingDesc'),
                   icon: (
                     <svg width="28" height="28" viewBox="0 0 28 28" fill="none" className="text-amber-600 dark:text-amber-400">
                       <path d="M14 4L14 24" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeDasharray="2 2"/>
@@ -331,8 +333,8 @@ const Index = () => {
                   accent: "border-amber-500/20 hover:border-amber-500/40"
                 },
                 { 
-                  title: "Cross-Synergy",
-                  desc: "Living infrastructure, not isolated apps",
+                  title: t('ecosystem.crossSynergy'),
+                  desc: t('ecosystem.crossSynergyDesc'),
                   icon: (
                     <svg width="28" height="28" viewBox="0 0 28 28" fill="none" className="text-violet-600 dark:text-violet-400">
                       <circle cx="14" cy="14" r="4" stroke="currentColor" strokeWidth="1.5" fill="currentColor" fillOpacity="0.15"/>
@@ -361,7 +363,7 @@ const Index = () => {
             <div className="text-center mt-8">
               <Button size="default" className="group" asChild>
                 <Link to="/projects">
-                  Explore All 18 Projects
+                  {t('ecosystem.exploreAll')}
                   <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </Button>
@@ -374,12 +376,12 @@ const Index = () => {
       <section ref={featuredSection.ref} className={`py-24 px-4 bg-card/30 section-gradient-cool scroll-fade-in ${featuredSection.isVisible ? 'visible' : ''}`}>
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16 space-y-4">
-            <Badge variant="secondary" className="mb-3 text-sm">Portfolio Projects</Badge>
+            <Badge variant="secondary" className="mb-3 text-sm">{t('featured.badge')}</Badge>
             <h2 ref={featuredHeading.ref} className={`text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight gradient-blue-animated animate-heading-reveal ${featuredHeading.isVisible ? 'visible' : ''}`}>
-              Featured Projects
+              {t('featured.title')}
             </h2>
             <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto font-light leading-relaxed">
-              Explore our portfolio of real-economy and advanced technology projects
+              {t('featured.subtitle')}
             </p>
           </div>
           

@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { Menu, X, Sun, Moon, LogIn, LogOut, User } from 'lucide-react';
+import { Menu, X, Sun, Moon, LogIn, LogOut, User, Globe } from 'lucide-react';
 import { useTheme } from '@/components/ThemeProvider';
 import OptimizedImage from '@/components/OptimizedImage';
 import { useAuth } from '@/hooks/useAuth';
+import { useTranslation } from 'react-i18next';
+import { languages } from '@/i18n';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -20,13 +22,14 @@ const Navigation = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const { user, signOut, isAuthenticated } = useAuth();
+  const { t, i18n } = useTranslation();
 
   const navItems = [
-    { label: 'Home', href: '/' },
-    { label: 'Projects', href: '/projects' },
-    { label: 'For Investors', href: '/for-investors' },
-    { label: 'About Us', href: '/about' },
-    { label: 'Contact', href: '/contact' }
+    { label: t('nav.home'), href: '/' },
+    { label: t('nav.projects'), href: '/projects' },
+    { label: t('nav.forInvestors'), href: '/for-investors' },
+    { label: t('nav.aboutUs'), href: '/about' },
+    { label: t('nav.contact'), href: '/contact' }
   ];
 
   const isActivePath = (path: string) => {
@@ -39,6 +42,18 @@ const Navigation = () => {
   const handleSignOut = async () => {
     await signOut();
     navigate('/');
+  };
+
+  const currentLang = languages.find(l => l.code === i18n.language) || languages[0];
+
+  const changeLanguage = (code: string) => {
+    i18n.changeLanguage(code);
+    const lang = languages.find(l => l.code === code);
+    if (lang && 'dir' in lang) {
+      document.documentElement.dir = 'rtl';
+    } else {
+      document.documentElement.dir = 'ltr';
+    }
   };
 
   return (
@@ -61,7 +76,7 @@ const Navigation = () => {
             <nav className="flex items-center space-x-8">
               {navItems.map((item) => (
                 <Link
-                  key={item.label}
+                  key={item.href}
                   to={item.href}
                   className={`transition-all duration-300 hover:scale-110 inline-block ${
                     isActivePath(item.href)
@@ -74,6 +89,28 @@ const Navigation = () => {
               ))}
             </nav>
             
+            {/* Language Switcher */}
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="ghost" size="sm" className="p-2 gap-1.5">
+                  <Globe className="h-4 w-4" />
+                  <span className="text-xs font-medium">{currentLang.flag}</span>
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end" className="w-44">
+                {languages.map((lang) => (
+                  <DropdownMenuItem
+                    key={lang.code}
+                    onClick={() => changeLanguage(lang.code)}
+                    className={`cursor-pointer ${i18n.language === lang.code ? 'bg-muted font-medium' : ''}`}
+                  >
+                    <span className="mr-2">{lang.flag}</span>
+                    {lang.name}
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
+
             {/* Theme Toggle */}
             <Button
               variant="ghost"
@@ -97,11 +134,11 @@ const Navigation = () => {
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end" className="w-56">
-                  <DropdownMenuLabel>My Account</DropdownMenuLabel>
+                  <DropdownMenuLabel>{t('nav.myAccount')}</DropdownMenuLabel>
                   <DropdownMenuSeparator />
                   <DropdownMenuItem onClick={handleSignOut} className="cursor-pointer">
                     <LogOut className="mr-2 h-4 w-4" />
-                    Sign Out
+                    {t('nav.signOut')}
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
@@ -109,7 +146,7 @@ const Navigation = () => {
               <Button variant="outline" asChild className="hover:bg-muted/50 transition-all">
                 <Link to="/investor-auth" className="flex items-center gap-2">
                   <LogIn className="h-4 w-4" />
-                  Sign In/Up
+                  {t('nav.signIn')}
                 </Link>
               </Button>
             )}
@@ -132,7 +169,7 @@ const Navigation = () => {
             <div className="flex flex-col space-y-3 pt-4">
               {navItems.map((item) => (
                 <Link
-                  key={item.label}
+                  key={item.href}
                   to={item.href}
                   className={`transition-all duration-300 hover:scale-110 inline-block py-2 ${
                     isActivePath(item.href)
@@ -144,6 +181,23 @@ const Navigation = () => {
                   {item.label}
                 </Link>
               ))}
+
+              {/* Mobile Language Selector */}
+              <div className="flex flex-wrap gap-2 py-2">
+                {languages.map((lang) => (
+                  <button
+                    key={lang.code}
+                    onClick={() => changeLanguage(lang.code)}
+                    className={`px-3 py-1.5 rounded-md text-sm transition-colors ${
+                      i18n.language === lang.code
+                        ? 'bg-primary text-primary-foreground'
+                        : 'bg-muted text-muted-foreground hover:bg-muted/80'
+                    }`}
+                  >
+                    {lang.flag} {lang.name}
+                  </button>
+                ))}
+              </div>
               
               {/* Mobile Theme Toggle */}
               <Button
@@ -156,7 +210,7 @@ const Navigation = () => {
                 ) : (
                   <Sun className="h-5 w-5 mr-2" />
                 )}
-                {theme === "light" ? "Dark Mode" : "Light Mode"}
+                {theme === "light" ? t('nav.darkMode') : t('nav.lightMode')}
               </Button>
               
               {isAuthenticated ? (
@@ -173,14 +227,14 @@ const Navigation = () => {
                     }}
                   >
                     <LogOut className="h-4 w-4 mr-2" />
-                    Sign Out
+                    {t('nav.signOut')}
                   </Button>
                 </div>
               ) : (
                 <Button variant="outline" className="mt-4 hover:bg-muted/50 transition-all" asChild onClick={() => setIsOpen(false)}>
                   <Link to="/investor-auth" className="flex items-center justify-center gap-2">
                     <LogIn className="h-4 w-4" />
-                    Sign In/Up
+                    {t('nav.signIn')}
                   </Link>
                 </Button>
               )}

@@ -1,0 +1,129 @@
+{
+  "nav": {
+    "home": "Home",
+    "projects": "Projects",
+    "forInvestors": "For Investors",
+    "aboutUs": "About Us",
+    "contact": "Contact",
+    "signIn": "Sign In/Up",
+    "signOut": "Sign Out",
+    "myAccount": "My Account",
+    "darkMode": "Dark Mode",
+    "lightMode": "Light Mode"
+  },
+  "hero": {
+    "badge": "Venture Capital & Innovation",
+    "title1": "Invest in",
+    "titleHighlight": "Real Innovation",
+    "subtitle": "Digital Invest connects visionary investors with high-impact projects across digital health, agriculture, aerospace, and sustainable technology.",
+    "cta1": "Start Investing",
+    "cta2": "For Investors"
+  },
+  "ecosystem": {
+    "badge": "Ecosystem Vision",
+    "title": "200+ Services.",
+    "titleHighlight": "One Living Platform.",
+    "subtitle": "Every product strengthens the whole — a self-evolving digital model of human health.",
+    "beginning": "This is only the beginning.",
+    "coreTitle": "BioMath Core",
+    "coreDesc": "Foundation for",
+    "coreServices": "200+ services",
+    "coreActive": "18 active",
+    "dailyHealth": "Daily Health",
+    "dailyHealthDesc": "Personalized tracking & longevity insights",
+    "unifiedData": "Unified Data",
+    "unifiedDataDesc": "Single intelligence core across all services",
+    "selfImproving": "Self-Improving",
+    "selfImprovingDesc": "Each data point evolves the platform",
+    "crossSynergy": "Cross-Synergy",
+    "crossSynergyDesc": "Living infrastructure, not isolated apps",
+    "exploreAll": "Explore All 18 Projects"
+  },
+  "featured": {
+    "badge": "Portfolio Projects",
+    "title": "Featured Projects",
+    "subtitle": "Explore our portfolio of real-economy and advanced technology projects",
+    "viewAll": "View All Projects",
+    "learnMore": "Learn More",
+    "target": "Target",
+    "raised": "Raised"
+  },
+  "whatWeBuild": {
+    "badge": "Our Sectors",
+    "title": "What We Build",
+    "subtitle": "Diversified portfolio across key innovation sectors"
+  },
+  "whyDigitalInvest": {
+    "badge": "Our Advantage",
+    "title": "Why Digital Invest?",
+    "subtitle": "A modern approach to venture investing with transparency and innovation at its core"
+  },
+  "investment": {
+    "badge": "How It Works",
+    "title": "Investment Process",
+    "subtitle": "Simple, transparent steps from discovery to portfolio management"
+  },
+  "faq": {
+    "badge": "FAQ",
+    "title": "Frequently Asked Questions",
+    "subtitle": "Find answers to common questions about investing with Digital Invest"
+  },
+  "footer": {
+    "company": "Digital Invest Inc.",
+    "description": "A modern venture platform connecting investors with innovative projects in digital health, agriculture, and technology.",
+    "quickLinks": "Quick Links",
+    "legal": "Legal",
+    "resources": "Resources",
+    "contact": "Contact Us",
+    "rights": "All rights reserved.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Use",
+    "risk": "Risk Disclosure",
+    "howItWorks": "How It Works",
+    "team": "Team",
+    "news": "News",
+    "careers": "Careers"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "submit": "Submit",
+    "cancel": "Cancel",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "back": "Back",
+    "next": "Next",
+    "search": "Search",
+    "filter": "Filter",
+    "all": "All",
+    "open": "Open",
+    "closed": "Closed",
+    "comingSoon": "Coming Soon",
+    "readMore": "Read More",
+    "viewDetails": "View Details"
+  },
+  "contact": {
+    "title": "Get in Touch",
+    "subtitle": "Have questions? We'd love to hear from you.",
+    "name": "Full Name",
+    "email": "Email Address",
+    "phone": "Phone Number",
+    "message": "Message",
+    "send": "Send Message",
+    "success": "Message sent successfully!",
+    "error": "Failed to send message."
+  },
+  "investors": {
+    "title": "For Investors",
+    "subtitle": "Access curated investment opportunities in innovation and technology",
+    "minimumInvestment": "Minimum Investment",
+    "targetReturn": "Target Return",
+    "projectDuration": "Project Duration",
+    "submitInterest": "Submit Interest"
+  },
+  "about": {
+    "title": "About Us",
+    "subtitle": "Building the future through strategic investment in innovation"
+  }
+}
