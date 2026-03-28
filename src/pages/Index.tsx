@@ -49,6 +49,20 @@ import {
   ChevronRight,
   Minus
 } from "lucide-react";
+import {
+  HealthDNAIcon,
+  AgroDataIcon,
+  FoodMolecularIcon,
+  InfraHubIcon,
+  EcosystemCoreIcon,
+  ShieldCircuitIcon,
+  GrowthArrowIcon,
+  PartnershipIcon,
+  DailyPulseIcon,
+  DataStreamIcon,
+  AILoopIcon,
+  SynergyOrbitIcon
+} from "@/components/icons/BrandIcons";
 import terraaeroHero from "@/assets/projects/terraaero-hero.jpg";
 import biomathCoreHero from "@/assets/projects/biomathcore-hero.jpg";
 import dishcoreHero from "@/assets/projects/dishcore-hero.jpg";
