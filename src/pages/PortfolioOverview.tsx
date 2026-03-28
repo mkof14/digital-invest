@@ -291,7 +291,7 @@ const PortfolioOverview = () => {
     const fetchProjects = async () => {
       const { data } = await supabase
         .from('projects')
-        .select('id, slug, title, short_description, category, status')
+        .select('id, slug, title, short_description, category, status, hero_image_url')
         .eq('is_visible', true)
         .order('priority', { ascending: false })
         .order('created_at', { ascending: true });
