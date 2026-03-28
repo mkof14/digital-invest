@@ -81,7 +81,7 @@ Today, Digital Invest brings together this multi-sector expertise into a unified
       </section>
 
       {/* Our Story */}
-      <section className="py-16 px-4 bg-muted/30">
+      <section className="py-16 px-4 bg-muted/30 section-gradient-cool">
         <div className="container mx-auto max-w-4xl">
           <h2 className="text-3xl font-bold text-foreground mb-8">Our Story</h2>
           <div className="text-muted-foreground">
@@ -93,7 +93,7 @@ Today, Digital Invest brings together this multi-sector expertise into a unified
       </section>
 
       {/* Recognition */}
-      <section className="py-16 px-4">
+      <section className="py-16 px-4 section-gradient-warm">
         <div className="container mx-auto max-w-6xl">
           <h2 className="text-3xl font-bold text-foreground mb-8">Recognitions & Awards</h2>
           <div className="mb-8 text-muted-foreground">
@@ -146,7 +146,7 @@ Today, Digital Invest brings together this multi-sector expertise into a unified
       </section>
 
       {/* Our Expertise */}
-      <section className="py-16 px-4 bg-muted/30">
+      <section className="py-16 px-4 bg-muted/30 section-gradient-lavender">
         <div className="container mx-auto max-w-6xl">
           <h2 className="text-3xl font-bold text-foreground mb-8">Our Expertise</h2>
           <div className="grid md:grid-cols-2 gap-6">
@@ -208,7 +208,7 @@ Today, Digital Invest brings together this multi-sector expertise into a unified
       </section>
 
       {/* Our Mission */}
-      <section className="py-16 px-4">
+      <section className="py-16 px-4 section-gradient-mint">
         <div className="container mx-auto max-w-4xl">
           <h2 className="text-3xl font-bold text-foreground mb-8">Our Mission</h2>
           <Card>
@@ -224,7 +224,7 @@ Today, Digital Invest brings together this multi-sector expertise into a unified
       </section>
 
       {/* The Vision Ahead */}
-      <section className="py-16 px-4 bg-muted/30">
+      <section className="py-16 px-4 bg-muted/30 section-gradient-gold">
         <div className="container mx-auto max-w-6xl">
           <h2 className="text-3xl font-bold text-foreground mb-8">The Vision Ahead</h2>
           <div className="space-y-8">
@@ -284,7 +284,7 @@ Today, Digital Invest brings together this multi-sector expertise into a unified
       </section>
 
       {/* Our Commitment */}
-      <section className="py-16 px-4">
+      <section className="py-16 px-4 section-gradient-rose">
         <div className="container mx-auto max-w-4xl">
           <h2 className="text-3xl font-bold text-foreground mb-8">Our Commitment</h2>
           <Card>
@@ -335,7 +335,7 @@ Today, Digital Invest brings together this multi-sector expertise into a unified
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 px-4 bg-muted/30">
+      <section className="py-16 px-4 bg-muted/30 section-gradient-slate">
         <div className="container mx-auto max-w-4xl text-center">
           <h2 className="text-3xl font-bold text-foreground mb-6">Ready to Learn More?</h2>
           <p className="text-lg text-muted-foreground mb-8">

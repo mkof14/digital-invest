@@ -220,7 +220,7 @@ const Projects = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
-      <div className="pt-24 pb-16">
+      <div className="pt-24 pb-16 section-gradient-slate">
         <div className="container mx-auto px-4">
         {/* Header */}
         <div className="mb-12 text-center">

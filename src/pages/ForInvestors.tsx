@@ -63,7 +63,7 @@ const ForInvestors = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 px-4 bg-card/30 border-y border-border/50">
+      <section className="py-16 px-4 bg-card/30 section-gradient-cool border-y border-border/50">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
@@ -87,7 +87,7 @@ const ForInvestors = () => {
       </section>
 
       {/* Why Choose Digital Invest Section */}
-      <section className="py-24 px-4">
+      <section className="py-24 px-4 section-gradient-warm">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
@@ -139,7 +139,7 @@ const ForInvestors = () => {
       </section>
 
       {/* Who We Work With Section */}
-      <section className="py-24 px-4 bg-card/30">
+      <section className="py-24 px-4 bg-card/30 section-gradient-lavender">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
@@ -195,7 +195,7 @@ const ForInvestors = () => {
       </section>
 
       {/* Your Path as an Investor Section */}
-      <section className="py-24 px-4">
+      <section className="py-24 px-4 section-gradient-mint">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
@@ -283,7 +283,7 @@ const ForInvestors = () => {
       </section>
 
       {/* What You Can Expect Section */}
-      <section className="py-24 px-4 bg-card/30">
+      <section className="py-24 px-4 bg-card/30 section-gradient-gold">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
@@ -322,7 +322,7 @@ const ForInvestors = () => {
       </section>
 
       {/* What This Website Is/Is Not Section */}
-      <section className="py-24 px-4">
+      <section className="py-24 px-4 section-gradient-rose">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">

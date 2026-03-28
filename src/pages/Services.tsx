@@ -142,7 +142,7 @@ const Services = () => {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="py-20 px-4 bg-secondary/10">
+      <section className="py-20 px-4 bg-secondary/10 section-gradient-cool">
         <div className="max-w-6xl mx-auto text-center">
           <Badge variant="secondary" className="mb-4 px-4 py-2">
             Our Services
@@ -159,7 +159,7 @@ const Services = () => {
       </section>
 
       {/* BioMath Life Platform Services */}
-      <section className="py-20 px-4">
+      <section className="py-20 px-4 section-gradient-warm">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <Badge className="mb-4 bg-success/10 text-success border-success/20">
@@ -195,7 +195,7 @@ const Services = () => {
       </section>
 
       {/* TerraAero Services */}
-      <section className="py-20 px-4 bg-secondary/10">
+      <section className="py-20 px-4 bg-secondary/10 section-gradient-mint">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">
