@@ -37,7 +37,12 @@ import {
   Clock,
   Mail,
   Search,
-  Briefcase
+  Briefcase,
+  Brain,
+  Cpu,
+  Layers,
+  Activity,
+  Orbit
 } from "lucide-react";
 import terraaeroHero from "@/assets/projects/terraaero-hero.jpg";
 import biomathCoreHero from "@/assets/projects/biomathcore-hero.jpg";
