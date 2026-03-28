@@ -261,7 +261,7 @@ const Index = () => {
               {/* Core Hub CTA */}
               <Link to="/projects/biomathcore" className="group inline-flex items-center gap-3 mt-4 p-4 rounded-xl border border-border/60 bg-card/50 hover:bg-card hover:border-primary/30 transition-all duration-300">
                 <div className="shrink-0 p-2.5 bg-primary/10 rounded-lg">
-                  <Brain className="w-6 h-6 text-primary" />
+                  <EcosystemCoreIcon className="text-primary" size={24} />
                 </div>
                 <div className="min-w-0">
                   <div className="text-sm font-bold text-foreground">{t('ecosystem.coreTitle')}</div>
