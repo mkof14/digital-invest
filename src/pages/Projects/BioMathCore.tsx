@@ -389,7 +389,7 @@ const BioMathCore = () => {
         {/* ═══════════════════════ WHAT MAKES IT UNIQUE ═══════════════════════ */}
         <section className="bg-[hsl(220,20%,6%)] border-y border-[hsl(210,15%,12%)] py-20">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-12">What Makes BioMath Core Unique</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-12">{t('projectBiomathCore.uniqueTitle')}</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {[
                 { icon: Layers, title: "True Data Integration", desc: "Unifies genetics, labs, biometrics, lifestyle, and medical history into a single biomathematical model. Correlations across categories reveal insights impossible in isolated data." },
