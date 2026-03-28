@@ -71,7 +71,7 @@ const BioMathCore = () => {
 
           <div className="max-w-4xl">
             <Badge className="mb-6 bg-[hsl(200,80%,50%)]/15 text-[hsl(200,80%,70%)] border-[hsl(200,80%,50%)]/30 text-sm px-4 py-1">
-              Digital Health · Foundation Platform
+              {t('projectBiomathCore.badge', 'Digital Health · Foundation Platform')}
             </Badge>
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-[0.95]">
               <span className="text-white">BioMath</span>{" "}
