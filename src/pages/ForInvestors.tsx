@@ -69,10 +69,10 @@ const ForInvestors = () => {
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
-              { value: "5+", label: "Active Projects", icon: <Rocket className="w-6 h-6" /> },
-              { value: "Multi", label: "Sector Focus", icon: <Target className="w-6 h-6" /> },
-              { value: "Long-term", label: "Investment Horizon", icon: <TrendingUp className="w-6 h-6" /> },
-              { value: "USA", label: "Operations Base", icon: <Building2 className="w-6 h-6" /> }
+              { value: "5+", label: t('investors.activeProjects'), icon: <Rocket className="w-6 h-6" /> },
+              { value: "Multi", label: t('investors.sectorFocus'), icon: <Target className="w-6 h-6" /> },
+              { value: "Long-term", label: t('investors.investmentHorizon'), icon: <TrendingUp className="w-6 h-6" /> },
+              { value: "USA", label: t('investors.operationsBase'), icon: <Building2 className="w-6 h-6" /> }
             ].map((stat, index) => (
               <div key={index} className="text-center space-y-3 group hover:scale-105 transition-all duration-300">
                 <div className="flex justify-center mb-2">
