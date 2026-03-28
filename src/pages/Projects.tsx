@@ -77,6 +77,7 @@ const Projects = () => {
     'mrx-health': mrxHero,
     'table-served': tableservedHero,
     'baseline': baselineHero,
+    'saven': savenHero,
   };
 
   // Get optimized image path based on format support
