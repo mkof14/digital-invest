@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
-import { ArrowRight, Droplets, Wheat, BarChart3, Package, Zap, MapPin, Users, Globe, Factory, Rocket, AlertCircle, Layers, Activity, ArrowLeft } from "lucide-react";
+import { ArrowRight, Droplets, Wheat, BarChart3, Package, Zap, MapPin, Users, Globe, Factory, Rocket, AlertCircle, Layers, Activity, ArrowLeft, Download, Share2, Mail, FileText } from "lucide-react";
 import { Link } from "react-router-dom";
 import terraaeroLogo from "@/assets/terraaero-logo.png";
 import terraaeroHero from "@/assets/projects/terraaero-hero.jpg";
