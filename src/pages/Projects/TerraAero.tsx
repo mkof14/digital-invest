@@ -18,8 +18,50 @@ import { useToast } from "@/hooks/use-toast";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 
 const TerraAero = () => {
+  const [infographicOpen, setInfographicOpen] = useState(false);
+  const [copied, setCopied] = useState(false);
+  const { toast } = useToast();
+
+  const handleDownloadInfographic = async () => {
+    try {
+      const response = await fetch(terraaeroInfographic);
+      const blob = await response.blob();
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = "terraaero-integrated-architecture.jpeg";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(url);
+      toast({ title: "Downloaded", description: "Infographic saved successfully" });
+    } catch {
+      toast({ title: "Error", description: "Failed to download", variant: "destructive" });
+    }
+  };
+
+  const handleCopyInfographic = async () => {
+    try {
+      const response = await fetch(terraaeroInfographic);
+      const blob = await response.blob();
+      await navigator.clipboard.write([new ClipboardItem({ [blob.type]: blob })]);
+      setCopied(true);
+      toast({ title: "Copied!", description: "Infographic copied to clipboard" });
+      setTimeout(() => setCopied(false), 2000);
+    } catch {
+      try {
+        await navigator.clipboard.writeText(window.location.origin + terraaeroInfographic);
+        setCopied(true);
+        toast({ title: "Link copied!", description: "Image link copied to clipboard" });
+        setTimeout(() => setCopied(false), 2000);
+      } catch {
+        toast({ title: "Error", description: "Failed to copy", variant: "destructive" });
+      }
+    }
+  };
+
   return (
-    <div className="min-h-screen bg-background theme-terraaero">
+    <div className="min-h-screen theme-terraaero" style={{ background: 'hsl(85, 15%, 5%)' }}>
       <Navigation />
       
       <main className="container mx-auto px-4 py-8">
