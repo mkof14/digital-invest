@@ -34,6 +34,7 @@ import SkinCore from "./pages/Projects/SkinCore";
 import MRXHealth from "./pages/Projects/MRXHealth";
 import TableServed from "./pages/Projects/TableServed";
 import BaseLine from "./pages/Projects/BaseLine";
+import SAVEN from "./pages/Projects/SAVEN";
 import Projects from "./pages/Projects";
 import ProjectDetail from "./pages/ProjectDetail";
 import HowItWorks from "./pages/HowItWorks";
