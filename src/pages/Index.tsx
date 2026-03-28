@@ -447,7 +447,7 @@ const Index = () => {
       </section>
 
       {/* ═══════════════════ WHY DIGITAL INVEST — Horizontal Cards ═══════════════════ */}
-      <section ref={whyDigitalSection.ref} className={`py-20 md:py-28 px-4 scroll-scale-in ${whyDigitalSection.isVisible ? 'visible' : ''}`}>
+      <section ref={whyDigitalSection.ref} className={`py-20 md:py-28 px-4 section-gradient-lavender scroll-scale-in ${whyDigitalSection.isVisible ? 'visible' : ''}`}>
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row gap-12 md:gap-16 items-start">
             {/* Left sticky heading */}
