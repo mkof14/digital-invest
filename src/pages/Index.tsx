@@ -303,7 +303,7 @@ const Index = () => {
       </section>
 
       {/* ═══════════════════ FEATURED PROJECTS — Magazine Strip ═══════════════════ */}
-      <section ref={featuredSection.ref} className={`py-20 md:py-28 px-4 scroll-fade-in ${featuredSection.isVisible ? 'visible' : ''}`}>
+      <section ref={featuredSection.ref} className={`py-20 md:py-28 px-4 section-gradient-warm scroll-fade-in ${featuredSection.isVisible ? 'visible' : ''}`}>
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
             <div className="space-y-3">
