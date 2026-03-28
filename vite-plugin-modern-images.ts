@@ -43,7 +43,7 @@ export default function modernImagesPlugin(
 
     try {
       console.log('\n🖼️  Generating modern image formats...');
-      const scriptPath = path.resolve(__dirname, 'scripts/generate-modern-formats.js');
+      const scriptPath = path.resolve(__dirname, 'scripts/generate-modern-formats.cjs');
       execSync(`node "${scriptPath}"`, { 
         stdio: 'inherit',
         cwd: process.cwd()
