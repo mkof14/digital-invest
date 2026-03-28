@@ -384,7 +384,7 @@ const Index = () => {
       </section>
 
       {/* Why Digital Invest Section */}
-      <section ref={whyDigitalSection.ref} className={`py-24 px-4 scroll-scale-in ${whyDigitalSection.isVisible ? 'visible' : ''}`}>
+      <section ref={whyDigitalSection.ref} className={`py-24 px-4 section-gradient-lavender scroll-scale-in ${whyDigitalSection.isVisible ? 'visible' : ''}`}>
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16 space-y-4">
             <h2 ref={whyDigitalHeading.ref} className={`text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight gradient-purple-animated animate-heading-reveal ${whyDigitalHeading.isVisible ? 'visible' : ''}`}>
