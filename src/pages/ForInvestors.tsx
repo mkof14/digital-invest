@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -26,6 +27,7 @@ import {
 import InvestorPageDisclaimer from '@/components/InvestorPageDisclaimer';
 
 const ForInvestors = () => {
+  const { t } = useTranslation();
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
@@ -36,25 +38,25 @@ const ForInvestors = () => {
         <div className="relative z-10 max-w-5xl mx-auto text-center space-y-8 animate-fade-in">
           <Badge variant="secondary" className="mb-4 px-6 py-3 text-base">
             <Target className="w-4 h-4 mr-2 inline" />
-            Investment Opportunities
+            {t('investors.badge')}
           </Badge>
           <h1 className="text-5xl md:text-7xl font-bold">
-            <span className="block text-foreground mb-3">Partner With</span>
-            <span className="block gradient-blue-animated">Real Innovation</span>
+            <span className="block text-foreground mb-3">{t('investors.heroTitle1')}</span>
+            <span className="block gradient-blue-animated">{t('investors.heroTitle2')}</span>
           </h1>
           <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed max-w-3xl mx-auto">
-            Explore structured opportunities in real-economy, AI, manufacturing, and health-technology projects across the United States.
+            {t('investors.heroSubtitle')}
           </p>
           <div className="flex flex-wrap gap-4 justify-center pt-6">
             <Link to="/projects">
               <Button size="lg" className="px-10 py-6 text-lg hover:scale-105 transition-all duration-300">
-                Explore Projects
+                {t('investors.exploreProjects')}
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>
             <Link to="/schedule">
               <Button variant="outline" size="lg" className="px-10 py-6 text-lg hover:scale-105 transition-all duration-300">
-                Schedule Consultation
+                {t('investors.scheduleConsultation')}
                 <Clock className="ml-2 h-5 w-5" />
               </Button>
             </Link>
@@ -67,10 +69,10 @@ const ForInvestors = () => {
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
-              { value: "5+", label: "Active Projects", icon: <Rocket className="w-6 h-6" /> },
-              { value: "Multi", label: "Sector Focus", icon: <Target className="w-6 h-6" /> },
-              { value: "Long-term", label: "Investment Horizon", icon: <TrendingUp className="w-6 h-6" /> },
-              { value: "USA", label: "Operations Base", icon: <Building2 className="w-6 h-6" /> }
+              { value: "5+", label: t('investors.activeProjects'), icon: <Rocket className="w-6 h-6" /> },
+              { value: "Multi", label: t('investors.sectorFocus'), icon: <Target className="w-6 h-6" /> },
+              { value: "Long-term", label: t('investors.investmentHorizon'), icon: <TrendingUp className="w-6 h-6" /> },
+              { value: "USA", label: t('investors.operationsBase'), icon: <Building2 className="w-6 h-6" /> }
             ].map((stat, index) => (
               <div key={index} className="text-center space-y-3 group hover:scale-105 transition-all duration-300">
                 <div className="flex justify-center mb-2">
@@ -91,10 +93,10 @@ const ForInvestors = () => {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              <span className="gradient-orange-animated">Why Digital Invest?</span>
+              <span className="gradient-orange-animated">{t('investors.whyTitle')}</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              A focused approach to real-economy innovation with operational excellence
+              {t('investors.whySubtitle')}
             </p>
           </div>
           
@@ -102,20 +104,20 @@ const ForInvestors = () => {
             {[
               {
                 icon: <Lightbulb className="w-8 h-8" />,
-                title: "Real-World Impact",
-                description: "Projects focused on tangible value creation in manufacturing, health, food, and infrastructure sectors.",
+                title: t('investors.realWorldImpact'),
+                description: t('investors.realWorldImpactDesc'),
                 gradient: "from-blue-500/10 to-primary/10"
               },
               {
                 icon: <Award className="w-8 h-8" />,
-                title: "Proven Leadership",
-                description: "Decades of experience building and scaling technology platforms with successful exits and operational track records.",
+                title: t('investors.provenLeadership'),
+                description: t('investors.provenLeadershipDesc'),
                 gradient: "from-orange-500/10 to-primary/10"
               },
               {
                 icon: <BarChart3 className="w-8 h-8" />,
-                title: "Structured Growth",
-                description: "Long-term approach with clear roadmaps, milestone tracking, and transparent communication throughout the journey.",
+                title: t('investors.structuredGrowth'),
+                description: t('investors.structuredGrowthDesc'),
                 gradient: "from-purple-500/10 to-primary/10"
               }
             ].map((item, index) => (
@@ -143,35 +145,19 @@ const ForInvestors = () => {
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              <span className="gradient-purple-animated">Ideal Partners</span>
+              <span className="gradient-purple-animated">{t('investors.idealPartners')}</span>
             </h2>
             <p className="text-xl text-muted-foreground">
-              We work with sophisticated investors who think long-term
+              {t('investors.idealPartnersSubtitle')}
             </p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {[
-              { 
-                icon: <Briefcase className="w-7 h-7" />, 
-                title: "Entrepreneurs & Operators",
-                description: "Business builders who understand operational complexity and real-world execution"
-              },
-              { 
-                icon: <TrendingUp className="w-7 h-7" />, 
-                title: "Long-Term Private Investors",
-                description: "Patient capital focused on sustainable growth over extended time horizons"
-              },
-              { 
-                icon: <Building2 className="w-7 h-7" />, 
-                title: "Family Offices",
-                description: "Multi-generational wealth managers seeking diversified real-economy exposure"
-              },
-              { 
-                icon: <Users className="w-7 h-7" />, 
-                title: "Strategic Partners",
-                description: "Industry experts and advisors interested in AI and real-economy innovation"
-              }
+              { icon: <Briefcase className="w-7 h-7" />, title: t('investors.entrepreneurs'), description: t('investors.entrepreneursDesc') },
+              { icon: <TrendingUp className="w-7 h-7" />, title: t('investors.longTermInvestors'), description: t('investors.longTermInvestorsDesc') },
+              { icon: <Building2 className="w-7 h-7" />, title: t('investors.familyOffices'), description: t('investors.familyOfficesDesc') },
+              { icon: <Users className="w-7 h-7" />, title: t('investors.strategicPartners'), description: t('investors.strategicPartnersDesc') }
             ].map((item, index) => (
               <Card 
                 key={index} 
@@ -199,57 +185,21 @@ const ForInvestors = () => {
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              <span className="gradient-blue-animated">Your Investment Journey</span>
+              <span className="gradient-blue-animated">{t('investors.journeyTitle')}</span>
             </h2>
             <p className="text-xl text-muted-foreground">
-              A clear, transparent process from exploration to partnership
+              {t('investors.journeySubtitle')}
             </p>
           </div>
           
           <div className="space-y-6">
             {[
-              {
-                step: "1",
-                title: "Explore Projects",
-                description: "Review detailed project pages covering health, agriculture, food production, and infrastructure. Access roadmaps, business models, and technical documentation.",
-                icon: <Search className="w-6 h-6" />,
-                color: "bg-blue-500/10 text-blue-500"
-              },
-              {
-                step: "2",
-                title: "Request Information",
-                description: "Submit a non-binding inquiry through our secure form. No commitment required, completely private, and no payment necessary at this stage.",
-                icon: <Mail className="w-6 h-6" />,
-                color: "bg-orange-500/10 text-orange-500"
-              },
-              {
-                step: "3",
-                title: "Personal Discussion",
-                description: "Direct follow-up via email or phone call. We share additional materials, answer your specific questions, and understand your investment criteria.",
-                icon: <Users className="w-6 h-6" />,
-                color: "bg-purple-500/10 text-purple-500"
-              },
-              {
-                step: "4",
-                title: "Due Diligence",
-                description: "Comprehensive review of project fundamentals: roadmap, business model, risk factors, organizational structure, timelines, and milestone targets.",
-                icon: <FileText className="w-6 h-6" />,
-                color: "bg-green-500/10 text-green-500"
-              },
-              {
-                step: "5",
-                title: "Legal Documentation",
-                description: "If both parties agree to proceed, participation is formalized through proper legal agreements offline, independent of this website.",
-                icon: <Shield className="w-6 h-6" />,
-                color: "bg-red-500/10 text-red-500"
-              },
-              {
-                step: "6",
-                title: "Ongoing Updates",
-                description: "Regular communication with milestone notifications, progress reports, and insights as projects develop and achieve key objectives.",
-                icon: <TrendingUp className="w-6 h-6" />,
-                color: "bg-indigo-500/10 text-indigo-500"
-              }
+              { step: "1", title: t('investors.step1'), description: t('investors.step1Desc'), icon: <Search className="w-6 h-6" />, color: "bg-blue-500/10 text-blue-500" },
+              { step: "2", title: t('investors.step2'), description: t('investors.step2Desc'), icon: <Mail className="w-6 h-6" />, color: "bg-orange-500/10 text-orange-500" },
+              { step: "3", title: t('investors.step3'), description: t('investors.step3Desc'), icon: <Users className="w-6 h-6" />, color: "bg-purple-500/10 text-purple-500" },
+              { step: "4", title: t('investors.step4'), description: t('investors.step4Desc'), icon: <FileText className="w-6 h-6" />, color: "bg-green-500/10 text-green-500" },
+              { step: "5", title: t('investors.step5'), description: t('investors.step5Desc'), icon: <Shield className="w-6 h-6" />, color: "bg-red-500/10 text-red-500" },
+              { step: "6", title: t('investors.step6'), description: t('investors.step6Desc'), icon: <TrendingUp className="w-6 h-6" />, color: "bg-indigo-500/10 text-indigo-500" }
             ].map((item, index) => (
               <Card 
                 key={index} 
@@ -287,10 +237,10 @@ const ForInvestors = () => {
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              <span className="gradient-orange-animated">What You Receive</span>
+              <span className="gradient-orange-animated">{t('investors.whatYouReceive')}</span>
             </h2>
             <p className="text-xl text-muted-foreground">
-              Comprehensive support and transparency throughout your journey
+              {t('investors.whatYouReceiveSubtitle')}
             </p>
           </div>
           
@@ -326,10 +276,10 @@ const ForInvestors = () => {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              <span className="gradient-purple-animated">Clear Expectations</span>
+              <span className="gradient-purple-animated">{t('investors.clearExpectations')}</span>
             </h2>
             <p className="text-xl text-muted-foreground">
-              Understanding our platform and its purpose
+              {t('investors.clearExpectationsSubtitle')}
             </p>
           </div>
           
@@ -341,16 +291,11 @@ const ForInvestors = () => {
                   <div className="p-2 bg-primary/10 rounded-lg">
                     <CheckCircle2 className="w-6 h-6 text-primary" />
                   </div>
-                  This Platform IS
+                  {t('investors.platformIs')}
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
-                {[
-                  "An informational showcase of Digital Invest projects",
-                  "A secure channel to request additional information",
-                  "A comprehensive resource for portfolio structure understanding",
-                  "A gateway to personal consultations and discussions"
-                ].map((item, index) => (
+                {[t('investors.is1'), t('investors.is2'), t('investors.is3'), t('investors.is4')].map((item, index) => (
                   <div key={index} className="flex items-start gap-3 group">
                     <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
                     <p className="text-foreground leading-relaxed font-medium">{item}</p>
@@ -366,16 +311,11 @@ const ForInvestors = () => {
                   <div className="p-2 bg-muted rounded-lg">
                     <X className="w-6 h-6 text-muted-foreground" />
                   </div>
-                  This Platform is NOT
+                  {t('investors.platformIsNot')}
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
-                {[
-                  "Not a crowdfunding platform or public securities offering",
-                  "Not a transactional platform for online investments",
-                  "Not providing investment, legal, or tax advisory services",
-                  "Not creating any binding commitments or agreements"
-                ].map((item, index) => (
+                {[t('investors.isNot1'), t('investors.isNot2'), t('investors.isNot3'), t('investors.isNot4')].map((item, index) => (
                   <div key={index} className="flex items-start gap-3">
                     <X className="w-5 h-5 text-muted-foreground flex-shrink-0 mt-0.5" />
                     <p className="text-muted-foreground leading-relaxed">{item}</p>
@@ -391,45 +331,20 @@ const ForInvestors = () => {
       <section className="py-24 px-4 bg-gradient-to-br from-primary/10 via-background to-background relative overflow-hidden">
         <div className="absolute inset-0 bg-grid-pattern opacity-5" />
         <div className="relative z-10 max-w-4xl mx-auto text-center space-y-8">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground">
-            Ready to Explore Opportunities?
-          </h2>
-          <p className="text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto">
-            Review our portfolio of real-economy and AI-driven projects. Submit a non-binding inquiry to receive detailed information and schedule a private consultation.
-          </p>
-          
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground">{t('investors.ctaTitle')}</h2>
+          <p className="text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto">{t('investors.ctaSubtitle')}</p>
           <div className="flex flex-wrap gap-6 justify-center pt-6">
-            <Link to="/projects">
-              <Button size="lg" className="px-12 py-7 text-lg hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
-                View All Projects
-                <ArrowRight className="ml-3 h-6 w-6" />
-              </Button>
-            </Link>
-            <Link to="/schedule">
-              <Button variant="outline" size="lg" className="px-12 py-7 text-lg hover:scale-105 transition-all duration-300">
-                Schedule Consultation
-                <Clock className="ml-3 h-6 w-6" />
-              </Button>
-            </Link>
+            <Link to="/projects"><Button size="lg" className="px-12 py-7 text-lg hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">{t('investors.viewAllProjects')}<ArrowRight className="ml-3 h-6 w-6" /></Button></Link>
+            <Link to="/schedule"><Button variant="outline" size="lg" className="px-12 py-7 text-lg hover:scale-105 transition-all duration-300">{t('investors.scheduleConsultation')}<Clock className="ml-3 h-6 w-6" /></Button></Link>
           </div>
-
           <Card className="mt-12 border border-border/50 bg-card/50 backdrop-blur">
             <CardContent className="pt-8 pb-8">
               <div className="flex flex-col md:flex-row items-center justify-center gap-4 text-muted-foreground">
-                <div className="flex items-center gap-2">
-                  <Shield className="w-5 h-5 text-primary" />
-                  <span className="text-sm font-medium">Private & Confidential</span>
-                </div>
+                <div className="flex items-center gap-2"><Shield className="w-5 h-5 text-primary" /><span className="text-sm font-medium">{t('investors.privateConfidential')}</span></div>
                 <div className="hidden md:block w-px h-6 bg-border" />
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-5 h-5 text-primary" />
-                  <span className="text-sm font-medium">No Commitment Required</span>
-                </div>
+                <div className="flex items-center gap-2"><CheckCircle2 className="w-5 h-5 text-primary" /><span className="text-sm font-medium">{t('investors.noCommitment')}</span></div>
                 <div className="hidden md:block w-px h-6 bg-border" />
-                <div className="flex items-center gap-2">
-                  <Users className="w-5 h-5 text-primary" />
-                  <span className="text-sm font-medium">Personal Follow-up</span>
-                </div>
+                <div className="flex items-center gap-2"><Users className="w-5 h-5 text-primary" /><span className="text-sm font-medium">{t('investors.personalFollowup')}</span></div>
               </div>
             </CardContent>
           </Card>
