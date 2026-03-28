@@ -363,7 +363,7 @@ const Index = () => {
             <div className="text-center mt-8">
               <Button size="default" className="group" asChild>
                 <Link to="/projects">
-                  Explore All 18 Projects
+                  {t('ecosystem.exploreAll')}
                   <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </Button>
