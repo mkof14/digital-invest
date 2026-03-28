@@ -145,10 +145,10 @@ const ForInvestors = () => {
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              <span className="gradient-purple-animated">Ideal Partners</span>
+              <span className="gradient-purple-animated">{t('investors.idealPartners')}</span>
             </h2>
             <p className="text-xl text-muted-foreground">
-              We work with sophisticated investors who think long-term
+              {t('investors.idealPartnersSubtitle')}
             </p>
           </div>
           
