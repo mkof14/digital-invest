@@ -333,8 +333,8 @@ const Index = () => {
                   accent: "border-amber-500/20 hover:border-amber-500/40"
                 },
                 { 
-                  title: "Cross-Synergy",
-                  desc: "Living infrastructure, not isolated apps",
+                  title: t('ecosystem.crossSynergy'),
+                  desc: t('ecosystem.crossSynergyDesc'),
                   icon: (
                     <svg width="28" height="28" viewBox="0 0 28 28" fill="none" className="text-violet-600 dark:text-violet-400">
                       <circle cx="14" cy="14" r="4" stroke="currentColor" strokeWidth="1.5" fill="currentColor" fillOpacity="0.15"/>
