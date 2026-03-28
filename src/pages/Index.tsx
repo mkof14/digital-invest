@@ -182,27 +182,26 @@ const Index = () => {
         <div className="relative z-10 max-w-7xl mx-auto text-center space-y-14">
           <div className="space-y-8 animate-fade-in">
             <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-tight tracking-tight">
-              <span className="block text-foreground mb-2">Strategic Investment in</span>
+              <span className="block text-foreground mb-2">{t('hero.strategicTitle')}</span>
               <span className="block text-4xl md:text-5xl lg:text-6xl xl:text-7xl gradient-tech-animated">
-                Real-Economy and Advanced Technology
+                {t('hero.strategicHighlight')}
               </span>
             </h1>
             <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed pt-4 font-light">
-              Digital Invest Inc. develops and scales innovative projects across AI, precision health, 
-              advanced manufacturing, and agricultural technology—delivering measurable impact in critical sectors of the American economy.
+              {t('hero.description')}
             </p>
           </div>
           
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center animate-fade-in pt-8">
             <Link to="/projects">
               <Button size="lg" className="px-12 py-7 text-lg ripple-effect shadow-elegant hover:shadow-elevated">
-                Explore Projects
+                {t('hero.exploreProjects')}
                 <TrendingUp className="ml-3 h-6 w-6" />
               </Button>
             </Link>
             <Link to="/why-digital-invest">
               <Button size="lg" variant="outline" className="px-12 py-7 text-lg ripple-effect border-2 hover:border-primary">
-                Learn Why Digital Invest
+                {t('hero.learnWhy')}
                 <ArrowRight className="ml-3 h-6 w-6" />
               </Button>
             </Link>
@@ -211,10 +210,10 @@ const Index = () => {
           {/* Key Metrics */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-12 pt-24 max-w-6xl mx-auto animate-fade-in">
             {[
-              { value: "25+", label: "Years Experience" },
-              { value: "5", label: "Active Projects" },
-              { value: "$19.5B", label: "Previous Exit Value" },
-              { value: "15+", label: "Countries Served" }
+              { value: "25+", label: t('hero.yearsExp') },
+              { value: "5", label: t('hero.activeProjects') },
+              { value: "$19.5B", label: t('hero.exitValue') },
+              { value: "15+", label: t('hero.countriesServed') }
             ].map((stat, index) => (
               <div key={index} className="text-center space-y-2">
                 <div className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary">{stat.value}</div>
@@ -418,7 +417,7 @@ const Index = () => {
                       <CardFooter className="pt-4">
                         <Button className="w-full group" asChild>
                           <Link to={`/projects/${project.slug}`}>
-                            View Details
+                            {t('featured.viewDetails')}
                             <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                           </Link>
                         </Button>
@@ -430,7 +429,7 @@ const Index = () => {
               <div className="text-center">
                 <Link to="/projects">
                   <Button size="lg" variant="outline" className="px-8 py-6 text-lg group border-2">
-                    View All Projects
+                    {t('featured.viewAll')}
                     <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </Link>
@@ -438,10 +437,10 @@ const Index = () => {
             </>
           ) : (
             <div className="text-center py-12">
-              <p className="text-muted-foreground mb-6">No featured projects available at this time.</p>
+              <p className="text-muted-foreground mb-6">{t('featured.noProjects')}</p>
               <Link to="/projects">
                 <Button size="lg" variant="outline">
-                  View All Projects
+                  {t('featured.viewAll')}
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
@@ -455,13 +454,13 @@ const Index = () => {
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-16 space-y-4">
             <h2 ref={calculatorHeading.ref} className={`text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight gradient-orange-animated animate-heading-reveal ${calculatorHeading.isVisible ? 'visible' : ''}`}>
-              Investment Calculator
+              {t('calculator.title')}
             </h2>
             <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto font-light leading-relaxed">
-              Informational calculator to understand potential scale
+              {t('calculator.subtitle')}
             </p>
             <p className="text-sm text-muted-foreground">
-              Not a guarantee or promise of returns. For illustrative purposes only.
+              {t('calculator.disclaimer')}
             </p>
           </div>
           <ROICalculator />
@@ -473,10 +472,10 @@ const Index = () => {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16 space-y-4">
             <h2 ref={whatWeBuildHeading.ref} className={`text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight gradient-tech-animated animate-heading-reveal ${whatWeBuildHeading.isVisible ? 'visible' : ''}`}>
-              What We Build
+              {t('whatWeBuild.title')}
             </h2>
             <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto font-light leading-relaxed">
-              Five proprietary platforms across health, agriculture, food production, and infrastructure
+              {t('whatWeBuild.subtitle2')}
             </p>
           </div>
           
@@ -486,9 +485,9 @@ const Index = () => {
                 <div className="p-4 bg-primary/10 rounded-xl w-fit mx-auto group-hover:scale-110 transition-transform duration-300">
                   <Heart className="w-12 h-12 text-primary" />
                 </div>
-                <h3 className="text-xl font-bold text-foreground text-center">Health & Longevity</h3>
+                <h3 className="text-xl font-bold text-foreground text-center">{t('whatWeBuild.healthTitle')}</h3>
                 <p className="text-base text-muted-foreground text-center leading-relaxed">
-                  BioMath Core and BioMath Life — data-driven platforms for understanding health, risks, and longevity in a structured, intelligent way.
+                  {t('whatWeBuild.healthDesc')}
                 </p>
               </CardContent>
             </Card>
@@ -498,9 +497,9 @@ const Index = () => {
                 <div className="p-4 bg-primary/10 rounded-xl w-fit mx-auto group-hover:scale-110 transition-transform duration-300">
                   <Sprout className="w-12 h-12 text-primary" />
                 </div>
-                <h3 className="text-xl font-bold text-foreground text-center">Agricultural Technology</h3>
+                <h3 className="text-xl font-bold text-foreground text-center">{t('whatWeBuild.agroTitle')}</h3>
                 <p className="text-base text-muted-foreground text-center leading-relaxed">
-                  TerraAero — advanced agricultural drone operations with a roadmap toward U.S.-based drone manufacturing.
+                  {t('whatWeBuild.agroDesc')}
                 </p>
               </CardContent>
             </Card>
@@ -510,9 +509,9 @@ const Index = () => {
                 <div className="p-4 bg-primary/10 rounded-xl w-fit mx-auto group-hover:scale-110 transition-transform duration-300">
                   <Utensils className="w-12 h-12 text-primary" />
                 </div>
-                <h3 className="text-xl font-bold text-foreground text-center">Intelligent Food Production</h3>
+                <h3 className="text-xl font-bold text-foreground text-center">{t('whatWeBuild.foodTitle')}</h3>
                 <p className="text-base text-muted-foreground text-center leading-relaxed">
-                  DishCore — AI-driven food manufacturing and recipe engine for standardized, scalable, nutritionally precise meals.
+                  {t('whatWeBuild.foodDesc')}
                 </p>
               </CardContent>
             </Card>
@@ -522,9 +521,9 @@ const Index = () => {
                 <div className="p-4 bg-primary/10 rounded-xl w-fit mx-auto group-hover:scale-110 transition-transform duration-300">
                   <Network className="w-12 h-12 text-primary" />
                 </div>
-                <h3 className="text-xl font-bold text-foreground text-center">Multi-Sector Infrastructure</h3>
+                <h3 className="text-xl font-bold text-foreground text-center">{t('whatWeBuild.infraTitle')}</h3>
                 <p className="text-base text-muted-foreground text-center leading-relaxed">
-                  Digital Invest — the portfolio backbone that combines AI, infrastructure, manufacturing, and long-term project strategy.
+                  {t('whatWeBuild.infraDesc')}
                 </p>
               </CardContent>
             </Card>
@@ -538,7 +537,7 @@ const Index = () => {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16 space-y-4">
             <h2 ref={whyDigitalHeading.ref} className={`text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight gradient-purple-animated animate-heading-reveal ${whyDigitalHeading.isVisible ? 'visible' : ''}`}>
-              Why Digital Invest
+              {t('whyDigitalInvest.heroTitle')}
             </h2>
           </div>
           
@@ -571,7 +570,7 @@ const Index = () => {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16 space-y-4">
             <h2 ref={investmentHeading.ref} className={`text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight gradient-blue-animated animate-heading-reveal ${investmentHeading.isVisible ? 'visible' : ''}`}>
-              Investment Highlights
+              {t('investmentHighlights.title')}
             </h2>
           </div>
           
@@ -629,35 +628,19 @@ const Index = () => {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16 space-y-4">
             <h2 ref={capabilitiesHeading.ref} className={`text-3xl md:text-5xl font-bold gradient-tech-animated animate-heading-reveal ${capabilitiesHeading.isVisible ? 'visible' : ''}`}>
-              Strategic Capabilities Across Key Sectors
+              {t('capabilities.title')}
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              Diverse expertise spanning health technology, AI systems, advanced manufacturing, and agricultural innovation
+              {t('capabilities.subtitle')}
             </p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
-              {
-                icon: <Lightbulb className="w-12 h-12" />,
-                title: "Health & AI Technology",
-                description: "Advanced platforms combining precision health, genomics, AI diagnostics, and personalized care systems"
-              },
-              {
-                icon: <Building2 className="w-12 h-12" />,
-                title: "Smart Manufacturing",
-                description: "Intelligent production systems for food tech, drone manufacturing, and scalable operations"
-              },
-              {
-                icon: <Target className="w-12 h-12" />,
-                title: "Agricultural Innovation",
-                description: "Precision drone operations, field analytics, and agritech solutions across the Southern U.S."
-              },
-              {
-                icon: <Award className="w-12 h-12" />,
-                title: "Proven Execution",
-                description: "Executive team with 70+ combined years and $19.5B previous exit success driving real results"
-              }
+              { icon: <Lightbulb className="w-12 h-12" />, title: t('capabilities.item1Title'), description: t('capabilities.item1Desc') },
+              { icon: <Building2 className="w-12 h-12" />, title: t('capabilities.item2Title'), description: t('capabilities.item2Desc') },
+              { icon: <Target className="w-12 h-12" />, title: t('capabilities.item3Title'), description: t('capabilities.item3Desc') },
+              { icon: <Award className="w-12 h-12" />, title: t('capabilities.item4Title'), description: t('capabilities.item4Desc') }
             ].map((feature, index) => (
               <Card key={index} className="hover:-translate-y-1 transition-all duration-300 border border-border/50 bg-card hover:shadow-lg">
                 <CardContent className="pt-8 pb-6 space-y-4">
@@ -678,51 +661,21 @@ const Index = () => {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16 space-y-4">
             <h2 ref={journeyHeading.ref} className={`text-3xl md:text-5xl font-bold gradient-orange-animated animate-heading-reveal ${journeyHeading.isVisible ? 'visible' : ''}`}>
-              Your Journey with Digital Invest
+              {t('journey.title')}
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              A transparent, step-by-step process from exploration to partnership
+              {t('journey.subtitle')}
             </p>
           </div>
           
           <div className="space-y-8 max-w-4xl mx-auto">
             {[
-              {
-                step: "1",
-                title: "Explore projects",
-                description: "Review the platforms across health, agriculture, food production, and infrastructure.",
-                icon: <Search className="w-6 h-6" />
-              },
-              {
-                step: "2",
-                title: "Submit non-binding interest",
-                description: "Use a short form to express interest in one or more projects. No commitment, no payments.",
-                icon: <Mail className="w-6 h-6" />
-              },
-              {
-                step: "3",
-                title: "Personal follow-up",
-                description: "We contact you directly, share materials, and answer your questions.",
-                icon: <Users className="w-6 h-6" />
-              },
-              {
-                step: "4",
-                title: "Due diligence",
-                description: "We review the project together: roadmap, risks, structure, and expected timelines.",
-                icon: <Search className="w-6 h-6" />
-              },
-              {
-                step: "5",
-                title: "Offline agreement",
-                description: "If both sides agree, the legal investment process happens offline, not on the website.",
-                icon: <FileText className="w-6 h-6" />
-              },
-              {
-                step: "6",
-                title: "Updates & growth",
-                description: "You receive periodic updates, milestones, and insights as projects progress.",
-                icon: <TrendingUp className="w-6 h-6" />
-              }
+              { step: "1", title: t('journey.step1Title'), description: t('journey.step1Desc'), icon: <Search className="w-6 h-6" /> },
+              { step: "2", title: t('journey.step2Title'), description: t('journey.step2Desc'), icon: <Mail className="w-6 h-6" /> },
+              { step: "3", title: t('journey.step3Title'), description: t('journey.step3Desc'), icon: <Users className="w-6 h-6" /> },
+              { step: "4", title: t('journey.step4Title'), description: t('journey.step4Desc'), icon: <Search className="w-6 h-6" /> },
+              { step: "5", title: t('journey.step5Title'), description: t('journey.step5Desc'), icon: <FileText className="w-6 h-6" /> },
+              { step: "6", title: t('journey.step6Title'), description: t('journey.step6Desc'), icon: <TrendingUp className="w-6 h-6" /> }
             ].map((item, index) => (
               <Card key={index} className="border border-border/50 bg-card hover:shadow-lg transition-all duration-300">
                 <CardContent className="pt-6 pb-6">
@@ -754,64 +707,21 @@ const Index = () => {
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16 space-y-4">
             <h2 ref={faqHeading.ref} className={`text-3xl md:text-5xl font-bold gradient-purple-animated animate-heading-reveal ${faqHeading.isVisible ? 'visible' : ''}`}>
-              Top Questions from Investors
+              {t('indexFaq.title')}
             </h2>
           </div>
           
           <Accordion type="single" collapsible className="space-y-4">
-            <AccordionItem value="item-1" className="border border-border/50 bg-card rounded-lg px-6">
-              <AccordionTrigger className="text-lg font-semibold text-foreground hover:text-primary">
-                Is this a crowdfunding platform?
-              </AccordionTrigger>
-              <AccordionContent className="text-base text-muted-foreground leading-relaxed">
-                No. Digital Invest is a private environment for selected projects and individual conversations. There is no public crowdfunding.
-              </AccordionContent>
-            </AccordionItem>
-
-            <AccordionItem value="item-2" className="border border-border/50 bg-card rounded-lg px-6">
-              <AccordionTrigger className="text-lg font-semibold text-foreground hover:text-primary">
-                Can I invest directly on the website?
-              </AccordionTrigger>
-              <AccordionContent className="text-base text-muted-foreground leading-relaxed">
-                No. This website does not accept investments or process payments. We only collect non-binding expressions of interest.
-              </AccordionContent>
-            </AccordionItem>
-
-            <AccordionItem value="item-3" className="border border-border/50 bg-card rounded-lg px-6">
-              <AccordionTrigger className="text-lg font-semibold text-foreground hover:text-primary">
-                Are returns guaranteed?
-              </AccordionTrigger>
-              <AccordionContent className="text-base text-muted-foreground leading-relaxed">
-                No. All early-stage projects involve risk, including possible loss of capital. No results or returns are guaranteed.
-              </AccordionContent>
-            </AccordionItem>
-
-            <AccordionItem value="item-4" className="border border-border/50 bg-card rounded-lg px-6">
-              <AccordionTrigger className="text-lg font-semibold text-foreground hover:text-primary">
-                What happens after I submit interest?
-              </AccordionTrigger>
-              <AccordionContent className="text-base text-muted-foreground leading-relaxed">
-                Our team reviews your submission and contacts you personally to share more information and discuss next steps.
-              </AccordionContent>
-            </AccordionItem>
-
-            <AccordionItem value="item-5" className="border border-border/50 bg-card rounded-lg px-6">
-              <AccordionTrigger className="text-lg font-semibold text-foreground hover:text-primary">
-                Who can participate?
-              </AccordionTrigger>
-              <AccordionContent className="text-base text-muted-foreground leading-relaxed">
-                Participation depends on your jurisdiction, regulatory requirements, and the structure of each project. We discuss this individually.
-              </AccordionContent>
-            </AccordionItem>
-
-            <AccordionItem value="item-6" className="border border-border/50 bg-card rounded-lg px-6">
-              <AccordionTrigger className="text-lg font-semibold text-foreground hover:text-primary">
-                Why do you work in a private format?
-              </AccordionTrigger>
-              <AccordionContent className="text-base text-muted-foreground leading-relaxed">
-                It allows us to keep communication direct, transparent, and tailored to serious long-term partners.
-              </AccordionContent>
-            </AccordionItem>
+            {[1,2,3,4,5,6].map((i) => (
+              <AccordionItem key={i} value={`item-${i}`} className="border border-border/50 bg-card rounded-lg px-6">
+                <AccordionTrigger className="text-lg font-semibold text-foreground hover:text-primary">
+                  {t(`indexFaq.q${i}`)}
+                </AccordionTrigger>
+                <AccordionContent className="text-base text-muted-foreground leading-relaxed">
+                  {t(`indexFaq.a${i}`)}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
           </Accordion>
         </div>
       </section>
@@ -867,9 +777,9 @@ const Index = () => {
             <div className="flex items-start gap-4">
               <Shield className="w-6 h-6 text-muted-foreground flex-shrink-0 mt-1" />
               <div className="space-y-2">
-                <h3 className="font-semibold text-foreground">Important Notice</h3>
+                <h3 className="font-semibold text-foreground">{t('disclaimerSection.title')}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">
-                  Digital Invest Inc. operates as a private multi-sector portfolio. This website is for informational purposes only and does not constitute a public offering, investment advice, or solicitation. Any potential participation is private, by invitation, and handled offline through proper legal channels. All participation is subject to due diligence and eligibility. All investments involve risk and may result in loss of capital. The actual legal status, structure, rights, and obligations are defined only in formal agreements executed offline, not by website content.
+                  {t('disclaimerSection.text')}
                 </p>
               </div>
             </div>
