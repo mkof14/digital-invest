@@ -408,12 +408,12 @@ const PortfolioOverview = () => {
                           <span className="font-mono text-xs text-muted-foreground/50 tabular-nums">
                             {String(index + 1).padStart(2, '0')}
                           </span>
-                          <div className={`w-10 h-10 md:w-14 md:h-14 rounded-xl overflow-hidden border border-border/30 bg-muted/30 flex items-center justify-center transition-all duration-300 ${isHovered ? 'scale-110 shadow-lg border-primary/30' : ''}`}>
+                          <div className={`w-10 h-10 md:w-14 md:h-14 rounded-xl overflow-hidden flex items-center justify-center transition-all duration-300 ${isHovered ? 'scale-110' : ''} ${project.hero_image_url ? 'bg-transparent' : 'bg-muted/30 border border-border/30'}`}>
                             {project.hero_image_url ? (
                               <img 
                                 src={project.hero_image_url} 
                                 alt={project.title}
-                                className="w-full h-full object-cover"
+                                className="w-full h-full object-contain p-0.5"
                                 loading="lazy"
                               />
                             ) : (

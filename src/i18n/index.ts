@@ -12,12 +12,12 @@ import he from './locales/he.json';
 
 export const languages = [
   { code: 'en', name: 'English', flag: '🇺🇸' },
+  { code: 'ar', name: 'العربية', flag: '🇸🇦', dir: 'rtl' },
+  { code: 'fr', name: 'Français', flag: '🇫🇷' },
+  { code: 'he', name: 'עברית', flag: '🇮🇱', dir: 'rtl' },
+  { code: 'ja', name: '日本語', flag: '🇯🇵' },
   { code: 'ru', name: 'Русский', flag: '🇷🇺' },
   { code: 'uk', name: 'Українська', flag: '🇺🇦' },
-  { code: 'fr', name: 'Français', flag: '🇫🇷' },
-  { code: 'ar', name: 'العربية', flag: '🇸🇦', dir: 'rtl' },
-  { code: 'ja', name: '日本語', flag: '🇯🇵' },
-  { code: 'he', name: 'עברית', flag: '🇮🇱', dir: 'rtl' },
 ] as const;
 
 i18n
