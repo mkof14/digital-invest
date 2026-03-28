@@ -36,13 +36,32 @@ import biomathcoreLogoBanner from '@/assets/projects/biomathcore-logo-banner.png
 import OptimizedImage from '@/components/OptimizedImage';
 import { shimmerDataURL, getResponsiveImagePaths } from '@/lib/imageUtils';
 
-const biomathCategories = [
-  "Critical Health", "Everyday Wellness", "Longevity & Anti-Aging", "Mental Wellness",
-  "Fitness & Performance", "Women's Health", "Men's Health", "Beauty & Skincare",
-  "Nutrition & Diet", "Sleep & Recovery", "Environmental Health", "Family Health",
-  "Preventive Medicine", "Biohacking", "Senior Care", "Eye-Health Suite",
-  "Digital Therapeutics", "Sexual Longevity", "Men's Sexual Health", "Women's Sexual Health"
-];
+// Per-project accent themes: [gradient-from, gradient-to, text-accent, border-accent, button-bg, button-hover]
+const projectThemes: Record<string, { from: string; to: string; accent: string; border: string; btnBg: string; btnHover: string; label: string }> = {
+  'biomath-core': { from: 'from-cyan-500/20', to: 'to-blue-600/20', accent: 'text-cyan-400', border: 'border-cyan-500/30', btnBg: 'bg-cyan-600', btnHover: 'hover:bg-cyan-500', label: 'Digital Health' },
+  'biomathcore': { from: 'from-cyan-500/20', to: 'to-blue-600/20', accent: 'text-cyan-400', border: 'border-cyan-500/30', btnBg: 'bg-cyan-600', btnHover: 'hover:bg-cyan-500', label: 'Digital Health' },
+  'terraaero': { from: 'from-emerald-500/20', to: 'to-green-700/20', accent: 'text-emerald-400', border: 'border-emerald-500/30', btnBg: 'bg-emerald-600', btnHover: 'hover:bg-emerald-500', label: 'AgriTech' },
+  'agron': { from: 'from-lime-500/20', to: 'to-green-600/20', accent: 'text-lime-400', border: 'border-lime-500/30', btnBg: 'bg-lime-600', btnHover: 'hover:bg-lime-500', label: 'Robotics' },
+  'agron-work': { from: 'from-amber-500/20', to: 'to-orange-600/20', accent: 'text-amber-400', border: 'border-amber-500/30', btnBg: 'bg-amber-600', btnHover: 'hover:bg-amber-500', label: 'Workforce' },
+  'saven': { from: 'from-violet-500/20', to: 'to-purple-700/20', accent: 'text-violet-400', border: 'border-violet-500/30', btnBg: 'bg-violet-600', btnHover: 'hover:bg-violet-500', label: 'Infrastructure' },
+  'myday': { from: 'from-indigo-500/20', to: 'to-violet-600/20', accent: 'text-indigo-400', border: 'border-indigo-500/30', btnBg: 'bg-indigo-600', btnHover: 'hover:bg-indigo-500', label: 'Lifestyle' },
+  'mrx-health': { from: 'from-rose-500/20', to: 'to-red-600/20', accent: 'text-rose-400', border: 'border-rose-500/30', btnBg: 'bg-rose-600', btnHover: 'hover:bg-rose-500', label: 'MedTech' },
+  'table-served': { from: 'from-amber-500/20', to: 'to-yellow-600/20', accent: 'text-amber-400', border: 'border-amber-500/30', btnBg: 'bg-amber-600', btnHover: 'hover:bg-amber-500', label: 'FoodTech' },
+  'baseline': { from: 'from-teal-500/20', to: 'to-emerald-600/20', accent: 'text-teal-400', border: 'border-teal-500/30', btnBg: 'bg-teal-600', btnHover: 'hover:bg-teal-500', label: 'HealthTech' },
+  'luna-balance': { from: 'from-pink-500/20', to: 'to-rose-600/20', accent: 'text-pink-400', border: 'border-pink-500/30', btnBg: 'bg-pink-600', btnHover: 'hover:bg-pink-500', label: "Women's Health" },
+  'biomathlife': { from: 'from-sky-500/20', to: 'to-blue-600/20', accent: 'text-sky-400', border: 'border-sky-500/30', btnBg: 'bg-sky-600', btnHover: 'hover:bg-sky-500', label: 'BioTech' },
+  'digital-invest-portfolio': { from: 'from-slate-500/20', to: 'to-gray-600/20', accent: 'text-slate-300', border: 'border-slate-500/30', btnBg: 'bg-slate-600', btnHover: 'hover:bg-slate-500', label: 'FinTech' },
+  'itsgoodtoday': { from: 'from-orange-500/20', to: 'to-amber-600/20', accent: 'text-orange-400', border: 'border-orange-500/30', btnBg: 'bg-orange-600', btnHover: 'hover:bg-orange-500', label: 'Wellness' },
+  'stresscore': { from: 'from-purple-500/20', to: 'to-violet-600/20', accent: 'text-purple-400', border: 'border-purple-500/30', btnBg: 'bg-purple-600', btnHover: 'hover:bg-purple-500', label: 'Mental Health' },
+  'vitalcore': { from: 'from-red-500/20', to: 'to-rose-600/20', accent: 'text-red-400', border: 'border-red-500/30', btnBg: 'bg-red-600', btnHover: 'hover:bg-red-500', label: 'Vitals' },
+  'bioagecore': { from: 'from-fuchsia-500/20', to: 'to-pink-600/20', accent: 'text-fuchsia-400', border: 'border-fuchsia-500/30', btnBg: 'bg-fuchsia-600', btnHover: 'hover:bg-fuchsia-500', label: 'Longevity' },
+  'longevitycore': { from: 'from-emerald-500/20', to: 'to-teal-600/20', accent: 'text-emerald-400', border: 'border-emerald-500/30', btnBg: 'bg-emerald-600', btnHover: 'hover:bg-emerald-500', label: 'Anti-Aging' },
+  'familycore': { from: 'from-blue-500/20', to: 'to-indigo-600/20', accent: 'text-blue-400', border: 'border-blue-500/30', btnBg: 'bg-blue-600', btnHover: 'hover:bg-blue-500', label: 'Family' },
+  'seniorcore': { from: 'from-warmgray-500/20', to: 'to-stone-600/20', accent: 'text-stone-400', border: 'border-stone-500/30', btnBg: 'bg-stone-600', btnHover: 'hover:bg-stone-500', label: 'Senior Care' },
+  'skincore': { from: 'from-pink-400/20', to: 'to-rose-500/20', accent: 'text-pink-300', border: 'border-pink-400/30', btnBg: 'bg-pink-500', btnHover: 'hover:bg-pink-400', label: 'Beauty' },
+};
+
+const getTheme = (slug: string) => projectThemes[slug] || { from: 'from-primary/20', to: 'to-primary/20', accent: 'text-primary', border: 'border-primary/30', btnBg: 'bg-primary', btnHover: 'hover:bg-primary/80', label: 'Project' };
 
 interface Project {
   id: string;
