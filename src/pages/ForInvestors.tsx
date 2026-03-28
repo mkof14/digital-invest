@@ -331,45 +331,20 @@ const ForInvestors = () => {
       <section className="py-24 px-4 bg-gradient-to-br from-primary/10 via-background to-background relative overflow-hidden">
         <div className="absolute inset-0 bg-grid-pattern opacity-5" />
         <div className="relative z-10 max-w-4xl mx-auto text-center space-y-8">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground">
-            Ready to Explore Opportunities?
-          </h2>
-          <p className="text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto">
-            Review our portfolio of real-economy and AI-driven projects. Submit a non-binding inquiry to receive detailed information and schedule a private consultation.
-          </p>
-          
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground">{t('investors.ctaTitle')}</h2>
+          <p className="text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto">{t('investors.ctaSubtitle')}</p>
           <div className="flex flex-wrap gap-6 justify-center pt-6">
-            <Link to="/projects">
-              <Button size="lg" className="px-12 py-7 text-lg hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
-                View All Projects
-                <ArrowRight className="ml-3 h-6 w-6" />
-              </Button>
-            </Link>
-            <Link to="/schedule">
-              <Button variant="outline" size="lg" className="px-12 py-7 text-lg hover:scale-105 transition-all duration-300">
-                Schedule Consultation
-                <Clock className="ml-3 h-6 w-6" />
-              </Button>
-            </Link>
+            <Link to="/projects"><Button size="lg" className="px-12 py-7 text-lg hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">{t('investors.viewAllProjects')}<ArrowRight className="ml-3 h-6 w-6" /></Button></Link>
+            <Link to="/schedule"><Button variant="outline" size="lg" className="px-12 py-7 text-lg hover:scale-105 transition-all duration-300">{t('investors.scheduleConsultation')}<Clock className="ml-3 h-6 w-6" /></Button></Link>
           </div>
-
           <Card className="mt-12 border border-border/50 bg-card/50 backdrop-blur">
             <CardContent className="pt-8 pb-8">
               <div className="flex flex-col md:flex-row items-center justify-center gap-4 text-muted-foreground">
-                <div className="flex items-center gap-2">
-                  <Shield className="w-5 h-5 text-primary" />
-                  <span className="text-sm font-medium">Private & Confidential</span>
-                </div>
+                <div className="flex items-center gap-2"><Shield className="w-5 h-5 text-primary" /><span className="text-sm font-medium">{t('investors.privateConfidential')}</span></div>
                 <div className="hidden md:block w-px h-6 bg-border" />
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-5 h-5 text-primary" />
-                  <span className="text-sm font-medium">No Commitment Required</span>
-                </div>
+                <div className="flex items-center gap-2"><CheckCircle2 className="w-5 h-5 text-primary" /><span className="text-sm font-medium">{t('investors.noCommitment')}</span></div>
                 <div className="hidden md:block w-px h-6 bg-border" />
-                <div className="flex items-center gap-2">
-                  <Users className="w-5 h-5 text-primary" />
-                  <span className="text-sm font-medium">Personal Follow-up</span>
-                </div>
+                <div className="flex items-center gap-2"><Users className="w-5 h-5 text-primary" /><span className="text-sm font-medium">{t('investors.personalFollowup')}</span></div>
               </div>
             </CardContent>
           </Card>
