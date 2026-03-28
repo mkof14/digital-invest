@@ -324,13 +324,36 @@ const Projects = () => {
         })()}
 
         {/* Projects Grid/List */}
-        {projects.length === 0 ? (
-          <div className="text-center py-16">
-            <p className="text-muted-foreground text-lg">No projects available at this time.</p>
-          </div>
-        ) : viewMode === 'grid' ? (
+        {(() => {
+          const filteredProjects = projects.filter(p => {
+            const matchesSearch = !searchQuery || 
+              p.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+              p.short_description.toLowerCase().includes(searchQuery.toLowerCase()) ||
+              p.category.toLowerCase().includes(searchQuery.toLowerCase());
+            const matchesCategory = selectedCategory === 'all' || getTheme(p.slug).label === selectedCategory;
+            return matchesSearch && matchesCategory;
+          });
+
+          if (filteredProjects.length === 0) {
+            return (
+              <div className="text-center py-16">
+                <p className="text-muted-foreground text-lg">
+                  {searchQuery || selectedCategory !== 'all' 
+                    ? 'No projects match your filters. Try adjusting your search or category.'
+                    : 'No projects available at this time.'}
+                </p>
+                {(searchQuery || selectedCategory !== 'all') && (
+                  <Button variant="outline" className="mt-4" onClick={() => { setSearchQuery(''); setSelectedCategory('all'); }}>
+                    Clear Filters
+                  </Button>
+                )}
+              </div>
+            );
+          }
+
+          return viewMode === 'grid' ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.map((project, index) => {
+            {filteredProjects.map((project, index) => {
               const theme = getTheme(project.slug);
               const isBioMath = project.slug === 'biomath-core' || project.slug === 'biomathcore';
               const projectImage = isBioMath ? biomathcoreCardBg : getProjectImage(project);
