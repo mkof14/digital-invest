@@ -35,7 +35,7 @@ const Footer = () => {
   });
 
   return (
-    <footer className="bg-background border-t border-border">
+    <footer className="bg-card/60 border-t border-border/30">
       <div className="max-w-7xl mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
           {/* LEFT BLOCK - Company Info */}
@@ -45,6 +45,7 @@ const Footer = () => {
                 src="/lovable-uploads/digital-invest-logo-new.png" 
                 alt="Digital Invest Inc. company logo" 
                 className="h-14 w-14"
+                containerClassName="bg-transparent"
                 showSkeleton={false}
               />
               <h3 className="text-lg font-bold text-foreground">Digital Invest Inc.</h3>
