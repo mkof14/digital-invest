@@ -629,9 +629,9 @@ const Index = () => {
               
               <div className="flex flex-wrap justify-center gap-8 pt-10">
                 {[
-                  { icon: <Shield className="w-4 h-4" />, text: "Regulatory Compliant" },
+                  { icon: <ShieldCircuitIcon className="text-muted-foreground" size={16} />, text: "Regulatory Compliant" },
                   { icon: <Lock className="w-4 h-4" />, text: "Secure Platform" },
-                  { icon: <Award className="w-4 h-4" />, text: "Industry Certified" },
+                  { icon: <GrowthArrowIcon className="text-muted-foreground" size={16} />, text: "Industry Certified" },
                   { icon: <CheckCircle2 className="w-4 h-4" />, text: "Verified Projects" }
                 ].map((b, i) => (
                   <div key={i} className="flex items-center gap-2 text-muted-foreground/70">
