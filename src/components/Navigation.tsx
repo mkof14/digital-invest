@@ -66,6 +66,7 @@ const Navigation = () => {
               src="/lovable-uploads/digital-invest-logo-new.png" 
               alt="Digital Invest Inc. company logo" 
               className="w-14 h-14 object-contain"
+              containerClassName="bg-transparent"
               showSkeleton={false}
             />
             <span className="text-foreground text-2xl font-bold">Digital Invest</span>
