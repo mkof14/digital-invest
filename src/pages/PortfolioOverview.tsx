@@ -415,13 +415,19 @@ const PortfolioOverview = () => {
                         {/* Center: content */}
                         <div className="flex-1 min-w-0 space-y-3">
                           <div className="flex flex-wrap items-center gap-3">
-                            <h2 className={`text-xl md:text-2xl font-bold transition-colors duration-300 ${isHovered ? 'text-primary' : 'text-foreground'}`}>
+                            <h2 className={`text-2xl md:text-3xl font-extrabold tracking-tight transition-colors duration-300 ${isHovered ? 'text-primary' : 'text-foreground'}`}>
                               {project.title}
                             </h2>
                             <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-muted/60 text-muted-foreground text-xs font-medium">
                               {icon}
                               <span>{project.category}</span>
                             </div>
+                            {(project.slug === 'biomath-core' || project.slug === 'biomathcore') && (
+                              <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-semibold border border-primary/20">
+                                <Layers className="w-3.5 h-3.5" />
+                                <span>{lang === 'ru' ? 'Флагман · 200+ сервисов' : lang === 'uk' ? 'Флагман · 200+ сервісів' : lang === 'fr' ? 'Projet phare · 200+ services' : lang === 'ar' ? 'المشروع الرئيسي · 200+ خدمة' : lang === 'ja' ? 'フラッグシップ · 200+サービス' : lang === 'he' ? 'פרויקט דגל · 200+ שירותים' : 'Flagship · 200+ services'}</span>
+                              </div>
+                            )}
                           </div>
 
                           <p className="text-[15px] md:text-base text-muted-foreground leading-[1.7] max-w-3xl">
