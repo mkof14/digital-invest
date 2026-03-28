@@ -407,8 +407,8 @@ const Index = () => {
 
             {/* Small card — Food */}
             <div className="group relative overflow-hidden rounded-2xl border border-border/40 bg-card/50 p-6 md:p-8 hover:bg-card hover:border-border transition-all duration-500 flex items-center gap-6">
-              <div className="p-3 rounded-xl bg-primary/8 shrink-0">
-                <Utensils className="w-7 h-7 text-primary/60" />
+              <div className="shrink-0 opacity-60">
+                <FoodMolecularIcon className="text-primary" size={40} />
               </div>
               <div>
                 <h3 className="text-lg font-bold text-foreground mb-1">{t('whatWeBuild.foodTitle')}</h3>
