@@ -475,7 +475,7 @@ const Index = () => {
       </section>
 
       {/* Our Expertise Section */}
-      <section className="py-24 px-4">
+      <section className="py-24 px-4 section-gradient-rose">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16 space-y-4">
             <h2 ref={capabilitiesHeading.ref} className={`text-3xl md:text-5xl font-bold gradient-tech-animated animate-heading-reveal ${capabilitiesHeading.isVisible ? 'visible' : ''}`}>
