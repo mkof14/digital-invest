@@ -315,12 +315,7 @@ const ForInvestors = () => {
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
-                {[
-                  "Not a crowdfunding platform or public securities offering",
-                  "Not a transactional platform for online investments",
-                  "Not providing investment, legal, or tax advisory services",
-                  "Not creating any binding commitments or agreements"
-                ].map((item, index) => (
+                {[t('investors.isNot1'), t('investors.isNot2'), t('investors.isNot3'), t('investors.isNot4')].map((item, index) => (
                   <div key={index} className="flex items-start gap-3">
                     <X className="w-5 h-5 text-muted-foreground flex-shrink-0 mt-0.5" />
                     <p className="text-muted-foreground leading-relaxed">{item}</p>
