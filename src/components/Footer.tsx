@@ -17,6 +17,7 @@ interface SocialMediaLink {
 }
 
 const Footer = () => {
+  const { t } = useTranslation();
   const currentYear = new Date().getFullYear();
 
   const { data: socialLinks } = useQuery({
