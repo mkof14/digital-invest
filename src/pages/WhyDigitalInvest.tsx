@@ -184,7 +184,7 @@ const WhyDigitalInvest = () => {
       </section>
 
       {/* Call to Action Section */}
-      <section className="py-24 px-4 bg-card/30">
+      <section className="py-24 px-4 bg-card/30 section-gradient-gold">
         <div className="max-w-4xl mx-auto text-center space-y-8">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground">
             Ready to Explore Our Projects?

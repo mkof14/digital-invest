@@ -322,7 +322,7 @@ const ForInvestors = () => {
       </section>
 
       {/* What This Website Is/Is Not Section */}
-      <section className="py-24 px-4">
+      <section className="py-24 px-4 section-gradient-rose">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">

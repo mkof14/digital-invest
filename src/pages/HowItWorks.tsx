@@ -87,7 +87,7 @@ const HowItWorks = () => {
         </div>
 
         {/* Key Points */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 section-gradient-cool rounded-2xl p-8">
           <Card className="border border-border/50">
             <CardHeader>
               <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-success/20 text-success mb-4">

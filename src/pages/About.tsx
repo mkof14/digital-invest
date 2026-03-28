@@ -335,7 +335,7 @@ Today, Digital Invest brings together this multi-sector expertise into a unified
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 px-4 bg-muted/30">
+      <section className="py-16 px-4 bg-muted/30 section-gradient-slate">
         <div className="container mx-auto max-w-4xl text-center">
           <h2 className="text-3xl font-bold text-foreground mb-6">Ready to Learn More?</h2>
           <p className="text-lg text-muted-foreground mb-8">
