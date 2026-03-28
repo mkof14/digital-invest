@@ -194,48 +194,12 @@ const ForInvestors = () => {
           
           <div className="space-y-6">
             {[
-              {
-                step: "1",
-                title: "Explore Projects",
-                description: "Review detailed project pages covering health, agriculture, food production, and infrastructure. Access roadmaps, business models, and technical documentation.",
-                icon: <Search className="w-6 h-6" />,
-                color: "bg-blue-500/10 text-blue-500"
-              },
-              {
-                step: "2",
-                title: "Request Information",
-                description: "Submit a non-binding inquiry through our secure form. No commitment required, completely private, and no payment necessary at this stage.",
-                icon: <Mail className="w-6 h-6" />,
-                color: "bg-orange-500/10 text-orange-500"
-              },
-              {
-                step: "3",
-                title: "Personal Discussion",
-                description: "Direct follow-up via email or phone call. We share additional materials, answer your specific questions, and understand your investment criteria.",
-                icon: <Users className="w-6 h-6" />,
-                color: "bg-purple-500/10 text-purple-500"
-              },
-              {
-                step: "4",
-                title: "Due Diligence",
-                description: "Comprehensive review of project fundamentals: roadmap, business model, risk factors, organizational structure, timelines, and milestone targets.",
-                icon: <FileText className="w-6 h-6" />,
-                color: "bg-green-500/10 text-green-500"
-              },
-              {
-                step: "5",
-                title: "Legal Documentation",
-                description: "If both parties agree to proceed, participation is formalized through proper legal agreements offline, independent of this website.",
-                icon: <Shield className="w-6 h-6" />,
-                color: "bg-red-500/10 text-red-500"
-              },
-              {
-                step: "6",
-                title: "Ongoing Updates",
-                description: "Regular communication with milestone notifications, progress reports, and insights as projects develop and achieve key objectives.",
-                icon: <TrendingUp className="w-6 h-6" />,
-                color: "bg-indigo-500/10 text-indigo-500"
-              }
+              { step: "1", title: t('investors.step1'), description: t('investors.step1Desc'), icon: <Search className="w-6 h-6" />, color: "bg-blue-500/10 text-blue-500" },
+              { step: "2", title: t('investors.step2'), description: t('investors.step2Desc'), icon: <Mail className="w-6 h-6" />, color: "bg-orange-500/10 text-orange-500" },
+              { step: "3", title: t('investors.step3'), description: t('investors.step3Desc'), icon: <Users className="w-6 h-6" />, color: "bg-purple-500/10 text-purple-500" },
+              { step: "4", title: t('investors.step4'), description: t('investors.step4Desc'), icon: <FileText className="w-6 h-6" />, color: "bg-green-500/10 text-green-500" },
+              { step: "5", title: t('investors.step5'), description: t('investors.step5Desc'), icon: <Shield className="w-6 h-6" />, color: "bg-red-500/10 text-red-500" },
+              { step: "6", title: t('investors.step6'), description: t('investors.step6Desc'), icon: <TrendingUp className="w-6 h-6" />, color: "bg-indigo-500/10 text-indigo-500" }
             ].map((item, index) => (
               <Card 
                 key={index} 
