@@ -8,193 +8,193 @@ import Footer from '@/components/Footer';
 
 const overviewTexts: Record<string, Record<string, string>> = {
   'biomath-core': {
-    en: 'The computational brain behind 200+ health services. BioMath Core ingests biometric chaos and turns it into predictive intelligence — no guesswork, just architecture. It\'s the invisible engine that powers every diagnostic layer in the ecosystem.',
-    ru: 'Вычислительный мозг за 200+ сервисами здоровья. BioMath Core поглощает биометрический хаос и превращает его в предиктивный интеллект — без догадок, только архитектура. Невидимый двигатель каждого диагностического слоя экосистемы.',
-    uk: 'Обчислювальний мозок за 200+ сервісами здоров\'я. BioMath Core поглинає біометричний хаос і перетворює його на предиктивний інтелект — без здогадок, лише архітектура. Невидимий двигун кожного діагностичного шару екосистеми.',
-    fr: 'Le cerveau computationnel derrière 200+ services de santé. BioMath Core absorbe le chaos biométrique et le transforme en intelligence prédictive — pas de devinettes, juste de l\'architecture. Le moteur invisible de chaque couche diagnostique de l\'écosystème.',
-    ar: 'العقل الحسابي وراء أكثر من 200 خدمة صحية. يستوعب BioMath Core الفوضى البيومترية ويحولها إلى ذكاء تنبؤي — بدون تخمين، فقط هندسة معمارية. المحرك الخفي الذي يشغل كل طبقة تشخيصية في النظام.',
-    ja: '200以上の健康サービスを支える計算頭脳。BioMath Coreは生体計測の混沌を予測知能に変換します — 推測なし、アーキテクチャのみ。エコシステムのすべての診断レイヤーを動かす見えないエンジンです。',
-    he: 'המוח החישובי מאחורי 200+ שירותי בריאות. BioMath Core קולט כאוס ביומטרי והופך אותו לאינטליגנציה חזויה — ללא ניחושים, רק ארכיטקטורה. המנוע הבלתי נראה שמפעיל כל שכבת אבחון במערכת.'
+    en: 'The computational brain behind 200+ health services. BioMath Core ingests biometric chaos and turns it into predictive intelligence — no guesswork, just architecture. It\'s the invisible engine that powers every diagnostic layer in the ecosystem. Every other health project in this portfolio runs on its data pipelines and inference models.',
+    ru: 'Вычислительный мозг за 200+ сервисами здоровья. BioMath Core поглощает биометрический хаос и превращает его в предиктивный интеллект — без догадок, только архитектура. Невидимый двигатель каждого диагностического слоя экосистемы. Все остальные проекты здоровья в портфеле работают на его дата-пайплайнах и моделях.',
+    uk: 'Обчислювальний мозок за 200+ сервісами здоров\'я. BioMath Core поглинає біометричний хаос і перетворює його на предиктивний інтелект — без здогадок, лише архітектура. Невидимий двигун кожного діагностичного шару екосистеми. Усі інші проєкти здоров\'я в портфелі працюють на його дата-пайплайнах та моделях.',
+    fr: 'Le cerveau computationnel derrière 200+ services de santé. BioMath Core absorbe le chaos biométrique et le transforme en intelligence prédictive — pas de devinettes, juste de l\'architecture. Le moteur invisible de chaque couche diagnostique. Tous les autres projets santé du portefeuille reposent sur ses pipelines de données.',
+    ar: 'العقل الحسابي وراء أكثر من 200 خدمة صحية. يستوعب BioMath Core الفوضى البيومترية ويحولها إلى ذكاء تنبؤي — بدون تخمين، فقط هندسة معمارية. المحرك الخفي لكل طبقة تشخيصية. جميع مشاريع الصحة الأخرى في المحفظة تعمل على خطوط بياناته.',
+    ja: '200以上の健康サービスを支える計算頭脳。BioMath Coreは生体計測の混沌を予測知能に変換します — 推測なし、アーキテクチャのみ。エコシステムのすべての診断レイヤーを動かす見えないエンジン。ポートフォリオ内の他すべての健康プロジェクトがそのデータパイプラインで稼働しています。',
+    he: 'המוח החישובי מאחורי 200+ שירותי בריאות. BioMath Core קולט כאוס ביומטרי והופך אותו לאינטליגנציה חזויה — ללא ניחושים, רק ארכיטקטורה. המנוע הבלתי נראה של כל שכבת אבחון. כל פרויקטי הבריאות האחרים בתיק פועלים על צינורות הנתונים שלו.'
   },
   'biomathcore': {
-    en: 'The computational brain behind 200+ health services. BioMath Core ingests biometric chaos and turns it into predictive intelligence — no guesswork, just architecture. It\'s the invisible engine that powers every diagnostic layer in the ecosystem.',
-    ru: 'Вычислительный мозг за 200+ сервисами здоровья. BioMath Core поглощает биометрический хаос и превращает его в предиктивный интеллект — без догадок, только архитектура. Невидимый двигатель каждого диагностического слоя экосистемы.',
-    uk: 'Обчислювальний мозок за 200+ сервісами здоров\'я. BioMath Core поглинає біометричний хаос і перетворює його на предиктивний інтелект — без здогадок, лише архітектура.',
-    fr: 'Le cerveau computationnel derrière 200+ services de santé. BioMath Core transforme le chaos biométrique en intelligence prédictive.',
-    ar: 'العقل الحسابي وراء أكثر من 200 خدمة صحية. يحول BioMath Core الفوضى البيومترية إلى ذكاء تنبؤي.',
-    ja: '200以上の健康サービスを支える計算頭脳。BioMath Coreは生体計測の混沌を予測知能に変換します。',
-    he: 'המוח החישובי מאחורי 200+ שירותי בריאות. BioMath Core הופך כאוס ביומטרי לאינטליגנציה חזויה.'
+    en: 'The computational brain behind 200+ health services. BioMath Core ingests biometric chaos and turns it into predictive intelligence — no guesswork, just architecture. Every other health project in this portfolio runs on its data pipelines and inference models.',
+    ru: 'Вычислительный мозг за 200+ сервисами здоровья. BioMath Core поглощает биометрический хаос и превращает его в предиктивный интеллект — без догадок, только архитектура. Все остальные проекты здоровья в портфеле работают на его пайплайнах.',
+    uk: 'Обчислювальний мозок за 200+ сервісами здоров\'я. BioMath Core поглинає біометричний хаос і перетворює його на предиктивний інтелект — без здогадок, лише архітектура. Усі інші проєкти здоров\'я працюють на його пайплайнах.',
+    fr: 'Le cerveau computationnel derrière 200+ services de santé. BioMath Core transforme le chaos biométrique en intelligence prédictive. Tous les autres projets santé reposent sur ses pipelines.',
+    ar: 'العقل الحسابي وراء أكثر من 200 خدمة صحية. يحول BioMath Core الفوضى البيومترية إلى ذكاء تنبؤي. جميع مشاريع الصحة الأخرى تعمل على خطوط بياناته.',
+    ja: '200以上の健康サービスを支える計算頭脳。BioMath Coreは生体計測の混沌を予測知能に変換します。他すべての健康プロジェクトがそのパイプラインで稼働しています。',
+    he: 'המוח החישובי מאחורי 200+ שירותי בריאות. BioMath Core הופך כאוס ביומטרי לאינטליגנציה חזויה. כל פרויקטי הבריאות האחרים פועלים על צינורות הנתונים שלו.'
   },
   'biomathlife': {
-    en: 'A longevity platform that doesn\'t sell supplements — it builds your biological profile across 20 categories and 200+ services. Think of it as a control panel for your body, where every metric has meaning and every recommendation has data behind it.',
-    ru: 'Платформа долголетия, которая не продаёт добавки — она строит ваш биологический профиль по 20 категориям и 200+ сервисам. Пульт управления телом, где каждая метрика имеет значение, а каждая рекомендация подкреплена данными.',
-    uk: 'Платформа довголіття, яка не продає добавки — вона будує ваш біологічний профіль за 20 категоріями та 200+ сервісами. Панель керування тілом, де кожна метрика має значення, а кожна рекомендація підкріплена даними.',
-    fr: 'Une plateforme de longévité qui ne vend pas de suppléments — elle construit votre profil biologique à travers 20 catégories et 200+ services. Un panneau de contrôle pour votre corps, où chaque métrique a un sens.',
-    ar: 'منصة طول العمر التي لا تبيع المكملات — بل تبني ملفك البيولوجي عبر 20 فئة و200+ خدمة. لوحة تحكم لجسمك، حيث كل مقياس له معنى وكل توصية مدعومة بالبيانات.',
-    ja: 'サプリを売らない長寿プラットフォーム。20カテゴリーと200以上のサービスで生物学的プロファイルを構築します。すべての指標に意味があり、すべての推奨にデータの裏付けがあります。',
-    he: 'פלטפורמת אריכות ימים שלא מוכרת תוספים — היא בונה את הפרופיל הביולוגי שלך ב-20 קטגוריות ו-200+ שירותים. לוח בקרה לגוף שלך, שבו לכל מדד יש משמעות.'
+    en: 'A longevity platform that doesn\'t sell supplements — it builds your biological profile across 20 categories and 200+ services. Think of it as a control panel for your body, where every metric has meaning and every recommendation has data behind it. From sleep architecture to hormonal cycles — nothing is left to intuition.',
+    ru: 'Платформа долголетия, которая не продаёт добавки — она строит ваш биологический профиль по 20 категориям и 200+ сервисам. Пульт управления телом, где каждая метрика имеет значение, а каждая рекомендация подкреплена данными. От архитектуры сна до гормональных циклов — ничего не оставлено на интуицию.',
+    uk: 'Платформа довголіття, яка не продає добавки — вона будує ваш біологічний профіль за 20 категоріями та 200+ сервісами. Панель керування тілом, де кожна метрика має значення, а кожна рекомендація підкріплена даними. Від архітектури сну до гормональних циклів — нічого не залишено на інтуїцію.',
+    fr: 'Une plateforme de longévité qui ne vend pas de suppléments — elle construit votre profil biologique à travers 20 catégories et 200+ services. Un panneau de contrôle pour votre corps. De l\'architecture du sommeil aux cycles hormonaux — rien n\'est laissé à l\'intuition.',
+    ar: 'منصة طول العمر التي لا تبيع المكملات — بل تبني ملفك البيولوجي عبر 20 فئة و200+ خدمة. لوحة تحكم لجسمك، حيث كل مقياس له معنى. من بنية النوم إلى الدورات الهرمونية — لا شيء يُترك للحدس.',
+    ja: 'サプリを売らない長寿プラットフォーム。20カテゴリーと200以上のサービスで生物学的プロファイルを構築します。睡眠アーキテクチャからホルモンサイクルまで — 直感に任せるものは何もありません。',
+    he: 'פלטפורמת אריכות ימים שלא מוכרת תוספים — היא בונה את הפרופיל הביולוגי שלך ב-20 קטגוריות ו-200+ שירותים. לוח בקרה לגוף שלך. מארכיטקטורת שינה ועד מחזורים הורמונליים — שום דבר לא נשאר לאינטואיציה.'
   },
   'terraaero': {
-    en: 'Drones that don\'t just fly — they farm. Precision irrigation, AI-driven agronomy, U.S.-manufactured fleet expanding across 23 states. This is agriculture reimagined from the sky down, with real hardware and real field results.',
-    ru: 'Дроны, которые не просто летают — они фермерствуют. Точное орошение, ИИ-агрономия, флот американского производства в 23 штатах. Сельское хозяйство, переосмысленное с неба до земли, с реальным железом и реальными результатами.',
-    uk: 'Дрони, які не просто літають — вони фермерствують. Точне зрошення, ІІ-агрономія, флот американського виробництва у 23 штатах. Сільське господарство, переосмислене з неба до землі.',
-    fr: 'Des drones qui ne font pas que voler — ils cultivent. Irrigation de précision, agronomie pilotée par l\'IA, flotte fabriquée aux États-Unis dans 23 États. L\'agriculture réinventée depuis le ciel.',
-    ar: 'طائرات بدون طيار لا تطير فحسب — بل تزرع. ري دقيق، زراعة ذكية بالذكاء الاصطناعي، أسطول مصنوع في أمريكا يتوسع في 23 ولاية. زراعة أعيد تصورها من السماء.',
-    ja: '飛ぶだけでなく農業をするドローン。精密灌漑、AI農学、23州に展開する米国製フリート。空から再構築された農業。',
-    he: 'רחפנים שלא רק טסים — הם מחקלאים. השקיה מדויקת, אגרונומיה מונעת AI, צי ייצור אמריקאי ב-23 מדינות. חקלאות שנוצרה מחדש מהשמיים.'
+    en: 'Drones that don\'t just fly — they farm. Precision irrigation, AI-driven agronomy, U.S.-manufactured fleet expanding across 23 states. This is agriculture reimagined from the sky down, with real hardware and real field results. Each drone processes terrain data in real-time, adjusting water and nutrient delivery down to the square meter.',
+    ru: 'Дроны, которые не просто летают — они фермерствуют. Точное орошение, ИИ-агрономия, флот американского производства в 23 штатах. Сельское хозяйство, переосмысленное с неба до земли. Каждый дрон обрабатывает данные рельефа в реальном времени, корректируя подачу воды и питательных веществ с точностью до квадратного метра.',
+    uk: 'Дрони, які не просто літають — вони фермерствують. Точне зрошення, ІІ-агрономія, флот американського виробництва у 23 штатах. Кожен дрон обробляє дані рельєфу в реальному часі, коригуючи подачу води та поживних речовин з точністю до квадратного метра.',
+    fr: 'Des drones qui ne font pas que voler — ils cultivent. Irrigation de précision, agronomie IA, flotte fabriquée aux États-Unis dans 23 États. Chaque drone traite les données du terrain en temps réel, ajustant l\'eau et les nutriments au mètre carré près.',
+    ar: 'طائرات بدون طيار لا تطير فحسب — بل تزرع. ري دقيق، زراعة ذكية بالذكاء الاصطناعي، أسطول مصنوع في أمريكا في 23 ولاية. كل طائرة تعالج بيانات التضاريس في الوقت الفعلي وتضبط توصيل المياه والمغذيات بدقة المتر المربع.',
+    ja: '飛ぶだけでなく農業をするドローン。精密灌漑、AI農学、23州に展開する米国製フリート。各ドローンはリアルタイムで地形データを処理し、平方メートル単位で水と栄養素の供給を調整します。',
+    he: 'רחפנים שלא רק טסים — הם מחקלאים. השקיה מדויקת, אגרונומיה AI, צי ייצור אמריקאי ב-23 מדינות. כל רחפן מעבד נתוני שטח בזמן אמת ומתאים אספקת מים ומזינים ברמת המטר הרבוע.'
   },
   'agron': {
-    en: 'National-scale robotics infrastructure for training, certification, and coordination. AGRON is the operating system for autonomous machines across America — the backbone nobody sees but everyone needs.',
-    ru: 'Роботизированная инфраструктура национального масштаба: обучение, сертификация, координация. AGRON — операционная система для автономных машин по всей Америке. Хребет, который никто не видит, но все в нём нуждаются.',
-    uk: 'Роботизована інфраструктура національного масштабу: навчання, сертифікація, координація. AGRON — операційна система для автономних машин по всій Америці. Хребет, який ніхто не бачить, але всі потребують.',
-    fr: 'Infrastructure robotique à l\'échelle nationale pour la formation, la certification et la coordination. AGRON est le système d\'exploitation des machines autonomes à travers l\'Amérique.',
-    ar: 'بنية تحتية روبوتية على المستوى الوطني للتدريب والشهادات والتنسيق. AGRON هو نظام التشغيل للآلات المستقلة عبر أمريكا — العمود الفقري الذي لا يراه أحد لكن الجميع يحتاجه.',
-    ja: '訓練、認証、調整のための全国規模のロボティクスインフラ。AGRONはアメリカ全土の自律機械のオペレーティングシステム — 誰も見えないが皆が必要とする背骨です。',
-    he: 'תשתית רובוטיקה בקנה מידה לאומי לאימון, הסמכה ותיאום. AGRON היא מערכת ההפעלה למכונות אוטונומיות ברחבי אמריקה — עמוד השדרה שאף אחד לא רואה אבל כולם צריכים.'
+    en: 'National-scale robotics infrastructure for training, certification, and coordination. AGRON is the operating system for autonomous machines across America — the backbone nobody sees but everyone needs. It standardizes how robots are deployed, maintained, and governed at industrial scale.',
+    ru: 'Роботизированная инфраструктура национального масштаба: обучение, сертификация, координация. AGRON — операционная система для автономных машин по всей Америке. Стандартизирует развёртывание, обслуживание и управление роботами в промышленном масштабе.',
+    uk: 'Роботизована інфраструктура національного масштабу: навчання, сертифікація, координація. AGRON — операційна система для автономних машин по всій Америці. Стандартизує розгортання, обслуговування та управління роботами у промисловому масштабі.',
+    fr: 'Infrastructure robotique à l\'échelle nationale pour la formation, la certification et la coordination. AGRON standardise le déploiement, la maintenance et la gouvernance des robots à l\'échelle industrielle.',
+    ar: 'بنية تحتية روبوتية على المستوى الوطني للتدريب والشهادات والتنسيق. AGRON يوحد نشر وصيانة وحوكمة الروبوتات على نطاق صناعي عبر أمريكا.',
+    ja: '訓練、認証、調整のための全国規模のロボティクスインフラ。AGRONはアメリカ全土の自律機械のオペレーティングシステム。産業規模でのロボットの展開・保守・ガバナンスを標準化します。',
+    he: 'תשתית רובוטיקה בקנה מידה לאומי לאימון, הסמכה ותיאום. AGRON מתקנן את הפריסה, התחזוקה והממשל של רובוטים בקנה מידה תעשייתי ברחבי אמריקה.'
   },
   'agron-work': {
-    en: 'The talent layer for robotics. AGRON Work connects certified operators, technicians, and engineers with the companies building the autonomous future. Where human skill meets machine precision.',
-    ru: 'Кадровый слой робототехники. AGRON Work связывает сертифицированных операторов, техников и инженеров с компаниями, строящими автономное будущее. Где человеческое мастерство встречает машинную точность.',
-    uk: 'Кадровий шар робототехніки. AGRON Work з\'єднує сертифікованих операторів, техніків та інженерів з компаніями, що будують автономне майбутнє. Де людська майстерність зустрічає машинну точність.',
-    fr: 'La couche talent de la robotique. AGRON Work connecte opérateurs certifiés, techniciens et ingénieurs avec les entreprises qui construisent l\'avenir autonome.',
-    ar: 'طبقة المواهب للروبوتات. يربط AGRON Work المشغلين والفنيين والمهندسين المعتمدين بالشركات التي تبني المستقبل المستقل. حيث تلتقي المهارة البشرية بدقة الآلة.',
-    ja: 'ロボティクスの人材レイヤー。AGRON Workは認定オペレーター、技術者、エンジニアを自律的未来を構築する企業と結びつけます。人間のスキルと機械の精度が出会う場所。',
-    he: 'שכבת הכישרון של הרובוטיקה. AGRON Work מחבר מפעילים, טכנאים ומהנדסים מוסמכים עם החברות שבונות את העתיד האוטונומי. שם מיומנות אנושית פוגשת דיוק מכני.'
+    en: 'The talent layer for robotics. AGRON Work connects certified operators, technicians, and engineers with the companies building the autonomous future. Where human skill meets machine precision. It\'s not a job board — it\'s a verified professional network with skill certification baked in.',
+    ru: 'Кадровый слой робототехники. AGRON Work связывает сертифицированных операторов, техников и инженеров с компаниями автономного будущего. Это не доска вакансий — это верифицированная профессиональная сеть со встроенной сертификацией навыков.',
+    uk: 'Кадровий шар робототехніки. AGRON Work з\'єднує сертифікованих операторів, техніків та інженерів з компаніями автономного майбутнього. Це не дошка вакансій — це верифікована професійна мережа з вбудованою сертифікацією навичок.',
+    fr: 'La couche talent de la robotique. AGRON Work connecte opérateurs certifiés, techniciens et ingénieurs avec les entreprises de l\'avenir autonome. Ce n\'est pas un site d\'emploi — c\'est un réseau professionnel vérifié avec certification intégrée.',
+    ar: 'طبقة المواهب للروبوتات. يربط AGRON Work المشغلين والفنيين والمهندسين المعتمدين بشركات المستقبل المستقل. ليس لوحة وظائف — بل شبكة مهنية موثقة مع شهادات مهارات مدمجة.',
+    ja: 'ロボティクスの人材レイヤー。AGRON Workは認定オペレーター、技術者、エンジニアを自律的未来を構築する企業と結びつけます。求人掲示板ではなく、スキル認証が組み込まれた検証済みプロフェッショナルネットワークです。',
+    he: 'שכבת הכישרון של הרובוטיקה. AGRON Work מחבר מפעילים, טכנאים ומהנדסים מוסמכים עם חברות העתיד האוטונומי. לא לוח דרושים — רשת מקצועית מאומתת עם הסמכת מיומנויות מובנית.'
   },
   'myday': {
-    en: 'Your day, reverse-engineered by AI. MyDay doesn\'t just plan — it learns your patterns, predicts your energy peaks, and restructures your time around what actually works. Productivity isn\'t about doing more — it\'s about doing right.',
-    ru: 'Ваш день, деконструированный ИИ. MyDay не просто планирует — он изучает паттерны, предсказывает пики энергии и перестраивает время вокруг того, что реально работает. Продуктивность — не делать больше, а делать правильно.',
-    uk: 'Ваш день, деконструйований ІІ. MyDay не просто планує — він вивчає патерни, передбачає піки енергії та перебудовує час навколо того, що реально працює. Продуктивність — не робити більше, а робити правильно.',
-    fr: 'Votre journée, rétro-conçue par l\'IA. MyDay ne planifie pas seulement — il apprend vos habitudes, prédit vos pics d\'énergie et restructure votre temps. La productivité, c\'est faire juste, pas faire plus.',
-    ar: 'يومك، معاد هندسته بالذكاء الاصطناعي. MyDay لا يخطط فحسب — بل يتعلم أنماطك، ويتنبأ بذروات طاقتك، ويعيد هيكلة وقتك. الإنتاجية ليست عمل المزيد — بل العمل الصحيح.',
-    ja: 'AIによってリバースエンジニアリングされたあなたの一日。MyDayは単に計画するだけでなく、パターンを学び、エネルギーのピークを予測し、本当に効果的なことに時間を再構築します。',
-    he: 'היום שלך, מהונדס לאחור על ידי AI. MyDay לא רק מתכנן — הוא לומד את הדפוסים שלך, חוזה את שיאי האנרגיה שלך ומבנה מחדש את הזמן סביב מה שבאמת עובד.'
+    en: 'Your day, reverse-engineered by AI. MyDay doesn\'t just plan — it learns your patterns, predicts your energy peaks, and restructures your time around what actually works. Productivity isn\'t about doing more — it\'s about doing right. The system adapts weekly based on behavioral feedback loops.',
+    ru: 'Ваш день, деконструированный ИИ. MyDay не просто планирует — он изучает паттерны, предсказывает пики энергии и перестраивает время вокруг того, что реально работает. Система адаптируется еженедельно на основе поведенческих обратных связей.',
+    uk: 'Ваш день, деконструйований ІІ. MyDay не просто планує — він вивчає патерни, передбачає піки енергії та перебудовує час навколо того, що реально працює. Система адаптується щотижня на основі поведінкових зворотних зв\'язків.',
+    fr: 'Votre journée, rétro-conçue par l\'IA. MyDay apprend vos habitudes, prédit vos pics d\'énergie et restructure votre temps. Le système s\'adapte chaque semaine grâce aux boucles de rétroaction comportementale.',
+    ar: 'يومك، معاد هندسته بالذكاء الاصطناعي. MyDay يتعلم أنماطك ويتنبأ بذروات طاقتك ويعيد هيكلة وقتك. يتكيف النظام أسبوعياً بناءً على حلقات التغذية الراجعة السلوكية.',
+    ja: 'AIによってリバースエンジニアリングされたあなたの一日。MyDayはパターンを学び、エネルギーのピークを予測し、本当に効果的なことに時間を再構築します。行動フィードバックループに基づき毎週適応します。',
+    he: 'היום שלך, מהונדס לאחור על ידי AI. MyDay לומד את הדפוסים שלך, חוזה שיאי אנרגיה ומבנה מחדש את הזמן. המערכת מתאימה עצמה שבועית על בסיס לולאות משוב התנהגותיות.'
   },
   'itsgoodtoday': {
-    en: 'No tracking marathons. No meditation pressure. Just one small thing today that makes tomorrow slightly better. A wellness companion designed for real humans, not fitness influencers.',
-    ru: 'Никаких марафонов трекинга. Никакого давления медитацией. Просто одна маленькая вещь сегодня, которая сделает завтра чуть лучше. Компаньон для реальных людей, а не фитнес-инфлюенсеров.',
-    uk: 'Жодних марафонів трекінгу. Жодного тиску медитацією. Просто одна маленька річ сьогодні, яка зробить завтра трохи кращим. Компаньйон для реальних людей, а не фітнес-інфлюенсерів.',
-    fr: 'Pas de marathons de suivi. Pas de pression de méditation. Juste une petite chose aujourd\'hui qui rend demain un peu meilleur. Un compagnon bien-être conçu pour de vrais humains.',
-    ar: 'لا ماراثونات تتبع. لا ضغط تأمل. مجرد شيء صغير اليوم يجعل الغد أفضل قليلاً. رفيق صحي مصمم للبشر الحقيقيين، وليس مؤثري اللياقة.',
-    ja: 'トラッキングマラソンなし。瞑想のプレッシャーなし。今日の小さな一つが、明日を少し良くする。フィットネスインフルエンサーではなく、本物の人間のためのウェルネスコンパニオン。',
-    he: 'בלי מרתוני מעקב. בלי לחץ מדיטציה. רק דבר קטן אחד היום שהופך את המחר לקצת יותר טוב. מלווה בריאות שתוכנן לבני אדם אמיתיים.'
+    en: 'No tracking marathons. No meditation pressure. Just one small thing today that makes tomorrow slightly better. A wellness companion designed for real humans, not fitness influencers. It uses micro-habit science to build sustainable change without overwhelming you.',
+    ru: 'Никаких марафонов трекинга. Никакого давления медитацией. Просто одна маленькая вещь сегодня, которая сделает завтра чуть лучше. Использует науку микро-привычек для устойчивых изменений без перегрузки.',
+    uk: 'Жодних марафонів трекінгу. Жодного тиску медитацією. Просто одна маленька річ сьогодні, яка зробить завтра трохи кращим. Використовує науку мікро-звичок для стійких змін без перевантаження.',
+    fr: 'Pas de marathons de suivi. Pas de pression. Juste une petite chose aujourd\'hui qui rend demain un peu meilleur. Utilise la science des micro-habitudes pour un changement durable sans vous submerger.',
+    ar: 'لا ماراثونات تتبع. لا ضغط. مجرد شيء صغير اليوم يجعل الغد أفضل. يستخدم علم العادات الصغيرة لبناء تغيير مستدام دون إرهاقك.',
+    ja: 'トラッキングマラソンなし。プレッシャーなし。今日の小さな一つが、明日を少し良くする。マイクロハビットサイエンスを使い、圧倒することなく持続可能な変化を構築します。',
+    he: 'בלי מרתוני מעקב. בלי לחץ. רק דבר קטן אחד היום. משתמש במדע מיקרו-הרגלים לשינוי בר-קיימא בלי להציף אותך.'
   },
   'mrx-health': {
-    en: 'What happens when you mix medications? MRX.Health explores drug interactions through AI-driven bio-scan analysis — turning pharmacological complexity into clear, actionable safety insights.',
-    ru: 'Что произойдёт при смешении лекарств? MRX.Health исследует лекарственные взаимодействия через ИИ-анализ биосканирования — превращая фармакологическую сложность в ясные инсайты безопасности.',
-    uk: 'Що станеться при змішуванні ліків? MRX.Health досліджує лікарські взаємодії через ІІ-аналіз біосканування — перетворюючи фармакологічну складність на зрозумілі інсайти безпеки.',
-    fr: 'Que se passe-t-il quand vous mélangez des médicaments ? MRX.Health explore les interactions médicamenteuses via l\'analyse bio-scan pilotée par l\'IA — transformant la complexité pharmacologique en insights de sécurité clairs.',
-    ar: 'ماذا يحدث عند خلط الأدوية؟ يستكشف MRX.Health التفاعلات الدوائية من خلال تحليل المسح البيولوجي بالذكاء الاصطناعي — ويحول التعقيد الدوائي إلى رؤى أمان واضحة.',
-    ja: '薬を混ぜるとどうなる？MRX.HealthはAI駆動のバイオスキャン分析で薬物相互作用を探求し、薬理学的複雑さを明確で実用的な安全性インサイトに変換します。',
-    he: 'מה קורה כשמערבבים תרופות? MRX.Health חוקר אינטראקציות תרופתיות באמצעות ניתוח סריקה ביולוגית מונע AI — והופך מורכבות פרמקולוגית לתובנות בטיחות ברורות.'
+    en: 'What happens when you mix medications? MRX.Health explores drug interactions through AI-driven bio-scan analysis — turning pharmacological complexity into clear, actionable safety insights. It cross-references thousands of compound combinations and flags risks before they become emergencies. No medical advice — just transparent data.',
+    ru: 'Что произойдёт при смешении лекарств? MRX.Health исследует лекарственные взаимодействия через ИИ-анализ биосканирования. Перекрёстно проверяет тысячи комбинаций соединений и выявляет риски до того, как они станут экстренными. Без медицинских советов — только прозрачные данные.',
+    uk: 'Що станеться при змішуванні ліків? MRX.Health досліджує лікарські взаємодії через ІІ-аналіз біосканування. Перехресно перевіряє тисячі комбінацій сполук та виявляє ризики до того, як вони стануть екстреними. Без медичних порад — лише прозорі дані.',
+    fr: 'Que se passe-t-il quand vous mélangez des médicaments ? MRX.Health explore les interactions médicamenteuses via l\'IA. Il croise des milliers de combinaisons et signale les risques avant qu\'ils ne deviennent urgents. Pas de conseil médical — juste des données transparentes.',
+    ar: 'ماذا يحدث عند خلط الأدوية؟ يستكشف MRX.Health التفاعلات الدوائية بالذكاء الاصطناعي. يتحقق من آلاف تركيبات المركبات ويحدد المخاطر قبل أن تصبح طوارئ. بدون نصائح طبية — فقط بيانات شفافة.',
+    ja: '薬を混ぜるとどうなる？MRX.HealthはAIバイオスキャンで薬物相互作用を探求。数千の化合物の組み合わせを照合し、緊急事態になる前にリスクを検出します。医療アドバイスなし — 透明なデータのみ。',
+    he: 'מה קורה כשמערבבים תרופות? MRX.Health חוקר אינטראקציות תרופתיות באמצעות AI. בודק אלפי שילובי תרכובות ומזהה סיכונים לפני שהם הופכים למצבי חירום. ללא ייעוץ רפואי — רק נתונים שקופים.'
   },
   'table-served': {
-    en: 'Not another recipe app. TableServed is a deterministic nutrition protocol — weekly Stability Boxes, a fixed Friday Lock cycle, zero ingredient improvisation. Family nutrition, engineered with the precision of a supply chain.',
-    ru: 'Не очередное приложение рецептов. TableServed — детерминистический протокол питания: еженедельные Stability Box\'ы, фиксированный цикл Friday Lock, ноль импровизаций. Семейное питание, спроектированное с точностью цепочки поставок.',
-    uk: 'Не черговий додаток рецептів. TableServed — детерміністичний протокол харчування: щотижневі Stability Box\'и, фіксований цикл Friday Lock, нуль імпровізацій. Сімейне харчування з точністю ланцюжка постачання.',
-    fr: 'Pas une autre appli de recettes. TableServed est un protocole nutritionnel déterministe — des Stability Boxes hebdomadaires, un cycle Friday Lock fixe, zéro improvisation. La nutrition familiale, conçue avec la précision d\'une chaîne d\'approvisionnement.',
-    ar: 'ليس تطبيق وصفات آخر. TableServed هو بروتوكول تغذية حتمي — صناديق استقرار أسبوعية، دورة قفل الجمعة الثابتة، صفر ارتجال. تغذية عائلية مهندسة بدقة سلسلة التوريد.',
-    ja: 'ただのレシピアプリではありません。TableServedは決定論的栄養プロトコル — 毎週のStability Box、固定のFriday Lockサイクル、即興ゼロ。サプライチェーンの精度で設計された家族栄養。',
-    he: 'לא עוד אפליקציית מתכונים. TableServed הוא פרוטוקול תזונתי דטרמיניסטי — קופסאות יציבות שבועיות, מחזור נעילת יום שישי קבוע, אפס אלתור. תזונה משפחתית מהונדסת בדיוק של שרשרת אספקה.'
+    en: 'Not another recipe app. TableServed is a deterministic nutrition protocol — weekly Stability Boxes, a fixed Friday Lock cycle, zero ingredient improvisation. Family nutrition, engineered with the precision of a supply chain. Every box is pre-calculated for macro balance, allergen safety, and household size.',
+    ru: 'Не очередное приложение рецептов. TableServed — детерминистический протокол питания: еженедельные Stability Box\'ы, фиксированный цикл Friday Lock, ноль импровизаций. Каждый бокс рассчитан по макро-балансу, аллергенной безопасности и размеру семьи.',
+    uk: 'Не черговий додаток рецептів. TableServed — детерміністичний протокол харчування: щотижневі Stability Box\'и, фіксований цикл Friday Lock, нуль імпровізацій. Кожен бокс розрахований по макро-балансу, алергенній безпеці та розміру родини.',
+    fr: 'Pas une autre appli de recettes. TableServed est un protocole nutritionnel déterministe — Stability Boxes hebdomadaires, cycle Friday Lock fixe, zéro improvisation. Chaque box est pré-calculée pour l\'équilibre macro, la sécurité allergène et la taille du foyer.',
+    ar: 'ليس تطبيق وصفات آخر. TableServed بروتوكول تغذية حتمي — صناديق استقرار أسبوعية، دورة قفل الجمعة، صفر ارتجال. كل صندوق محسوب مسبقاً للتوازن الغذائي وسلامة المواد المسببة للحساسية وحجم الأسرة.',
+    ja: 'ただのレシピアプリではありません。TableServedは決定論的栄養プロトコル — 毎週のStability Box、Friday Lockサイクル、即興ゼロ。各ボックスはマクロバランス、アレルゲン安全性、世帯サイズに基づいて事前計算されています。',
+    he: 'לא עוד אפליקציית מתכונים. TableServed הוא פרוטוקול תזונתי דטרמיניסטי — קופסאות יציבות שבועיות, מחזור נעילת שישי, אפס אלתור. כל קופסה מחושבת מראש לאיזון מאקרו, בטיחות אלרגנים וגודל משק הבית.'
   },
   'baseline': {
-    en: 'Health logic, simplified to 4 steps. BaseLine takes complex clinical data and turns it into a launchpad — Biological Handshake, Baseline Ingestion, Marker Synthesis, Prognostic Launch. Your health journey starts with understanding where you stand.',
-    ru: 'Логика здоровья, упрощённая до 4 шагов. BaseLine берёт сложные клинические данные и превращает в стартовую площадку. Путь к здоровью начинается с понимания, где вы находитесь.',
-    uk: 'Логіка здоров\'я, спрощена до 4 кроків. BaseLine бере складні клінічні дані і перетворює на стартовий майданчик. Шлях до здоров\'я починається з розуміння, де ви знаходитесь.',
-    fr: 'La logique de santé, simplifiée en 4 étapes. BaseLine prend des données cliniques complexes et les transforme en rampe de lancement. Votre parcours santé commence par comprendre où vous en êtes.',
-    ar: 'منطق الصحة، مبسط في 4 خطوات. يأخذ BaseLine البيانات السريرية المعقدة ويحولها إلى منصة انطلاق. رحلتك الصحية تبدأ بفهم أين تقف.',
-    ja: '健康ロジックを4ステップに簡素化。BaseLineは複雑な臨床データを発射台に変えます。健康の旅は、自分がどこにいるかを理解することから始まります。',
-    he: 'לוגיקת בריאות, מפושטת ל-4 צעדים. BaseLine לוקח נתונים קליניים מורכבים והופך אותם לכן שיגור. המסע הבריאותי שלך מתחיל בהבנת איפה אתה עומד.'
+    en: 'Health logic, simplified to 4 steps. BaseLine takes complex clinical data and turns it into a launchpad — Biological Handshake, Baseline Ingestion, Marker Synthesis, Prognostic Launch. Your health journey starts with understanding where you stand. It replaces months of fragmented testing with one structured onboarding sequence.',
+    ru: 'Логика здоровья, упрощённая до 4 шагов. BaseLine берёт сложные клинические данные и превращает в стартовую площадку — Biological Handshake, Baseline Ingestion, Marker Synthesis, Prognostic Launch. Заменяет месяцы разрозненных тестов одной структурированной последовательностью.',
+    uk: 'Логіка здоров\'я, спрощена до 4 кроків. BaseLine бере складні клінічні дані і перетворює на стартовий майданчик. Замінює місяці розрізнених тестів однією структурованою послідовністю.',
+    fr: 'La logique de santé en 4 étapes. BaseLine transforme des données cliniques complexes en rampe de lancement. Il remplace des mois de tests fragmentés par une séquence d\'intégration structurée.',
+    ar: 'منطق الصحة في 4 خطوات. يحول BaseLine البيانات السريرية المعقدة إلى منصة انطلاق. يستبدل أشهر من الاختبارات المتفرقة بتسلسل تأهيل منظم واحد.',
+    ja: '健康ロジックを4ステップに簡素化。BaseLineは複雑な臨床データを発射台に変えます。何ヶ月もの断片的なテストを、一つの構造化されたオンボーディングシーケンスに置き換えます。',
+    he: 'לוגיקת בריאות ב-4 צעדים. BaseLine הופך נתונים קליניים מורכבים לכן שיגור. מחליף חודשים של בדיקות מפוזרות ברצף קליטה מובנה אחד.'
   },
   'saven': {
-    en: 'Infrastructure of Continuous Execution. SAVEN is a 5-step operational cycle embedded in a 4-level BioMath architecture. It doesn\'t motivate — it executes. Discipline, automated.',
-    ru: 'Инфраструктура непрерывного исполнения. SAVEN — 5-шаговый операционный цикл внутри 4-уровневой архитектуры BioMath. Не мотивирует — исполняет. Дисциплина, автоматизированная.',
-    uk: 'Інфраструктура безперервного виконання. SAVEN — 5-кроковий операційний цикл всередині 4-рівневої архітектури BioMath. Не мотивує — виконує. Дисципліна, автоматизована.',
-    fr: 'Infrastructure d\'exécution continue. SAVEN est un cycle opérationnel en 5 étapes intégré dans une architecture BioMath à 4 niveaux. Il ne motive pas — il exécute. La discipline, automatisée.',
-    ar: 'بنية التنفيذ المستمر. SAVEN هي دورة تشغيلية من 5 خطوات مدمجة في بنية BioMath من 4 مستويات. لا تحفز — بل تنفذ. الانضباط، مؤتمت.',
-    ja: '継続的実行のインフラ。SAVENは4レベルのBioMathアーキテクチャに組み込まれた5ステップの運用サイクルです。動機づけではなく実行します。規律の自動化。',
-    he: 'תשתית של ביצוע רציף. SAVEN הוא מחזור תפעולי בן 5 שלבים המוטמע בארכיטקטורת BioMath בת 4 רמות. הוא לא מניע — הוא מבצע. משמעת, אוטומטית.'
+    en: 'SAVEN is not a wellness app — it\'s an Infrastructure of Continuous Execution. Built on a 5-step operational cycle (Context → Action → Verification → Control → Support), it sits within the 4-level BioMath architecture hierarchy. SAVEN doesn\'t motivate you — it creates an environment where execution happens automatically. The "Three Environments" logic separates your physical, digital, and social contexts, and the economic model is designed around high exit costs and growing LTV. Once inside, the system sustains itself.',
+    ru: 'SAVEN — не велнес-приложение, а Инфраструктура Непрерывного Исполнения. Построен на 5-шаговом операционном цикле (Контекст → Действие → Верификация → Контроль → Поддержка) внутри 4-уровневой архитектуры BioMath. SAVEN не мотивирует — он создаёт среду, где исполнение происходит автоматически. Логика «Трёх Сред» разделяет физический, цифровой и социальный контексты, а экономическая модель построена на высоких затратах выхода и растущем LTV. Попав внутрь, система поддерживает себя сама.',
+    uk: 'SAVEN — не велнес-додаток, а Інфраструктура Безперервного Виконання. Побудований на 5-кроковому операційному циклі (Контекст → Дія → Верифікація → Контроль → Підтримка) всередині 4-рівневої архітектури BioMath. SAVEN не мотивує — він створює середовище, де виконання відбувається автоматично. Логіка «Трьох Середовищ» розділяє фізичний, цифровий та соціальний контексти, а економічна модель побудована на високих витратах виходу та зростаючому LTV.',
+    fr: 'SAVEN n\'est pas une appli bien-être — c\'est une Infrastructure d\'Exécution Continue. Basé sur un cycle opérationnel en 5 étapes (Contexte → Action → Vérification → Contrôle → Support) au sein de l\'architecture BioMath à 4 niveaux. SAVEN ne motive pas — il crée un environnement où l\'exécution est automatique. La logique des « Trois Environnements » sépare les contextes physique, numérique et social, avec un modèle économique fondé sur des coûts de sortie élevés et un LTV croissant.',
+    ar: 'SAVEN ليس تطبيق صحة — إنه بنية التنفيذ المستمر. مبني على دورة تشغيلية من 5 خطوات (سياق ← عمل ← تحقق ← تحكم ← دعم) ضمن هرمية BioMath من 4 مستويات. لا يحفز — بل يخلق بيئة يحدث فيها التنفيذ تلقائياً. منطق "البيئات الثلاث" يفصل السياقات المادية والرقمية والاجتماعية، والنموذج الاقتصادي مبني على تكاليف خروج عالية وقيمة عمر متنامية.',
+    ja: 'SAVENはウェルネスアプリではなく、継続的実行のインフラです。4レベルのBioMathアーキテクチャ内の5ステップ運用サイクル（コンテキスト→アクション→検証→制御→サポート）で構築。動機づけではなく、実行が自動的に起こる環境を作ります。「三つの環境」ロジックが物理的・デジタル・社会的コンテキストを分離し、経済モデルは高い離脱コストと成長するLTVを中心に設計されています。',
+    he: 'SAVEN הוא לא אפליקציית בריאות — הוא תשתית של ביצוע רציף. בנוי על מחזור תפעולי בן 5 שלבים (הקשר ← פעולה ← אימות ← בקרה ← תמיכה) בתוך הירארכיית BioMath בת 4 רמות. לא מניע — יוצר סביבה שבה הביצוע קורה אוטומטית. לוגיקת "שלוש הסביבות" מפרידה הקשרים פיזיים, דיגיטליים וחברתיים, והמודל הכלכלי בנוי על עלויות יציאה גבוהות ו-LTV צומח.'
   },
   'luna-balance': {
-    en: 'Silence as technology. Luna Balance is a women\'s mindfulness platform built on \'Silence Technology\' and \'Relationship Mode\' — designed for emotional depth, inner stillness, and authentic connection.',
-    ru: 'Тишина как технология. Luna Balance — женская платформа осознанности на основе «Технологии тишины» и «Режима отношений» — для эмоциональной глубины, внутренней тишины и подлинных связей.',
-    uk: 'Тиша як технологія. Luna Balance — жіноча платформа усвідомленості на основі «Технології тиші» та «Режиму стосунків» — для емоційної глибини, внутрішнього спокою та справжніх зв\'язків.',
-    fr: 'Le silence comme technologie. Luna Balance est une plateforme de pleine conscience pour femmes construite sur la « Technologie du Silence » et le « Mode Relation » — pour la profondeur émotionnelle et la connexion authentique.',
-    ar: 'الصمت كتقنية. Luna Balance هي منصة وعي نسائية مبنية على "تقنية الصمت" و"وضع العلاقات" — مصممة للعمق العاطفي والسكون الداخلي والتواصل الحقيقي.',
-    ja: 'テクノロジーとしての静寂。Luna Balanceは「サイレンステクノロジー」と「リレーションシップモード」に基づく女性向けマインドフルネスプラットフォーム — 感情の深さ、内なる静けさ、本物のつながりのために。',
-    he: 'שתיקה כטכנולוגיה. Luna Balance היא פלטפורמת מיינדפולנס לנשים הבנויה על "טכנולוגיית השתיקה" ו"מצב מערכות יחסים" — מעוצבת לעומק רגשי, שקט פנימי וחיבור אותנטי.'
+    en: 'Silence as technology. Luna Balance is a women\'s mindfulness platform built on \'Silence Technology\' and \'Relationship Mode\' — designed for emotional depth, inner stillness, and authentic connection. It doesn\'t prescribe meditation routines; it builds a personalized emotional architecture that adapts to hormonal and relational cycles.',
+    ru: 'Тишина как технология. Luna Balance — женская платформа осознанности на основе «Технологии тишины» и «Режима отношений». Не назначает медитацию — строит персонализированную эмоциональную архитектуру, адаптирующуюся к гормональным и отношенческим циклам.',
+    uk: 'Тиша як технологія. Luna Balance — жіноча платформа усвідомленості на основі «Технології тиші» та «Режиму стосунків». Не призначає медитацію — будує персоналізовану емоційну архітектуру, що адаптується до гормональних та стосункових циклів.',
+    fr: 'Le silence comme technologie. Luna Balance est une plateforme de pleine conscience pour femmes. Elle ne prescrit pas de routines de méditation — elle construit une architecture émotionnelle personnalisée qui s\'adapte aux cycles hormonaux et relationnels.',
+    ar: 'الصمت كتقنية. Luna Balance منصة وعي نسائية مبنية على "تقنية الصمت" و"وضع العلاقات". لا تصف تمارين تأمل — بل تبني بنية عاطفية مخصصة تتكيف مع الدورات الهرمونية والعلاقاتية.',
+    ja: 'テクノロジーとしての静寂。Luna Balanceは「サイレンステクノロジー」と「リレーションシップモード」に基づく女性向けマインドフルネスプラットフォーム。瞑想ルーチンを処方せず、ホルモンと関係性のサイクルに適応するパーソナライズされた感情アーキテクチャを構築します。',
+    he: 'שתיקה כטכנולוגיה. Luna Balance פלטפורמת מיינדפולנס לנשים. לא רושמת שגרות מדיטציה — בונה ארכיטקטורה רגשית מותאמת אישית שמסתגלת למחזורים הורמונליים ויחסיים.'
   },
   'stresscore': {
-    en: 'Stress isn\'t the enemy — misunderstanding it is. StressCore maps your stress patterns and turns data into actionable calm. Science-backed resilience, not motivational posters.',
-    ru: 'Стресс — не враг. Непонимание стресса — враг. StressCore картирует паттерны стресса и превращает данные в действенное спокойствие. Научная устойчивость, а не мотивационные плакаты.',
-    uk: 'Стрес — не ворог. Нерозуміння стресу — ворог. StressCore картографує патерни стресу і перетворює дані на дієвий спокій. Наукова стійкість, а не мотиваційні плакати.',
-    fr: 'Le stress n\'est pas l\'ennemi — le mal comprendre, si. StressCore cartographie vos schémas de stress et transforme les données en calme actionnable. Résilience scientifique, pas des affiches motivationnelles.',
-    ar: 'التوتر ليس العدو — سوء فهمه هو العدو. يرسم StressCore خرائط أنماط التوتر ويحول البيانات إلى هدوء قابل للتنفيذ. مرونة مدعومة بالعلم، وليس ملصقات تحفيزية.',
-    ja: 'ストレスは敵ではない — それを誤解することが敵です。StressCoreはストレスパターンをマッピングし、データを実行可能な平穏に変えます。科学に裏付けられたレジリエンス。',
-    he: 'סטרס הוא לא האויב — אי-הבנה שלו כן. StressCore ממפה את דפוסי הסטרס שלך והופך נתונים לשקט ניתן לפעולה. חוסן מגובה מדעית, לא כרזות מוטיבציה.'
+    en: 'Stress isn\'t the enemy — misunderstanding it is. StressCore maps your stress patterns and turns data into actionable calm. Science-backed resilience, not motivational posters. The system distinguishes productive stress from chronic overload and teaches your body to recalibrate in real-time.',
+    ru: 'Стресс — не враг. Непонимание стресса — враг. StressCore картирует паттерны стресса и превращает данные в действенное спокойствие. Система различает продуктивный стресс от хронической перегрузки и учит тело рекалибровке в реальном времени.',
+    uk: 'Стрес — не ворог. Нерозуміння стресу — ворог. StressCore картографує патерни стресу і перетворює дані на дієвий спокій. Система розрізняє продуктивний стрес від хронічного перевантаження та вчить тіло рекалібруватися в реальному часі.',
+    fr: 'Le stress n\'est pas l\'ennemi — le mal comprendre, si. StressCore cartographie vos schémas de stress. Le système distingue le stress productif de la surcharge chronique et enseigne à votre corps à se recalibrer en temps réel.',
+    ar: 'التوتر ليس العدو — سوء فهمه هو العدو. يرسم StressCore خرائط أنماط التوتر. يميز النظام بين التوتر المنتج والحمل الزائد المزمن ويعلم جسمك إعادة المعايرة في الوقت الفعلي.',
+    ja: 'ストレスは敵ではない — それを誤解することが敵です。StressCoreはストレスパターンをマッピング。生産的ストレスと慢性過負荷を区別し、リアルタイムで体を再キャリブレーションさせます。',
+    he: 'סטרס הוא לא האויב — אי-הבנה שלו כן. StressCore ממפה דפוסי סטרס. המערכת מבחינה בין סטרס פרודוקטיבי לעומס כרוני ומלמדת את הגוף לכייל מחדש בזמן אמת.'
   },
   'vitalcore': {
-    en: 'Every heartbeat tells a story. VitalCore captures, analyzes, and interprets vital signs in real-time — turning raw physiological data into health narratives you can actually act on.',
-    ru: 'Каждое сердцебиение рассказывает историю. VitalCore захватывает и интерпретирует показатели в реальном времени — превращая физиологические данные в нарративы здоровья, на которые можно действовать.',
-    uk: 'Кожне серцебиття розповідає історію. VitalCore захоплює та інтерпретує показники в реальному часі — перетворюючи фізіологічні дані на наративи здоров\'я, на які можна діяти.',
-    fr: 'Chaque battement de cœur raconte une histoire. VitalCore capture et interprète les signes vitaux en temps réel — transformant les données physiologiques brutes en récits de santé exploitables.',
-    ar: 'كل نبضة قلب تحكي قصة. يلتقط VitalCore العلامات الحيوية ويفسرها في الوقت الفعلي — ويحول البيانات الفسيولوجية الخام إلى روايات صحية يمكنك التصرف بناءً عليها.',
-    ja: 'すべての心拍がストーリーを語ります。VitalCoreはバイタルサインをリアルタイムで捕捉・分析・解釈し、生の生理学的データを実行可能な健康ナラティブに変えます。',
-    he: 'כל פעימת לב מספרת סיפור. VitalCore לוכד ומפרש סימנים חיוניים בזמן אמת — והופך נתונים פיזיולוגיים גולמיים לנרטיבי בריאות שאפשר לפעול לפיהם.'
+    en: 'Every heartbeat tells a story. VitalCore captures, analyzes, and interprets vital signs in real-time — turning raw physiological data into health narratives you can actually act on. It connects to wearables, lab results, and clinical devices to create a unified vitals dashboard.',
+    ru: 'Каждое сердцебиение рассказывает историю. VitalCore захватывает и интерпретирует показатели в реальном времени. Подключается к носимым устройствам, лабораторным результатам и клиническим приборам для создания единой панели показателей жизнедеятельности.',
+    uk: 'Кожне серцебиття розповідає історію. VitalCore захоплює та інтерпретує показники в реальному часі. Підключається до носимих пристроїв, лабораторних результатів та клінічних приладів для створення єдиної панелі показників.',
+    fr: 'Chaque battement de cœur raconte une histoire. VitalCore capture et interprète les signes vitaux en temps réel. Il se connecte aux wearables, résultats de labo et dispositifs cliniques pour un tableau de bord unifié des signes vitaux.',
+    ar: 'كل نبضة قلب تحكي قصة. يلتقط VitalCore العلامات الحيوية ويفسرها في الوقت الفعلي. يتصل بالأجهزة القابلة للارتداء ونتائج المختبر والأجهزة السريرية للوحة معلومات موحدة.',
+    ja: 'すべての心拍がストーリーを語ります。VitalCoreはバイタルサインをリアルタイムで捕捉・解釈。ウェアラブル、ラボ結果、臨床デバイスに接続し、統合バイタルダッシュボードを作成します。',
+    he: 'כל פעימת לב מספרת סיפור. VitalCore לוכד ומפרש סימנים חיוניים בזמן אמת. מתחבר למכשירים לבישים, תוצאות מעבדה ומכשירים קליניים ללוח מחוונים אחיד.'
   },
   'bioagecore': {
-    en: 'Your passport says one age. Your biology says another. BioAgeCore calculates your true biological age and gives you a personalized roadmap to change it — because aging is negotiable.',
-    ru: 'Паспорт говорит один возраст. Биология — другой. BioAgeCore рассчитывает истинный биологический возраст и даёт персональную дорожную карту для его изменения — потому что старение обсуждаемо.',
-    uk: 'Паспорт каже один вік. Біологія — інший. BioAgeCore розраховує справжній біологічний вік і дає персональну дорожню карту для його зміни — бо старіння обговорюване.',
-    fr: 'Votre passeport dit un âge. Votre biologie en dit un autre. BioAgeCore calcule votre véritable âge biologique et vous donne une feuille de route personnalisée — parce que le vieillissement est négociable.',
-    ar: 'جواز سفرك يقول عمراً واحداً. بيولوجيتك تقول آخر. يحسب BioAgeCore عمرك البيولوجي الحقيقي ويمنحك خارطة طريق شخصية لتغييره — لأن الشيخوخة قابلة للتفاوض.',
-    ja: 'パスポートはひとつの年齢を示します。生物学は別の年齢を示します。BioAgeCoreは真の生物学的年齢を計算し、それを変えるためのパーソナライズされたロードマップを提供します — 老化は交渉可能だからです。',
-    he: 'הדרכון שלך אומר גיל אחד. הביולוגיה שלך אומרת אחר. BioAgeCore מחשב את הגיל הביולוגי האמיתי שלך ונותן לך מפת דרכים מותאמת אישית לשנות אותו — כי הזדקנות ניתנת למשא ומתן.'
+    en: 'Your passport says one age. Your biology says another. BioAgeCore calculates your true biological age and gives you a personalized roadmap to change it — because aging is negotiable. It combines epigenetic markers, metabolic panels, and lifestyle data into one actionable age score.',
+    ru: 'Паспорт говорит один возраст. Биология — другой. BioAgeCore рассчитывает истинный биологический возраст и даёт дорожную карту для его изменения. Объединяет эпигенетические маркеры, метаболические панели и данные образа жизни в один рабочий показатель возраста.',
+    uk: 'Паспорт каже один вік. Біологія — інший. BioAgeCore розраховує справжній біологічний вік і дає дорожню карту для його зміни. Об\'єднує епігенетичні маркери, метаболічні панелі та дані способу життя в один робочий показник віку.',
+    fr: 'Votre passeport dit un âge. Votre biologie en dit un autre. BioAgeCore calcule votre véritable âge biologique. Il combine marqueurs épigénétiques, panels métaboliques et données de style de vie en un score d\'âge actionnable.',
+    ar: 'جواز سفرك يقول عمراً. بيولوجيتك تقول آخر. يحسب BioAgeCore عمرك البيولوجي الحقيقي. يجمع العلامات الجينية والألواح الأيضية وبيانات نمط الحياة في درجة عمر واحدة قابلة للتنفيذ.',
+    ja: 'パスポートはひとつの年齢を示します。生物学は別の年齢を。BioAgeCoreは真の生物学的年齢を計算。エピジェネティックマーカー、代謝パネル、ライフスタイルデータを一つの実用的な年齢スコアに統合します。',
+    he: 'הדרכון אומר גיל אחד. הביולוגיה אומרת אחר. BioAgeCore מחשב את הגיל הביולוגי האמיתי. משלב סמנים אפיגנטיים, פאנלים מטבוליים ונתוני אורח חיים לציון גיל אחד בר-פעולה.'
   },
   'longevitycore': {
-    en: 'Living longer isn\'t the goal — living better, longer, is. LongevityCore is a precision anti-aging system that goes beyond supplements and serums into the architecture of biological time.',
-    ru: 'Жить дольше — не цель. Жить лучше и дольше — цель. LongevityCore — прецизионная антивозрастная система за пределами добавок, в архитектуре биологического времени.',
-    uk: 'Жити довше — не мета. Жити краще і довше — мета. LongevityCore — прецизійна антивікова система за межами добавок, в архітектурі біологічного часу.',
-    fr: 'Vivre plus longtemps n\'est pas l\'objectif — vivre mieux, plus longtemps, oui. LongevityCore est un système anti-âge de précision qui va au-delà des suppléments dans l\'architecture du temps biologique.',
-    ar: 'العيش لفترة أطول ليس الهدف — العيش بشكل أفضل لفترة أطول هو الهدف. LongevityCore هو نظام مكافحة شيخوخة دقيق يتجاوز المكملات والأمصال إلى هندسة الزمن البيولوجي.',
-    ja: '長生きが目標ではない — より良く、より長く生きることが目標です。LongevityCoreはサプリメントや美容液を超え、生物学的時間のアーキテクチャに踏み込む精密アンチエイジングシステムです。',
-    he: 'לחיות יותר זה לא המטרה — לחיות טוב יותר, יותר זמן, כן. LongevityCore היא מערכת אנטי-אייג\'ינג מדויקת שחורגת מתוספים לארכיטקטורה של זמן ביולוגי.'
+    en: 'Living longer isn\'t the goal — living better, longer, is. LongevityCore is a precision anti-aging system that goes beyond supplements and serums into the architecture of biological time. It tracks cellular aging markers and builds intervention protocols personalized to your biology.',
+    ru: 'Жить дольше — не цель. Жить лучше и дольше — цель. LongevityCore — прецизионная антивозрастная система за пределами добавок, в архитектуре биологического времени. Отслеживает маркеры клеточного старения и строит протоколы вмешательства, персонализированные под вашу биологию.',
+    uk: 'Жити довше — не мета. Жити краще і довше — мета. LongevityCore — прецизійна антивікова система за межами добавок. Відстежує маркери клітинного старіння та будує протоколи втручання, персоналізовані під вашу біологію.',
+    fr: 'Vivre plus longtemps n\'est pas l\'objectif — vivre mieux, plus longtemps, oui. LongevityCore suit les marqueurs du vieillissement cellulaire et construit des protocoles d\'intervention personnalisés selon votre biologie.',
+    ar: 'العيش أطول ليس الهدف — العيش بشكل أفضل وأطول هو الهدف. LongevityCore يتتبع علامات الشيخوخة الخلوية ويبني بروتوكولات تدخل مخصصة لبيولوجيتك.',
+    ja: '長生きが目標ではなく、より良く長く生きることが目標。LongevityCoreは細胞老化マーカーを追跡し、あなたの生物学に合わせた介入プロトコルを構築します。',
+    he: 'לחיות יותר זה לא המטרה — לחיות טוב יותר, יותר זמן. LongevityCore עוקב אחר סמני הזדקנות תאית ובונה פרוטוקולי התערבות מותאמים לביולוגיה שלך.'
   },
   'familycore': {
-    en: 'Health isn\'t individual — it\'s generational. FamilyCore connects health data across your household, creating a unified family health intelligence layer that grows with every member.',
-    ru: 'Здоровье — не индивидуально. Оно поколенческое. FamilyCore связывает данные здоровья домохозяйства, создавая единый слой семейной аналитики, растущий с каждым участником.',
-    uk: 'Здоров\'я — не індивідуальне. Воно поколінське. FamilyCore з\'єднує дані здоров\'я домогосподарства, створюючи єдиний шар сімейної аналітики, що зростає з кожним учасником.',
-    fr: 'La santé n\'est pas individuelle — elle est générationnelle. FamilyCore connecte les données de santé de votre foyer, créant une couche d\'intelligence santé familiale unifiée qui grandit avec chaque membre.',
-    ar: 'الصحة ليست فردية — إنها جيلية. يربط FamilyCore بيانات الصحة عبر أسرتك، مما يخلق طبقة ذكاء صحي عائلي موحدة تنمو مع كل فرد.',
-    ja: '健康は個人のものではなく、世代のものです。FamilyCoreは家庭全体の健康データを接続し、メンバーとともに成長する統合的な家族健康インテリジェンスレイヤーを作ります。',
-    he: 'בריאות היא לא אישית — היא דורית. FamilyCore מחבר נתוני בריאות ברחבי משק הבית שלך, ויוצר שכבת מודיעין בריאותי משפחתי מאוחד שגדלה עם כל חבר.'
+    en: 'Health isn\'t individual — it\'s generational. FamilyCore connects health data across your household, creating a unified family health intelligence layer that grows with every member. It detects hereditary risk patterns and builds preventive protocols for the entire household.',
+    ru: 'Здоровье — не индивидуально. Оно поколенческое. FamilyCore связывает данные здоровья домохозяйства, создавая единый слой семейной аналитики. Выявляет наследственные паттерны рисков и строит превентивные протоколы для всей семьи.',
+    uk: 'Здоров\'я — не індивідуальне. Воно поколінське. FamilyCore з\'єднує дані здоров\'я домогосподарства. Виявляє спадкові патерни ризиків та будує превентивні протоколи для всієї родини.',
+    fr: 'La santé n\'est pas individuelle — elle est générationnelle. FamilyCore connecte les données de santé de votre foyer. Il détecte les schémas de risque héréditaires et construit des protocoles préventifs pour tout le foyer.',
+    ar: 'الصحة ليست فردية — إنها جيلية. يربط FamilyCore بيانات الصحة عبر أسرتك. يكتشف أنماط المخاطر الوراثية ويبني بروتوكولات وقائية لكل الأسرة.',
+    ja: '健康は個人のものではなく世代のもの。FamilyCoreは家庭全体の健康データを接続。遺伝性リスクパターンを検出し、家族全体の予防プロトコルを構築します。',
+    he: 'בריאות היא לא אישית — היא דורית. FamilyCore מחבר נתוני בריאות ברחבי משק הבית. מזהה דפוסי סיכון תורשתיים ובונה פרוטוקולים מונעים לכל המשפחה.'
   },
   'seniorcore': {
-    en: 'Aging with data, not just dignity. SeniorCore monitors cognitive and physical markers for older adults — delivering predictive care before problems become emergencies.',
-    ru: 'Старение с данными, а не только с достоинством. SeniorCore мониторит когнитивные и физические маркеры — предиктивный уход до того, как проблемы станут экстренными.',
-    uk: 'Старіння з даними, а не лише з гідністю. SeniorCore моніторить когнітивні та фізичні маркери — предиктивний догляд до того, як проблеми стануть екстреними.',
-    fr: 'Vieillir avec des données, pas seulement avec dignité. SeniorCore surveille les marqueurs cognitifs et physiques des personnes âgées — livrant des soins prédictifs avant que les problèmes ne deviennent urgents.',
-    ar: 'الشيخوخة مع البيانات، وليس فقط بكرامة. يراقب SeniorCore العلامات المعرفية والجسدية لكبار السن — ويقدم رعاية تنبؤية قبل أن تصبح المشاكل طوارئ.',
-    ja: 'データとともに老いる。SeniorCoreは高齢者の認知的・身体的マーカーを監視し、問題が緊急事態になる前に予測的ケアを提供します。',
-    he: 'הזדקנות עם נתונים, לא רק בכבוד. SeniorCore עוקב אחר סמנים קוגניטיביים ופיזיים של מבוגרים — ומספק טיפול חזוי לפני שבעיות הופכות למצבי חירום.'
+    en: 'Aging with data, not just dignity. SeniorCore monitors cognitive and physical markers for older adults — delivering predictive care before problems become emergencies. It integrates caregiver dashboards and automated alerts, so families stay informed without being intrusive.',
+    ru: 'Старение с данными, а не только с достоинством. SeniorCore мониторит когнитивные и физические маркеры — предиктивный уход до экстренных ситуаций. Интегрирует панели для ухаживающих и автоматические оповещения, чтобы семьи были информированы без навязчивости.',
+    uk: 'Старіння з даними, а не лише з гідністю. SeniorCore моніторить когнітивні та фізичні маркери — предиктивний догляд до екстрених ситуацій. Інтегрує панелі для доглядачів та автоматичні сповіщення.',
+    fr: 'Vieillir avec des données, pas seulement avec dignité. SeniorCore surveille les marqueurs cognitifs et physiques. Il intègre des tableaux de bord pour les soignants et des alertes automatisées pour que les familles restent informées.',
+    ar: 'الشيخوخة مع البيانات. يراقب SeniorCore العلامات المعرفية والجسدية لكبار السن. يدمج لوحات معلومات لمقدمي الرعاية وتنبيهات تلقائية حتى تبقى العائلات على اطلاع دون تطفل.',
+    ja: 'データとともに老いる。SeniorCoreは高齢者の認知的・身体的マーカーを監視。介護者ダッシュボードと自動アラートを統合し、家族が押し付けがましくなく情報を得られるようにします。',
+    he: 'הזדקנות עם נתונים. SeniorCore עוקב אחר סמנים קוגניטיביים ופיזיים. משלב לוחות מחוונים למטפלים והתראות אוטומטיות כדי שמשפחות יישארו מעודכנות.'
   },
   'skincore': {
-    en: 'Your skin is your largest organ — treat it like one. SkinCore uses AI dermatology to track, analyze, and guide personalized skin care routines with clinical-grade precision.',
-    ru: 'Кожа — ваш самый большой орган. Относитесь соответственно. SkinCore использует ИИ-дерматологию для персонализации ухода за кожей с клинической точностью.',
-    uk: 'Шкіра — ваш найбільший орган. Ставтеся відповідно. SkinCore використовує ІІ-дерматологію для персоналізації догляду за шкірою з клінічною точністю.',
-    fr: 'Votre peau est votre plus grand organe — traitez-la comme tel. SkinCore utilise la dermatologie IA pour guider des routines de soins personnalisées avec une précision clinique.',
-    ar: 'بشرتك هي أكبر عضو لديك — عاملها كذلك. يستخدم SkinCore الأمراض الجلدية بالذكاء الاصطناعي لتتبع وتحليل وتوجيه روتين العناية بالبشرة المخصص بدقة سريرية.',
-    ja: '肌はあなたの最大の臓器です — そのように扱いましょう。SkinCoreはAI皮膚科学を使用して、臨床グレードの精度でパーソナライズされたスキンケアルーチンを追跡・分析・ガイドします。',
-    he: 'העור שלך הוא האיבר הגדול ביותר — התייחס אליו כך. SkinCore משתמש בדרמטולוגיית AI כדי לעקוב, לנתח ולהנחות שגרות טיפוח מותאמות אישית בדיוק קליני.'
+    en: 'Your skin is your largest organ — treat it like one. SkinCore uses AI dermatology to track, analyze, and guide personalized skin care routines with clinical-grade precision. It monitors changes over time and flags anomalies that deserve professional attention.',
+    ru: 'Кожа — ваш самый большой орган. SkinCore использует ИИ-дерматологию для персонализации ухода с клинической точностью. Отслеживает изменения во времени и выявляет аномалии, требующие профессионального внимания.',
+    uk: 'Шкіра — ваш найбільший орган. SkinCore використовує ІІ-дерматологію для персоналізації догляду з клінічною точністю. Відстежує зміни з часом та виявляє аномалії, що потребують професійної уваги.',
+    fr: 'Votre peau est votre plus grand organe. SkinCore utilise la dermatologie IA avec une précision clinique. Il surveille les changements au fil du temps et signale les anomalies nécessitant une attention professionnelle.',
+    ar: 'بشرتك أكبر عضو لديك. يستخدم SkinCore الأمراض الجلدية بالذكاء الاصطناعي بدقة سريرية. يراقب التغييرات بمرور الوقت ويحدد الشذوذات التي تستحق اهتماماً مهنياً.',
+    ja: '肌はあなたの最大の臓器。SkinCoreはAI皮膚科学で臨床グレードの精度でパーソナライズされたスキンケアをガイド。経時変化を監視し、専門的注意が必要な異常を検出します。',
+    he: 'העור הוא האיבר הגדול ביותר. SkinCore משתמש בדרמטולוגיית AI בדיוק קליני. עוקב אחר שינויים לאורך זמן ומזהה חריגות שמצדיקות תשומת לב מקצועית.'
   },
   'digital-invest-portfolio': {
-    en: 'The umbrella that holds it all. Digital Invest is a multi-sector portfolio company incubating and scaling technology ventures from health to robotics to food systems.',
-    ru: 'Зонтик, который держит всё. Digital Invest — мультисекторная портфельная компания, инкубирующая и масштабирующая проекты от здоровья до робототехники и продовольственных систем.',
-    uk: 'Парасолька, що тримає все. Digital Invest — мультисекторна портфельна компанія, що інкубує та масштабує проєкти від здоров\'я до робототехніки та продовольчих систем.',
-    fr: 'Le parapluie qui rassemble tout. Digital Invest est une société de portefeuille multi-secteur incubant et développant des ventures technologiques de la santé à la robotique aux systèmes alimentaires.',
-    ar: 'المظلة التي تحمل كل شيء. Digital Invest هي شركة محفظة متعددة القطاعات تحتضن وتوسع المشاريع التقنية من الصحة إلى الروبوتات إلى أنظمة الغذاء.',
-    ja: 'すべてを束ねる傘。Digital Investは健康からロボティクス、食品システムまで、テクノロジーベンチャーをインキュベート・スケールするマルチセクターポートフォリオ企業です。',
-    he: 'המטריה שמחזיקה הכל. Digital Invest היא חברת תיק השקעות רב-מגזרית המדגרת ומרחיבה מיזמים טכנולוגיים מבריאות לרובוטיקה למערכות מזון.'
+    en: 'The umbrella that holds it all. Digital Invest is a multi-sector portfolio company incubating and scaling technology ventures from health to robotics to food systems. Every project shares infrastructure, data layers, and operational principles — creating compounding value across the entire ecosystem.',
+    ru: 'Зонтик, который держит всё. Digital Invest — мультисекторная портфельная компания, инкубирующая и масштабирующая проекты от здоровья до робототехники. Каждый проект делит инфраструктуру, дата-слои и операционные принципы — создавая совокупную ценность по всей экосистеме.',
+    uk: 'Парасолька, що тримає все. Digital Invest — мультисекторна портфельна компанія. Кожен проєкт ділить інфраструктуру, дата-шари та операційні принципи — створюючи сукупну цінність по всій екосистемі.',
+    fr: 'Le parapluie qui rassemble tout. Digital Invest est une société de portefeuille multi-secteur. Chaque projet partage infrastructure, couches de données et principes opérationnels — créant une valeur composée à travers l\'écosystème.',
+    ar: 'المظلة التي تحمل كل شيء. Digital Invest شركة محفظة متعددة القطاعات. كل مشروع يتشارك البنية التحتية وطبقات البيانات والمبادئ التشغيلية — مما يخلق قيمة مركبة عبر النظام بأكمله.',
+    ja: 'すべてを束ねる傘。Digital Investはマルチセクターポートフォリオ企業。各プロジェクトがインフラ、データレイヤー、運営原則を共有し、エコシステム全体で複合的価値を創出します。',
+    he: 'המטריה שמחזיקה הכל. Digital Invest חברת תיק השקעות רב-מגזרית. כל פרויקט חולק תשתית, שכבות נתונים ועקרונות תפעוליים — ויוצר ערך מצטבר לאורך כל המערכת.'
   },
 };
 
