@@ -428,12 +428,9 @@ const Projects = () => {
                     </CardHeader>
 
                     <CardFooter className="pt-0 pb-5">
-                      <div className="w-full flex items-center justify-between bg-foreground/[0.07] hover:bg-foreground/[0.12] border border-border/60 text-foreground rounded-lg px-5 py-3 text-sm font-medium transition-all duration-300 group-hover:shadow-md group-hover:gap-3 group-hover:border-primary/30">
-                        <span className="flex items-center gap-2">
-                          <TrendingUp className="w-4 h-4 text-primary/70" />
-                          {t('projects.exploreProject')}
-                        </span>
-                        <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-all duration-300 group-hover:translate-x-1" />
+                      <div className="w-full flex items-center justify-between text-muted-foreground text-sm font-medium transition-all duration-300 group-hover:text-primary">
+                        <span>{t('projects.exploreProject')}</span>
+                        <ArrowRight className="w-4 h-4 transition-all duration-300 group-hover:translate-x-1.5" />
                       </div>
                     </CardFooter>
                   </Card>
