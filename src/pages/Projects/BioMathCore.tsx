@@ -163,14 +163,12 @@ const BioMathCore = () => {
               <img src={biomathWellness} alt="BioMath Core Wellness Center" className="w-full h-[400px] object-cover" />
             </div>
             <div className="space-y-6">
-              <h2 className="text-3xl md:text-4xl font-bold text-white">Overview</h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-white">{t('projectCommon.overview')}</h2>
               <p className="text-lg text-[hsl(210,10%,65%)] leading-relaxed">
-                BioMath Core is an intelligent health operating system that unifies medical records, biological data, genetic 
-                information, wearable metrics, and lifestyle inputs into a single coherent platform.
+                {t('projectBiomathCore.overviewP1')}
               </p>
               <p className="text-[hsl(210,10%,55%)] leading-relaxed">
-                Unlike fragmented health apps that track isolated metrics, BioMath Core provides comprehensive analysis across 
-                20 health categories through 200+ specialized AI services — your personal health intelligence layer.
+                {t('projectBiomathCore.overviewP2')}
               </p>
             </div>
           </div>
