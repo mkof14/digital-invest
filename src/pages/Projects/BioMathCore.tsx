@@ -105,7 +105,7 @@ const BioMathCore = () => {
               <Button size="lg" variant="outline" asChild className="border-[hsl(210,15%,25%)] text-[hsl(210,10%,65%)] hover:bg-[hsl(210,15%,12%)]">
                 <a href="#infographics">
                   <Images className="w-5 h-5 mr-2" />
-                  Infographics
+                  {t('projectCommon.infographics')}
                 </a>
               </Button>
             </div>
