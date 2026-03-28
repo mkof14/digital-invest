@@ -439,14 +439,12 @@ const BioMathCore = () => {
         <section className="bg-[hsl(220,20%,6%)] border-y border-[hsl(210,15%,12%)] py-20">
           <div className="container mx-auto px-4 max-w-4xl text-center">
             <Globe className="w-14 h-14 text-[hsl(200,80%,55%)] mx-auto mb-6" />
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Long-Term Vision</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">{t('projectCommon.longTermVision')}</h2>
             <p className="text-lg text-[hsl(210,10%,65%)] leading-relaxed mb-6">
-              BioMath Core aims to become the foundational operating system for personal health — the layer connecting 
-              all data sources, generating unified insights, and coordinating wellness across your entire life.
+              {t('projectBiomathCore.visionDesc')}
             </p>
             <p className="text-[hsl(210,10%,50%)] leading-relaxed">
-              Over 5-10 years: family health coordination, senior independence through predictive monitoring, 
-              smart home integration, automated medication management, and seamless healthcare provider coordination.
+              {t('projectBiomathCore.visionDesc2')}
             </p>
           </div>
         </section>
