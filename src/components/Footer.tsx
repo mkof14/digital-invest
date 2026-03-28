@@ -177,8 +177,29 @@ const Footer = () => {
           </div>
         </div>
         
+        {/* Language Switcher */}
+        <div className="mt-10 pt-6 border-t border-border/20">
+          <div className="flex flex-wrap items-center justify-center gap-2">
+            <Globe className="w-4 h-4 text-muted-foreground/50 mr-1" />
+            {languages.map((lang) => (
+              <button
+                key={lang.code}
+                onClick={() => changeLanguage(lang.code)}
+                className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-200 ${
+                  i18n.language === lang.code 
+                    ? 'bg-primary/15 text-primary border border-primary/30' 
+                    : 'text-muted-foreground hover:text-foreground hover:bg-muted/50 border border-transparent'
+                }`}
+              >
+                <span>{lang.flag}</span>
+                <span>{lang.name}</span>
+              </button>
+            ))}
+          </div>
+        </div>
+
         {/* Legal Notices */}
-        <div className="mt-12 pt-8 border-t border-border/30">
+        <div className="mt-8 pt-8 border-t border-border/30">
           <div className="max-w-5xl mx-auto space-y-6 mb-8">
             {/* Important Legal Notice */}
             <div className="space-y-1.5">
