@@ -4,13 +4,18 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
-import { ArrowRight, Droplets, Wheat, BarChart3, Package, Zap, MapPin, Users, Globe, Factory, Rocket, AlertCircle, Layers, Activity, ArrowLeft, Download, Share2, Mail, FileText } from "lucide-react";
+import { ArrowRight, Droplets, Wheat, BarChart3, Package, Zap, MapPin, Users, Globe, Factory, Rocket, AlertCircle, Layers, Activity, ArrowLeft, Download, Share2, Mail, FileText, Copy, Check, Images, ZoomIn } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 import terraaeroLogo from "@/assets/terraaero-logo.png";
 import terraaeroHero from "@/assets/projects/terraaero-hero.jpg";
+import terraaeroInfographic from "@/assets/projects/terraaero-infographic.jpeg";
 import DownloadInvestorBriefButton from "@/components/DownloadInvestorBriefButton";
 import OptimizedImage from "@/components/OptimizedImage";
 import InvestorPageDisclaimer from "@/components/InvestorPageDisclaimer";
+import { InfographicsGallery } from "@/components/InfographicsGallery";
+import { useToast } from "@/hooks/use-toast";
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 
 const TerraAero = () => {
   return (
