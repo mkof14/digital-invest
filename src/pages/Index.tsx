@@ -281,8 +281,8 @@ const Index = () => {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-foreground">BioMath Core</h3>
-                    <p className="text-sm text-muted-foreground">Foundation for <span className="font-semibold text-primary">200+ services</span> · <span className="font-semibold text-primary">18 active</span></p>
+                    <h3 className="text-xl font-bold text-foreground">{t('ecosystem.coreTitle')}</h3>
+                    <p className="text-sm text-muted-foreground">{t('ecosystem.coreDesc')} <span className="font-semibold text-primary">{t('ecosystem.coreServices')}</span> · <span className="font-semibold text-primary">{t('ecosystem.coreActive')}</span></p>
                   </div>
                   <ArrowRight className="w-5 h-5 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all ml-2" />
                 </div>
