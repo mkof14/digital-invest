@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useCallback } from 'react';
 import { cn } from '@/lib/utils';
 
 interface OptimizedImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
@@ -8,13 +8,14 @@ interface OptimizedImageProps extends React.ImgHTMLAttributes<HTMLImageElement> 
   containerClassName?: string;
   aspectRatio?: 'square' | 'video' | 'portrait' | 'auto';
   showSkeleton?: boolean;
-  webpSrc?: string; // Optional WebP version
-  avifSrc?: string; // Optional AVIF version
-  blurDataURL?: string; // Optional blur placeholder
-  srcSet?: string; // Optional srcSet for responsive images
-  sizes?: string; // Optional sizes attribute
-  webpSrcSet?: string; // Optional WebP srcSet
-  avifSrcSet?: string; // Optional AVIF srcSet
+  webpSrc?: string;
+  avifSrc?: string;
+  blurDataURL?: string;
+  srcSet?: string;
+  sizes?: string;
+  webpSrcSet?: string;
+  avifSrcSet?: string;
+  fetchPriority?: 'high' | 'low' | 'auto';
 }
 
 const OptimizedImage = ({
@@ -31,11 +32,11 @@ const OptimizedImage = ({
   sizes,
   webpSrcSet,
   avifSrcSet,
+  fetchPriority,
   ...props
 }: OptimizedImageProps) => {
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
-  const [imageSrc, setImageSrc] = useState<string>(blurDataURL || src);
 
   const aspectRatioClasses = {
     square: 'aspect-square',
@@ -44,39 +45,16 @@ const OptimizedImage = ({
     auto: ''
   };
 
-  useEffect(() => {
-    // Preload high-quality image
-    const img = new Image();
-    img.src = src;
-    
-    img.onload = () => {
-      setImageSrc(src);
-      setIsLoading(false);
-    };
-    
-    img.onerror = () => {
-      setIsLoading(false);
-      setHasError(true);
-    };
-
-    return () => {
-      img.onload = null;
-      img.onerror = null;
-    };
-  }, [src]);
+  const handleLoad = useCallback(() => setIsLoading(false), []);
+  const handleError = useCallback(() => {
+    setIsLoading(false);
+    setHasError(true);
+  }, []);
 
   return (
     <div className={cn('relative overflow-hidden bg-muted/50', aspectRatioClasses[aspectRatio], containerClassName)}>
-      {/* Blur placeholder background */}
-      {isLoading && blurDataURL && (
-        <div 
-          className="absolute inset-0 bg-cover bg-center blur-lg scale-110 opacity-50"
-          style={{ backgroundImage: `url(${blurDataURL})` }}
-        />
-      )}
-      
-      {/* Skeleton loader with shimmer effect */}
-      {isLoading && showSkeleton && !blurDataURL && (
+      {/* Skeleton loader */}
+      {isLoading && showSkeleton && (
         <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-muted via-muted/50 to-muted overflow-hidden">
           <div className="absolute inset-0 -translate-x-full animate-shimmer bg-gradient-to-r from-transparent via-background/20 to-transparent" />
         </div>
@@ -88,39 +66,30 @@ const OptimizedImage = ({
         </div>
       ) : (
         <picture>
-          {/* Modern formats with responsive srcset - only if provided */}
           {avifSrcSet && avifSrcSet.trim() && <source srcSet={avifSrcSet} type="image/avif" sizes={sizes} />}
           {avifSrc && avifSrc.trim() && <source srcSet={avifSrc} type="image/avif" />}
-          
           {webpSrcSet && webpSrcSet.trim() && <source srcSet={webpSrcSet} type="image/webp" sizes={sizes} />}
           {webpSrc && webpSrc.trim() && <source srcSet={webpSrc} type="image/webp" />}
           
           <img
-            src={imageSrc}
+            src={src}
             alt={alt}
             srcSet={srcSet && srcSet.trim() ? srcSet : undefined}
             sizes={sizes}
-            loading="lazy"
+            loading={fetchPriority === 'high' ? 'eager' : 'lazy'}
             decoding="async"
+            // @ts-ignore - fetchPriority is a valid HTML attribute
+            fetchpriority={fetchPriority}
             className={cn(
-              'w-full h-full object-cover transition-all duration-700 ease-out',
-              isLoading ? 'opacity-0 scale-105 blur-sm' : 'opacity-100 scale-100 blur-0',
+              'w-full h-full object-cover transition-opacity duration-500 ease-out',
+              isLoading ? 'opacity-0' : 'opacity-100',
               className
             )}
-            onError={() => {
-              console.error('Failed to load image:', src);
-              setHasError(true);
-            }}
+            onLoad={handleLoad}
+            onError={handleError}
             {...props}
           />
         </picture>
-      )}
-      
-      {/* Loading indicator overlay */}
-      {isLoading && (
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-8 h-8 border-3 border-primary/30 border-t-primary rounded-full animate-spin" />
-        </div>
       )}
     </div>
   );
