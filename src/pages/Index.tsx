@@ -65,6 +65,7 @@ interface FeaturedProject {
 }
 
 const Index = () => {
+  const { t } = useTranslation();
   const [featuredProjects, setFeaturedProjects] = useState<FeaturedProject[]>([]);
   
   // Scroll animation hooks
