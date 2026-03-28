@@ -502,7 +502,7 @@ const Projects = () => {
                         <CardFooter className="pt-0 pb-4">
                           <div className={`flex items-center gap-2 ${theme.btnBg} text-white rounded-lg px-5 py-2.5 text-sm font-semibold transition-all duration-300 group-hover:shadow-lg group-hover:gap-3`}>
                             <TrendingUp className="w-4 h-4" />
-                            Explore Project
+                            {t('projects.exploreProject')}
                             <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
                           </div>
                         </CardFooter>
