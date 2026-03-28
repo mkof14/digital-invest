@@ -248,7 +248,7 @@ const Index = () => {
             {/* Left label */}
             <div className="md:col-span-4 space-y-4">
               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/8 border border-primary/15 text-xs font-medium text-primary tracking-wide uppercase">
-                <Orbit className="w-3.5 h-3.5" />
+                <EcosystemCoreIcon className="text-primary" size={14} />
                 {t('ecosystem.badge')}
               </div>
               <h2 ref={biomathVisionHeading.ref} className={`text-3xl md:text-4xl font-bold tracking-tight text-foreground leading-tight animate-heading-reveal ${biomathVisionHeading.isVisible ? 'visible' : ''}`}>
