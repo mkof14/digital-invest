@@ -73,6 +73,7 @@ const Projects = () => {
     'agron-work': agronworkHero,
     'mrx-health': mrxHero,
     'table-served': tableservedHero,
+    'baseline': baselineHero,
   };
 
   // Get optimized image path based on format support
