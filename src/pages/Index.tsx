@@ -509,9 +509,9 @@ const Index = () => {
                 <div className="p-4 bg-primary/10 rounded-xl w-fit mx-auto group-hover:scale-110 transition-transform duration-300">
                   <Utensils className="w-12 h-12 text-primary" />
                 </div>
-                <h3 className="text-xl font-bold text-foreground text-center">Intelligent Food Production</h3>
+                <h3 className="text-xl font-bold text-foreground text-center">{t('whatWeBuild.foodTitle')}</h3>
                 <p className="text-base text-muted-foreground text-center leading-relaxed">
-                  DishCore — AI-driven food manufacturing and recipe engine for standardized, scalable, nutritionally precise meals.
+                  {t('whatWeBuild.foodDesc')}
                 </p>
               </CardContent>
             </Card>
