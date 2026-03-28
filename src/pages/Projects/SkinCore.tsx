@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Navigation from '@/components/Navigation';
@@ -13,6 +14,7 @@ const SkinCore = () => {
     window.scrollTo(0, 0);
   }, []);
 
+  const { t } = useTranslation();
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
@@ -31,7 +33,7 @@ const SkinCore = () => {
           <Link to="/projects" className="animate-fade-in">
             <Button variant="ghost" size="sm" className="mb-6 hover:bg-background/80">
               <ArrowLeft className="w-4 h-4 mr-2" />
-              Back to Projects
+              {t('projectCommon.backToProjects')}
             </Button>
           </Link>
           <div className="max-w-3xl animate-fade-in" style={{ animationDelay: '0.1s', animationFillMode: 'backwards' }}>

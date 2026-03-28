@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Badge } from "@/components/ui/badge";
@@ -30,6 +31,7 @@ import OptimizedImage from "@/components/OptimizedImage";
 import InvestorPageDisclaimer from "@/components/InvestorPageDisclaimer";
 
 const AGRONWork = () => {
+  const { t } = useTranslation();
   return (
     <div className="min-h-screen bg-background theme-agron">
       <Navigation />

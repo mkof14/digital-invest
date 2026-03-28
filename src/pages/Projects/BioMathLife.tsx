@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -11,6 +12,7 @@ import DownloadInvestorBriefButton from "@/components/DownloadInvestorBriefButto
 import InvestorPageDisclaimer from "@/components/InvestorPageDisclaimer";
 
 const BioMathLife = () => {
+  const { t } = useTranslation();
   const categories = [
     "Critical Health", "Everyday Wellness", "Longevity & Anti-Aging", "Mental Wellness",
     "Fitness & Performance", "Women's Health", "Men's Health", "Beauty & Skincare",
@@ -41,7 +43,7 @@ const BioMathLife = () => {
             <Link to="/projects" className="animate-fade-in">
               <Button variant="ghost" size="sm" className="mb-6 hover:bg-background/80">
                 <ArrowLeft className="w-4 h-4 mr-2" />
-                Back to Projects
+                {t('projectCommon.backToProjects')}
               </Button>
             </Link>
             <div className="animate-fade-in" style={{ animationDelay: '0.1s', animationFillMode: 'backwards' }}>

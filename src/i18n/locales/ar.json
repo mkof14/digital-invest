@@ -591,5 +591,195 @@
     "advisoryText": "تستعين Digital Invest بمتخصصين ذوي خبرة لمراجعة الافتراضات وخطط التنفيذ.",
     "transparency": "الشفافية لأصحاب المصلحة",
     "transparencyText": "نقدم تحديثات منظمة وتقارير حالة واضحة لأصحاب المصلحة حسب الاقتضاء."
+  },
+  "projectCommon": {
+    "backToProjects": "Back to Projects",
+    "requestInformation": "Request Information",
+    "investorBrief": "Investor Brief",
+    "infographics": "Infographics",
+    "overview": "Overview",
+    "coreMission": "Core Mission",
+    "howItWorks": "How It Works",
+    "howPlatformWorks": "How the Platform Works",
+    "technologyArchitecture": "Technology & Architecture",
+    "technologySystems": "Technology & Systems",
+    "keyFeatures": "Key Features & Capabilities",
+    "coreFeatures": "Core Functions",
+    "investmentHighlights": "Investment Highlights",
+    "riskFactors": "Risk Factors",
+    "roadmap": "Roadmap",
+    "whoItServes": "Who It Serves",
+    "marketContext": "Market Context",
+    "whatMakesUnique": "What Makes This Unique",
+    "longTermVision": "Long-Term Vision",
+    "currentStage": "Current Stage",
+    "operationalModel": "Operational Model",
+    "revenueModel": "Revenue Model",
+    "importantNotice": "Important Notice",
+    "importantLegalNotice": "Important Legal Notice",
+    "expressInterest": "Express Interest",
+    "submitInterest": "Submit Interest",
+    "viewAllProjects": "View All Projects",
+    "visitWebsite": "Visit Website",
+    "learnMore": "Learn More",
+    "coreProblem": "Core Problems Addressed",
+    "solution": "Solution",
+    "keyDomains": "Key Domains Covered",
+    "servicePhases": "Core Services by Phase",
+    "current": "Current",
+    "next12Months": "Next 12 Months",
+    "next18to36Months": "18–36 Months",
+    "disclaimer": "This is an informational and educational platform. It does not diagnose medical conditions, prescribe treatments, or replace professional medical advice. Consult qualified healthcare professionals for medical decisions.",
+    "investorDisclaimer": "Submitting interest is non-binding and does not create any agreement. All potential participation is discussed individually and offline.",
+    "nonMedicalDisclaimer": "This is an informational tool for tracking patterns. It is not a medical device and does not diagnose, treat, or prevent any condition or disease. All recommendations are for informational purposes only. Consult qualified healthcare professionals for medical advice."
+  },
+  "projectBiomathCore": {
+    "badge": "Digital Health · Foundation Platform",
+    "heroSubtitle": "Where Data Meets Daily Life",
+    "heroDesc": "From sleep to cognition, from movement to mood — BioMath Core brings clarity to your health journey through intelligent real-time insights, 200+ AI-powered services, and a secure personal data vault.",
+    "statServices": "AI Services",
+    "statCategories": "Health Categories",
+    "statIntegrations": "Device Integrations",
+    "statAnalysis": "Real-Time Analysis",
+    "foundationTitle": "Core Foundation of the BioMath Ecosystem",
+    "foundationDesc": "BioMath Core is the central technological foundation upon which all BioMath services are built. Today, the platform powers over 200 specialized AI services across 20 health categories — from Critical Health and Longevity to Mental Wellness and Biohacking. Every BioMath product in our portfolio relies on BioMath Core as its intelligent backbone.",
+    "overviewP1": "BioMath Core is an intelligent health operating system that unifies medical records, biological data, genetic information, wearable metrics, and lifestyle inputs into a single coherent platform.",
+    "overviewP2": "Unlike fragmented health apps that track isolated metrics, BioMath Core provides comprehensive analysis across 20 health categories through 200+ specialized AI services — your personal health intelligence layer.",
+    "missionSubtitle": "Three principles that guide every interaction within the platform",
+    "mission1Title": "Understanding, Not Overwhelm",
+    "mission1Desc": "Convert health signals into meaning, then into gentle supportive guidance. Make complex biology accessible and actionable.",
+    "mission2Title": "Reassurance, Not Urgency",
+    "mission2Desc": "Build on emotional safety. Users are learning, never failing. Guidance is invitational rather than prescriptive.",
+    "mission3Title": "Education, Not Diagnosis",
+    "mission3Desc": "Help users understand how their bodies respond day-to-day. Wellness-first interpretation of patterns, not medical diagnosis.",
+    "howSubtitle": "Four interconnected stages transform raw health data into daily actionable intelligence",
+    "step1Title": "Data Aggregation",
+    "step1Desc": "Connect wearables, upload labs, import medical records, add genetic tests. All data flows into the encrypted Model Archive vault.",
+    "step2Title": "Knowledge Engine",
+    "step2Desc": "Server-side engine analyzes data, identifies patterns, correlates metrics across categories, and updates your personal health model continuously.",
+    "step3Title": "AI Insight Generation",
+    "step3Desc": "200+ specialized AI services examine sleep, nutrition, stress, recovery, cognition, metabolic health and generate personalized insights.",
+    "step4Title": "Daily Guidance",
+    "step4Desc": "Personalized recommendations through clean dashboards. Visual reports, smart alerts, and context-rich explanations — designed to inform, not alarm.",
+    "blackBoxTitle": "Health Black Box",
+    "blackBoxDesc": "Your Model Archive — an encrypted vault storing all personal health data with military-grade security. You maintain complete control over data access, sharing, and sovereignty.",
+    "categoriesTitle": "20 Health Categories",
+    "categoriesSubtitle": "200+ specialized AI services organized across comprehensive health and wellness domains",
+    "uniqueTitle": "What Makes BioMath Core Unique",
+    "visionDesc": "BioMath Core aims to become the foundational operating system for personal health — the layer connecting all data sources, generating unified insights, and coordinating wellness across your entire life.",
+    "visionDesc2": "Over 5-10 years: family health coordination, senior independence through predictive monitoring, smart home integration, automated medication management, and seamless healthcare provider coordination."
+  },
+  "projectTerraAero": {
+    "badge": "AgroTech & Drone Manufacturing",
+    "heroSubtitle": "Precision Agriculture and Autonomous Logistics Through Advanced Drone Technology",
+    "heroDesc": "TerraAero develops and operates autonomous drone systems for agricultural monitoring, precision crop management, and intelligent logistics. Combining aerospace engineering with AI-driven analytics and building towards U.S.-based drone manufacturing capabilities.",
+    "overviewP1": "TerraAero combines autonomous aerospace systems with artificial intelligence to deliver scalable solutions for modern agriculture and logistics.",
+    "overviewP2": "Current operations include precision crop spraying, fertilization, field analytics, irrigation monitoring, and logistics delivery across multiple states.",
+    "mission1Title": "Precision Agriculture",
+    "mission1Desc": "Transform agricultural operations through autonomous drone technology that delivers precision monitoring, resource optimization, and data-driven decision support.",
+    "mission2Title": "Intelligent Logistics",
+    "mission2Desc": "Enable rapid, efficient delivery through autonomous drone systems that reduce transit times, operating costs, and environmental impact.",
+    "mission3Title": "Domestic Manufacturing",
+    "mission3Desc": "Develop U.S.-based drone manufacturing infrastructure to reduce supply chain dependencies and optimize aircraft design for specific operational environments."
+  },
+  "projectAgron": {
+    "badge": "Robotics Infrastructure",
+    "subtitle": "Aerial–Ground Robotics Operations Network",
+    "heroTitle": "National Infrastructure Platform",
+    "heroDesc": "A national-scale infrastructure platform for autonomous aerial and ground robotics — training, certification, operations, and standards across the United States.",
+    "positioning1": "AGRON is not a robotics startup.",
+    "positioning2": "AGRON is national infrastructure.",
+    "overviewP1": "AGRON (Aerial–Ground Robotics Operations Network) is a national-scale infrastructure platform designed to support the training, certification, coordination, and real-world operation of autonomous aerial and ground robotic systems across the United States.",
+    "overviewP2": "AGRON is not a hardware manufacturer and does not produce drones or robots. Its role is to act as the operational, educational, and regulatory interface between autonomous technologies, human operators, enterprises, and government institutions.",
+    "coreMissionDesc": "To build a trusted national system that enables safe, scalable, and standardized deployment of autonomous aerial and ground robotic systems for commercial, governmental, and defense applications."
+  },
+  "projectMyDay": {
+    "badge": "AI Daily Planning Platform",
+    "heroSubtitle": "Your Personal Daily Operating System",
+    "heroDesc": "MyDay transforms daily planning through AI-driven insights, habit tracking, and behavioral optimization. From structured routines to nutrition logging - making better daily decisions simple, measurable, and consistently improving.",
+    "overviewP1": "MyDay is an AI-powered daily planning and habit optimization platform designed to help individuals structure their day, track routines, nutrition, and behaviors, and turn everyday data into actionable insights.",
+    "overviewP2": "Unlike generic productivity apps or simple habit trackers, MyDay integrates structured planning, behavioral tracking, and AI-driven feedback into a single, cohesive workflow."
+  },
+  "projectTableServed": {
+    "badge": "USA Weekly Food Reliability",
+    "heroSubtitle": "Weekly Food, Solved.",
+    "heroDesc": "Deterministic family nutrition. Scheduled meals prepared in certified US hubs, delivered every Sunday to reclaim your week. Simple. Structural.",
+    "whatIsTitle": "What is TableServed?",
+    "whatIsDesc": "TableServed isn't a delivery app — it's a weekly stability protocol. We've replaced daily chaos with a reliable, predictable rhythm.",
+    "protocolTitle": "The Protocol",
+    "protocolSubtitle": "Four deterministic steps. No guesswork, no last-minute decisions.",
+    "interestedTitle": "Interested in TableServed?"
+  },
+  "projectSkinCore": {
+    "badge": "Health Intelligence",
+    "heroSubtitle": "AI-powered skin analysis from photos with trend tracking",
+    "overviewDesc": "Skin uses camera-based AI analysis to recognize skin patterns and track visual trends over time. The platform provides recommendations with ingredient-level feedback, helping users understand what works for their skin through daily and weekly tracking without medical positioning.",
+    "feature1Title": "AI Photo Analysis",
+    "feature1Desc": "Camera-based pattern recognition for skin texture, tone, and condition tracking (non-medical).",
+    "feature2Title": "Visual Trend Tracking",
+    "feature2Desc": "Monitor skin changes over days and weeks with clear before/after comparisons.",
+    "feature3Title": "Ingredient-Level Feedback",
+    "feature3Desc": "Understand which ingredients work for your skin based on tracking and patterns.",
+    "feature4Title": "Pattern Recognition",
+    "feature4Desc": "AI identifies correlations between products, routines, and skin condition changes."
+  },
+  "projectStressCore": {
+    "badge": "Health Intelligence",
+    "heroSubtitle": "Psychological state intelligence: stress, mood, energy tracking with AI-generated micro-insights"
+  },
+  "projectVitalCore": {
+    "badge": "Health Intelligence",
+    "heroSubtitle": "Early warning system for vital signs, combining HR, HRV, sleep, stress, and activity patterns"
+  },
+  "projectBioAgeCore": {
+    "badge": "Health Intelligence",
+    "heroSubtitle": "AI-powered biological age analysis comparing chronological age to real body condition"
+  },
+  "projectSeniorCore": {
+    "badge": "Health Intelligence",
+    "heroSubtitle": "Support system for seniors and caregivers — wellness monitoring, medication adherence, and activity tracking"
+  },
+  "projectLunaBalance": {
+    "badge": "Women's Health Intelligence",
+    "heroSubtitle": "Mindfulness platform helping women understand themselves through Silence Technology and Relationship Mode"
+  },
+  "projectItsGoodToday": {
+    "badge": "Wellness & Lifestyle",
+    "heroSubtitle": "Small daily actions that add up. No complexity, no pressure. Today is good.",
+    "heroDesc": "Wellness companion built on simplicity — small daily actions in food, movement, mood, and lifestyle. No complexity, no pressure. Today is good. Tomorrow can be a little better."
+  },
+  "projectBioMathLife": {
+    "badge": "Precision Medicine Platform",
+    "heroSubtitle": "200+ Health Services. 20 Categories. One Platform.",
+    "heroDesc": "Precision medicine platform integrating genetic analysis, biomathematical modeling, and AI diagnostics for disease prevention and longevity optimization."
+  },
+  "projectDigitalInvest": {
+    "badge": "Multi-Sector Venture Portfolio",
+    "heroSubtitle": "Building Real-World Innovation Across Technology, Health, Agriculture, and Manufacturing",
+    "heroDesc": "Digital Invest develops and scales innovative projects across AI, precision health, advanced manufacturing, and agricultural technology — delivering measurable impact in critical sectors."
+  },
+  "projectSaven": {
+    "badge": "Life Infrastructure",
+    "heroSubtitle": "Infrastructure of Continuous Execution — bridging digital understanding and physical reality"
+  },
+  "projectBaseLine": {
+    "badge": "Health Intelligence",
+    "heroSubtitle": "Professional health logic made simple — 4-step clinical launch translating clinical noise into clarity"
+  },
+  "projectAgronWork": {
+    "badge": "Workforce & Talent",
+    "heroSubtitle": "Talent platform connecting employers with verified professionals in drones, robotics, AI, and automation"
+  },
+  "projectMRXHealth": {
+    "badge": "MedTech",
+    "heroSubtitle": "Medication Reactions Explorer — tracking prescriptions and monitoring body effects in real time"
+  },
+  "projectLongevityCore": {
+    "badge": "Health Intelligence",
+    "heroSubtitle": "Anti-aging intelligence platform with personalized longevity tracking and optimization"
+  },
+  "projectFamilyCore": {
+    "badge": "Family Health",
+    "heroSubtitle": "Family health coordination platform — unified health profiles and monitoring for the entire household"
   }
 }

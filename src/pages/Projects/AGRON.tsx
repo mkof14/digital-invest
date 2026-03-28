@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Badge } from "@/components/ui/badge";
@@ -67,6 +68,7 @@ const AGRON = () => {
     window.open(`mailto:?subject=${subject}&body=${body}`, "_self");
   };
 
+  const { t } = useTranslation();
   return (
     <div className="min-h-screen bg-background theme-agron">
       <Navigation />
@@ -89,7 +91,7 @@ const AGRON = () => {
             <Link to="/projects" className="animate-fade-in">
               <Button variant="ghost" size="sm" className="mb-6 hover:bg-background/80">
                 <ArrowLeft className="w-4 h-4 mr-2" />
-                Back to Projects
+                {t('projectCommon.backToProjects')}
               </Button>
             </Link>
             <div className="animate-fade-in" style={{ animationDelay: '0.1s', animationFillMode: 'backwards' }}>

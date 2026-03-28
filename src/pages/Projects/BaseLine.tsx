@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { supabase } from '@/integrations/supabase/client';
@@ -30,6 +31,7 @@ const BaseLine = () => {
     fetchProject();
   }, []);
 
+  const { t } = useTranslation();
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
@@ -43,7 +45,7 @@ const BaseLine = () => {
         <div className="relative z-10 container mx-auto px-4 py-20">
           <div className="max-w-3xl">
             <Link to="/projects" className="inline-flex items-center text-slate-400 hover:text-slate-200 mb-6 transition-colors">
-              <ArrowLeft className="w-4 h-4 mr-2" /> Back to Projects
+              <ArrowLeft className="w-4 h-4 mr-2" /> {t('projectCommon.backToProjects')}
             </Link>
             <img src={logoImg} alt="BaseLine BioMath Core" className="h-16 md:h-20 mb-6" />
             <Badge className="mb-4 bg-teal-500/20 text-teal-300 border-teal-500/30 text-sm px-4 py-1">

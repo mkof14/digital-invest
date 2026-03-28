@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Navigation from '@/components/Navigation';
@@ -13,6 +14,7 @@ const StressCore = () => {
     window.scrollTo(0, 0);
   }, []);
 
+  const { t } = useTranslation();
   return (
     <div className="min-h-screen bg-background">
         <Navigation />
@@ -32,7 +34,7 @@ const StressCore = () => {
             <Link to="/projects" className="animate-fade-in">
               <button className="inline-flex items-center mb-4 text-sm text-muted-foreground hover:text-foreground transition-colors">
                 <ArrowLeft className="w-4 h-4 mr-2" />
-                Back to Projects
+                {t('projectCommon.backToProjects')}
               </button>
             </Link>
             <div className="animate-fade-in" style={{ animationDelay: '0.1s', animationFillMode: 'backwards' }}>

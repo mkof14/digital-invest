@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { supabase } from '@/integrations/supabase/client';
@@ -31,6 +32,7 @@ const MRXHealth = () => {
     fetchProject();
   }, []);
 
+  const { t } = useTranslation();
   return (
     <div className="min-h-screen bg-background theme-mrx-health">
       <Navigation />

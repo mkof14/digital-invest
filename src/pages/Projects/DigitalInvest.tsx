@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { useState } from 'react';
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
@@ -67,6 +68,7 @@ const DigitalInvest = () => {
     }
   ];
 
+  const { t } = useTranslation();
   return (
     <div className="min-h-screen bg-background theme-digitalinvest">
       <Navigation />
@@ -77,7 +79,7 @@ const DigitalInvest = () => {
           <Link to="/projects" className="inline-block mb-6 animate-fade-in">
             <Button variant="ghost" size="sm" className="hover:bg-background/80">
               <ArrowLeft className="mr-2 h-4 w-4" />
-              Back to Projects
+              {t('projectCommon.backToProjects')}
             </Button>
           </Link>
 
