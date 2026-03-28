@@ -662,7 +662,7 @@ const Index = () => {
       <section className="py-10 px-4 border-t border-border/30">
         <div className="max-w-3xl mx-auto">
           <div className="flex items-start gap-4 p-6">
-            <Shield className="w-5 h-5 text-muted-foreground/50 flex-shrink-0 mt-0.5" />
+            <ShieldCircuitIcon className="text-muted-foreground/50" size={20} />
             <div className="space-y-1.5">
               <h3 className="text-sm font-semibold text-foreground">{t('disclaimerSection.title')}</h3>
               <p className="text-xs text-muted-foreground/70 leading-relaxed">{t('disclaimerSection.text')}</p>
