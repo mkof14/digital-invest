@@ -600,7 +600,7 @@ const Index = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-24 px-4">
+      <section className="py-24 px-4 section-gradient-lavender">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16 space-y-4">
             <h2 ref={faqHeading.ref} className={`text-3xl md:text-5xl font-bold gradient-purple-animated animate-heading-reveal ${faqHeading.isVisible ? 'visible' : ''}`}>
