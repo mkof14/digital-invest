@@ -27,6 +27,7 @@ import lunaHero from '@/assets/projects/luna-hero.jpg';
 import agronworkHero from '@/assets/projects/agronwork-hero.jpg';
 import mrxHero from '@/assets/projects/mrx-hero.jpg';
 import tableservedHero from '@/assets/projects/tableserved-hero.jpg';
+import baselineHero from '@/assets/projects/baseline-hero.jpg';
 import OptimizedImage from '@/components/OptimizedImage';
 import { shimmerDataURL, getResponsiveImagePaths } from '@/lib/imageUtils';
 
