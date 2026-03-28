@@ -346,10 +346,20 @@ const PortfolioOverview = () => {
               )}
             </h1>
 
-            <p className="mt-8 text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed">
+            <p className="mt-8 text-base md:text-lg text-muted-foreground max-w-2xl leading-relaxed">
               {lang === 'ru'
-                ? 'Здесь нет маркетинговой воды. Каждый проект — в нескольких предложениях. Кликните, чтобы погрузиться глубже.'
-                : 'No marketing fluff. Every project in a few sentences. Click to dive deeper.'}
+                ? 'Все проекты портфеля собраны на одной странице для быстрого ознакомления. Для более глубокого изучения — переходите на страницу проекта. Если этого недостаточно — свяжитесь с представителем Digital Invest или отправьте запрос через сайт для получения детальной информации. Ряд данных предоставляется индивидуально в связи с правовыми и конфиденциальными ограничениями.'
+                : lang === 'uk'
+                ? 'Усі проєкти портфеля зібрані на одній сторінці для швидкого ознайомлення. Для глибшого вивчення — переходьте на сторінку проєкту. Якщо цього недостатньо — зв\'яжіться з представником Digital Invest або надішліть запит через сайт. Частина інформації надається індивідуально через правові та конфіденційні обмеження.'
+                : lang === 'fr'
+                ? 'Tous les projets du portefeuille réunis sur une seule page. Pour en savoir plus, consultez la page dédiée. Pour des informations détaillées, contactez un représentant Digital Invest ou soumettez une demande via le site. Certaines données sont fournies individuellement en raison de restrictions légales et de confidentialité.'
+                : lang === 'ar'
+                ? 'جميع مشاريع المحفظة مجمعة في صفحة واحدة للاطلاع السريع. للتعمق أكثر، انتقل إلى صفحة المشروع. إذا لم يكن ذلك كافياً، تواصل مع ممثل Digital Invest أو أرسل طلباً عبر الموقع. يتم تقديم بعض المعلومات بشكل فردي بسبب القيود القانونية والسرية.'
+                : lang === 'ja'
+                ? 'ポートフォリオの全プロジェクトを1ページにまとめました。詳しくはプロジェクトページへ。さらに詳細な情報が必要な場合は、Digital Investの担当者にご連絡いただくか、サイトからお問い合わせください。法的および機密上の制約により、一部の情報は個別に提供されます。'
+                : lang === 'he'
+                ? 'כל פרויקטי התיק מרוכזים בעמוד אחד להיכרות מהירה. להעמקה — היכנסו לעמוד הפרויקט. למידע מפורט יותר, צרו קשר עם נציג Digital Invest או שלחו בקשה דרך האתר. חלק מהמידע מסופק באופן אישי בשל מגבלות משפטיות וסודיות.'
+                : 'All portfolio projects on one page for a quick overview. Dive deeper by clicking into any project. For detailed financial and operational information, contact a Digital Invest representative or submit a request through the website. Certain data is provided individually due to legal and confidentiality restrictions.'}
             </p>
 
             <div className="mt-10 flex items-center gap-6">
@@ -403,23 +413,12 @@ const PortfolioOverview = () => {
 
                     <div className="relative z-10 p-6 md:p-8">
                       <div className="flex flex-col md:flex-row md:items-start gap-4 md:gap-8">
-                        {/* Left: index + logo */}
-                        <div className="flex items-center gap-4 md:flex-col md:items-center md:gap-2 shrink-0 md:w-20">
+                        {/* Left: index + dot */}
+                        <div className="flex items-center gap-4 md:flex-col md:items-center md:gap-2 shrink-0 md:w-12">
                           <span className="font-mono text-xs text-muted-foreground/50 tabular-nums">
                             {String(index + 1).padStart(2, '0')}
                           </span>
-                          <div className={`w-10 h-10 md:w-14 md:h-14 rounded-xl overflow-hidden flex items-center justify-center transition-all duration-300 ${isHovered ? 'scale-110' : ''} ${project.hero_image_url ? 'bg-transparent' : 'bg-muted/30 border border-border/30'}`}>
-                            {project.hero_image_url ? (
-                              <img 
-                                src={project.hero_image_url} 
-                                alt={project.title}
-                                className="w-full h-full object-contain p-0.5"
-                                loading="lazy"
-                              />
-                            ) : (
-                              <div className={`w-3 h-3 rounded-full ${dot}`} />
-                            )}
-                          </div>
+                          <div className={`h-2 w-2 rounded-full ${dot} transition-all duration-300 ${isHovered ? 'scale-150' : ''}`} />
                         </div>
 
                         {/* Center: content */}
