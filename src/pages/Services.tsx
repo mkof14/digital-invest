@@ -195,7 +195,7 @@ const Services = () => {
       </section>
 
       {/* TerraAero Services */}
-      <section className="py-20 px-4 bg-secondary/10">
+      <section className="py-20 px-4 bg-secondary/10 section-gradient-mint">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">
