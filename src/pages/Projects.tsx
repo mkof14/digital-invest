@@ -431,7 +431,7 @@ const Projects = () => {
                       <div className={`w-full flex items-center justify-between ${theme.btnBg} ${theme.btnHover} text-white rounded-lg px-5 py-3 text-sm font-semibold transition-all duration-300 group-hover:shadow-lg group-hover:gap-3`}>
                         <span className="flex items-center gap-2">
                           <TrendingUp className="w-4 h-4" />
-                          Explore Project
+                          {t('projects.exploreProject')}
                         </span>
                         <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
                       </div>
