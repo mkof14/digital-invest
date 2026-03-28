@@ -74,6 +74,7 @@ const Index = () => {
   const featuredHeading = useScrollAnimation({ threshold: 0.3 });
   const calculatorHeading = useScrollAnimation({ threshold: 0.3 });
   const whatWeBuildHeading = useScrollAnimation({ threshold: 0.3 });
+  const biomathVisionHeading = useScrollAnimation({ threshold: 0.3 });
   const whyDigitalHeading = useScrollAnimation({ threshold: 0.3 });
   const investmentHeading = useScrollAnimation({ threshold: 0.3 });
   const capabilitiesHeading = useScrollAnimation({ threshold: 0.3 });
