@@ -146,7 +146,7 @@ Today, Digital Invest brings together this multi-sector expertise into a unified
       </section>
 
       {/* Our Expertise */}
-      <section className="py-16 px-4 bg-muted/30">
+      <section className="py-16 px-4 bg-muted/30 section-gradient-lavender">
         <div className="container mx-auto max-w-6xl">
           <h2 className="text-3xl font-bold text-foreground mb-8">Our Expertise</h2>
           <div className="grid md:grid-cols-2 gap-6">
