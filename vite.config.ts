@@ -2,7 +2,6 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
 import { componentTagger } from "lovable-tagger";
-import modernImagesPlugin from "./vite-plugin-modern-images";
 
 export default defineConfig(({ mode }) => ({
   server: {
@@ -12,11 +11,6 @@ export default defineConfig(({ mode }) => ({
   plugins: [
     react(),
     mode === 'development' && componentTagger(),
-    modernImagesPlugin({
-      enabled: false,
-      runOnBuild: false,
-      watch: false
-    }),
   ].filter(Boolean),
   resolve: {
     dedupe: ["react", "react-dom"],
@@ -50,6 +44,7 @@ export default defineConfig(({ mode }) => ({
           'vendor-query': ['@tanstack/react-query'],
           'vendor-supabase': ['@supabase/supabase-js'],
           'vendor-charts': ['recharts'],
+          'vendor-i18n': ['i18next', 'react-i18next', 'i18next-http-backend', 'i18next-browser-languagedetector'],
         },
       },
     },
