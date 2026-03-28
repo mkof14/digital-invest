@@ -480,7 +480,7 @@ const Index = () => {
       </section>
 
       {/* ═══════════════════ INVESTMENT HIGHLIGHTS — Large Number Grid ═══════════════════ */}
-      <section ref={investmentSection.ref} className={`py-20 md:py-28 px-4 scroll-fade-in ${investmentSection.isVisible ? 'visible' : ''}`}>
+      <section ref={investmentSection.ref} className={`py-20 md:py-28 px-4 section-gradient-gold scroll-fade-in ${investmentSection.isVisible ? 'visible' : ''}`}>
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-14 space-y-3">
             <h2 ref={investmentHeading.ref} className={`text-3xl md:text-5xl font-bold tracking-tight text-foreground animate-heading-reveal ${investmentHeading.isVisible ? 'visible' : ''}`}>
