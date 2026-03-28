@@ -29,6 +29,8 @@ import mrxHero from '@/assets/projects/mrx-hero.jpg';
 import tableservedHero from '@/assets/projects/tableserved-hero.jpg';
 import baselineHero from '@/assets/projects/baseline-hero.jpg';
 import baselineLogo from '@/assets/projects/baseline-logo.png';
+import savenHero from '@/assets/projects/saven-hero.png';
+import savenLogo from '@/assets/projects/saven-logo.png';
 import OptimizedImage from '@/components/OptimizedImage';
 import { shimmerDataURL, getResponsiveImagePaths } from '@/lib/imageUtils';
 
@@ -75,6 +77,7 @@ const Projects = () => {
     'mrx-health': mrxHero,
     'table-served': tableservedHero,
     'baseline': baselineHero,
+    'saven': savenHero,
   };
 
   // Get optimized image path based on format support
@@ -238,6 +241,9 @@ const Projects = () => {
                     {project.slug === 'baseline' && (
                       <img src={baselineLogo} alt="BaseLine logo" className="h-8 rounded" />
                     )}
+                    {project.slug === 'saven' && (
+                      <img src={savenLogo} alt="SAVEN logo" className="h-8 rounded" />
+                    )}
                     {project.title}
                   </CardTitle>
                   <CardDescription className="text-base leading-relaxed line-clamp-3">
@@ -306,6 +312,9 @@ const Projects = () => {
                         <CardTitle className="text-2xl font-bold group-hover:text-primary transition-colors duration-300 leading-tight flex items-center gap-3">
                           {project.slug === 'baseline' && (
                             <img src={baselineLogo} alt="BaseLine logo" className="h-8 rounded" />
+                          )}
+                          {project.slug === 'saven' && (
+                            <img src={savenLogo} alt="SAVEN logo" className="h-8 rounded" />
                           )}
                           {project.title}
                         </CardTitle>
