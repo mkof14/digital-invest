@@ -40,6 +40,33 @@ import { InfographicsGallery } from "@/components/InfographicsGallery";
 import { useToast } from "@/hooks/use-toast";
 
 const AGRON = () => {
+  const { toast } = useToast();
+
+  const infographics = [
+    {
+      src: agronInfographic,
+      title: "AGRON: The Future of Robotics & Drone Workforce Development",
+      alt: "AGRON integrated framework and training to career model infographic"
+    }
+  ];
+
+  const handleSharePresentation = async () => {
+    if (navigator.share) {
+      try {
+        await navigator.share({ title: "AGRON — Robotics Operations Network", url: window.location.href });
+      } catch {}
+    } else {
+      await navigator.clipboard.writeText(window.location.href);
+      toast({ title: "Link copied!", description: "Share link copied to clipboard" });
+    }
+  };
+
+  const handleEmailPresentation = () => {
+    const subject = encodeURIComponent("AGRON — The Robotics Operations Network Presentation");
+    const body = encodeURIComponent(`Check out the AGRON presentation:\n\n${window.location.href}`);
+    window.open(`mailto:?subject=${subject}&body=${body}`, "_self");
+  };
+
   return (
     <div className="min-h-screen bg-background theme-agron">
       <Navigation />
