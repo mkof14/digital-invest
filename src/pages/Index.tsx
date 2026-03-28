@@ -305,8 +305,8 @@ const Index = () => {
                   accent: "border-emerald-500/20 hover:border-emerald-500/40"
                 },
                 { 
-                  title: "Unified Data",
-                  desc: "Single intelligence core across all services",
+                  title: t('ecosystem.unifiedData'),
+                  desc: t('ecosystem.unifiedDataDesc'),
                   icon: (
                     <svg width="28" height="28" viewBox="0 0 28 28" fill="none" className="text-blue-600 dark:text-blue-400">
                       <rect x="4" y="4" width="8" height="8" rx="2" stroke="currentColor" strokeWidth="1.5" fill="currentColor" fillOpacity="0.1"/>
