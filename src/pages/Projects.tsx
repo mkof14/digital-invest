@@ -238,29 +238,90 @@ const Projects = () => {
           </p>
         </div>
 
-        {/* View Toggle */}
-        {projects.length > 0 && (
-          <div className="flex justify-end mb-6 gap-2">
-            <Button
-              variant={viewMode === 'grid' ? 'default' : 'outline'}
-              size="sm"
-              onClick={() => setViewMode('grid')}
-              className="transition-all duration-300"
-            >
-              <Grid3x3 className="w-4 h-4 mr-2" />
-              Grid
-            </Button>
-            <Button
-              variant={viewMode === 'list' ? 'default' : 'outline'}
-              size="sm"
-              onClick={() => setViewMode('list')}
-              className="transition-all duration-300"
-            >
-              <List className="w-4 h-4 mr-2" />
-              List
-            </Button>
-          </div>
-        )}
+        {/* Search & Filter Bar */}
+        {projects.length > 0 && (() => {
+          const categories = Array.from(new Set(projects.map(p => {
+            const t = getTheme(p.slug);
+            return t.label;
+          }))).sort();
+
+          return (
+            <div className="mb-8 space-y-4">
+              {/* Search */}
+              <div className="relative max-w-lg mx-auto">
+                <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+                <Input
+                  type="text"
+                  placeholder="Search projects by name or description..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="pl-12 pr-10 h-12 text-base rounded-xl border-border/60 bg-card/80 backdrop-blur-sm shadow-sm focus:shadow-md transition-shadow"
+                />
+                {searchQuery && (
+                  <button
+                    onClick={() => setSearchQuery('')}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 p-1 rounded-full hover:bg-muted transition-colors"
+                  >
+                    <X className="h-4 w-4 text-muted-foreground" />
+                  </button>
+                )}
+              </div>
+
+              {/* Category Pills + View Toggle */}
+              <div className="flex flex-wrap items-center justify-between gap-3">
+                <div className="flex flex-wrap items-center gap-2">
+                  <Filter className="h-4 w-4 text-muted-foreground mr-1" />
+                  <button
+                    onClick={() => setSelectedCategory('all')}
+                    className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-300 ${
+                      selectedCategory === 'all'
+                        ? 'bg-primary text-primary-foreground shadow-md'
+                        : 'bg-muted/60 text-muted-foreground hover:bg-muted hover:text-foreground'
+                    }`}
+                  >
+                    All ({projects.length})
+                  </button>
+                  {categories.map(cat => {
+                    const count = projects.filter(p => getTheme(p.slug).label === cat).length;
+                    return (
+                      <button
+                        key={cat}
+                        onClick={() => setSelectedCategory(cat)}
+                        className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-300 ${
+                          selectedCategory === cat
+                            ? 'bg-primary text-primary-foreground shadow-md'
+                            : 'bg-muted/60 text-muted-foreground hover:bg-muted hover:text-foreground'
+                        }`}
+                      >
+                        {cat} ({count})
+                      </button>
+                    );
+                  })}
+                </div>
+                <div className="flex gap-2">
+                  <Button
+                    variant={viewMode === 'grid' ? 'default' : 'outline'}
+                    size="sm"
+                    onClick={() => setViewMode('grid')}
+                    className="transition-all duration-300"
+                  >
+                    <Grid3x3 className="w-4 h-4 mr-2" />
+                    Grid
+                  </Button>
+                  <Button
+                    variant={viewMode === 'list' ? 'default' : 'outline'}
+                    size="sm"
+                    onClick={() => setViewMode('list')}
+                    className="transition-all duration-300"
+                  >
+                    <List className="w-4 h-4 mr-2" />
+                    List
+                  </Button>
+                </div>
+              </div>
+            </div>
+          );
+        })()}
 
         {/* Projects Grid/List */}
         {projects.length === 0 ? (
