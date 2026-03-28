@@ -65,7 +65,7 @@ const BioMathCore = () => {
           <Link to="/projects" className="inline-block mb-8">
             <Button variant="ghost" size="sm" className="text-[hsl(200,80%,70%)] hover:bg-[hsl(200,80%,50%)]/10 border border-[hsl(200,80%,50%)]/20">
               <ArrowLeft className="w-4 h-4 mr-2" />
-              Back to Projects
+              {t('projectCommon.backToProjects')}
             </Button>
           </Link>
 
