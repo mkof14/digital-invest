@@ -1,10 +1,11 @@
 import { Link } from 'react-router-dom';
-import { Linkedin, MapPin, Mail, Facebook, Youtube, X } from 'lucide-react';
+import { Linkedin, MapPin, Mail, Facebook, Youtube, X, Globe } from 'lucide-react';
 import OptimizedImage from '@/components/OptimizedImage';
 import { useQuery } from '@tanstack/react-query';
 import { supabase } from '@/integrations/supabase/client';
 import * as LucideIcons from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { languages } from '@/i18n';
 
 interface SocialMediaLink {
   id: string;
