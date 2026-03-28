@@ -73,6 +73,7 @@ const Infrastructure = lazy(() => import("./pages/Infrastructure"));
 const InvestorHandbook = lazy(() => import("./pages/InvestorHandbook"));
 const Schedule = lazy(() => import('./pages/Schedule'));
 const LegalOverview = lazy(() => import('./pages/LegalOverview'));
+const PortfolioOverview = lazy(() => import('./pages/PortfolioOverview'));
 
 // Legacy project routes
 const BioMathLife = lazy(() => import("./pages/Projects/BioMathLife"));
@@ -164,6 +165,7 @@ const App = () => (
               <Route path="/investor-handbook" element={<InvestorHandbook />} />
               <Route path="/glossary" element={<Glossary />} />
               <Route path="/document-library" element={<DocumentLibrary />} />
+              <Route path="/overview" element={<PortfolioOverview />} />
               
               <Route path="/legal-overview" element={<LegalOverview />} />
               <Route path="/legal/terms" element={<TermsOfUse />} />
