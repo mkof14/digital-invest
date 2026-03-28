@@ -185,7 +185,7 @@ const Footer = () => {
           {/* Copyright */}
           <div className="text-center pt-6 border-t border-border/20">
             <p className="text-xs text-muted-foreground/70">
-              © {currentYear} Digital Invest Inc. All rights reserved.
+              © {currentYear} Digital Invest Inc. {t('footer.rights')}
             </p>
           </div>
         </div>
