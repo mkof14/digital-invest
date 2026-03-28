@@ -154,26 +154,10 @@ const ForInvestors = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {[
-              { 
-                icon: <Briefcase className="w-7 h-7" />, 
-                title: "Entrepreneurs & Operators",
-                description: "Business builders who understand operational complexity and real-world execution"
-              },
-              { 
-                icon: <TrendingUp className="w-7 h-7" />, 
-                title: "Long-Term Private Investors",
-                description: "Patient capital focused on sustainable growth over extended time horizons"
-              },
-              { 
-                icon: <Building2 className="w-7 h-7" />, 
-                title: "Family Offices",
-                description: "Multi-generational wealth managers seeking diversified real-economy exposure"
-              },
-              { 
-                icon: <Users className="w-7 h-7" />, 
-                title: "Strategic Partners",
-                description: "Industry experts and advisors interested in AI and real-economy innovation"
-              }
+              { icon: <Briefcase className="w-7 h-7" />, title: t('investors.entrepreneurs'), description: t('investors.entrepreneursDesc') },
+              { icon: <TrendingUp className="w-7 h-7" />, title: t('investors.longTermInvestors'), description: t('investors.longTermInvestorsDesc') },
+              { icon: <Building2 className="w-7 h-7" />, title: t('investors.familyOffices'), description: t('investors.familyOfficesDesc') },
+              { icon: <Users className="w-7 h-7" />, title: t('investors.strategicPartners'), description: t('investors.strategicPartnersDesc') }
             ].map((item, index) => (
               <Card 
                 key={index} 
