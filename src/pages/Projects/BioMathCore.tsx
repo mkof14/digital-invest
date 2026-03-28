@@ -78,11 +78,10 @@ const BioMathCore = () => {
               <span className="text-[hsl(200,80%,55%)]">Core</span>
             </h1>
             <p className="text-2xl md:text-3xl font-light text-[hsl(210,15%,75%)] mb-4">
-              Where Data Meets Daily Life
+              {t('projectBiomathCore.heroSubtitle')}
             </p>
             <p className="text-lg text-[hsl(210,10%,60%)] max-w-2xl mb-10 leading-relaxed">
-              From sleep to cognition, from movement to mood — BioMath Core brings clarity to your health journey through 
-              intelligent real-time insights, 200+ AI-powered services, and a secure personal data vault.
+              {t('projectBiomathCore.heroDesc')}
             </p>
             <div className="flex gap-4 flex-wrap">
               <Link to="/start-investing">
