@@ -210,10 +210,10 @@ const Index = () => {
           {/* Key Metrics */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-12 pt-24 max-w-6xl mx-auto animate-fade-in">
             {[
-              { value: "25+", label: "Years Experience" },
-              { value: "5", label: "Active Projects" },
-              { value: "$19.5B", label: "Previous Exit Value" },
-              { value: "15+", label: "Countries Served" }
+              { value: "25+", label: t('hero.yearsExp') },
+              { value: "5", label: t('hero.activeProjects') },
+              { value: "$19.5B", label: t('hero.exitValue') },
+              { value: "15+", label: t('hero.countriesServed') }
             ].map((stat, index) => (
               <div key={index} className="text-center space-y-2">
                 <div className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary">{stat.value}</div>
