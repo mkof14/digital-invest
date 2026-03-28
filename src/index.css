@@ -205,149 +205,106 @@ html {
   }
 
   :root.light {
-    /* Core Background & Text - Light Corporate */
-    --background: 210 20% 98%;
-    --foreground: 225 15% 15%;
+    /* Core Background - Warm off-white with subtle blue tint */
+    --background: 220 14% 95%;
+    --foreground: 225 20% 12%;
 
-    /* Card System - Light Corporate */
-    --card: 210 20% 96%;
-    --card-foreground: 225 15% 15%;
-    --card-hover: 210 20% 94%;
+    /* Card System - Distinct from background with depth */
+    --card: 0 0% 100%;
+    --card-foreground: 225 20% 12%;
+    --card-hover: 215 18% 97%;
 
     /* Popover */
-    --popover: 210 20% 96%;
-    --popover-foreground: 225 15% 15%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 225 20% 12%;
 
-    /* Primary - Neutral Dark Grey (adjusted for light) */
-    --primary: 220 15% 30%;
+    /* Primary - Rich Slate Blue */
+    --primary: 220 25% 28%;
     --primary-foreground: 210 15% 98%;
-    --primary-glow: 220 15% 40%;
-    --primary-vibrant: 220 15% 25%;
-    --primary-dark: 220 15% 20%;
-    --primary-light: 220 15% 50%;
+    --primary-glow: 220 25% 38%;
+    --primary-vibrant: 220 25% 22%;
+    --primary-dark: 220 25% 18%;
+    --primary-light: 220 20% 50%;
 
-    /* Secondary - Muted Slate (adjusted for light) */
-    --secondary: 215 25% 85%;
-    --secondary-foreground: 225 15% 15%;
-    --secondary-glow: 215 25% 75%;
-    --secondary-vibrant: 215 25% 80%;
-    --secondary-dark: 215 25% 70%;
-    --secondary-light: 215 25% 90%;
+    /* Secondary - Cool Stone */
+    --secondary: 218 18% 88%;
+    --secondary-foreground: 225 20% 15%;
+    --secondary-glow: 218 18% 78%;
+    --secondary-vibrant: 218 18% 82%;
+    --secondary-dark: 218 18% 72%;
+    --secondary-light: 218 18% 93%;
 
-    /* Muted */
-    --muted: 215 20% 90%;
-    --muted-foreground: 215 15% 40%;
+    /* Muted - Warm Grey with hint of blue */
+    --muted: 220 14% 91%;
+    --muted-foreground: 220 12% 38%;
 
-    /* Accent - Deep Amber (adjusted for light) */
-    --accent: 35 60% 45%;
-    --accent-foreground: 210 20% 98%;
-    --accent-glow: 35 60% 55%;
-    --accent-vibrant: 35 60% 40%;
-    --accent-dark: 35 60% 35%;
-    --accent-light: 35 60% 65%;
+    /* Accent - Warm Amber Gold */
+    --accent: 32 70% 48%;
+    --accent-foreground: 0 0% 100%;
+    --accent-glow: 32 70% 58%;
+    --accent-vibrant: 32 70% 42%;
+    --accent-dark: 32 70% 36%;
+    --accent-light: 32 50% 68%;
 
-    /* Success - Deep Teal (adjusted for light) */
-    --success: 180 50% 40%;
-    --success-foreground: 210 15% 98%;
-    --success-glow: 180 50% 50%;
-    --success-dark: 180 50% 35%;
-    --success-light: 180 50% 60%;
+    /* Success - Rich Emerald */
+    --success: 160 55% 38%;
+    --success-foreground: 0 0% 100%;
+    --success-glow: 160 55% 48%;
+    --success-dark: 160 55% 30%;
+    --success-light: 160 40% 62%;
 
-    /* Warning - Muted Orange (adjusted for light) */
-    --warning: 25 60% 45%;
-    --warning-foreground: 225 20% 6%;
-    --warning-glow: 25 60% 55%;
-    --warning-dark: 25 60% 35%;
-    --warning-light: 25 60% 65%;
+    /* Warning - Deep Tangerine */
+    --warning: 28 75% 48%;
+    --warning-foreground: 0 0% 100%;
+    --warning-glow: 28 75% 58%;
+    --warning-dark: 28 75% 38%;
+    --warning-light: 28 55% 68%;
 
-    /* Error - Elegant Red (adjusted for light) */
-    --error: 0 75% 55%;
-    --error-foreground: 210 15% 98%;
-    --error-glow: 0 75% 65%;
-    --error-dark: 0 75% 45%;
-    --error-light: 0 75% 70%;
+    /* Error - Crimson */
+    --error: 4 72% 52%;
+    --error-foreground: 0 0% 100%;
+    --error-glow: 4 72% 62%;
+    --error-dark: 4 72% 42%;
+    --error-light: 4 50% 72%;
 
-    /* Info - Deep Purple (adjusted for light) */
-    --info: 250 80% 60%;
-    --info-foreground: 210 15% 98%;
-    --info-glow: 250 80% 70%;
-    --info-dark: 250 80% 50%;
-    --info-light: 250 80% 75%;
+    /* Info - Sapphire Blue */
+    --info: 215 75% 50%;
+    --info-foreground: 0 0% 100%;
+    --info-glow: 215 75% 60%;
+    --info-dark: 215 75% 42%;
+    --info-light: 215 55% 72%;
 
-    /* Tech - Deep Cyan (adjusted for light) */
-    --tech: 195 55% 40%;
-    --tech-foreground: 210 15% 98%;
-    --tech-glow: 195 55% 50%;
-    --tech-dark: 195 55% 35%;
+    /* Tech - Ocean Teal */
+    --tech: 188 60% 38%;
+    --tech-foreground: 0 0% 100%;
+    --tech-glow: 188 60% 48%;
+    --tech-dark: 188 60% 30%;
 
-    /* Innovation - Muted Rose (adjusted for light) */
-    --innovation: 350 50% 45%;
-    --innovation-foreground: 210 15% 98%;
-    --innovation-glow: 350 50% 55%;
-    --innovation-dark: 350 50% 35%;
+    /* Innovation - Berry Rose */
+    --innovation: 340 55% 48%;
+    --innovation-foreground: 0 0% 100%;
+    --innovation-glow: 340 55% 58%;
+    --innovation-dark: 340 55% 38%;
 
     /* Destructive */
-    --destructive: 0 62% 58%;
-    --destructive-foreground: 210 15% 96%;
+    --destructive: 4 68% 52%;
+    --destructive-foreground: 0 0% 100%;
 
-    /* Border & Input */
-    --border: 215 20% 85%;
-    --input: 215 20% 88%;
+    /* Border & Input - More visible borders */
+    --border: 220 16% 82%;
+    --input: 220 14% 90%;
     --ring: 220 60% 45%;
 
-    /* Subtle Corporate Pattern for light mode */
-    --pattern-corporate: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='0.02'%3E%3Ccircle cx='30' cy='30' r='1.5'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-  }
+    /* Professional Shadows for light mode */
+    --shadow-tech: 0 4px 20px -4px hsl(220 25% 28% / 0.12);
+    --shadow-invest: 0 4px 20px -4px hsl(218 18% 50% / 0.10);
+    --shadow-glow: 0 8px 30px -6px hsl(220 25% 28% / 0.15);
+    --shadow-elevated: 0 12px 40px -10px hsl(220 20% 10% / 0.12), 0 4px 12px -4px hsl(220 20% 10% / 0.06);
+    --shadow-vibrant: 0 6px 24px -6px hsl(32 70% 48% / 0.18);
+    --shadow-rainbow: 0 8px 32px -8px hsl(220 25% 28% / 0.10);
 
-  :root.light {
-    /* Core Background & Text - Light Corporate */
-    --background: 210 20% 98%;
-    --foreground: 225 15% 15%;
-
-    /* Card System - Light Corporate */
-    --card: 210 20% 96%;
-    --card-foreground: 225 15% 15%;
-    --card-hover: 210 20% 94%;
-
-    /* Popover */
-    --popover: 210 20% 96%;
-    --popover-foreground: 225 15% 15%;
-
-    /* Primary - Muted Grey for light mode */
-    --primary: 220 12% 35%;
-    --primary-foreground: 210 15% 98%;
-    --primary-glow: 220 12% 45%;
-    --primary-vibrant: 220 12% 30%;
-    --primary-dark: 220 12% 25%;
-    --primary-light: 220 12% 55%;
-
-    /* Secondary - Muted Slate (adjusted for light) */
-    --secondary: 215 25% 85%;
-    --secondary-foreground: 225 15% 15%;
-    --secondary-glow: 215 25% 75%;
-    --secondary-vibrant: 215 25% 80%;
-    --secondary-dark: 215 25% 70%;
-    --secondary-light: 215 25% 90%;
-
-    /* Muted */
-    --muted: 215 20% 90%;
-    --muted-foreground: 215 15% 40%;
-
-    /* Accent - Deep Amber (adjusted for light) */
-    --accent: 35 60% 45%;
-    --accent-foreground: 210 20% 98%;
-    --accent-glow: 35 60% 55%;
-    --accent-vibrant: 35 60% 40%;
-    --accent-dark: 35 60% 35%;
-    --accent-light: 35 60% 65%;
-
-    /* Border & Input */
-    --border: 215 20% 85%;
-    --input: 215 20% 88%;
-    --ring: 220 60% 45%;
-
-    /* Subtle Corporate Pattern for light mode */
-    --pattern-corporate: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='0.02'%3E%3Ccircle cx='30' cy='30' r='1.5'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    /* Richer corporate pattern for light mode */
+    --pattern-corporate: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%234a5568' fill-opacity='0.04'%3E%3Ccircle cx='20' cy='20' r='1'/%3E%3Ccircle cx='0' cy='0' r='1'/%3E%3Ccircle cx='40' cy='40' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
   }
 }
 
