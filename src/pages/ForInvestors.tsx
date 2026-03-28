@@ -295,12 +295,7 @@ const ForInvestors = () => {
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
-                {[
-                  "An informational showcase of Digital Invest projects",
-                  "A secure channel to request additional information",
-                  "A comprehensive resource for portfolio structure understanding",
-                  "A gateway to personal consultations and discussions"
-                ].map((item, index) => (
+                {[t('investors.is1'), t('investors.is2'), t('investors.is3'), t('investors.is4')].map((item, index) => (
                   <div key={index} className="flex items-start gap-3 group">
                     <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
                     <p className="text-foreground leading-relaxed font-medium">{item}</p>
