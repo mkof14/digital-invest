@@ -165,6 +165,7 @@ const App = () => (
               <Route path="/investor-handbook" element={<InvestorHandbook />} />
               <Route path="/glossary" element={<Glossary />} />
               <Route path="/document-library" element={<DocumentLibrary />} />
+              <Route path="/overview" element={<PortfolioOverview />} />
               
               <Route path="/legal-overview" element={<LegalOverview />} />
               <Route path="/legal/terms" element={<TermsOfUse />} />
