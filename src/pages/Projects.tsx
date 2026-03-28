@@ -354,14 +354,15 @@ const Projects = () => {
             })}
           </div>
         ) : (
-          <div className="flex flex-col gap-6 animate-fade-in">
-            {projects.map((project) => {
+          <div className="flex flex-col gap-6">
+            {projects.map((project, index) => {
               const theme = getTheme(project.slug);
               const isBioMath = project.slug === 'biomath-core' || project.slug === 'biomathcore';
               const projectImage = isBioMath ? biomathcoreCardBg : getProjectImage(project);
 
               return (
-                <Link key={project.id} to={`/projects/${project.slug}`} className="group block">
+                <ScrollRevealCard key={project.id} index={index}>
+                <Link to={`/projects/${project.slug}`} className="group block">
                   <Card className={`overflow-hidden border ${theme.border} bg-card shadow-elegant hover:shadow-elevated transition-all duration-500 hover:-translate-y-1 cursor-pointer`}>
                     <div className="flex flex-col md:flex-row">
                       <div className="relative w-full md:w-80 h-48 overflow-hidden bg-muted">
