@@ -31,8 +31,18 @@ import baselineHero from '@/assets/projects/baseline-hero.jpg';
 import baselineLogo from '@/assets/projects/baseline-logo.png';
 import savenHero from '@/assets/projects/saven-hero.png';
 import savenLogo from '@/assets/projects/saven-logo.png';
+import biomathcoreCardBg from '@/assets/projects/biomathcore-card-bg.png';
+import biomathcoreLogoBanner from '@/assets/projects/biomathcore-logo-banner.png';
 import OptimizedImage from '@/components/OptimizedImage';
 import { shimmerDataURL, getResponsiveImagePaths } from '@/lib/imageUtils';
+
+const biomathCategories = [
+  "Critical Health", "Everyday Wellness", "Longevity & Anti-Aging", "Mental Wellness",
+  "Fitness & Performance", "Women's Health", "Men's Health", "Beauty & Skincare",
+  "Nutrition & Diet", "Sleep & Recovery", "Environmental Health", "Family Health",
+  "Preventive Medicine", "Biohacking", "Senior Care", "Eye-Health Suite",
+  "Digital Therapeutics", "Sexual Longevity", "Men's Sexual Health", "Women's Sexual Health"
+];
 
 interface Project {
   id: string;
@@ -203,7 +213,75 @@ const Projects = () => {
           </div>
         ) : viewMode === 'grid' ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 animate-fade-in">
-            {projects.map((project) => (
+            {projects.map((project) => {
+              // Special BioMath Core card
+              if (project.slug === 'biomath-core' || project.slug === 'biomathcore') {
+                return (
+                  <Card
+                    key={project.id}
+                    className="group overflow-hidden border border-border/50 shadow-elegant hover:shadow-elevated transition-all duration-500 hover:-translate-y-3 hover:scale-[1.02] flex flex-col md:col-span-2 lg:col-span-3 relative bg-[hsl(220,20%,6%)]"
+                  >
+                    {/* Full background image */}
+                    <div className="absolute inset-0 z-0 opacity-30 group-hover:opacity-40 transition-opacity duration-700">
+                      <img src={biomathcoreCardBg} alt="" className="w-full h-full object-cover" />
+                    </div>
+                    <div className="absolute inset-0 z-[1] bg-gradient-to-r from-[hsl(220,20%,6%)]/80 via-[hsl(220,20%,6%)]/50 to-[hsl(220,20%,6%)]/80" />
+                    
+                    <div className="relative z-10 p-8 md:p-12">
+                      {/* Logo banner */}
+                      <div className="flex flex-col md:flex-row items-start md:items-center gap-6 mb-8">
+                        <img src={biomathcoreLogoBanner} alt="BioMath Core" className="h-14 md:h-16 object-contain" />
+                        <div className="flex gap-3">
+                          <Badge className="bg-[hsl(200,80%,50%)]/20 text-[hsl(200,80%,70%)] border-[hsl(200,80%,50%)]/30">
+                            Digital Health
+                          </Badge>
+                          <Badge className={`${getStatusColor(project.status)}`}>
+                            {project.status.replace('_', ' ')}
+                          </Badge>
+                        </div>
+                      </div>
+                      
+                      <p className="text-[hsl(210,10%,75%)] text-lg md:text-xl max-w-3xl mb-8 leading-relaxed">
+                        {project.short_description}
+                      </p>
+
+                      {/* Health Categories Grid */}
+                      <div className="mb-8">
+                        <h3 className="text-[hsl(210,10%,90%)] text-sm font-semibold uppercase tracking-widest mb-4">
+                          200+ AI-Powered Services · 20 Health Categories
+                        </h3>
+                        <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-7 xl:grid-cols-10 gap-2">
+                          {biomathCategories.map((cat) => (
+                            <div
+                              key={cat}
+                              className="bg-[hsl(210,15%,12%)] border border-[hsl(210,15%,20%)] rounded-lg px-3 py-2 text-center text-xs text-[hsl(210,10%,70%)] hover:border-[hsl(200,80%,50%)]/40 hover:text-[hsl(200,80%,70%)] transition-all duration-300 cursor-default"
+                            >
+                              {cat}
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+
+                      <div className="flex gap-3">
+                        <Link to={`/projects/${project.slug}`} className="flex-1 max-w-xs">
+                          <Button className="w-full bg-[hsl(200,80%,50%)] hover:bg-[hsl(200,80%,45%)] text-white" size="lg">
+                            <TrendingUp className="w-4 h-4 mr-2" />
+                            Explore Platform
+                          </Button>
+                        </Link>
+                        <Link to={`/projects/${project.slug}`}>
+                          <Button variant="outline" size="lg" className="border-[hsl(200,80%,50%)]/30 text-[hsl(200,80%,70%)] hover:bg-[hsl(200,80%,50%)]/10">
+                            <ArrowRight className="w-4 h-4" />
+                          </Button>
+                        </Link>
+                      </div>
+                    </div>
+                  </Card>
+                );
+              }
+
+              // Standard project card
+              return (
               <Card
                 key={project.id}
                 className="group overflow-hidden border border-border/50 bg-card shadow-elegant hover:shadow-elevated transition-all duration-500 hover:-translate-y-3 hover:scale-[1.02] flex flex-col"
@@ -271,7 +349,8 @@ const Projects = () => {
                   </Link>
                 </CardFooter>
               </Card>
-            ))}
+              );
+            })}
           </div>
         ) : (
           <div className="flex flex-col gap-6 animate-fade-in">
