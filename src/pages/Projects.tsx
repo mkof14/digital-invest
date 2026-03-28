@@ -514,6 +514,7 @@ const Projects = () => {
           </div>
         );
         })()}
+        </div>
 
         {/* Legal Disclaimer */}
         <div className="mt-16 max-w-5xl mx-auto">
