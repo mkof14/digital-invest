@@ -64,6 +64,7 @@ const Index = () => {
   // Scroll animation hooks
   const featuredSection = useScrollAnimation({ threshold: 0.2 });
   const whatWeBuildSection = useScrollAnimation({ threshold: 0.2 });
+  const biomathVisionSection = useScrollAnimation({ threshold: 0.2 });
   const whyDigitalSection = useScrollAnimation({ threshold: 0.2 });
   const investmentSection = useScrollAnimation({ threshold: 0.2 });
   const journeySection = useScrollAnimation({ threshold: 0.2 });
@@ -73,6 +74,7 @@ const Index = () => {
   const featuredHeading = useScrollAnimation({ threshold: 0.3 });
   const calculatorHeading = useScrollAnimation({ threshold: 0.3 });
   const whatWeBuildHeading = useScrollAnimation({ threshold: 0.3 });
+  const biomathVisionHeading = useScrollAnimation({ threshold: 0.3 });
   const whyDigitalHeading = useScrollAnimation({ threshold: 0.3 });
   const investmentHeading = useScrollAnimation({ threshold: 0.3 });
   const capabilitiesHeading = useScrollAnimation({ threshold: 0.3 });
@@ -383,7 +385,59 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Why Digital Invest Section */}
+      {/* BioMath Ecosystem Vision Section */}
+      <section ref={biomathVisionSection.ref} className={`py-24 px-4 section-gradient-lavender scroll-scale-in ${biomathVisionSection.isVisible ? 'visible' : ''}`}>
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-12 space-y-4">
+            <Badge variant="secondary" className="mb-3 text-sm">Ecosystem Vision</Badge>
+            <h2 ref={biomathVisionHeading.ref} className={`text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight gradient-tech-animated animate-heading-reveal ${biomathVisionHeading.isVisible ? 'visible' : ''}`}>
+              200+ Services. One Platform.
+            </h2>
+          </div>
+          
+          <div className="relative">
+            <Card className="border border-primary/20 bg-card/80 backdrop-blur-sm overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/10 pointer-events-none" />
+              <CardContent className="relative pt-10 pb-10 px-8 md:px-12 space-y-6">
+                <p className="text-lg md:text-xl text-foreground leading-relaxed">
+                  At the core of our portfolio is <span className="font-bold text-primary">BioMath Core</span> — a foundational digital health architecture designed to power over <span className="font-bold text-primary">200 service products</span>. Each product in the BioMath ecosystem is built for practical, everyday use — from personalized health tracking and longevity insights to stress management and nutrition optimization.
+                </p>
+                <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
+                  Every project we build today is a step toward this vision: a unified platform where all services intersect and continuously refine one another. With each new data point and user interaction, the system evolves — building an increasingly precise <span className="font-semibold text-foreground">digital model of human health</span>.
+                </p>
+                <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
+                  This is not a collection of isolated apps. It is a living infrastructure where every service strengthens the whole — creating compounding intelligence that grows more valuable with every step forward.
+                </p>
+                
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-6 border-t border-border/50">
+                  {[
+                    { value: "200+", label: "Planned Services" },
+                    { value: "1", label: "Unified Platform" },
+                    { value: "18", label: "Active Projects" },
+                    { value: "∞", label: "Self-Improving Loop" }
+                  ].map((stat, i) => (
+                    <div key={i} className="text-center">
+                      <div className="text-2xl md:text-3xl font-bold text-primary">{stat.value}</div>
+                      <div className="text-xs md:text-sm text-muted-foreground mt-1">{stat.label}</div>
+                    </div>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+          
+          <div className="text-center mt-8">
+            <Button size="lg" variant="outline" className="px-8 py-6 text-lg group border-2" asChild>
+              <Link to="/projects/biomathcore">
+                Explore BioMath Core
+                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+
       <section ref={whyDigitalSection.ref} className={`py-24 px-4 section-gradient-lavender scroll-scale-in ${whyDigitalSection.isVisible ? 'visible' : ''}`}>
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16 space-y-4">
