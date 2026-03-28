@@ -670,42 +670,12 @@ const Index = () => {
           
           <div className="space-y-8 max-w-4xl mx-auto">
             {[
-              {
-                step: "1",
-                title: "Explore projects",
-                description: "Review the platforms across health, agriculture, food production, and infrastructure.",
-                icon: <Search className="w-6 h-6" />
-              },
-              {
-                step: "2",
-                title: "Submit non-binding interest",
-                description: "Use a short form to express interest in one or more projects. No commitment, no payments.",
-                icon: <Mail className="w-6 h-6" />
-              },
-              {
-                step: "3",
-                title: "Personal follow-up",
-                description: "We contact you directly, share materials, and answer your questions.",
-                icon: <Users className="w-6 h-6" />
-              },
-              {
-                step: "4",
-                title: "Due diligence",
-                description: "We review the project together: roadmap, risks, structure, and expected timelines.",
-                icon: <Search className="w-6 h-6" />
-              },
-              {
-                step: "5",
-                title: "Offline agreement",
-                description: "If both sides agree, the legal investment process happens offline, not on the website.",
-                icon: <FileText className="w-6 h-6" />
-              },
-              {
-                step: "6",
-                title: "Updates & growth",
-                description: "You receive periodic updates, milestones, and insights as projects progress.",
-                icon: <TrendingUp className="w-6 h-6" />
-              }
+              { step: "1", title: t('journey.step1Title'), description: t('journey.step1Desc'), icon: <Search className="w-6 h-6" /> },
+              { step: "2", title: t('journey.step2Title'), description: t('journey.step2Desc'), icon: <Mail className="w-6 h-6" /> },
+              { step: "3", title: t('journey.step3Title'), description: t('journey.step3Desc'), icon: <Users className="w-6 h-6" /> },
+              { step: "4", title: t('journey.step4Title'), description: t('journey.step4Desc'), icon: <Search className="w-6 h-6" /> },
+              { step: "5", title: t('journey.step5Title'), description: t('journey.step5Desc'), icon: <FileText className="w-6 h-6" /> },
+              { step: "6", title: t('journey.step6Title'), description: t('journey.step6Desc'), icon: <TrendingUp className="w-6 h-6" /> }
             ].map((item, index) => (
               <Card key={index} className="border border-border/50 bg-card hover:shadow-lg transition-all duration-300">
                 <CardContent className="pt-6 pb-6">
