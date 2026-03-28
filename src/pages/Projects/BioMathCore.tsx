@@ -119,10 +119,10 @@ const BioMathCore = () => {
           <div className="container mx-auto px-4 py-8">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
               {[
-                { value: "200+", label: "AI Services" },
-                { value: "20", label: "Health Categories" },
-                { value: "50+", label: "Device Integrations" },
-                { value: "24/7", label: "Real-Time Analysis" },
+                { value: "200+", label: t('projectBiomathCore.statServices') },
+                { value: "20", label: t('projectBiomathCore.statCategories') },
+                { value: "50+", label: t('projectBiomathCore.statIntegrations') },
+                { value: "24/7", label: t('projectBiomathCore.statAnalysis') },
               ].map((stat) => (
                 <div key={stat.label}>
                   <p className="text-3xl md:text-4xl font-bold text-[hsl(200,80%,55%)]">{stat.value}</p>
