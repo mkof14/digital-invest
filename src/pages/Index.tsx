@@ -570,7 +570,7 @@ const Index = () => {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16 space-y-4">
             <h2 ref={investmentHeading.ref} className={`text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight gradient-blue-animated animate-heading-reveal ${investmentHeading.isVisible ? 'visible' : ''}`}>
-              Investment Highlights
+              {t('investmentHighlights.title')}
             </h2>
           </div>
           
