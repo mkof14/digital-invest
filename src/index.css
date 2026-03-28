@@ -327,13 +327,14 @@ html {
     background-image: var(--pattern-corporate);
   }
 
-  /* Light theme section gradients — more vivid for visual depth */
+  /* Light theme section gradients — vivid, emotional, rich */
   .section-gradient-warm {
     background: linear-gradient(
       180deg,
       hsl(220 14% 95%) 0%,
-      hsl(28 28% 91%) 35%,
-      hsl(35 22% 92%) 65%,
+      hsl(28 35% 89%) 30%,
+      hsl(18 30% 90%) 50%,
+      hsl(35 28% 91%) 70%,
       hsl(220 14% 95%) 100%
     );
   }
@@ -342,8 +343,9 @@ html {
     background: linear-gradient(
       180deg,
       hsl(220 14% 95%) 0%,
-      hsl(212 30% 90%) 35%,
-      hsl(218 28% 91%) 65%,
+      hsl(210 40% 88%) 30%,
+      hsl(215 35% 90%) 50%,
+      hsl(220 30% 91%) 70%,
       hsl(220 14% 95%) 100%
     );
   }
@@ -352,8 +354,9 @@ html {
     background: linear-gradient(
       180deg,
       hsl(220 14% 95%) 0%,
-      hsl(158 22% 90%) 35%,
-      hsl(165 20% 91%) 65%,
+      hsl(155 30% 88%) 30%,
+      hsl(162 25% 89%) 50%,
+      hsl(170 22% 91%) 70%,
       hsl(220 14% 95%) 100%
     );
   }
@@ -362,8 +365,9 @@ html {
     background: linear-gradient(
       180deg,
       hsl(220 14% 95%) 0%,
-      hsl(248 24% 91%) 35%,
-      hsl(260 22% 92%) 65%,
+      hsl(245 30% 89%) 30%,
+      hsl(255 28% 90%) 50%,
+      hsl(265 24% 91%) 70%,
       hsl(220 14% 95%) 100%
     );
   }
@@ -372,8 +376,9 @@ html {
     background: linear-gradient(
       180deg,
       hsl(220 14% 95%) 0%,
-      hsl(338 22% 91%) 35%,
-      hsl(345 20% 92%) 65%,
+      hsl(335 28% 89%) 30%,
+      hsl(345 24% 90%) 50%,
+      hsl(350 20% 91%) 70%,
       hsl(220 14% 95%) 100%
     );
   }
@@ -382,8 +387,9 @@ html {
     background: linear-gradient(
       180deg,
       hsl(220 14% 95%) 0%,
-      hsl(40 30% 90%) 35%,
-      hsl(45 25% 91%) 65%,
+      hsl(38 40% 88%) 30%,
+      hsl(42 35% 89%) 50%,
+      hsl(48 30% 91%) 70%,
       hsl(220 14% 95%) 100%
     );
   }
@@ -392,8 +398,9 @@ html {
     background: linear-gradient(
       180deg,
       hsl(220 14% 95%) 0%,
-      hsl(220 16% 90%) 35%,
-      hsl(225 14% 91%) 65%,
+      hsl(218 22% 88%) 30%,
+      hsl(222 18% 90%) 50%,
+      hsl(225 16% 91%) 70%,
       hsl(220 14% 95%) 100%
     );
   }

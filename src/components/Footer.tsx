@@ -1,10 +1,11 @@
 import { Link } from 'react-router-dom';
-import { Linkedin, MapPin, Mail, Facebook, Youtube, X } from 'lucide-react';
+import { Linkedin, MapPin, Mail, Facebook, Youtube, X, Globe } from 'lucide-react';
 import OptimizedImage from '@/components/OptimizedImage';
 import { useQuery } from '@tanstack/react-query';
 import { supabase } from '@/integrations/supabase/client';
 import * as LucideIcons from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { languages } from '@/i18n';
 
 interface SocialMediaLink {
   id: string;
@@ -17,8 +18,18 @@ interface SocialMediaLink {
 }
 
 const Footer = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const currentYear = new Date().getFullYear();
+
+  const changeLanguage = (code: string) => {
+    i18n.changeLanguage(code);
+    const lang = languages.find(l => l.code === code);
+    if (lang && 'dir' in lang) {
+      document.documentElement.dir = 'rtl';
+    } else {
+      document.documentElement.dir = 'ltr';
+    }
+  };
 
   const { data: socialLinks } = useQuery({
     queryKey: ['social-media-links'],
@@ -166,8 +177,29 @@ const Footer = () => {
           </div>
         </div>
         
+        {/* Language Switcher */}
+        <div className="mt-10 pt-6 border-t border-border/20">
+          <div className="flex flex-wrap items-center justify-center gap-2">
+            <Globe className="w-4 h-4 text-muted-foreground/50 mr-1" />
+            {languages.map((lang) => (
+              <button
+                key={lang.code}
+                onClick={() => changeLanguage(lang.code)}
+                className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-200 ${
+                  i18n.language === lang.code 
+                    ? 'bg-primary/15 text-primary border border-primary/30' 
+                    : 'text-muted-foreground hover:text-foreground hover:bg-muted/50 border border-transparent'
+                }`}
+              >
+                <span>{lang.flag}</span>
+                <span>{lang.name}</span>
+              </button>
+            ))}
+          </div>
+        </div>
+
         {/* Legal Notices */}
-        <div className="mt-12 pt-8 border-t border-border/30">
+        <div className="mt-8 pt-8 border-t border-border/30">
           <div className="max-w-5xl mx-auto space-y-6 mb-8">
             {/* Important Legal Notice */}
             <div className="space-y-1.5">
