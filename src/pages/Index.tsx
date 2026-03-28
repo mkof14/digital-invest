@@ -667,7 +667,7 @@ const Index = () => {
       </section>
 
       {/* Contact Section */}
-      <section className="py-24 px-4 bg-card/30">
+      <section className="py-24 px-4 bg-card/30 section-gradient-mint">
         <div className="max-w-4xl mx-auto text-center space-y-8">
           <h2 className="text-3xl md:text-5xl font-bold text-foreground">
             Partner With Us

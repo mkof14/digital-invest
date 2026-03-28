@@ -327,6 +327,61 @@ html {
     background-image: var(--pattern-corporate);
   }
 
+  /* Light theme section gradients for visual depth */
+  .section-gradient-warm {
+    background: linear-gradient(
+      180deg,
+      hsl(220 14% 95%) 0%,
+      hsl(30 20% 94%) 40%,
+      hsl(220 14% 95%) 100%
+    );
+  }
+
+  .section-gradient-cool {
+    background: linear-gradient(
+      180deg,
+      hsl(220 14% 95%) 0%,
+      hsl(215 22% 93%) 40%,
+      hsl(220 14% 95%) 100%
+    );
+  }
+
+  .section-gradient-mint {
+    background: linear-gradient(
+      180deg,
+      hsl(220 14% 95%) 0%,
+      hsl(160 16% 93%) 40%,
+      hsl(220 14% 95%) 100%
+    );
+  }
+
+  .section-gradient-lavender {
+    background: linear-gradient(
+      180deg,
+      hsl(220 14% 95%) 0%,
+      hsl(250 18% 94%) 40%,
+      hsl(220 14% 95%) 100%
+    );
+  }
+
+  .section-gradient-rose {
+    background: linear-gradient(
+      180deg,
+      hsl(220 14% 95%) 0%,
+      hsl(340 14% 94%) 40%,
+      hsl(220 14% 95%) 100%
+    );
+  }
+
+  /* Dark theme: these gradients should be invisible */
+  :root:not(.light) .section-gradient-warm,
+  :root:not(.light) .section-gradient-cool,
+  :root:not(.light) .section-gradient-mint,
+  :root:not(.light) .section-gradient-lavender,
+  :root:not(.light) .section-gradient-rose {
+    background: transparent;
+  }
+
   .solid-text {
     @apply text-primary;
   }
