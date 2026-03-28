@@ -63,6 +63,7 @@ const projectThemes: Record<string, { from: string; to: string; accent: string; 
 
 const getTheme = (slug: string) => projectThemes[slug] || { from: 'from-primary/20', to: 'to-primary/20', accent: 'text-primary', border: 'border-primary/30', btnBg: 'bg-primary', btnHover: 'hover:bg-primary/80', label: 'Project' };
 
+
 interface Project {
   id: string;
   slug: string;
