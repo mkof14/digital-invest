@@ -637,26 +637,10 @@ const Index = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
-              {
-                icon: <Lightbulb className="w-12 h-12" />,
-                title: "Health & AI Technology",
-                description: "Advanced platforms combining precision health, genomics, AI diagnostics, and personalized care systems"
-              },
-              {
-                icon: <Building2 className="w-12 h-12" />,
-                title: "Smart Manufacturing",
-                description: "Intelligent production systems for food tech, drone manufacturing, and scalable operations"
-              },
-              {
-                icon: <Target className="w-12 h-12" />,
-                title: "Agricultural Innovation",
-                description: "Precision drone operations, field analytics, and agritech solutions across the Southern U.S."
-              },
-              {
-                icon: <Award className="w-12 h-12" />,
-                title: "Proven Execution",
-                description: "Executive team with 70+ combined years and $19.5B previous exit success driving real results"
-              }
+              { icon: <Lightbulb className="w-12 h-12" />, title: t('capabilities.item1Title'), description: t('capabilities.item1Desc') },
+              { icon: <Building2 className="w-12 h-12" />, title: t('capabilities.item2Title'), description: t('capabilities.item2Desc') },
+              { icon: <Target className="w-12 h-12" />, title: t('capabilities.item3Title'), description: t('capabilities.item3Desc') },
+              { icon: <Award className="w-12 h-12" />, title: t('capabilities.item4Title'), description: t('capabilities.item4Desc') }
             ].map((feature, index) => (
               <Card key={index} className="hover:-translate-y-1 transition-all duration-300 border border-border/50 bg-card hover:shadow-lg">
                 <CardContent className="pt-8 pb-6 space-y-4">
