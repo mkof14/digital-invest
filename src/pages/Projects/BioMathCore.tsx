@@ -48,6 +48,7 @@ const categoryData = [
 ];
 
 const BioMathCore = () => {
+  const { t } = useTranslation();
   return (
     <div className="min-h-screen bg-[hsl(220,20%,4%)] text-[hsl(210,15%,85%)]">
       <Navigation />
