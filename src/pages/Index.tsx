@@ -320,7 +320,7 @@ const Index = () => {
       </section>
 
       {/* What We Build Section */}
-      <section ref={whatWeBuildSection.ref} className={`py-24 px-4 scroll-slide-up ${whatWeBuildSection.isVisible ? 'visible' : ''}`}>
+      <section ref={whatWeBuildSection.ref} className={`py-24 px-4 section-gradient-mint scroll-slide-up ${whatWeBuildSection.isVisible ? 'visible' : ''}`}>
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16 space-y-4">
             <h2 ref={whatWeBuildHeading.ref} className={`text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight gradient-tech-animated animate-heading-reveal ${whatWeBuildHeading.isVisible ? 'visible' : ''}`}>
