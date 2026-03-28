@@ -291,7 +291,7 @@ const ForInvestors = () => {
                   <div className="p-2 bg-primary/10 rounded-lg">
                     <CheckCircle2 className="w-6 h-6 text-primary" />
                   </div>
-                  This Platform IS
+                  {t('investors.platformIs')}
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
