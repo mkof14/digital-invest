@@ -241,6 +241,9 @@ const Projects = () => {
                     {project.slug === 'baseline' && (
                       <img src={baselineLogo} alt="BaseLine logo" className="h-8 rounded" />
                     )}
+                    {project.slug === 'saven' && (
+                      <img src={savenLogo} alt="SAVEN logo" className="h-8 rounded" />
+                    )}
                     {project.title}
                   </CardTitle>
                   <CardDescription className="text-base leading-relaxed line-clamp-3">
