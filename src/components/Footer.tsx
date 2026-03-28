@@ -170,7 +170,7 @@ const Footer = () => {
             {/* Important Legal Notice */}
             <div className="space-y-1.5">
               <p className="text-xs text-muted-foreground/80 leading-relaxed">
-                <span className="text-muted-foreground font-medium">Important Legal Notice:</span> Digital Invest Inc. is not an investment advisor, broker-dealer, public offering platform, or marketplace. This website is for informational purposes only. Participation in any project is handled privately, offline, and only for eligible individuals or entities following due diligence. We do not guarantee any outcomes, performance, or returns.
+                <span className="text-muted-foreground font-medium">{t('footer.legalNotice')}</span> {t('footer.legalNoticeText')}
               </p>
             </div>
 
