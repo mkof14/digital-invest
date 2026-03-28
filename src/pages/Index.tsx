@@ -195,13 +195,13 @@ const Index = () => {
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center animate-fade-in pt-8">
             <Link to="/projects">
               <Button size="lg" className="px-12 py-7 text-lg ripple-effect shadow-elegant hover:shadow-elevated">
-                Explore Projects
+                {t('hero.exploreProjects')}
                 <TrendingUp className="ml-3 h-6 w-6" />
               </Button>
             </Link>
             <Link to="/why-digital-invest">
               <Button size="lg" variant="outline" className="px-12 py-7 text-lg ripple-effect border-2 hover:border-primary">
-                Learn Why Digital Invest
+                {t('hero.learnWhy')}
                 <ArrowRight className="ml-3 h-6 w-6" />
               </Button>
             </Link>
