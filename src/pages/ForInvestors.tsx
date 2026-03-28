@@ -311,7 +311,7 @@ const ForInvestors = () => {
                   <div className="p-2 bg-muted rounded-lg">
                     <X className="w-6 h-6 text-muted-foreground" />
                   </div>
-                  This Platform is NOT
+                  {t('investors.platformIsNot')}
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
