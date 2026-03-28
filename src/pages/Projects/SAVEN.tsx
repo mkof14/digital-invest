@@ -336,6 +336,35 @@ const SAVEN = () => {
         </div>
       </section>
 
+      {/* Presentation Download */}
+      <section className="py-16 bg-gradient-to-r from-[#0d0f1a] to-[#1a1020]">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto text-center">
+            <h2 className="text-3xl font-bold text-white mb-4">
+              SAVEN <span className="text-orange-400">Presentation</span>
+            </h2>
+            <p className="text-gray-300 mb-8">
+              Download the full SAVEN Infrastructure of Continuous Execution presentation.
+            </p>
+            <div className="flex flex-wrap gap-4 justify-center">
+              <a href="/documents/SAVEN_Infrastructure_of_Continuous_Execution.pdf" download>
+                <Button size="lg" className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-6 text-lg">
+                  <Download className="w-5 h-5 mr-2" /> Download Presentation (PDF)
+                </Button>
+              </a>
+              <Button size="lg" variant="outline" className="border-orange-400/40 text-orange-300 hover:bg-orange-500/10 px-8 py-6 text-lg"
+                onClick={() => handleShare('SAVEN Infrastructure of Continuous Execution')}>
+                <Share2 className="w-5 h-5 mr-2" /> Share
+              </Button>
+              <Button size="lg" variant="outline" className="border-orange-400/40 text-orange-300 hover:bg-orange-500/10 px-8 py-6 text-lg"
+                onClick={() => handleSend('SAVEN Infrastructure of Continuous Execution')}>
+                <Mail className="w-5 h-5 mr-2" /> Send
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Infographics Gallery */}
       <section className="py-20 bg-muted/30">
         <div className="container mx-auto px-4">
@@ -350,7 +379,7 @@ const SAVEN = () => {
                 </div>
                 <CardContent className="p-4">
                   <p className="font-semibold text-sm mb-3">{item.title}</p>
-                  <div className="flex gap-2">
+                  <div className="flex flex-wrap gap-2">
                     <Button size="sm" variant="outline" onClick={() => handleDownload(item.src, `saven-${i + 1}.png`)}>
                       <Download className="w-3 h-3 mr-1" /> Download
                     </Button>
@@ -361,7 +390,7 @@ const SAVEN = () => {
                       <Share2 className="w-3 h-3 mr-1" /> Share
                     </Button>
                     <Button size="sm" variant="outline" onClick={() => handleSend(item.title)}>
-                      <Mail className="w-3 h-3" />
+                      <Mail className="w-3 h-3 mr-1" /> Send
                     </Button>
                   </div>
                 </CardContent>

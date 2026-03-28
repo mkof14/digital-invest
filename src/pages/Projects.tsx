@@ -286,7 +286,7 @@ const Projects = () => {
                 key={project.id}
                 className="group overflow-hidden border border-border/50 bg-card shadow-elegant hover:shadow-elevated transition-all duration-500 hover:-translate-y-3 hover:scale-[1.02] flex flex-col"
               >
-                <div className="relative h-64 overflow-hidden bg-muted">
+                <div className="relative h-56 overflow-hidden bg-muted">
                   <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   
                   {(() => {
