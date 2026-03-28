@@ -31,6 +31,7 @@ const BaseLine = () => {
     fetchProject();
   }, []);
 
+  const { t } = useTranslation();
   return (
     <div className="min-h-screen bg-background">
       <Navigation />

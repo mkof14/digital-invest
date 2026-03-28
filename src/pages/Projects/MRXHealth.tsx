@@ -32,6 +32,7 @@ const MRXHealth = () => {
     fetchProject();
   }, []);
 
+  const { t } = useTranslation();
   return (
     <div className="min-h-screen bg-background theme-mrx-health">
       <Navigation />

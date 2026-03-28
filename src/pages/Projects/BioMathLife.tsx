@@ -12,6 +12,7 @@ import DownloadInvestorBriefButton from "@/components/DownloadInvestorBriefButto
 import InvestorPageDisclaimer from "@/components/InvestorPageDisclaimer";
 
 const BioMathLife = () => {
+  const { t } = useTranslation();
   const categories = [
     "Critical Health", "Everyday Wellness", "Longevity & Anti-Aging", "Mental Wellness",
     "Fitness & Performance", "Women's Health", "Men's Health", "Beauty & Skincare",

@@ -68,6 +68,7 @@ const DigitalInvest = () => {
     }
   ];
 
+  const { t } = useTranslation();
   return (
     <div className="min-h-screen bg-background theme-digitalinvest">
       <Navigation />

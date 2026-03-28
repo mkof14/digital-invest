@@ -30,6 +30,7 @@ const TableServed = () => {
     fetchProject();
   }, []);
 
+  const { t } = useTranslation();
   return (
     <div className="min-h-screen bg-background theme-tableserved">
       <Navigation />

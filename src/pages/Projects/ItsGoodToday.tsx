@@ -30,6 +30,7 @@ import OptimizedImage from "@/components/OptimizedImage";
 import InvestorPageDisclaimer from "@/components/InvestorPageDisclaimer";
 
 const ItsGoodToday = () => {
+  const { t } = useTranslation();
   return (
     <div className="min-h-screen bg-background theme-itsgoodtoday">
       <Navigation />

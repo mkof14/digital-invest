@@ -61,6 +61,7 @@ const TerraAero = () => {
     }
   };
 
+  const { t } = useTranslation();
   return (
     <div className="min-h-screen theme-terraaero" style={{ background: 'hsl(85, 15%, 5%)' }}>
       <Navigation />

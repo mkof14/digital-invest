@@ -13,6 +13,7 @@ const LongevityCore = () => {
     window.scrollTo(0, 0);
   }, []);
 
+  const { t } = useTranslation();
   return (
     <div className="min-h-screen bg-background">
       <Navigation />

@@ -82,6 +82,7 @@ const SAVEN = () => {
     { src: acronymImg, title: 'SAVEN Acronym — S.A.V.E.N.' },
   ];
 
+  const { t } = useTranslation();
   return (
     <div className="min-h-screen bg-background">
       <Navigation />

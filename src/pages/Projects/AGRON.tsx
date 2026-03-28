@@ -68,6 +68,7 @@ const AGRON = () => {
     window.open(`mailto:?subject=${subject}&body=${body}`, "_self");
   };
 
+  const { t } = useTranslation();
   return (
     <div className="min-h-screen bg-background theme-agron">
       <Navigation />
