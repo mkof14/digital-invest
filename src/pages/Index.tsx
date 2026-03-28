@@ -535,7 +535,7 @@ const Index = () => {
       </section>
 
       {/* ═══════════════════ JOURNEY — Horizontal Timeline ═══════════════════ */}
-      <section ref={journeySection.ref} className={`py-20 md:py-28 px-4 scroll-fade-in ${journeySection.isVisible ? 'visible' : ''}`}>
+      <section ref={journeySection.ref} className={`py-20 md:py-28 px-4 section-gradient-slate scroll-fade-in ${journeySection.isVisible ? 'visible' : ''}`}>
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-14 space-y-3">
             <h2 ref={journeyHeading.ref} className={`text-3xl md:text-4xl font-bold tracking-tight text-foreground animate-heading-reveal ${journeyHeading.isVisible ? 'visible' : ''}`}>
