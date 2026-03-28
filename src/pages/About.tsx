@@ -245,6 +245,7 @@ Today, Digital Invest brings together this multi-sector expertise into a unified
           <p className="text-lg text-muted-foreground mb-8">{t('about.readyToLearnText')}</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" asChild><a href="/projects">{t('about.viewProjects')}</a></Button>
+            <Button size="lg" variant="outline" asChild><a href="/overview">{t('footer.overview', 'Portfolio Overview')}</a></Button>
             <Button size="lg" variant="outline" asChild><a href="/contact">{t('about.requestInfo')}</a></Button>
           </div>
         </div>

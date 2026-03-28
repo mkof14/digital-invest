@@ -770,6 +770,19 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Portfolio Overview CTA */}
+      <section className="py-12 px-4">
+        <div className="max-w-4xl mx-auto text-center">
+          <Link to="/overview">
+            <Button size="lg" variant="outline" className="gap-2 text-base border-primary/30 hover:bg-primary/5">
+              <Layers className="w-5 h-5" />
+              {t('footer.overview', 'Portfolio Overview')}
+              <ArrowRight className="w-4 h-4" />
+            </Button>
+          </Link>
+        </div>
+      </section>
+
       {/* Compliance Disclaimer */}
       <section className="py-12 px-4 border-t border-border/50">
         <div className="max-w-4xl mx-auto">
