@@ -230,7 +230,116 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Featured Projects Section - MOVED UP */}
+      {/* BioMath Ecosystem Vision Section */}
+      <section ref={biomathVisionSection.ref} className={`py-24 px-4 overflow-hidden scroll-scale-in ${biomathVisionSection.isVisible ? 'visible' : ''}`}>
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16 space-y-4">
+            <Badge variant="secondary" className="mb-3 text-sm px-4 py-1.5">
+              <Orbit className="w-4 h-4 mr-1.5 inline-block" />
+              Ecosystem Vision
+            </Badge>
+            <h2 ref={biomathVisionHeading.ref} className={`text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight gradient-tech-animated animate-heading-reveal ${biomathVisionHeading.isVisible ? 'visible' : ''}`}>
+              200+ Services. One Living Platform.
+            </h2>
+            <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto font-light leading-relaxed">
+              Every product we build strengthens the whole — creating a self-evolving digital model of human health
+            </p>
+          </div>
+          
+          {/* Visual Architecture */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+            
+            {/* Left: Core Hub */}
+            <div className="lg:col-span-5">
+              <Card className="h-full border-2 border-primary/30 bg-gradient-to-br from-primary/10 via-card to-primary/5 overflow-hidden relative group hover:border-primary/50 transition-all duration-500">
+                <div className="absolute top-0 right-0 w-40 h-40 bg-primary/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 group-hover:scale-150 transition-transform duration-700" />
+                <div className="absolute bottom-0 left-0 w-32 h-32 bg-primary/5 rounded-full blur-2xl translate-y-1/2 -translate-x-1/2" />
+                <CardContent className="relative pt-10 pb-10 px-8 flex flex-col h-full">
+                  <div className="p-5 bg-primary/15 rounded-2xl w-fit mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <Brain className="w-14 h-14 text-primary" />
+                  </div>
+                  <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
+                    BioMath Core
+                  </h3>
+                  <p className="text-base text-muted-foreground leading-relaxed mb-6 flex-1">
+                    The foundational digital health architecture powering over <span className="font-semibold text-primary">200 planned service products</span>. A unified intelligence layer where every service intersects and continuously refines the entire system.
+                  </p>
+                  <div className="grid grid-cols-2 gap-4 pt-6 border-t border-border/50">
+                    <div className="text-center">
+                      <div className="text-3xl font-bold text-primary">200+</div>
+                      <div className="text-xs text-muted-foreground mt-1">Planned Services</div>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-3xl font-bold text-primary">18</div>
+                      <div className="text-xs text-muted-foreground mt-1">Active Projects</div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+
+            {/* Right: Service Nodes */}
+            <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {[
+                { 
+                  icon: <Activity className="w-7 h-7" />, 
+                  title: "Daily Health Products",
+                  desc: "Personalized tracking, longevity insights, stress and nutrition tools for practical everyday use",
+                  color: "from-emerald-500/10 to-emerald-500/5"
+                },
+                { 
+                  icon: <Layers className="w-7 h-7" />, 
+                  title: "Unified Data Layer",
+                  desc: "Every interaction feeds back into a single intelligence core, making the entire system smarter",
+                  color: "from-blue-500/10 to-blue-500/5"
+                },
+                { 
+                  icon: <Cpu className="w-7 h-7" />, 
+                  title: "Self-Improving Loop",
+                  desc: "With each new data point, the platform evolves — building an increasingly precise digital model of human health",
+                  color: "from-amber-500/10 to-amber-500/5"
+                },
+                { 
+                  icon: <Network className="w-7 h-7" />, 
+                  title: "Cross-Service Synergy",
+                  desc: "Not isolated apps, but a living infrastructure where every service strengthens the whole ecosystem",
+                  color: "from-violet-500/10 to-violet-500/5"
+                }
+              ].map((node, i) => (
+                <Card key={i} className="border border-border/50 bg-card hover:shadow-elevated transition-all duration-500 hover:-translate-y-1 group overflow-hidden relative">
+                  <div className={`absolute inset-0 bg-gradient-to-br ${node.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+                  <CardContent className="relative pt-8 pb-6 px-6 space-y-3">
+                    <div className="p-3 bg-primary/10 rounded-xl w-fit group-hover:scale-110 transition-transform duration-300">
+                      <div className="text-primary">{node.icon}</div>
+                    </div>
+                    <h4 className="text-lg font-bold text-foreground">{node.title}</h4>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{node.desc}</p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+
+          {/* Bottom CTA */}
+          <div className="text-center mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Button size="lg" className="px-8 py-6 text-lg group" asChild>
+              <Link to="/projects/biomathcore">
+                <Brain className="mr-2 h-5 w-5" />
+                Explore BioMath Core
+                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </Button>
+            <Button size="lg" variant="outline" className="px-8 py-6 text-lg group border-2" asChild>
+              <Link to="/projects">
+                View All 18 Projects
+                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+
       <section ref={featuredSection.ref} className={`py-24 px-4 bg-card/30 section-gradient-cool scroll-fade-in ${featuredSection.isVisible ? 'visible' : ''}`}>
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16 space-y-4">
