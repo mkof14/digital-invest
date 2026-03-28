@@ -317,7 +317,7 @@ const Projects = () => {
                     className="transition-all duration-300"
                   >
                     <List className="w-4 h-4 mr-2" />
-                    List
+                    {t('projects.list')}
                   </Button>
                 </div>
               </div>
