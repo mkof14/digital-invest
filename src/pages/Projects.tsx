@@ -495,7 +495,7 @@ const Projects = () => {
                             </Badge>
                           </div>
                           <CardDescription className="text-sm leading-relaxed">
-                            {project.short_description}
+                            {t(`projects.descriptions.${project.slug}`, project.short_description)}
                           </CardDescription>
                         </CardHeader>
 
