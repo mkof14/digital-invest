@@ -308,7 +308,7 @@ const Projects = () => {
                     className="transition-all duration-300"
                   >
                     <Grid3x3 className="w-4 h-4 mr-2" />
-                    Grid
+                    {t('projects.grid')}
                   </Button>
                   <Button
                     variant={viewMode === 'list' ? 'default' : 'outline'}
