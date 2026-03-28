@@ -277,6 +277,7 @@ interface Project {
   short_description: string;
   category: string;
   status: string;
+  hero_image_url: string;
 }
 
 const PortfolioOverview = () => {
