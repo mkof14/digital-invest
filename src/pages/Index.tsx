@@ -224,7 +224,7 @@ const Index = () => {
       </section>
 
       {/* Featured Projects Section - MOVED UP */}
-      <section ref={featuredSection.ref} className={`py-24 px-4 bg-card/30 scroll-fade-in ${featuredSection.isVisible ? 'visible' : ''}`}>
+      <section ref={featuredSection.ref} className={`py-24 px-4 bg-card/30 section-gradient-cool scroll-fade-in ${featuredSection.isVisible ? 'visible' : ''}`}>
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16 space-y-4">
             <Badge variant="secondary" className="mb-3 text-sm">Portfolio Projects</Badge>
@@ -320,7 +320,7 @@ const Index = () => {
       </section>
 
       {/* What We Build Section */}
-      <section ref={whatWeBuildSection.ref} className={`py-24 px-4 scroll-slide-up ${whatWeBuildSection.isVisible ? 'visible' : ''}`}>
+      <section ref={whatWeBuildSection.ref} className={`py-24 px-4 section-gradient-mint scroll-slide-up ${whatWeBuildSection.isVisible ? 'visible' : ''}`}>
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16 space-y-4">
             <h2 ref={whatWeBuildHeading.ref} className={`text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight gradient-tech-animated animate-heading-reveal ${whatWeBuildHeading.isVisible ? 'visible' : ''}`}>
@@ -384,7 +384,7 @@ const Index = () => {
       </section>
 
       {/* Why Digital Invest Section */}
-      <section ref={whyDigitalSection.ref} className={`py-24 px-4 scroll-scale-in ${whyDigitalSection.isVisible ? 'visible' : ''}`}>
+      <section ref={whyDigitalSection.ref} className={`py-24 px-4 section-gradient-lavender scroll-scale-in ${whyDigitalSection.isVisible ? 'visible' : ''}`}>
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16 space-y-4">
             <h2 ref={whyDigitalHeading.ref} className={`text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight gradient-purple-animated animate-heading-reveal ${whyDigitalHeading.isVisible ? 'visible' : ''}`}>
@@ -417,7 +417,7 @@ const Index = () => {
       </section>
 
       {/* Investment Highlights Section */}
-      <section ref={investmentSection.ref} className={`py-24 px-4 bg-card/30 scroll-fade-in ${investmentSection.isVisible ? 'visible' : ''}`}>
+      <section ref={investmentSection.ref} className={`py-24 px-4 bg-card/30 section-gradient-cool scroll-fade-in ${investmentSection.isVisible ? 'visible' : ''}`}>
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16 space-y-4">
             <h2 ref={investmentHeading.ref} className={`text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight gradient-blue-animated animate-heading-reveal ${investmentHeading.isVisible ? 'visible' : ''}`}>
@@ -475,7 +475,7 @@ const Index = () => {
       </section>
 
       {/* Our Expertise Section */}
-      <section className="py-24 px-4">
+      <section className="py-24 px-4 section-gradient-rose">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16 space-y-4">
             <h2 ref={capabilitiesHeading.ref} className={`text-3xl md:text-5xl font-bold gradient-tech-animated animate-heading-reveal ${capabilitiesHeading.isVisible ? 'visible' : ''}`}>
@@ -524,7 +524,7 @@ const Index = () => {
       </section>
 
       {/* Investment Journey Section */}
-      <section className="py-24 px-4 bg-card/30">
+      <section className="py-24 px-4 bg-card/30 section-gradient-warm">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16 space-y-4">
             <h2 ref={journeyHeading.ref} className={`text-3xl md:text-5xl font-bold gradient-orange-animated animate-heading-reveal ${journeyHeading.isVisible ? 'visible' : ''}`}>
@@ -600,7 +600,7 @@ const Index = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-24 px-4">
+      <section className="py-24 px-4 section-gradient-lavender">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16 space-y-4">
             <h2 ref={faqHeading.ref} className={`text-3xl md:text-5xl font-bold gradient-purple-animated animate-heading-reveal ${faqHeading.isVisible ? 'visible' : ''}`}>
@@ -667,7 +667,7 @@ const Index = () => {
       </section>
 
       {/* Contact Section */}
-      <section className="py-24 px-4 bg-card/30">
+      <section className="py-24 px-4 bg-card/30 section-gradient-mint">
         <div className="max-w-4xl mx-auto text-center space-y-8">
           <h2 className="text-3xl md:text-5xl font-bold text-foreground">
             Partner With Us
