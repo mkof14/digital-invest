@@ -146,13 +146,10 @@ const BioMathCore = () => {
               </div>
               <div>
                 <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">
-                  Core Foundation of the BioMath Ecosystem
+                  {t('projectBiomathCore.foundationTitle')}
                 </h2>
                 <p className="text-[hsl(210,10%,65%)] text-lg leading-relaxed">
-                  BioMath Core is the central technological foundation upon which all BioMath services are built. 
-                  Today, the platform powers <span className="font-semibold text-[hsl(200,80%,65%)]">over 200 specialized AI services</span> across 
-                  20 health categories — from Critical Health and Longevity to Mental Wellness and Biohacking. 
-                  Every BioMath product in our portfolio relies on BioMath Core as its intelligent backbone.
+                  {t('projectBiomathCore.foundationDesc')}
                 </p>
               </div>
             </div>
