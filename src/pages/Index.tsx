@@ -64,6 +64,7 @@ const Index = () => {
   // Scroll animation hooks
   const featuredSection = useScrollAnimation({ threshold: 0.2 });
   const whatWeBuildSection = useScrollAnimation({ threshold: 0.2 });
+  const biomathVisionSection = useScrollAnimation({ threshold: 0.2 });
   const whyDigitalSection = useScrollAnimation({ threshold: 0.2 });
   const investmentSection = useScrollAnimation({ threshold: 0.2 });
   const journeySection = useScrollAnimation({ threshold: 0.2 });
