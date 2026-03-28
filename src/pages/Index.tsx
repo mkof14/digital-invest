@@ -417,7 +417,7 @@ const Index = () => {
                       <CardFooter className="pt-4">
                         <Button className="w-full group" asChild>
                           <Link to={`/projects/${project.slug}`}>
-                            View Details
+                            {t('featured.viewDetails')}
                             <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                           </Link>
                         </Button>
