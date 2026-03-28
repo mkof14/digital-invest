@@ -104,20 +104,20 @@ const ForInvestors = () => {
             {[
               {
                 icon: <Lightbulb className="w-8 h-8" />,
-                title: "Real-World Impact",
-                description: "Projects focused on tangible value creation in manufacturing, health, food, and infrastructure sectors.",
+                title: t('investors.realWorldImpact'),
+                description: t('investors.realWorldImpactDesc'),
                 gradient: "from-blue-500/10 to-primary/10"
               },
               {
                 icon: <Award className="w-8 h-8" />,
-                title: "Proven Leadership",
-                description: "Decades of experience building and scaling technology platforms with successful exits and operational track records.",
+                title: t('investors.provenLeadership'),
+                description: t('investors.provenLeadershipDesc'),
                 gradient: "from-orange-500/10 to-primary/10"
               },
               {
                 icon: <BarChart3 className="w-8 h-8" />,
-                title: "Structured Growth",
-                description: "Long-term approach with clear roadmaps, milestone tracking, and transparent communication throughout the journey.",
+                title: t('investors.structuredGrowth'),
+                description: t('investors.structuredGrowthDesc'),
                 gradient: "from-purple-500/10 to-primary/10"
               }
             ].map((item, index) => (
