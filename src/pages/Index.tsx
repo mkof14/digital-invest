@@ -182,14 +182,13 @@ const Index = () => {
         <div className="relative z-10 max-w-7xl mx-auto text-center space-y-14">
           <div className="space-y-8 animate-fade-in">
             <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-tight tracking-tight">
-              <span className="block text-foreground mb-2">Strategic Investment in</span>
+              <span className="block text-foreground mb-2">{t('hero.strategicTitle')}</span>
               <span className="block text-4xl md:text-5xl lg:text-6xl xl:text-7xl gradient-tech-animated">
-                Real-Economy and Advanced Technology
+                {t('hero.strategicHighlight')}
               </span>
             </h1>
             <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed pt-4 font-light">
-              Digital Invest Inc. develops and scales innovative projects across AI, precision health, 
-              advanced manufacturing, and agricultural technology—delivering measurable impact in critical sectors of the American economy.
+              {t('hero.description')}
             </p>
           </div>
           
