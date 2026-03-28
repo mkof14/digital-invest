@@ -248,7 +248,7 @@ const BioMathCore = () => {
 
         {/* ═══════════════════════ TECHNOLOGY ARCHITECTURE ═══════════════════════ */}
         <section className="container mx-auto px-4 py-20">
-          <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-4">Technology & Architecture</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-4">{t('projectCommon.technologyArchitecture')}</h2>
           <p className="text-center text-[hsl(210,10%,55%)] mb-12 max-w-2xl mx-auto">
             Six core layers powering the intelligent health operating system
           </p>
