@@ -78,7 +78,7 @@ const DigitalInvest = () => {
           <Link to="/projects" className="inline-block mb-6 animate-fade-in">
             <Button variant="ghost" size="sm" className="hover:bg-background/80">
               <ArrowLeft className="mr-2 h-4 w-4" />
-              Back to Projects
+              {t('projectCommon.backToProjects')}
             </Button>
           </Link>
 

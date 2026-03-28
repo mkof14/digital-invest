@@ -33,7 +33,7 @@ const VitalCore = () => {
             <Link to="/projects" className="animate-fade-in">
               <button className="inline-flex items-center mb-4 text-sm text-muted-foreground hover:text-foreground transition-colors">
                 <ArrowLeft className="w-4 h-4 mr-2" />
-                Back to Projects
+                {t('projectCommon.backToProjects')}
               </button>
             </Link>
             <div className="animate-fade-in" style={{ animationDelay: '0.1s', animationFillMode: 'backwards' }}>

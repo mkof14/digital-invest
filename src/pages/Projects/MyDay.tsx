@@ -56,7 +56,7 @@ const MyDay = () => {
             <Link to="/projects" className="animate-fade-in">
               <Button variant="ghost" size="sm" className="mb-6 hover:bg-background/80">
                 <ArrowLeft className="w-4 h-4 mr-2" />
-                Back to Projects
+                {t('projectCommon.backToProjects')}
               </Button>
             </Link>
             <div className="animate-fade-in" style={{ animationDelay: '0.1s', animationFillMode: 'backwards' }}>

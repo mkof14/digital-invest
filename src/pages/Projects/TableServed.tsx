@@ -43,7 +43,7 @@ const TableServed = () => {
         <div className="relative z-10 container mx-auto px-4 py-20">
           <div className="max-w-3xl">
             <Link to="/projects" className="inline-flex items-center text-amber-300/70 hover:text-amber-300 mb-6 transition-colors">
-              <ArrowLeft className="w-4 h-4 mr-2" /> Back to Projects
+              <ArrowLeft className="w-4 h-4 mr-2" /> {t('projectCommon.backToProjects')}
             </Link>
             <Badge className="mb-4 bg-amber-500/20 text-amber-300 border-amber-500/30 text-sm px-4 py-1">
               USA Weekly Food Reliability

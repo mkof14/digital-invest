@@ -95,7 +95,7 @@ const SAVEN = () => {
         <div className="relative z-10 container mx-auto px-4 py-20">
           <div className="max-w-3xl">
             <Link to="/projects" className="inline-flex items-center text-orange-300/70 hover:text-orange-300 mb-6 transition-colors">
-              <ArrowLeft className="w-4 h-4 mr-2" /> Back to Projects
+              <ArrowLeft className="w-4 h-4 mr-2" /> {t('projectCommon.backToProjects')}
             </Link>
             <Badge className="mb-4 bg-orange-500/20 text-orange-300 border-orange-500/30 text-sm px-4 py-1">
               Infrastructure of Continuous Execution
