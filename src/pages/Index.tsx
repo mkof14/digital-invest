@@ -485,9 +485,9 @@ const Index = () => {
                 <div className="p-4 bg-primary/10 rounded-xl w-fit mx-auto group-hover:scale-110 transition-transform duration-300">
                   <Heart className="w-12 h-12 text-primary" />
                 </div>
-                <h3 className="text-xl font-bold text-foreground text-center">Health & Longevity</h3>
+                <h3 className="text-xl font-bold text-foreground text-center">{t('whatWeBuild.healthTitle')}</h3>
                 <p className="text-base text-muted-foreground text-center leading-relaxed">
-                  BioMath Core and BioMath Life — data-driven platforms for understanding health, risks, and longevity in a structured, intelligent way.
+                  {t('whatWeBuild.healthDesc')}
                 </p>
               </CardContent>
             </Card>
