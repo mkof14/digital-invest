@@ -159,7 +159,7 @@ const Services = () => {
       </section>
 
       {/* BioMath Life Platform Services */}
-      <section className="py-20 px-4">
+      <section className="py-20 px-4 section-gradient-warm">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <Badge className="mb-4 bg-success/10 text-success border-success/20">
