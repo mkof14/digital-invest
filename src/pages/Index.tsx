@@ -454,13 +454,13 @@ const Index = () => {
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-16 space-y-4">
             <h2 ref={calculatorHeading.ref} className={`text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight gradient-orange-animated animate-heading-reveal ${calculatorHeading.isVisible ? 'visible' : ''}`}>
-              Investment Calculator
+              {t('calculator.title')}
             </h2>
             <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto font-light leading-relaxed">
-              Informational calculator to understand potential scale
+              {t('calculator.subtitle')}
             </p>
             <p className="text-sm text-muted-foreground">
-              Not a guarantee or promise of returns. For illustrative purposes only.
+              {t('calculator.disclaimer')}
             </p>
           </div>
           <ROICalculator />
