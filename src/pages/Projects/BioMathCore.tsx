@@ -183,9 +183,9 @@ const BioMathCore = () => {
             </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {[
-                { icon: Heart, title: "Understanding, Not Overwhelm", desc: "Convert health signals into meaning, then into gentle supportive guidance. Make complex biology accessible and actionable.", color: "hsl(0,65%,55%)" },
-                { icon: Shield, title: "Reassurance, Not Urgency", desc: "Build on emotional safety. Users are learning, never failing. Guidance is invitational rather than prescriptive.", color: "hsl(200,80%,55%)" },
-                { icon: Brain, title: "Education, Not Diagnosis", desc: "Help users understand how their bodies respond day-to-day. Wellness-first interpretation of patterns, not medical diagnosis.", color: "hsl(270,60%,60%)" },
+                { icon: Heart, title: t('projectBiomathCore.mission1Title'), desc: t('projectBiomathCore.mission1Desc'), color: "hsl(0,65%,55%)" },
+                { icon: Shield, title: t('projectBiomathCore.mission2Title'), desc: t('projectBiomathCore.mission2Desc'), color: "hsl(200,80%,55%)" },
+                { icon: Brain, title: t('projectBiomathCore.mission3Title'), desc: t('projectBiomathCore.mission3Desc'), color: "hsl(270,60%,60%)" },
               ].map((item) => (
                 <div key={item.title} className="bg-[hsl(220,18%,8%)] rounded-2xl p-8 border border-[hsl(210,15%,15%)] hover:border-[hsl(200,80%,50%)]/30 transition-all duration-500 group">
                   <item.icon className="w-12 h-12 mb-6 transition-transform duration-500 group-hover:scale-110" style={{ color: item.color }} />
