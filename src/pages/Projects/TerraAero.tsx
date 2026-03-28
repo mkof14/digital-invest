@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
-import { ArrowRight, Droplets, Wheat, BarChart3, Package, Zap, MapPin, Users, Globe, Factory, Rocket, AlertCircle, Layers, Activity, ArrowLeft } from "lucide-react";
+import { ArrowRight, Droplets, Wheat, BarChart3, Package, Zap, MapPin, Users, Globe, Factory, Rocket, AlertCircle, Layers, Activity, ArrowLeft, Download, Share2, Mail, FileText } from "lucide-react";
 import { Link } from "react-router-dom";
 import terraaeroLogo from "@/assets/terraaero-logo.png";
 import terraaeroHero from "@/assets/projects/terraaero-hero.jpg";
@@ -715,6 +715,61 @@ const TerraAero = () => {
               </CardContent>
             </Card>
           </div>
+        </section>
+
+        {/* Presentation Download Section */}
+        <section className="mb-16">
+          <h2 className="text-3xl font-bold mb-8 text-center">Investor Presentation</h2>
+          <Card className="overflow-hidden border-[hsl(85,40%,30%)/0.3] bg-gradient-to-br from-[hsl(85,20%,8%)] via-background to-[hsl(85,15%,12%)]">
+            <CardContent className="py-10 flex flex-col md:flex-row items-center gap-8">
+              <div className="flex-shrink-0 w-24 h-24 rounded-2xl bg-[hsl(85,40%,25%)/0.2] border border-[hsl(85,40%,40%)/0.3] flex items-center justify-center">
+                <FileText className="w-12 h-12 text-[hsl(85,50%,55%)]" />
+              </div>
+              <div className="flex-1 text-center md:text-left">
+                <h3 className="text-2xl font-bold mb-2">TerraAero — Investor One-Pager (VC Grade)</h3>
+                <p className="text-muted-foreground">
+                  Comprehensive overview of TerraAero's technology, market opportunity, and investment thesis. Download or share with your network.
+                </p>
+              </div>
+              <div className="flex flex-wrap gap-3 justify-center">
+                <Button asChild className="bg-[hsl(85,50%,40%)] hover:bg-[hsl(85,50%,35%)] text-white">
+                  <a href="/documents/TERRAAERO-INVESTOR-ONE-PAGER-VC-GRADE.pdf" download>
+                    <Download className="w-4 h-4 mr-2" />
+                    Download PDF
+                  </a>
+                </Button>
+                <Button
+                  variant="outline"
+                  className="border-[hsl(85,40%,30%)/0.5]"
+                  onClick={() => {
+                    if (navigator.share) {
+                      navigator.share({
+                        title: 'TerraAero Investor One-Pager',
+                        text: 'TerraAero — Precision Agriculture & Autonomous Drone Technology',
+                        url: window.location.href
+                      });
+                    } else {
+                      navigator.clipboard.writeText(window.location.href);
+                      alert('Link copied!');
+                    }
+                  }}
+                >
+                  <Share2 className="w-4 h-4 mr-2" />
+                  Share
+                </Button>
+                <Button
+                  variant="outline"
+                  className="border-[hsl(85,40%,30%)/0.5]"
+                  asChild
+                >
+                  <a href="mailto:?subject=TerraAero%20Investor%20One-Pager&body=Check%20out%20the%20TerraAero%20investor%20presentation%3A%20https%3A%2F%2Fdigital-invest.lovable.app%2Fprojects%2Fterraaero">
+                    <Mail className="w-4 h-4 mr-2" />
+                    Send
+                  </a>
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
         </section>
 
         {/* CTA Section */}
