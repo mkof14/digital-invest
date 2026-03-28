@@ -341,12 +341,12 @@ const Projects = () => {
               <div className="text-center py-16">
                 <p className="text-muted-foreground text-lg">
                   {searchQuery || selectedCategory !== 'all' 
-                    ? 'No projects match your filters. Try adjusting your search or category.'
-                    : 'No projects available at this time.'}
+                    ? t('projects.noMatchFilters')
+                    : t('projects.noProjects')}
                 </p>
                 {(searchQuery || selectedCategory !== 'all') && (
                   <Button variant="outline" className="mt-4" onClick={() => { setSearchQuery(''); setSelectedCategory('all'); }}>
-                    Clear Filters
+                    {t('projects.clearFilters')}
                   </Button>
                 )}
               </div>
