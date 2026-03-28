@@ -9,7 +9,13 @@
     "signOut": "Déconnexion",
     "myAccount": "Mon Compte",
     "darkMode": "Mode Sombre",
-    "lightMode": "Mode Clair"
+    "lightMode": "Mode Clair",
+    "howItWorks": "Comment Ça Marche",
+    "team": "Équipe",
+    "news": "Actualités",
+    "whyDigitalInvest": "Pourquoi Digital Invest",
+    "careers": "Carrières",
+    "schedule": "Rendez-vous"
   },
   "hero": {
     "badge": "Capital Risque et Innovation",
@@ -56,7 +62,25 @@
   "whyDigitalInvest": {
     "badge": "Notre Avantage",
     "title": "Pourquoi Digital Invest ?",
-    "subtitle": "Une approche moderne de l'investissement en capital-risque, axée sur la transparence et l'innovation"
+    "subtitle": "Une approche moderne de l'investissement en capital-risque, axée sur la transparence et l'innovation",
+    "heroTitle": "Pourquoi Digital Invest",
+    "heroSubtitle": "Construire des plateformes durables d'économie réelle et d'IA sous un portefeuille unifié.",
+    "philosophy": "Notre Philosophie",
+    "philosophyText": "Nous nous concentrons sur la création d'entreprises et de plateformes réelles, pas de concepts éphémères.",
+    "multiSector": "Force Multi-Sectorielle",
+    "healthPlatforms": "Plateformes Santé et Longévité",
+    "agroDrones": "Technologie de Drones Agricoles",
+    "foodManufacturing": "Production Alimentaire Intelligente",
+    "portfolioBackbone": "Backbone du Portefeuille",
+    "executionTitle": "Exécution et Expérience",
+    "executionText": "Digital Invest est dirigé par un fondateur avec des décennies d'expérience dans la technologie et l'infrastructure.",
+    "privateFormat": "Pourquoi un Format Privé",
+    "privateDirect": "Nous préférons une communication directe et claire",
+    "privateTailor": "Nous pouvons adapter l'information à des partenaires sérieux à long terme",
+    "privateHype": "Nous évitons le battage médiatique et nous concentrons sur le travail réel",
+    "readyExplore": "Prêt à Explorer Nos Projets ?",
+    "viewProjects": "Voir les Projets",
+    "forInvestorsLink": "Pour les Investisseurs"
   },
   "investment": {
     "badge": "Comment Ça Marche",
@@ -70,10 +94,10 @@
   },
   "footer": {
     "company": "Digital Invest Inc.",
-    "description": "Une plateforme d'investissement moderne connectant les investisseurs avec des projets innovants dans la santé numérique, l'agriculture et la technologie.",
+    "description": "Construire et développer des projets d'économie réelle, d'IA, de fabrication et de technologies de santé aux États-Unis.",
     "quickLinks": "Liens Rapides",
-    "legal": "Mentions Légales",
-    "resources": "Ressources",
+    "legal": "Juridique et Risques",
+    "resources": "Presse et Ressources",
     "contact": "Nous Contacter",
     "rights": "Tous droits réservés.",
     "privacy": "Politique de Confidentialité",
@@ -82,7 +106,32 @@
     "howItWorks": "Comment Ça Marche",
     "team": "Équipe",
     "news": "Actualités",
-    "careers": "Carrières"
+    "careers": "Carrières",
+    "projects": "Projets",
+    "companySection": "Entreprise",
+    "about": "À Propos",
+    "governance": "Gouvernance",
+    "esg": "ESG",
+    "values": "Valeurs",
+    "admin": "Administration",
+    "legalOverview": "Aperçu Juridique",
+    "compliance": "Conformité",
+    "riskFactors": "Facteurs de Risque",
+    "security": "Sécurité",
+    "pressCenter": "Espace Presse",
+    "investorDocuments": "Documents Investisseurs",
+    "investorHandbook": "Guide de l'Investisseur",
+    "investorInfo": "Information Investisseurs",
+    "glossary": "Glossaire",
+    "documentLibrary": "Bibliothèque de Documents",
+    "infrastructure": "Infrastructure",
+    "home": "Accueil",
+    "whyDigitalInvest": "Pourquoi Digital Invest",
+    "schedule": "Prendre Rendez-vous",
+    "legalNotice": "Avis Juridique Important :",
+    "legalNoticeText": "Digital Invest Inc. n'est pas un conseiller en investissement, un courtier-négociant ou une plateforme d'offre publique.",
+    "riskDisclosure": "Divulgation des Risques :",
+    "riskDisclosureText": "Toute participation comporte des risques importants, y compris la perte potentielle de capital."
   },
   "common": {
     "loading": "Chargement...",
@@ -101,18 +150,48 @@
     "closed": "Fermé",
     "comingSoon": "Prochainement",
     "readMore": "Lire la Suite",
-    "viewDetails": "Voir les Détails"
+    "viewDetails": "Voir les Détails",
+    "clearFilters": "Effacer les Filtres",
+    "noResults": "Aucun résultat trouvé.",
+    "grid": "Grille",
+    "list": "Liste",
+    "viewAll": "Voir tout",
+    "important": "Important",
+    "learnMore": "En Savoir Plus",
+    "requestInfo": "Demander des Informations",
+    "readArticle": "Lire l'article",
+    "sending": "Envoi...",
+    "submitRequest": "Envoyer la Demande"
   },
   "contact": {
-    "title": "Prendre Contact",
-    "subtitle": "Des questions ? Nous serions ravis de vous entendre.",
+    "title": "Contactez-Nous",
+    "subtitle": "Des questions ? Contactez notre équipe.",
     "name": "Nom Complet",
     "email": "Adresse E-mail",
     "phone": "Numéro de Téléphone",
     "message": "Message",
     "send": "Envoyer le Message",
     "success": "Message envoyé avec succès !",
-    "error": "Échec de l'envoi du message."
+    "error": "Échec de l'envoi du message.",
+    "subject": "Sujet",
+    "disclaimer": "Ce formulaire vous permet de demander des informations sur Digital Invest Inc. L'envoi ne constitue pas une offre ou un engagement.",
+    "formTitle": "Demander des Informations",
+    "formSubtitle": "Soumettez votre demande et nous vous contacterons en privé.",
+    "contactInfo": "Coordonnées",
+    "emailLabel": "E-mail",
+    "officeLabel": "Bureau",
+    "whatToExpect": "À Quoi S'Attendre",
+    "expect1": "Réponse sous 1-2 jours ouvrables",
+    "expect2": "Consultation privée avec notre équipe",
+    "expect3": "Documents et matériaux d'information",
+    "expect4": "Prochaines étapes claires pour la discussion",
+    "legalNotice": "Avis Juridique",
+    "legalNoticeText": "Digital Invest Inc. ne fournit pas de conseils en investissement, juridiques ou fiscaux via ce site.",
+    "nonBinding": "Demande d'information non contraignante uniquement",
+    "requestReceived": "Demande Reçue",
+    "requestReceivedText": "Merci pour votre message. Votre demande a été reçue.",
+    "subjectPlaceholder": "Demande d'investissement",
+    "messagePlaceholder": "Parlez-nous de vos intérêts d'investissement..."
   },
   "investors": {
     "title": "Pour les Investisseurs",
@@ -124,6 +203,64 @@
   },
   "about": {
     "title": "À Propos",
-    "subtitle": "Bâtir l'avenir par l'investissement stratégique dans l'innovation"
+    "subtitle": "Digital Invest Inc. — Innovation dans le HealthTech, l'IA, l'Agriculture et les Systèmes d'Économie Réelle."
+  },
+  "howItWorks": {
+    "title": "Comment Ça Marche",
+    "subtitle": "Un processus transparent et privé pour explorer la participation potentielle aux projets de Digital Invest Inc."
+  },
+  "projects": {
+    "title": "Portefeuille de Projets",
+    "subtitle": "Explorez notre portefeuille de projets multi-secteurs.",
+    "searchPlaceholder": "Rechercher des projets par nom ou description...",
+    "noProjects": "Aucun projet disponible actuellement.",
+    "noMatchFilters": "Aucun projet ne correspond à vos filtres."
+  },
+  "team": {
+    "title1": "Leaders Visionnaires en",
+    "title2": "Médecine de Précision",
+    "subtitle": "Notre équipe de direction combine des décennies d'expérience en biotechnologie et en innovation de la santé."
+  },
+  "news": {
+    "title": "Actualités et Analyses",
+    "subtitle": "Mises à jour, jalons de projets et perspectives approfondies du portefeuille Digital Invest.",
+    "allArticles": "Tous les Articles",
+    "featured": "En Vedette",
+    "latestNews": "Dernières Actualités",
+    "noArticles": "Aucun article trouvé pour les filtres sélectionnés."
+  },
+  "careers": {
+    "title": "Carrières chez Digital Invest Inc.",
+    "subtitle": "Construire des systèmes à long terme à l'intersection de la santé, de l'IA, de l'agriculture et de l'infrastructure.",
+    "whyJoin": "Pourquoi Digital Invest",
+    "whyJoinText": "Nous construisons des plateformes sur lesquelles le monde comptera pour la santé, l'alimentation et les opérations.",
+    "howWeWork": "Comment Nous Travaillons",
+    "whoWeLookFor": "Qui Nous Recherchons",
+    "howToApply": "Comment Postuler",
+    "howToApplyText": "Si votre expérience correspond à notre mission, envoyez votre CV à :"
+  },
+  "esg": {
+    "title": "ESG et Développement Durable",
+    "subtitle": "Environnement, impact social et gouvernance dans le portefeuille Digital Invest."
+  },
+  "values": {
+    "title": "Valeurs d'Entreprise",
+    "subtitle": "Nos valeurs guident chaque décision et chaque plateforme que nous construisons."
+  },
+  "security": {
+    "title": "Sécurité",
+    "subtitle": "Comment nous protégeons les données, l'infrastructure et les actifs numériques."
+  },
+  "compliance": {
+    "title": "Conformité",
+    "subtitle": "Notre philosophie réglementaire et de conformité."
+  },
+  "riskFactors": {
+    "title": "Facteurs de Risque",
+    "subtitle": "Comprendre les risques associés à nos projets."
+  },
+  "governance": {
+    "title": "Gouvernance",
+    "subtitle": "Notre structure de gouvernance et de prise de décision."
   }
 }
