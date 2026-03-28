@@ -86,7 +86,7 @@ const BioMathCore = () => {
             <div className="flex gap-4 flex-wrap">
               <Link to="/start-investing">
                 <Button size="lg" className="bg-[hsl(200,80%,50%)] hover:bg-[hsl(200,80%,45%)] text-white px-8">
-                  Request Information
+                  {t('projectCommon.requestInformation')}
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
               </Link>
