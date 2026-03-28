@@ -24,15 +24,49 @@ import {
   Network,
   Factory,
   Zap,
-  Eye
+  Eye,
+  Download,
+  Share2,
+  Mail,
+  FileText
 } from "lucide-react";
 import agronLogo from "@/assets/agron-logo.png";
 import agronHero from "@/assets/projects/agron-hero.jpg";
+import agronInfographic from "@/assets/projects/agron-infographic.jpeg";
 import DownloadInvestorBriefButton from "@/components/DownloadInvestorBriefButton";
 import OptimizedImage from "@/components/OptimizedImage";
 import InvestorPageDisclaimer from "@/components/InvestorPageDisclaimer";
+import { InfographicsGallery } from "@/components/InfographicsGallery";
+import { useToast } from "@/hooks/use-toast";
 
 const AGRON = () => {
+  const { toast } = useToast();
+
+  const infographics = [
+    {
+      src: agronInfographic,
+      title: "AGRON: The Future of Robotics & Drone Workforce Development",
+      alt: "AGRON integrated framework and training to career model infographic"
+    }
+  ];
+
+  const handleSharePresentation = async () => {
+    if (navigator.share) {
+      try {
+        await navigator.share({ title: "AGRON — Robotics Operations Network", url: window.location.href });
+      } catch {}
+    } else {
+      await navigator.clipboard.writeText(window.location.href);
+      toast({ title: "Link copied!", description: "Share link copied to clipboard" });
+    }
+  };
+
+  const handleEmailPresentation = () => {
+    const subject = encodeURIComponent("AGRON — The Robotics Operations Network Presentation");
+    const body = encodeURIComponent(`Check out the AGRON presentation:\n\n${window.location.href}`);
+    window.open(`mailto:?subject=${subject}&body=${body}`, "_self");
+  };
+
   return (
     <div className="min-h-screen bg-background theme-agron">
       <Navigation />
@@ -715,6 +749,48 @@ const AGRON = () => {
               </div>
             </CardContent>
           </Card>
+        </section>
+
+        {/* Investor Presentation */}
+        <section className="mb-16">
+          <div className="project-section-divider my-12" />
+          <h2 className="text-3xl font-bold mb-8">Investor Presentation</h2>
+          <Card className="border-primary/20 bg-gradient-to-br from-primary/5 via-background to-primary/10 overflow-hidden">
+            <CardContent className="pt-8">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center">
+                  <FileText className="w-7 h-7 text-primary" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold">AGRON — The Robotics Operations Network</h3>
+                  <p className="text-muted-foreground">Complete investor presentation (PDF)</p>
+                </div>
+              </div>
+              <div className="flex gap-3 flex-wrap">
+                <a href="/documents/AGRON_The_Robotics_Operations_Network.pdf" download>
+                  <Button className="gap-2">
+                    <Download className="w-4 h-4" />
+                    Download PDF
+                  </Button>
+                </a>
+                <Button variant="outline" className="gap-2" onClick={handleSharePresentation}>
+                  <Share2 className="w-4 h-4" />
+                  Share
+                </Button>
+                <Button variant="outline" className="gap-2" onClick={handleEmailPresentation}>
+                  <Mail className="w-4 h-4" />
+                  Send
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
+        </section>
+
+        {/* Infographics */}
+        <section className="mb-16">
+          <div className="project-section-divider my-12" />
+          <h2 className="text-3xl font-bold mb-8">Infographics</h2>
+          <InfographicsGallery infographics={infographics} projectTitle="AGRON" />
         </section>
 
         {/* CTA */}
