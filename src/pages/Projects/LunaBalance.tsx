@@ -44,139 +44,109 @@ const LunaBalance = () => {
     <div className="min-h-screen bg-background theme-luna">
       <Navigation />
       
-      {/* Hero Section */}
       <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
-          <img src={lunaHero} alt="Luna Balance - Return to Yourself" className="w-full h-full object-cover" />
+          <img src={lunaHero} alt="Luna Balance" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-r from-[hsl(320,30%,8%)]/95 via-background/70 to-background/40" />
         </div>
         <div className="container mx-auto px-4 relative z-10 py-24">
           <div className="max-w-3xl">
             <div className="flex items-center gap-4 mb-6">
               <img src={lunaLogo} alt="Luna Logo" className="h-20 w-20 object-contain" />
-              <Badge className="project-badge">Women's Wellness</Badge>
+              <Badge className="project-badge">{t('projectLunaBalance.heroBadge')}</Badge>
             </div>
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight project-glow-text">
-              Luna Balance
-            </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground mb-4 italic">
-              The Platform for Your Understanding
-            </p>
-            <p className="text-lg text-muted-foreground mb-8 max-w-2xl">
-              Helping women understand themselves better, not fix themselves. A personal anchor and a tool for mindfulness.
-            </p>
-            <p className="text-sm text-muted-foreground mb-8">
-              A portfolio project developed and operated by Digital Invest Inc.
-            </p>
+            <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight project-glow-text">Luna Balance</h1>
+            <p className="text-xl md:text-2xl text-muted-foreground mb-4 italic">{t('projectLunaBalance.heroSubtitle')}</p>
+            <p className="text-lg text-muted-foreground mb-8 max-w-2xl">{t('projectLunaBalance.heroDesc')}</p>
+            <p className="text-sm text-muted-foreground mb-8">{t('projectLunaBalance.portfolioNote')}</p>
             <Button size="lg" onClick={() => setShowInterestForm(true)} className="text-lg px-8">
-              Submit Interest
+              {t('projectLunaBalance.submitInterest')}
             </Button>
           </div>
         </div>
       </section>
 
       <div className="container mx-auto px-4 py-16">
-        {/* Philosophy Section */}
         <section className="mb-20">
           <div className="max-w-4xl mx-auto text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">LUNA Philosophy: Changing is Natural</h2>
-            <p className="text-lg text-muted-foreground italic mb-8">Embracing wholeness through every phase.</p>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">{t('projectLunaBalance.philosophyTitle')}</h2>
+            <p className="text-lg text-muted-foreground italic mb-8">{t('projectLunaBalance.philosophySubtitle')}</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
             {[
-              { icon: Moon, title: 'Natural Cycles', desc: 'The moon changes, but remains whole.' },
-              { icon: Sparkles, title: 'Life Phases', desc: 'Your life is also about periods and transitions.' },
-              { icon: Heart, title: 'Acceptance', desc: 'Being different is normal.' },
-              { icon: Shield, title: 'Understanding', desc: 'Transition from "diagnosis" to "acceptance".' },
-            ].map((item, i) => (
-              <Card key={i} className="text-center border-border/50 hover:shadow-elevated transition-all duration-300">
+              { icon: Moon, n: 1 }, { icon: Sparkles, n: 2 }, { icon: Heart, n: 3 }, { icon: Shield, n: 4 },
+            ].map((item) => (
+              <Card key={item.n} className="text-center border-border/50 hover:shadow-elevated transition-all duration-300">
                 <CardContent className="pt-8 pb-6">
                   <item.icon className="w-10 h-10 mx-auto mb-4 text-primary" />
-                  <h3 className="font-semibold mb-2">{item.title}</h3>
-                  <p className="text-sm text-muted-foreground">{item.desc}</p>
+                  <h3 className="font-semibold mb-2">{t(`projectLunaBalance.phil${item.n}Title`)}</h3>
+                  <p className="text-sm text-muted-foreground">{t(`projectLunaBalance.phil${item.n}Desc`)}</p>
                 </CardContent>
               </Card>
             ))}
           </div>
         </section>
 
-        {/* The Problem */}
         <section className="mb-20">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">The Invisible Problem: When It's Heavy Inside</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">{t('projectLunaBalance.problemTitle')}</h2>
             <div className="grid md:grid-cols-2 gap-8">
               <div>
                 <ul className="space-y-4 text-muted-foreground">
-                  <li className="flex items-start gap-3">
-                    <Moon className="w-5 h-5 mt-1 text-primary shrink-0" />
-                    <span>Unexplained fatigue, energy shifts, feeling "I don't understand myself."</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <Moon className="w-5 h-5 mt-1 text-primary shrink-0" />
-                    <span>It's not an illness. But it's important.</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <Moon className="w-5 h-5 mt-1 text-primary shrink-0" />
-                    <span>Medicine seeks diagnosis. Apps demand discipline. Result: Overload and abandonment.</span>
-                  </li>
+                  {[1, 2, 3].map((i) => (
+                    <li key={i} className="flex items-start gap-3">
+                      <Moon className="w-5 h-5 mt-1 text-primary shrink-0" />
+                      <span>{t(`projectLunaBalance.prob${i}`)}</span>
+                    </li>
+                  ))}
                 </ul>
               </div>
               <div className="bg-primary/5 rounded-2xl p-8 border border-primary/10">
-                <h3 className="text-xl font-semibold mb-4 text-primary">LUNA's Approach</h3>
-                <p className="text-muted-foreground">LUNA offers acceptance instead of pressure. A gentle path to self-understanding without the burden of clinical frameworks or performance metrics.</p>
+                <h3 className="text-xl font-semibold mb-4 text-primary">{t('projectLunaBalance.lunaApproachTitle')}</h3>
+                <p className="text-muted-foreground">{t('projectLunaBalance.lunaApproachDesc')}</p>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Silence Technology */}
         <section className="mb-20">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">Silence Technology: Your Path to Self</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">{t('projectLunaBalance.silenceTitle')}</h2>
             <div className="grid md:grid-cols-2 gap-8">
               <div>
                 <ul className="space-y-4">
-                  {[
-                    'Low-pressure check-in',
-                    'Clear state description',
-                    'Translating sensations into human language',
-                    'No graphs. No ratings. Just silence and clarity.',
-                  ].map((item, i) => (
+                  {[1, 2, 3, 4].map((i) => (
                     <li key={i} className="flex items-start gap-3">
                       <Eye className="w-5 h-5 mt-1 text-primary shrink-0" />
-                      <span className="text-muted-foreground">{item}</span>
+                      <span className="text-muted-foreground">{t(`projectLunaBalance.silence${i}`)}</span>
                     </li>
                   ))}
                 </ul>
               </div>
               <div className="bg-muted/30 rounded-2xl p-8 border border-border/50">
-                <h3 className="text-xl font-semibold mb-4">Relationship Mode: A Bridge Between Hearts</h3>
+                <h3 className="text-xl font-semibold mb-4">{t('projectLunaBalance.relationshipTitle')}</h3>
                 <ul className="space-y-3 text-muted-foreground text-sm">
-                  <li>🌙 LUNA helps explain your state to loved ones without conflict.</li>
-                  <li>🌙 A translator from 'internal' language to common human language.</li>
-                  <li>🌙 Reduced conflict and less guilt.</li>
+                  {[1, 2, 3].map((i) => (
+                    <li key={i}>🌙 {t(`projectLunaBalance.rel${i}`)}</li>
+                  ))}
                 </ul>
-                <p className="text-xs text-muted-foreground mt-4 italic">LUNA — your translator in relationships</p>
+                <p className="text-xs text-muted-foreground mt-4 italic">{t('projectLunaBalance.relFooter')}</p>
               </div>
             </div>
           </div>
         </section>
 
-        {/* What LUNA Gives */}
         <section className="mb-20">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-8">What Does LUNA Give a Woman?</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-8">{t('projectLunaBalance.whatGivesTitle')}</h2>
             <div className="grid md:grid-cols-2 gap-6">
               {[
-                { icon: Shield, text: 'Reduced anxiety, restored trust in your reactions, ability to avoid rash decisions during overload.' },
-                { icon: Heart, text: 'Sustainable reconnection with yourself.' },
-                { icon: Sparkles, text: 'Focus on the feeling of empowerment and inner peace.' },
-                { icon: Users, text: 'Better communication with loved ones through relationship translation tools.' },
-              ].map((item, i) => (
-                <Card key={i} className="border-border/50 hover:shadow-elevated transition-all duration-300">
+                { icon: Shield, n: 1 }, { icon: Heart, n: 2 }, { icon: Sparkles, n: 3 }, { icon: Users, n: 4 },
+              ].map((item) => (
+                <Card key={item.n} className="border-border/50 hover:shadow-elevated transition-all duration-300">
                   <CardContent className="flex items-start gap-4 pt-6">
                     <item.icon className="w-8 h-8 text-primary shrink-0" />
-                    <p className="text-muted-foreground">{item.text}</p>
+                    <p className="text-muted-foreground">{t(`projectLunaBalance.give${item.n}`)}</p>
                   </CardContent>
                 </Card>
               ))}
@@ -184,77 +154,57 @@ const LunaBalance = () => {
           </div>
         </section>
 
-        {/* Target Audience */}
         <section className="mb-20">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-8">Who is This Project For?</h2>
-            <p className="text-lg text-muted-foreground mb-6 italic">Inclusivity and Emotional Connection.</p>
+            <h2 className="text-3xl md:text-4xl font-bold mb-8">{t('projectLunaBalance.audienceTitle')}</h2>
+            <p className="text-lg text-muted-foreground mb-6 italic">{t('projectLunaBalance.audienceSubtitle')}</p>
             <div className="grid md:grid-cols-3 gap-6">
-              <Card className="border-border/50">
-                <CardContent className="pt-6 text-center">
-                  <Users className="w-10 h-10 mx-auto mb-4 text-primary" />
-                  <h3 className="font-semibold mb-2">Primary Audience</h3>
-                  <p className="text-sm text-muted-foreground">Active, educated women aged 25–55.</p>
-                </CardContent>
-              </Card>
-              <Card className="border-border/50">
-                <CardContent className="pt-6 text-center">
-                  <Sparkles className="w-10 h-10 mx-auto mb-4 text-primary" />
-                  <h3 className="font-semibold mb-2">Seeking Support</h3>
-                  <p className="text-sm text-muted-foreground">Living at a high pace, seeking support, not a doctor.</p>
-                </CardContent>
-              </Card>
-              <Card className="border-border/50">
-                <CardContent className="pt-6 text-center">
-                  <Heart className="w-10 h-10 mx-auto mb-4 text-primary" />
-                  <h3 className="font-semibold mb-2">Partners & Families</h3>
-                  <p className="text-sm text-muted-foreground">Secondary audience: partners and families who want to understand.</p>
-                </CardContent>
-              </Card>
+              {[
+                { icon: Users, n: 1 }, { icon: Sparkles, n: 2 }, { icon: Heart, n: 3 },
+              ].map((item) => (
+                <Card key={item.n} className="border-border/50">
+                  <CardContent className="pt-6 text-center">
+                    <item.icon className="w-10 h-10 mx-auto mb-4 text-primary" />
+                    <h3 className="font-semibold mb-2">{t(`projectLunaBalance.aud${item.n}Title`)}</h3>
+                    <p className="text-sm text-muted-foreground">{t(`projectLunaBalance.aud${item.n}Desc`)}</p>
+                  </CardContent>
+                </Card>
+              ))}
             </div>
           </div>
         </section>
 
-        {/* Future Vision */}
         <section className="mb-20">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">Return to Yourself</h2>
-            <p className="text-xl text-muted-foreground italic mb-4">Future Vision</p>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">{t('projectLunaBalance.visionTitle')}</h2>
+            <p className="text-xl text-muted-foreground italic mb-4">{t('projectLunaBalance.visionSubtitle')}</p>
             <div className="bg-primary/5 rounded-2xl p-10 border border-primary/10 max-w-2xl mx-auto">
-              <p className="text-lg text-muted-foreground mb-4">LUNA doesn't change a woman; it helps her return to herself.</p>
-              <p className="text-muted-foreground mb-4">A personal anchor and a tool for mindfulness.</p>
-              <p className="text-muted-foreground font-medium">A strong and timely project.</p>
+              <p className="text-lg text-muted-foreground mb-4">{t('projectLunaBalance.vision1')}</p>
+              <p className="text-muted-foreground mb-4">{t('projectLunaBalance.vision2')}</p>
+              <p className="text-muted-foreground font-medium">{t('projectLunaBalance.vision3')}</p>
             </div>
           </div>
         </section>
 
-        {/* Website Link */}
         <section className="mb-20">
           <div className="max-w-4xl mx-auto text-center">
-            <a
-              href="https://www.luna29.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-primary hover:text-primary/80 text-lg font-medium transition-colors"
-            >
-              <ExternalLink className="w-5 h-5" />
-              www.luna29.com
+            <a href="https://www.luna29.com" target="_blank" rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-primary hover:text-primary/80 text-lg font-medium transition-colors">
+              <ExternalLink className="w-5 h-5" /> www.luna29.com
             </a>
           </div>
         </section>
 
-        {/* Infographics */}
         <section className="mb-20">
           <div className="max-w-5xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">Infographics</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">{t('projectLunaBalance.infographicsTitle')}</h2>
             <InfographicsGallery infographics={lunaInfographics} projectTitle="Luna Balance" />
           </div>
         </section>
 
-        {/* Presentation Download */}
         <section className="mb-20">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">Investor Presentation</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">{t('projectLunaBalance.presentationTitle')}</h2>
             <Card className="border-primary/20 hover:border-primary/40 transition-all duration-300">
               <CardContent className="flex flex-col sm:flex-row items-center justify-between gap-4 py-6">
                 <div className="flex items-center gap-4">
@@ -262,14 +212,14 @@ const LunaBalance = () => {
                     <FileText className="w-6 h-6 text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-lg">LUNA — Your Path to Self and Understanding Your Life</h3>
-                    <p className="text-sm text-muted-foreground">PDF Presentation</p>
+                    <h3 className="font-semibold text-lg">{t('projectLunaBalance.presentationName')}</h3>
+                    <p className="text-sm text-muted-foreground">{t('projectLunaBalance.presentationFormat')}</p>
                   </div>
                 </div>
                 <a href="/documents/luna-balance-presentation.pdf" download>
                   <Button variant="outline" className="gap-2">
                     <Download className="w-4 h-4" />
-                    Download PDF
+                    {t('projectLunaBalance.downloadPDF')}
                   </Button>
                 </a>
               </CardContent>
@@ -277,18 +227,15 @@ const LunaBalance = () => {
           </div>
         </section>
 
-        {/* CTA */}
         <section className="mb-16 text-center">
           <Button size="lg" onClick={() => setShowInterestForm(true)} className="text-lg px-8">
-            Submit Interest
+            {t('projectLunaBalance.submitInterest')}
           </Button>
-          <p className="text-xs text-muted-foreground mt-4 max-w-lg mx-auto">
-            Submitting interest is non-binding and does not create any agreement. All potential participation is discussed individually and offline.
-          </p>
+          <p className="text-xs text-muted-foreground mt-4 max-w-lg mx-auto">{t('projectLunaBalance.nonBinding')}</p>
         </section>
 
         <Link to="/projects" className="inline-flex items-center gap-2 text-primary hover:underline mb-8">
-          <ArrowLeft className="w-4 h-4" /> Back to All Projects
+          <ArrowLeft className="w-4 h-4" /> {t('projectLunaBalance.backToProjects')}
         </Link>
 
         <div className="mt-12">
