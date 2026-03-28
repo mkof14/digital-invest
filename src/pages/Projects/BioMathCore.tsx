@@ -415,7 +415,7 @@ const BioMathCore = () => {
         <section className="container mx-auto px-4 py-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Market Context</h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">{t('projectCommon.marketContext')}</h2>
               <p className="text-lg text-[hsl(210,10%,65%)] mb-4 leading-relaxed">
                 Healthcare is drowning in data but starving for insight. Wearables generate millions of data points. 
                 Genetic testing reveals thousands of variants. Yet most people cannot answer basic questions about their health patterns.
