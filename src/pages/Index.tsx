@@ -398,8 +398,8 @@ const Index = () => {
 
             {/* Large card — Agro */}
             <div className="group relative overflow-hidden rounded-2xl border border-border/40 bg-card/50 p-8 md:p-10 hover:bg-card hover:border-border transition-all duration-500 min-h-[200px] flex flex-col justify-end">
-              <div className="absolute top-6 right-6 p-3 rounded-xl bg-primary/8">
-                <Sprout className="w-8 h-8 text-primary/60" />
+              <div className="absolute top-6 right-6 opacity-60">
+                <AgroDataIcon className="text-primary" size={48} />
               </div>
               <h3 className="text-2xl font-bold text-foreground mb-2">{t('whatWeBuild.agroTitle')}</h3>
               <p className="text-sm text-muted-foreground leading-relaxed max-w-sm">{t('whatWeBuild.agroDesc')}</p>
