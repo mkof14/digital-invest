@@ -111,7 +111,7 @@ const Footer = () => {
 
           {/* RIGHT BLOCK - Contact */}
           <div className="space-y-4">
-            <h4 className="font-semibold text-foreground">Contact</h4>
+            <h4 className="font-semibold text-foreground">{t('footer.contact')}</h4>
             <div className="space-y-3">
               <div className="flex items-center space-x-3 text-muted-foreground">
                 <Mail className="h-4 w-4 text-primary flex-shrink-0" />
