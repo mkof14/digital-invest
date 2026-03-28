@@ -398,15 +398,27 @@ html {
     );
   }
 
-  /* Dark theme: these gradients should be invisible */
-  :root:not(.light) .section-gradient-warm,
-  :root:not(.light) .section-gradient-cool,
-  :root:not(.light) .section-gradient-mint,
-  :root:not(.light) .section-gradient-lavender,
-  :root:not(.light) .section-gradient-rose,
-  :root:not(.light) .section-gradient-gold,
+  /* Dark theme: subtle ambient gradients instead of transparent */
+  :root:not(.light) .section-gradient-warm {
+    background: linear-gradient(180deg, transparent 0%, hsl(25 15% 8%) 40%, hsl(30 12% 9%) 60%, transparent 100%);
+  }
+  :root:not(.light) .section-gradient-cool {
+    background: linear-gradient(180deg, transparent 0%, hsl(215 18% 8%) 40%, hsl(220 16% 9%) 60%, transparent 100%);
+  }
+  :root:not(.light) .section-gradient-mint {
+    background: linear-gradient(180deg, transparent 0%, hsl(160 12% 8%) 40%, hsl(165 10% 9%) 60%, transparent 100%);
+  }
+  :root:not(.light) .section-gradient-lavender {
+    background: linear-gradient(180deg, transparent 0%, hsl(250 12% 9%) 40%, hsl(260 10% 10%) 60%, transparent 100%);
+  }
+  :root:not(.light) .section-gradient-rose {
+    background: linear-gradient(180deg, transparent 0%, hsl(340 10% 8%) 40%, hsl(345 8% 9%) 60%, transparent 100%);
+  }
+  :root:not(.light) .section-gradient-gold {
+    background: linear-gradient(180deg, transparent 0%, hsl(40 12% 8%) 40%, hsl(45 10% 9%) 60%, transparent 100%);
+  }
   :root:not(.light) .section-gradient-slate {
-    background: transparent;
+    background: linear-gradient(180deg, transparent 0%, hsl(220 14% 8%) 40%, hsl(225 12% 9%) 60%, transparent 100%);
   }
 
   .solid-text {

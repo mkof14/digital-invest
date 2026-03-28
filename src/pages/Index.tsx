@@ -49,6 +49,20 @@ import {
   ChevronRight,
   Minus
 } from "lucide-react";
+import {
+  HealthDNAIcon,
+  AgroDataIcon,
+  FoodMolecularIcon,
+  InfraHubIcon,
+  EcosystemCoreIcon,
+  ShieldCircuitIcon,
+  GrowthArrowIcon,
+  PartnershipIcon,
+  DailyPulseIcon,
+  DataStreamIcon,
+  AILoopIcon,
+  SynergyOrbitIcon
+} from "@/components/icons/BrandIcons";
 import terraaeroHero from "@/assets/projects/terraaero-hero.jpg";
 import biomathCoreHero from "@/assets/projects/biomathcore-hero.jpg";
 import dishcoreHero from "@/assets/projects/dishcore-hero.jpg";
@@ -228,13 +242,13 @@ const Index = () => {
       </section>
 
       {/* ═══════════════════ ECOSYSTEM VISION — Editorial ═══════════════════ */}
-      <section ref={biomathVisionSection.ref} className={`py-20 md:py-28 px-4 scroll-fade-in ${biomathVisionSection.isVisible ? 'visible' : ''}`}>
+      <section ref={biomathVisionSection.ref} className={`py-20 md:py-28 px-4 section-gradient-cool scroll-fade-in ${biomathVisionSection.isVisible ? 'visible' : ''}`}>
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-12 gap-8 md:gap-12 items-start">
             {/* Left label */}
             <div className="md:col-span-4 space-y-4">
               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/8 border border-primary/15 text-xs font-medium text-primary tracking-wide uppercase">
-                <Orbit className="w-3.5 h-3.5" />
+                <EcosystemCoreIcon className="text-primary" size={14} />
                 {t('ecosystem.badge')}
               </div>
               <h2 ref={biomathVisionHeading.ref} className={`text-3xl md:text-4xl font-bold tracking-tight text-foreground leading-tight animate-heading-reveal ${biomathVisionHeading.isVisible ? 'visible' : ''}`}>
@@ -247,7 +261,7 @@ const Index = () => {
               {/* Core Hub CTA */}
               <Link to="/projects/biomathcore" className="group inline-flex items-center gap-3 mt-4 p-4 rounded-xl border border-border/60 bg-card/50 hover:bg-card hover:border-primary/30 transition-all duration-300">
                 <div className="shrink-0 p-2.5 bg-primary/10 rounded-lg">
-                  <Brain className="w-6 h-6 text-primary" />
+                  <EcosystemCoreIcon className="text-primary" size={24} />
                 </div>
                 <div className="min-w-0">
                   <div className="text-sm font-bold text-foreground">{t('ecosystem.coreTitle')}</div>
@@ -262,19 +276,19 @@ const Index = () => {
               {[
                 { 
                   title: t('ecosystem.dailyHealth'), desc: t('ecosystem.dailyHealthDesc'),
-                  icon: <Activity className="w-5 h-5" />, color: "text-emerald-500"
+                  icon: <DailyPulseIcon size={22} />, color: "text-emerald-500"
                 },
                 { 
                   title: t('ecosystem.unifiedData'), desc: t('ecosystem.unifiedDataDesc'),
-                  icon: <Cpu className="w-5 h-5" />, color: "text-blue-500"
+                  icon: <DataStreamIcon size={22} />, color: "text-blue-500"
                 },
                 { 
                   title: t('ecosystem.selfImproving'), desc: t('ecosystem.selfImprovingDesc'),
-                  icon: <Zap className="w-5 h-5" />, color: "text-amber-500"
+                  icon: <AILoopIcon size={22} />, color: "text-amber-500"
                 },
                 { 
                   title: t('ecosystem.crossSynergy'), desc: t('ecosystem.crossSynergyDesc'),
-                  icon: <Network className="w-5 h-5" />, color: "text-violet-500"
+                  icon: <SynergyOrbitIcon size={22} />, color: "text-violet-500"
                 }
               ].map((node, i) => (
                 <div key={i} className="group bg-card/50 border border-border/40 rounded-xl p-5 md:p-6 hover:bg-card hover:border-border transition-all duration-300 hover:-translate-y-0.5">
@@ -289,7 +303,7 @@ const Index = () => {
       </section>
 
       {/* ═══════════════════ FEATURED PROJECTS — Magazine Strip ═══════════════════ */}
-      <section ref={featuredSection.ref} className={`py-20 md:py-28 px-4 scroll-fade-in ${featuredSection.isVisible ? 'visible' : ''}`}>
+      <section ref={featuredSection.ref} className={`py-20 md:py-28 px-4 section-gradient-warm scroll-fade-in ${featuredSection.isVisible ? 'visible' : ''}`}>
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
             <div className="space-y-3">
@@ -360,7 +374,7 @@ const Index = () => {
       </section>
 
       {/* ═══════════════════ WHAT WE BUILD — Asymmetric Bento ═══════════════════ */}
-      <section ref={whatWeBuildSection.ref} className={`py-20 md:py-28 px-4 scroll-slide-up ${whatWeBuildSection.isVisible ? 'visible' : ''}`}>
+      <section ref={whatWeBuildSection.ref} className={`py-20 md:py-28 px-4 section-gradient-mint scroll-slide-up ${whatWeBuildSection.isVisible ? 'visible' : ''}`}>
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-14 space-y-3">
             <h2 ref={whatWeBuildHeading.ref} className={`text-3xl md:text-5xl font-bold tracking-tight text-foreground animate-heading-reveal ${whatWeBuildHeading.isVisible ? 'visible' : ''}`}>
@@ -375,8 +389,8 @@ const Index = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {/* Large card — Health */}
             <div className="group relative overflow-hidden rounded-2xl border border-border/40 bg-card/50 p-8 md:p-10 hover:bg-card hover:border-border transition-all duration-500 min-h-[200px] flex flex-col justify-end">
-              <div className="absolute top-6 right-6 p-3 rounded-xl bg-primary/8">
-                <Heart className="w-8 h-8 text-primary/60" />
+              <div className="absolute top-6 right-6 opacity-60">
+                <HealthDNAIcon className="text-primary" size={48} />
               </div>
               <h3 className="text-2xl font-bold text-foreground mb-2">{t('whatWeBuild.healthTitle')}</h3>
               <p className="text-sm text-muted-foreground leading-relaxed max-w-sm">{t('whatWeBuild.healthDesc')}</p>
@@ -384,8 +398,8 @@ const Index = () => {
 
             {/* Large card — Agro */}
             <div className="group relative overflow-hidden rounded-2xl border border-border/40 bg-card/50 p-8 md:p-10 hover:bg-card hover:border-border transition-all duration-500 min-h-[200px] flex flex-col justify-end">
-              <div className="absolute top-6 right-6 p-3 rounded-xl bg-primary/8">
-                <Sprout className="w-8 h-8 text-primary/60" />
+              <div className="absolute top-6 right-6 opacity-60">
+                <AgroDataIcon className="text-primary" size={48} />
               </div>
               <h3 className="text-2xl font-bold text-foreground mb-2">{t('whatWeBuild.agroTitle')}</h3>
               <p className="text-sm text-muted-foreground leading-relaxed max-w-sm">{t('whatWeBuild.agroDesc')}</p>
@@ -393,8 +407,8 @@ const Index = () => {
 
             {/* Small card — Food */}
             <div className="group relative overflow-hidden rounded-2xl border border-border/40 bg-card/50 p-6 md:p-8 hover:bg-card hover:border-border transition-all duration-500 flex items-center gap-6">
-              <div className="p-3 rounded-xl bg-primary/8 shrink-0">
-                <Utensils className="w-7 h-7 text-primary/60" />
+              <div className="shrink-0 opacity-60">
+                <FoodMolecularIcon className="text-primary" size={40} />
               </div>
               <div>
                 <h3 className="text-lg font-bold text-foreground mb-1">{t('whatWeBuild.foodTitle')}</h3>
@@ -404,8 +418,8 @@ const Index = () => {
 
             {/* Small card — Infrastructure */}
             <div className="group relative overflow-hidden rounded-2xl border border-border/40 bg-card/50 p-6 md:p-8 hover:bg-card hover:border-border transition-all duration-500 flex items-center gap-6">
-              <div className="p-3 rounded-xl bg-primary/8 shrink-0">
-                <Network className="w-7 h-7 text-primary/60" />
+              <div className="shrink-0 opacity-60">
+                <InfraHubIcon className="text-primary" size={40} />
               </div>
               <div>
                 <h3 className="text-lg font-bold text-foreground mb-1">{t('whatWeBuild.infraTitle')}</h3>
@@ -433,7 +447,7 @@ const Index = () => {
       </section>
 
       {/* ═══════════════════ WHY DIGITAL INVEST — Horizontal Cards ═══════════════════ */}
-      <section ref={whyDigitalSection.ref} className={`py-20 md:py-28 px-4 scroll-scale-in ${whyDigitalSection.isVisible ? 'visible' : ''}`}>
+      <section ref={whyDigitalSection.ref} className={`py-20 md:py-28 px-4 section-gradient-lavender scroll-scale-in ${whyDigitalSection.isVisible ? 'visible' : ''}`}>
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row gap-12 md:gap-16 items-start">
             {/* Left sticky heading */}
@@ -466,7 +480,7 @@ const Index = () => {
       </section>
 
       {/* ═══════════════════ INVESTMENT HIGHLIGHTS — Large Number Grid ═══════════════════ */}
-      <section ref={investmentSection.ref} className={`py-20 md:py-28 px-4 scroll-fade-in ${investmentSection.isVisible ? 'visible' : ''}`}>
+      <section ref={investmentSection.ref} className={`py-20 md:py-28 px-4 section-gradient-gold scroll-fade-in ${investmentSection.isVisible ? 'visible' : ''}`}>
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-14 space-y-3">
             <h2 ref={investmentHeading.ref} className={`text-3xl md:text-5xl font-bold tracking-tight text-foreground animate-heading-reveal ${investmentHeading.isVisible ? 'visible' : ''}`}>
@@ -494,7 +508,7 @@ const Index = () => {
       </section>
 
       {/* ═══════════════════ CAPABILITIES — Minimal ═══════════════════ */}
-      <section ref={capabilitiesSection.ref} className={`py-20 md:py-28 px-4 scroll-slide-up ${capabilitiesSection.isVisible ? 'visible' : ''}`}>
+      <section ref={capabilitiesSection.ref} className={`py-20 md:py-28 px-4 section-gradient-rose scroll-slide-up ${capabilitiesSection.isVisible ? 'visible' : ''}`}>
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-14 space-y-3">
             <h2 ref={capabilitiesHeading.ref} className={`text-3xl md:text-4xl font-bold tracking-tight text-foreground animate-heading-reveal ${capabilitiesHeading.isVisible ? 'visible' : ''}`}>
@@ -521,7 +535,7 @@ const Index = () => {
       </section>
 
       {/* ═══════════════════ JOURNEY — Horizontal Timeline ═══════════════════ */}
-      <section ref={journeySection.ref} className={`py-20 md:py-28 px-4 scroll-fade-in ${journeySection.isVisible ? 'visible' : ''}`}>
+      <section ref={journeySection.ref} className={`py-20 md:py-28 px-4 section-gradient-slate scroll-fade-in ${journeySection.isVisible ? 'visible' : ''}`}>
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-14 space-y-3">
             <h2 ref={journeyHeading.ref} className={`text-3xl md:text-4xl font-bold tracking-tight text-foreground animate-heading-reveal ${journeyHeading.isVisible ? 'visible' : ''}`}>
@@ -559,7 +573,7 @@ const Index = () => {
       </section>
 
       {/* ═══════════════════ FAQ — Clean ═══════════════════ */}
-      <section ref={faqSection.ref} className={`py-20 md:py-28 px-4 scroll-fade-in ${faqSection.isVisible ? 'visible' : ''}`}>
+      <section ref={faqSection.ref} className={`py-20 md:py-28 px-4 section-gradient-cool scroll-fade-in ${faqSection.isVisible ? 'visible' : ''}`}>
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-12 space-y-3">
             <h2 ref={faqHeading.ref} className={`text-3xl md:text-4xl font-bold tracking-tight text-foreground animate-heading-reveal ${faqHeading.isVisible ? 'visible' : ''}`}>
@@ -615,9 +629,9 @@ const Index = () => {
               
               <div className="flex flex-wrap justify-center gap-8 pt-10">
                 {[
-                  { icon: <Shield className="w-4 h-4" />, text: "Regulatory Compliant" },
+                  { icon: <ShieldCircuitIcon className="text-muted-foreground" size={16} />, text: "Regulatory Compliant" },
                   { icon: <Lock className="w-4 h-4" />, text: "Secure Platform" },
-                  { icon: <Award className="w-4 h-4" />, text: "Industry Certified" },
+                  { icon: <GrowthArrowIcon className="text-muted-foreground" size={16} />, text: "Industry Certified" },
                   { icon: <CheckCircle2 className="w-4 h-4" />, text: "Verified Projects" }
                 ].map((b, i) => (
                   <div key={i} className="flex items-center gap-2 text-muted-foreground/70">
@@ -648,7 +662,7 @@ const Index = () => {
       <section className="py-10 px-4 border-t border-border/30">
         <div className="max-w-3xl mx-auto">
           <div className="flex items-start gap-4 p-6">
-            <Shield className="w-5 h-5 text-muted-foreground/50 flex-shrink-0 mt-0.5" />
+            <ShieldCircuitIcon className="text-muted-foreground/50" size={20} />
             <div className="space-y-1.5">
               <h3 className="text-sm font-semibold text-foreground">{t('disclaimerSection.title')}</h3>
               <p className="text-xs text-muted-foreground/70 leading-relaxed">{t('disclaimerSection.text')}</p>
