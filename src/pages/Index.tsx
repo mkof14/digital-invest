@@ -293,8 +293,8 @@ const Index = () => {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
               {[
                 { 
-                  title: "Daily Health",
-                  desc: "Personalized tracking & longevity insights",
+                  title: t('ecosystem.dailyHealth'),
+                  desc: t('ecosystem.dailyHealthDesc'),
                   icon: (
                     <svg width="28" height="28" viewBox="0 0 28 28" fill="none" className="text-emerald-600 dark:text-emerald-400">
                       <path d="M4 20L8 12L12 16L16 8L20 14L24 10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
