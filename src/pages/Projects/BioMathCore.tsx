@@ -230,11 +230,10 @@ const BioMathCore = () => {
             <div className="max-w-3xl mx-auto text-center">
               <Lock className="w-16 h-16 text-[hsl(200,80%,55%)] mx-auto mb-6" />
               <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
-                Health Black Box
+                {t('projectBiomathCore.blackBoxTitle')}
               </h2>
               <p className="text-xl text-[hsl(210,10%,65%)] mb-8 leading-relaxed">
-                Your Model Archive — an encrypted vault storing all personal health data with military-grade security. 
-                You maintain complete control over data access, sharing, and sovereignty.
+                {t('projectBiomathCore.blackBoxDesc')}
               </p>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                 {["AES-256 Encryption", "Blockchain Integrity", "Zero-Trust Architecture", "HIPAA & GDPR"].map((item) => (
