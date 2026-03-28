@@ -374,7 +374,7 @@ const Index = () => {
       </section>
 
       {/* ═══════════════════ WHAT WE BUILD — Asymmetric Bento ═══════════════════ */}
-      <section ref={whatWeBuildSection.ref} className={`py-20 md:py-28 px-4 scroll-slide-up ${whatWeBuildSection.isVisible ? 'visible' : ''}`}>
+      <section ref={whatWeBuildSection.ref} className={`py-20 md:py-28 px-4 section-gradient-mint scroll-slide-up ${whatWeBuildSection.isVisible ? 'visible' : ''}`}>
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-14 space-y-3">
             <h2 ref={whatWeBuildHeading.ref} className={`text-3xl md:text-5xl font-bold tracking-tight text-foreground animate-heading-reveal ${whatWeBuildHeading.isVisible ? 'visible' : ''}`}>
