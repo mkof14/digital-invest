@@ -31,8 +31,18 @@ import baselineHero from '@/assets/projects/baseline-hero.jpg';
 import baselineLogo from '@/assets/projects/baseline-logo.png';
 import savenHero from '@/assets/projects/saven-hero.png';
 import savenLogo from '@/assets/projects/saven-logo.png';
+import biomathcoreCardBg from '@/assets/projects/biomathcore-card-bg.png';
+import biomathcoreLogoBanner from '@/assets/projects/biomathcore-logo-banner.png';
 import OptimizedImage from '@/components/OptimizedImage';
 import { shimmerDataURL, getResponsiveImagePaths } from '@/lib/imageUtils';
+
+const biomathCategories = [
+  "Critical Health", "Everyday Wellness", "Longevity & Anti-Aging", "Mental Wellness",
+  "Fitness & Performance", "Women's Health", "Men's Health", "Beauty & Skincare",
+  "Nutrition & Diet", "Sleep & Recovery", "Environmental Health", "Family Health",
+  "Preventive Medicine", "Biohacking", "Senior Care", "Eye-Health Suite",
+  "Digital Therapeutics", "Sexual Longevity", "Men's Sexual Health", "Women's Sexual Health"
+];
 
 interface Project {
   id: string;
