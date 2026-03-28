@@ -242,7 +242,7 @@ const Index = () => {
       </section>
 
       {/* ═══════════════════ ECOSYSTEM VISION — Editorial ═══════════════════ */}
-      <section ref={biomathVisionSection.ref} className={`py-20 md:py-28 px-4 scroll-fade-in ${biomathVisionSection.isVisible ? 'visible' : ''}`}>
+      <section ref={biomathVisionSection.ref} className={`py-20 md:py-28 px-4 section-gradient-cool scroll-fade-in ${biomathVisionSection.isVisible ? 'visible' : ''}`}>
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-12 gap-8 md:gap-12 items-start">
             {/* Left label */}
