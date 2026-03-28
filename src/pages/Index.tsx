@@ -573,7 +573,7 @@ const Index = () => {
       </section>
 
       {/* ═══════════════════ FAQ — Clean ═══════════════════ */}
-      <section ref={faqSection.ref} className={`py-20 md:py-28 px-4 scroll-fade-in ${faqSection.isVisible ? 'visible' : ''}`}>
+      <section ref={faqSection.ref} className={`py-20 md:py-28 px-4 section-gradient-cool scroll-fade-in ${faqSection.isVisible ? 'visible' : ''}`}>
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-12 space-y-3">
             <h2 ref={faqHeading.ref} className={`text-3xl md:text-4xl font-bold tracking-tight text-foreground animate-heading-reveal ${faqHeading.isVisible ? 'visible' : ''}`}>
