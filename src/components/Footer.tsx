@@ -56,14 +56,14 @@ const Footer = () => {
 
           {/* MIDDLE COLUMNS - Projects */}
           <div className="space-y-4">
-            <h4 className="font-semibold text-foreground">Projects</h4>
+            <h4 className="font-semibold text-foreground">{t('footer.projects')}</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li><Link to="/" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">Home</Link></li>
-              <li><Link to="/projects" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">Projects</Link></li>
-              <li><Link to="/why-digital-invest" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">Why Digital Invest</Link></li>
-              <li><Link to="/how-it-works" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">How It Works</Link></li>
-              <li><Link to="/news" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">News & Insights</Link></li>
-              <li><Link to="/schedule" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">Schedule Consultation</Link></li>
+              <li><Link to="/" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">{t('footer.home')}</Link></li>
+              <li><Link to="/projects" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">{t('footer.projects')}</Link></li>
+              <li><Link to="/why-digital-invest" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">{t('footer.whyDigitalInvest')}</Link></li>
+              <li><Link to="/how-it-works" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">{t('footer.howItWorks')}</Link></li>
+              <li><Link to="/news" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">{t('footer.news')}</Link></li>
+              <li><Link to="/schedule" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">{t('footer.schedule')}</Link></li>
             </ul>
           </div>
 
