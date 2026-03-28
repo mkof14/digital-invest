@@ -1,0 +1,1 @@
+UPDATE public.projects SET website_url = 'https://www.luna29.com' WHERE slug = 'luna-balance';
