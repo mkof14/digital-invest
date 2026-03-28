@@ -134,7 +134,7 @@ const News = () => {
       <Navigation />
       
       {/* Hero Section */}
-      <div className="pt-32 pb-12 bg-gradient-to-b from-muted/30 to-background">
+      <div className="pt-32 pb-12 bg-gradient-to-b from-muted/30 to-background section-gradient-warm">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-5xl md:text-6xl font-bold mb-6">
