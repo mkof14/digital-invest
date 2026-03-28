@@ -4,8 +4,7 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Separator } from "@/components/ui/separator";
-import { ArrowRight, Droplets, Wheat, BarChart3, Package, Zap, MapPin, Users, Globe, Factory, Rocket, AlertCircle, Layers, Activity, ArrowLeft, Download, Share2, Mail, FileText, Copy, Check, Images, ZoomIn } from "lucide-react";
+import { ArrowRight, Droplets, Wheat, BarChart3, Package, Zap, MapPin, Users, Globe, Factory, Rocket, AlertCircle, Layers, Activity, ArrowLeft, Download, Share2, Mail, FileText, Copy, Check, ZoomIn } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import terraaeroLogo from "@/assets/terraaero-logo.png";
@@ -14,7 +13,6 @@ import terraaeroInfographic from "@/assets/projects/terraaero-infographic.jpeg";
 import DownloadInvestorBriefButton from "@/components/DownloadInvestorBriefButton";
 import OptimizedImage from "@/components/OptimizedImage";
 import InvestorPageDisclaimer from "@/components/InvestorPageDisclaimer";
-import { InfographicsGallery } from "@/components/InfographicsGallery";
 import { useToast } from "@/hooks/use-toast";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 
@@ -22,6 +20,7 @@ const TerraAero = () => {
   const [infographicOpen, setInfographicOpen] = useState(false);
   const [copied, setCopied] = useState(false);
   const { toast } = useToast();
+  const { t } = useTranslation();
 
   const handleDownloadInfographic = async () => {
     try {
@@ -35,7 +34,7 @@ const TerraAero = () => {
       link.click();
       document.body.removeChild(link);
       URL.revokeObjectURL(url);
-      toast({ title: "Downloaded", description: "Infographic saved successfully" });
+      toast({ title: t('projectTerraAero.download'), description: "Infographic saved successfully" });
     } catch {
       toast({ title: "Error", description: "Failed to download", variant: "destructive" });
     }
@@ -47,13 +46,12 @@ const TerraAero = () => {
       const blob = await response.blob();
       await navigator.clipboard.write([new ClipboardItem({ [blob.type]: blob })]);
       setCopied(true);
-      toast({ title: "Copied!", description: "Infographic copied to clipboard" });
+      toast({ title: t('projectTerraAero.copied'), description: "Infographic copied to clipboard" });
       setTimeout(() => setCopied(false), 2000);
     } catch {
       try {
         await navigator.clipboard.writeText(window.location.origin + terraaeroInfographic);
         setCopied(true);
-        toast({ title: "Link copied!", description: "Image link copied to clipboard" });
         setTimeout(() => setCopied(false), 2000);
       } catch {
         toast({ title: "Error", description: "Failed to copy", variant: "destructive" });
@@ -61,92 +59,47 @@ const TerraAero = () => {
     }
   };
 
-  const { t } = useTranslation();
   return (
     <div className="min-h-screen theme-terraaero" style={{ background: 'hsl(85, 15%, 5%)' }}>
       <Navigation />
-      
       <main className="container mx-auto px-4 py-8">
-        {/* Hero Section */}
+        {/* Hero */}
         <section className="relative py-32 -mx-4 px-4 overflow-hidden mb-16">
-          <div 
-            className="absolute inset-0 z-0"
-            style={{
-              backgroundImage: `url(${terraaeroHero})`,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-            }}
-          >
+          <div className="absolute inset-0 z-0" style={{ backgroundImage: `url(${terraaeroHero})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
             <div className="absolute inset-0 bg-gradient-to-r from-[hsl(85,30%,8%)]/95 via-background/90 to-background/60" />
           </div>
-
           <div className="relative z-10 max-w-4xl">
             <Link to="/projects" className="animate-fade-in">
               <Button variant="ghost" size="sm" className="mb-6 hover:bg-background/80">
-                <ArrowLeft className="w-4 h-4 mr-2" />
-                {t('projectCommon.backToProjects')}
+                <ArrowLeft className="w-4 h-4 mr-2" /> {t('projectCommon.backToProjects')}
               </Button>
             </Link>
             <div className="flex items-center gap-6 mb-8 animate-fade-in" style={{ animationDelay: '0.1s', animationFillMode: 'backwards' }}>
-              <OptimizedImage 
-                src={terraaeroLogo} 
-                alt="TerraAero logo" 
-                className="w-20 h-20 md:w-24 md:h-24 object-contain"
-                showSkeleton={false}
-              />
+              <OptimizedImage src={terraaeroLogo} alt="TerraAero logo" className="w-20 h-20 md:w-24 md:h-24 object-contain" showSkeleton={false} />
               <div>
-                <Badge className="mb-4 project-badge">AgroTech & Drone Manufacturing</Badge>
-                <h1 className="text-4xl md:text-6xl font-bold project-glow-text">
-                  TerraAero
-                </h1>
+                <Badge className="mb-4 project-badge">{t('projectTerraAero.badge')}</Badge>
+                <h1 className="text-4xl md:text-6xl font-bold project-glow-text">TerraAero</h1>
               </div>
             </div>
-            <p className="text-2xl text-foreground mb-4">
-              Precision Agriculture and Autonomous Logistics Through Advanced Drone Technology
-            </p>
-            <p className="text-xl text-muted-foreground max-w-3xl mb-8">
-              TerraAero develops and operates autonomous drone systems for agricultural monitoring, precision crop management, 
-              and intelligent logistics. Combining aerospace engineering with AI-driven analytics and building towards U.S.-based 
-              drone manufacturing capabilities.
-            </p>
+            <p className="text-2xl text-foreground mb-4">{t('projectTerraAero.heroSubtitle')}</p>
+            <p className="text-xl text-muted-foreground max-w-3xl mb-8">{t('projectTerraAero.heroDesc')}</p>
             <div className="flex gap-4 flex-wrap">
-              <Link to="/start-investing">
-                <Button size="lg">
-                  Request Information
-                  <ArrowRight className="ml-2 w-5 h-5" />
-                </Button>
-              </Link>
-              <Button
-                size="lg"
-                variant="outline"
-                asChild
-                className="border-[hsl(var(--project-accent)/0.3)] hover:border-[hsl(var(--project-accent)/0.6)]"
-              >
-                <a href="https://terraaero.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
-                  <Globe className="h-5 w-5" />
-                  terraaero.com
-                </a>
+              <Link to="/start-investing"><Button size="lg">{t('projectCommon.requestInformation')} <ArrowRight className="ml-2 w-5 h-5" /></Button></Link>
+              <Button size="lg" variant="outline" asChild className="border-[hsl(var(--project-accent)/0.3)] hover:border-[hsl(var(--project-accent)/0.6)]">
+                <a href="https://terraaero.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2"><Globe className="h-5 w-5" /> terraaero.com</a>
               </Button>
               <DownloadInvestorBriefButton projectSlug="terraaero" size="lg" />
             </div>
           </div>
         </section>
 
-        {/* Overview - Positioned High */}
+        {/* Overview */}
         <section className="mb-16 -mt-8">
           <Card className="border-primary/20 shadow-lg">
             <CardContent className="pt-8 space-y-4">
-              <h2 className="text-3xl font-bold mb-4">Overview</h2>
-              <p className="text-lg leading-relaxed">
-                TerraAero combines autonomous aerospace systems with artificial intelligence to deliver scalable solutions for 
-                modern agriculture and logistics. The project operates commercial drone services across the Southern United States 
-                while developing in-house manufacturing capabilities for custom-designed agricultural and delivery aircraft.
-              </p>
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                Current operations include precision crop spraying, fertilization, field analytics, irrigation monitoring, and 
-                logistics delivery across multiple states. The long-term roadmap encompasses U.S.-based drone manufacturing, 
-                expanded multi-state operations, and vertical integration from technology production to field deployment.
-              </p>
+              <h2 className="text-3xl font-bold mb-4">{t('projectTerraAero.overviewTitle')}</h2>
+              <p className="text-lg leading-relaxed">{t('projectTerraAero.overviewP1')}</p>
+              <p className="text-lg text-muted-foreground leading-relaxed">{t('projectTerraAero.overviewP2')}</p>
             </CardContent>
           </Card>
         </section>
@@ -155,126 +108,43 @@ const TerraAero = () => {
 
         {/* Core Mission */}
         <section className="mb-16">
-          <h2 className="text-3xl font-bold mb-8">Core Mission</h2>
+          <h2 className="text-3xl font-bold mb-8">{t('projectCommon.coreMission')}</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <Card className="project-card">
-              <CardHeader>
-                <Wheat className="w-12 h-12 project-icon mb-4" />
-                <CardTitle>Precision Agriculture</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">
-                  Transform agricultural operations through autonomous drone technology that delivers precision monitoring, 
-                  resource optimization, and data-driven decision support for farmers and agricultural enterprises.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="project-card">
-              <CardHeader>
-                <Package className="w-12 h-12 project-icon mb-4" />
-                <CardTitle>Intelligent Logistics</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">
-                  Enable rapid, efficient delivery through autonomous drone systems that reduce transit times, operating costs, 
-                  and environmental impact compared to traditional ground-based logistics.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="project-card">
-              <CardHeader>
-                <Factory className="w-12 h-12 project-icon mb-4" />
-                <CardTitle>Domestic Manufacturing</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">
-                  Develop U.S.-based drone manufacturing infrastructure to reduce supply chain dependencies, optimize aircraft 
-                  design for specific operational environments, and build vertical integration from production to deployment.
-                </p>
-              </CardContent>
-            </Card>
+            {[
+              { icon: Wheat, title: t('projectTerraAero.mission1Title'), desc: t('projectTerraAero.mission1Desc') },
+              { icon: Package, title: t('projectTerraAero.mission2Title'), desc: t('projectTerraAero.mission2Desc') },
+              { icon: Factory, title: t('projectTerraAero.mission3Title'), desc: t('projectTerraAero.mission3Desc') },
+            ].map((item, i) => (
+              <Card key={i} className="project-card">
+                <CardHeader><item.icon className="w-12 h-12 project-icon mb-4" /><CardTitle>{item.title}</CardTitle></CardHeader>
+                <CardContent><p className="text-muted-foreground">{item.desc}</p></CardContent>
+              </Card>
+            ))}
           </div>
         </section>
 
         <div className="project-section-divider my-12" />
 
-        {/* How the Platform Works */}
+        {/* How TerraAero Works */}
         <section className="mb-16">
-          <h2 className="text-3xl font-bold mb-8">How TerraAero Works</h2>
+          <h2 className="text-3xl font-bold mb-8">{t('projectTerraAero.howTitle')}</h2>
           <div className="space-y-6">
-            <Card className="project-card">
-              <CardHeader>
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-[hsl(var(--project-accent)/0.1)] flex items-center justify-center project-icon font-bold text-xl">
-                    1
+            {[
+              { step: 1, title: t('projectTerraAero.step1Title'), desc: t('projectTerraAero.step1Desc') },
+              { step: 2, title: t('projectTerraAero.step2Title'), desc: t('projectTerraAero.step2Desc') },
+              { step: 3, title: t('projectTerraAero.step3Title'), desc: t('projectTerraAero.step3Desc') },
+              { step: 4, title: t('projectTerraAero.step4Title'), desc: t('projectTerraAero.step4Desc') },
+            ].map((item, i) => (
+              <Card key={i} className="project-card">
+                <CardHeader>
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 rounded-full bg-[hsl(var(--project-accent)/0.1)] flex items-center justify-center project-icon font-bold text-xl">{item.step}</div>
+                    <CardTitle className="text-xl">{item.title}</CardTitle>
                   </div>
-                  <CardTitle className="text-xl">Field Assessment & Planning</CardTitle>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground leading-relaxed">
-                  Agricultural clients request services through online scheduling or direct contact. TerraAero agronomists review 
-                  field conditions, crop types, treatment requirements, and operational constraints. Flight plans generated 
-                  considering weather, crop stage, application timing, and regulatory requirements.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="project-card">
-              <CardHeader>
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-[hsl(var(--project-accent)/0.1)] flex items-center justify-center project-icon font-bold text-xl">
-                    2
-                  </div>
-                  <CardTitle className="text-xl">Autonomous Flight Operations</CardTitle>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground leading-relaxed">
-                  Licensed pilots deploy drone fleet (T30-T60 platforms) for precision spraying, fertilization, or monitoring 
-                  operations. Onboard sensors capture multispectral imagery, thermal data, and topographic information while 
-                  executing treatment applications with sub-meter accuracy. Real-time telemetry monitored throughout operations.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="project-card">
-              <CardHeader>
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-[hsl(var(--project-accent)/0.1)] flex items-center justify-center project-icon font-bold text-xl">
-                    3
-                  </div>
-                  <CardTitle className="text-xl">AI Analysis & Reporting</CardTitle>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground leading-relaxed">
-                  Ground-based AI systems process captured data to generate actionable insights: crop stress detection, disease 
-                  identification, irrigation needs assessment, yield forecasting, and treatment effectiveness analysis. Clients 
-                  receive detailed reports with recommendations for follow-up actions, optimal treatment timing, and resource allocation.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="project-card">
-              <CardHeader>
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-[hsl(var(--project-accent)/0.1)] flex items-center justify-center project-icon font-bold text-xl">
-                    4
-                  </div>
-                  <CardTitle className="text-xl">Continuous Monitoring & Optimization</CardTitle>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground leading-relaxed">
-                  Subscription clients receive regular monitoring flights throughout growing season. Historical data builds 
-                  comprehensive field profiles enabling predictive analytics, optimization recommendations, and early problem 
-                  detection. Multi-year data tracks soil health evolution, treatment efficacy, and yield improvements.
-                </p>
-              </CardContent>
-            </Card>
+                </CardHeader>
+                <CardContent><p className="text-muted-foreground leading-relaxed">{item.desc}</p></CardContent>
+              </Card>
+            ))}
           </div>
         </section>
 
@@ -282,83 +152,24 @@ const TerraAero = () => {
 
         {/* Technology & Systems */}
         <section className="mb-16">
-          <h2 className="text-3xl font-bold mb-8">Technology & Systems</h2>
+          <h2 className="text-3xl font-bold mb-8">{t('projectTerraAero.techTitle')}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <Card className="project-card">
-              <CardHeader>
-                <Zap className="w-10 h-10 project-icon mb-2" />
-                <CardTitle>Agricultural Drone Fleet</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground mb-4">
-                  Custom-configured T30 and T60 platforms optimized for agricultural duty cycles. Onboard systems include 
-                  precision spray controllers, multispectral cameras, thermal sensors, GPS guidance, and obstacle avoidance.
-                </p>
-                <ul className="space-y-2 text-sm text-muted-foreground">
-                  <li>• 10-40 liter tank capacity</li>
-                  <li>• Sub-meter application accuracy</li>
-                  <li>• 30-60 minute flight endurance</li>
-                  <li>• Real-time telemetry systems</li>
-                </ul>
-              </CardContent>
-            </Card>
-
-            <Card className="project-card">
-              <CardHeader>
-                <BarChart3 className="w-10 h-10 project-icon mb-2" />
-                <CardTitle>AI Analytics Engine</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground mb-4">
-                  Machine learning models analyze multispectral imagery, thermal patterns, and historical data to detect crop 
-                  stress, disease, nutrient deficiencies, and irrigation needs before visible symptoms appear.
-                </p>
-                <ul className="space-y-2 text-sm text-muted-foreground">
-                  <li>• Automated anomaly detection</li>
-                  <li>• Predictive yield modeling</li>
-                  <li>• Treatment recommendation engine</li>
-                  <li>• Multi-season trend analysis</li>
-                </ul>
-              </CardContent>
-            </Card>
-
-            <Card className="project-card">
-              <CardHeader>
-                <MapPin className="w-10 h-10 project-icon mb-2" />
-                <CardTitle>Operations Command Center</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground mb-4">
-                  Centralized flight operations management coordinating pilot scheduling, weather monitoring, regulatory 
-                  compliance, equipment maintenance, and real-time fleet tracking across multiple operational regions.
-                </p>
-                <ul className="space-y-2 text-sm text-muted-foreground">
-                  <li>• Multi-state coordination</li>
-                  <li>• Real-time weather integration</li>
-                  <li>• Regulatory compliance tracking</li>
-                  <li>• Equipment health monitoring</li>
-                </ul>
-              </CardContent>
-            </Card>
-
-            <Card className="project-card">
-              <CardHeader>
-                <Package className="w-10 h-10 project-icon mb-2" />
-                <CardTitle>Delivery Systems</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground mb-4">
-                  Autonomous logistics platforms for restaurant food delivery, retail package transport, and express service. 
-                  GPS-guided precision landing, secure payload containers, temperature control capabilities.
-                </p>
-                <ul className="space-y-2 text-sm text-muted-foreground">
-                  <li>• Up to 5kg payload capacity</li>
-                  <li>• 10-30 minute delivery times</li>
-                  <li>• Real-time tracking systems</li>
-                  <li>• Secure confirmation protocols</li>
-                </ul>
-              </CardContent>
-            </Card>
+            {[
+              { icon: Zap, title: t('projectTerraAero.techDroneTitle'), desc: t('projectTerraAero.techDroneDesc'), list: ['techDroneL1','techDroneL2','techDroneL3','techDroneL4'] },
+              { icon: BarChart3, title: t('projectTerraAero.techAITitle'), desc: t('projectTerraAero.techAIDesc'), list: ['techAIL1','techAIL2','techAIL3','techAIL4'] },
+              { icon: MapPin, title: t('projectTerraAero.techOpsTitle'), desc: t('projectTerraAero.techOpsDesc'), list: ['techOpsL1','techOpsL2','techOpsL3','techOpsL4'] },
+              { icon: Package, title: t('projectTerraAero.techDeliveryTitle'), desc: t('projectTerraAero.techDeliveryDesc'), list: ['techDeliveryL1','techDeliveryL2','techDeliveryL3','techDeliveryL4'] },
+            ].map((item, i) => (
+              <Card key={i} className="project-card">
+                <CardHeader><item.icon className="w-10 h-10 project-icon mb-2" /><CardTitle>{item.title}</CardTitle></CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground mb-4">{item.desc}</p>
+                  <ul className="space-y-2 text-sm text-muted-foreground">
+                    {item.list.map((key, j) => <li key={j}>• {t(`projectTerraAero.${key}`)}</li>)}
+                  </ul>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </section>
 
@@ -366,123 +177,42 @@ const TerraAero = () => {
 
         {/* Operational Model */}
         <section className="mb-16">
-          <h2 className="text-3xl font-bold mb-8">Operational Model</h2>
+          <h2 className="text-3xl font-bold mb-8">{t('projectTerraAero.opModelTitle')}</h2>
           <Card className="project-card">
             <CardContent className="pt-8 space-y-6">
-              <div>
-                <h3 className="text-xl font-bold mb-3">Service-Based Agriculture</h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  Farmers and agricultural enterprises subscribe to TerraAero services rather than purchasing drone equipment. 
-                  Clients pay per-acre for spraying operations, per-flight for monitoring services, or monthly subscriptions for 
-                  season-long coverage. This model eliminates capital expenditure requirements, ensures professional operations 
-                  by licensed crews, and maintains consistent data quality through standardized procedures.
-                </p>
-              </div>
-              <div>
-                <h3 className="text-xl font-bold mb-3">Crew Deployment Model</h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  Regional teams operate from strategic locations across coverage areas. Each crew includes FAA-licensed remote 
-                  pilots, agricultural specialists, equipment technicians, and data analysts. Mobile operations enable rapid 
-                  deployment to client sites. Equipment maintained centrally with standardized procedures and quality controls.
-                </p>
-              </div>
-              <div>
-                <h3 className="text-xl font-bold mb-3">Logistics Integration</h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  Delivery operations integrate with restaurant and retail partner systems for automated order processing, route 
-                  optimization, and real-time tracking. Customers receive notifications, track flights in real-time, and confirm 
-                  secure deliveries. Partners access analytics on delivery performance, customer satisfaction, and operational efficiency.
-                </p>
-              </div>
+              {[
+                { title: t('projectTerraAero.opServiceTitle'), desc: t('projectTerraAero.opServiceDesc') },
+                { title: t('projectTerraAero.opCrewTitle'), desc: t('projectTerraAero.opCrewDesc') },
+                { title: t('projectTerraAero.opLogisticsTitle'), desc: t('projectTerraAero.opLogisticsDesc') },
+              ].map((item, i) => (
+                <div key={i}><h3 className="text-xl font-bold mb-3">{item.title}</h3><p className="text-muted-foreground leading-relaxed">{item.desc}</p></div>
+              ))}
             </CardContent>
           </Card>
         </section>
 
         <div className="project-section-divider my-12" />
 
-        {/* Service Categories */}
+        {/* Agricultural Services */}
         <section className="mb-16">
-          <h2 className="text-3xl font-bold mb-8">Agricultural Services</h2>
+          <h2 className="text-3xl font-bold mb-8">{t('projectTerraAero.agriTitle')}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-            <Card className="project-card">
-              <CardHeader>
-                <Droplets className="w-12 h-12 project-icon mb-4" />
-                <CardTitle>Precision Crop Treatment</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground mb-4">
-                  Targeted application of pesticides, herbicides, fungicides, and growth regulators with GPS-guided precision. 
-                  Variable rate application adjusts dosage based on crop density, terrain, and historical data. Reduces chemical 
-                  usage by 20-40% compared to traditional methods while improving treatment effectiveness.
-                </p>
-                <ul className="space-y-2 text-sm text-muted-foreground">
-                  <li>• Sub-meter application accuracy</li>
-                  <li>• Variable rate technology</li>
-                  <li>• Real-time wind compensation</li>
-                  <li>• Detailed coverage mapping</li>
-                </ul>
-              </CardContent>
-            </Card>
-
-            <Card className="project-card">
-              <CardHeader>
-                <Wheat className="w-12 h-12 project-icon mb-4" />
-                <CardTitle>Field Analytics & Monitoring</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground mb-4">
-                  Regular aerial surveys capture multispectral and thermal imagery for crop health assessment. AI analysis 
-                  detects stress, disease, nutrient deficiencies, and irrigation problems before visible symptoms appear. 
-                  Generates actionable reports with treatment recommendations and priority mapping.
-                </p>
-                <ul className="space-y-2 text-sm text-muted-foreground">
-                  <li>• NDVI vegetation health mapping</li>
-                  <li>• Thermal stress detection</li>
-                  <li>• Disease outbreak identification</li>
-                  <li>• Yield forecasting models</li>
-                </ul>
-              </CardContent>
-            </Card>
-
-            <Card className="project-card">
-              <CardHeader>
-                <Droplets className="w-12 h-12 project-icon mb-4" />
-                <CardTitle>Irrigation Optimization</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground mb-4">
-                  Aerial monitoring identifies irrigation system issues, water distribution problems, and field drainage concerns. 
-                  Soil moisture modeling combined with weather forecasts generates precision irrigation recommendations that 
-                  optimize water usage and crop health.
-                </p>
-                <ul className="space-y-2 text-sm text-muted-foreground">
-                  <li>• Water stress mapping</li>
-                  <li>• System performance analysis</li>
-                  <li>• Drainage problem detection</li>
-                  <li>• Smart irrigation scheduling</li>
-                </ul>
-              </CardContent>
-            </Card>
-
-            <Card className="project-card">
-              <CardHeader>
-                <BarChart3 className="w-12 h-12 project-icon mb-4" />
-                <CardTitle>Season-Long Intelligence</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground mb-4">
-                  Subscription monitoring throughout growing season builds comprehensive field profiles. Multi-year historical 
-                  data enables predictive analytics, treatment effectiveness tracking, soil health evolution monitoring, and 
-                  continuous optimization recommendations.
-                </p>
-                <ul className="space-y-2 text-sm text-muted-foreground">
-                  <li>• Historical trend analysis</li>
-                  <li>• Yield prediction modeling</li>
-                  <li>• Treatment efficacy tracking</li>
-                  <li>• ROI optimization insights</li>
-                </ul>
-              </CardContent>
-            </Card>
+            {[
+              { icon: Droplets, title: t('projectTerraAero.agriCropTitle'), desc: t('projectTerraAero.agriCropDesc'), list: ['agriCropL1','agriCropL2','agriCropL3','agriCropL4'] },
+              { icon: Wheat, title: t('projectTerraAero.agriFieldTitle'), desc: t('projectTerraAero.agriFieldDesc'), list: ['agriFieldL1','agriFieldL2','agriFieldL3','agriFieldL4'] },
+              { icon: Droplets, title: t('projectTerraAero.agriIrrigationTitle'), desc: t('projectTerraAero.agriIrrigationDesc'), list: ['agriIrrigationL1','agriIrrigationL2','agriIrrigationL3','agriIrrigationL4'] },
+              { icon: BarChart3, title: t('projectTerraAero.agriSeasonTitle'), desc: t('projectTerraAero.agriSeasonDesc'), list: ['agriSeasonL1','agriSeasonL2','agriSeasonL3','agriSeasonL4'] },
+            ].map((item, i) => (
+              <Card key={i} className="project-card">
+                <CardHeader><item.icon className="w-12 h-12 project-icon mb-4" /><CardTitle>{item.title}</CardTitle></CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground mb-4">{item.desc}</p>
+                  <ul className="space-y-2 text-sm text-muted-foreground">
+                    {item.list.map((key, j) => <li key={j}>• {t(`projectTerraAero.${key}`)}</li>)}
+                  </ul>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </section>
 
@@ -490,55 +220,19 @@ const TerraAero = () => {
 
         {/* Who It Serves */}
         <section className="mb-16">
-          <h2 className="text-3xl font-bold mb-8">Who It Serves</h2>
+          <h2 className="text-3xl font-bold mb-8">{t('projectTerraAero.whoTitle')}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <Card className="project-card">
-              <CardHeader>
-                <CardTitle>Commercial Farms</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">
-                  Mid-to-large scale farming operations (500+ acres) growing row crops, specialty crops, vineyards, and orchards. 
-                  Farms seeking precision agriculture capabilities without capital investment in drone equipment and specialized training.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="project-card">
-              <CardHeader>
-                <CardTitle>Agricultural Cooperatives</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">
-                  Grower cooperatives and agricultural service providers offering precision services to member farms. Organizations 
-                  seeking scalable technology partnerships that enhance their service portfolios and member value.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="project-card">
-              <CardHeader>
-                <CardTitle>Food & Restaurant Partners</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">
-                  Restaurants, ghost kitchens, and food delivery platforms seeking fast, reliable, low-cost delivery options 
-                  that maintain food quality and reduce delivery times compared to traditional ground-based services.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="project-card">
-              <CardHeader>
-                <CardTitle>Retail & E-Commerce</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">
-                  Local retailers, pharmacies, and e-commerce fulfillment centers requiring rapid last-mile delivery for urgent 
-                  or premium shipments. Businesses differentiating through speed and service quality.
-                </p>
-              </CardContent>
-            </Card>
+            {[
+              { title: t('projectTerraAero.whoFarmsTitle'), desc: t('projectTerraAero.whoFarmsDesc') },
+              { title: t('projectTerraAero.whoCoopsTitle'), desc: t('projectTerraAero.whoCoopsDesc') },
+              { title: t('projectTerraAero.whoFoodTitle'), desc: t('projectTerraAero.whoFoodDesc') },
+              { title: t('projectTerraAero.whoRetailTitle'), desc: t('projectTerraAero.whoRetailDesc') },
+            ].map((item, i) => (
+              <Card key={i} className="project-card">
+                <CardHeader><CardTitle>{item.title}</CardTitle></CardHeader>
+                <CardContent><p className="text-muted-foreground">{item.desc}</p></CardContent>
+              </Card>
+            ))}
           </div>
         </section>
 
@@ -546,132 +240,53 @@ const TerraAero = () => {
 
         {/* Market Context */}
         <section className="mb-16">
-          <h2 className="text-3xl font-bold mb-8">Market Context</h2>
+          <h2 className="text-3xl font-bold mb-8">{t('projectTerraAero.marketTitle')}</h2>
           <Card className="project-card">
             <CardContent className="pt-8 space-y-4">
-              <p className="text-lg leading-relaxed">
-                Modern agriculture faces mounting pressure to increase productivity while reducing environmental impact, managing 
-                rising labor costs, and adapting to climate variability. Traditional farming methods struggle to deliver the 
-                precision, efficiency, and data-driven decision making required in contemporary agricultural markets.
-              </p>
-              <p className="text-muted-foreground leading-relaxed">
-                Drone technology has moved from experimental to essential for commercial agriculture. The global agricultural 
-                drone market is projected to reach $5.7 billion by 2028 as precision farming becomes standard practice. However, 
-                most farms lack the capital, expertise, and infrastructure to operate drone programs independently, creating demand 
-                for professional service providers.
-              </p>
-              <p className="text-muted-foreground leading-relaxed">
-                Simultaneously, logistics and last-mile delivery costs continue rising while customer expectations for speed 
-                increase. Autonomous drone delivery offers potential 60-80% cost reduction compared to vehicle-based delivery 
-                for short-range urban and suburban routes. Regulatory frameworks are maturing, expanding operational possibilities 
-                for commercial drone services across both agriculture and logistics sectors.
-              </p>
+              <p className="text-lg leading-relaxed">{t('projectTerraAero.marketP1')}</p>
+              <p className="text-muted-foreground leading-relaxed">{t('projectTerraAero.marketP2')}</p>
+              <p className="text-muted-foreground leading-relaxed">{t('projectTerraAero.marketP3')}</p>
             </CardContent>
           </Card>
         </section>
 
         <div className="project-section-divider my-12" />
 
-        {/* What Makes This Unique */}
+        {/* What Makes TerraAero Unique */}
         <section className="mb-16">
-          <h2 className="text-3xl font-bold mb-8">What Makes TerraAero Unique</h2>
+          <h2 className="text-3xl font-bold mb-8">{t('projectTerraAero.uniqueTitle')}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <Card className="project-card">
-              <CardHeader>
-                <Layers className="w-10 h-10 project-icon mb-2" />
-                <CardTitle>Full-Stack Integration</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">
-                  Unlike equipment manufacturers or pure software companies, TerraAero controls the entire value chain: aircraft 
-                  operation, data collection, AI analysis, and customer-facing insights. This integration enables continuous 
-                  optimization impossible when components are fragmented across vendors.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="project-card">
-              <CardHeader>
-                <Factory className="w-10 h-10 project-icon mb-2" />
-                <CardTitle>Manufacturing Roadmap</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">
-                  Building towards U.S.-based drone manufacturing creates vertical integration from technology production to field 
-                  operations. Custom-designed aircraft optimized specifically for agricultural and logistics duty cycles rather 
-                  than adapting general-purpose consumer drones.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="project-card">
-              <CardHeader>
-                <Users className="w-10 h-10 project-icon mb-2" />
-                <CardTitle>Professional Operations</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">
-                  Trained crews with agricultural expertise, not just drone pilots. Team includes agronomists who understand 
-                  crop science, data analysts who extract actionable insights, and licensed pilots who ensure safe, compliant operations.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="project-card">
-              <CardHeader>
-                <BarChart3 className="w-10 h-10 project-icon mb-2" />
-                <CardTitle>Multi-Sector Platform</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">
-                  Shared technology and operational infrastructure serves both agriculture and logistics sectors. Diversified 
-                  revenue streams, shared development costs, and cross-sector learning create resilience and operational leverage.
-                </p>
-              </CardContent>
-            </Card>
+            {[
+              { icon: Layers, title: t('projectTerraAero.uniqueStackTitle'), desc: t('projectTerraAero.uniqueStackDesc') },
+              { icon: Factory, title: t('projectTerraAero.uniqueMfgTitle'), desc: t('projectTerraAero.uniqueMfgDesc') },
+              { icon: Users, title: t('projectTerraAero.uniqueOpsTitle'), desc: t('projectTerraAero.uniqueOpsDesc') },
+              { icon: BarChart3, title: t('projectTerraAero.uniqueMultiTitle'), desc: t('projectTerraAero.uniqueMultiDesc') },
+            ].map((item, i) => (
+              <Card key={i} className="project-card">
+                <CardHeader><item.icon className="w-10 h-10 project-icon mb-2" /><CardTitle>{item.title}</CardTitle></CardHeader>
+                <CardContent><p className="text-muted-foreground">{item.desc}</p></CardContent>
+              </Card>
+            ))}
           </div>
         </section>
 
         <div className="project-section-divider my-12" />
 
-        {/* Geographic Expansion */}
+        {/* 23-State Expansion */}
         <section className="mb-16">
-          <h2 className="text-3xl font-bold mb-8">23-State Expansion Plan</h2>
+          <h2 className="text-3xl font-bold mb-8">{t('projectTerraAero.expansionTitle')}</h2>
           <Card className="project-card">
             <CardContent className="pt-8 space-y-6">
-              <div>
-                <h3 className="text-xl font-bold mb-3 flex items-center gap-2">
-                  <MapPin className="w-6 h-6 text-primary" />
-                  Phase 1: Southern Operations (Current)
-                </h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  Active operations in North Carolina, South Carolina, Georgia, and Florida. Established regional crews, local 
-                  partnerships, and operational infrastructure. Coverage includes row crops, specialty agriculture, and suburban 
-                  logistics corridors.
-                </p>
-              </div>
-              <div>
-                <h3 className="text-xl font-bold mb-3 flex items-center gap-2">
-                  <MapPin className="w-6 h-6 text-primary" />
-                  Phase 2: Regional Expansion (12-24 Months)
-                </h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  Expand into Alabama, Tennessee, Louisiana, Mississippi, Arkansas, Texas, and Oklahoma. Target high-value 
-                  agricultural regions with strong demand for precision services. Establish additional operational bases and 
-                  regional partnerships. Scale crew hiring and training programs.
-                </p>
-              </div>
-              <div>
-                <h3 className="text-xl font-bold mb-3 flex items-center gap-2">
-                  <MapPin className="w-6 h-6 text-primary" />
-                  Phase 3: National Coverage (24-48 Months)
-                </h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  Complete build-out to 23 states covering major agricultural production regions and urban logistics markets. 
-                  Deploy manufacturing facilities producing custom TerraAero aircraft optimized for North American operating 
-                  conditions. Establish national operations command infrastructure coordinating multi-state fleet management.
-                </p>
-              </div>
+              {[
+                { title: t('projectTerraAero.phase1Title'), desc: t('projectTerraAero.phase1Desc') },
+                { title: t('projectTerraAero.phase2Title'), desc: t('projectTerraAero.phase2Desc') },
+                { title: t('projectTerraAero.phase3Title'), desc: t('projectTerraAero.phase3Desc') },
+              ].map((item, i) => (
+                <div key={i}>
+                  <h3 className="text-xl font-bold mb-3 flex items-center gap-2"><MapPin className="w-6 h-6 text-primary" /> {item.title}</h3>
+                  <p className="text-muted-foreground leading-relaxed">{item.desc}</p>
+                </div>
+              ))}
             </CardContent>
           </Card>
         </section>
@@ -680,26 +295,12 @@ const TerraAero = () => {
 
         {/* Long-Term Vision */}
         <section className="mb-16">
-          <h2 className="text-3xl font-bold mb-8">Long-Term Vision</h2>
+          <h2 className="text-3xl font-bold mb-8">{t('projectTerraAero.visionTitle')}</h2>
           <Card className="project-card">
             <CardContent className="pt-8 space-y-4">
-              <p className="text-lg leading-relaxed">
-                TerraAero envisions becoming the premier autonomous aerial services company serving North American agriculture 
-                and logistics markets. The 5-10 year roadmap focuses on three strategic pillars: expanding geographic coverage 
-                to 23 states, developing domestic manufacturing capabilities for proprietary aircraft, and building the most 
-                comprehensive agricultural intelligence database in the industry.
-              </p>
-              <p className="text-muted-foreground leading-relaxed">
-                Manufacturing capabilities will enable custom aircraft optimized for specific operational environments: heavy-duty 
-                spray systems for row crops, high-endurance monitoring platforms for large farms, temperature-controlled delivery 
-                pods for food logistics, and rapid-response systems for time-sensitive operations. Vertical integration from 
-                component production through field operations creates defensible competitive advantages.
-              </p>
-              <p className="text-muted-foreground leading-relaxed">
-                The agricultural intelligence platform will become increasingly valuable as multi-year datasets enable predictive 
-                modeling, optimization recommendations, and industry insights impossible for individual farms to generate. This 
-                data infrastructure positions TerraAero as both an operational services company and an agricultural intelligence provider.
-              </p>
+              <p className="text-lg leading-relaxed">{t('projectTerraAero.visionP1')}</p>
+              <p className="text-muted-foreground leading-relaxed">{t('projectTerraAero.visionP2')}</p>
+              <p className="text-muted-foreground leading-relaxed">{t('projectTerraAero.visionP3')}</p>
             </CardContent>
           </Card>
         </section>
@@ -708,58 +309,25 @@ const TerraAero = () => {
 
         {/* Current Stage & Roadmap */}
         <section className="mb-16">
-          <h2 className="text-3xl font-bold mb-8">Current Stage & Roadmap</h2>
+          <h2 className="text-3xl font-bold mb-8">{t('projectTerraAero.roadmapTitle')}</h2>
           <div className="space-y-6">
             <Card className="border-primary/20 bg-primary/5">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <Globe className="w-6 h-6" />
-                  Current Stage
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">
-                  Active commercial operations in four Southern states with established customer base and operational infrastructure. 
-                  Fleet of T30-T60 platforms performing spraying, monitoring, and delivery services. Licensed pilot teams, ground 
-                  crew, and analytics support operational. Revenue-generating services with established pricing models and client contracts.
-                </p>
-              </CardContent>
+              <CardHeader><CardTitle className="flex items-center gap-2"><Globe className="w-6 h-6" /> {t('projectCommon.currentStage')}</CardTitle></CardHeader>
+              <CardContent><p className="text-muted-foreground">{t('projectTerraAero.currentStageDesc')}</p></CardContent>
             </Card>
-
             <Card className="project-card">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <Activity className="w-6 h-6" />
-                  Next 12 Months
-                </CardTitle>
-              </CardHeader>
+              <CardHeader><CardTitle className="flex items-center gap-2"><Activity className="w-6 h-6" /> {t('projectTerraAero.next12Title')}</CardTitle></CardHeader>
               <CardContent>
                 <ul className="space-y-2 text-muted-foreground">
-                  <li>• Expand operations into 3-4 additional Southern states</li>
-                  <li>• Scale fleet to 25+ operational aircraft</li>
-                  <li>• Launch subscription monitoring services for season-long contracts</li>
-                  <li>• Deploy enhanced AI analytics platform for predictive insights</li>
-                  <li>• Establish partnerships with agricultural cooperatives and service providers</li>
-                  <li>• Begin manufacturing feasibility studies and facility site selection</li>
+                  {['next12L1','next12L2','next12L3','next12L4','next12L5','next12L6'].map((key, i) => <li key={i}>• {t(`projectTerraAero.${key}`)}</li>)}
                 </ul>
               </CardContent>
             </Card>
-
             <Card className="project-card">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <Rocket className="w-6 h-6" />
-                  18-36 Months
-                </CardTitle>
-              </CardHeader>
+              <CardHeader><CardTitle className="flex items-center gap-2"><Rocket className="w-6 h-6" /> {t('projectTerraAero.next18Title')}</CardTitle></CardHeader>
               <CardContent>
                 <ul className="space-y-2 text-muted-foreground">
-                  <li>• Commence U.S.-based drone manufacturing operations</li>
-                  <li>• Deploy first custom-designed TerraAero agricultural platforms</li>
-                  <li>• Expand coverage to 15+ states across multiple agricultural regions</li>
-                  <li>• Launch advanced logistics services in major metropolitan areas</li>
-                  <li>• Build national operations command center coordinating multi-state fleet</li>
-                  <li>• Establish research partnerships leveraging agricultural intelligence database</li>
+                  {['next18L1','next18L2','next18L3','next18L4','next18L5','next18L6'].map((key, i) => <li key={i}>• {t(`projectTerraAero.${key}`)}</li>)}
                 </ul>
               </CardContent>
             </Card>
@@ -768,55 +336,30 @@ const TerraAero = () => {
 
         <div className="project-section-divider my-12" />
 
-        {/* Infographic Section */}
+        {/* Infographic */}
         <section className="mb-16">
-          <h2 className="text-3xl font-bold mb-2 text-center" style={{ color: 'hsl(85, 40%, 70%)' }}>Architecture & Growth Model</h2>
-          <p className="text-center text-muted-foreground mb-8 max-w-2xl mx-auto">
-            The integrated architecture of modern agriculture — from in-house drone assembly to 23-state expansion.
-          </p>
-
+          <h2 className="text-3xl font-bold mb-2 text-center" style={{ color: 'hsl(85, 40%, 70%)' }}>{t('projectTerraAero.infographicTitle')}</h2>
+          <p className="text-center text-muted-foreground mb-8 max-w-2xl mx-auto">{t('projectTerraAero.infographicSubtitle')}</p>
           <Card className="overflow-hidden" style={{ borderColor: 'hsl(85, 40%, 30%, 0.3)', background: 'hsl(85, 10%, 8%)' }}>
-            <div 
-              className="relative cursor-pointer group"
-              onClick={() => setInfographicOpen(true)}
-            >
-              <img 
-                src={terraaeroInfographic} 
-                alt="TerraAero: The Integrated Architecture of Modern Agriculture"
-                className="w-full object-contain"
-              />
+            <div className="relative cursor-pointer group" onClick={() => setInfographicOpen(true)}>
+              <img src={terraaeroInfographic} alt={t('projectTerraAero.infographicCaption')} className="w-full object-contain" />
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-300 flex items-center justify-center">
                 <ZoomIn className="w-14 h-14 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 drop-shadow-lg" />
               </div>
             </div>
             <CardContent className="py-5 flex flex-wrap items-center justify-between gap-4" style={{ borderTop: '1px solid hsl(85, 30%, 20%, 0.3)' }}>
-              <p className="text-sm font-medium" style={{ color: 'hsl(85, 30%, 65%)' }}>
-                TerraAero: The Integrated Architecture of Modern Agriculture
-              </p>
+              <p className="text-sm font-medium" style={{ color: 'hsl(85, 30%, 65%)' }}>{t('projectTerraAero.infographicCaption')}</p>
               <div className="flex gap-2">
-                <Button size="sm" variant="ghost" onClick={handleDownloadInfographic} className="gap-2">
-                  <Download className="w-4 h-4" /> Download
-                </Button>
+                <Button size="sm" variant="ghost" onClick={handleDownloadInfographic} className="gap-2"><Download className="w-4 h-4" /> {t('projectTerraAero.download')}</Button>
                 <Button size="sm" variant="ghost" onClick={handleCopyInfographic} className="gap-2">
                   {copied ? <Check className="w-4 h-4 text-green-400" /> : <Copy className="w-4 h-4" />}
-                  {copied ? "Copied" : "Copy"}
+                  {copied ? t('projectTerraAero.copied') : t('projectTerraAero.copy')}
                 </Button>
-                <Button size="sm" variant="ghost" className="gap-2"
-                  onClick={() => {
-                    if (navigator.share) {
-                      navigator.share({ title: 'TerraAero Architecture Infographic', url: window.location.href });
-                    } else {
-                      navigator.clipboard.writeText(window.location.href);
-                      toast({ title: "Link copied!", description: "Share link copied to clipboard" });
-                    }
-                  }}
-                >
-                  <Share2 className="w-4 h-4" /> Share
+                <Button size="sm" variant="ghost" className="gap-2" onClick={() => { if (navigator.share) { navigator.share({ title: t('projectTerraAero.infographicCaption'), url: window.location.href }); } else { navigator.clipboard.writeText(window.location.href); toast({ title: "Link copied!" }); } }}>
+                  <Share2 className="w-4 h-4" /> {t('projectTerraAero.share')}
                 </Button>
                 <Button size="sm" variant="ghost" className="gap-2" asChild>
-                  <a href={`mailto:?subject=${encodeURIComponent('TerraAero Architecture Infographic')}&body=${encodeURIComponent('Check out this infographic: ' + window.location.href)}`}>
-                    <Mail className="w-4 h-4" /> Send
-                  </a>
+                  <a href={`mailto:?subject=${encodeURIComponent(t('projectTerraAero.infographicCaption'))}&body=${encodeURIComponent(window.location.href)}`}><Mail className="w-4 h-4" /> {t('projectTerraAero.send')}</a>
                 </Button>
               </div>
             </CardContent>
@@ -826,22 +369,20 @@ const TerraAero = () => {
         {/* Infographic Lightbox */}
         <Dialog open={infographicOpen} onOpenChange={setInfographicOpen}>
           <DialogContent className="max-w-[95vw] max-h-[95vh] p-0 backdrop-blur-xl overflow-hidden" style={{ background: 'hsl(85, 10%, 5%, 0.95)', borderColor: 'hsl(85, 30%, 25%, 0.3)' }}>
-            <DialogTitle className="sr-only">TerraAero Architecture Infographic</DialogTitle>
+            <DialogTitle className="sr-only">{t('projectTerraAero.infographicCaption')}</DialogTitle>
             <div className="flex flex-col h-[90vh]">
               <div className="flex items-center justify-between px-6 py-4" style={{ borderBottom: '1px solid hsl(85, 20%, 20%, 0.5)' }}>
-                <h3 className="text-lg font-semibold" style={{ color: 'hsl(85, 30%, 70%)' }}>TerraAero: The Integrated Architecture of Modern Agriculture</h3>
+                <h3 className="text-lg font-semibold" style={{ color: 'hsl(85, 30%, 70%)' }}>{t('projectTerraAero.infographicCaption')}</h3>
                 <div className="flex items-center gap-2">
-                  <Button variant="ghost" size="sm" onClick={handleDownloadInfographic} className="gap-2">
-                    <Download className="w-4 h-4" /> Download
-                  </Button>
+                  <Button variant="ghost" size="sm" onClick={handleDownloadInfographic} className="gap-2"><Download className="w-4 h-4" /> {t('projectTerraAero.download')}</Button>
                   <Button variant="ghost" size="sm" onClick={handleCopyInfographic} className="gap-2">
                     {copied ? <Check className="w-4 h-4 text-green-400" /> : <Copy className="w-4 h-4" />}
-                    {copied ? "Copied" : "Copy"}
+                    {copied ? t('projectTerraAero.copied') : t('projectTerraAero.copy')}
                   </Button>
                 </div>
               </div>
               <div className="flex-1 flex items-center justify-center p-4 overflow-auto">
-                <img src={terraaeroInfographic} alt="TerraAero Architecture Infographic" className="max-w-full max-h-full object-contain" />
+                <img src={terraaeroInfographic} alt={t('projectTerraAero.infographicCaption')} className="max-w-full max-h-full object-contain" />
               </div>
             </div>
           </DialogContent>
@@ -849,87 +390,48 @@ const TerraAero = () => {
 
         <div className="project-section-divider my-12" />
 
-        {/* Presentation Download Section */}
+        {/* Investor Presentation */}
         <section className="mb-16">
-          <h2 className="text-3xl font-bold mb-8 text-center">Investor Presentation</h2>
+          <h2 className="text-3xl font-bold mb-8 text-center">{t('projectTerraAero.presentationTitle')}</h2>
           <Card className="overflow-hidden border-[hsl(85,40%,30%)/0.3] bg-gradient-to-br from-[hsl(85,20%,8%)] via-background to-[hsl(85,15%,12%)]">
             <CardContent className="py-10 flex flex-col md:flex-row items-center gap-8">
               <div className="flex-shrink-0 w-24 h-24 rounded-2xl bg-[hsl(85,40%,25%)/0.2] border border-[hsl(85,40%,40%)/0.3] flex items-center justify-center">
                 <FileText className="w-12 h-12 text-[hsl(85,50%,55%)]" />
               </div>
               <div className="flex-1 text-center md:text-left">
-                <h3 className="text-2xl font-bold mb-2">TerraAero — Investor One-Pager (VC Grade)</h3>
-                <p className="text-muted-foreground">
-                  Comprehensive overview of TerraAero's technology, market opportunity, and investment thesis. Download or share with your network.
-                </p>
+                <h3 className="text-2xl font-bold mb-2">{t('projectTerraAero.presentationName')}</h3>
+                <p className="text-muted-foreground">{t('projectTerraAero.presentationDesc')}</p>
               </div>
               <div className="flex flex-wrap gap-3 justify-center">
                 <Button asChild className="bg-[hsl(85,50%,40%)] hover:bg-[hsl(85,50%,35%)] text-white">
-                  <a href="/documents/TERRAAERO-INVESTOR-ONE-PAGER-VC-GRADE.pdf" download>
-                    <Download className="w-4 h-4 mr-2" />
-                    Download PDF
-                  </a>
+                  <a href="/documents/TERRAAERO-INVESTOR-ONE-PAGER-VC-GRADE.pdf" download><Download className="w-4 h-4 mr-2" /> {t('projectTerraAero.downloadPDF')}</a>
                 </Button>
-                <Button
-                  variant="outline"
-                  className="border-[hsl(85,40%,30%)/0.5]"
-                  onClick={() => {
-                    if (navigator.share) {
-                      navigator.share({
-                        title: 'TerraAero Investor One-Pager',
-                        text: 'TerraAero — Precision Agriculture & Autonomous Drone Technology',
-                        url: window.location.href
-                      });
-                    } else {
-                      navigator.clipboard.writeText(window.location.href);
-                      alert('Link copied!');
-                    }
-                  }}
-                >
-                  <Share2 className="w-4 h-4 mr-2" />
-                  Share
+                <Button variant="outline" className="border-[hsl(85,40%,30%)/0.5]" onClick={() => { if (navigator.share) { navigator.share({ title: t('projectTerraAero.presentationName'), url: window.location.href }); } else { navigator.clipboard.writeText(window.location.href); } }}>
+                  <Share2 className="w-4 h-4 mr-2" /> {t('projectTerraAero.share')}
                 </Button>
-                <Button
-                  variant="outline"
-                  className="border-[hsl(85,40%,30%)/0.5]"
-                  asChild
-                >
-                  <a href="mailto:?subject=TerraAero%20Investor%20One-Pager&body=Check%20out%20the%20TerraAero%20investor%20presentation%3A%20https%3A%2F%2Fdigital-invest.lovable.app%2Fprojects%2Fterraaero">
-                    <Mail className="w-4 h-4 mr-2" />
-                    Send
-                  </a>
+                <Button variant="outline" className="border-[hsl(85,40%,30%)/0.5]" asChild>
+                  <a href={`mailto:?subject=${encodeURIComponent(t('projectTerraAero.presentationName'))}&body=${encodeURIComponent(window.location.href)}`}><Mail className="w-4 h-4 mr-2" /> {t('projectTerraAero.send')}</a>
                 </Button>
               </div>
             </CardContent>
           </Card>
         </section>
 
-        {/* CTA Section */}
+        {/* CTA */}
         <Card className="bg-gradient-tech text-primary-foreground border-0 mb-16">
           <CardContent className="py-12 text-center">
             <Wheat className="w-16 h-16 mx-auto mb-4" />
-            <h2 className="text-3xl font-bold mb-4">Learn More About TerraAero</h2>
-            <p className="text-lg mb-8 opacity-90 max-w-2xl mx-auto">
-              Discover how TerraAero is transforming agriculture and logistics through autonomous drone technology
-            </p>
+            <h2 className="text-3xl font-bold mb-4">{t('projectTerraAero.ctaTitle')}</h2>
+            <p className="text-lg mb-8 opacity-90 max-w-2xl mx-auto">{t('projectTerraAero.ctaDesc')}</p>
             <div className="flex gap-4 justify-center flex-wrap">
-              <Link to="/start-investing">
-                <Button size="lg" variant="secondary">
-                  Request Information
-                  <ArrowRight className="ml-2 w-4 h-4" />
-                </Button>
-              </Link>
+              <Link to="/start-investing"><Button size="lg" variant="secondary">{t('projectCommon.requestInformation')} <ArrowRight className="ml-2 w-4 h-4" /></Button></Link>
               <DownloadInvestorBriefButton projectSlug="terraaero" size="lg" variant="outline" className="bg-transparent border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10" />
             </div>
           </CardContent>
         </Card>
 
-        {/* Legal Disclaimer */}
-        <div className="mt-16">
-          <InvestorPageDisclaimer />
-        </div>
+        <div className="mt-16"><InvestorPageDisclaimer /></div>
       </main>
-
       <Footer />
     </div>
   );
