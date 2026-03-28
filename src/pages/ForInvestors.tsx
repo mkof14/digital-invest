@@ -38,14 +38,14 @@ const ForInvestors = () => {
         <div className="relative z-10 max-w-5xl mx-auto text-center space-y-8 animate-fade-in">
           <Badge variant="secondary" className="mb-4 px-6 py-3 text-base">
             <Target className="w-4 h-4 mr-2 inline" />
-            Investment Opportunities
+            {t('investors.badge')}
           </Badge>
           <h1 className="text-5xl md:text-7xl font-bold">
-            <span className="block text-foreground mb-3">Partner With</span>
-            <span className="block gradient-blue-animated">Real Innovation</span>
+            <span className="block text-foreground mb-3">{t('investors.heroTitle1')}</span>
+            <span className="block gradient-blue-animated">{t('investors.heroTitle2')}</span>
           </h1>
           <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed max-w-3xl mx-auto">
-            Explore structured opportunities in real-economy, AI, manufacturing, and health-technology projects across the United States.
+            {t('investors.heroSubtitle')}
           </p>
           <div className="flex flex-wrap gap-4 justify-center pt-6">
             <Link to="/projects">
