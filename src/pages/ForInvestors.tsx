@@ -56,7 +56,7 @@ const ForInvestors = () => {
             </Link>
             <Link to="/schedule">
               <Button variant="outline" size="lg" className="px-10 py-6 text-lg hover:scale-105 transition-all duration-300">
-                Schedule Consultation
+                {t('investors.scheduleConsultation')}
                 <Clock className="ml-2 h-5 w-5" />
               </Button>
             </Link>
