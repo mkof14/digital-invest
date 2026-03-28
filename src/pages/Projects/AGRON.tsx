@@ -751,6 +751,48 @@ const AGRON = () => {
           </Card>
         </section>
 
+        {/* Investor Presentation */}
+        <section className="mb-16">
+          <div className="project-section-divider my-12" />
+          <h2 className="text-3xl font-bold mb-8">Investor Presentation</h2>
+          <Card className="border-primary/20 bg-gradient-to-br from-primary/5 via-background to-primary/10 overflow-hidden">
+            <CardContent className="pt-8">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center">
+                  <FileText className="w-7 h-7 text-primary" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold">AGRON — The Robotics Operations Network</h3>
+                  <p className="text-muted-foreground">Complete investor presentation (PDF)</p>
+                </div>
+              </div>
+              <div className="flex gap-3 flex-wrap">
+                <a href="/documents/AGRON_The_Robotics_Operations_Network.pdf" download>
+                  <Button className="gap-2">
+                    <Download className="w-4 h-4" />
+                    Download PDF
+                  </Button>
+                </a>
+                <Button variant="outline" className="gap-2" onClick={handleSharePresentation}>
+                  <Share2 className="w-4 h-4" />
+                  Share
+                </Button>
+                <Button variant="outline" className="gap-2" onClick={handleEmailPresentation}>
+                  <Mail className="w-4 h-4" />
+                  Send
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
+        </section>
+
+        {/* Infographics */}
+        <section className="mb-16">
+          <div className="project-section-divider my-12" />
+          <h2 className="text-3xl font-bold mb-8">Infographics</h2>
+          <InfographicsGallery infographics={infographics} projectTitle="AGRON" />
+        </section>
+
         {/* CTA */}
         <section className="mb-16">
           <Card className="border-primary/20 bg-gradient-to-br from-primary/5 to-primary/10">
