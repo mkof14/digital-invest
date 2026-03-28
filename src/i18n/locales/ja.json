@@ -1,0 +1,129 @@
+{
+  "nav": {
+    "home": "ホーム",
+    "projects": "プロジェクト",
+    "forInvestors": "投資家の皆様へ",
+    "aboutUs": "会社概要",
+    "contact": "お問い合わせ",
+    "signIn": "サインイン／登録",
+    "signOut": "サインアウト",
+    "myAccount": "マイアカウント",
+    "darkMode": "ダークモード",
+    "lightMode": "ライトモード"
+  },
+  "hero": {
+    "badge": "ベンチャーキャピタル＆イノベーション",
+    "title1": "投資する",
+    "titleHighlight": "真のイノベーション",
+    "subtitle": "Digital Investは、デジタルヘルス、農業、航空宇宙、持続可能なテクノロジーにおける影響力の大きいプロジェクトと、先見の明を持つ投資家を結びつけます。",
+    "cta1": "投資を始める",
+    "cta2": "投資家の皆様へ"
+  },
+  "ecosystem": {
+    "badge": "エコシステムビジョン",
+    "title": "200以上のサービス。",
+    "titleHighlight": "一つの生きるプラットフォーム。",
+    "subtitle": "各製品が全体を強化する — 自己進化する人間の健康のデジタルモデル。",
+    "beginning": "これは始まりに過ぎません。",
+    "coreTitle": "BioMath Core",
+    "coreDesc": "基盤",
+    "coreServices": "200以上のサービス",
+    "coreActive": "現在18件稼働中",
+    "dailyHealth": "日々の健康",
+    "dailyHealthDesc": "パーソナライズされた追跡と長寿に関する洞察",
+    "unifiedData": "統合されたデータ",
+    "unifiedDataDesc": "全てのサービスにわたる単一のインテリジェンスコア",
+    "selfImproving": "自己改善",
+    "selfImprovingDesc": "各データポイントがプラットフォームを進化させる",
+    "crossSynergy": "クロスシナジー",
+    "crossSynergyDesc": "孤立したアプリではなく、生きたインフラストラクチャ",
+    "exploreAll": "全18プロジェクトを見る"
+  },
+  "featured": {
+    "badge": "ポートフォリオプロジェクト",
+    "title": "注目のプロジェクト",
+    "subtitle": "実体経済および先端技術プロジェクトのポートフォリオをご覧ください",
+    "viewAll": "全てのプロジェクトを見る",
+    "learnMore": "詳細を見る",
+    "target": "目標額",
+    "raised": "調達済額"
+  },
+  "whatWeBuild": {
+    "badge": "当社のセクター",
+    "title": "当社の事業領域",
+    "subtitle": "主要なイノベーションセクターにわたる多角的なポートフォリオ"
+  },
+  "whyDigitalInvest": {
+    "badge": "当社の強み",
+    "title": "Digital Investを選ぶ理由",
+    "subtitle": "透明性とイノベーションを核とした現代的なベンチャー投資アプローチ"
+  },
+  "investment": {
+    "badge": "仕組み",
+    "title": "投資プロセス",
+    "subtitle": "発見からポートフォリオ管理まで、シンプルで透明性の高いステップ"
+  },
+  "faq": {
+    "badge": "よくある質問",
+    "title": "よくある質問",
+    "subtitle": "Digital Investでの投資に関する一般的な質問への回答をご覧ください"
+  },
+  "footer": {
+    "company": "Digital Invest Inc.",
+    "description": "デジタルヘルス、農業、テクノロジー分野の革新的なプロジェクトと投資家を結びつける、現代的なベンチャープラットフォーム。",
+    "quickLinks": "クイックリンク",
+    "legal": "法的情報",
+    "resources": "リソース",
+    "contact": "お問い合わせ",
+    "rights": "無断転載を禁じます。",
+    "privacy": "プライバシーポリシー",
+    "terms": "利用規約",
+    "risk": "リスク開示",
+    "howItWorks": "仕組み",
+    "team": "チーム",
+    "news": "ニュース",
+    "キャリア": "採用情報"
+  },
+  "common": {
+    "loading": "読み込み中...",
+    "error": "エラー",
+    "submit": "送信",
+    "cancel": "キャンセル",
+    "save": "保存",
+    "delete": "削除",
+    "edit": "編集",
+    "back": "戻る",
+    "next": "次へ",
+    "search": "検索",
+    "filter": "絞り込み",
+    "all": "全て",
+    "open": "募集中",
+    "closed": "募集終了",
+    "comingSoon": "近日公開",
+    "readMore": "続きを読む",
+    "viewDetails": "詳細を見る"
+  },
+  "contact": {
+    "title": "お問い合わせ",
+    "subtitle": "ご質問がございましたら、お気軽にお問い合わせください。",
+    "name": "氏名",
+    "email": "メールアドレス",
+    "phone": "電話番号",
+    "message": "メッセージ",
+    "send": "メッセージを送信",
+    "success": "メッセージが正常に送信されました！",
+    "error": "メッセージの送信に失敗しました。"
+  },
+  "investors": {
+    "title": "投資家の皆様へ",
+    "subtitle": "イノベーションとテクノロジーにおける厳選された投資機会にアクセス",
+    "minimumInvestment": "最低投資額",
+    "targetReturn": "目標リターン",
+    "projectDuration": "プロジェクト期間",
+    "submitInterest": "関心表明を送信"
+  },
+  "about": {
+    "title": "会社概要",
+    "subtitle": "イノベーションへの戦略的投資を通じて未来を創造する"
+  }
+}
