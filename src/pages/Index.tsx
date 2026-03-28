@@ -537,7 +537,7 @@ const Index = () => {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16 space-y-4">
             <h2 ref={whyDigitalHeading.ref} className={`text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight gradient-purple-animated animate-heading-reveal ${whyDigitalHeading.isVisible ? 'visible' : ''}`}>
-              Why Digital Invest
+              {t('whyDigitalInvest.heroTitle')}
             </h2>
           </div>
           
