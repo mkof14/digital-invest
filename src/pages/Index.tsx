@@ -319,8 +319,8 @@ const Index = () => {
                   accent: "border-blue-500/20 hover:border-blue-500/40"
                 },
                 { 
-                  title: "Self-Improving",
-                  desc: "Each data point evolves the platform",
+                  title: t('ecosystem.selfImproving'),
+                  desc: t('ecosystem.selfImprovingDesc'),
                   icon: (
                     <svg width="28" height="28" viewBox="0 0 28 28" fill="none" className="text-amber-600 dark:text-amber-400">
                       <path d="M14 4L14 24" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeDasharray="2 2"/>
