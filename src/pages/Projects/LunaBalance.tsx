@@ -4,13 +4,15 @@ import { supabase } from '@/integrations/supabase/client';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
-import { ArrowLeft, ExternalLink, Moon, Heart, Shield, Users, Sparkles, Eye } from 'lucide-react';
+import { ArrowLeft, ExternalLink, Moon, Heart, Shield, Users, Sparkles, Eye, Download, FileText } from 'lucide-react';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import InvestorPageDisclaimer from '@/components/InvestorPageDisclaimer';
 import InterestForm from '@/components/InterestForm';
+import { InfographicsGallery, type Infographic } from '@/components/InfographicsGallery';
 import lunaHero from '@/assets/projects/luna-hero.jpg';
-import lunaLogo from '@/assets/luna-logo.png';
+import lunaLogo from '@/assets/projects/luna-logo.png';
+import lunaInfographic from '@/assets/projects/luna-infographic.jpeg';
 
 const LunaBalance = () => {
   const [showInterestForm, setShowInterestForm] = useState(false);
