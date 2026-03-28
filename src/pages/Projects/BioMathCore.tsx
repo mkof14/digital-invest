@@ -99,7 +99,7 @@ const BioMathCore = () => {
               <Button size="lg" variant="outline" asChild className="border-[hsl(210,15%,25%)] text-[hsl(210,10%,65%)] hover:bg-[hsl(210,15%,12%)]">
                 <a href="/investor-briefs/biomath-core-investor-brief.pdf" download="BioMath-Core-Investor-Brief.pdf">
                   <Download className="w-5 h-5 mr-2" />
-                  Investor Brief
+                  {t('projectCommon.investorBrief')}
                 </a>
               </Button>
               <Button size="lg" variant="outline" asChild className="border-[hsl(210,15%,25%)] text-[hsl(210,10%,65%)] hover:bg-[hsl(210,15%,12%)]">
