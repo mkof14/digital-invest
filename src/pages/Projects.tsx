@@ -234,7 +234,10 @@ const Projects = () => {
                 </div>
 
                 <CardHeader className="flex-1 space-y-3">
-                  <CardTitle className="text-2xl font-bold group-hover:text-primary transition-colors duration-300 leading-tight">
+                  <CardTitle className="text-2xl font-bold group-hover:text-primary transition-colors duration-300 leading-tight flex items-center gap-3">
+                    {project.slug === 'baseline' && (
+                      <img src={baselineLogo} alt="BaseLine logo" className="h-8 rounded" />
+                    )}
                     {project.title}
                   </CardTitle>
                   <CardDescription className="text-base leading-relaxed line-clamp-3">
