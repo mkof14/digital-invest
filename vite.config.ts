@@ -13,8 +13,8 @@ export default defineConfig(({ mode }) => ({
     react(),
     mode === 'development' && componentTagger(),
     modernImagesPlugin({
-      enabled: mode === 'production',
-      runOnBuild: true,
+      enabled: false,
+      runOnBuild: false,
       watch: false
     }),
   ].filter(Boolean),
