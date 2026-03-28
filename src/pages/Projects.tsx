@@ -1,4 +1,5 @@
 import { useEffect, useState, useRef, useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import { supabase } from '@/integrations/supabase/client';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
@@ -118,6 +119,7 @@ const Projects = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const { toast } = useToast();
+  const { t } = useTranslation();
 
   // Map slugs to actual imported images
   const projectImages: Record<string, string> = {
@@ -228,13 +230,13 @@ const Projects = () => {
         {/* Header */}
         <div className="mb-12 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            <span className="gradient-blue-animated">Project Portfolio</span>
+            <span className="gradient-blue-animated">{t('projects.title')}</span>
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Explore our portfolio of multi-sector projects. Each represents innovation, real-world operations, and strategic development.
+            {t('projects.subtitle')}
           </p>
           <p className="text-sm text-muted-foreground mt-4 max-w-2xl mx-auto border-l-4 border-primary pl-4 py-2">
-            <strong>Important:</strong> These are private project opportunities. This is not a public offering platform or marketplace. All participation is discussed individually, offline, and subject to eligibility and due diligence.
+            <strong>{t('projects.important')}:</strong> {t('projects.disclaimer')}
           </p>
         </div>
 
@@ -252,7 +254,7 @@ const Projects = () => {
                 <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
                 <Input
                   type="text"
-                  placeholder="Search projects by name or description..."
+                  placeholder={t('projects.searchPlaceholder')}
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   className="pl-12 pr-10 h-12 text-base rounded-xl border-border/60 bg-card/80 backdrop-blur-sm shadow-sm focus:shadow-md transition-shadow"
@@ -279,7 +281,7 @@ const Projects = () => {
                         : 'bg-muted/60 text-muted-foreground hover:bg-muted hover:text-foreground'
                     }`}
                   >
-                    All ({projects.length})
+                    {t('projects.all')} ({projects.length})
                   </button>
                   {categories.map(cat => {
                     const count = projects.filter(p => getTheme(p.slug).label === cat).length;
@@ -306,7 +308,7 @@ const Projects = () => {
                     className="transition-all duration-300"
                   >
                     <Grid3x3 className="w-4 h-4 mr-2" />
-                    Grid
+                    {t('projects.grid')}
                   </Button>
                   <Button
                     variant={viewMode === 'list' ? 'default' : 'outline'}
@@ -315,7 +317,7 @@ const Projects = () => {
                     className="transition-all duration-300"
                   >
                     <List className="w-4 h-4 mr-2" />
-                    List
+                    {t('projects.list')}
                   </Button>
                 </div>
               </div>
@@ -339,12 +341,12 @@ const Projects = () => {
               <div className="text-center py-16">
                 <p className="text-muted-foreground text-lg">
                   {searchQuery || selectedCategory !== 'all' 
-                    ? 'No projects match your filters. Try adjusting your search or category.'
-                    : 'No projects available at this time.'}
+                    ? t('projects.noMatchFilters')
+                    : t('projects.noProjects')}
                 </p>
                 {(searchQuery || selectedCategory !== 'all') && (
                   <Button variant="outline" className="mt-4" onClick={() => { setSearchQuery(''); setSelectedCategory('all'); }}>
-                    Clear Filters
+                    {t('projects.clearFilters')}
                   </Button>
                 )}
               </div>
@@ -421,7 +423,7 @@ const Projects = () => {
                         </span>
                       </CardTitle>
                       <CardDescription className="text-sm leading-relaxed line-clamp-4 text-muted-foreground/90">
-                        {project.short_description}
+                        {t(`projects.descriptions.${project.slug}`, project.short_description)}
                       </CardDescription>
                     </CardHeader>
 
@@ -429,7 +431,7 @@ const Projects = () => {
                       <div className={`w-full flex items-center justify-between ${theme.btnBg} ${theme.btnHover} text-white rounded-lg px-5 py-3 text-sm font-semibold transition-all duration-300 group-hover:shadow-lg group-hover:gap-3`}>
                         <span className="flex items-center gap-2">
                           <TrendingUp className="w-4 h-4" />
-                          Explore Project
+                          {t('projects.exploreProject')}
                         </span>
                         <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
                       </div>
@@ -493,14 +495,14 @@ const Projects = () => {
                             </Badge>
                           </div>
                           <CardDescription className="text-sm leading-relaxed">
-                            {project.short_description}
+                            {t(`projects.descriptions.${project.slug}`, project.short_description)}
                           </CardDescription>
                         </CardHeader>
 
                         <CardFooter className="pt-0 pb-4">
                           <div className={`flex items-center gap-2 ${theme.btnBg} text-white rounded-lg px-5 py-2.5 text-sm font-semibold transition-all duration-300 group-hover:shadow-lg group-hover:gap-3`}>
                             <TrendingUp className="w-4 h-4" />
-                            Explore Project
+                            {t('projects.exploreProject')}
                             <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
                           </div>
                         </CardFooter>
