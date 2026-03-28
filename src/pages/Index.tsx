@@ -497,9 +497,9 @@ const Index = () => {
                 <div className="p-4 bg-primary/10 rounded-xl w-fit mx-auto group-hover:scale-110 transition-transform duration-300">
                   <Sprout className="w-12 h-12 text-primary" />
                 </div>
-                <h3 className="text-xl font-bold text-foreground text-center">Agricultural Technology</h3>
+                <h3 className="text-xl font-bold text-foreground text-center">{t('whatWeBuild.agroTitle')}</h3>
                 <p className="text-base text-muted-foreground text-center leading-relaxed">
-                  TerraAero — advanced agricultural drone operations with a roadmap toward U.S.-based drone manufacturing.
+                  {t('whatWeBuild.agroDesc')}
                 </p>
               </CardContent>
             </Card>
