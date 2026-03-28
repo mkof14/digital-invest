@@ -93,10 +93,10 @@ const ForInvestors = () => {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              <span className="gradient-orange-animated">Why Digital Invest?</span>
+              <span className="gradient-orange-animated">{t('investors.whyTitle')}</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              A focused approach to real-economy innovation with operational excellence
+              {t('investors.whySubtitle')}
             </p>
           </div>
           
