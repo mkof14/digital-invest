@@ -321,81 +321,73 @@ const Projects = () => {
           </div>
         ) : (
           <div className="flex flex-col gap-6 animate-fade-in">
-            {projects.map((project) => (
-              <Card
-                key={project.id}
-                className="group overflow-hidden border border-border/50 bg-card shadow-elegant hover:shadow-elevated transition-all duration-500 hover:-translate-y-1"
-              >
-                <div className="flex flex-col md:flex-row">
-                  <div className="relative w-full md:w-80 h-56 overflow-hidden bg-muted">
-                    <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/20 to-transparent z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                    
-                    {(() => {
-                      const responsiveImages = getResponsiveImagePaths(getProjectImage(project));
-                      return (
-                        <OptimizedImage
-                          src={getProjectImage(project)}
-                          alt={`${project.title} - ${project.category} investment project`}
-                          className="w-full h-full object-cover group-hover:scale-110 transition-all duration-700 ease-out"
-                          containerClassName="w-full h-full"
-                          blurDataURL={shimmerDataURL(320, 240)}
-                          avifSrcSet={responsiveImages.avifSrcSet}
-                          webpSrcSet={responsiveImages.webpSrcSet}
-                          srcSet={responsiveImages.srcSet}
-                          sizes="(max-width: 640px) 100vw, 50vw"
-                        />
-                      );
-                    })()}
-                    
-                    <Badge className={`absolute top-4 left-4 z-20 ${getStatusColor(project.status)} transition-all duration-300 group-hover:scale-110`}>
-                      {project.status.replace('_', ' ')}
-                    </Badge>
-                  </div>
+            {projects.map((project) => {
+              const theme = getTheme(project.slug);
+              const isBioMath = project.slug === 'biomath-core' || project.slug === 'biomathcore';
+              const projectImage = isBioMath ? biomathcoreCardBg : getProjectImage(project);
 
-                  <div className="flex-1 flex flex-col">
-                    <CardHeader className="flex-1 space-y-3">
-                      <div className="flex items-start justify-between gap-4">
-                        <CardTitle className="text-2xl font-bold group-hover:text-primary transition-colors duration-300 leading-tight flex items-center gap-3">
-                          {project.slug === 'baseline' && (
-                            <img src={baselineLogo} alt="BaseLine logo" className="h-8 rounded" />
-                          )}
-                          {project.slug === 'saven' && (
-                            <img src={savenLogo} alt="SAVEN logo" className="h-8 rounded" />
-                          )}
-                          {project.title}
-                        </CardTitle>
-                        <Badge className="bg-background/95 backdrop-blur-sm border-primary/20 shadow-lg transition-all duration-300 group-hover:scale-110 shrink-0">
-                          {project.category}
+              return (
+                <Link key={project.id} to={`/projects/${project.slug}`} className="group block">
+                  <Card className={`overflow-hidden border ${theme.border} bg-card shadow-elegant hover:shadow-elevated transition-all duration-500 hover:-translate-y-1 cursor-pointer`}>
+                    <div className="flex flex-col md:flex-row">
+                      <div className="relative w-full md:w-80 h-48 overflow-hidden bg-muted">
+                        <div className={`absolute inset-0 bg-gradient-to-r ${theme.from} ${theme.to} z-10 opacity-60`} />
+                        {isBioMath ? (
+                          <img src={projectImage} alt={project.title} className="w-full h-full object-cover group-hover:scale-110 transition-all duration-700" />
+                        ) : (
+                          (() => {
+                            const responsiveImages = getResponsiveImagePaths(projectImage);
+                            return (
+                              <OptimizedImage
+                                src={projectImage}
+                                alt={`${project.title} - ${project.category}`}
+                                className="w-full h-full object-cover group-hover:scale-110 transition-all duration-700 ease-out"
+                                containerClassName="w-full h-full"
+                                blurDataURL={shimmerDataURL(320, 240)}
+                                avifSrcSet={responsiveImages.avifSrcSet}
+                                webpSrcSet={responsiveImages.webpSrcSet}
+                                srcSet={responsiveImages.srcSet}
+                                sizes="(max-width: 640px) 100vw, 50vw"
+                              />
+                            );
+                          })()
+                        )}
+                        <Badge className={`absolute top-3 left-3 z-20 ${getStatusColor(project.status)} text-xs`}>
+                          {project.status.replace('_', ' ')}
                         </Badge>
                       </div>
-                      <CardDescription className="text-base leading-relaxed">
-                        {project.short_description}
-                      </CardDescription>
-                    </CardHeader>
 
-                    <CardContent className="pt-0">
-                      <div className="text-sm text-muted-foreground leading-relaxed">
-                        Investment details available upon inquiry
+                      <div className="flex-1 flex flex-col">
+                        <CardHeader className="flex-1 space-y-2">
+                          <div className="flex items-start justify-between gap-4">
+                            <CardTitle className={`text-xl font-bold ${theme.accent} transition-colors duration-300 leading-tight flex items-center gap-3`}>
+                              {project.slug === 'baseline' && <img src={baselineLogo} alt="" className="h-7 rounded" />}
+                              {project.slug === 'saven' && <img src={savenLogo} alt="" className="h-7 rounded" />}
+                              {isBioMath && <img src={biomathcoreLogoBanner} alt="" className="h-7 object-contain" />}
+                              {project.title}
+                            </CardTitle>
+                            <Badge className={`${theme.border} bg-black/40 backdrop-blur-sm text-white text-xs shrink-0`}>
+                              {theme.label}
+                            </Badge>
+                          </div>
+                          <CardDescription className="text-sm leading-relaxed">
+                            {project.short_description}
+                          </CardDescription>
+                        </CardHeader>
+
+                        <CardFooter className="pt-0 pb-4">
+                          <div className={`flex items-center gap-2 ${theme.btnBg} text-white rounded-lg px-5 py-2.5 text-sm font-semibold transition-all duration-300 group-hover:shadow-lg group-hover:gap-3`}>
+                            <TrendingUp className="w-4 h-4" />
+                            Explore Project
+                            <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+                          </div>
+                        </CardFooter>
                       </div>
-                    </CardContent>
-
-                    <CardFooter className="flex gap-3 pt-4">
-                      <Link to={`/projects/${project.slug}`} className="flex-1">
-                        <Button className="w-full ripple-effect group-hover:shadow-md transition-shadow" size="lg">
-                          <TrendingUp className="w-4 h-4 mr-2" />
-                          Learn More
-                        </Button>
-                      </Link>
-                      <Link to={`/projects/${project.slug}`}>
-                        <Button variant="outline" size="lg" className="ripple-effect group-hover:bg-primary group-hover:text-primary-foreground group-hover:border-primary transition-all">
-                          <ArrowRight className="w-4 h-4" />
-                        </Button>
-                      </Link>
-                    </CardFooter>
-                  </div>
-                </div>
-              </Card>
-            ))}
+                    </div>
+                  </Card>
+                </Link>
+              );
+            })}
           </div>
         )}
         </div>
