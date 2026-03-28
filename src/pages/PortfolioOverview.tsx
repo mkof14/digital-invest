@@ -302,7 +302,7 @@ const PortfolioOverview = () => {
 
   const getDescription = (slug: string, dbDesc: string) => {
     const texts = overviewTexts[slug];
-    if (texts) return lang === 'ru' ? texts.ru : texts.en;
+    if (texts) return texts[lang] || texts.en || dbDesc;
     return dbDesc;
   };
 
