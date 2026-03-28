@@ -43,7 +43,11 @@ import {
   Cpu,
   Layers,
   Activity,
-  Orbit
+  Orbit,
+  ArrowUpRight,
+  Play,
+  ChevronRight,
+  Minus
 } from "lucide-react";
 import terraaeroHero from "@/assets/projects/terraaero-hero.jpg";
 import biomathCoreHero from "@/assets/projects/biomathcore-hero.jpg";
@@ -68,16 +72,15 @@ const Index = () => {
   const { t } = useTranslation();
   const [featuredProjects, setFeaturedProjects] = useState<FeaturedProject[]>([]);
   
-  // Scroll animation hooks
-  const featuredSection = useScrollAnimation({ threshold: 0.2 });
-  const whatWeBuildSection = useScrollAnimation({ threshold: 0.2 });
-  const biomathVisionSection = useScrollAnimation({ threshold: 0.2 });
-  const whyDigitalSection = useScrollAnimation({ threshold: 0.2 });
-  const investmentSection = useScrollAnimation({ threshold: 0.2 });
-  const journeySection = useScrollAnimation({ threshold: 0.2 });
-  const faqSection = useScrollAnimation({ threshold: 0.2 });
+  const featuredSection = useScrollAnimation({ threshold: 0.15 });
+  const whatWeBuildSection = useScrollAnimation({ threshold: 0.15 });
+  const biomathVisionSection = useScrollAnimation({ threshold: 0.15 });
+  const whyDigitalSection = useScrollAnimation({ threshold: 0.15 });
+  const investmentSection = useScrollAnimation({ threshold: 0.15 });
+  const journeySection = useScrollAnimation({ threshold: 0.15 });
+  const faqSection = useScrollAnimation({ threshold: 0.15 });
+  const capabilitiesSection = useScrollAnimation({ threshold: 0.15 });
 
-  // Heading animation hooks
   const featuredHeading = useScrollAnimation({ threshold: 0.3 });
   const calculatorHeading = useScrollAnimation({ threshold: 0.3 });
   const whatWeBuildHeading = useScrollAnimation({ threshold: 0.3 });
@@ -88,7 +91,6 @@ const Index = () => {
   const journeyHeading = useScrollAnimation({ threshold: 0.3 });
   const faqHeading = useScrollAnimation({ threshold: 0.3 });
 
-  // Map slugs to actual imported images
   const projectImages: Record<string, string> = {
     'terraaero': terraaeroHero,
     'biomathcore': biomathCoreHero,
@@ -103,40 +105,19 @@ const Index = () => {
   useEffect(() => {
     fetchFeaturedProjects();
 
-    // Add FAQ structured data
     const faqData = [
-      {
-        question: "Is this a crowdfunding platform?",
-        answer: "No. Digital Invest Inc. is not a crowdfunding platform. This website is informational only. All potential participation is discussed individually offline through proper legal documentation."
-      },
-      {
-        question: "Can I invest online through this website?",
-        answer: "No. This website does not process payments or facilitate direct online investment. It provides information about our projects and allows you to submit a non-binding expression of interest."
-      },
-      {
-        question: "Are returns guaranteed?",
-        answer: "No. All investments carry risk, and returns are never guaranteed. Early-stage projects may experience delays, operational challenges, or loss of capital. Please review our Risk Disclosure page."
-      },
-      {
-        question: "What happens after I submit interest?",
-        answer: "If you submit an expression of interest, we will review your submission and may reach out personally to discuss the project, answer questions, and provide additional details. All agreements are handled offline."
-      },
-      {
-        question: "Who can participate?",
-        answer: "Participation is typically limited to qualified investors, accredited investors, or individuals who meet regulatory requirements. Requirements vary by jurisdiction and project structure."
-      },
-      {
-        question: "Why is everything handled privately?",
-        answer: "We believe in building strong, trust-based relationships with our investors. A private format allows for thorough due diligence, detailed discussions, and alignment of expectations—something mass crowdfunding platforms cannot provide."
-      }
+      { question: "Is this a crowdfunding platform?", answer: "No. Digital Invest Inc. is not a crowdfunding platform. This website is informational only." },
+      { question: "Can I invest online through this website?", answer: "No. This website does not process payments or facilitate direct online investment." },
+      { question: "Are returns guaranteed?", answer: "No. All investments carry risk, and returns are never guaranteed." },
+      { question: "What happens after I submit interest?", answer: "We will review your submission and may reach out personally to discuss the project." },
+      { question: "Who can participate?", answer: "Participation is typically limited to qualified investors or accredited investors." },
+      { question: "Why is everything handled privately?", answer: "We believe in building strong, trust-based relationships with our investors." }
     ];
 
     const faqSchema = generateFAQSchema(faqData);
     injectStructuredData(faqSchema, 'faq-structured-data');
 
-    return () => {
-      removeStructuredData('faq-structured-data');
-    };
+    return () => { removeStructuredData('faq-structured-data'); };
   }, []);
 
   const fetchFeaturedProjects = async () => {
@@ -149,7 +130,6 @@ const Index = () => {
         .order('priority', { ascending: false })
         .order('created_at', { ascending: false })
         .limit(3);
-
       if (error) throw error;
       setFeaturedProjects(data || []);
     } catch (error) {
@@ -159,14 +139,10 @@ const Index = () => {
 
   const getStatusColor = (status: string) => {
     switch (status) {
-      case 'OPEN':
-        return 'bg-success text-success-foreground';
-      case 'CLOSED':
-        return 'bg-muted text-muted-foreground';
-      case 'COMING_SOON':
-        return 'bg-info text-info-foreground';
-      default:
-        return 'bg-muted text-muted-foreground';
+      case 'OPEN': return 'bg-success text-success-foreground';
+      case 'CLOSED': return 'bg-muted text-muted-foreground';
+      case 'COMING_SOON': return 'bg-info text-info-foreground';
+      default: return 'bg-muted text-muted-foreground';
     }
   };
 
@@ -174,550 +150,430 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Navigation />
 
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden px-4 pt-32 md:pt-40">
-        <div className="absolute inset-0 bg-gradient-to-b from-background via-card/5 to-background" />
+      {/* ═══════════════════ HERO — Cinematic Split ═══════════════════ */}
+      <section className="relative min-h-[100svh] flex items-center overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-card/30" />
         <FloatingElements />
         
-        <div className="relative z-10 max-w-7xl mx-auto text-center space-y-14">
-          <div className="space-y-8 animate-fade-in">
-            <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-tight tracking-tight">
-              <span className="block text-foreground mb-2">{t('hero.strategicTitle')}</span>
-              <span className="block text-4xl md:text-5xl lg:text-6xl xl:text-7xl gradient-tech-animated">
-                {t('hero.strategicHighlight')}
-              </span>
-            </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed pt-4 font-light">
-              {t('hero.description')}
-            </p>
-          </div>
-          
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center animate-fade-in pt-8">
-            <Link to="/projects">
-              <Button size="lg" className="px-12 py-7 text-lg ripple-effect shadow-elegant hover:shadow-elevated">
-                {t('hero.exploreProjects')}
-                <TrendingUp className="ml-3 h-6 w-6" />
-              </Button>
-            </Link>
-            <Link to="/why-digital-invest">
-              <Button size="lg" variant="outline" className="px-12 py-7 text-lg ripple-effect border-2 hover:border-primary">
-                {t('hero.learnWhy')}
-                <ArrowRight className="ml-3 h-6 w-6" />
-              </Button>
-            </Link>
-          </div>
+        {/* Subtle grid lines */}
+        <div className="absolute inset-0 opacity-[0.03]" style={{
+          backgroundImage: 'linear-gradient(hsl(var(--foreground)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--foreground)) 1px, transparent 1px)',
+          backgroundSize: '80px 80px'
+        }} />
 
-          {/* Key Metrics */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-12 pt-24 max-w-6xl mx-auto animate-fade-in">
-            {[
-              { value: "25+", label: t('hero.yearsExp') },
-              { value: "5", label: t('hero.activeProjects') },
-              { value: "$19.5B", label: t('hero.exitValue') },
-              { value: "15+", label: t('hero.countriesServed') }
-            ].map((stat, index) => (
-              <div key={index} className="text-center space-y-2">
-                <div className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary">{stat.value}</div>
-                <div className="text-sm md:text-base text-muted-foreground font-medium">{stat.label}</div>
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20">
+          <div className="grid lg:grid-cols-12 gap-12 lg:gap-6 items-center">
+            {/* Left — Text */}
+            <div className="lg:col-span-7 space-y-10">
+              <div className="space-y-6 animate-fade-in">
+                <div className="inline-flex items-center gap-2 text-xs tracking-[0.2em] uppercase text-muted-foreground font-medium">
+                  <Minus className="w-4 h-4 text-primary" />
+                  Digital Invest Inc.
+                </div>
+                <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold leading-[0.95] tracking-tight">
+                  <span className="block text-foreground">{t('hero.strategicTitle')}</span>
+                  <span className="block mt-2 text-primary/80">{t('hero.strategicHighlight')}</span>
+                </h1>
+                <p className="text-lg md:text-xl text-muted-foreground max-w-xl leading-relaxed font-light">
+                  {t('hero.description')}
+                </p>
               </div>
-            ))}
+
+              <div className="flex flex-wrap gap-4 animate-fade-in">
+                <Link to="/projects">
+                  <Button size="lg" className="px-8 py-6 text-base group">
+                    {t('hero.exploreProjects')}
+                    <ArrowUpRight className="ml-2 h-5 w-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                  </Button>
+                </Link>
+                <Link to="/why-digital-invest">
+                  <Button size="lg" variant="ghost" className="px-8 py-6 text-base group text-muted-foreground hover:text-foreground">
+                    {t('hero.learnWhy')}
+                    <ChevronRight className="ml-1 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                  </Button>
+                </Link>
+              </div>
+            </div>
+
+            {/* Right — Metrics Column */}
+            <div className="lg:col-span-5 animate-fade-in">
+              <div className="grid grid-cols-2 gap-px bg-border/50 rounded-2xl overflow-hidden border border-border/50">
+                {[
+                  { value: "25+", label: t('hero.yearsExp') },
+                  { value: "5", label: t('hero.activeProjects') },
+                  { value: "$19.5B", label: t('hero.exitValue') },
+                  { value: "15+", label: t('hero.countriesServed') }
+                ].map((stat, i) => (
+                  <div key={i} className="bg-card/60 backdrop-blur-sm p-8 lg:p-10 flex flex-col justify-center text-center hover:bg-card/80 transition-colors duration-500">
+                    <div className="text-3xl lg:text-4xl xl:text-5xl font-bold text-foreground tracking-tight">{stat.value}</div>
+                    <div className="text-xs md:text-sm text-muted-foreground mt-2 font-medium">{stat.label}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
+        </div>
+
+        {/* Scroll indicator */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-pulse">
+          <div className="w-px h-10 bg-gradient-to-b from-transparent to-muted-foreground/30" />
         </div>
       </section>
 
-      {/* Search Bar Section */}
-      <section className="py-12 px-4">
+      {/* ═══════════════════ SEARCH ═══════════════════ */}
+      <section className="py-8 px-4 relative">
         <div className="max-w-2xl mx-auto">
           <SearchBar />
         </div>
       </section>
 
-      {/* BioMath Ecosystem Vision Section */}
-      <section ref={biomathVisionSection.ref} className={`py-16 px-4 overflow-hidden scroll-scale-in ${biomathVisionSection.isVisible ? 'visible' : ''}`}>
+      {/* ═══════════════════ ECOSYSTEM VISION — Editorial ═══════════════════ */}
+      <section ref={biomathVisionSection.ref} className={`py-20 md:py-28 px-4 scroll-fade-in ${biomathVisionSection.isVisible ? 'visible' : ''}`}>
         <div className="max-w-6xl mx-auto">
-          {/* Compact header */}
-          <div className="text-center mb-10 space-y-3">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-sm font-medium text-primary">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="text-primary">
-                <circle cx="12" cy="12" r="3" fill="currentColor" opacity="0.8"/>
-                <circle cx="12" cy="12" r="8" stroke="currentColor" strokeWidth="1.5" strokeDasharray="3 3"/>
-                <circle cx="12" cy="12" r="11" stroke="currentColor" strokeWidth="1" opacity="0.4"/>
-                <circle cx="12" cy="4" r="1.5" fill="currentColor" opacity="0.6"/>
-                <circle cx="19" cy="9" r="1.5" fill="currentColor" opacity="0.6"/>
-                <circle cx="19" cy="17" r="1.5" fill="currentColor" opacity="0.6"/>
-                <circle cx="5" cy="17" r="1.5" fill="currentColor" opacity="0.6"/>
-                <circle cx="5" cy="9" r="1.5" fill="currentColor" opacity="0.6"/>
-              </svg>
-              {t('ecosystem.badge')}
-            </div>
-            <h2 ref={biomathVisionHeading.ref} className={`text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-foreground animate-heading-reveal ${biomathVisionHeading.isVisible ? 'visible' : ''}`}>
-              {t('ecosystem.title')} <span className="text-primary">{t('ecosystem.titleHighlight')}</span>
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto font-light">
-              {t('ecosystem.subtitle')} <span className="text-primary font-semibold">{t('ecosystem.beginning')}</span>
-            </p>
-          </div>
-          
-          {/* Compact Visual Layout */}
-          <div className="relative">
-            {/* Connection lines SVG background */}
-            <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-[0.08]" preserveAspectRatio="none">
-              <line x1="50%" y1="30%" x2="20%" y2="70%" stroke="currentColor" strokeWidth="1"/>
-              <line x1="50%" y1="30%" x2="80%" y2="70%" stroke="currentColor" strokeWidth="1"/>
-              <line x1="50%" y1="30%" x2="50%" y2="90%" stroke="currentColor" strokeWidth="1"/>
-            </svg>
-
-            {/* Core Hub - compact */}
-            <div className="flex justify-center mb-8">
-              <div className="relative group cursor-pointer" onClick={() => window.location.href = '/projects/biomathcore'}>
-                <div className="absolute -inset-1 bg-gradient-to-r from-primary/20 via-primary/10 to-primary/20 rounded-2xl blur-lg group-hover:blur-xl transition-all duration-500 opacity-60 group-hover:opacity-100" />
-                <div className="relative flex items-center gap-5 bg-card border-2 border-primary/30 rounded-2xl px-8 py-5 group-hover:border-primary/50 transition-all duration-300">
-                  {/* Custom BioMath icon */}
-                  <div className="shrink-0 p-3 bg-primary/10 rounded-xl">
-                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" className="text-primary">
-                      <path d="M20 4C20 4 8 10 8 20C8 30 20 36 20 36C20 36 32 30 32 20C32 10 20 4 20 4Z" stroke="currentColor" strokeWidth="2" fill="currentColor" fillOpacity="0.1"/>
-                      <path d="M20 10V30M12 16H28M14 24H26" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-                      <circle cx="20" cy="20" r="3" fill="currentColor" opacity="0.6"/>
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-foreground">{t('ecosystem.coreTitle')}</h3>
-                    <p className="text-sm text-muted-foreground">{t('ecosystem.coreDesc')} <span className="font-semibold text-primary">{t('ecosystem.coreServices')}</span> · <span className="font-semibold text-primary">{t('ecosystem.coreActive')}</span></p>
-                  </div>
-                  <ArrowRight className="w-5 h-5 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all ml-2" />
-                </div>
+          <div className="grid md:grid-cols-12 gap-8 md:gap-12 items-start">
+            {/* Left label */}
+            <div className="md:col-span-4 space-y-4">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/8 border border-primary/15 text-xs font-medium text-primary tracking-wide uppercase">
+                <Orbit className="w-3.5 h-3.5" />
+                {t('ecosystem.badge')}
               </div>
+              <h2 ref={biomathVisionHeading.ref} className={`text-3xl md:text-4xl font-bold tracking-tight text-foreground leading-tight animate-heading-reveal ${biomathVisionHeading.isVisible ? 'visible' : ''}`}>
+                {t('ecosystem.title')}
+              </h2>
+              <p className="text-base text-muted-foreground leading-relaxed">
+                {t('ecosystem.subtitle')} <span className="text-primary font-semibold">{t('ecosystem.beginning')}</span>
+              </p>
+
+              {/* Core Hub CTA */}
+              <Link to="/projects/biomathcore" className="group inline-flex items-center gap-3 mt-4 p-4 rounded-xl border border-border/60 bg-card/50 hover:bg-card hover:border-primary/30 transition-all duration-300">
+                <div className="shrink-0 p-2.5 bg-primary/10 rounded-lg">
+                  <Brain className="w-6 h-6 text-primary" />
+                </div>
+                <div className="min-w-0">
+                  <div className="text-sm font-bold text-foreground">{t('ecosystem.coreTitle')}</div>
+                  <div className="text-xs text-muted-foreground"><span className="text-primary font-semibold">{t('ecosystem.coreServices')}</span> · {t('ecosystem.coreActive')}</div>
+                </div>
+                <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all shrink-0" />
+              </Link>
             </div>
 
-            {/* Service pillars - 4 compact cards */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+            {/* Right — 2x2 bento */}
+            <div className="md:col-span-8 grid grid-cols-2 gap-3">
               {[
                 { 
-                  title: t('ecosystem.dailyHealth'),
-                  desc: t('ecosystem.dailyHealthDesc'),
-                  icon: (
-                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" className="text-emerald-600 dark:text-emerald-400">
-                      <path d="M4 20L8 12L12 16L16 8L20 14L24 10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                      <circle cx="14" cy="6" r="2" fill="currentColor" opacity="0.3"/>
-                      <path d="M12 22H16M14 22V26" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-                    </svg>
-                  ),
-                  accent: "border-emerald-500/20 hover:border-emerald-500/40"
+                  title: t('ecosystem.dailyHealth'), desc: t('ecosystem.dailyHealthDesc'),
+                  icon: <Activity className="w-5 h-5" />, color: "text-emerald-500"
                 },
                 { 
-                  title: t('ecosystem.unifiedData'),
-                  desc: t('ecosystem.unifiedDataDesc'),
-                  icon: (
-                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" className="text-blue-600 dark:text-blue-400">
-                      <rect x="4" y="4" width="8" height="8" rx="2" stroke="currentColor" strokeWidth="1.5" fill="currentColor" fillOpacity="0.1"/>
-                      <rect x="16" y="4" width="8" height="8" rx="2" stroke="currentColor" strokeWidth="1.5" fill="currentColor" fillOpacity="0.1"/>
-                      <rect x="4" y="16" width="8" height="8" rx="2" stroke="currentColor" strokeWidth="1.5" fill="currentColor" fillOpacity="0.1"/>
-                      <rect x="16" y="16" width="8" height="8" rx="2" stroke="currentColor" strokeWidth="1.5" fill="currentColor" fillOpacity="0.1"/>
-                      <circle cx="14" cy="14" r="3" fill="currentColor" opacity="0.5"/>
-                    </svg>
-                  ),
-                  accent: "border-blue-500/20 hover:border-blue-500/40"
+                  title: t('ecosystem.unifiedData'), desc: t('ecosystem.unifiedDataDesc'),
+                  icon: <Cpu className="w-5 h-5" />, color: "text-blue-500"
                 },
                 { 
-                  title: t('ecosystem.selfImproving'),
-                  desc: t('ecosystem.selfImprovingDesc'),
-                  icon: (
-                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" className="text-amber-600 dark:text-amber-400">
-                      <path d="M14 4L14 24" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeDasharray="2 2"/>
-                      <path d="M8 10C8 10 14 6 20 10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-                      <path d="M6 16C6 16 14 11 22 16" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-                      <path d="M4 22C4 22 14 16 24 22" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-                      <circle cx="14" cy="4" r="2" fill="currentColor"/>
-                    </svg>
-                  ),
-                  accent: "border-amber-500/20 hover:border-amber-500/40"
+                  title: t('ecosystem.selfImproving'), desc: t('ecosystem.selfImprovingDesc'),
+                  icon: <Zap className="w-5 h-5" />, color: "text-amber-500"
                 },
                 { 
-                  title: t('ecosystem.crossSynergy'),
-                  desc: t('ecosystem.crossSynergyDesc'),
-                  icon: (
-                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" className="text-violet-600 dark:text-violet-400">
-                      <circle cx="14" cy="14" r="4" stroke="currentColor" strokeWidth="1.5" fill="currentColor" fillOpacity="0.15"/>
-                      <circle cx="6" cy="8" r="2.5" stroke="currentColor" strokeWidth="1" fill="currentColor" fillOpacity="0.1"/>
-                      <circle cx="22" cy="8" r="2.5" stroke="currentColor" strokeWidth="1" fill="currentColor" fillOpacity="0.1"/>
-                      <circle cx="6" cy="22" r="2.5" stroke="currentColor" strokeWidth="1" fill="currentColor" fillOpacity="0.1"/>
-                      <circle cx="22" cy="22" r="2.5" stroke="currentColor" strokeWidth="1" fill="currentColor" fillOpacity="0.1"/>
-                      <line x1="8" y1="9.5" x2="11" y2="12" stroke="currentColor" strokeWidth="1" opacity="0.5"/>
-                      <line x1="20" y1="9.5" x2="17" y2="12" stroke="currentColor" strokeWidth="1" opacity="0.5"/>
-                      <line x1="8" y1="20.5" x2="11" y2="17" stroke="currentColor" strokeWidth="1" opacity="0.5"/>
-                      <line x1="20" y1="20.5" x2="17" y2="17" stroke="currentColor" strokeWidth="1" opacity="0.5"/>
-                    </svg>
-                  ),
-                  accent: "border-violet-500/20 hover:border-violet-500/40"
+                  title: t('ecosystem.crossSynergy'), desc: t('ecosystem.crossSynergyDesc'),
+                  icon: <Network className="w-5 h-5" />, color: "text-violet-500"
                 }
               ].map((node, i) => (
-                <div key={i} className={`bg-card border ${node.accent} rounded-xl p-5 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md`}>
-                  <div className="mb-3">{node.icon}</div>
-                  <h4 className="text-sm font-bold text-foreground mb-1">{node.title}</h4>
+                <div key={i} className="group bg-card/50 border border-border/40 rounded-xl p-5 md:p-6 hover:bg-card hover:border-border transition-all duration-300 hover:-translate-y-0.5">
+                  <div className={`mb-3 ${node.color}`}>{node.icon}</div>
+                  <h4 className="text-sm font-bold text-foreground mb-1.5">{node.title}</h4>
                   <p className="text-xs text-muted-foreground leading-relaxed">{node.desc}</p>
                 </div>
               ))}
-            </div>
-
-            {/* Compact CTA */}
-            <div className="text-center mt-8">
-              <Button size="default" className="group" asChild>
-                <Link to="/projects">
-                  {t('ecosystem.exploreAll')}
-                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                </Link>
-              </Button>
             </div>
           </div>
         </div>
       </section>
 
-
-      <section ref={featuredSection.ref} className={`py-24 px-4 bg-card/30 section-gradient-cool scroll-fade-in ${featuredSection.isVisible ? 'visible' : ''}`}>
+      {/* ═══════════════════ FEATURED PROJECTS — Magazine Strip ═══════════════════ */}
+      <section ref={featuredSection.ref} className={`py-20 md:py-28 px-4 scroll-fade-in ${featuredSection.isVisible ? 'visible' : ''}`}>
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16 space-y-4">
-            <Badge variant="secondary" className="mb-3 text-sm">{t('featured.badge')}</Badge>
-            <h2 ref={featuredHeading.ref} className={`text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight gradient-blue-animated animate-heading-reveal ${featuredHeading.isVisible ? 'visible' : ''}`}>
-              {t('featured.title')}
-            </h2>
-            <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto font-light leading-relaxed">
-              {t('featured.subtitle')}
-            </p>
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
+            <div className="space-y-3">
+              <Badge variant="secondary" className="text-xs tracking-wide uppercase">{t('featured.badge')}</Badge>
+              <h2 ref={featuredHeading.ref} className={`text-3xl md:text-5xl font-bold tracking-tight text-foreground animate-heading-reveal ${featuredHeading.isVisible ? 'visible' : ''}`}>
+                {t('featured.title')}
+              </h2>
+              <p className="text-base md:text-lg text-muted-foreground max-w-2xl font-light">
+                {t('featured.subtitle')}
+              </p>
+            </div>
+            <Link to="/projects" className="shrink-0">
+              <Button variant="ghost" className="group text-muted-foreground hover:text-foreground">
+                {t('featured.viewAll')}
+                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </Link>
           </div>
           
           {featuredProjects.length > 0 ? (
-            <>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-                {featuredProjects.map((project, index) => (
-                    <Card key={project.id} className="group overflow-hidden border border-border/50 bg-card hover:shadow-elevated transition-all duration-300 hover:-translate-y-1 h-full flex flex-col animate-fade-in cursor-pointer" style={{ animationDelay: `${index * 0.1}s` }}>
-                      <div className="relative h-48 overflow-hidden bg-muted">
-                        <OptimizedImage
-                          src={projectImages[project.slug] || project.hero_image_url || '/placeholder.svg'}
-                          alt={`${project.title} - ${project.category} investment opportunity`}
-                          className="w-full h-full object-cover group-hover:scale-110 transition-all duration-700 ease-out"
-                          containerClassName="w-full h-full"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                        <Badge className={`absolute top-4 left-4 ${getStatusColor(project.status)}`}>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {featuredProjects.map((project, index) => (
+                <Link key={project.id} to={`/projects/${project.slug}`} className="group block">
+                  <div className="relative overflow-hidden rounded-2xl bg-card border border-border/40 hover:border-border transition-all duration-500 hover:-translate-y-1" style={{ animationDelay: `${index * 0.1}s` }}>
+                    <div className="relative h-56 overflow-hidden">
+                      <OptimizedImage
+                        src={projectImages[project.slug] || project.hero_image_url || '/placeholder.svg'}
+                        alt={`${project.title} - ${project.category}`}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700 ease-out"
+                        containerClassName="w-full h-full"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent" />
+                      <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between">
+                        <Badge className={`${getStatusColor(project.status)} text-[10px]`}>
                           {project.status.replace('_', ' ')}
                         </Badge>
-                        <Badge className="absolute top-4 right-4 bg-background/95 backdrop-blur-sm border-primary/20 text-foreground">
+                        <span className="text-xs text-foreground/70 font-medium bg-background/60 backdrop-blur-sm px-2 py-0.5 rounded-full">
                           {project.category}
-                        </Badge>
+                        </span>
                       </div>
+                    </div>
 
-                      <CardHeader className="flex-1">
-                        <CardTitle className="text-xl group-hover:text-primary transition-colors duration-300">
-                          {project.title}
-                        </CardTitle>
-                        <CardDescription className="text-base line-clamp-3 mt-2">
-                          {project.short_description}
-                        </CardDescription>
-                      </CardHeader>
-
-                      <CardFooter className="pt-4">
-                        <Button className="w-full group" asChild>
-                          <Link to={`/projects/${project.slug}`}>
-                            {t('featured.viewDetails')}
-                            <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                          </Link>
-                        </Button>
-                      </CardFooter>
-                    </Card>
-                ))}
-              </div>
-              
-              <div className="text-center">
-                <Link to="/projects">
-                  <Button size="lg" variant="outline" className="px-8 py-6 text-lg group border-2">
-                    {t('featured.viewAll')}
-                    <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                  </Button>
+                    <div className="p-5 space-y-3">
+                      <h3 className="text-lg font-bold text-foreground group-hover:text-primary transition-colors duration-300 leading-tight">
+                        {project.title}
+                      </h3>
+                      <p className="text-sm text-muted-foreground line-clamp-2 leading-relaxed">
+                        {project.short_description}
+                      </p>
+                      <div className="flex items-center text-xs text-muted-foreground group-hover:text-primary transition-colors pt-1">
+                        <span>{t('featured.viewDetails')}</span>
+                        <ArrowUpRight className="w-3.5 h-3.5 ml-1 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                      </div>
+                    </div>
+                  </div>
                 </Link>
-              </div>
-            </>
+              ))}
+            </div>
           ) : (
             <div className="text-center py-12">
               <p className="text-muted-foreground mb-6">{t('featured.noProjects')}</p>
               <Link to="/projects">
-                <Button size="lg" variant="outline">
-                  {t('featured.viewAll')}
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
+                <Button size="lg" variant="outline">{t('featured.viewAll')} <ArrowRight className="ml-2 h-5 w-5" /></Button>
               </Link>
             </div>
           )}
         </div>
       </section>
 
-      {/* ROI Calculator */}
-      <section className="py-24 px-4">
+      {/* ═══════════════════ WHAT WE BUILD — Asymmetric Bento ═══════════════════ */}
+      <section ref={whatWeBuildSection.ref} className={`py-20 md:py-28 px-4 scroll-slide-up ${whatWeBuildSection.isVisible ? 'visible' : ''}`}>
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-14 space-y-3">
+            <h2 ref={whatWeBuildHeading.ref} className={`text-3xl md:text-5xl font-bold tracking-tight text-foreground animate-heading-reveal ${whatWeBuildHeading.isVisible ? 'visible' : ''}`}>
+              {t('whatWeBuild.title')}
+            </h2>
+            <p className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto font-light">
+              {t('whatWeBuild.subtitle2')}
+            </p>
+          </div>
+          
+          {/* Bento grid: 2 large + 2 small */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {/* Large card — Health */}
+            <div className="group relative overflow-hidden rounded-2xl border border-border/40 bg-card/50 p-8 md:p-10 hover:bg-card hover:border-border transition-all duration-500 min-h-[200px] flex flex-col justify-end">
+              <div className="absolute top-6 right-6 p-3 rounded-xl bg-primary/8">
+                <Heart className="w-8 h-8 text-primary/60" />
+              </div>
+              <h3 className="text-2xl font-bold text-foreground mb-2">{t('whatWeBuild.healthTitle')}</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed max-w-sm">{t('whatWeBuild.healthDesc')}</p>
+            </div>
+
+            {/* Large card — Agro */}
+            <div className="group relative overflow-hidden rounded-2xl border border-border/40 bg-card/50 p-8 md:p-10 hover:bg-card hover:border-border transition-all duration-500 min-h-[200px] flex flex-col justify-end">
+              <div className="absolute top-6 right-6 p-3 rounded-xl bg-primary/8">
+                <Sprout className="w-8 h-8 text-primary/60" />
+              </div>
+              <h3 className="text-2xl font-bold text-foreground mb-2">{t('whatWeBuild.agroTitle')}</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed max-w-sm">{t('whatWeBuild.agroDesc')}</p>
+            </div>
+
+            {/* Small card — Food */}
+            <div className="group relative overflow-hidden rounded-2xl border border-border/40 bg-card/50 p-6 md:p-8 hover:bg-card hover:border-border transition-all duration-500 flex items-center gap-6">
+              <div className="p-3 rounded-xl bg-primary/8 shrink-0">
+                <Utensils className="w-7 h-7 text-primary/60" />
+              </div>
+              <div>
+                <h3 className="text-lg font-bold text-foreground mb-1">{t('whatWeBuild.foodTitle')}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">{t('whatWeBuild.foodDesc')}</p>
+              </div>
+            </div>
+
+            {/* Small card — Infrastructure */}
+            <div className="group relative overflow-hidden rounded-2xl border border-border/40 bg-card/50 p-6 md:p-8 hover:bg-card hover:border-border transition-all duration-500 flex items-center gap-6">
+              <div className="p-3 rounded-xl bg-primary/8 shrink-0">
+                <Network className="w-7 h-7 text-primary/60" />
+              </div>
+              <div>
+                <h3 className="text-lg font-bold text-foreground mb-1">{t('whatWeBuild.infraTitle')}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">{t('whatWeBuild.infraDesc')}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════ ROI CALCULATOR ═══════════════════ */}
+      <section className="py-20 md:py-28 px-4">
         <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-16 space-y-4">
-            <h2 ref={calculatorHeading.ref} className={`text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight gradient-orange-animated animate-heading-reveal ${calculatorHeading.isVisible ? 'visible' : ''}`}>
+          <div className="text-center mb-14 space-y-3">
+            <h2 ref={calculatorHeading.ref} className={`text-3xl md:text-5xl font-bold tracking-tight text-foreground animate-heading-reveal ${calculatorHeading.isVisible ? 'visible' : ''}`}>
               {t('calculator.title')}
             </h2>
-            <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto font-light leading-relaxed">
+            <p className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto font-light">
               {t('calculator.subtitle')}
             </p>
-            <p className="text-sm text-muted-foreground">
-              {t('calculator.disclaimer')}
-            </p>
+            <p className="text-xs text-muted-foreground/70">{t('calculator.disclaimer')}</p>
           </div>
           <ROICalculator />
         </div>
       </section>
 
-      {/* What We Build Section */}
-      <section ref={whatWeBuildSection.ref} className={`py-24 px-4 section-gradient-mint scroll-slide-up ${whatWeBuildSection.isVisible ? 'visible' : ''}`}>
+      {/* ═══════════════════ WHY DIGITAL INVEST — Horizontal Cards ═══════════════════ */}
+      <section ref={whyDigitalSection.ref} className={`py-20 md:py-28 px-4 scroll-scale-in ${whyDigitalSection.isVisible ? 'visible' : ''}`}>
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16 space-y-4">
-            <h2 ref={whatWeBuildHeading.ref} className={`text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight gradient-tech-animated animate-heading-reveal ${whatWeBuildHeading.isVisible ? 'visible' : ''}`}>
-              {t('whatWeBuild.title')}
-            </h2>
-            <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto font-light leading-relaxed">
-              {t('whatWeBuild.subtitle2')}
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <Card className="border border-border/50 bg-card hover:shadow-elevated transition-all duration-500 hover:-translate-y-2 group">
-              <CardContent className="pt-10 pb-8 space-y-5">
-                <div className="p-4 bg-primary/10 rounded-xl w-fit mx-auto group-hover:scale-110 transition-transform duration-300">
-                  <Heart className="w-12 h-12 text-primary" />
-                </div>
-                <h3 className="text-xl font-bold text-foreground text-center">{t('whatWeBuild.healthTitle')}</h3>
-                <p className="text-base text-muted-foreground text-center leading-relaxed">
-                  {t('whatWeBuild.healthDesc')}
-                </p>
-              </CardContent>
-            </Card>
+          <div className="flex flex-col md:flex-row gap-12 md:gap-16 items-start">
+            {/* Left sticky heading */}
+            <div className="md:w-1/3 md:sticky md:top-32 space-y-4">
+              <h2 ref={whyDigitalHeading.ref} className={`text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-foreground leading-tight animate-heading-reveal ${whyDigitalHeading.isVisible ? 'visible' : ''}`}>
+                {t('whyDigitalInvest.heroTitle')}
+              </h2>
+              <div className="w-12 h-0.5 bg-primary/40" />
+            </div>
 
-            <Card className="border border-border/50 bg-card hover:shadow-elevated transition-all duration-500 hover:-translate-y-2 group delay-100">
-              <CardContent className="pt-10 pb-8 space-y-5">
-                <div className="p-4 bg-primary/10 rounded-xl w-fit mx-auto group-hover:scale-110 transition-transform duration-300">
-                  <Sprout className="w-12 h-12 text-primary" />
+            {/* Right — stacked items */}
+            <div className="md:w-2/3 space-y-4">
+              {[
+                { icon: <Building2 className="w-5 h-5" />, text: "Five independent proprietary projects", num: "01" },
+                { icon: <BarChart3 className="w-5 h-5" />, text: "Three high-growth industries: HealthTech, AgroTech, FoodTech", num: "02" },
+                { icon: <Award className="w-5 h-5" />, text: "20+ years of operational and entrepreneurial experience", num: "03" },
+                { icon: <CheckCircle2 className="w-5 h-5" />, text: "Real platforms, not just concepts or slideware", num: "04" },
+                { icon: <Shield className="w-5 h-5" />, text: "Fully U.S.-based development and operations", num: "05" },
+                { icon: <Target className="w-5 h-5" />, text: "Long-term strategy across real-economy and AI-driven sectors", num: "06" }
+              ].map((item, i) => (
+                <div key={i} className="group flex items-start gap-5 p-5 rounded-xl border border-transparent hover:border-border/50 hover:bg-card/50 transition-all duration-300">
+                  <span className="text-xs font-mono text-muted-foreground/50 mt-1 shrink-0">{item.num}</span>
+                  <div className="text-primary/60 mt-0.5 shrink-0">{item.icon}</div>
+                  <p className="text-base md:text-lg text-foreground font-medium leading-relaxed">{item.text}</p>
                 </div>
-                <h3 className="text-xl font-bold text-foreground text-center">{t('whatWeBuild.agroTitle')}</h3>
-                <p className="text-base text-muted-foreground text-center leading-relaxed">
-                  {t('whatWeBuild.agroDesc')}
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="border border-border/50 bg-card hover:shadow-elevated transition-all duration-500 hover:-translate-y-2 group delay-200">
-              <CardContent className="pt-10 pb-8 space-y-5">
-                <div className="p-4 bg-primary/10 rounded-xl w-fit mx-auto group-hover:scale-110 transition-transform duration-300">
-                  <Utensils className="w-12 h-12 text-primary" />
-                </div>
-                <h3 className="text-xl font-bold text-foreground text-center">{t('whatWeBuild.foodTitle')}</h3>
-                <p className="text-base text-muted-foreground text-center leading-relaxed">
-                  {t('whatWeBuild.foodDesc')}
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="border border-border/50 bg-card hover:shadow-elevated transition-all duration-500 hover:-translate-y-2 group delay-300">
-              <CardContent className="pt-10 pb-8 space-y-5">
-                <div className="p-4 bg-primary/10 rounded-xl w-fit mx-auto group-hover:scale-110 transition-transform duration-300">
-                  <Network className="w-12 h-12 text-primary" />
-                </div>
-                <h3 className="text-xl font-bold text-foreground text-center">{t('whatWeBuild.infraTitle')}</h3>
-                <p className="text-base text-muted-foreground text-center leading-relaxed">
-                  {t('whatWeBuild.infraDesc')}
-                </p>
-              </CardContent>
-            </Card>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-
-
-      <section ref={whyDigitalSection.ref} className={`py-24 px-4 section-gradient-lavender scroll-scale-in ${whyDigitalSection.isVisible ? 'visible' : ''}`}>
+      {/* ═══════════════════ INVESTMENT HIGHLIGHTS — Large Number Grid ═══════════════════ */}
+      <section ref={investmentSection.ref} className={`py-20 md:py-28 px-4 scroll-fade-in ${investmentSection.isVisible ? 'visible' : ''}`}>
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16 space-y-4">
-            <h2 ref={whyDigitalHeading.ref} className={`text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight gradient-purple-animated animate-heading-reveal ${whyDigitalHeading.isVisible ? 'visible' : ''}`}>
-              {t('whyDigitalInvest.heroTitle')}
-            </h2>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {[
-              { icon: <Building2 className="w-7 h-7" />, text: "Five independent proprietary projects" },
-              { icon: <BarChart3 className="w-7 h-7" />, text: "Three high-growth industries: HealthTech, AgroTech, FoodTech" },
-              { icon: <Award className="w-7 h-7" />, text: "20+ years of operational and entrepreneurial experience" },
-              { icon: <CheckCircle2 className="w-7 h-7" />, text: "Real platforms, not just concepts or slideware" },
-              { icon: <Shield className="w-7 h-7" />, text: "Fully U.S.-based development and operations" },
-              { icon: <Target className="w-7 h-7" />, text: "Long-term strategy across real-economy and AI-driven sectors" }
-            ].map((item, index) => (
-              <Card key={index} className="border border-border/50 bg-card hover:shadow-elevated transition-all duration-500 hover:-translate-y-1 group">
-                <CardContent className="pt-8 pb-8">
-                  <div className="flex items-start gap-5">
-                    <div className="p-3 bg-primary/10 rounded-xl flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
-                      <div className="text-primary">{item.icon}</div>
-                    </div>
-                    <p className="text-base text-foreground font-semibold leading-relaxed">{item.text}</p>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Investment Highlights Section */}
-      <section ref={investmentSection.ref} className={`py-24 px-4 bg-card/30 section-gradient-cool scroll-fade-in ${investmentSection.isVisible ? 'visible' : ''}`}>
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16 space-y-4">
-            <h2 ref={investmentHeading.ref} className={`text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight gradient-blue-animated animate-heading-reveal ${investmentHeading.isVisible ? 'visible' : ''}`}>
+          <div className="text-center mb-14 space-y-3">
+            <h2 ref={investmentHeading.ref} className={`text-3xl md:text-5xl font-bold tracking-tight text-foreground animate-heading-reveal ${investmentHeading.isVisible ? 'visible' : ''}`}>
               {t('investmentHighlights.title')}
             </h2>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-border/30 rounded-2xl overflow-hidden border border-border/30">
             {[
-              {
-                title: "Real projects",
-                description: "Structured, operational, and designed to scale over time.",
-                icon: <CheckCircle2 className="w-10 h-10" />
-              },
-              {
-                title: "Clear economics",
-                description: "Each platform has a defined business model and unit logic.",
-                icon: <LineChart className="w-10 h-10" />
-              },
-              {
-                title: "Shared infrastructure",
-                description: "Core AI, backend, analytics, and manufacturing work across the portfolio.",
-                icon: <Network className="w-10 h-10" />
-              },
-              {
-                title: "Multi-sector diversification",
-                description: "Exposure to HealthTech, AgroTech, FoodTech, and infrastructure.",
-                icon: <Target className="w-10 h-10" />
-              },
-              {
-                title: "Defined roadmaps",
-                description: "Every project has a phased, realistic roadmap instead of vague promises.",
-                icon: <FileText className="w-10 h-10" />
-              },
-              {
-                title: "Private and individual",
-                description: "No public offering. All potential participation is discussed individually.",
-                icon: <Lock className="w-10 h-10" />
-              }
-            ].map((highlight, index) => (
-              <Card key={index} className={`border border-border/50 bg-card hover:shadow-elevated transition-all duration-500 hover:-translate-y-2 group delay-${index * 100}`}>
-                <CardHeader className="space-y-4">
-                  <div className="p-4 bg-primary/10 rounded-xl w-fit group-hover:scale-110 transition-transform duration-300">
-                    <div className="text-primary">{highlight.icon}</div>
-                  </div>
-                  <CardTitle className="text-2xl font-bold">{highlight.title}</CardTitle>
-                  <CardDescription className="text-base leading-relaxed">
-                    {highlight.description}
-                  </CardDescription>
-                </CardHeader>
-              </Card>
+              { title: "Real projects", description: "Structured, operational, and designed to scale over time.", icon: <CheckCircle2 className="w-6 h-6" /> },
+              { title: "Clear economics", description: "Each platform has a defined business model and unit logic.", icon: <LineChart className="w-6 h-6" /> },
+              { title: "Shared infrastructure", description: "Core AI, backend, analytics, and manufacturing work across the portfolio.", icon: <Network className="w-6 h-6" /> },
+              { title: "Multi-sector diversification", description: "Exposure to HealthTech, AgroTech, FoodTech, and infrastructure.", icon: <Target className="w-6 h-6" /> },
+              { title: "Defined roadmaps", description: "Every project has a phased, realistic roadmap instead of vague promises.", icon: <FileText className="w-6 h-6" /> },
+              { title: "Private and individual", description: "No public offering. All potential participation is discussed individually.", icon: <Lock className="w-6 h-6" /> }
+            ].map((h, i) => (
+              <div key={i} className="bg-card/60 p-7 md:p-8 space-y-3 hover:bg-card transition-colors duration-300">
+                <div className="text-primary/50">{h.icon}</div>
+                <h3 className="text-lg font-bold text-foreground">{h.title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">{h.description}</p>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Our Expertise Section */}
-      <section className="py-24 px-4 section-gradient-rose">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16 space-y-4">
-            <h2 ref={capabilitiesHeading.ref} className={`text-3xl md:text-5xl font-bold gradient-tech-animated animate-heading-reveal ${capabilitiesHeading.isVisible ? 'visible' : ''}`}>
+      {/* ═══════════════════ CAPABILITIES — Minimal ═══════════════════ */}
+      <section ref={capabilitiesSection.ref} className={`py-20 md:py-28 px-4 scroll-slide-up ${capabilitiesSection.isVisible ? 'visible' : ''}`}>
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-14 space-y-3">
+            <h2 ref={capabilitiesHeading.ref} className={`text-3xl md:text-4xl font-bold tracking-tight text-foreground animate-heading-reveal ${capabilitiesHeading.isVisible ? 'visible' : ''}`}>
               {t('capabilities.title')}
             </h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              {t('capabilities.subtitle')}
-            </p>
+            <p className="text-base text-muted-foreground max-w-2xl mx-auto font-light">{t('capabilities.subtitle')}</p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { icon: <Lightbulb className="w-12 h-12" />, title: t('capabilities.item1Title'), description: t('capabilities.item1Desc') },
-              { icon: <Building2 className="w-12 h-12" />, title: t('capabilities.item2Title'), description: t('capabilities.item2Desc') },
-              { icon: <Target className="w-12 h-12" />, title: t('capabilities.item3Title'), description: t('capabilities.item3Desc') },
-              { icon: <Award className="w-12 h-12" />, title: t('capabilities.item4Title'), description: t('capabilities.item4Desc') }
-            ].map((feature, index) => (
-              <Card key={index} className="hover:-translate-y-1 transition-all duration-300 border border-border/50 bg-card hover:shadow-lg">
-                <CardContent className="pt-8 pb-6 space-y-4">
-                  <div className="p-3 bg-primary/10 rounded-lg w-fit mx-auto">
-                    <div className="text-primary">{feature.icon}</div>
-                  </div>
-                  <h3 className="text-xl font-bold text-foreground text-center">{feature.title}</h3>
-                  <p className="text-sm text-muted-foreground text-center leading-relaxed">{feature.description}</p>
-                </CardContent>
-              </Card>
+              { icon: <Lightbulb className="w-8 h-8" />, title: t('capabilities.item1Title'), desc: t('capabilities.item1Desc') },
+              { icon: <Building2 className="w-8 h-8" />, title: t('capabilities.item2Title'), desc: t('capabilities.item2Desc') },
+              { icon: <Target className="w-8 h-8" />, title: t('capabilities.item3Title'), desc: t('capabilities.item3Desc') },
+              { icon: <Award className="w-8 h-8" />, title: t('capabilities.item4Title'), desc: t('capabilities.item4Desc') }
+            ].map((cap, i) => (
+              <div key={i} className="text-center space-y-3 p-6">
+                <div className="inline-flex p-3 rounded-xl bg-muted/50 text-primary/60">{cap.icon}</div>
+                <h3 className="text-base font-bold text-foreground">{cap.title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">{cap.desc}</p>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Investment Journey Section */}
-      <section className="py-24 px-4 bg-card/30 section-gradient-warm">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16 space-y-4">
-            <h2 ref={journeyHeading.ref} className={`text-3xl md:text-5xl font-bold gradient-orange-animated animate-heading-reveal ${journeyHeading.isVisible ? 'visible' : ''}`}>
+      {/* ═══════════════════ JOURNEY — Horizontal Timeline ═══════════════════ */}
+      <section ref={journeySection.ref} className={`py-20 md:py-28 px-4 scroll-fade-in ${journeySection.isVisible ? 'visible' : ''}`}>
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-14 space-y-3">
+            <h2 ref={journeyHeading.ref} className={`text-3xl md:text-4xl font-bold tracking-tight text-foreground animate-heading-reveal ${journeyHeading.isVisible ? 'visible' : ''}`}>
               {t('journey.title')}
             </h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              {t('journey.subtitle')}
-            </p>
+            <p className="text-base text-muted-foreground max-w-2xl mx-auto font-light">{t('journey.subtitle')}</p>
           </div>
           
-          <div className="space-y-8 max-w-4xl mx-auto">
-            {[
-              { step: "1", title: t('journey.step1Title'), description: t('journey.step1Desc'), icon: <Search className="w-6 h-6" /> },
-              { step: "2", title: t('journey.step2Title'), description: t('journey.step2Desc'), icon: <Mail className="w-6 h-6" /> },
-              { step: "3", title: t('journey.step3Title'), description: t('journey.step3Desc'), icon: <Users className="w-6 h-6" /> },
-              { step: "4", title: t('journey.step4Title'), description: t('journey.step4Desc'), icon: <Search className="w-6 h-6" /> },
-              { step: "5", title: t('journey.step5Title'), description: t('journey.step5Desc'), icon: <FileText className="w-6 h-6" /> },
-              { step: "6", title: t('journey.step6Title'), description: t('journey.step6Desc'), icon: <TrendingUp className="w-6 h-6" /> }
-            ].map((item, index) => (
-              <Card key={index} className="border border-border/50 bg-card hover:shadow-lg transition-all duration-300">
-                <CardContent className="pt-6 pb-6">
-                  <div className="flex items-start gap-6">
-                    <div className="flex-shrink-0">
-                      <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                        <span className="text-xl font-bold text-primary">{item.step}</span>
-                      </div>
-                    </div>
-                    <div className="flex-1 space-y-2">
-                      <div className="flex items-center gap-3">
-                        <h3 className="text-xl font-bold text-foreground">{item.title}</h3>
-                        <div className="text-primary">{item.icon}</div>
-                      </div>
-                      <p className="text-sm text-muted-foreground leading-relaxed">
-                        {item.description}
-                      </p>
-                    </div>
+          {/* Timeline */}
+          <div className="relative">
+            {/* Connecting line */}
+            <div className="hidden md:block absolute top-6 left-0 right-0 h-px bg-border" />
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-6 md:gap-4">
+              {[
+                { step: "1", title: t('journey.step1Title'), desc: t('journey.step1Desc'), icon: <Search className="w-4 h-4" /> },
+                { step: "2", title: t('journey.step2Title'), desc: t('journey.step2Desc'), icon: <Mail className="w-4 h-4" /> },
+                { step: "3", title: t('journey.step3Title'), desc: t('journey.step3Desc'), icon: <Users className="w-4 h-4" /> },
+                { step: "4", title: t('journey.step4Title'), desc: t('journey.step4Desc'), icon: <Search className="w-4 h-4" /> },
+                { step: "5", title: t('journey.step5Title'), desc: t('journey.step5Desc'), icon: <FileText className="w-4 h-4" /> },
+                { step: "6", title: t('journey.step6Title'), desc: t('journey.step6Desc'), icon: <TrendingUp className="w-4 h-4" /> }
+              ].map((item, i) => (
+                <div key={i} className="relative text-center space-y-3">
+                  {/* Step dot */}
+                  <div className="mx-auto w-12 h-12 rounded-full bg-card border-2 border-border flex items-center justify-center text-sm font-bold text-primary relative z-10">
+                    {item.step}
                   </div>
-                </CardContent>
-              </Card>
-            ))}
+                  <h3 className="text-sm font-bold text-foreground leading-tight">{item.title}</h3>
+                  <p className="text-xs text-muted-foreground leading-relaxed">{item.desc}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* FAQ Section */}
-      <section className="py-24 px-4 section-gradient-lavender">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-16 space-y-4">
-            <h2 ref={faqHeading.ref} className={`text-3xl md:text-5xl font-bold gradient-purple-animated animate-heading-reveal ${faqHeading.isVisible ? 'visible' : ''}`}>
+      {/* ═══════════════════ FAQ — Clean ═══════════════════ */}
+      <section ref={faqSection.ref} className={`py-20 md:py-28 px-4 scroll-fade-in ${faqSection.isVisible ? 'visible' : ''}`}>
+        <div className="max-w-3xl mx-auto">
+          <div className="text-center mb-12 space-y-3">
+            <h2 ref={faqHeading.ref} className={`text-3xl md:text-4xl font-bold tracking-tight text-foreground animate-heading-reveal ${faqHeading.isVisible ? 'visible' : ''}`}>
               {t('indexFaq.title')}
             </h2>
           </div>
           
-          <Accordion type="single" collapsible className="space-y-4">
+          <Accordion type="single" collapsible className="space-y-2">
             {[1,2,3,4,5,6].map((i) => (
-              <AccordionItem key={i} value={`item-${i}`} className="border border-border/50 bg-card rounded-lg px-6">
-                <AccordionTrigger className="text-lg font-semibold text-foreground hover:text-primary">
+              <AccordionItem key={i} value={`item-${i}`} className="border-b border-border/30 px-0">
+                <AccordionTrigger className="text-base font-medium text-foreground hover:text-primary py-5">
                   {t(`indexFaq.q${i}`)}
                 </AccordionTrigger>
-                <AccordionContent className="text-base text-muted-foreground leading-relaxed">
+                <AccordionContent className="text-sm text-muted-foreground leading-relaxed pb-5">
                   {t(`indexFaq.a${i}`)}
                 </AccordionContent>
               </AccordionItem>
@@ -726,75 +582,76 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Contact Section */}
-      <section className="py-24 px-4 bg-card/30 section-gradient-mint">
-        <div className="max-w-4xl mx-auto text-center space-y-8">
-          <h2 className="text-3xl md:text-5xl font-bold text-foreground">
-            Partner With Us
-          </h2>
-          
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Explore investment opportunities in our innovative biotechnology projects. 
-            Contact our team to learn more about strategic partnerships and funding options.
-          </p>
-          
-          <div className="flex flex-col sm:flex-row gap-4 justify-center pt-6">
-            <Link to="/start-investing">
-              <Button size="lg" className="px-10 py-6 text-base">
-                Investment Information
-                <TrendingUp className="ml-2 h-5 w-5" />
-              </Button>
-            </Link>
-            <Link to="/team">
-              <Button size="lg" variant="outline" className="px-10 py-6 text-base">
-                Leadership Team
-                <Users className="ml-2 h-5 w-5" />
-              </Button>
-            </Link>
-          </div>
-          
-          {/* Trust Indicators */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-12 max-w-3xl mx-auto">
-            {[
-              { icon: <Shield className="w-5 h-5" />, text: "Regulatory Compliant" },
-              { icon: <Lock className="w-5 h-5" />, text: "Secure Platform" },
-              { icon: <Award className="w-5 h-5" />, text: "Industry Certified" },
-              { icon: <CheckCircle2 className="w-5 h-5" />, text: "Verified Projects" }
-            ].map((badge, index) => (
-              <div key={index} className="flex flex-col items-center space-y-2">
-                <div className="text-primary">{badge.icon}</div>
-                <span className="text-xs text-muted-foreground text-center">{badge.text}</span>
+      {/* ═══════════════════ CTA — Full-width Dramatic ═══════════════════ */}
+      <section className="py-20 md:py-28 px-4">
+        <div className="max-w-5xl mx-auto">
+          <div className="relative overflow-hidden rounded-3xl border border-border/30 bg-card/50 p-10 md:p-16 text-center">
+            {/* Decorative gradient */}
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.03] via-transparent to-primary/[0.06]" />
+            
+            <div className="relative z-10 space-y-6">
+              <h2 className="text-3xl md:text-5xl font-bold text-foreground tracking-tight">
+                Partner With Us
+              </h2>
+              <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed font-light">
+                Explore investment opportunities in our innovative biotechnology projects. 
+                Contact our team to learn more about strategic partnerships.
+              </p>
+              
+              <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
+                <Link to="/start-investing">
+                  <Button size="lg" className="px-10 py-6 text-base group">
+                    Investment Information
+                    <ArrowUpRight className="ml-2 h-5 w-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                  </Button>
+                </Link>
+                <Link to="/team">
+                  <Button size="lg" variant="outline" className="px-10 py-6 text-base group">
+                    Leadership Team
+                    <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                  </Button>
+                </Link>
               </div>
-            ))}
+              
+              <div className="flex flex-wrap justify-center gap-8 pt-10">
+                {[
+                  { icon: <Shield className="w-4 h-4" />, text: "Regulatory Compliant" },
+                  { icon: <Lock className="w-4 h-4" />, text: "Secure Platform" },
+                  { icon: <Award className="w-4 h-4" />, text: "Industry Certified" },
+                  { icon: <CheckCircle2 className="w-4 h-4" />, text: "Verified Projects" }
+                ].map((b, i) => (
+                  <div key={i} className="flex items-center gap-2 text-muted-foreground/70">
+                    {b.icon}
+                    <span className="text-xs font-medium">{b.text}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Portfolio Overview CTA */}
-      <section className="py-12 px-4">
+      <section className="py-8 px-4">
         <div className="max-w-4xl mx-auto text-center">
           <Link to="/overview">
-            <Button size="lg" variant="outline" className="gap-2 text-base border-primary/30 hover:bg-primary/5">
-              <Layers className="w-5 h-5" />
+            <Button variant="ghost" className="gap-2 text-sm text-muted-foreground hover:text-foreground group">
+              <Layers className="w-4 h-4" />
               {t('footer.overview', 'Portfolio Overview')}
-              <ArrowRight className="w-4 h-4" />
+              <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
             </Button>
           </Link>
         </div>
       </section>
 
-      {/* Compliance Disclaimer */}
-      <section className="py-12 px-4 border-t border-border/50">
-        <div className="max-w-4xl mx-auto">
-          <div className="bg-muted/30 border border-border/50 rounded-lg p-8">
-            <div className="flex items-start gap-4">
-              <Shield className="w-6 h-6 text-muted-foreground flex-shrink-0 mt-1" />
-              <div className="space-y-2">
-                <h3 className="font-semibold text-foreground">{t('disclaimerSection.title')}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  {t('disclaimerSection.text')}
-                </p>
-              </div>
+      {/* Compliance */}
+      <section className="py-10 px-4 border-t border-border/30">
+        <div className="max-w-3xl mx-auto">
+          <div className="flex items-start gap-4 p-6">
+            <Shield className="w-5 h-5 text-muted-foreground/50 flex-shrink-0 mt-0.5" />
+            <div className="space-y-1.5">
+              <h3 className="text-sm font-semibold text-foreground">{t('disclaimerSection.title')}</h3>
+              <p className="text-xs text-muted-foreground/70 leading-relaxed">{t('disclaimerSection.text')}</p>
             </div>
           </div>
         </div>
