@@ -289,9 +289,8 @@ const BioMathCore = () => {
         {/* ═══════════════════════ 20 HEALTH CATEGORIES ═══════════════════════ */}
         <section className="bg-[hsl(220,20%,6%)] border-y border-[hsl(210,15%,12%)] py-20">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-4">20 Health Categories</h2>
-            <p className="text-center text-[hsl(210,10%,55%)] mb-12 max-w-3xl mx-auto">
-              200+ specialized AI services organized across comprehensive health and wellness domains
+            <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-4">{t('projectBiomathCore.categoriesTitle')}</h2>
+            <p className="text-center text-[hsl(210,10%,55%)] mb-12 max-w-3xl mx-auto">{t('projectBiomathCore.categoriesSubtitle')}</p>
             </p>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
               {categoryData.map((cat) => {
