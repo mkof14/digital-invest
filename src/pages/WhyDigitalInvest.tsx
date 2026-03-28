@@ -116,7 +116,7 @@ const WhyDigitalInvest = () => {
       </section>
 
       {/* Execution and Experience Section */}
-      <section className="py-16 px-4 bg-card/30">
+      <section className="py-16 px-4 bg-card/30 section-gradient-lavender">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-8 text-center">
             Execution and Experience
