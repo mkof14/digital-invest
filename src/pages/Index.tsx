@@ -376,12 +376,12 @@ const Index = () => {
       <section ref={featuredSection.ref} className={`py-24 px-4 bg-card/30 section-gradient-cool scroll-fade-in ${featuredSection.isVisible ? 'visible' : ''}`}>
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16 space-y-4">
-            <Badge variant="secondary" className="mb-3 text-sm">Portfolio Projects</Badge>
+            <Badge variant="secondary" className="mb-3 text-sm">{t('featured.badge')}</Badge>
             <h2 ref={featuredHeading.ref} className={`text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight gradient-blue-animated animate-heading-reveal ${featuredHeading.isVisible ? 'visible' : ''}`}>
-              Featured Projects
+              {t('featured.title')}
             </h2>
             <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto font-light leading-relaxed">
-              Explore our portfolio of real-economy and advanced technology projects
+              {t('featured.subtitle')}
             </p>
           </div>
           
