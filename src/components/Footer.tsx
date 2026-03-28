@@ -177,7 +177,7 @@ const Footer = () => {
             {/* Risk Disclosure */}
             <div className="space-y-1.5">
               <p className="text-xs text-muted-foreground/80 leading-relaxed">
-                <span className="text-muted-foreground font-medium">Risk Disclosure:</span> All participation involves significant risk, including potential loss of capital. Private, invitation-only process. The actual legal status, structure, rights, and obligations are defined only in formal agreements executed offline, not by website content.
+                <span className="text-muted-foreground font-medium">{t('footer.riskDisclosure')}</span> {t('footer.riskDisclosureText')}
               </p>
             </div>
           </div>
