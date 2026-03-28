@@ -24,13 +24,20 @@ import {
   Network,
   Factory,
   Zap,
-  Eye
+  Eye,
+  Download,
+  Share2,
+  Mail,
+  FileText
 } from "lucide-react";
 import agronLogo from "@/assets/agron-logo.png";
 import agronHero from "@/assets/projects/agron-hero.jpg";
+import agronInfographic from "@/assets/projects/agron-infographic.jpeg";
 import DownloadInvestorBriefButton from "@/components/DownloadInvestorBriefButton";
 import OptimizedImage from "@/components/OptimizedImage";
 import InvestorPageDisclaimer from "@/components/InvestorPageDisclaimer";
+import { InfographicsGallery } from "@/components/InfographicsGallery";
+import { useToast } from "@/hooks/use-toast";
 
 const AGRON = () => {
   return (
