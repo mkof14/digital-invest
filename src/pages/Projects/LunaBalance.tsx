@@ -14,6 +14,14 @@ import lunaHero from '@/assets/projects/luna-hero.jpg';
 import lunaLogo from '@/assets/projects/luna-logo.png';
 import lunaInfographic from '@/assets/projects/luna-infographic.jpeg';
 
+const lunaInfographics: Infographic[] = [
+  {
+    src: lunaInfographic,
+    title: 'Luna: The Intelligence Layer for Women\'s Wellbeing',
+    alt: 'Luna Balance architecture and intelligence layer infographic',
+  },
+];
+
 const LunaBalance = () => {
   const [showInterestForm, setShowInterestForm] = useState(false);
   const [project, setProject] = useState<any>(null);
