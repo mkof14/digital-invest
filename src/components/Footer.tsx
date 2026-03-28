@@ -83,15 +83,15 @@ const Footer = () => {
 
           {/* MIDDLE COLUMNS - Legal & Risk */}
           <div className="space-y-4">
-            <h4 className="font-semibold text-foreground">Legal & Risk</h4>
+            <h4 className="font-semibold text-foreground">{t('footer.legal')}</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li><Link to="/legal-overview" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">Legal Overview</Link></li>
-              <li><Link to="/legal/terms" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">Terms of Use</Link></li>
-              <li><Link to="/legal/privacy" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">Privacy Policy</Link></li>
-              <li><Link to="/legal/risk-disclosure" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">Risk Disclosure</Link></li>
-              <li><Link to="/compliance" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">Compliance</Link></li>
-              <li><Link to="/risk-factors" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">Risk Factors</Link></li>
-              <li><Link to="/security" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">Security</Link></li>
+              <li><Link to="/legal-overview" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">{t('footer.legalOverview')}</Link></li>
+              <li><Link to="/legal/terms" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">{t('footer.terms')}</Link></li>
+              <li><Link to="/legal/privacy" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">{t('footer.privacy')}</Link></li>
+              <li><Link to="/legal/risk-disclosure" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">{t('footer.risk')}</Link></li>
+              <li><Link to="/compliance" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">{t('footer.compliance')}</Link></li>
+              <li><Link to="/risk-factors" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">{t('footer.riskFactors')}</Link></li>
+              <li><Link to="/security" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">{t('footer.security')}</Link></li>
             </ul>
           </div>
 
