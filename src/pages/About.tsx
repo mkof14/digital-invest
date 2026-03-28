@@ -81,7 +81,7 @@ Today, Digital Invest brings together this multi-sector expertise into a unified
       </section>
 
       {/* Our Story */}
-      <section className="py-16 px-4 bg-muted/30">
+      <section className="py-16 px-4 bg-muted/30 section-gradient-cool">
         <div className="container mx-auto max-w-4xl">
           <h2 className="text-3xl font-bold text-foreground mb-8">Our Story</h2>
           <div className="text-muted-foreground">
