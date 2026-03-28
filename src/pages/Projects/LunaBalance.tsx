@@ -226,6 +226,55 @@ const LunaBalance = () => {
           </div>
         </section>
 
+        {/* Website Link */}
+        <section className="mb-20">
+          <div className="max-w-4xl mx-auto text-center">
+            <a
+              href="https://www.luna29.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-primary hover:text-primary/80 text-lg font-medium transition-colors"
+            >
+              <ExternalLink className="w-5 h-5" />
+              www.luna29.com
+            </a>
+          </div>
+        </section>
+
+        {/* Infographics */}
+        <section className="mb-20">
+          <div className="max-w-5xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">Infographics</h2>
+            <InfographicsGallery infographics={lunaInfographics} projectTitle="Luna Balance" />
+          </div>
+        </section>
+
+        {/* Presentation Download */}
+        <section className="mb-20">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">Investor Presentation</h2>
+            <Card className="border-primary/20 hover:border-primary/40 transition-all duration-300">
+              <CardContent className="flex flex-col sm:flex-row items-center justify-between gap-4 py-6">
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
+                    <FileText className="w-6 h-6 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-lg">LUNA — Your Path to Self and Understanding Your Life</h3>
+                    <p className="text-sm text-muted-foreground">PDF Presentation</p>
+                  </div>
+                </div>
+                <a href="/documents/luna-balance-presentation.pdf" download>
+                  <Button variant="outline" className="gap-2">
+                    <Download className="w-4 h-4" />
+                    Download PDF
+                  </Button>
+                </a>
+              </CardContent>
+            </Card>
+          </div>
+        </section>
+
         {/* CTA */}
         <section className="mb-16 text-center">
           <Button size="lg" onClick={() => setShowInterestForm(true)} className="text-lg px-8">
