@@ -234,141 +234,88 @@ const Projects = () => {
         ) : viewMode === 'grid' ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 animate-fade-in">
             {projects.map((project) => {
-              // Special BioMath Core card
-              if (project.slug === 'biomath-core' || project.slug === 'biomathcore') {
-                return (
-                  <Card
-                    key={project.id}
-                    className="group overflow-hidden border border-border/50 shadow-elegant hover:shadow-elevated transition-all duration-500 hover:-translate-y-3 hover:scale-[1.02] flex flex-col md:col-span-2 lg:col-span-3 relative bg-[hsl(220,20%,6%)]"
-                  >
-                    {/* Full background image */}
-                    <div className="absolute inset-0 z-0 opacity-30 group-hover:opacity-40 transition-opacity duration-700">
-                      <img src={biomathcoreCardBg} alt="" className="w-full h-full object-cover" />
-                    </div>
-                    <div className="absolute inset-0 z-[1] bg-gradient-to-r from-[hsl(220,20%,6%)]/80 via-[hsl(220,20%,6%)]/50 to-[hsl(220,20%,6%)]/80" />
-                    
-                    <div className="relative z-10 p-8 md:p-12">
-                      {/* Logo banner */}
-                      <div className="flex flex-col md:flex-row items-start md:items-center gap-6 mb-8">
-                        <img src={biomathcoreLogoBanner} alt="BioMath Core" className="h-14 md:h-16 object-contain" />
-                        <div className="flex gap-3">
-                          <Badge className="bg-[hsl(200,80%,50%)]/20 text-[hsl(200,80%,70%)] border-[hsl(200,80%,50%)]/30">
-                            Digital Health
-                          </Badge>
-                          <Badge className={`${getStatusColor(project.status)}`}>
-                            {project.status.replace('_', ' ')}
-                          </Badge>
-                        </div>
-                      </div>
-                      
-                      <p className="text-[hsl(210,10%,75%)] text-lg md:text-xl max-w-3xl mb-8 leading-relaxed">
-                        {project.short_description}
-                      </p>
-
-                      {/* Health Categories Grid */}
-                      <div className="mb-8">
-                        <h3 className="text-[hsl(210,10%,90%)] text-sm font-semibold uppercase tracking-widest mb-4">
-                          200+ AI-Powered Services · 20 Health Categories
-                        </h3>
-                        <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-7 xl:grid-cols-10 gap-2">
-                          {biomathCategories.map((cat) => (
-                            <div
-                              key={cat}
-                              className="bg-[hsl(210,15%,12%)] border border-[hsl(210,15%,20%)] rounded-lg px-3 py-2 text-center text-xs text-[hsl(210,10%,70%)] hover:border-[hsl(200,80%,50%)]/40 hover:text-[hsl(200,80%,70%)] transition-all duration-300 cursor-default"
-                            >
-                              {cat}
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-
-                      <div className="flex gap-3">
-                        <Link to={`/projects/${project.slug}`} className="flex-1 max-w-xs">
-                          <Button className="w-full bg-[hsl(200,80%,50%)] hover:bg-[hsl(200,80%,45%)] text-white" size="lg">
-                            <TrendingUp className="w-4 h-4 mr-2" />
-                            Explore Platform
-                          </Button>
-                        </Link>
-                        <Link to={`/projects/${project.slug}`}>
-                          <Button variant="outline" size="lg" className="border-[hsl(200,80%,50%)]/30 text-[hsl(200,80%,70%)] hover:bg-[hsl(200,80%,50%)]/10">
-                            <ArrowRight className="w-4 h-4" />
-                          </Button>
-                        </Link>
-                      </div>
-                    </div>
-                  </Card>
-                );
-              }
-
-              // Standard project card
+              const theme = getTheme(project.slug);
+              const isBioMath = project.slug === 'biomath-core' || project.slug === 'biomathcore';
+              const projectImage = isBioMath ? biomathcoreCardBg : getProjectImage(project);
+              const hasLogo = project.slug === 'baseline' || project.slug === 'saven' || isBioMath;
+              
               return (
-              <Card
-                key={project.id}
-                className="group overflow-hidden border border-border/50 bg-card shadow-elegant hover:shadow-elevated transition-all duration-500 hover:-translate-y-3 hover:scale-[1.02] flex flex-col"
-              >
-                <div className="relative h-56 overflow-hidden bg-muted">
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  
-                  {(() => {
-                    const responsiveImages = getResponsiveImagePaths(getProjectImage(project));
-                    return (
-                      <OptimizedImage
-                        src={getProjectImage(project)}
-                        alt={`${project.title} - ${project.category} investment project`}
-                        className="w-full h-full object-cover group-hover:scale-110 transition-all duration-700 ease-out"
-                        containerClassName="w-full h-full"
-                        blurDataURL={shimmerDataURL(400, 300)}
-                        avifSrcSet={responsiveImages.avifSrcSet}
-                        webpSrcSet={responsiveImages.webpSrcSet}
-                        srcSet={responsiveImages.srcSet}
-                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                      />
-                    );
-                  })()}
-                  
-                  <Badge className={`absolute top-4 left-4 z-20 ${getStatusColor(project.status)} transition-all duration-300 group-hover:scale-110`}>
-                    {project.status.replace('_', ' ')}
-                  </Badge>
-                  <Badge className="absolute top-4 right-4 z-20 bg-background/95 backdrop-blur-sm border-primary/20 shadow-lg transition-all duration-300 group-hover:scale-110">
-                    {project.category}
-                  </Badge>
-                </div>
+                <Link
+                  key={project.id}
+                  to={`/projects/${project.slug}`}
+                  className="group block"
+                >
+                  <Card className={`overflow-hidden border ${theme.border} bg-card shadow-elegant hover:shadow-elevated transition-all duration-500 hover:-translate-y-3 hover:scale-[1.02] flex flex-col h-full cursor-pointer`}>
+                    {/* Image */}
+                    <div className="relative h-52 overflow-hidden bg-muted">
+                      <div className={`absolute inset-0 bg-gradient-to-t ${theme.from} ${theme.to} z-10 opacity-60`} />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent z-10" />
+                      
+                      {isBioMath ? (
+                        <img src={projectImage} alt={project.title} className="w-full h-full object-cover group-hover:scale-110 transition-all duration-700" />
+                      ) : (
+                        (() => {
+                          const responsiveImages = getResponsiveImagePaths(projectImage);
+                          return (
+                            <OptimizedImage
+                              src={projectImage}
+                              alt={`${project.title} - ${project.category}`}
+                              className="w-full h-full object-cover group-hover:scale-110 transition-all duration-700 ease-out"
+                              containerClassName="w-full h-full"
+                              blurDataURL={shimmerDataURL(400, 300)}
+                              avifSrcSet={responsiveImages.avifSrcSet}
+                              webpSrcSet={responsiveImages.webpSrcSet}
+                              srcSet={responsiveImages.srcSet}
+                              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                            />
+                          );
+                        })()
+                      )}
 
-                <CardHeader className="flex-1 space-y-3">
-                  <CardTitle className="text-2xl font-bold group-hover:text-primary transition-colors duration-300 leading-tight flex items-center gap-3">
-                    {project.slug === 'baseline' && (
-                      <img src={baselineLogo} alt="BaseLine logo" className="h-8 rounded" />
-                    )}
-                    {project.slug === 'saven' && (
-                      <img src={savenLogo} alt="SAVEN logo" className="h-8 rounded" />
-                    )}
-                    {project.title}
-                  </CardTitle>
-                  <CardDescription className="text-base leading-relaxed line-clamp-3">
-                    {project.short_description}
-                  </CardDescription>
-                </CardHeader>
+                      {/* Title overlay on image */}
+                      <div className="absolute bottom-0 left-0 right-0 z-20 p-4">
+                        <div className="flex items-center gap-2 mb-1">
+                          {project.slug === 'baseline' && <img src={baselineLogo} alt="" className="h-6 rounded" />}
+                          {project.slug === 'saven' && <img src={savenLogo} alt="" className="h-6 rounded" />}
+                          {isBioMath && <img src={biomathcoreLogoBanner} alt="" className="h-7 object-contain" />}
+                        </div>
+                        {!hasLogo && (
+                          <h3 className="text-white font-bold text-lg leading-tight drop-shadow-lg">
+                            {project.title}
+                          </h3>
+                        )}
+                      </div>
 
-                <CardContent className="pt-0">
-                  <div className="text-sm text-muted-foreground leading-relaxed">
-                    Investment details available upon inquiry
-                  </div>
-                </CardContent>
+                      <Badge className={`absolute top-3 left-3 z-20 ${getStatusColor(project.status)} text-xs`}>
+                        {project.status.replace('_', ' ')}
+                      </Badge>
+                      <Badge className={`absolute top-3 right-3 z-20 bg-black/60 backdrop-blur-sm text-white border-white/20 text-xs`}>
+                        {theme.label}
+                      </Badge>
+                    </div>
 
-                <CardFooter className="flex gap-3 pt-4">
-                  <Link to={`/projects/${project.slug}`} className="flex-1">
-                    <Button className="w-full ripple-effect group-hover:shadow-md transition-shadow" size="lg">
-                      <TrendingUp className="w-4 h-4 mr-2" />
-                      Learn More
-                    </Button>
-                  </Link>
-                  <Link to={`/projects/${project.slug}`}>
-                    <Button variant="outline" size="lg" className="ripple-effect group-hover:bg-primary group-hover:text-primary-foreground group-hover:border-primary transition-all">
-                      <ArrowRight className="w-4 h-4" />
-                    </Button>
-                  </Link>
-                </CardFooter>
-              </Card>
+                    <CardHeader className="flex-1 space-y-2 pb-2">
+                      {hasLogo && (
+                        <CardTitle className={`text-xl font-bold ${theme.accent} leading-tight`}>
+                          {project.title}
+                        </CardTitle>
+                      )}
+                      <CardDescription className="text-sm leading-relaxed line-clamp-3">
+                        {project.short_description}
+                      </CardDescription>
+                    </CardHeader>
+
+                    <CardFooter className="pt-0 pb-5">
+                      <div className={`w-full flex items-center justify-between ${theme.btnBg} ${theme.btnHover} text-white rounded-lg px-5 py-3 text-sm font-semibold transition-all duration-300 group-hover:shadow-lg group-hover:gap-3`}>
+                        <span className="flex items-center gap-2">
+                          <TrendingUp className="w-4 h-4" />
+                          Explore Project
+                        </span>
+                        <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+                      </div>
+                    </CardFooter>
+                  </Card>
+                </Link>
               );
             })}
           </div>
