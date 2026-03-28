@@ -403,23 +403,12 @@ const PortfolioOverview = () => {
 
                     <div className="relative z-10 p-6 md:p-8">
                       <div className="flex flex-col md:flex-row md:items-start gap-4 md:gap-8">
-                        {/* Left: index + logo */}
-                        <div className="flex items-center gap-4 md:flex-col md:items-center md:gap-2 shrink-0 md:w-20">
+                        {/* Left: index + dot */}
+                        <div className="flex items-center gap-4 md:flex-col md:items-center md:gap-2 shrink-0 md:w-12">
                           <span className="font-mono text-xs text-muted-foreground/50 tabular-nums">
                             {String(index + 1).padStart(2, '0')}
                           </span>
-                          <div className={`w-10 h-10 md:w-14 md:h-14 rounded-xl overflow-hidden flex items-center justify-center transition-all duration-300 ${isHovered ? 'scale-110' : ''} ${project.hero_image_url ? 'bg-transparent' : 'bg-muted/30 border border-border/30'}`}>
-                            {project.hero_image_url ? (
-                              <img 
-                                src={project.hero_image_url} 
-                                alt={project.title}
-                                className="w-full h-full object-contain p-0.5"
-                                loading="lazy"
-                              />
-                            ) : (
-                              <div className={`w-3 h-3 rounded-full ${dot}`} />
-                            )}
-                          </div>
+                          <div className={`h-2 w-2 rounded-full ${dot} transition-all duration-300 ${isHovered ? 'scale-150' : ''}`} />
                         </div>
 
                         {/* Center: content */}
