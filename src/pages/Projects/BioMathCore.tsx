@@ -3,880 +3,536 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Separator } from "@/components/ui/separator";
-import { ArrowRight, Heart, Brain, Activity, Shield, Lock, Database, Cpu, Layers, Server, FileText, AlertCircle, Globe, Rocket, ArrowLeft, Download, Images } from "lucide-react";
+import { ArrowRight, Heart, Brain, Activity, Shield, Lock, Database, Cpu, Layers, Server, FileText, AlertCircle, Globe, Rocket, ArrowLeft, Download, Images, Eye, Dna, Zap, Users, Stethoscope, Moon, Apple, Leaf, Baby, Microscope, Sparkles, MonitorSmartphone } from "lucide-react";
 import { Link } from "react-router-dom";
 import biomathCoreHero from "@/assets/projects/biomath-core-hero.jpg";
+import biomathWellness from "@/assets/projects/biomath-wellness-center.jpg";
+import biomathSupercomputer from "@/assets/projects/biomath-supercomputer.jpg";
+import biomathBlackBox from "@/assets/projects/biomath-health-blackbox.jpg";
+import biomathMeeting from "@/assets/projects/biomath-meeting-room.png";
+import biomathCardBg from "@/assets/projects/biomathcore-card-bg.png";
 import infographic1 from "@/assets/projects/biomath-core-infographic1.jpg";
 import infographic2 from "@/assets/projects/biomath-core-infographic2.jpg";
 import infographic3 from "@/assets/projects/biomath-core-infographic3.jpg";
-import DownloadInvestorBriefButton from "@/components/DownloadInvestorBriefButton";
 import InvestorPageDisclaimer from "@/components/InvestorPageDisclaimer";
 import { InfographicsGallery } from "@/components/InfographicsGallery";
 
 const infographics = [
-  {
-    src: infographic1,
-    title: "Living Digital Human Model",
-    alt: "BioMath Core: Living Digital Human Model — system principles, architecture and scale",
-  },
-  {
-    src: infographic2,
-    title: "Architecture of Digital Modeling",
-    alt: "BioMath Core: Architecture of Living Digital Modeling — fundamental principles, self-learning dynamics",
-  },
-  {
-    src: infographic3,
-    title: "Living Digital Architecture",
-    alt: "BioMath Core: Living Digital Architecture — dual opinion system, ecosystem scale and protection",
-  },
+  { src: infographic1, title: "Living Digital Human Model", alt: "BioMath Core: Living Digital Human Model" },
+  { src: infographic2, title: "Architecture of Digital Modeling", alt: "BioMath Core: Architecture of Living Digital Modeling" },
+  { src: infographic3, title: "Living Digital Architecture", alt: "BioMath Core: Living Digital Architecture" },
+];
+
+const categoryData = [
+  { name: "Critical Health", icon: Heart, color: "hsl(0,70%,55%)" },
+  { name: "Everyday Wellness", icon: Sparkles, color: "hsl(140,60%,50%)" },
+  { name: "Longevity & Anti-Aging", icon: Zap, color: "hsl(35,90%,55%)" },
+  { name: "Mental Wellness", icon: Brain, color: "hsl(270,60%,60%)" },
+  { name: "Fitness & Performance", icon: Activity, color: "hsl(330,70%,55%)" },
+  { name: "Women's Health", icon: Heart, color: "hsl(320,60%,55%)" },
+  { name: "Men's Health", icon: Shield, color: "hsl(210,70%,55%)" },
+  { name: "Beauty & Skincare", icon: Eye, color: "hsl(350,65%,55%)" },
+  { name: "Nutrition & Diet", icon: Apple, color: "hsl(120,55%,45%)" },
+  { name: "Sleep & Recovery", icon: Moon, color: "hsl(250,50%,55%)" },
+  { name: "Environmental Health", icon: Leaf, color: "hsl(160,55%,45%)" },
+  { name: "Family Health", icon: Baby, color: "hsl(30,70%,55%)" },
+  { name: "Preventive Medicine", icon: Stethoscope, color: "hsl(180,55%,45%)" },
+  { name: "Biohacking", icon: Dna, color: "hsl(280,65%,55%)" },
+  { name: "Senior Care", icon: Users, color: "hsl(45,60%,50%)" },
+  { name: "Eye-Health Suite", icon: Eye, color: "hsl(190,60%,50%)" },
+  { name: "Digital Therapeutics", icon: MonitorSmartphone, color: "hsl(240,55%,55%)" },
+  { name: "Sexual Longevity", icon: Heart, color: "hsl(340,60%,50%)" },
+  { name: "Men's Sexual Health", icon: Shield, color: "hsl(200,60%,50%)" },
+  { name: "Women's Sexual Health", icon: Heart, color: "hsl(310,55%,50%)" },
 ];
 
 const BioMathCore = () => {
-  const categories = [
-    "Critical Health", "Everyday Wellness", "Longevity & Anti-Aging", "Mental Wellness",
-    "Fitness & Performance", "Women's Health", "Men's Health", "Beauty & Skincare",
-    "Nutrition & Diet", "Sleep & Recovery", "Environmental Health", "Family Health",
-    "Preventive Medicine", "Biohacking & Performance", "Senior Care", "Eye-Health Suite",
-    "Digital Therapeutics", "Sexual Longevity", "Men's Sexual Health", "Women's Sexual Health"
-  ];
-
   return (
-    <div className="min-h-screen bg-background theme-biomath-core">
+    <div className="min-h-screen bg-[hsl(220,20%,4%)] text-[hsl(210,15%,85%)]">
       <Navigation />
       
-      <main className="container mx-auto px-4 py-8">
-        {/* Hero Section */}
-        <section className="relative py-32 -mx-4 px-4 overflow-hidden mb-16">
-          <div 
-            className="absolute inset-0 z-0"
-            style={{
-              backgroundImage: `url(${biomathCoreHero})`,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-            }}
-          >
-            <div className="absolute inset-0 bg-gradient-to-r from-[hsl(195,80%,8%)]/95 via-background/90 to-background/60" />
-          </div>
+      {/* ═══════════════════════ HERO ═══════════════════════ */}
+      <section className="relative min-h-[85vh] flex items-center overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img src={biomathCardBg} alt="" className="w-full h-full object-cover opacity-40" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[hsl(220,20%,4%)]/60 via-[hsl(220,20%,4%)]/30 to-[hsl(220,20%,4%)]" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[hsl(220,20%,4%)]/90 via-transparent to-[hsl(220,20%,4%)]/70" />
+        </div>
 
-          <div className="container mx-auto relative z-10">
-            <div className="max-w-4xl">
-              <Link to="/projects" className="animate-fade-in">
-                <Button variant="ghost" size="sm" className="mb-6 hover:bg-background/80">
-                  <ArrowLeft className="w-4 h-4 mr-2" />
-                  Back to Projects
+        <div className="container mx-auto px-4 relative z-10 py-32">
+          <Link to="/projects" className="inline-block mb-8">
+            <Button variant="ghost" size="sm" className="text-[hsl(200,80%,70%)] hover:bg-[hsl(200,80%,50%)]/10 border border-[hsl(200,80%,50%)]/20">
+              <ArrowLeft className="w-4 h-4 mr-2" />
+              Back to Projects
+            </Button>
+          </Link>
+
+          <div className="max-w-4xl">
+            <Badge className="mb-6 bg-[hsl(200,80%,50%)]/15 text-[hsl(200,80%,70%)] border-[hsl(200,80%,50%)]/30 text-sm px-4 py-1">
+              Digital Health · Foundation Platform
+            </Badge>
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-[0.95]">
+              <span className="text-white">BioMath</span>{" "}
+              <span className="text-[hsl(200,80%,55%)]">Core</span>
+            </h1>
+            <p className="text-2xl md:text-3xl font-light text-[hsl(210,15%,75%)] mb-4">
+              Where Data Meets Daily Life
+            </p>
+            <p className="text-lg text-[hsl(210,10%,60%)] max-w-2xl mb-10 leading-relaxed">
+              From sleep to cognition, from movement to mood — BioMath Core brings clarity to your health journey through 
+              intelligent real-time insights, 200+ AI-powered services, and a secure personal data vault.
+            </p>
+            <div className="flex gap-4 flex-wrap">
+              <Link to="/start-investing">
+                <Button size="lg" className="bg-[hsl(200,80%,50%)] hover:bg-[hsl(200,80%,45%)] text-white px-8">
+                  Request Information
+                  <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
               </Link>
-              <div className="flex items-center gap-6 mb-8 animate-fade-in" style={{ animationDelay: '0.1s', animationFillMode: 'backwards' }}>
-                <img 
-                  src="/lovable-uploads/biomath-core-logo.png" 
-                  alt="BioMath Core logo" 
-                  className="w-20 h-20 md:w-24 md:h-24 object-contain"
-                />
-                <div>
-                  <Badge className="mb-4 project-badge">Digital Health</Badge>
-                  <h1 className="text-4xl md:text-6xl font-bold project-glow-text">
-                    BioMath Core
-                  </h1>
+              <Button size="lg" variant="outline" asChild className="border-[hsl(200,80%,50%)]/30 text-[hsl(200,80%,70%)] hover:bg-[hsl(200,80%,50%)]/10">
+                <a href="https://biomathcore.com" target="_blank" rel="noopener noreferrer">
+                  <Globe className="h-5 w-5 mr-2" />
+                  biomathcore.com
+                </a>
+              </Button>
+              <Button size="lg" variant="outline" asChild className="border-[hsl(210,15%,25%)] text-[hsl(210,10%,65%)] hover:bg-[hsl(210,15%,12%)]">
+                <a href="/investor-briefs/biomath-core-investor-brief.pdf" download="BioMath-Core-Investor-Brief.pdf">
+                  <Download className="w-5 h-5 mr-2" />
+                  Investor Brief
+                </a>
+              </Button>
+              <Button size="lg" variant="outline" asChild className="border-[hsl(210,15%,25%)] text-[hsl(210,10%,65%)] hover:bg-[hsl(210,15%,12%)]">
+                <a href="#infographics">
+                  <Images className="w-5 h-5 mr-2" />
+                  Infographics
+                </a>
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <main className="relative z-10">
+        {/* ═══════════════════════ STATS RIBBON ═══════════════════════ */}
+        <section className="border-y border-[hsl(210,15%,15%)] bg-[hsl(220,20%,6%)]">
+          <div className="container mx-auto px-4 py-8">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+              {[
+                { value: "200+", label: "AI Services" },
+                { value: "20", label: "Health Categories" },
+                { value: "50+", label: "Device Integrations" },
+                { value: "24/7", label: "Real-Time Analysis" },
+              ].map((stat) => (
+                <div key={stat.label}>
+                  <p className="text-3xl md:text-4xl font-bold text-[hsl(200,80%,55%)]">{stat.value}</p>
+                  <p className="text-sm text-[hsl(210,10%,55%)] mt-1">{stat.label}</p>
                 </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ═══════════════════════ FOUNDATION BANNER ═══════════════════════ */}
+        <section className="container mx-auto px-4 py-16">
+          <div className="relative rounded-2xl overflow-hidden">
+            <div className="absolute inset-0">
+              <img src={biomathSupercomputer} alt="" className="w-full h-full object-cover opacity-30" />
+              <div className="absolute inset-0 bg-gradient-to-r from-[hsl(220,25%,8%)]/95 via-[hsl(220,25%,8%)]/80 to-[hsl(220,25%,8%)]/60" />
+            </div>
+            <div className="relative z-10 p-8 md:p-12 flex flex-col md:flex-row items-start gap-6">
+              <div className="w-16 h-16 rounded-2xl bg-[hsl(200,80%,50%)]/10 border border-[hsl(200,80%,50%)]/20 flex items-center justify-center flex-shrink-0">
+                <Rocket className="w-8 h-8 text-[hsl(200,80%,55%)]" />
               </div>
-              <p className="text-2xl md:text-3xl font-light text-foreground mb-4">
-                Where Data Meets Daily Life
-              </p>
-              <p className="text-xl text-muted-foreground max-w-3xl mb-8">
-                From sleep to cognition, from movement to mood — BioMath Core brings clarity to your health journey through 
-                intelligent real-time insights, 200+ AI-powered services, and a secure personal data vault.
-              </p>
-              <div className="flex gap-4 flex-wrap">
-                <Link to="/start-investing">
-                  <Button size="lg" className="px-8">
-                    Request Information
-                    <ArrowRight className="ml-2 w-5 h-5" />
-                  </Button>
-                </Link>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  asChild
-                  className="border-[hsl(var(--project-accent)/0.3)] hover:border-[hsl(var(--project-accent)/0.6)]"
-                >
-                  <a href="https://biomathcore.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
-                    <Globe className="h-5 w-5" />
-                    biomathcore.com
-                  </a>
-                </Button>
-                <Button size="lg" variant="outline" asChild>
-                  <a href="/investor-briefs/biomath-core-investor-brief.pdf" download="BioMath-Core-Investor-Brief.pdf" className="flex items-center gap-2">
-                    <Download className="w-5 h-5" />
-                    Investor Brief (PDF)
-                  </a>
-                </Button>
-                <Button size="lg" variant="outline" asChild>
-                  <a href="#infographics" className="flex items-center gap-2">
-                    <Images className="w-5 h-5" />
-                    Infographics
-                  </a>
-                </Button>
+              <div>
+                <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">
+                  Core Foundation of the BioMath Ecosystem
+                </h2>
+                <p className="text-[hsl(210,10%,65%)] text-lg leading-relaxed">
+                  BioMath Core is the central technological foundation upon which all BioMath services are built. 
+                  Today, the platform powers <span className="font-semibold text-[hsl(200,80%,65%)]">over 200 specialized AI services</span> across 
+                  20 health categories — from Critical Health and Longevity to Mental Wellness and Biohacking. 
+                  Every BioMath product in our portfolio relies on BioMath Core as its intelligent backbone.
+                </p>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Foundation Banner */}
-        <section className="mb-16 -mt-8">
-          <Card className="border-2 project-border-accent shadow-xl">
-            <CardContent className="pt-8 pb-8">
-              <div className="flex items-start gap-4">
-                <div className="w-14 h-14 rounded-full bg-[hsl(var(--project-accent)/0.1)] flex items-center justify-center flex-shrink-0 mt-1">
-                  <Rocket className="w-7 h-7 project-icon" />
-                </div>
-                <div>
-                  <h2 className="text-2xl md:text-3xl font-bold mb-3 project-heading">Core Foundation of the BioMath Ecosystem</h2>
-                  <p className="text-lg leading-relaxed">
-                    BioMath Core is the central technological foundation upon which all BioMath services are built. 
-                    Today, the platform powers <span className="font-bold project-heading">over 200 specialized AI services</span> across 
-                    20 health categories — from Critical Health and Longevity to Mental Wellness and Biohacking. 
-                    Every BioMath product in our portfolio relies on BioMath Core as its intelligent backbone for 
-                    data processing, AI analysis, and personalized insight generation.
-                  </p>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        </section>
-
-        {/* Overview - Positioned High */}
-        <section className="mb-16">
-          <Card className="border-primary/20 shadow-lg">
-            <CardContent className="pt-8 space-y-4">
-              <h2 className="text-3xl font-bold mb-4">Overview</h2>
-              <p className="text-lg leading-relaxed">
+        {/* ═══════════════════════ WELLNESS CENTER IMAGE + OVERVIEW ═══════════════════════ */}
+        <section className="container mx-auto px-4 pb-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            <div className="rounded-2xl overflow-hidden border border-[hsl(210,15%,15%)] shadow-2xl">
+              <img src={biomathWellness} alt="BioMath Core Wellness Center" className="w-full h-[400px] object-cover" />
+            </div>
+            <div className="space-y-6">
+              <h2 className="text-3xl md:text-4xl font-bold text-white">Overview</h2>
+              <p className="text-lg text-[hsl(210,10%,65%)] leading-relaxed">
                 BioMath Core is an intelligent health operating system that unifies medical records, biological data, genetic 
-                information, wearable metrics, and lifestyle inputs into a single coherent platform. The system transforms 
-                complex health data into clear, actionable insights that help individuals understand their bodies and optimize 
-                their wellbeing.
+                information, wearable metrics, and lifestyle inputs into a single coherent platform.
               </p>
-              <p className="text-lg text-muted-foreground leading-relaxed">
+              <p className="text-[hsl(210,10%,55%)] leading-relaxed">
                 Unlike fragmented health apps that track isolated metrics, BioMath Core provides comprehensive analysis across 
-                20 health categories through 200+ specialized AI services. The platform serves as your personal health intelligence 
-                layer, continuously processing data streams and delivering personalized guidance that actually makes sense.
+                20 health categories through 200+ specialized AI services — your personal health intelligence layer.
               </p>
-            </CardContent>
-          </Card>
-        </section>
-
-        <div className="project-section-divider my-12" />
-
-        {/* Core Mission */}
-        <section className="mb-16">
-          <h2 className="text-3xl font-bold mb-8">Core Mission</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <Card className="project-card">
-              <CardHeader>
-                <Heart className="w-12 h-12 project-icon mb-4" />
-                <CardTitle>Understanding, Not Overwhelm</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">
-                  Convert health signals into meaning, then into gentle supportive guidance. Provide clarity without 
-                  pressure, interpretation without anxiety. Make complex biology accessible and actionable.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="project-card">
-              <CardHeader>
-                <Shield className="w-12 h-12 project-icon mb-4" />
-                <CardTitle>Reassurance, Not Urgency</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">
-                  Build on a foundation of emotional safety. Users are learning, never failing. Guidance is invitational 
-                  rather than prescriptive, supportive rather than judgmental.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="project-card">
-              <CardHeader>
-                <Brain className="w-12 h-12 project-icon mb-4" />
-                <CardTitle>Education, Not Diagnosis</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">
-                  Help users understand how their bodies respond day-to-day. Educational, supportive, wellness-first. 
-                  Interpretation of patterns, not medical diagnosis or treatment.
-                </p>
-              </CardContent>
-            </Card>
+            </div>
           </div>
         </section>
 
-        <div className="project-section-divider my-12" />
-
-        {/* How the Platform Works */}
-        <section className="mb-16">
-          <h2 className="text-3xl font-bold mb-8">How the Platform Works</h2>
-          <div className="space-y-6">
-            <Card className="project-card">
-              <CardHeader>
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-[hsl(var(--project-accent)/0.1)] flex items-center justify-center project-icon font-bold text-xl">
-                    1
-                  </div>
-                  <CardTitle className="text-xl">Data Aggregation & Storage</CardTitle>
+        {/* ═══════════════════════ CORE MISSION ═══════════════════════ */}
+        <section className="bg-[hsl(220,20%,6%)] border-y border-[hsl(210,15%,12%)] py-20">
+          <div className="container mx-auto px-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-4">Core Mission</h2>
+            <p className="text-center text-[hsl(210,10%,55%)] mb-12 max-w-2xl mx-auto">
+              Three principles that guide every interaction within the platform
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {[
+                { icon: Heart, title: "Understanding, Not Overwhelm", desc: "Convert health signals into meaning, then into gentle supportive guidance. Make complex biology accessible and actionable.", color: "hsl(0,65%,55%)" },
+                { icon: Shield, title: "Reassurance, Not Urgency", desc: "Build on emotional safety. Users are learning, never failing. Guidance is invitational rather than prescriptive.", color: "hsl(200,80%,55%)" },
+                { icon: Brain, title: "Education, Not Diagnosis", desc: "Help users understand how their bodies respond day-to-day. Wellness-first interpretation of patterns, not medical diagnosis.", color: "hsl(270,60%,60%)" },
+              ].map((item) => (
+                <div key={item.title} className="bg-[hsl(220,18%,8%)] rounded-2xl p-8 border border-[hsl(210,15%,15%)] hover:border-[hsl(200,80%,50%)]/30 transition-all duration-500 group">
+                  <item.icon className="w-12 h-12 mb-6 transition-transform duration-500 group-hover:scale-110" style={{ color: item.color }} />
+                  <h3 className="text-xl font-bold text-white mb-3">{item.title}</h3>
+                  <p className="text-[hsl(210,10%,55%)] leading-relaxed">{item.desc}</p>
                 </div>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground leading-relaxed">
-                  Users connect health data sources: upload lab results, link wearable devices (fitness trackers, smart scales, 
-                  sleep monitors, CGM sensors), import medical records, add genetic test results, and track daily metrics like 
-                  food, exercise, mood, and energy. All data flows into the encrypted Model Archive vault where it's organized, 
-                  validated, and prepared for analysis.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="project-card">
-              <CardHeader>
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-[hsl(var(--project-accent)/0.1)] flex items-center justify-center project-icon font-bold text-xl">
-                    2
-                  </div>
-                  <CardTitle className="text-xl">Knowledge Engine Processing</CardTitle>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground leading-relaxed">
-                  Server-side knowledge engine analyzes incoming data streams, identifies patterns, correlates metrics across 
-                  categories, detects anomalies, and updates your personal health model. The engine runs continuously, processing 
-                  new information as it arrives and refining its understanding of your unique biology.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="project-card">
-              <CardHeader>
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-[hsl(var(--project-accent)/0.1)] flex items-center justify-center project-icon font-bold text-xl">
-                    3
-                  </div>
-                  <CardTitle className="text-xl">AI Insight Generation</CardTitle>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground leading-relaxed">
-                  Multiple AI models analyze your data across 20 health categories. Each category has 10+ specialized services 
-                  that examine specific aspects: sleep quality analysis, nutrition optimization, stress pattern detection, 
-                  recovery monitoring, cognitive performance tracking, metabolic health assessment, and more. AI generates 
-                  personalized insights tailored to your goals and current state.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="project-card">
-              <CardHeader>
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-[hsl(var(--project-accent)/0.1)] flex items-center justify-center project-icon font-bold text-xl">
-                    4
-                  </div>
-                  <CardTitle className="text-xl">Daily Guidance Delivery</CardTitle>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground leading-relaxed">
-                  Users receive daily personalized recommendations through clean, intuitive dashboards. Insights are presented 
-                  with context and explanation, not just numbers. Visual reports show trends over time. Smart alerts notify 
-                  when significant patterns emerge. Everything designed to inform and support rather than alarm or overwhelm.
-                </p>
-              </CardContent>
-            </Card>
+              ))}
+            </div>
           </div>
         </section>
 
-        <div className="project-section-divider my-12" />
-
-        {/* Technology Architecture */}
-        <section className="mb-16">
-          <h2 className="text-3xl font-bold mb-8">Technology & Architecture</h2>
+        {/* ═══════════════════════ HOW IT WORKS ═══════════════════════ */}
+        <section className="container mx-auto px-4 py-20">
+          <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-4">How the Platform Works</h2>
+          <p className="text-center text-[hsl(210,10%,55%)] mb-16 max-w-2xl mx-auto">
+            Four interconnected stages transform raw health data into daily actionable intelligence
+          </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <Card className="project-card">
-              <CardHeader>
-                <Lock className="w-10 h-10 project-icon mb-2" />
-                <CardTitle>Model Archive (Black Box)</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground mb-4">
-                  Encrypted vault storing all personal health data with military-grade security. Users maintain complete control 
-                  over data access and sharing. SOC 2 certified infrastructure with zero-trust architecture.
-                </p>
-                <ul className="space-y-2 text-sm text-muted-foreground">
-                  <li>• AES-256 encryption at rest and in transit</li>
-                  <li>• Blockchain-verified data integrity</li>
-                  <li>• Granular permission controls</li>
-                  <li>• HIPAA, GDPR, HITECH compliant</li>
-                </ul>
-              </CardContent>
-            </Card>
-
-            <Card className="project-card">
-              <CardHeader>
-                <Cpu className="w-10 h-10 project-icon mb-2" />
-                <CardTitle>Data Pipelines</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground mb-4">
-                  Automated data collection from 50+ integrated sources including wearables, lab systems, electronic health 
-                  records, and manual entries. Real-time processing, validation, and normalization.
-                </p>
-                <ul className="space-y-2 text-sm text-muted-foreground">
-                  <li>• Multi-source data ingestion</li>
-                  <li>• Automated quality checks</li>
-                  <li>• Real-time synchronization</li>
-                  <li>• Historical data preservation</li>
-                </ul>
-              </CardContent>
-            </Card>
-
-            <Card className="project-card">
-              <CardHeader>
-                <Server className="w-10 h-10 project-icon mb-2" />
-                <CardTitle>Knowledge Engine</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground mb-4">
-                  Server-side computational system that processes health data through mathematical models, statistical analysis, 
-                  pattern recognition algorithms, and machine learning pipelines to extract meaningful insights.
-                </p>
-                <ul className="space-y-2 text-sm text-muted-foreground">
-                  <li>• Multi-dimensional data analysis</li>
-                  <li>• Pattern correlation engine</li>
-                  <li>• Anomaly detection systems</li>
-                  <li>• Predictive modeling capabilities</li>
-                </ul>
-              </CardContent>
-            </Card>
-
-            <Card className="project-card">
-              <CardHeader>
-                <Brain className="w-10 h-10 project-icon mb-2" />
-                <CardTitle>AI Insight System</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground mb-4">
-                  Multiple specialized AI models generate category-specific insights, recommendations, and explanations. Dual-AI 
-                  analysis provides balanced perspectives validated against medical knowledge bases.
-                </p>
-                <ul className="space-y-2 text-sm text-muted-foreground">
-                  <li>• 200+ specialized AI services</li>
-                  <li>• Category-specific analysis</li>
-                  <li>• Natural language explanations</li>
-                  <li>• Continuous model improvement</li>
-                </ul>
-              </CardContent>
-            </Card>
-
-            <Card className="project-card">
-              <CardHeader>
-                <FileText className="w-10 h-10 project-icon mb-2" />
-                <CardTitle>Report Engine</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground mb-4">
-                  Generates comprehensive visual reports, trend analyses, progress tracking, and exportable summaries. Clean 
-                  dashboards present complex information in intuitive, actionable formats.
-                </p>
-                <ul className="space-y-2 text-sm text-muted-foreground">
-                  <li>• Interactive visualizations</li>
-                  <li>• Customizable dashboards</li>
-                  <li>• Exportable medical reports</li>
-                  <li>• Historical trend analysis</li>
-                </ul>
-              </CardContent>
-            </Card>
-
-            <Card className="project-card">
-              <CardHeader>
-                <Layers className="w-10 h-10 project-icon mb-2" />
-                <CardTitle>Integration Layer</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground mb-4">
-                  API infrastructure enabling connections with healthcare providers, research institutions, third-party health 
-                  apps, and medical device ecosystems while maintaining data sovereignty and security.
-                </p>
-                <ul className="space-y-2 text-sm text-muted-foreground">
-                  <li>• Secure API endpoints</li>
-                  <li>• Healthcare system integration</li>
-                  <li>• Third-party app connectivity</li>
-                  <li>• Research data sharing (opt-in)</li>
-                </ul>
-              </CardContent>
-            </Card>
+            {[
+              { step: "01", title: "Data Aggregation", desc: "Connect wearables, upload labs, import medical records, add genetic tests. All data flows into the encrypted Model Archive vault.", icon: Database },
+              { step: "02", title: "Knowledge Engine", desc: "Server-side engine analyzes data, identifies patterns, correlates metrics across categories, and updates your personal health model continuously.", icon: Server },
+              { step: "03", title: "AI Insight Generation", desc: "200+ specialized AI services examine sleep, nutrition, stress, recovery, cognition, metabolic health and generate personalized insights.", icon: Cpu },
+              { step: "04", title: "Daily Guidance", desc: "Personalized recommendations through clean dashboards. Visual reports, smart alerts, and context-rich explanations — designed to inform, not alarm.", icon: FileText },
+            ].map((item) => (
+              <div key={item.step} className="bg-[hsl(220,18%,7%)] rounded-2xl p-8 border border-[hsl(210,15%,13%)] hover:border-[hsl(200,80%,50%)]/20 transition-all duration-500 group relative overflow-hidden">
+                <span className="absolute top-6 right-8 text-6xl font-bold text-[hsl(200,80%,50%)]/8 group-hover:text-[hsl(200,80%,50%)]/15 transition-colors">{item.step}</span>
+                <item.icon className="w-10 h-10 text-[hsl(200,80%,55%)] mb-5" />
+                <h3 className="text-xl font-bold text-white mb-3">{item.title}</h3>
+                <p className="text-[hsl(210,10%,55%)] leading-relaxed">{item.desc}</p>
+              </div>
+            ))}
           </div>
         </section>
 
-        {/* Platform Architecture Infographics */}
-        <section className="mb-16" id="infographics">
-          <h2 className="text-3xl font-bold mb-8 text-center">Platform Architecture & Vision</h2>
-          <p className="text-lg text-muted-foreground text-center max-w-3xl mx-auto mb-10">
-            Visual overview of BioMath Core's living digital model, self-learning architecture, and ecosystem scale. 
-            Click any image to view full size with download, copy, and share options.
+        {/* ═══════════════════════ HEALTH BLACK BOX ═══════════════════════ */}
+        <section className="relative py-24 overflow-hidden">
+          <div className="absolute inset-0">
+            <img src={biomathBlackBox} alt="" className="w-full h-full object-cover opacity-40" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[hsl(220,20%,4%)]/95 via-[hsl(220,20%,4%)]/70 to-[hsl(220,20%,4%)]/95" />
+          </div>
+          <div className="container mx-auto px-4 relative z-10">
+            <div className="max-w-3xl mx-auto text-center">
+              <Lock className="w-16 h-16 text-[hsl(200,80%,55%)] mx-auto mb-6" />
+              <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
+                Health Black Box
+              </h2>
+              <p className="text-xl text-[hsl(210,10%,65%)] mb-8 leading-relaxed">
+                Your Model Archive — an encrypted vault storing all personal health data with military-grade security. 
+                You maintain complete control over data access, sharing, and sovereignty.
+              </p>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                {["AES-256 Encryption", "Blockchain Integrity", "Zero-Trust Architecture", "HIPAA & GDPR"].map((item) => (
+                  <div key={item} className="bg-[hsl(220,20%,8%)]/80 backdrop-blur-sm border border-[hsl(210,15%,18%)] rounded-xl px-4 py-3 text-sm text-[hsl(210,10%,70%)]">
+                    {item}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ═══════════════════════ TECHNOLOGY ARCHITECTURE ═══════════════════════ */}
+        <section className="container mx-auto px-4 py-20">
+          <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-4">Technology & Architecture</h2>
+          <p className="text-center text-[hsl(210,10%,55%)] mb-12 max-w-2xl mx-auto">
+            Six core layers powering the intelligent health operating system
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              { icon: Lock, title: "Model Archive", items: ["AES-256 encryption at rest & in transit", "Blockchain-verified data integrity", "Granular permission controls", "SOC 2 certified infrastructure"] },
+              { icon: Cpu, title: "Data Pipelines", items: ["50+ integrated data sources", "Real-time synchronization", "Automated quality checks", "Historical data preservation"] },
+              { icon: Server, title: "Knowledge Engine", items: ["Multi-dimensional analysis", "Pattern correlation engine", "Anomaly detection systems", "Predictive modeling"] },
+              { icon: Brain, title: "AI Insight System", items: ["200+ specialized AI services", "Category-specific analysis", "Natural language explanations", "Continuous model improvement"] },
+              { icon: FileText, title: "Report Engine", items: ["Interactive visualizations", "Customizable dashboards", "Exportable medical reports", "Historical trend analysis"] },
+              { icon: Layers, title: "Integration Layer", items: ["Secure API endpoints", "Healthcare system integration", "Third-party connectivity", "Research data sharing"] },
+            ].map((item) => (
+              <div key={item.title} className="bg-[hsl(220,18%,7%)] rounded-2xl p-6 border border-[hsl(210,15%,13%)] hover:border-[hsl(200,80%,50%)]/20 transition-all duration-500">
+                <item.icon className="w-10 h-10 text-[hsl(200,80%,55%)] mb-4" />
+                <h3 className="text-lg font-bold text-white mb-4">{item.title}</h3>
+                <ul className="space-y-2">
+                  {item.items.map((point) => (
+                    <li key={point} className="text-sm text-[hsl(210,10%,55%)] flex items-start gap-2">
+                      <span className="w-1 h-1 rounded-full bg-[hsl(200,80%,55%)] mt-2 flex-shrink-0" />
+                      {point}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* ═══════════════════════ INFOGRAPHICS ═══════════════════════ */}
+        <section className="container mx-auto px-4 py-16" id="infographics">
+          <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-4">Platform Architecture & Vision</h2>
+          <p className="text-center text-[hsl(210,10%,55%)] mb-10 max-w-3xl mx-auto">
+            Visual overview of BioMath Core's living digital model, self-learning architecture, and ecosystem scale
           </p>
           <InfographicsGallery infographics={infographics} projectTitle="BioMath Core" />
         </section>
 
-        <div className="project-section-divider my-12" />
-
-        {/* 20 Health Categories & 200+ Services */}
-        <section className="mb-16">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">20 Health Categories</h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              Access 200+ specialized AI services organized across comprehensive health and wellness categories. Each category 
-              contains 10+ focused services analyzing specific aspects of your health.
+        {/* ═══════════════════════ 20 HEALTH CATEGORIES ═══════════════════════ */}
+        <section className="bg-[hsl(220,20%,6%)] border-y border-[hsl(210,15%,12%)] py-20">
+          <div className="container mx-auto px-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-4">20 Health Categories</h2>
+            <p className="text-center text-[hsl(210,10%,55%)] mb-12 max-w-3xl mx-auto">
+              200+ specialized AI services organized across comprehensive health and wellness domains
             </p>
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+              {categoryData.map((cat) => {
+                const Icon = cat.icon;
+                return (
+                  <div
+                    key={cat.name}
+                    className="bg-[hsl(220,18%,8%)] border border-[hsl(210,15%,15%)] rounded-xl p-5 text-center hover:border-[hsl(200,80%,50%)]/30 transition-all duration-500 group cursor-default"
+                  >
+                    <Icon className="w-8 h-8 mx-auto mb-3 transition-transform duration-500 group-hover:scale-110" style={{ color: cat.color }} />
+                    <p className="text-sm font-medium text-[hsl(210,10%,70%)] group-hover:text-white transition-colors">{cat.name}</p>
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* Category Examples */}
+            <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6">
+              {[
+                { cat: "Critical Health", examples: "Cardiovascular monitoring, blood pressure analysis, glucose management, medication tracking, vital signs" },
+                { cat: "Longevity & Anti-Aging", examples: "Biological age calculation, senescence markers, mitochondrial function, telomere analysis, cellular optimization" },
+                { cat: "Fitness & Performance", examples: "Training optimization, recovery analysis, VO2max tracking, muscle adaptation, performance prediction" },
+                { cat: "Mental Wellness", examples: "Stress pattern detection, mood tracking, cognitive performance, mindfulness metrics, sleep quality impact" },
+              ].map((item) => (
+                <div key={item.cat} className="bg-[hsl(220,18%,8%)] border border-[hsl(210,15%,13%)] rounded-xl p-5">
+                  <p className="font-semibold text-white text-sm mb-2">{item.cat}</p>
+                  <p className="text-xs text-[hsl(210,10%,50%)] leading-relaxed">{item.examples}</p>
+                </div>
+              ))}
+            </div>
           </div>
-          
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-8">
-            {categories.map((category) => (
-              <Card key={category} className="border-primary/20 hover:border-[hsl(var(--project-accent)/0.4)] transition-all hover-scale cursor-pointer">
-                <CardContent className="p-4 text-center">
-                  <p className="text-sm font-medium">{category}</p>
-                </CardContent>
-              </Card>
+        </section>
+
+        {/* ═══════════════════════ KEY FEATURES ═══════════════════════ */}
+        <section className="container mx-auto px-4 py-20">
+          <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-12">Key Features & Capabilities</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              { icon: Brain, title: "Dual AI Analysis", desc: "Multiple AI models provide comprehensive analysis with balanced recommendations and expert validation." },
+              { icon: Activity, title: "Real-Time Monitoring", desc: "Continuous data collection from connected devices with intelligent pattern detection and automated alerts." },
+              { icon: Database, title: "Unified Health Record", desc: "All health information unified: medical history, labs, genetics, biometrics, lifestyle, and clinical notes." },
+              { icon: FileText, title: "Smart Reports", desc: "Personalized daily insights with weekly summaries, progress tracking, and clear trend visualizations." },
+              { icon: Heart, title: "Personalized Guidance", desc: "Tailored recommendations for nutrition, exercise, sleep, stress management based on your unique profile." },
+              { icon: Lock, title: "Privacy & Security", desc: "Military-grade encryption, zero-trust architecture, SOC 2 certification. Complete data sovereignty." },
+            ].map((item) => (
+              <div key={item.title} className="bg-[hsl(220,18%,7%)] rounded-2xl p-6 border border-[hsl(210,15%,13%)] hover:border-[hsl(200,80%,50%)]/20 transition-all duration-500 group">
+                <item.icon className="w-10 h-10 text-[hsl(200,80%,55%)] mb-4 transition-transform group-hover:scale-110" />
+                <h3 className="text-lg font-bold text-white mb-3">{item.title}</h3>
+                <p className="text-sm text-[hsl(210,10%,55%)] leading-relaxed">{item.desc}</p>
+              </div>
             ))}
           </div>
-
-          <Card className="border-primary/20 bg-muted/20">
-            <CardContent className="pt-8">
-              <h3 className="text-xl font-bold mb-4">Category Examples</h3>
-              <div className="space-y-4 text-muted-foreground">
-                <div>
-                  <p className="font-semibold text-foreground mb-2">Critical Health:</p>
-                  <p className="text-sm">Cardiovascular monitoring, blood pressure analysis, glucose management, medication tracking, vital signs assessment</p>
-                </div>
-                <div>
-                  <p className="font-semibold text-foreground mb-2">Longevity & Anti-Aging:</p>
-                  <p className="text-sm">Cellular health optimization, biological age calculation, senescence markers, mitochondrial function, telomere analysis</p>
-                </div>
-                <div>
-                  <p className="font-semibold text-foreground mb-2">Fitness & Performance:</p>
-                  <p className="text-sm">Training optimization, recovery analysis, VO2max tracking, muscle adaptation, performance prediction</p>
-                </div>
-                <div>
-                  <p className="font-semibold text-foreground mb-2">Mental Wellness:</p>
-                  <p className="text-sm">Stress pattern detection, mood tracking, cognitive performance, mindfulness metrics, sleep quality impact</p>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
         </section>
 
-        <div className="project-section-divider my-12" />
-
-        {/* Key Features & Capabilities */}
-        <section className="mb-16">
-          <h2 className="text-3xl font-bold mb-8">Key Features & Capabilities</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <Card className="project-card">
-              <CardHeader>
-                <Brain className="w-10 h-10 project-icon mb-2" />
-                <CardTitle>Dual AI Analysis</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">
-                  Multiple AI models provide comprehensive analysis with balanced recommendations. Expert validation ensures 
-                  insights are both scientifically sound and practically applicable to daily life.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="project-card">
-              <CardHeader>
-                <Activity className="w-10 h-10 project-icon mb-2" />
-                <CardTitle>Real-Time Monitoring</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">
-                  Continuous data collection from connected devices with intelligent processing. Automated pattern detection 
-                  identifies trends, correlations, and potential concerns before they become problems.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="project-card">
-              <CardHeader>
-                <Database className="w-10 h-10 project-icon mb-2" />
-                <CardTitle>Unified Health Record</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">
-                  All health information in one place: medical history, lab results, genetic data, biometric measurements, 
-                  lifestyle tracking, and clinical notes. Accessible, organized, and shareable on your terms.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="project-card">
-              <CardHeader>
-                <FileText className="w-10 h-10 project-icon mb-2" />
-                <CardTitle>Smart Insights & Reports</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">
-                  Personalized daily insights explaining what's happening in your body and why. Weekly summary reports track 
-                  progress, highlight patterns, and suggest adjustments. Clear visualizations make complex data understandable.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="project-card">
-              <CardHeader>
-                <Heart className="w-10 h-10 project-icon mb-2" />
-                <CardTitle>Personalized Guidance</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">
-                  Tailored recommendations for nutrition, exercise, sleep, stress management, and supplementation based on your 
-                  unique health profile, goals, and current state. Actionable advice that actually fits your life.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="project-card">
-              <CardHeader>
-                <Lock className="w-10 h-10 project-icon mb-2" />
-                <CardTitle>Privacy & Security</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">
-                  Military-grade encryption, zero-trust architecture, SOC 2 certification. You control who sees your data, 
-                  when they see it, and for how long. Complete data sovereignty and portability.
-                </p>
-              </CardContent>
-            </Card>
+        {/* ═══════════════════════ MEETING ROOM / OPERATIONAL MODEL ═══════════════════════ */}
+        <section className="relative py-20 overflow-hidden">
+          <div className="absolute inset-0">
+            <img src={biomathMeeting} alt="" className="w-full h-full object-cover opacity-20" />
+            <div className="absolute inset-0 bg-gradient-to-b from-[hsl(220,20%,4%)]/90 via-[hsl(220,20%,4%)]/80 to-[hsl(220,20%,4%)]" />
+          </div>
+          <div className="container mx-auto px-4 relative z-10">
+            <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-12">Operational Model</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {[
+                { title: "Daily User Workflow", desc: "Wake to personalized insights. Connected devices auto-track throughout the day. Real-time recommendations update as conditions change. Evening reports summarize and suggest." },
+                { title: "Service Activation", desc: "Choose categories that matter most. Activate relevant AI services. Start with a few, expand over time. Subscription scales with depth, not flat-rate." },
+                { title: "Clinical Integration", desc: "Healthcare providers receive patient-authorized access. Clinical decision support tool alongside traditional evaluation. Professional-grade exportable reports." },
+              ].map((item) => (
+                <div key={item.title} className="bg-[hsl(220,18%,8%)]/80 backdrop-blur-sm rounded-2xl p-8 border border-[hsl(210,15%,15%)]">
+                  <h3 className="text-xl font-bold text-white mb-4">{item.title}</h3>
+                  <p className="text-[hsl(210,10%,55%)] leading-relaxed">{item.desc}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 
-        <div className="project-section-divider my-12" />
-
-        {/* Operational Model */}
-        <section className="mb-16">
-          <h2 className="text-3xl font-bold mb-8">Operational Model</h2>
-          <Card className="project-card">
-            <CardContent className="pt-8 space-y-6">
-              <div>
-                <h3 className="text-xl font-bold mb-3">Daily User Workflow</h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  Users wake up to personalized daily insights based on sleep quality, recovery status, and scheduled activities. 
-                  Throughout the day, connected devices automatically track activity, heart rate, stress levels, and other metrics. 
-                  The platform analyzes this data in real-time, updating recommendations as conditions change. Evening reports 
-                  summarize the day and suggest adjustments for tomorrow.
-                </p>
-              </div>
-              <div>
-                <h3 className="text-xl font-bold mb-3">Service Activation Model</h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  Users choose which of the 20 health categories matter most to them and activate relevant AI services within 
-                  those categories. Can start with just a few services and expand over time. Subscription pricing scales with 
-                  the number and depth of activated services rather than flat-rate access to everything.
-                </p>
-              </div>
-              <div>
-                <h3 className="text-xl font-bold mb-3">Clinical Integration</h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  Healthcare providers can receive patient-authorized access to BioMath Core data and insights. Practitioners 
-                  use the platform as a clinical decision support tool, reviewing AI-generated assessments alongside traditional 
-                  medical evaluation. Generates professional reports suitable for clinical documentation.
-                </p>
-              </div>
-            </CardContent>
-          </Card>
-        </section>
-
-        <div className="project-section-divider my-12" />
-
-        {/* Who It Serves */}
-        <section className="mb-16">
-          <h2 className="text-3xl font-bold mb-8">Who It Serves</h2>
+        {/* ═══════════════════════ WHO IT SERVES ═══════════════════════ */}
+        <section className="container mx-auto px-4 py-20">
+          <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-12">Who It Serves</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <Card className="project-card">
-              <CardHeader>
-                <CardTitle>Health Optimization Seekers</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">
-                  Individuals focused on longevity, performance enhancement, disease prevention, and continuous wellness 
-                  improvement. People who want to understand their bodies deeply and optimize based on personal biology 
-                  rather than generic population averages.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="project-card">
-              <CardHeader>
-                <CardTitle>Chronic Condition Managers</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">
-                  People managing diabetes, cardiovascular conditions, autoimmune disorders, metabolic syndromes, or other 
-                  ongoing health challenges who need continuous monitoring, pattern detection, and optimization guidance.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="project-card">
-              <CardHeader>
-                <CardTitle>Athletes & Performers</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">
-                  Professional and serious amateur athletes optimizing training, recovery, nutrition, and performance through 
-                  data-driven insights. Biohackers pushing human performance boundaries with scientific precision.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="project-card">
-              <CardHeader>
-                <CardTitle>Healthcare Professionals</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">
-                  Physicians, genetic counselors, nutritionists, and wellness practitioners using advanced analytics to 
-                  enhance patient care, personalize treatment plans, and track outcomes more effectively.
-                </p>
-              </CardContent>
-            </Card>
+            {[
+              { title: "Health Optimization Seekers", desc: "Individuals focused on longevity, performance, disease prevention. Understanding their bodies through personal biology rather than generic averages." },
+              { title: "Chronic Condition Managers", desc: "Managing diabetes, cardiovascular conditions, autoimmune disorders, or metabolic syndromes with continuous monitoring and optimization guidance." },
+              { title: "Athletes & Performers", desc: "Professional and serious athletes optimizing training, recovery, nutrition through data-driven insights and biohacking precision." },
+              { title: "Healthcare Professionals", desc: "Physicians, counselors, nutritionists using advanced analytics to personalize treatment plans and track outcomes effectively." },
+            ].map((item) => (
+              <div key={item.title} className="bg-[hsl(220,18%,7%)] rounded-2xl p-8 border border-[hsl(210,15%,13%)] hover:border-[hsl(200,80%,50%)]/20 transition-all">
+                <h3 className="text-xl font-bold text-white mb-3">{item.title}</h3>
+                <p className="text-[hsl(210,10%,55%)] leading-relaxed">{item.desc}</p>
+              </div>
+            ))}
           </div>
         </section>
 
-        <div className="project-section-divider my-12" />
-
-        {/* Market Context */}
-        <section className="mb-16">
-          <h2 className="text-3xl font-bold mb-8">Market Context</h2>
-          <Card className="project-card">
-            <CardContent className="pt-8 space-y-4">
-              <p className="text-lg leading-relaxed">
-                Healthcare is drowning in data but starving for insight. Wearables generate millions of data points. Genetic 
-                testing reveals thousands of variants. Lab tests pile up in disconnected systems. Medical records fragment 
-                across providers. Yet most people cannot answer simple questions about their own health patterns or make truly 
-                informed optimization decisions.
-              </p>
-              <p className="text-muted-foreground leading-relaxed">
-                The precision medicine market is projected to reach $120+ billion globally as genomic sequencing becomes 
-                affordable, AI capabilities mature, and consumers demand personalized health solutions. However, most existing 
-                platforms focus narrowly on single domains: genetic testing companies provide raw data without context, wearable 
-                manufacturers track metrics without analysis, medical record systems store information without generating insights.
-              </p>
-              <p className="text-muted-foreground leading-relaxed">
-                BioMath Core addresses the fundamental need for health data integration, biomathematical modeling, and intelligent 
-                interpretation. The platform transforms disconnected data streams into a coherent operating system for personal 
-                health - filling the gap between data collection and actionable understanding.
-              </p>
-            </CardContent>
-          </Card>
-        </section>
-
-        <div className="project-section-divider my-12" />
-
-        {/* What Makes This Unique */}
-        <section className="mb-16">
-          <h2 className="text-3xl font-bold mb-8">What Makes BioMath Core Unique</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <Card className="project-card">
-              <CardHeader>
-                <Layers className="w-10 h-10 project-icon mb-2" />
-                <CardTitle>True Data Integration</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">
-                  Most health platforms collect data in silos. BioMath Core unifies genetics, labs, biometrics, lifestyle, and 
-                  medical history into a single biomathematical model that understands how everything interconnects and influences 
-                  each other. Correlations across categories reveal insights impossible to see in isolated data streams.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="project-card">
-              <CardHeader>
-                <Cpu className="w-10 h-10 project-icon mb-2" />
-                <CardTitle>Mathematical Rigor</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">
-                  Built on computational biology and biomathematical modeling rather than simple statistical analysis. The 
-                  system simulates biological processes, predicts outcomes, and accounts for non-linear interactions that 
-                  basic tracking apps miss entirely.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="project-card">
-              <CardHeader>
-                <Activity className="w-10 h-10 project-icon mb-2" />
-                <CardTitle>Continuous Intelligence</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">
-                  Real-time data processing and analysis means insights update as your body changes throughout the day. The 
-                  platform learns from your patterns, adapts recommendations dynamically, and provides timely guidance when it 
-                  matters most.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="project-card">
-              <CardHeader>
-                <Shield className="w-10 h-10 project-icon mb-2" />
-                <CardTitle>Emotional Safety First</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">
-                  Designed to inform and support rather than alarm or pressure. Insights presented with context and explanation. 
-                  Language emphasizes learning and optimization rather than failure and problems. Users feel empowered, not anxious.
-                </p>
-              </CardContent>
-            </Card>
+        {/* ═══════════════════════ WHAT MAKES IT UNIQUE ═══════════════════════ */}
+        <section className="bg-[hsl(220,20%,6%)] border-y border-[hsl(210,15%,12%)] py-20">
+          <div className="container mx-auto px-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-12">What Makes BioMath Core Unique</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {[
+                { icon: Layers, title: "True Data Integration", desc: "Unifies genetics, labs, biometrics, lifestyle, and medical history into a single biomathematical model. Correlations across categories reveal insights impossible in isolated data." },
+                { icon: Cpu, title: "Mathematical Rigor", desc: "Built on computational biology and biomathematical modeling. Simulates biological processes, predicts outcomes, accounts for non-linear interactions." },
+                { icon: Activity, title: "Continuous Intelligence", desc: "Real-time processing means insights update as your body changes. The platform learns, adapts dynamically, and provides timely guidance." },
+                { icon: Shield, title: "Emotional Safety First", desc: "Designed to inform and support. Language emphasizes learning and optimization. Users feel empowered, not anxious." },
+              ].map((item) => (
+                <div key={item.title} className="flex gap-5">
+                  <div className="w-12 h-12 rounded-xl bg-[hsl(200,80%,50%)]/10 border border-[hsl(200,80%,50%)]/20 flex items-center justify-center flex-shrink-0">
+                    <item.icon className="w-6 h-6 text-[hsl(200,80%,55%)]" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold text-white mb-2">{item.title}</h3>
+                    <p className="text-sm text-[hsl(210,10%,55%)] leading-relaxed">{item.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 
-        <div className="project-section-divider my-12" />
-
-        {/* Long-Term Vision */}
-        <section className="mb-16">
-          <h2 className="text-3xl font-bold mb-8">Long-Term Vision</h2>
-          <Card className="project-card">
-            <CardContent className="pt-8 space-y-4">
-              <p className="text-lg leading-relaxed">
-                BioMath Core aims to become the foundational operating system for personal health - the layer that connects 
-                all health data sources, generates unified insights, and coordinates wellness activities across your entire life. 
-                Think of it as the iOS or Android of health: the platform other health apps, devices, and services build on top of.
+        {/* ═══════════════════════ MARKET CONTEXT ═══════════════════════ */}
+        <section className="container mx-auto px-4 py-20">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Market Context</h2>
+              <p className="text-lg text-[hsl(210,10%,65%)] mb-4 leading-relaxed">
+                Healthcare is drowning in data but starving for insight. Wearables generate millions of data points. 
+                Genetic testing reveals thousands of variants. Yet most people cannot answer basic questions about their health patterns.
               </p>
-              <p className="text-muted-foreground leading-relaxed">
-                Over 5-10 years, the vision includes expanding from individual health intelligence to family health coordination, 
-                enabling parents to manage children's wellness, seniors to maintain independence through predictive monitoring, 
-                and multi-generational health pattern analysis. Integration with smart home systems for environmental health 
-                optimization, automated medication management, and seamless coordination with healthcare providers.
+              <p className="text-[hsl(210,10%,50%)] leading-relaxed mb-4">
+                The precision medicine market is projected to reach $120+ billion globally. However, most platforms focus narrowly on 
+                single domains without cross-correlation or unified intelligence.
               </p>
-              <p className="text-muted-foreground leading-relaxed">
-                The platform will evolve into a comprehensive health ecosystem where data flows effortlessly between personal 
-                tracking, clinical care, research participation, and wellness optimization. By building the largest validated 
-                database of personalized health models and outcomes, BioMath Core will drive advances in precision medicine, 
-                disease prevention, and longevity science while keeping individuals in control of their data and health decisions.
+              <p className="text-[hsl(210,10%,50%)] leading-relaxed">
+                BioMath Core fills the gap between data collection and actionable understanding — the intelligent layer that transforms 
+                disconnected streams into a coherent operating system for personal health.
               </p>
-            </CardContent>
-          </Card>
-        </section>
-
-        <div className="project-section-divider my-12" />
-
-        {/* Current Stage & Roadmap */}
-        <section className="mb-16">
-          <h2 className="text-3xl font-bold mb-8">Current Stage & Roadmap</h2>
-          <div className="space-y-6">
-            <Card className="border-primary/20 bg-primary/5">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <Globe className="w-6 h-6" />
-                  Current Stage
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">
-                  Core platform operational with 20 health categories and 200+ AI services active. Black Box data vault, 
-                  integration pipelines, knowledge engine, and reporting systems functional. Active user base testing platform 
-                  across multiple health use cases. Refining AI models based on real-world usage patterns and outcomes.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="project-card">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <Activity className="w-6 h-6" />
-                  Next 12 Months
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-2 text-muted-foreground">
-                  <li>• Launch mobile applications for iOS and Android with full feature parity</li>
-                  <li>• Expand wearable device integrations to 75+ supported devices</li>
-                  <li>• Deploy voice-enabled AI Advisor for hands-free interaction</li>
-                  <li>• Release clinical practitioner portal for healthcare provider access</li>
-                  <li>• Build API ecosystem enabling third-party health app integration</li>
-                  <li>• Establish partnerships with lab testing companies for direct result import</li>
-                </ul>
-              </CardContent>
-            </Card>
-
-            <Card className="project-card">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <Rocket className="w-6 h-6" />
-                  18-36 Months
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-2 text-muted-foreground">
-                  <li>• Deploy predictive health modeling for major chronic disease risks</li>
-                  <li>• Launch family health management tools for multi-user households</li>
-                  <li>• Integrate with electronic health record systems for seamless clinical data exchange</li>
-                  <li>• Develop enterprise wellness solutions for corporate health programs</li>
-                  <li>• Expand international availability with localized health regulations compliance</li>
-                  <li>• Build research data platform for opt-in scientific contribution</li>
-                </ul>
-              </CardContent>
-            </Card>
+            </div>
+            <div className="rounded-2xl overflow-hidden border border-[hsl(210,15%,15%)] shadow-2xl">
+              <img src={biomathSupercomputer} alt="BioMath Core technology infrastructure" className="w-full h-[350px] object-cover" />
+            </div>
           </div>
         </section>
 
-        {/* Important Notice */}
-        <Card className="mb-16 border-primary/20 bg-muted/20">
-          <CardContent className="pt-8">
-            <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
-              <AlertCircle className="w-6 h-6 text-primary" />
-              Important Notice
-            </h3>
-            <p className="text-muted-foreground leading-relaxed">
-              BioMath Core is an informational and educational wellness platform. The system provides data analysis, pattern 
-              recognition, and optimization suggestions but does not diagnose medical conditions, prescribe treatments, or 
-              replace professional medical care. All insights and recommendations are for informational purposes and should be 
-              discussed with qualified healthcare professionals before making health decisions. The platform complements but 
-              does not substitute for professional medical advice, diagnosis, or treatment.
+        {/* ═══════════════════════ LONG-TERM VISION ═══════════════════════ */}
+        <section className="bg-[hsl(220,20%,6%)] border-y border-[hsl(210,15%,12%)] py-20">
+          <div className="container mx-auto px-4 max-w-4xl text-center">
+            <Globe className="w-14 h-14 text-[hsl(200,80%,55%)] mx-auto mb-6" />
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Long-Term Vision</h2>
+            <p className="text-lg text-[hsl(210,10%,65%)] leading-relaxed mb-6">
+              BioMath Core aims to become the foundational operating system for personal health — the layer connecting 
+              all data sources, generating unified insights, and coordinating wellness across your entire life.
             </p>
-          </CardContent>
-        </Card>
+            <p className="text-[hsl(210,10%,50%)] leading-relaxed">
+              Over 5-10 years: family health coordination, senior independence through predictive monitoring, 
+              smart home integration, automated medication management, and seamless healthcare provider coordination.
+            </p>
+          </div>
+        </section>
 
-        {/* CTA Section */}
-        <Card className="bg-gradient-tech text-primary-foreground border-0 mb-16">
-          <CardContent className="py-12 text-center">
-            <Heart className="w-16 h-16 mx-auto mb-4" />
-            <h2 className="text-3xl font-bold mb-4">Learn More About BioMath Core</h2>
-            <p className="text-lg mb-8 opacity-90 max-w-2xl mx-auto">
+        {/* ═══════════════════════ ROADMAP ═══════════════════════ */}
+        <section className="container mx-auto px-4 py-20">
+          <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-12">Roadmap</h2>
+          <div className="max-w-3xl mx-auto space-y-6">
+            {[
+              { phase: "Current", icon: Globe, color: "hsl(200,80%,55%)", items: ["20 health categories & 200+ AI services active", "Black Box vault & integration pipelines operational", "Knowledge engine & reporting systems functional", "Active user base across multiple health use cases"] },
+              { phase: "Next 12 Months", icon: Activity, color: "hsl(140,60%,50%)", items: ["iOS & Android mobile apps with full feature parity", "75+ supported wearable device integrations", "Voice-enabled AI Advisor", "Clinical practitioner portal launch"] },
+              { phase: "18–36 Months", icon: Rocket, color: "hsl(35,90%,55%)", items: ["Predictive health modeling for chronic disease risks", "Family health management tools", "Enterprise corporate wellness solutions", "International expansion with localized compliance"] },
+            ].map((phase) => (
+              <div key={phase.phase} className="bg-[hsl(220,18%,7%)] rounded-2xl p-8 border border-[hsl(210,15%,13%)] relative overflow-hidden">
+                <div className="absolute top-0 left-0 w-1 h-full" style={{ backgroundColor: phase.color }} />
+                <div className="flex items-center gap-3 mb-5">
+                  <phase.icon className="w-6 h-6" style={{ color: phase.color }} />
+                  <h3 className="text-xl font-bold text-white">{phase.phase}</h3>
+                </div>
+                <ul className="space-y-2">
+                  {phase.items.map((item) => (
+                    <li key={item} className="text-sm text-[hsl(210,10%,55%)] flex items-start gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full mt-1.5 flex-shrink-0" style={{ backgroundColor: phase.color }} />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* ═══════════════════════ IMPORTANT NOTICE ═══════════════════════ */}
+        <section className="container mx-auto px-4 pb-16">
+          <div className="bg-[hsl(220,18%,8%)] border border-[hsl(35,60%,40%)]/30 rounded-2xl p-8">
+            <div className="flex items-start gap-4">
+              <AlertCircle className="w-6 h-6 text-[hsl(35,70%,55%)] flex-shrink-0 mt-1" />
+              <div>
+                <h3 className="text-lg font-bold text-white mb-2">Important Notice</h3>
+                <p className="text-sm text-[hsl(210,10%,55%)] leading-relaxed">
+                  BioMath Core is an informational and educational wellness platform. It provides data analysis, pattern recognition, 
+                  and optimization suggestions but does not diagnose medical conditions, prescribe treatments, or replace professional 
+                  medical care. All insights should be discussed with qualified healthcare professionals.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ═══════════════════════ CTA ═══════════════════════ */}
+        <section className="relative py-20 overflow-hidden">
+          <div className="absolute inset-0">
+            <img src={biomathCardBg} alt="" className="w-full h-full object-cover opacity-25" />
+            <div className="absolute inset-0 bg-[hsl(220,20%,4%)]/70" />
+          </div>
+          <div className="container mx-auto px-4 relative z-10 text-center">
+            <Heart className="w-16 h-16 text-[hsl(200,80%,55%)] mx-auto mb-6" />
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Learn More About BioMath Core</h2>
+            <p className="text-lg text-[hsl(210,10%,60%)] mb-10 max-w-2xl mx-auto">
               Discover how BioMath Core transforms health data into personal intelligence and actionable guidance
             </p>
             <div className="flex gap-4 justify-center flex-wrap">
               <Link to="/start-investing">
-                <Button size="lg" variant="secondary">
+                <Button size="lg" className="bg-[hsl(200,80%,50%)] hover:bg-[hsl(200,80%,45%)] text-white px-8">
                   Request Information
                   <ArrowRight className="ml-2 w-4 h-4" />
                 </Button>
               </Link>
-              <Button size="lg" variant="outline" asChild className="bg-transparent border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10">
-                <a href="/investor-briefs/biomath-core-investor-brief.pdf" download="BioMath-Core-Investor-Brief.pdf" className="flex items-center gap-2">
-                  <Download className="w-5 h-5" />
+              <Button size="lg" variant="outline" asChild className="border-[hsl(200,80%,50%)]/30 text-[hsl(200,80%,70%)] hover:bg-[hsl(200,80%,50%)]/10">
+                <a href="/investor-briefs/biomath-core-investor-brief.pdf" download="BioMath-Core-Investor-Brief.pdf">
+                  <Download className="w-5 h-5 mr-2" />
                   Investor Brief (PDF)
                 </a>
               </Button>
             </div>
-          </CardContent>
-        </Card>
+          </div>
+        </section>
 
         {/* Legal Disclaimer */}
-        <div className="mt-16">
+        <div className="container mx-auto px-4 py-16">
           <InvestorPageDisclaimer />
         </div>
       </main>
