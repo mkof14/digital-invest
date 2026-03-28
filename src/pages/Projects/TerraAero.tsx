@@ -4,17 +4,64 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
-import { ArrowRight, Droplets, Wheat, BarChart3, Package, Zap, MapPin, Users, Globe, Factory, Rocket, AlertCircle, Layers, Activity, ArrowLeft, Download, Share2, Mail, FileText } from "lucide-react";
+import { ArrowRight, Droplets, Wheat, BarChart3, Package, Zap, MapPin, Users, Globe, Factory, Rocket, AlertCircle, Layers, Activity, ArrowLeft, Download, Share2, Mail, FileText, Copy, Check, Images, ZoomIn } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 import terraaeroLogo from "@/assets/terraaero-logo.png";
 import terraaeroHero from "@/assets/projects/terraaero-hero.jpg";
+import terraaeroInfographic from "@/assets/projects/terraaero-infographic.jpeg";
 import DownloadInvestorBriefButton from "@/components/DownloadInvestorBriefButton";
 import OptimizedImage from "@/components/OptimizedImage";
 import InvestorPageDisclaimer from "@/components/InvestorPageDisclaimer";
+import { InfographicsGallery } from "@/components/InfographicsGallery";
+import { useToast } from "@/hooks/use-toast";
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 
 const TerraAero = () => {
+  const [infographicOpen, setInfographicOpen] = useState(false);
+  const [copied, setCopied] = useState(false);
+  const { toast } = useToast();
+
+  const handleDownloadInfographic = async () => {
+    try {
+      const response = await fetch(terraaeroInfographic);
+      const blob = await response.blob();
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = "terraaero-integrated-architecture.jpeg";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(url);
+      toast({ title: "Downloaded", description: "Infographic saved successfully" });
+    } catch {
+      toast({ title: "Error", description: "Failed to download", variant: "destructive" });
+    }
+  };
+
+  const handleCopyInfographic = async () => {
+    try {
+      const response = await fetch(terraaeroInfographic);
+      const blob = await response.blob();
+      await navigator.clipboard.write([new ClipboardItem({ [blob.type]: blob })]);
+      setCopied(true);
+      toast({ title: "Copied!", description: "Infographic copied to clipboard" });
+      setTimeout(() => setCopied(false), 2000);
+    } catch {
+      try {
+        await navigator.clipboard.writeText(window.location.origin + terraaeroInfographic);
+        setCopied(true);
+        toast({ title: "Link copied!", description: "Image link copied to clipboard" });
+        setTimeout(() => setCopied(false), 2000);
+      } catch {
+        toast({ title: "Error", description: "Failed to copy", variant: "destructive" });
+      }
+    }
+  };
+
   return (
-    <div className="min-h-screen bg-background theme-terraaero">
+    <div className="min-h-screen theme-terraaero" style={{ background: 'hsl(85, 15%, 5%)' }}>
       <Navigation />
       
       <main className="container mx-auto px-4 py-8">
@@ -716,6 +763,89 @@ const TerraAero = () => {
             </Card>
           </div>
         </section>
+
+        <div className="project-section-divider my-12" />
+
+        {/* Infographic Section */}
+        <section className="mb-16">
+          <h2 className="text-3xl font-bold mb-2 text-center" style={{ color: 'hsl(85, 40%, 70%)' }}>Architecture & Growth Model</h2>
+          <p className="text-center text-muted-foreground mb-8 max-w-2xl mx-auto">
+            The integrated architecture of modern agriculture — from in-house drone assembly to 23-state expansion.
+          </p>
+
+          <Card className="overflow-hidden" style={{ borderColor: 'hsl(85, 40%, 30%, 0.3)', background: 'hsl(85, 10%, 8%)' }}>
+            <div 
+              className="relative cursor-pointer group"
+              onClick={() => setInfographicOpen(true)}
+            >
+              <img 
+                src={terraaeroInfographic} 
+                alt="TerraAero: The Integrated Architecture of Modern Agriculture"
+                className="w-full object-contain"
+              />
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-300 flex items-center justify-center">
+                <ZoomIn className="w-14 h-14 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 drop-shadow-lg" />
+              </div>
+            </div>
+            <CardContent className="py-5 flex flex-wrap items-center justify-between gap-4" style={{ borderTop: '1px solid hsl(85, 30%, 20%, 0.3)' }}>
+              <p className="text-sm font-medium" style={{ color: 'hsl(85, 30%, 65%)' }}>
+                TerraAero: The Integrated Architecture of Modern Agriculture
+              </p>
+              <div className="flex gap-2">
+                <Button size="sm" variant="ghost" onClick={handleDownloadInfographic} className="gap-2">
+                  <Download className="w-4 h-4" /> Download
+                </Button>
+                <Button size="sm" variant="ghost" onClick={handleCopyInfographic} className="gap-2">
+                  {copied ? <Check className="w-4 h-4 text-green-400" /> : <Copy className="w-4 h-4" />}
+                  {copied ? "Copied" : "Copy"}
+                </Button>
+                <Button size="sm" variant="ghost" className="gap-2"
+                  onClick={() => {
+                    if (navigator.share) {
+                      navigator.share({ title: 'TerraAero Architecture Infographic', url: window.location.href });
+                    } else {
+                      navigator.clipboard.writeText(window.location.href);
+                      toast({ title: "Link copied!", description: "Share link copied to clipboard" });
+                    }
+                  }}
+                >
+                  <Share2 className="w-4 h-4" /> Share
+                </Button>
+                <Button size="sm" variant="ghost" className="gap-2" asChild>
+                  <a href={`mailto:?subject=${encodeURIComponent('TerraAero Architecture Infographic')}&body=${encodeURIComponent('Check out this infographic: ' + window.location.href)}`}>
+                    <Mail className="w-4 h-4" /> Send
+                  </a>
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
+        </section>
+
+        {/* Infographic Lightbox */}
+        <Dialog open={infographicOpen} onOpenChange={setInfographicOpen}>
+          <DialogContent className="max-w-[95vw] max-h-[95vh] p-0 backdrop-blur-xl overflow-hidden" style={{ background: 'hsl(85, 10%, 5%, 0.95)', borderColor: 'hsl(85, 30%, 25%, 0.3)' }}>
+            <DialogTitle className="sr-only">TerraAero Architecture Infographic</DialogTitle>
+            <div className="flex flex-col h-[90vh]">
+              <div className="flex items-center justify-between px-6 py-4" style={{ borderBottom: '1px solid hsl(85, 20%, 20%, 0.5)' }}>
+                <h3 className="text-lg font-semibold" style={{ color: 'hsl(85, 30%, 70%)' }}>TerraAero: The Integrated Architecture of Modern Agriculture</h3>
+                <div className="flex items-center gap-2">
+                  <Button variant="ghost" size="sm" onClick={handleDownloadInfographic} className="gap-2">
+                    <Download className="w-4 h-4" /> Download
+                  </Button>
+                  <Button variant="ghost" size="sm" onClick={handleCopyInfographic} className="gap-2">
+                    {copied ? <Check className="w-4 h-4 text-green-400" /> : <Copy className="w-4 h-4" />}
+                    {copied ? "Copied" : "Copy"}
+                  </Button>
+                </div>
+              </div>
+              <div className="flex-1 flex items-center justify-center p-4 overflow-auto">
+                <img src={terraaeroInfographic} alt="TerraAero Architecture Infographic" className="max-w-full max-h-full object-contain" />
+              </div>
+            </div>
+          </DialogContent>
+        </Dialog>
+
+        <div className="project-section-divider my-12" />
 
         {/* Presentation Download Section */}
         <section className="mb-16">
