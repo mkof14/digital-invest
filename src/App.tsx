@@ -73,6 +73,7 @@ const Infrastructure = lazy(() => import("./pages/Infrastructure"));
 const InvestorHandbook = lazy(() => import("./pages/InvestorHandbook"));
 const Schedule = lazy(() => import('./pages/Schedule'));
 const LegalOverview = lazy(() => import('./pages/LegalOverview'));
+const PortfolioOverview = lazy(() => import('./pages/PortfolioOverview'));
 
 // Legacy project routes
 const BioMathLife = lazy(() => import("./pages/Projects/BioMathLife"));
