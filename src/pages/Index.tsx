@@ -276,19 +276,19 @@ const Index = () => {
               {[
                 { 
                   title: t('ecosystem.dailyHealth'), desc: t('ecosystem.dailyHealthDesc'),
-                  icon: <Activity className="w-5 h-5" />, color: "text-emerald-500"
+                  icon: <DailyPulseIcon size={22} />, color: "text-emerald-500"
                 },
                 { 
                   title: t('ecosystem.unifiedData'), desc: t('ecosystem.unifiedDataDesc'),
-                  icon: <Cpu className="w-5 h-5" />, color: "text-blue-500"
+                  icon: <DataStreamIcon size={22} />, color: "text-blue-500"
                 },
                 { 
                   title: t('ecosystem.selfImproving'), desc: t('ecosystem.selfImprovingDesc'),
-                  icon: <Zap className="w-5 h-5" />, color: "text-amber-500"
+                  icon: <AILoopIcon size={22} />, color: "text-amber-500"
                 },
                 { 
                   title: t('ecosystem.crossSynergy'), desc: t('ecosystem.crossSynergyDesc'),
-                  icon: <Network className="w-5 h-5" />, color: "text-violet-500"
+                  icon: <SynergyOrbitIcon size={22} />, color: "text-violet-500"
                 }
               ].map((node, i) => (
                 <div key={i} className="group bg-card/50 border border-border/40 rounded-xl p-5 md:p-6 hover:bg-card hover:border-border transition-all duration-300 hover:-translate-y-0.5">
