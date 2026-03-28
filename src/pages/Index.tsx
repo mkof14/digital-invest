@@ -429,7 +429,7 @@ const Index = () => {
               <div className="text-center">
                 <Link to="/projects">
                   <Button size="lg" variant="outline" className="px-8 py-6 text-lg group border-2">
-                    View All Projects
+                    {t('featured.viewAll')}
                     <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </Link>
