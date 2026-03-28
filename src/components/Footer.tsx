@@ -97,15 +97,15 @@ const Footer = () => {
 
           {/* MIDDLE COLUMNS - Press & Resources */}
           <div className="space-y-4">
-            <h4 className="font-semibold text-foreground">Press & Resources</h4>
+            <h4 className="font-semibold text-foreground">{t('footer.resources')}</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li><Link to="/press-center" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">Press Center</Link></li>
-              <li><Link to="/investor-documents" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">Investor Documents</Link></li>
-              <li><Link to="/investor-handbook" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">Investor Handbook</Link></li>
-              <li><Link to="/start-investing" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">Investor Information</Link></li>
-              <li><Link to="/glossary" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">Glossary</Link></li>
-              <li><Link to="/document-library" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">Document Library</Link></li>
-              <li><Link to="/infrastructure" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">Infrastructure</Link></li>
+              <li><Link to="/press-center" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">{t('footer.pressCenter')}</Link></li>
+              <li><Link to="/investor-documents" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">{t('footer.investorDocuments')}</Link></li>
+              <li><Link to="/investor-handbook" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">{t('footer.investorHandbook')}</Link></li>
+              <li><Link to="/start-investing" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">{t('footer.investorInfo')}</Link></li>
+              <li><Link to="/glossary" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">{t('footer.glossary')}</Link></li>
+              <li><Link to="/document-library" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">{t('footer.documentLibrary')}</Link></li>
+              <li><Link to="/infrastructure" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">{t('footer.infrastructure')}</Link></li>
             </ul>
           </div>
 
