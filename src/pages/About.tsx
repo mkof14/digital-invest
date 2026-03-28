@@ -93,7 +93,7 @@ Today, Digital Invest brings together this multi-sector expertise into a unified
       </section>
 
       {/* Recognition */}
-      <section className="py-16 px-4">
+      <section className="py-16 px-4 section-gradient-warm">
         <div className="container mx-auto max-w-6xl">
           <h2 className="text-3xl font-bold text-foreground mb-8">Recognitions & Awards</h2>
           <div className="mb-8 text-muted-foreground">
