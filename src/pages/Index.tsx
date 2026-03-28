@@ -224,7 +224,7 @@ const Index = () => {
       </section>
 
       {/* Featured Projects Section - MOVED UP */}
-      <section ref={featuredSection.ref} className={`py-24 px-4 bg-card/30 scroll-fade-in ${featuredSection.isVisible ? 'visible' : ''}`}>
+      <section ref={featuredSection.ref} className={`py-24 px-4 bg-card/30 section-gradient-cool scroll-fade-in ${featuredSection.isVisible ? 'visible' : ''}`}>
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16 space-y-4">
             <Badge variant="secondary" className="mb-3 text-sm">Portfolio Projects</Badge>
