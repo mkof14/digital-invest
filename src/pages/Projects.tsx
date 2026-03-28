@@ -232,18 +232,18 @@ const Projects = () => {
             <p className="text-muted-foreground text-lg">No projects available at this time.</p>
           </div>
         ) : viewMode === 'grid' ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 animate-fade-in">
-            {projects.map((project) => {
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {projects.map((project, index) => {
               const theme = getTheme(project.slug);
               const isBioMath = project.slug === 'biomath-core' || project.slug === 'biomathcore';
               const projectImage = isBioMath ? biomathcoreCardBg : getProjectImage(project);
               const hasLogo = project.slug === 'baseline' || project.slug === 'saven' || isBioMath;
               
               return (
+                <ScrollRevealCard key={project.id} index={index}>
                 <Link
-                  key={project.id}
                   to={`/projects/${project.slug}`}
-                  className="group block"
+                  className="group block h-full"
                 >
                   <Card className={`overflow-hidden border ${theme.border} bg-card shadow-elegant hover:shadow-elevated transition-all duration-500 hover:-translate-y-3 hover:scale-[1.02] flex flex-col h-full cursor-pointer`}>
                     {/* Image */}
