@@ -119,6 +119,7 @@ const Projects = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const { toast } = useToast();
+  const { t } = useTranslation();
 
   // Map slugs to actual imported images
   const projectImages: Record<string, string> = {
