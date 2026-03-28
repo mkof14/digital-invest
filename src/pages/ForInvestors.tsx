@@ -50,7 +50,7 @@ const ForInvestors = () => {
           <div className="flex flex-wrap gap-4 justify-center pt-6">
             <Link to="/projects">
               <Button size="lg" className="px-10 py-6 text-lg hover:scale-105 transition-all duration-300">
-                Explore Projects
+                {t('investors.exploreProjects')}
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>
