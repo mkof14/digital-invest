@@ -237,10 +237,10 @@ const ForInvestors = () => {
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              <span className="gradient-orange-animated">What You Receive</span>
+              <span className="gradient-orange-animated">{t('investors.whatYouReceive')}</span>
             </h2>
             <p className="text-xl text-muted-foreground">
-              Comprehensive support and transparency throughout your journey
+              {t('investors.whatYouReceiveSubtitle')}
             </p>
           </div>
           
