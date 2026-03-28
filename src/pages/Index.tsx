@@ -252,7 +252,7 @@ const Index = () => {
               200+ Services. <span className="text-primary">One Living Platform.</span>
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto font-light">
-              Every product strengthens the whole — a self-evolving digital model of human health. <span className="text-foreground/80 font-medium">This is only the beginning.</span>
+              Every product strengthens the whole — a self-evolving digital model of human health. <span className="text-primary font-semibold">This is only the beginning.</span>
             </p>
           </div>
           
