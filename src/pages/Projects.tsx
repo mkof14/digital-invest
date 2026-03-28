@@ -110,7 +110,7 @@ const ScrollRevealCard = ({ children, index }: { children: React.ReactNode; inde
   );
 };
 
-
+const Projects = () => {
   const [projects, setProjects] = useState<Project[]>([]);
   const [loading, setLoading] = useState(true);
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
