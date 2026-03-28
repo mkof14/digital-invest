@@ -352,7 +352,7 @@ const BioMathCore = () => {
             <div className="absolute inset-0 bg-gradient-to-b from-[hsl(220,20%,4%)]/90 via-[hsl(220,20%,4%)]/80 to-[hsl(220,20%,4%)]" />
           </div>
           <div className="container mx-auto px-4 relative z-10">
-            <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-12">Operational Model</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-12">{t('projectCommon.operationalModel')}</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {[
                 { title: "Daily User Workflow", desc: "Wake to personalized insights. Connected devices auto-track throughout the day. Real-time recommendations update as conditions change. Evening reports summarize and suggest." },
