@@ -231,110 +231,141 @@ const Index = () => {
       </section>
 
       {/* BioMath Ecosystem Vision Section */}
-      <section ref={biomathVisionSection.ref} className={`py-24 px-4 overflow-hidden scroll-scale-in ${biomathVisionSection.isVisible ? 'visible' : ''}`}>
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16 space-y-4">
-            <Badge variant="secondary" className="mb-3 text-sm px-4 py-1.5">
-              <Orbit className="w-4 h-4 mr-1.5 inline-block" />
+      <section ref={biomathVisionSection.ref} className={`py-16 px-4 overflow-hidden scroll-scale-in ${biomathVisionSection.isVisible ? 'visible' : ''}`}>
+        <div className="max-w-6xl mx-auto">
+          {/* Compact header */}
+          <div className="text-center mb-10 space-y-3">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-sm font-medium text-primary">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="text-primary">
+                <circle cx="12" cy="12" r="3" fill="currentColor" opacity="0.8"/>
+                <circle cx="12" cy="12" r="8" stroke="currentColor" strokeWidth="1.5" strokeDasharray="3 3"/>
+                <circle cx="12" cy="12" r="11" stroke="currentColor" strokeWidth="1" opacity="0.4"/>
+                <circle cx="12" cy="4" r="1.5" fill="currentColor" opacity="0.6"/>
+                <circle cx="19" cy="9" r="1.5" fill="currentColor" opacity="0.6"/>
+                <circle cx="19" cy="17" r="1.5" fill="currentColor" opacity="0.6"/>
+                <circle cx="5" cy="17" r="1.5" fill="currentColor" opacity="0.6"/>
+                <circle cx="5" cy="9" r="1.5" fill="currentColor" opacity="0.6"/>
+              </svg>
               Ecosystem Vision
-            </Badge>
-            <h2 ref={biomathVisionHeading.ref} className={`text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight gradient-tech-animated animate-heading-reveal ${biomathVisionHeading.isVisible ? 'visible' : ''}`}>
-              200+ Services. One Living Platform.
+            </div>
+            <h2 ref={biomathVisionHeading.ref} className={`text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-foreground animate-heading-reveal ${biomathVisionHeading.isVisible ? 'visible' : ''}`}>
+              200+ Services. <span className="text-primary">One Living Platform.</span>
             </h2>
-            <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto font-light leading-relaxed">
-              Every product we build strengthens the whole — creating a self-evolving digital model of human health
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto font-light">
+              Every product strengthens the whole — a self-evolving digital model of human health
             </p>
           </div>
           
-          {/* Visual Architecture */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-            
-            {/* Left: Core Hub */}
-            <div className="lg:col-span-5">
-              <Card className="h-full border-2 border-primary/30 bg-gradient-to-br from-primary/10 via-card to-primary/5 overflow-hidden relative group hover:border-primary/50 transition-all duration-500">
-                <div className="absolute top-0 right-0 w-40 h-40 bg-primary/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 group-hover:scale-150 transition-transform duration-700" />
-                <div className="absolute bottom-0 left-0 w-32 h-32 bg-primary/5 rounded-full blur-2xl translate-y-1/2 -translate-x-1/2" />
-                <CardContent className="relative pt-10 pb-10 px-8 flex flex-col h-full">
-                  <div className="p-5 bg-primary/15 rounded-2xl w-fit mb-6 group-hover:scale-110 transition-transform duration-300">
-                    <Brain className="w-14 h-14 text-primary" />
+          {/* Compact Visual Layout */}
+          <div className="relative">
+            {/* Connection lines SVG background */}
+            <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-[0.08]" preserveAspectRatio="none">
+              <line x1="50%" y1="30%" x2="20%" y2="70%" stroke="currentColor" strokeWidth="1"/>
+              <line x1="50%" y1="30%" x2="80%" y2="70%" stroke="currentColor" strokeWidth="1"/>
+              <line x1="50%" y1="30%" x2="50%" y2="90%" stroke="currentColor" strokeWidth="1"/>
+            </svg>
+
+            {/* Core Hub - compact */}
+            <div className="flex justify-center mb-8">
+              <div className="relative group cursor-pointer" onClick={() => window.location.href = '/projects/biomathcore'}>
+                <div className="absolute -inset-1 bg-gradient-to-r from-primary/20 via-primary/10 to-primary/20 rounded-2xl blur-lg group-hover:blur-xl transition-all duration-500 opacity-60 group-hover:opacity-100" />
+                <div className="relative flex items-center gap-5 bg-card border-2 border-primary/30 rounded-2xl px-8 py-5 group-hover:border-primary/50 transition-all duration-300">
+                  {/* Custom BioMath icon */}
+                  <div className="shrink-0 p-3 bg-primary/10 rounded-xl">
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" className="text-primary">
+                      <path d="M20 4C20 4 8 10 8 20C8 30 20 36 20 36C20 36 32 30 32 20C32 10 20 4 20 4Z" stroke="currentColor" strokeWidth="2" fill="currentColor" fillOpacity="0.1"/>
+                      <path d="M20 10V30M12 16H28M14 24H26" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+                      <circle cx="20" cy="20" r="3" fill="currentColor" opacity="0.6"/>
+                    </svg>
                   </div>
-                  <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-                    BioMath Core
-                  </h3>
-                  <p className="text-base text-muted-foreground leading-relaxed mb-6 flex-1">
-                    The foundational digital health architecture powering over <span className="font-semibold text-primary">200 planned service products</span>. A unified intelligence layer where every service intersects and continuously refines the entire system.
-                  </p>
-                  <div className="grid grid-cols-2 gap-4 pt-6 border-t border-border/50">
-                    <div className="text-center">
-                      <div className="text-3xl font-bold text-primary">200+</div>
-                      <div className="text-xs text-muted-foreground mt-1">Planned Services</div>
-                    </div>
-                    <div className="text-center">
-                      <div className="text-3xl font-bold text-primary">18</div>
-                      <div className="text-xs text-muted-foreground mt-1">Active Projects</div>
-                    </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-foreground">BioMath Core</h3>
+                    <p className="text-sm text-muted-foreground">Foundation for <span className="font-semibold text-primary">200+ services</span> · <span className="font-semibold text-primary">18 active</span></p>
                   </div>
-                </CardContent>
-              </Card>
+                  <ArrowRight className="w-5 h-5 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all ml-2" />
+                </div>
+              </div>
             </div>
 
-            {/* Right: Service Nodes */}
-            <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {/* Service pillars - 4 compact cards */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
               {[
                 { 
-                  icon: <Activity className="w-7 h-7" />, 
-                  title: "Daily Health Products",
-                  desc: "Personalized tracking, longevity insights, stress and nutrition tools for practical everyday use",
-                  color: "from-emerald-500/10 to-emerald-500/5"
+                  title: "Daily Health",
+                  desc: "Personalized tracking & longevity insights",
+                  icon: (
+                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" className="text-emerald-600 dark:text-emerald-400">
+                      <path d="M4 20L8 12L12 16L16 8L20 14L24 10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      <circle cx="14" cy="6" r="2" fill="currentColor" opacity="0.3"/>
+                      <path d="M12 22H16M14 22V26" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+                    </svg>
+                  ),
+                  accent: "border-emerald-500/20 hover:border-emerald-500/40"
                 },
                 { 
-                  icon: <Layers className="w-7 h-7" />, 
-                  title: "Unified Data Layer",
-                  desc: "Every interaction feeds back into a single intelligence core, making the entire system smarter",
-                  color: "from-blue-500/10 to-blue-500/5"
+                  title: "Unified Data",
+                  desc: "Single intelligence core across all services",
+                  icon: (
+                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" className="text-blue-600 dark:text-blue-400">
+                      <rect x="4" y="4" width="8" height="8" rx="2" stroke="currentColor" strokeWidth="1.5" fill="currentColor" fillOpacity="0.1"/>
+                      <rect x="16" y="4" width="8" height="8" rx="2" stroke="currentColor" strokeWidth="1.5" fill="currentColor" fillOpacity="0.1"/>
+                      <rect x="4" y="16" width="8" height="8" rx="2" stroke="currentColor" strokeWidth="1.5" fill="currentColor" fillOpacity="0.1"/>
+                      <rect x="16" y="16" width="8" height="8" rx="2" stroke="currentColor" strokeWidth="1.5" fill="currentColor" fillOpacity="0.1"/>
+                      <circle cx="14" cy="14" r="3" fill="currentColor" opacity="0.5"/>
+                    </svg>
+                  ),
+                  accent: "border-blue-500/20 hover:border-blue-500/40"
                 },
                 { 
-                  icon: <Cpu className="w-7 h-7" />, 
-                  title: "Self-Improving Loop",
-                  desc: "With each new data point, the platform evolves — building an increasingly precise digital model of human health",
-                  color: "from-amber-500/10 to-amber-500/5"
+                  title: "Self-Improving",
+                  desc: "Each data point evolves the platform",
+                  icon: (
+                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" className="text-amber-600 dark:text-amber-400">
+                      <path d="M14 4L14 24" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeDasharray="2 2"/>
+                      <path d="M8 10C8 10 14 6 20 10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+                      <path d="M6 16C6 16 14 11 22 16" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+                      <path d="M4 22C4 22 14 16 24 22" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+                      <circle cx="14" cy="4" r="2" fill="currentColor"/>
+                    </svg>
+                  ),
+                  accent: "border-amber-500/20 hover:border-amber-500/40"
                 },
                 { 
-                  icon: <Network className="w-7 h-7" />, 
-                  title: "Cross-Service Synergy",
-                  desc: "Not isolated apps, but a living infrastructure where every service strengthens the whole ecosystem",
-                  color: "from-violet-500/10 to-violet-500/5"
+                  title: "Cross-Synergy",
+                  desc: "Living infrastructure, not isolated apps",
+                  icon: (
+                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" className="text-violet-600 dark:text-violet-400">
+                      <circle cx="14" cy="14" r="4" stroke="currentColor" strokeWidth="1.5" fill="currentColor" fillOpacity="0.15"/>
+                      <circle cx="6" cy="8" r="2.5" stroke="currentColor" strokeWidth="1" fill="currentColor" fillOpacity="0.1"/>
+                      <circle cx="22" cy="8" r="2.5" stroke="currentColor" strokeWidth="1" fill="currentColor" fillOpacity="0.1"/>
+                      <circle cx="6" cy="22" r="2.5" stroke="currentColor" strokeWidth="1" fill="currentColor" fillOpacity="0.1"/>
+                      <circle cx="22" cy="22" r="2.5" stroke="currentColor" strokeWidth="1" fill="currentColor" fillOpacity="0.1"/>
+                      <line x1="8" y1="9.5" x2="11" y2="12" stroke="currentColor" strokeWidth="1" opacity="0.5"/>
+                      <line x1="20" y1="9.5" x2="17" y2="12" stroke="currentColor" strokeWidth="1" opacity="0.5"/>
+                      <line x1="8" y1="20.5" x2="11" y2="17" stroke="currentColor" strokeWidth="1" opacity="0.5"/>
+                      <line x1="20" y1="20.5" x2="17" y2="17" stroke="currentColor" strokeWidth="1" opacity="0.5"/>
+                    </svg>
+                  ),
+                  accent: "border-violet-500/20 hover:border-violet-500/40"
                 }
               ].map((node, i) => (
-                <Card key={i} className="border border-border/50 bg-card hover:shadow-elevated transition-all duration-500 hover:-translate-y-1 group overflow-hidden relative">
-                  <div className={`absolute inset-0 bg-gradient-to-br ${node.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
-                  <CardContent className="relative pt-8 pb-6 px-6 space-y-3">
-                    <div className="p-3 bg-primary/10 rounded-xl w-fit group-hover:scale-110 transition-transform duration-300">
-                      <div className="text-primary">{node.icon}</div>
-                    </div>
-                    <h4 className="text-lg font-bold text-foreground">{node.title}</h4>
-                    <p className="text-sm text-muted-foreground leading-relaxed">{node.desc}</p>
-                  </CardContent>
-                </Card>
+                <div key={i} className={`bg-card border ${node.accent} rounded-xl p-5 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md`}>
+                  <div className="mb-3">{node.icon}</div>
+                  <h4 className="text-sm font-bold text-foreground mb-1">{node.title}</h4>
+                  <p className="text-xs text-muted-foreground leading-relaxed">{node.desc}</p>
+                </div>
               ))}
             </div>
-          </div>
 
-          {/* Bottom CTA */}
-          <div className="text-center mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button size="lg" className="px-8 py-6 text-lg group" asChild>
-              <Link to="/projects/biomathcore">
-                <Brain className="mr-2 h-5 w-5" />
-                Explore BioMath Core
-                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </Button>
-            <Button size="lg" variant="outline" className="px-8 py-6 text-lg group border-2" asChild>
-              <Link to="/projects">
-                View All 18 Projects
-                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </Button>
+            {/* Compact CTA */}
+            <div className="text-center mt-8">
+              <Button size="default" className="group" asChild>
+                <Link to="/projects">
+                  Explore All 18 Projects
+                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </Button>
+            </div>
           </div>
         </div>
       </section>
