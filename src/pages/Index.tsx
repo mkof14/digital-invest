@@ -521,9 +521,9 @@ const Index = () => {
                 <div className="p-4 bg-primary/10 rounded-xl w-fit mx-auto group-hover:scale-110 transition-transform duration-300">
                   <Network className="w-12 h-12 text-primary" />
                 </div>
-                <h3 className="text-xl font-bold text-foreground text-center">Multi-Sector Infrastructure</h3>
+                <h3 className="text-xl font-bold text-foreground text-center">{t('whatWeBuild.infraTitle')}</h3>
                 <p className="text-base text-muted-foreground text-center leading-relaxed">
-                  Digital Invest — the portfolio backbone that combines AI, infrastructure, manufacturing, and long-term project strategy.
+                  {t('whatWeBuild.infraDesc')}
                 </p>
               </CardContent>
             </Card>
