@@ -49,7 +49,7 @@ const HowItWorks = () => {
         </div>
 
         {/* Steps */}
-        <div className="mb-16 space-y-8">
+        <div className="mb-16 space-y-8 section-gradient-warm rounded-2xl p-8">
           {steps.map((step, index) => {
             const Icon = step.icon;
             return (
