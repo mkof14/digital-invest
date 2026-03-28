@@ -177,9 +177,9 @@ const BioMathCore = () => {
         {/* ═══════════════════════ CORE MISSION ═══════════════════════ */}
         <section className="bg-[hsl(220,20%,6%)] border-y border-[hsl(210,15%,12%)] py-20">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-4">Core Mission</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-4">{t('projectCommon.coreMission')}</h2>
             <p className="text-center text-[hsl(210,10%,55%)] mb-12 max-w-2xl mx-auto">
-              Three principles that guide every interaction within the platform
+              {t('projectBiomathCore.missionSubtitle')}
             </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {[
