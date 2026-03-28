@@ -18,8 +18,18 @@ interface SocialMediaLink {
 }
 
 const Footer = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const currentYear = new Date().getFullYear();
+
+  const changeLanguage = (code: string) => {
+    i18n.changeLanguage(code);
+    const lang = languages.find(l => l.code === code);
+    if (lang && 'dir' in lang) {
+      document.documentElement.dir = 'rtl';
+    } else {
+      document.documentElement.dir = 'ltr';
+    }
+  };
 
   const { data: socialLinks } = useQuery({
     queryKey: ['social-media-links'],
