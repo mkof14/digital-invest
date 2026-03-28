@@ -823,9 +823,9 @@ const Index = () => {
             <div className="flex items-start gap-4">
               <Shield className="w-6 h-6 text-muted-foreground flex-shrink-0 mt-1" />
               <div className="space-y-2">
-                <h3 className="font-semibold text-foreground">Important Notice</h3>
+                <h3 className="font-semibold text-foreground">{t('disclaimerSection.title')}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">
-                  Digital Invest Inc. operates as a private multi-sector portfolio. This website is for informational purposes only and does not constitute a public offering, investment advice, or solicitation. Any potential participation is private, by invitation, and handled offline through proper legal channels. All participation is subject to due diligence and eligibility. All investments involve risk and may result in loss of capital. The actual legal status, structure, rights, and obligations are defined only in formal agreements executed offline, not by website content.
+                  {t('disclaimerSection.text')}
                 </p>
               </div>
             </div>
