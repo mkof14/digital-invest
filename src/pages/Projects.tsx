@@ -28,6 +28,7 @@ import agronworkHero from '@/assets/projects/agronwork-hero.jpg';
 import mrxHero from '@/assets/projects/mrx-hero.jpg';
 import tableservedHero from '@/assets/projects/tableserved-hero.jpg';
 import baselineHero from '@/assets/projects/baseline-hero.jpg';
+import baselineLogo from '@/assets/projects/baseline-logo.png';
 import OptimizedImage from '@/components/OptimizedImage';
 import { shimmerDataURL, getResponsiveImagePaths } from '@/lib/imageUtils';
 
@@ -233,7 +234,10 @@ const Projects = () => {
                 </div>
 
                 <CardHeader className="flex-1 space-y-3">
-                  <CardTitle className="text-2xl font-bold group-hover:text-primary transition-colors duration-300 leading-tight">
+                  <CardTitle className="text-2xl font-bold group-hover:text-primary transition-colors duration-300 leading-tight flex items-center gap-3">
+                    {project.slug === 'baseline' && (
+                      <img src={baselineLogo} alt="BaseLine logo" className="h-8 rounded" />
+                    )}
                     {project.title}
                   </CardTitle>
                   <CardDescription className="text-base leading-relaxed line-clamp-3">
@@ -299,7 +303,10 @@ const Projects = () => {
                   <div className="flex-1 flex flex-col">
                     <CardHeader className="flex-1 space-y-3">
                       <div className="flex items-start justify-between gap-4">
-                        <CardTitle className="text-2xl font-bold group-hover:text-primary transition-colors duration-300 leading-tight">
+                        <CardTitle className="text-2xl font-bold group-hover:text-primary transition-colors duration-300 leading-tight flex items-center gap-3">
+                          {project.slug === 'baseline' && (
+                            <img src={baselineLogo} alt="BaseLine logo" className="h-8 rounded" />
+                          )}
                           {project.title}
                         </CardTitle>
                         <Badge className="bg-background/95 backdrop-blur-sm border-primary/20 shadow-lg transition-all duration-300 group-hover:scale-110 shrink-0">
