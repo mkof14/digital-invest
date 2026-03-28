@@ -316,6 +316,7 @@ const Projects = () => {
                     </CardFooter>
                   </Card>
                 </Link>
+                </ScrollRevealCard>
               );
             })}
           </div>
