@@ -134,7 +134,7 @@ const WhyDigitalInvest = () => {
       </section>
 
       {/* Why Private Format Section */}
-      <section className="py-24 px-4">
+      <section className="py-24 px-4 section-gradient-mint">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-12 text-center">
             Why a Private Format
