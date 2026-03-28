@@ -49,7 +49,7 @@ const WhyDigitalInvest = () => {
       </section>
 
       {/* Multi-Sector Strength Section */}
-      <section className="py-24 px-4">
+      <section className="py-24 px-4 section-gradient-warm">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-12 text-center">
             Multi-Sector Strength
