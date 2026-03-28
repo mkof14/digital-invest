@@ -451,7 +451,7 @@ const BioMathCore = () => {
 
         {/* ═══════════════════════ ROADMAP ═══════════════════════ */}
         <section className="container mx-auto px-4 py-20">
-          <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-12">Roadmap</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-12">{t('projectCommon.roadmap')}</h2>
           <div className="max-w-3xl mx-auto space-y-6">
             {[
               { phase: "Current", icon: Globe, color: "hsl(200,80%,55%)", items: ["20 health categories & 200+ AI services active", "Black Box vault & integration pipelines operational", "Knowledge engine & reporting systems functional", "Active user base across multiple health use cases"] },
