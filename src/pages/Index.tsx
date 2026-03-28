@@ -524,7 +524,7 @@ const Index = () => {
       </section>
 
       {/* Investment Journey Section */}
-      <section className="py-24 px-4 bg-card/30">
+      <section className="py-24 px-4 bg-card/30 section-gradient-warm">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16 space-y-4">
             <h2 ref={journeyHeading.ref} className={`text-3xl md:text-5xl font-bold gradient-orange-animated animate-heading-reveal ${journeyHeading.isVisible ? 'visible' : ''}`}>
