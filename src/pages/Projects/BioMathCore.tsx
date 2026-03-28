@@ -483,7 +483,7 @@ const BioMathCore = () => {
             <div className="flex items-start gap-4">
               <AlertCircle className="w-6 h-6 text-[hsl(35,70%,55%)] flex-shrink-0 mt-1" />
               <div>
-                <h3 className="text-lg font-bold text-white mb-2">Important Notice</h3>
+                <h3 className="text-lg font-bold text-white mb-2">{t('projectCommon.importantNotice')}</h3>
                 <p className="text-sm text-[hsl(210,10%,55%)] leading-relaxed">
                   BioMath Core is an informational and educational wellness platform. It provides data analysis, pattern recognition, 
                   and optimization suggestions but does not diagnose medical conditions, prescribe treatments, or replace professional 
