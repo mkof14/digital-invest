@@ -414,13 +414,13 @@ const Projects = () => {
                       </Badge>
                     </div>
 
-                    <CardHeader className="flex-1 space-y-2 pb-2">
-                      {hasLogo && (
-                        <CardTitle className={`text-xl font-bold ${theme.accent} leading-tight`}>
+                    <CardHeader className="flex-1 space-y-3 pb-2">
+                      <CardTitle className={`text-xl font-extrabold tracking-tight leading-snug`}>
+                        <span className={`bg-gradient-to-r ${theme.from.replace('/20', '')} ${theme.to.replace('/20', '')} bg-clip-text text-transparent`}>
                           {project.title}
-                        </CardTitle>
-                      )}
-                      <CardDescription className="text-sm leading-relaxed line-clamp-3">
+                        </span>
+                      </CardTitle>
+                      <CardDescription className="text-sm leading-relaxed line-clamp-4 text-muted-foreground/90">
                         {project.short_description}
                       </CardDescription>
                     </CardHeader>
