@@ -281,7 +281,7 @@ const Projects = () => {
                         : 'bg-muted/60 text-muted-foreground hover:bg-muted hover:text-foreground'
                     }`}
                   >
-                    All ({projects.length})
+                    {t('projects.all')} ({projects.length})
                   </button>
                   {categories.map(cat => {
                     const count = projects.filter(p => getTheme(p.slug).label === cat).length;
