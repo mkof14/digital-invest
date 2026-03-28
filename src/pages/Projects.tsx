@@ -423,7 +423,7 @@ const Projects = () => {
                         </span>
                       </CardTitle>
                       <CardDescription className="text-sm leading-relaxed line-clamp-4 text-muted-foreground/90">
-                        {project.short_description}
+                        {t(`projects.descriptions.${project.slug}`, project.short_description)}
                       </CardDescription>
                     </CardHeader>
 
