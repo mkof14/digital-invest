@@ -64,6 +64,7 @@ const Footer = () => {
               <li><Link to="/how-it-works" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">{t('footer.howItWorks')}</Link></li>
               <li><Link to="/news" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">{t('footer.news')}</Link></li>
               <li><Link to="/schedule" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">{t('footer.schedule')}</Link></li>
+              <li><Link to="/overview" className="hover:text-primary transition-all duration-300 hover:scale-105 inline-block">{t('footer.overview', 'Portfolio Overview')}</Link></li>
             </ul>
           </div>
 

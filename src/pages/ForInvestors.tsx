@@ -351,6 +351,19 @@ const ForInvestors = () => {
         </div>
       </section>
 
+      {/* Portfolio Overview CTA */}
+      <section className="py-8 px-4">
+        <div className="max-w-5xl mx-auto text-center">
+          <Link to="/overview">
+            <Button size="lg" variant="outline" className="gap-2 text-base border-primary/30 hover:bg-primary/5">
+              <Briefcase className="w-5 h-5" />
+              {t('footer.overview', 'Portfolio Overview')}
+              <ArrowRight className="w-4 h-4" />
+            </Button>
+          </Link>
+        </div>
+      </section>
+
       {/* Legal Disclaimer */}
       <section className="py-16 px-4">
         <div className="max-w-5xl mx-auto">

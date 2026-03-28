@@ -518,6 +518,17 @@ const Projects = () => {
         })()}
         </div>
 
+        {/* Portfolio Overview CTA */}
+        <div className="mt-12 text-center">
+          <Link to="/overview">
+            <Button size="lg" variant="outline" className="gap-2 text-base border-primary/30 hover:bg-primary/5">
+              <TrendingUp className="w-5 h-5" />
+              {t('footer.overview', 'Portfolio Overview')}
+              <ArrowRight className="w-4 h-4" />
+            </Button>
+          </Link>
+        </div>
+
         {/* Legal Disclaimer */}
         <div className="mt-16 max-w-5xl mx-auto">
           <InvestorPageDisclaimer />
