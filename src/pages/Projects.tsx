@@ -421,6 +421,7 @@ const Projects = () => {
                     </div>
                   </Card>
                 </Link>
+                </ScrollRevealCard>
               );
             })}
           </div>
