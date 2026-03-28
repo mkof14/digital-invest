@@ -208,7 +208,7 @@ Today, Digital Invest brings together this multi-sector expertise into a unified
       </section>
 
       {/* Our Mission */}
-      <section className="py-16 px-4">
+      <section className="py-16 px-4 section-gradient-mint">
         <div className="container mx-auto max-w-4xl">
           <h2 className="text-3xl font-bold text-foreground mb-8">Our Mission</h2>
           <Card>
