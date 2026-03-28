@@ -63,7 +63,7 @@ const ForInvestors = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 px-4 bg-card/30 border-y border-border/50">
+      <section className="py-16 px-4 bg-card/30 section-gradient-cool border-y border-border/50">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
