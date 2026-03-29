@@ -161,7 +161,7 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background max-w-[1600px] mx-auto">
       <Navigation />
 
       {/* ═══════════════════ HERO — Vibrant Financial ═══════════════════ */}
