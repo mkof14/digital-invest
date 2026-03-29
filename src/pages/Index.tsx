@@ -630,7 +630,7 @@ const Index = () => {
       </section>
 
       {/* ═══════════════════ CTA — Full-width Dramatic ═══════════════════ */}
-      <section className="py-20 md:py-28 px-4">
+      <section className="py-20 md:py-28 px-4 section-gradient-warm">
         <div className="max-w-5xl mx-auto">
           <div className="relative overflow-hidden rounded-3xl border border-border/30 bg-card/50 p-10 md:p-16 text-center">
             {/* Decorative gradient */}
