@@ -5,6 +5,14 @@ import Footer from '@/components/Footer';
 import { adamasProjects } from './adamasProjects';
 import * as LucideIcons from 'lucide-react';
 import { ArrowLeft, ArrowRight, Shield } from 'lucide-react';
+import OptimizedImage from '@/components/OptimizedImage';
+
+// Per-project hero images
+import originDiamondHero from '@/assets/adamas/origin-diamond-hero.jpg';
+
+const projectHeroImages: Record<string, string> = {
+  'origin-diamond': originDiamondHero,
+};
 
 const AdamasProjectDetail = () => {
   const { slug } = useParams<{ slug: string }>();
