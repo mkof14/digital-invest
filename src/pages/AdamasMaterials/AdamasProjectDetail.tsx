@@ -95,18 +95,13 @@ const AdamasProjectDetail = () => {
       description: projectDesc,
       ogTitle: `${projectTitle} — Adamas Materials Project Portfolio`,
       ogDescription: projectDesc,
-      ogImage: heroImage || 'https://digitalinvest.com/adamas-og-image.png',
+      ogImage: heroImage || 'https://www.digitalinvest.com/adamas-og-image.png',
       ogType: 'article',
       canonicalUrl: `https://digitalinvest.com/adamas/${project.slug}`,
-    });
-
-    // Product JSON-LD for individual project
-    injectStructuredData({
-      "@context": "https://schema.org",
-      "@type": "Product",
+...
       "name": projectTitle,
       "description": projectDesc,
-      "image": heroImage || 'https://digitalinvest.com/adamas-og-image.png',
+      "image": heroImage || 'https://www.digitalinvest.com/adamas-og-image.png',
       "url": `https://digitalinvest.com/adamas/${project.slug}`,
       "category": project.category,
       "brand": {
