@@ -1566,8 +1566,8 @@
       },
       "jewelryDropshipping": {
         "title": "Jewelry DropShipping",
-        "description": "Infrastructure de fulfillment automatisée pour les détaillants de bijoux avec zéro stock.",
-        "longDescription": "Jewelry DropShipping élimine la charge de capital d'inventaire pour les détaillants de bijoux."
+        "description": "Plateforme mondiale de dropshipping joaillier — modèle de vente sans stock avec chaîne d'approvisionnement propriétaire, fulfillment en marque blanche et distribution multi-marketplace via Amazon, Shopify et boutiques dédiées.",
+        "longDescription": "Jewelry DropShipping est une opération e-commerce verticalement intégrée qui élimine la charge capitalistique des stocks pour les détaillants en bijouterie, permettant des ventes mondiales sans investissement initial en inventaire.\n\nLe modèle commercial repose sur une architecture propriétaire de chaîne d'approvisionnement connectant des fabricants certifiés — y compris des producteurs de diamants, des orfèvres et des installations de coulée de précision de l'écosystème Adamas Materials — directement aux consommateurs finaux via de multiples canaux de vente.\n\nInfrastructure principale :\n\n• Distribution multi-marketplace — présence simultanée sur Amazon, eBay, Etsy, Shopify et plateformes e-commerce de marque avec gestion centralisée des stocks et commandes.\n\n• Fulfillment en marque blanche — services clé en main pour les marques de joaillerie tierces : logistique, emballage et expédition tout en préservant l'identité de marque.\n\n• Lignes de produits propriétaires — collections allant de la haute joaillerie (or, platine, diamants de laboratoire) à la bijouterie fantaisie (argent, vermeil) et articles spécialisés (gravures personnalisées, pierres de naissance, pièces commémoratives).\n\n• Pipeline d'assurance qualité — chaque article passe par un protocole QC standardisé : vérification gemmologique, test de pureté des métaux et documentation photographique.\n\n• Réseau logistique mondial — partenariats avec des transporteurs internationaux, services de courtage douanier et centres de fulfillment régionaux pour une livraison en 3-7 jours dans le monde entier.\n\nArchitecture des revenus :\n\n• Ventes directes via les boutiques propriétaires avec marges premium\n• Ventes sur les marketplaces avec listings optimisés, contenu A+ et gestion PPC\n• Programmes wholesale B2B et marque blanche pour joailliers indépendants\n• Abonnements pour clients fidèles (tarifs VIP, accès anticipé, collections exclusives)\n\nAvantage stratégique : l'intégration avec la chaîne d'approvisionnement en diamants et métaux précieux d'Adamas Materials offre des avantages de coûts inaccessibles aux opérateurs de dropshipping indépendants."
       },
       "jatualDiamonds": {
         "title": "JATUAL PARIS",
@@ -1750,36 +1750,91 @@
     },
     "pillars": {
       "title": "Principes fondateurs",
-      "vendome": { "title": "Héritage Place Vendôme", "text": "Enraciné dans l'adresse joaillière la plus prestigieuse au monde, perpétuant des siècles de tradition de haute joaillerie parisienne." },
-      "labGrown": { "title": "Diamants nouvelle génération", "text": "Des diamants sans conflit, respectueux de l'environnement, égalant ou surpassant l'éclat des pierres extraites." },
-      "craftsmanship": { "title": "Artisanat avancé", "text": "Chaque pièce est un chef-d'œuvre de précision, conçu par des artisans exigeant la perfection dans chaque facette." },
-      "personalization": { "title": "Personnalisation raffinée", "text": "Services sur mesure pour les clients recherchant des créations uniques reflétant leur vision personnelle." }
+      "vendome": {
+        "title": "Héritage Place Vendôme",
+        "text": "Enraciné dans l'adresse joaillière la plus prestigieuse au monde, perpétuant des siècles de tradition de haute joaillerie parisienne."
+      },
+      "labGrown": {
+        "title": "Diamants nouvelle génération",
+        "text": "Des diamants sans conflit, respectueux de l'environnement, égalant ou surpassant l'éclat des pierres extraites."
+      },
+      "craftsmanship": {
+        "title": "Artisanat avancé",
+        "text": "Chaque pièce est un chef-d'œuvre de précision, conçu par des artisans exigeant la perfection dans chaque facette."
+      },
+      "personalization": {
+        "title": "Personnalisation raffinée",
+        "text": "Services sur mesure pour les clients recherchant des créations uniques reflétant leur vision personnelle."
+      }
     },
     "collections": {
       "title": "Collections de Haute Joaillerie",
       "subtitle": "Chaque collection raconte une histoire unique — de la grandeur des jardins parisiens au battement du cœur.",
-      "cielDeParis": { "name": "Ciel de Paris", "description": "Inspirée par le ciel parisien infini, cette collection présente des diamants bleus vifs — des compositions audacieuses et dramatiques dans l'esprit de la haute couture. Pièces signatures : le collier Mediterranean Princess et le Bleu Royal Transformable." },
-      "jardinsDeParis": { "name": "Jardins de Paris", "description": "Une célébration des formes les plus délicates de la nature. Les boucles d'oreilles Papillons et l'ensemble Princesse d'Azure définissent l'esthétique élégante et organique de la collection." },
-      "leCoeurDeParis": { "name": "Le Coeur de Paris", "description": "Des diamants roses et rouges vifs au centre de chefs-d'œuvre conçus pour durer. Des bagues raffinées aux colliers en cascade, chaque pièce pulse de chaleur et de passion." },
-      "reineEnRose": { "name": "Reine en Rose", "description": "Un hommage à la force et la grâce féminines. La Grande Duchesse ancre cette collection — des bijoux de distinction incarnant une vision raffinée de la royauté moderne." }
+      "cielDeParis": {
+        "name": "Ciel de Paris",
+        "description": "Inspirée par le ciel parisien infini, cette collection présente des diamants bleus vifs — des compositions audacieuses et dramatiques dans l'esprit de la haute couture. Pièces signatures : le collier Mediterranean Princess et le Bleu Royal Transformable."
+      },
+      "jardinsDeParis": {
+        "name": "Jardins de Paris",
+        "description": "Une célébration des formes les plus délicates de la nature. Les boucles d'oreilles Papillons et l'ensemble Princesse d'Azure définissent l'esthétique élégante et organique de la collection."
+      },
+      "leCoeurDeParis": {
+        "name": "Le Coeur de Paris",
+        "description": "Des diamants roses et rouges vifs au centre de chefs-d'œuvre conçus pour durer. Des bagues raffinées aux colliers en cascade, chaque pièce pulse de chaleur et de passion."
+      },
+      "reineEnRose": {
+        "name": "Reine en Rose",
+        "description": "Un hommage à la force et la grâce féminines. La Grande Duchesse ancre cette collection — des bijoux de distinction incarnant une vision raffinée de la royauté moderne."
+      }
     },
-    "categories": { "title": "Catégories de produits", "earrings": "Boucles d'oreilles", "rings": "Bagues", "bracelets": "Bracelets", "necklaces": "Colliers", "pendants": "Pendentifs" },
+    "categories": {
+      "title": "Catégories de produits",
+      "earrings": "Boucles d'oreilles",
+      "rings": "Bagues",
+      "bracelets": "Bracelets",
+      "necklaces": "Colliers",
+      "pendants": "Pendentifs"
+    },
     "signature": {
       "title": "Créations signatures",
-      "mediterraneanPrincess": { "name": "Mediterranean Princess", "description": "Quand vous voulez plus qu'un simple bijou. Ce collier est une histoire entière en un regard." },
-      "princesseDAzure": { "name": "Princesse d'Azure", "description": "Un drame de haute joaillerie en trois actes : collier, bracelet et bague unis par le même souffle de forme et de couleur." },
-      "bleuRoyal": { "name": "Vivid Blue Symphony", "description": "Une vision extraordinaire en bleu vif. Un diamant bleu saisissant encadré de pierres d'accent impeccablement serties." }
+      "mediterraneanPrincess": {
+        "name": "Mediterranean Princess",
+        "description": "Quand vous voulez plus qu'un simple bijou. Ce collier est une histoire entière en un regard."
+      },
+      "princesseDAzure": {
+        "name": "Princesse d'Azure",
+        "description": "Un drame de haute joaillerie en trois actes : collier, bracelet et bague unis par le même souffle de forme et de couleur."
+      },
+      "bleuRoyal": {
+        "name": "Vivid Blue Symphony",
+        "description": "Une vision extraordinaire en bleu vif. Un diamant bleu saisissant encadré de pierres d'accent impeccablement serties."
+      }
     },
     "market": {
       "title": "Positionnement sur le marché",
-      "audience": { "title": "Public cible", "text": "Collectionneurs exigeants, particuliers fortunés et connaisseurs sophistiqués exigeant les plus hauts standards de qualité, design et sourcing éthique." },
-      "differentiation": { "title": "Avantage concurrentiel", "text": "JATUAL PARIS combine de manière unique l'héritage Place Vendôme avec des diamants sans conflit — beauté sans compromis à l'intersection de la tradition et de l'innovation." }
+      "audience": {
+        "title": "Public cible",
+        "text": "Collectionneurs exigeants, particuliers fortunés et connaisseurs sophistiqués exigeant les plus hauts standards de qualité, design et sourcing éthique."
+      },
+      "differentiation": {
+        "title": "Avantage concurrentiel",
+        "text": "JATUAL PARIS combine de manière unique l'héritage Place Vendôme avec des diamants sans conflit — beauté sans compromis à l'intersection de la tradition et de l'innovation."
+      }
     },
     "business": {
       "title": "Modèle commercial",
-      "directSales": { "title": "Ventes directes haute joaillerie", "text": "Showroom privé et consultations sur rendez-vous pour collectionneurs recherchant des pièces exceptionnelles." },
-      "bespoke": { "title": "Commandes sur mesure", "text": "Créations haute joaillerie uniques selon la vision personnelle du client." },
-      "digitalPresence": { "title": "Expérience digitale de la Maison", "text": "Plateforme en ligne immersive avec photographie premium et prise de rendez-vous pour une clientèle mondiale." }
+      "directSales": {
+        "title": "Ventes directes haute joaillerie",
+        "text": "Showroom privé et consultations sur rendez-vous pour collectionneurs recherchant des pièces exceptionnelles."
+      },
+      "bespoke": {
+        "title": "Commandes sur mesure",
+        "text": "Créations haute joaillerie uniques selon la vision personnelle du client."
+      },
+      "digitalPresence": {
+        "title": "Expérience digitale de la Maison",
+        "text": "Plateforme en ligne immersive avec photographie premium et prise de rendez-vous pour une clientèle mondiale."
+      }
     },
     "vision": {
       "title": "Vision",
