@@ -7,6 +7,7 @@ import { ArrowLeft, ArrowRight, Mail } from 'lucide-react';
 import OptimizedImage from '@/components/OptimizedImage';
 import { useEffect, useState } from 'react';
 import { updateMetaTags } from '@/lib/metaTags';
+import { injectStructuredData, removeStructuredData } from '@/lib/structuredData';
 
 // Per-project hero images
 import originDiamondHero from '@/assets/adamas/origin-diamond-hero.jpg';

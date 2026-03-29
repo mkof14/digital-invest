@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useEffect, useRef, useState, useCallback, type MouseEvent as ReactMouseEvent } from 'react';
 import { updateMetaTags } from '@/lib/metaTags';
+import { injectStructuredData, removeStructuredData } from '@/lib/structuredData';
 import AdamasNavigation from '@/components/AdamasNavigation';
 import AdamasFooter from '@/components/AdamasFooter';
 import { adamasProjects } from './adamasProjects';
