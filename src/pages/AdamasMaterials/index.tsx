@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { useEffect, useRef, useState, useCallback } from 'react';
+import { useEffect, useRef, useState, useCallback, type MouseEvent as ReactMouseEvent } from 'react';
 import AdamasNavigation from '@/components/AdamasNavigation';
 import AdamasFooter from '@/components/AdamasFooter';
 import { adamasProjects } from './adamasProjects';
