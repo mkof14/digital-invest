@@ -338,7 +338,7 @@ const AdamasMaterialsOverview = () => {
               transform: heroVisible ? 'translateY(0)' : 'translateY(20px)',
             }}
           >
-            <span className="inline-block px-6 py-2 rounded-full text-[10px] font-semibold tracking-[0.3em] uppercase text-amber-300/80 border border-amber-400/20 bg-amber-400/5 backdrop-blur-sm mb-8">
+            <span className="inline-block px-6 py-2 rounded-full text-[10px] font-semibold tracking-[0.3em] uppercase text-foreground/70 dark:text-amber-300/80 border border-border/40 dark:border-amber-400/20 bg-background/60 dark:bg-amber-400/5 backdrop-blur-sm mb-8">
               {t('adamas.badge', 'Adamas Materials Projects')}
             </span>
           </div>
@@ -351,10 +351,10 @@ const AdamasMaterialsOverview = () => {
               transform: heroVisible ? 'translateY(0)' : 'translateY(20px)',
             }}
           >
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white mb-3">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-foreground dark:text-white mb-3">
               {t('adamas.heroTitle', 'Adamas Materials')}
             </h1>
-            <p className="text-xl md:text-2xl font-light text-white/50 mb-8 tracking-wide">
+            <p className="text-xl md:text-2xl font-light text-foreground/60 dark:text-white/50 mb-8 tracking-wide">
               {t('adamas.heroHighlight', 'Project Portfolio')}
             </p>
           </div>
@@ -367,7 +367,7 @@ const AdamasMaterialsOverview = () => {
               transform: heroVisible ? 'translateY(0)' : 'translateY(20px)',
             }}
           >
-            <p className="max-w-2xl mx-auto text-sm md:text-base text-white/40 leading-relaxed">
+            <p className="max-w-2xl mx-auto text-sm md:text-base text-foreground/55 dark:text-white/40 leading-relaxed">
               {t('adamas.heroSubtitle', 'A diversified collection of projects spanning diamond industry, robotics, e-commerce, digital assets, and advanced veterinary technology.')}
             </p>
           </div>
@@ -391,8 +391,8 @@ const AdamasMaterialsOverview = () => {
               { value: '40+', label: t('adamas.statsCountries', 'Countries') },
             ].map((stat) => (
               <div key={stat.label} className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-white">{stat.value}</div>
-                <div className="text-[10px] uppercase tracking-[0.2em] text-white/30 mt-1.5">{stat.label}</div>
+                <div className="text-3xl md:text-4xl font-bold text-foreground dark:text-white">{stat.value}</div>
+                <div className="text-[10px] uppercase tracking-[0.2em] text-foreground/45 dark:text-white/30 mt-1.5">{stat.label}</div>
               </div>
             ))}
           </div>
