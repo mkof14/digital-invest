@@ -9,9 +9,11 @@ import OptimizedImage from '@/components/OptimizedImage';
 
 // Per-project hero images
 import originDiamondHero from '@/assets/adamas/origin-diamond-hero.jpg';
+import jatualHero from '@/assets/adamas/jatual-diamonds-hero.jpg';
 
 const projectHeroImages: Record<string, string> = {
   'origin-diamond': originDiamondHero,
+  'jatual-diamonds': jatualHero,
 };
 
 const AdamasProjectDetail = () => {
