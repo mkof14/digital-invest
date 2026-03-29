@@ -1,3 +1,5 @@
+export type ProjectStatus = 'active' | 'development' | 'planning' | 'launch';
+
 export interface AdamasProject {
   slug: string;
   titleKey: string;
@@ -6,7 +8,9 @@ export interface AdamasProject {
   category: string;
   categoryKey: string;
   accentHsl: string;
-  icon: string; // lucide icon name
+  icon: string;
+  status: ProjectStatus;
+  relatedSlugs: string[]; // slugs of 2-3 related projects
 }
 
 export const adamasProjects: AdamasProject[] = [
@@ -19,6 +23,8 @@ export const adamasProjects: AdamasProject[] = [
     categoryKey: 'adamas.categories.materials',
     accentHsl: '220 70% 55%',
     icon: 'Gem',
+    status: 'active',
+    relatedSlugs: ['innovation-diamonds', 'origin-diamond', 'alma-diamond'],
   },
   {
     slug: 'origin-diamond',
@@ -29,6 +35,8 @@ export const adamasProjects: AdamasProject[] = [
     categoryKey: 'adamas.categories.diamond',
     accentHsl: '280 60% 55%',
     icon: 'Diamond',
+    status: 'development',
+    relatedSlugs: ['alma-diamond', 'jatual-diamonds', 'innovation-diamonds'],
   },
   {
     slug: 'agron-net',
@@ -39,6 +47,8 @@ export const adamasProjects: AdamasProject[] = [
     categoryKey: 'adamas.categories.robotics',
     accentHsl: '160 60% 45%',
     icon: 'Network',
+    status: 'active',
+    relatedSlugs: ['agron-work', 'animal-veterinary-service', 'it-marketing-group'],
   },
   {
     slug: 'agron-work',
@@ -49,6 +59,8 @@ export const adamasProjects: AdamasProject[] = [
     categoryKey: 'adamas.categories.talent',
     accentHsl: '200 65% 50%',
     icon: 'Users',
+    status: 'active',
+    relatedSlugs: ['agron-net', 'it-marketing-group', 'adamas-materials'],
   },
   {
     slug: 'abu-mall',
@@ -59,6 +71,8 @@ export const adamasProjects: AdamasProject[] = [
     categoryKey: 'adamas.categories.ecommerce',
     accentHsl: '35 80% 50%',
     icon: 'ShoppingBag',
+    status: 'development',
+    relatedSlugs: ['jewelry-dropshipping', 'coins-and-tokens', 'jatual-diamonds'],
   },
   {
     slug: 'alma-diamond',
@@ -69,6 +83,8 @@ export const adamasProjects: AdamasProject[] = [
     categoryKey: 'adamas.categories.diamond',
     accentHsl: '310 55% 50%',
     icon: 'Sparkles',
+    status: 'active',
+    relatedSlugs: ['origin-diamond', 'jatual-diamonds', 'innovation-diamonds'],
   },
   {
     slug: 'jewelry-dropshipping',
@@ -79,6 +95,8 @@ export const adamasProjects: AdamasProject[] = [
     categoryKey: 'adamas.categories.ecommerce',
     accentHsl: '45 75% 50%',
     icon: 'Package',
+    status: 'planning',
+    relatedSlugs: ['abu-mall', 'jatual-diamonds', 'alma-diamond'],
   },
   {
     slug: 'jatual-diamonds',
@@ -89,6 +107,8 @@ export const adamasProjects: AdamasProject[] = [
     categoryKey: 'adamas.categories.diamond',
     accentHsl: '260 55% 55%',
     icon: 'Crown',
+    status: 'active',
+    relatedSlugs: ['alma-diamond', 'origin-diamond', 'jewelry-dropshipping'],
   },
   {
     slug: 'coins-and-tokens',
@@ -99,6 +119,8 @@ export const adamasProjects: AdamasProject[] = [
     categoryKey: 'adamas.categories.digital',
     accentHsl: '180 60% 45%',
     icon: 'Coins',
+    status: 'active',
+    relatedSlugs: ['abu-mall', 'adamas-materials', 'jewelry-dropshipping'],
   },
   {
     slug: 'innovation-diamonds',
@@ -109,6 +131,8 @@ export const adamasProjects: AdamasProject[] = [
     categoryKey: 'adamas.categories.diamond',
     accentHsl: '195 70% 40%',
     icon: 'Diamond',
+    status: 'active',
+    relatedSlugs: ['adamas-materials', 'origin-diamond', 'alma-diamond'],
   },
   {
     slug: 'it-marketing-group',
@@ -119,6 +143,8 @@ export const adamasProjects: AdamasProject[] = [
     categoryKey: 'adamas.categories.itMarketing',
     accentHsl: '340 60% 50%',
     icon: 'Lightbulb',
+    status: 'active',
+    relatedSlugs: ['agron-net', 'agron-work', 'adamas-materials'],
   },
   {
     slug: 'animal-veterinary-service',
@@ -129,5 +155,7 @@ export const adamasProjects: AdamasProject[] = [
     categoryKey: 'adamas.categories.vettech',
     accentHsl: '140 55% 45%',
     icon: 'HeartPulse',
+    status: 'development',
+    relatedSlugs: ['agron-net', 'agron-work', 'it-marketing-group'],
   },
 ];

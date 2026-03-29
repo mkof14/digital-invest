@@ -2,9 +2,10 @@ import { useParams, Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import AdamasNavigation from '@/components/AdamasNavigation';
 import AdamasFooter from '@/components/AdamasFooter';
-import { adamasProjects } from './adamasProjects';
-import { ArrowLeft, ArrowRight } from 'lucide-react';
+import { adamasProjects, type ProjectStatus } from './adamasProjects';
+import { ArrowLeft, ArrowRight, Mail } from 'lucide-react';
 import OptimizedImage from '@/components/OptimizedImage';
+import { useState } from 'react';
 
 // Per-project hero images
 import originDiamondHero from '@/assets/adamas/origin-diamond-hero.jpg';
@@ -19,6 +20,20 @@ import itMarketingHero from '@/assets/adamas/it-marketing-hero.jpg';
 import animalVetHero from '@/assets/adamas/animal-vet-hero.jpg';
 import agronNetHero from '@/assets/adamas/agron-net-hero.jpg';
 import agronWorkHero from '@/assets/adamas/agron-work-hero.jpg';
+
+// Per-project logos
+import adamasMaterialsLogoIcon from '@/assets/adamas/logos/adamas-materials-logo-icon.png';
+import originDiamondLogo from '@/assets/adamas/logos/origin-diamond-logo.png';
+import agronNetLogo from '@/assets/adamas/logos/agron-net-logo.png';
+import agronWorkLogo from '@/assets/adamas/logos/agron-work-logo.png';
+import abuMallLogo from '@/assets/adamas/logos/abu-mall-logo.png';
+import almaDiamondLogo from '@/assets/adamas/logos/alma-diamond-logo.png';
+import jewelryDropshippingLogo from '@/assets/adamas/logos/jewelry-dropshipping-logo.png';
+import jatualDiamondsLogo from '@/assets/adamas/logos/jatual-diamonds-logo.png';
+import coinsTokensLogo from '@/assets/adamas/logos/coins-tokens-logo.png';
+import innovationDiamondsLogo from '@/assets/adamas/logos/innovation-diamonds-logo.png';
+import itMarketingLogo from '@/assets/adamas/logos/it-marketing-logo.png';
+import animalVetLogo from '@/assets/adamas/logos/animal-vet-logo.png';
 
 const projectHeroImages: Record<string, string> = {
   'adamas-materials': adamasMaterialsHero,
@@ -35,9 +50,32 @@ const projectHeroImages: Record<string, string> = {
   'animal-veterinary-service': animalVetHero,
 };
 
+const projectLogos: Record<string, string> = {
+  'adamas-materials': adamasMaterialsLogoIcon,
+  'origin-diamond': originDiamondLogo,
+  'agron-net': agronNetLogo,
+  'agron-work': agronWorkLogo,
+  'abu-mall': abuMallLogo,
+  'alma-diamond': almaDiamondLogo,
+  'jewelry-dropshipping': jewelryDropshippingLogo,
+  'jatual-diamonds': jatualDiamondsLogo,
+  'coins-and-tokens': coinsTokensLogo,
+  'innovation-diamonds': innovationDiamondsLogo,
+  'it-marketing-group': itMarketingLogo,
+  'animal-veterinary-service': animalVetLogo,
+};
+
+const statusConfig: Record<ProjectStatus, { labelKey: string; fallback: string; color: string }> = {
+  active: { labelKey: 'adamas.status.active', fallback: 'Active', color: '142 71% 45%' },
+  development: { labelKey: 'adamas.status.development', fallback: 'In Development', color: '38 92% 50%' },
+  planning: { labelKey: 'adamas.status.planning', fallback: 'Planning', color: '217 91% 60%' },
+  launch: { labelKey: 'adamas.status.launch', fallback: 'Launching', color: '280 65% 55%' },
+};
+
 const AdamasProjectDetail = () => {
   const { slug } = useParams<{ slug: string }>();
   const { t } = useTranslation();
+  const [contactOpen, setContactOpen] = useState(false);
 
   const project = adamasProjects.find(p => p.slug === slug);
   const projectIndex = adamasProjects.findIndex(p => p.slug === slug);
@@ -60,6 +98,11 @@ const AdamasProjectDetail = () => {
   }
 
   const hasHero = !!projectHeroImages[project.slug];
+  const projectLogo = projectLogos[project.slug];
+  const status = statusConfig[project.status];
+  const relatedProjects = project.relatedSlugs
+    .map(s => adamasProjects.find(p => p.slug === s))
+    .filter(Boolean) as typeof adamasProjects;
 
   return (
     <div className="min-h-screen bg-[hsl(220,16%,92%)] dark:bg-background">
@@ -87,17 +130,43 @@ const AdamasProjectDetail = () => {
                 {t('adamas.backToProjects', 'Back to Adamas Projects')}
               </Link>
 
-              <div className="flex items-center gap-3 mb-3">
-                <span
-                  className="inline-block text-[10px] font-medium uppercase tracking-[0.2em] px-3 py-1 rounded border backdrop-blur-md"
-                  style={{
-                    color: `hsl(${project.accentHsl})`,
-                    background: `hsl(${project.accentHsl} / 0.12)`,
-                    borderColor: `hsl(${project.accentHsl} / 0.25)`,
-                  }}
-                >
-                  {t(project.categoryKey, project.category)}
-                </span>
+              <div className="flex items-center gap-3 mb-3 flex-wrap">
+                {/* Project Logo */}
+                {projectLogo && (
+                  <img
+                    src={projectLogo}
+                    alt=""
+                    className="h-12 w-12 md:h-14 md:w-14 rounded-xl object-contain bg-white/10 backdrop-blur-md p-1.5 border border-white/10"
+                    loading="lazy"
+                  />
+                )}
+                <div className="flex items-center gap-3">
+                  <span
+                    className="inline-block text-[10px] font-medium uppercase tracking-[0.2em] px-3 py-1 rounded border backdrop-blur-md"
+                    style={{
+                      color: `hsl(${project.accentHsl})`,
+                      background: `hsl(${project.accentHsl} / 0.12)`,
+                      borderColor: `hsl(${project.accentHsl} / 0.25)`,
+                    }}
+                  >
+                    {t(project.categoryKey, project.category)}
+                  </span>
+                  {/* Status Badge */}
+                  <span
+                    className="inline-flex items-center gap-1.5 text-[10px] font-medium uppercase tracking-[0.15em] px-3 py-1 rounded border backdrop-blur-md"
+                    style={{
+                      color: `hsl(${status.color})`,
+                      background: `hsl(${status.color} / 0.12)`,
+                      borderColor: `hsl(${status.color} / 0.25)`,
+                    }}
+                  >
+                    <span
+                      className="w-1.5 h-1.5 rounded-full animate-pulse"
+                      style={{ background: `hsl(${status.color})` }}
+                    />
+                    {t(status.labelKey, status.fallback)}
+                  </span>
+                </div>
               </div>
 
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight text-white">
@@ -124,17 +193,41 @@ const AdamasProjectDetail = () => {
               {t('adamas.backToProjects', 'Back to Adamas Projects')}
             </Link>
 
-            <div className="mb-4">
-              <span
-                className="inline-block text-[10px] font-medium uppercase tracking-[0.2em] px-3 py-1 rounded border"
-                style={{
-                  color: `hsl(${project.accentHsl})`,
-                  background: `hsl(${project.accentHsl} / 0.08)`,
-                  borderColor: `hsl(${project.accentHsl} / 0.2)`,
-                }}
-              >
-                {t(project.categoryKey, project.category)}
-              </span>
+            <div className="flex items-center gap-4 mb-4">
+              {projectLogo && (
+                <img
+                  src={projectLogo}
+                  alt=""
+                  className="h-14 w-14 rounded-xl object-contain bg-muted/50 p-1.5 border border-border/30"
+                  loading="lazy"
+                />
+              )}
+              <div className="flex items-center gap-3">
+                <span
+                  className="inline-block text-[10px] font-medium uppercase tracking-[0.2em] px-3 py-1 rounded border"
+                  style={{
+                    color: `hsl(${project.accentHsl})`,
+                    background: `hsl(${project.accentHsl} / 0.08)`,
+                    borderColor: `hsl(${project.accentHsl} / 0.2)`,
+                  }}
+                >
+                  {t(project.categoryKey, project.category)}
+                </span>
+                <span
+                  className="inline-flex items-center gap-1.5 text-[10px] font-medium uppercase tracking-[0.15em] px-3 py-1 rounded border"
+                  style={{
+                    color: `hsl(${status.color})`,
+                    background: `hsl(${status.color} / 0.08)`,
+                    borderColor: `hsl(${status.color} / 0.2)`,
+                  }}
+                >
+                  <span
+                    className="w-1.5 h-1.5 rounded-full animate-pulse"
+                    style={{ background: `hsl(${status.color})` }}
+                  />
+                  {t(status.labelKey, status.fallback)}
+                </span>
+              </div>
             </div>
 
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight text-foreground mb-6">
@@ -194,6 +287,167 @@ const AdamasProjectDetail = () => {
           </div>
         </div>
       </section>
+
+      {/* Contact / Inquiry Section */}
+      <section className="pb-16">
+        <div className="max-w-5xl mx-auto px-4">
+          <div
+            className="rounded-2xl border border-border/40 dark:border-border/30 p-8 md:p-10 shadow-sm relative overflow-hidden"
+            style={{
+              background: `linear-gradient(135deg, hsl(${project.accentHsl} / 0.04), transparent 60%)`,
+            }}
+          >
+            <div className="absolute top-0 right-0 w-40 h-40 opacity-[0.03]" style={{
+              background: `radial-gradient(circle, hsl(${project.accentHsl}), transparent 70%)`
+            }} />
+            <div className="relative z-10">
+              <div className="flex items-start gap-4 mb-6">
+                <div
+                  className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0"
+                  style={{
+                    background: `hsl(${project.accentHsl} / 0.1)`,
+                    border: `1px solid hsl(${project.accentHsl} / 0.2)`,
+                  }}
+                >
+                  <Mail className="w-5 h-5" style={{ color: `hsl(${project.accentHsl})` }} />
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold text-foreground mb-1">
+                    {t('adamas.contact.title', 'Interested in this project?')}
+                  </h3>
+                  <p className="text-sm text-muted-foreground">
+                    {t('adamas.contact.subtitle', 'Get in touch with our team for private inquiries and partnership discussions.')}
+                  </p>
+                </div>
+              </div>
+
+              {!contactOpen ? (
+                <button
+                  onClick={() => setContactOpen(true)}
+                  className="inline-flex items-center gap-2 px-6 py-2.5 rounded-lg text-sm font-medium transition-all duration-300 hover:shadow-lg"
+                  style={{
+                    background: `hsl(${project.accentHsl})`,
+                    color: 'white',
+                  }}
+                >
+                  {t('adamas.contact.button', 'Send Inquiry')}
+                  <ArrowRight className="w-4 h-4" />
+                </button>
+              ) : (
+                <form
+                  className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-2"
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                    setContactOpen(false);
+                  }}
+                >
+                  <input
+                    type="text"
+                    placeholder={t('adamas.contact.namePlaceholder', 'Your name')}
+                    className="px-4 py-2.5 rounded-lg border border-border/50 bg-white/60 dark:bg-muted/30 text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary/50"
+                    required
+                  />
+                  <input
+                    type="email"
+                    placeholder={t('adamas.contact.emailPlaceholder', 'Your email')}
+                    className="px-4 py-2.5 rounded-lg border border-border/50 bg-white/60 dark:bg-muted/30 text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary/50"
+                    required
+                  />
+                  <textarea
+                    placeholder={t('adamas.contact.messagePlaceholder', 'Your message or inquiry...')}
+                    rows={3}
+                    className="md:col-span-2 px-4 py-2.5 rounded-lg border border-border/50 bg-white/60 dark:bg-muted/30 text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary/50 resize-none"
+                  />
+                  <div className="md:col-span-2 flex gap-3">
+                    <button
+                      type="submit"
+                      className="px-6 py-2.5 rounded-lg text-sm font-medium text-white transition-all duration-300 hover:shadow-lg"
+                      style={{ background: `hsl(${project.accentHsl})` }}
+                    >
+                      {t('adamas.contact.send', 'Send')}
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setContactOpen(false)}
+                      className="px-4 py-2.5 rounded-lg text-sm text-muted-foreground hover:text-foreground transition-colors"
+                    >
+                      {t('common.cancel', 'Cancel')}
+                    </button>
+                  </div>
+                </form>
+              )}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Related Projects */}
+      {relatedProjects.length > 0 && (
+        <section className="pb-16">
+          <div className="max-w-5xl mx-auto px-4">
+            <h2 className="text-lg font-semibold text-foreground mb-6">
+              {t('adamas.relatedProjects', 'Related Projects')}
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              {relatedProjects.map((rp) => {
+                const rpHero = projectHeroImages[rp.slug];
+                const rpLogo = projectLogos[rp.slug];
+                const rpStatus = statusConfig[rp.status];
+                return (
+                  <Link
+                    key={rp.slug}
+                    to={`/adamas/${rp.slug}`}
+                    className="group relative rounded-xl overflow-hidden min-h-[200px] transition-all duration-500 hover:-translate-y-1"
+                    style={{
+                      boxShadow: '0 4px 16px -4px rgba(0,0,0,0.15)',
+                    }}
+                  >
+                    {rpHero && (
+                      <img
+                        src={rpHero}
+                        alt=""
+                        className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        loading="lazy"
+                      />
+                    )}
+                    <div
+                      className="absolute inset-0"
+                      style={{
+                        background: rpHero
+                          ? `linear-gradient(160deg, rgba(10,10,15,0.85) 0%, hsl(${rp.accentHsl} / 0.2) 50%, rgba(5,5,10,0.9) 100%)`
+                          : `linear-gradient(160deg, hsl(var(--card)) 0%, hsl(${rp.accentHsl} / 0.06) 100%)`,
+                      }}
+                    />
+                    <div className="absolute top-0 left-0 right-0 h-[2px] opacity-50 group-hover:opacity-100 transition-opacity"
+                      style={{ background: `linear-gradient(90deg, transparent, hsl(${rp.accentHsl} / 0.5), transparent)` }}
+                    />
+                    <div className="relative z-10 p-5 flex flex-col justify-end h-full text-white">
+                      <div className="mb-auto flex items-center gap-2">
+                        {rpLogo && (
+                          <img src={rpLogo} alt="" className="h-8 w-8 rounded-lg object-contain bg-white/10 p-1 border border-white/10" loading="lazy" />
+                        )}
+                        <span
+                          className="inline-flex items-center gap-1 text-[9px] font-medium uppercase tracking-[0.15em] px-2 py-0.5 rounded border backdrop-blur-md"
+                          style={{
+                            color: `hsl(${rpStatus.color})`,
+                            background: `hsl(${rpStatus.color} / 0.12)`,
+                            borderColor: `hsl(${rpStatus.color} / 0.2)`,
+                          }}
+                        >
+                          <span className="w-1 h-1 rounded-full" style={{ background: `hsl(${rpStatus.color})` }} />
+                          {t(rpStatus.labelKey, rpStatus.fallback)}
+                        </span>
+                      </div>
+                      <h3 className="text-base font-semibold mb-1">{t(rp.titleKey)}</h3>
+                      <p className="text-xs text-white/50 line-clamp-2">{t(rp.descriptionKey)}</p>
+                    </div>
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Navigation between projects */}
       <section className="pb-16">
