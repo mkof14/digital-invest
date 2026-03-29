@@ -234,7 +234,7 @@ const AdamasMaterialsOverview = () => {
       "@type": "Organization",
       "name": "Adamas Materials",
       "url": "https://digitalinvest.com/adamas",
-      "logo": "https://digital-invest.lovable.app/adamas-og-image.jpg",
+      "logo": "https://digitalinvest.com/adamas-og-image.jpg",
       "description": "Diversified project portfolio spanning the diamond industry, robotics, e-commerce, digital assets, and advanced veterinary technology.",
       "numberOfEmployees": { "@type": "QuantitativeValue", "value": "200+" },
       "areaServed": "Worldwide",

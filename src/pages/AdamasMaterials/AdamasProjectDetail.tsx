@@ -106,7 +106,7 @@ const AdamasProjectDetail = () => {
       "@type": "Product",
       "name": projectTitle,
       "description": projectDesc,
-      "image": heroImage || 'https://digital-invest.lovable.app/adamas-og-image.jpg',
+      "image": heroImage || 'https://digitalinvest.com/adamas-og-image.jpg',
       "url": `https://digitalinvest.com/adamas/${project.slug}`,
       "category": project.category,
       "brand": {
