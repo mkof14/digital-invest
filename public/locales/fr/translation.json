@@ -1519,20 +1519,155 @@
     "highlight1": "Gestion Privée",
     "highlight2": "Partenariats Stratégiques",
     "highlight3": "Vision à Long Terme",
-    "categories": { "materials": "Matériaux et Infrastructure", "diamond": "Industrie du Diamant", "robotics": "Réseau Robotique", "talent": "Talents et RH", "ecommerce": "Commerce Électronique", "digital": "Actifs Numériques", "itMarketing": "IT et Marketing", "vettech": "VétériTech et Robotique" },
-    "disclaimer": { "title": "Avis Important:", "text": "Cette section est à titre informatif uniquement. Les projets Adamas Materials sont présentés séparément et ne constituent pas une offre publique." },
+    "categories": {
+      "materials": "Matériaux et Infrastructure",
+      "diamond": "Industrie du Diamant",
+      "robotics": "Réseau Robotique",
+      "talent": "Talents et RH",
+      "ecommerce": "Commerce Électronique",
+      "digital": "Actifs Numériques",
+      "itMarketing": "IT et Marketing",
+      "vettech": "VétériTech et Robotique"
+    },
+    "disclaimer": {
+      "title": "Avis Important:",
+      "text": "Cette section est à titre informatif uniquement. Les projets Adamas Materials sont présentés séparément et ne constituent pas une offre publique."
+    },
     "projects": {
-      "adamasMaterials": { "title": "Adamas Materials", "description": "Fournisseur B2B/B2G américain de diamants techniques et de matériaux avancés pour les laboratoires de recherche, la R&D industrielle, les secteurs gouvernemental et de la défense.", "longDescription": "Adamas Materials est une entreprise B2B/B2G basée aux États-Unis, spécialisée dans la fourniture de diamants techniques et de matériaux avancés aux laboratoires de recherche, aux divisions R&D corporatives et aux structures gouvernementales et de défense.\n\nLe portefeuille produits couvre quatre directions stratégiques : matériaux quantiques et de détection, matériaux de gestion thermique, outillage et composants anti-usure, ainsi que matériaux et minéraux de support avec spécifications techniques complètes.\n\nPositionné comme fournisseur industriel et scientifique — ni grand public, ni joaillerie — Adamas Materials opère sur un modèle RFQ sans tarification publique, avec une orientation strictement contractuelle et orientée recherche." },
-      "originDiamond": { "title": "Origin Diamond", "description": "Service de diamants lab-grown personnalisés où le client co-crée sa pierre — choisit les paramètres, intègre un message caché et reçoit un diamant certifié unique lié à son histoire.", "longDescription": "Origin Diamond est un service et une application où le client ne achète pas un diamant fini — il le crée. La plateforme guide chaque personne à travers la sélection des paramètres, la participation au processus de croissance, le suivi des étapes et la réception d'une pierre certifiée avec un message personnel caché lisible uniquement à travers une lentille propriétaire.\n\nLe parcours client comprend sept étapes : quiz de valeurs personnelles, sélection des paramètres, couche de message (nom, date, phrase ou code), confirmation d'irréversibilité, timeline de croissance avec jalons, design guidé du bijou et kit reveal — pierre, lentille et certificat de naissance.\n\nUn diamant que vous avez aidé à créer. Un message que vous seul pouvez lire. Une histoire qui reste." },
-      "agronNet": { "title": "AGRON-NET", "description": "Infrastructure nationale pour la robotique autonome aérienne et terrestre — formation, certification, opérations de flotte et normes. L'épine dorsale opérationnelle de l'économie robotique américaine.", "longDescription": "AGRON est une plateforme d'infrastructure nationale conçue pour soutenir la formation, la certification, la coordination et l'exploitation réelle des systèmes robotiques autonomes aériens et terrestres aux États-Unis.\n\nAGRON ne fabrique pas de drones ni de robots. Son rôle est d'agir comme interface opérationnelle, éducative et réglementaire entre les technologies autonomes, les opérateurs, les entreprises et les institutions gouvernementales.\n\nDomaines clés : robotique aérienne (drones, UAS, BVLOS, essaim), robotique terrestre (UGV, plateformes mobiles, logistique, sécurité) et missions combinées air-sol." },
-      "agronWork": { "title": "AGRON-Work", "description": "Plateforme de talents connectant les employeurs avec des professionnels vérifiés en drones, robotique, IA et automatisation. Recrutement direct, certification et intelligence de la main-d'œuvre.", "longDescription": "AGRON-Work est une plateforme spécialisée d'acquisition de talents pour l'industrie de la robotique autonome. Elle connecte les employeurs avec des professionnels vérifiés — des pilotes de drones aux ingénieurs roboticiens et spécialistes IA — avec certification, parcours de carrière et planification d'effectifs." },
-      "abuMall": { "title": "Abu Mall", "description": "Centre commercial virtuel de bijouterie de nouvelle génération — un environnement numérique spatial où les utilisateurs naviguent dans des vitrines premium, interagissent avec des produits 3D et vivent une expérience de shopping luxueuse fondée sur la confiance et une économie réaliste.", "longDescription": "Abu Mall est un centre commercial virtuel de bijouterie. Pas un site web, pas une marketplace, pas un métavers — mais un environnement numérique spatial où l'utilisateur se déplace, choisit et interagit avec la joaillerie fine comme s'il visitait un centre commercial premium réel.\n\nLa plateforme résout les problèmes fondamentaux du e-commerce joaillier : expérience visuelle plate, absence de perception de l'échelle, anxiété d'achat et absence de connexion émotionnelle. Abu Mall transforme le shopping en ligne en expérience immersive avec vue 360°, essayage virtuel, vitrines de marques uniques et visualisation de livraison premium.\n\nLa stratégie démarre avec Amazon Brand Registry (3 marques de bijoux propriétaires), valide la demande via un concept limité, puis s'étend à une plateforme indépendante (web, mobile, VR).\n\nSources de revenus : vitrines virtuelles premium, commissions sur ventes et services pour les marques (analytique, marketing, support)." },
-      "almaDiamond": { "title": "Alma Diamond", "description": "Marque de diamants boutique spécialisée dans les pierres sur mesure et le design de bijoux personnalisé.", "longDescription": "Alma Diamond combine l'artisanat traditionnel du diamant avec une sensibilité design moderne." },
-      "jewelryDropshipping": { "title": "Jewelry DropShipping", "description": "Infrastructure de fulfillment automatisée pour les détaillants de bijoux avec zéro stock.", "longDescription": "Jewelry DropShipping élimine la charge de capital d'inventaire pour les détaillants de bijoux." },
-      "jatualDiamonds": { "title": "JATUAL DIAMONDS", "description": "Approvisionnement en diamants industriels et d'investissement avec classification de précision.", "longDescription": "JATUAL DIAMONDS sert les acheteurs industriels et d'investissement avec des diamants de qualité institutionnelle." },
-      "coinsTokens": { "title": "Coins and Tokens", "description": "Infrastructure d'actifs numériques pour les commodités tokenisées et les actifs de collection.", "longDescription": "Coins and Tokens développe l'infrastructure pour représenter des actifs physiques en tokens numériques vérifiables." },
-      "innovationDiamonds": { "title": "INNOVATION DIAMONDS, IT & Marketing Group", "description": "Division technologie et marketing pour la transformation numérique du secteur diamantaire.", "longDescription": "INNOVATION DIAMONDS opère comme le bras technologique et marketing de l'écosystème Adamas." },
-      "vetRobotics": { "title": "Service Vétérinaire Info-Robotique", "description": "Diagnostics vétérinaires spécialisés et soins assistés par robots pour chameaux et chevaux.", "longDescription": "Ce projet pionnier offre des soins vétérinaires avancés pour chameaux et chevaux grâce à l'IA et la robotique." }
+      "adamasMaterials": {
+        "title": "Adamas Materials",
+        "description": "Fournisseur B2B/B2G américain de diamants techniques et de matériaux avancés pour les laboratoires de recherche, la R&D industrielle, les secteurs gouvernemental et de la défense.",
+        "longDescription": "Adamas Materials est une entreprise B2B/B2G basée aux États-Unis, spécialisée dans la fourniture de diamants techniques et de matériaux avancés aux laboratoires de recherche, aux divisions R&D corporatives et aux structures gouvernementales et de défense.\n\nLe portefeuille produits couvre quatre directions stratégiques : matériaux quantiques et de détection, matériaux de gestion thermique, outillage et composants anti-usure, ainsi que matériaux et minéraux de support avec spécifications techniques complètes.\n\nPositionné comme fournisseur industriel et scientifique — ni grand public, ni joaillerie — Adamas Materials opère sur un modèle RFQ sans tarification publique, avec une orientation strictement contractuelle et orientée recherche."
+      },
+      "originDiamond": {
+        "title": "Origin Diamond",
+        "description": "Service de diamants lab-grown personnalisés où le client co-crée sa pierre — choisit les paramètres, intègre un message caché et reçoit un diamant certifié unique lié à son histoire.",
+        "longDescription": "Origin Diamond est un service et une application où le client ne achète pas un diamant fini — il le crée. La plateforme guide chaque personne à travers la sélection des paramètres, la participation au processus de croissance, le suivi des étapes et la réception d'une pierre certifiée avec un message personnel caché lisible uniquement à travers une lentille propriétaire.\n\nLe parcours client comprend sept étapes : quiz de valeurs personnelles, sélection des paramètres, couche de message (nom, date, phrase ou code), confirmation d'irréversibilité, timeline de croissance avec jalons, design guidé du bijou et kit reveal — pierre, lentille et certificat de naissance.\n\nUn diamant que vous avez aidé à créer. Un message que vous seul pouvez lire. Une histoire qui reste."
+      },
+      "agronNet": {
+        "title": "AGRON-NET",
+        "description": "Infrastructure nationale pour la robotique autonome aérienne et terrestre — formation, certification, opérations de flotte et normes. L'épine dorsale opérationnelle de l'économie robotique américaine.",
+        "longDescription": "AGRON est une plateforme d'infrastructure nationale conçue pour soutenir la formation, la certification, la coordination et l'exploitation réelle des systèmes robotiques autonomes aériens et terrestres aux États-Unis.\n\nAGRON ne fabrique pas de drones ni de robots. Son rôle est d'agir comme interface opérationnelle, éducative et réglementaire entre les technologies autonomes, les opérateurs, les entreprises et les institutions gouvernementales.\n\nDomaines clés : robotique aérienne (drones, UAS, BVLOS, essaim), robotique terrestre (UGV, plateformes mobiles, logistique, sécurité) et missions combinées air-sol."
+      },
+      "agronWork": {
+        "title": "AGRON-Work",
+        "description": "Plateforme de talents connectant les employeurs avec des professionnels vérifiés en drones, robotique, IA et automatisation. Recrutement direct, certification et intelligence de la main-d'œuvre.",
+        "longDescription": "AGRON-Work est une plateforme spécialisée d'acquisition de talents pour l'industrie de la robotique autonome. Elle connecte les employeurs avec des professionnels vérifiés — des pilotes de drones aux ingénieurs roboticiens et spécialistes IA — avec certification, parcours de carrière et planification d'effectifs."
+      },
+      "abuMall": {
+        "title": "Abu Mall",
+        "description": "Centre commercial virtuel de bijouterie de nouvelle génération — un environnement numérique spatial où les utilisateurs naviguent dans des vitrines premium, interagissent avec des produits 3D et vivent une expérience de shopping luxueuse fondée sur la confiance et une économie réaliste.",
+        "longDescription": "Abu Mall est un centre commercial virtuel de bijouterie. Pas un site web, pas une marketplace, pas un métavers — mais un environnement numérique spatial où l'utilisateur se déplace, choisit et interagit avec la joaillerie fine comme s'il visitait un centre commercial premium réel.\n\nLa plateforme résout les problèmes fondamentaux du e-commerce joaillier : expérience visuelle plate, absence de perception de l'échelle, anxiété d'achat et absence de connexion émotionnelle. Abu Mall transforme le shopping en ligne en expérience immersive avec vue 360°, essayage virtuel, vitrines de marques uniques et visualisation de livraison premium.\n\nLa stratégie démarre avec Amazon Brand Registry (3 marques de bijoux propriétaires), valide la demande via un concept limité, puis s'étend à une plateforme indépendante (web, mobile, VR).\n\nSources de revenus : vitrines virtuelles premium, commissions sur ventes et services pour les marques (analytique, marketing, support)."
+      },
+      "almaDiamond": {
+        "title": "Alma Diamond",
+        "description": "Marque de diamants boutique spécialisée dans les pierres sur mesure et le design de bijoux personnalisé.",
+        "longDescription": "Alma Diamond combine l'artisanat traditionnel du diamant avec une sensibilité design moderne."
+      },
+      "jewelryDropshipping": {
+        "title": "Jewelry DropShipping",
+        "description": "Infrastructure de fulfillment automatisée pour les détaillants de bijoux avec zéro stock.",
+        "longDescription": "Jewelry DropShipping élimine la charge de capital d'inventaire pour les détaillants de bijoux."
+      },
+      "jatualDiamonds": {
+        "title": "JATUAL DIAMONDS",
+        "description": "Approvisionnement en diamants industriels et d'investissement avec classification de précision.",
+        "longDescription": "JATUAL DIAMONDS sert les acheteurs industriels et d'investissement avec des diamants de qualité institutionnelle."
+      },
+      "coinsTokens": {
+        "title": "Coins and Tokens",
+        "description": "Infrastructure d'actifs numériques pour les commodités tokenisées et les actifs de collection.",
+        "longDescription": "Coins and Tokens développe l'infrastructure pour représenter des actifs physiques en tokens numériques vérifiables."
+      },
+      "innovationDiamonds": {
+        "title": "INNOVATION DIAMONDS, IT & Marketing Group",
+        "description": "Division technologie et marketing pour la transformation numérique du secteur diamantaire.",
+        "longDescription": "INNOVATION DIAMONDS opère comme le bras technologique et marketing de l'écosystème Adamas."
+      },
+      "vetRobotics": {
+        "title": "Service Vétérinaire Info-Robotique",
+        "description": "Diagnostics vétérinaires spécialisés et soins assistés par robots pour chameaux et chevaux.",
+        "longDescription": "Ce projet pionnier offre des soins vétérinaires avancés pour chameaux et chevaux grâce à l'IA et la robotique."
+      }
     }
+  },
+  "abuMall": {
+    "badge": "E-commerce de joaillerie premium",
+    "heroSubtitle": "Centre commercial virtuel de joaillerie nouvelle génération",
+    "heroDesc": "E-commerce premium construit sur l'expérience, la confiance et une économie réaliste. Pas un site web, pas une marketplace — un environnement numérique spatial où les utilisateurs naviguent, choisissent et interagissent.",
+    "marketTitle": "Contexte du marché",
+    "marketDesc": "La joaillerie n'est pas un produit e-commerce standard. Le prix élevé, la prise de décision émotionnelle et le besoin de confiance rendent les catalogues en ligne traditionnels inefficaces.",
+    "market1Title": "Haute valeur",
+    "market1Desc": "Un investissement important nécessitant une approche spéciale de la présentation et de la prise de décision",
+    "market2Title": "Achat émotionnel",
+    "market2Desc": "L'achat est lié aux sentiments et aux moments importants de la vie — pas un clic transactionnel",
+    "market3Title": "Confiance requise",
+    "market3Desc": "La confiance dans la qualité et l'authenticité est essentielle pour la conversion et la fidélité",
+    "problemTitle": "Le problème",
+    "problemSubtitle": "L'e-commerce classique de joaillerie ne parvient pas à offrir l'expérience dont les clients ont besoin",
+    "problem1": "Expérience visuelle plate — les photos statiques ne transmettent pas la beauté et les détails",
+    "problem2": "Aucune perception de l'échelle et de la qualité sur les pages produits standards",
+    "problem3": "Anxiété élevée avant l'achat — doute et peur de faire une erreur",
+    "problem4": "Aucune connexion émotionnelle avec le produit avant l'achat",
+    "ideaTitle": "L'idée centrale",
+    "ideaDesc": "Abu Mall est un centre commercial virtuel de joaillerie. Pas un site web. Pas une marketplace. Pas un métavers. C'est un environnement numérique spatial où les utilisateurs naviguent, choisissent et interagissent.",
+    "notSite": "Pas un site web",
+    "notMarketplace": "Pas une marketplace",
+    "spatialEnv": "Un environnement numérique spatial",
+    "uxTitle": "Expérience utilisateur",
+    "uxSubtitle": "La navigation est intuitive, comme dans le monde réel",
+    "ux1Title": "Entrer dans l'espace",
+    "ux1Desc": "Pénétrez dans un environnement architectural lumineux. La première impression crée une atmosphère premium.",
+    "ux2Title": "Parcourir le mall",
+    "ux2Desc": "Navigation libre dans le mall virtuel. Parcourez les bijouteries avec une totale liberté de choix.",
+    "ux3Title": "Explorer les produits",
+    "ux3Desc": "Examinez les bijoux sous tous les angles. Vue 360°, zoom sur les détails — la pièce semble être un objet réel.",
+    "ux4Title": "Expérience d'achat",
+    "ux4Desc": "Un processus d'achat calme et premium. Sans précipitation ni stress — confiance dans votre décision avec un bel emballage premium.",
+    "featuresTitle": "Fonctionnalités des boutiques",
+    "feat1Title": "Vitrines virtuelles",
+    "feat1Desc": "Chaque marque dispose d'un espace virtuel unique avec sa propre atmosphère, style et ambiance",
+    "feat2Title": "Vue 360°",
+    "feat2Desc": "Examinez chaque taille, facette et éclat sous tous les angles avec des capacités de zoom complètes",
+    "feat3Title": "Essayage virtuel",
+    "feat3Desc": "Voyez comment les bijoux vous vont — sélection confortable à votre rythme",
+    "feat4Title": "Livraison premium",
+    "feat4Desc": "Bel emballage premium avec visualisation de la livraison physique",
+    "feat5Title": "Vitrines de marques",
+    "feat5Desc": "Présentation organisée des collections avec des vitrines de catégories individuelles",
+    "feat6Title": "Confiance et authenticité",
+    "feat6Desc": "Chaque produit authentifié avec certification complète et assurance qualité",
+    "buyerValueTitle": "Valeur pour les acheteurs",
+    "buyerV1": "Plus de confiance dans les décisions d'achat",
+    "buyerV2": "Choix plus éclairé et conscient",
+    "buyerV3": "Moins de doute et d'anxiété lors de l'achat",
+    "buyerV4": "Satisfaction émotionnelle de l'expérience d'achat",
+    "brandValueTitle": "Valeur pour les marques",
+    "brandV1": "Nouveau format de présentation des produits — vitrine innovante",
+    "brandV2": "Vitrine mondiale — accéder aux acheteurs du monde entier",
+    "brandV3": "Différenciation par l'expérience, pas par le prix",
+    "brandV4": "Réduction de la concurrence par les prix — focus sur la valeur, pas les remises",
+    "strategyTitle": "Stratégie de mise sur le marché",
+    "strat1Title": "Lancement Amazon Brand Registry",
+    "strat1Desc": "Commencer avec 3 marques de bijoux propriétaires sur Amazon — créer des collections uniques sur une plateforme éprouvée pour valider la demande et réduire les risques.",
+    "strat2Title": "Preuve de concept",
+    "strat2Desc": "Un mall virtuel, nombre limité de boutiques, 1-2 catégories de produits. Tester le comportement des utilisateurs, mesurer la conversion, évaluer l'impact sur le panier moyen.",
+    "strat3Title": "Lancement de la plateforme Abu Mall",
+    "strat3Desc": "Transition vers Abu Mall comme environnement indépendant — expansion vers des plateformes supplémentaires, lancement de la plateforme propriétaire.",
+    "strat4Title": "Échelle et standard de l'industrie",
+    "strat4Desc": "Expansion des boutiques, intégration de marques externes, développement de la plateforme comme standard de l'industrie. Support : web, mobile, VR (phase suivante).",
+    "revenueTitle": "Modèle de revenus",
+    "rev1Title": "Vitrines premium",
+    "rev1Desc": "Les marques paient pour l'espace virtuel — boutiques premium et zones de vitrine dans le mall",
+    "rev2Title": "Commission sur les ventes",
+    "rev2Desc": "Pourcentage de chaque transaction traitée via la plateforme Abu Mall",
+    "rev3Title": "Services aux marques",
+    "rev3Desc": "Analytique, marketing et support pour les marques — insights et outils basés sur les données",
+    "visionTitle": "L'avenir d'Abu Mall",
+    "vision1": "Le centre commercial numérique pour l'industrie de la joaillerie",
+    "vision2": "Un nouveau standard pour la vente en ligne de produits premium",
+    "vision3": "Un espace où la valeur compte plus que la vitesse",
+    "ctaTitle": "Intéressé par Abu Mall ?",
+    "ctaDesc": "Abu Mall est un projet e-commerce pragmatique et premium, construit sur des ventes réelles, une économie réelle et des besoins réels du marché."
   }
 }
