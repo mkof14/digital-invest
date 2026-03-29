@@ -519,19 +519,20 @@ const Index = () => {
             </h2>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-border/30 rounded-2xl overflow-hidden border border-border/30">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 rounded-2xl overflow-hidden">
             {[
-              { title: "Real projects", description: "Structured, operational, and designed to scale over time.", icon: <CheckCircle2 className="w-6 h-6" /> },
-              { title: "Clear economics", description: "Each platform has a defined business model and unit logic.", icon: <LineChart className="w-6 h-6" /> },
-              { title: "Shared infrastructure", description: "Core AI, backend, analytics, and manufacturing work across the portfolio.", icon: <Network className="w-6 h-6" /> },
-              { title: "Multi-sector diversification", description: "Exposure to HealthTech, AgroTech, FoodTech, and infrastructure.", icon: <Target className="w-6 h-6" /> },
-              { title: "Defined roadmaps", description: "Every project has a phased, realistic roadmap instead of vague promises.", icon: <FileText className="w-6 h-6" /> },
-              { title: "Private and individual", description: "No public offering. All potential participation is discussed individually.", icon: <Lock className="w-6 h-6" /> }
+              { title: "Real projects", description: "Structured, operational, and designed to scale over time.", icon: <CheckCircle2 className="w-6 h-6" />, gradient: "from-emerald-500/8" },
+              { title: "Clear economics", description: "Each platform has a defined business model and unit logic.", icon: <LineChart className="w-6 h-6" />, gradient: "from-blue-500/8" },
+              { title: "Shared infrastructure", description: "Core AI, backend, analytics, and manufacturing work across the portfolio.", icon: <Network className="w-6 h-6" />, gradient: "from-violet-500/8" },
+              { title: "Multi-sector diversification", description: "Exposure to HealthTech, AgroTech, FoodTech, and infrastructure.", icon: <Target className="w-6 h-6" />, gradient: "from-amber-500/8" },
+              { title: "Defined roadmaps", description: "Every project has a phased, realistic roadmap instead of vague promises.", icon: <FileText className="w-6 h-6" />, gradient: "from-teal-500/8" },
+              { title: "Private and individual", description: "No public offering. All potential participation is discussed individually.", icon: <Lock className="w-6 h-6" />, gradient: "from-rose-500/8" }
             ].map((h, i) => (
-              <div key={i} className="bg-card/60 p-7 md:p-8 space-y-3 hover:bg-card transition-colors duration-300">
-                <div className="text-primary/50">{h.icon}</div>
-                <h3 className="text-lg font-bold text-foreground">{h.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{h.description}</p>
+              <div key={i} className="group relative bg-card/60 border border-border/30 rounded-xl p-7 md:p-8 space-y-3 hover:bg-card hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 overflow-hidden">
+                <div className={`absolute inset-0 bg-gradient-to-br ${h.gradient} to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+                <div className="relative text-primary/60 group-hover:text-primary/80 group-hover:scale-110 transition-all duration-300 origin-left">{h.icon}</div>
+                <h3 className="relative text-lg font-bold text-foreground">{h.title}</h3>
+                <p className="relative text-sm text-muted-foreground leading-relaxed">{h.description}</p>
               </div>
             ))}
           </div>
