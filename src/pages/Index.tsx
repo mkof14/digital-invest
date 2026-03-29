@@ -499,9 +499,9 @@ const Index = () => {
                 { icon: <Shield className="w-5 h-5" />, text: "Fully U.S.-based development and operations", num: "05" },
                 { icon: <Target className="w-5 h-5" />, text: "Long-term strategy across real-economy and AI-driven sectors", num: "06" }
               ].map((item, i) => (
-                <div key={i} className="group flex items-start gap-5 p-5 rounded-xl border border-transparent hover:border-border/50 hover:bg-card/50 transition-all duration-300">
-                  <span className="text-xs font-mono text-muted-foreground/50 mt-1 shrink-0">{item.num}</span>
-                  <div className="text-primary/60 mt-0.5 shrink-0">{item.icon}</div>
+                <div key={i} className="group flex items-start gap-5 p-5 rounded-xl border border-border/20 hover:border-border/60 bg-card/30 hover:bg-card/70 hover:shadow-md transition-all duration-300 hover:-translate-x-1">
+                  <span className="text-xs font-mono text-primary/40 mt-1 shrink-0 group-hover:text-primary/70 transition-colors">{item.num}</span>
+                  <div className="text-primary/60 mt-0.5 shrink-0 group-hover:text-primary group-hover:scale-110 transition-all duration-300">{item.icon}</div>
                   <p className="text-base md:text-lg text-foreground font-medium leading-relaxed">{item.text}</p>
                 </div>
               ))}
