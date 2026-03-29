@@ -144,7 +144,7 @@ const Navigation = () => {
                 </DropdownMenuContent>
               </DropdownMenu>
             ) : (
-              <Button variant="outline" asChild className="hover:bg-muted/50 transition-all">
+              <Button variant="ghost" asChild className="border border-border/40 bg-transparent hover:bg-primary/10 hover:border-primary/40 hover:shadow-md hover:shadow-primary/10 transition-all duration-300">
                 <Link to="/investor-auth" className="flex items-center gap-2">
                   <LogIn className="h-4 w-4" />
                   {t('nav.signIn')}
