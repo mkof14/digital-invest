@@ -190,7 +190,7 @@ const AdamasMaterialsOverview = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-[hsl(220,16%,90%)] dark:bg-background">
       <Navigation />
 
       {/* Hero — cinematic, with parallax logo */}
@@ -201,7 +201,7 @@ const AdamasMaterialsOverview = () => {
       >
         {/* Ambient background */}
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-b from-background via-background to-background" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[hsl(220,16%,88%)] via-[hsl(220,14%,90%)] to-[hsl(220,16%,90%)] dark:from-background dark:via-background dark:to-background" />
           {/* Subtle radial glow */}
           <div
             className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] rounded-full opacity-[0.04] dark:opacity-[0.06] blur-3xl"
