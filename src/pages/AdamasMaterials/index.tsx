@@ -56,7 +56,7 @@ const useCardReveal = () => {
     if (!el) return;
     const obs = new IntersectionObserver(
       ([e]) => { if (e.isIntersecting) { setVisible(true); obs.unobserve(el); } },
-      { threshold: 0.08, rootMargin: '0px 0px -60px 0px' }
+      { threshold: 0.02, rootMargin: '0px 0px -8% 0px' }
     );
     obs.observe(el);
     return () => obs.unobserve(el);
@@ -107,12 +107,13 @@ const ProjectCard = ({ project, index }: { project: typeof adamasProjects[0]; in
       }`}
       style={{
         opacity: visible ? 1 : 0,
+        filter: visible ? 'blur(0px)' : 'blur(10px)',
         transform: visible
           ? `perspective(800px) rotateX(${tilt.x}deg) rotateY(${tilt.y}deg) scale(${isHovered ? 1.02 : 1})`
-          : 'translateY(60px) scale(0.92)',
+          : 'translateY(80px) scale(0.9)',
         transition: isHovered
-          ? 'transform 0.15s ease-out, opacity 0.6s ease, box-shadow 0.3s ease'
-          : `transform 1.2s cubic-bezier(0.16,1,0.3,1) ${(index % 4) * 150}ms, opacity 1.2s cubic-bezier(0.16,1,0.3,1) ${(index % 4) * 150}ms, box-shadow 0.5s ease`,
+          ? 'transform 0.15s ease-out, opacity 0.7s ease, filter 0.7s ease, box-shadow 0.3s ease'
+          : `transform 1.45s cubic-bezier(0.22,1,0.36,1) ${(index % 4) * 180}ms, opacity 1.45s cubic-bezier(0.22,1,0.36,1) ${(index % 4) * 180}ms, filter 1.45s cubic-bezier(0.22,1,0.36,1) ${(index % 4) * 180}ms, box-shadow 0.5s ease`,
         boxShadow: isHovered
           ? '0 25px 60px -12px rgba(0,0,0,0.4), 0 12px 28px -8px rgba(0,0,0,0.25)'
           : '0 4px 24px -4px rgba(0,0,0,0.25), 0 0 1px rgba(0,0,0,0.1)',
@@ -277,7 +278,7 @@ const AdamasMaterialsOverview = () => {
       {/* Hero — cinematic dark section */}
       <section
         ref={heroRef}
-        className="relative pt-20 pb-28 overflow-hidden bg-[hsl(220,20%,8%)] dark:bg-[hsl(220,20%,6%)]"
+        className="relative pt-20 pb-28 overflow-hidden bg-gradient-to-b from-[hsl(220,14%,99%)] via-[hsl(220,15%,97%)] to-[hsl(220,14%,95%)] dark:bg-[hsl(220,20%,6%)]"
         onMouseMove={handleMouseMove}
       >
         {/* Animated ambient glows */}
@@ -337,7 +338,7 @@ const AdamasMaterialsOverview = () => {
               transform: heroVisible ? 'translateY(0)' : 'translateY(20px)',
             }}
           >
-            <span className="inline-block px-6 py-2 rounded-full text-[10px] font-semibold tracking-[0.3em] uppercase text-amber-300/80 border border-amber-400/20 bg-amber-400/5 backdrop-blur-sm mb-8">
+            <span className="inline-block px-6 py-2 rounded-full text-[10px] font-semibold tracking-[0.3em] uppercase text-foreground/70 dark:text-amber-300/80 border border-border/40 dark:border-amber-400/20 bg-background/60 dark:bg-amber-400/5 backdrop-blur-sm mb-8">
               {t('adamas.badge', 'Adamas Materials Projects')}
             </span>
           </div>
@@ -350,10 +351,10 @@ const AdamasMaterialsOverview = () => {
               transform: heroVisible ? 'translateY(0)' : 'translateY(20px)',
             }}
           >
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white mb-3">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-foreground dark:text-white mb-3">
               {t('adamas.heroTitle', 'Adamas Materials')}
             </h1>
-            <p className="text-xl md:text-2xl font-light text-white/50 mb-8 tracking-wide">
+            <p className="text-xl md:text-2xl font-light text-foreground/60 dark:text-white/50 mb-8 tracking-wide">
               {t('adamas.heroHighlight', 'Project Portfolio')}
             </p>
           </div>
@@ -366,7 +367,7 @@ const AdamasMaterialsOverview = () => {
               transform: heroVisible ? 'translateY(0)' : 'translateY(20px)',
             }}
           >
-            <p className="max-w-2xl mx-auto text-sm md:text-base text-white/40 leading-relaxed">
+            <p className="max-w-2xl mx-auto text-sm md:text-base text-foreground/55 dark:text-white/40 leading-relaxed">
               {t('adamas.heroSubtitle', 'A diversified collection of projects spanning diamond industry, robotics, e-commerce, digital assets, and advanced veterinary technology.')}
             </p>
           </div>
@@ -390,8 +391,8 @@ const AdamasMaterialsOverview = () => {
               { value: '40+', label: t('adamas.statsCountries', 'Countries') },
             ].map((stat) => (
               <div key={stat.label} className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-white">{stat.value}</div>
-                <div className="text-[10px] uppercase tracking-[0.2em] text-white/30 mt-1.5">{stat.label}</div>
+                <div className="text-3xl md:text-4xl font-bold text-foreground dark:text-white">{stat.value}</div>
+                <div className="text-[10px] uppercase tracking-[0.2em] text-foreground/45 dark:text-white/30 mt-1.5">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -399,7 +400,7 @@ const AdamasMaterialsOverview = () => {
       </section>
 
       {/* Smooth gradient transition from dark hero to page background */}
-      <div className="h-32 bg-gradient-to-b from-[hsl(220,20%,8%)] via-[hsl(220,17%,30%)] to-[hsl(220,14%,96%)] dark:from-[hsl(220,20%,6%)] dark:via-[hsl(220,18%,8%)] dark:to-background" />
+      <div className="h-20 bg-gradient-to-b from-[hsl(220,14%,95%)] via-[hsl(220,14%,96%)] to-[hsl(220,14%,96%)] dark:from-[hsl(220,20%,6%)] dark:via-[hsl(220,18%,8%)] dark:to-background" />
 
       {/* Projects Grid */}
       <section className="py-16 -mt-8">
