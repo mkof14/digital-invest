@@ -56,7 +56,7 @@ const useCardReveal = () => {
     if (!el) return;
     const obs = new IntersectionObserver(
       ([e]) => { if (e.isIntersecting) { setVisible(true); obs.unobserve(el); } },
-      { threshold: 0.08, rootMargin: '0px 0px -60px 0px' }
+      { threshold: 0.02, rootMargin: '0px 0px -8% 0px' }
     );
     obs.observe(el);
     return () => obs.unobserve(el);
