@@ -233,7 +233,11 @@ const AdamasMaterialsOverview = () => {
       ogImage: 'https://www.digitalinvest.com/adamas-og-image.png',
       ogType: 'website',
       canonicalUrl: 'https://digitalinvest.com/adamas',
-...
+    });
+
+    injectStructuredData({
+      "@context": "https://schema.org",
+      "@type": "Organization",
       "name": "Adamas Materials",
       "url": "https://digitalinvest.com/adamas",
       "logo": "https://www.digitalinvest.com/adamas-og-image.png",

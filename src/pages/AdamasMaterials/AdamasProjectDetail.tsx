@@ -98,15 +98,23 @@ const AdamasProjectDetail = () => {
       ogImage: heroImage || 'https://www.digitalinvest.com/adamas-og-image.png',
       ogType: 'article',
       canonicalUrl: `https://digitalinvest.com/adamas/${project.slug}`,
-...
+    });
+
+    injectStructuredData({
+      "@context": "https://schema.org",
+      "@type": "CreativeWork",
       "name": projectTitle,
       "description": projectDesc,
       "image": heroImage || 'https://www.digitalinvest.com/adamas-og-image.png',
       "url": `https://digitalinvest.com/adamas/${project.slug}`,
       "category": project.category,
-      "brand": {
+      "publisher": {
         "@type": "Organization",
-        "name": "Adamas Materials"
+        "name": "Adamas Materials",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.digitalinvest.com/adamas-og-image.png"
+        }
       }
     }, 'adamas-project-schema');
 
