@@ -8,7 +8,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { 
   TrendingUp, ArrowRight, ExternalLink, Pill, Activity, Shield, 
   BarChart3, Users, Stethoscope, Brain, AlertTriangle, ChevronRight,
-  Scan, HeartPulse, FileText, Clock
+  Scan, HeartPulse, FileText, Clock, ArrowLeft
 } from 'lucide-react';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
