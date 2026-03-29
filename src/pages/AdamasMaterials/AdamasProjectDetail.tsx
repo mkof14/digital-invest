@@ -98,7 +98,23 @@ const AdamasProjectDetail = () => {
     );
   }
 
-  const hasHero = !!projectHeroImages[project.slug];
+  const heroImage = projectHeroImages[project.slug];
+  const projectTitle = t(project.titleKey);
+  const projectDesc = t(project.descriptionKey);
+
+  useEffect(() => {
+    updateMetaTags({
+      title: `${projectTitle} — Adamas Materials`,
+      description: projectDesc,
+      ogTitle: `${projectTitle} — Adamas Materials Project Portfolio`,
+      ogDescription: projectDesc,
+      ogImage: heroImage || 'https://digital-invest.lovable.app/adamas-og-image.jpg',
+      ogType: 'article',
+      canonicalUrl: `https://digitalinvest.com/adamas/${project.slug}`,
+    });
+  }, [project.slug, projectTitle, projectDesc, heroImage]);
+
+  const hasHero = !!heroImage;
   const projectLogo = projectLogos[project.slug];
   const status = statusConfig[project.status];
   const relatedProjects = project.relatedSlugs
