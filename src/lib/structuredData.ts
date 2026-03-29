@@ -34,7 +34,7 @@ export const generateOrganizationSchema = () => {
     "@type": "Organization",
     "name": "Digital Invest Inc.",
     "url": "https://www.digitalinvest.com",
-    "logo": "https://www.digitalinvest.com/lovable-uploads/d1011e6f-955a-48d9-adef-662af751c3b9.png",
+    "logo": "https://digitalinvest.com/og-image.jpg",
     "description": "Private investment platform managing a diverse portfolio across health technology, agricultural systems, and food intelligence.",
     "foundingDate": "2004",
     "founder": {
