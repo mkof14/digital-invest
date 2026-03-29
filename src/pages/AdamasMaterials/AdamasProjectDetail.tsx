@@ -3,8 +3,7 @@ import { useTranslation } from 'react-i18next';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { adamasProjects } from './adamasProjects';
-import * as LucideIcons from 'lucide-react';
-import { ArrowLeft, ArrowRight, Shield } from 'lucide-react';
+import { ArrowLeft, ArrowRight } from 'lucide-react';
 import OptimizedImage from '@/components/OptimizedImage';
 
 // Per-project hero images
@@ -60,15 +59,15 @@ const AdamasProjectDetail = () => {
     );
   }
 
-  const IconComponent = (LucideIcons as any)[project.icon] || LucideIcons.Briefcase;
+  const hasHero = !!projectHeroImages[project.slug];
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-[hsl(220,16%,92%)] dark:bg-background">
       <Navigation />
 
-      {/* Hero Image */}
-      {projectHeroImages[project.slug] && (
-        <section className="relative h-[50vh] min-h-[400px] overflow-hidden">
+      {/* Hero Image — always dark overlay for readability */}
+      {hasHero && (
+        <section className="relative h-[55vh] min-h-[420px] overflow-hidden">
           <OptimizedImage
             src={projectHeroImages[project.slug]}
             alt={t(project.titleKey)}
@@ -76,23 +75,33 @@ const AdamasProjectDetail = () => {
             className="w-full h-full object-cover"
             showSkeleton={false}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
-          <div className="absolute bottom-0 left-0 right-0 p-8">
+          {/* Dark cinematic gradient — works in both themes */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[rgba(8,10,18,0.95)] via-[rgba(8,10,18,0.4)] to-[rgba(8,10,18,0.2)]" />
+
+          <div className="absolute bottom-0 left-0 right-0 p-8 md:p-12">
             <div className="max-w-5xl mx-auto">
               <Link
                 to="/adamas"
-                className="inline-flex items-center gap-2 text-sm text-white/80 hover:text-white transition-colors mb-4"
+                className="inline-flex items-center gap-2 text-sm text-white/70 hover:text-white transition-colors mb-5 group"
               >
-                <ArrowLeft className="w-4 h-4" />
+                <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
                 {t('adamas.backToProjects', 'Back to Adamas Projects')}
               </Link>
-              <span
-                className="inline-block text-[10px] font-semibold uppercase tracking-widest mb-2 px-2.5 py-0.5 rounded-full"
-                style={{ color: `hsl(${project.accentHsl})`, background: `hsl(${project.accentHsl} / 0.15)`, backdropFilter: 'blur(4px)' }}
-              >
-                {t(project.categoryKey, project.category)}
-              </span>
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-tight text-white">
+
+              <div className="flex items-center gap-3 mb-3">
+                <span
+                  className="inline-block text-[10px] font-medium uppercase tracking-[0.2em] px-3 py-1 rounded border backdrop-blur-md"
+                  style={{
+                    color: `hsl(${project.accentHsl})`,
+                    background: `hsl(${project.accentHsl} / 0.12)`,
+                    borderColor: `hsl(${project.accentHsl} / 0.25)`,
+                  }}
+                >
+                  {t(project.categoryKey, project.category)}
+                </span>
+              </div>
+
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight text-white">
                 {t(project.titleKey)}
               </h1>
             </div>
@@ -101,53 +110,50 @@ const AdamasProjectDetail = () => {
       )}
 
       {/* Hero fallback (no image) */}
-      {!projectHeroImages[project.slug] && (
-        <section className="relative pt-28 pb-16 overflow-hidden">
+      {!hasHero && (
+        <section className="relative pt-28 pb-16 overflow-hidden bg-[hsl(220,16%,88%)] dark:bg-[hsl(220,20%,8%)]">
           <div
-            className="absolute inset-0 opacity-[0.04]"
+            className="absolute inset-0 opacity-[0.06]"
             style={{ background: `radial-gradient(ellipse at 30% 50%, hsl(${project.accentHsl}), transparent 70%)` }}
           />
           <div className="max-w-5xl mx-auto px-4 relative z-10">
             <Link
               to="/adamas"
-              className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors mb-8"
+              className="inline-flex items-center gap-2 text-sm font-medium text-foreground/70 hover:text-foreground transition-colors mb-8 group"
             >
-              <ArrowLeft className="w-4 h-4" />
+              <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
               {t('adamas.backToProjects', 'Back to Adamas Projects')}
             </Link>
 
-            <div className="flex items-start gap-5 mb-6">
-              <div
-                className="w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0"
-                style={{ background: `hsl(${project.accentHsl} / 0.12)` }}
+            <div className="mb-4">
+              <span
+                className="inline-block text-[10px] font-medium uppercase tracking-[0.2em] px-3 py-1 rounded border"
+                style={{
+                  color: `hsl(${project.accentHsl})`,
+                  background: `hsl(${project.accentHsl} / 0.08)`,
+                  borderColor: `hsl(${project.accentHsl} / 0.2)`,
+                }}
               >
-                <IconComponent className="w-7 h-7" style={{ color: `hsl(${project.accentHsl})` }} />
-              </div>
-              <div>
-                <span
-                  className="inline-block text-[10px] font-semibold uppercase tracking-widest mb-2 px-2.5 py-0.5 rounded-full"
-                  style={{ color: `hsl(${project.accentHsl})`, background: `hsl(${project.accentHsl} / 0.08)` }}
-                >
-                  {t(project.categoryKey, project.category)}
-                </span>
-                <h1 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-tight text-foreground">
-                  {t(project.titleKey)}
-                </h1>
-              </div>
+                {t(project.categoryKey, project.category)}
+              </span>
             </div>
 
-            <p className="text-lg text-muted-foreground leading-relaxed max-w-3xl">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight text-foreground mb-6">
+              {t(project.titleKey)}
+            </h1>
+
+            <p className="text-base text-foreground/60 leading-relaxed max-w-3xl">
               {t(project.descriptionKey)}
             </p>
           </div>
         </section>
       )}
 
-      {/* Description (shown below hero image) */}
-      {projectHeroImages[project.slug] && (
-        <section className="pt-8 pb-4">
+      {/* Description (below hero image) */}
+      {hasHero && (
+        <section className="pt-10 pb-6">
           <div className="max-w-5xl mx-auto px-4">
-            <p className="text-lg text-muted-foreground leading-relaxed max-w-3xl">
+            <p className="text-base text-foreground/70 dark:text-foreground/60 leading-relaxed max-w-3xl">
               {t(project.descriptionKey)}
             </p>
           </div>
@@ -157,9 +163,9 @@ const AdamasProjectDetail = () => {
       {/* Long Description */}
       <section className="pb-16">
         <div className="max-w-5xl mx-auto px-4">
-          <div className="rounded-2xl border border-border/30 bg-card/40 p-8 md:p-12">
+          <div className="rounded-2xl border border-border/50 dark:border-border/30 bg-white/60 dark:bg-card/40 backdrop-blur-sm p-8 md:p-12 shadow-sm">
             <h2 className="text-xl font-semibold text-foreground mb-6">{t('adamas.overview', 'Project Overview')}</h2>
-            <div className="prose prose-sm dark:prose-invert max-w-none text-muted-foreground leading-relaxed whitespace-pre-line">
+            <div className="prose prose-sm dark:prose-invert max-w-none text-foreground/70 dark:text-muted-foreground leading-relaxed whitespace-pre-line">
               {t(project.longDescriptionKey)}
             </div>
           </div>
@@ -171,18 +177,21 @@ const AdamasProjectDetail = () => {
         <div className="max-w-5xl mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {[
-              { key: 'adamas.highlight1', fallback: 'Privately Operated', icon: 'Lock' },
-              { key: 'adamas.highlight2', fallback: 'Strategic Partnerships', icon: 'Handshake' },
-              { key: 'adamas.highlight3', fallback: 'Long-Term Vision', icon: 'TrendingUp' },
-            ].map((h, i) => {
-              const HIcon = (LucideIcons as any)[h.icon] || Shield;
-              return (
-                <div key={i} className="flex items-center gap-3 rounded-xl border border-border/30 bg-muted/20 p-4">
-                  <HIcon className="w-5 h-5 text-primary flex-shrink-0" />
-                  <span className="text-sm font-medium text-foreground">{t(h.key, h.fallback)}</span>
-                </div>
-              );
-            })}
+              { key: 'adamas.highlight1', fallback: 'Privately Operated' },
+              { key: 'adamas.highlight2', fallback: 'Strategic Partnerships' },
+              { key: 'adamas.highlight3', fallback: 'Long-Term Vision' },
+            ].map((h, i) => (
+              <div
+                key={i}
+                className="rounded-xl border border-border/50 dark:border-border/30 bg-white/50 dark:bg-muted/20 p-5 shadow-sm"
+              >
+                <div
+                  className="w-8 h-[2px] rounded-full mb-3"
+                  style={{ background: `hsl(${project.accentHsl})` }}
+                />
+                <span className="text-sm font-medium text-foreground">{t(h.key, h.fallback)}</span>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -190,23 +199,24 @@ const AdamasProjectDetail = () => {
       {/* Navigation between projects */}
       <section className="pb-16">
         <div className="max-w-5xl mx-auto px-4">
+          <div className="h-px bg-gradient-to-r from-transparent via-border/50 to-transparent mb-8" />
           <div className="flex justify-between items-center">
             {prevProject ? (
               <Link
                 to={`/adamas/${prevProject.slug}`}
-                className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
+                className="inline-flex items-center gap-2 text-sm font-medium text-foreground/60 hover:text-foreground transition-colors group"
               >
-                <ArrowLeft className="w-4 h-4" />
+                <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
                 {t(prevProject.titleKey)}
               </Link>
             ) : <div />}
             {nextProject ? (
               <Link
                 to={`/adamas/${nextProject.slug}`}
-                className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
+                className="inline-flex items-center gap-2 text-sm font-medium text-foreground/60 hover:text-foreground transition-colors group"
               >
                 {t(nextProject.titleKey)}
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
               </Link>
             ) : <div />}
           </div>
@@ -216,9 +226,9 @@ const AdamasProjectDetail = () => {
       {/* Disclaimer */}
       <section className="pb-16">
         <div className="max-w-4xl mx-auto px-4">
-          <div className="rounded-xl border border-border/30 bg-muted/30 p-6">
-            <p className="text-xs text-muted-foreground/80 leading-relaxed">
-              <span className="font-medium text-muted-foreground">{t('adamas.disclaimer.title', 'Important Notice:')}</span>{' '}
+          <div className="rounded-xl border border-border/40 dark:border-border/30 bg-white/40 dark:bg-muted/30 p-6">
+            <p className="text-xs text-foreground/50 dark:text-muted-foreground/80 leading-relaxed">
+              <span className="font-medium text-foreground/70 dark:text-muted-foreground">{t('adamas.disclaimer.title', 'Important Notice:')}</span>{' '}
               {t('adamas.disclaimer.text', 'This section is for informational purposes only. Adamas Materials Projects are presented separately and do not constitute a public offering or solicitation. All potential participation is private and handled offline through proper legal channels.')}
             </p>
           </div>
