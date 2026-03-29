@@ -221,6 +221,10 @@ const App = () => (
               <Route path="/projects/baseline" element={<BaseLine />} />
               <Route path="/projects/saven" element={<SAVEN />} />
               
+              {/* Adamas Materials Projects */}
+              <Route path="/adamas" element={<AdamasMaterialsOverview />} />
+              <Route path="/adamas/:slug" element={<AdamasProjectDetail />} />
+              
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>
