@@ -217,7 +217,7 @@ const Index = () => {
 
               <div className="flex flex-wrap gap-4 animate-fade-in">
                 <Link to="/projects">
-                  <Button size="lg" className="px-8 py-6 text-base group shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 transition-all">
+                  <Button size="lg" variant="ghost" className="px-8 py-6 text-base group border border-border/50 bg-transparent hover:bg-primary/10 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/15 transition-all duration-300">
                     {t('hero.exploreProjects')}
                     <ArrowUpRight className="ml-2 h-5 w-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                   </Button>
