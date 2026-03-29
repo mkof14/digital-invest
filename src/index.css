@@ -327,105 +327,88 @@ html {
     background-image: var(--pattern-corporate);
   }
 
-  /* Light theme section gradients — vivid, emotional, rich */
+  /* ── Section gradients — Light theme ── */
   .section-gradient-warm {
-    background: linear-gradient(
-      180deg,
-      hsl(220 14% 95%) 0%,
-      hsl(28 35% 89%) 30%,
-      hsl(18 30% 90%) 50%,
-      hsl(35 28% 91%) 70%,
-      hsl(220 14% 95%) 100%
-    );
+    background: linear-gradient(170deg,
+      hsl(220 14% 96%) 0%, hsl(30 40% 92%) 20%, hsl(22 35% 90%) 45%,
+      hsl(35 30% 91%) 65%, hsl(20 25% 93%) 80%, hsl(220 14% 96%) 100%);
   }
-
   .section-gradient-cool {
-    background: linear-gradient(
-      180deg,
-      hsl(220 14% 95%) 0%,
-      hsl(210 40% 88%) 30%,
-      hsl(215 35% 90%) 50%,
-      hsl(220 30% 91%) 70%,
-      hsl(220 14% 95%) 100%
-    );
+    background: linear-gradient(170deg,
+      hsl(220 14% 96%) 0%, hsl(205 45% 91%) 20%, hsl(215 40% 89%) 45%,
+      hsl(225 35% 91%) 65%, hsl(210 30% 93%) 80%, hsl(220 14% 96%) 100%);
   }
-
   .section-gradient-mint {
-    background: linear-gradient(
-      180deg,
-      hsl(220 14% 95%) 0%,
-      hsl(155 30% 88%) 30%,
-      hsl(162 25% 89%) 50%,
-      hsl(170 22% 91%) 70%,
-      hsl(220 14% 95%) 100%
-    );
+    background: linear-gradient(170deg,
+      hsl(220 14% 96%) 0%, hsl(150 35% 90%) 20%, hsl(162 30% 88%) 45%,
+      hsl(172 25% 91%) 65%, hsl(155 20% 93%) 80%, hsl(220 14% 96%) 100%);
   }
-
   .section-gradient-lavender {
-    background: linear-gradient(
-      180deg,
-      hsl(220 14% 95%) 0%,
-      hsl(245 30% 89%) 30%,
-      hsl(255 28% 90%) 50%,
-      hsl(265 24% 91%) 70%,
-      hsl(220 14% 95%) 100%
-    );
+    background: linear-gradient(170deg,
+      hsl(220 14% 96%) 0%, hsl(240 35% 92%) 20%, hsl(255 30% 90%) 45%,
+      hsl(268 25% 92%) 65%, hsl(245 20% 94%) 80%, hsl(220 14% 96%) 100%);
   }
-
   .section-gradient-rose {
-    background: linear-gradient(
-      180deg,
-      hsl(220 14% 95%) 0%,
-      hsl(335 28% 89%) 30%,
-      hsl(345 24% 90%) 50%,
-      hsl(350 20% 91%) 70%,
-      hsl(220 14% 95%) 100%
-    );
+    background: linear-gradient(170deg,
+      hsl(220 14% 96%) 0%, hsl(330 32% 92%) 20%, hsl(345 28% 90%) 45%,
+      hsl(355 22% 92%) 65%, hsl(340 18% 94%) 80%, hsl(220 14% 96%) 100%);
   }
-
   .section-gradient-gold {
-    background: linear-gradient(
-      180deg,
-      hsl(220 14% 95%) 0%,
-      hsl(38 40% 88%) 30%,
-      hsl(42 35% 89%) 50%,
-      hsl(48 30% 91%) 70%,
-      hsl(220 14% 95%) 100%
-    );
+    background: linear-gradient(170deg,
+      hsl(220 14% 96%) 0%, hsl(38 45% 90%) 20%, hsl(45 40% 88%) 45%,
+      hsl(50 32% 91%) 65%, hsl(42 25% 93%) 80%, hsl(220 14% 96%) 100%);
   }
-
   .section-gradient-slate {
-    background: linear-gradient(
-      180deg,
-      hsl(220 14% 95%) 0%,
-      hsl(218 22% 88%) 30%,
-      hsl(222 18% 90%) 50%,
-      hsl(225 16% 91%) 70%,
-      hsl(220 14% 95%) 100%
-    );
+    background: linear-gradient(170deg,
+      hsl(220 14% 96%) 0%, hsl(218 25% 90%) 20%, hsl(225 20% 88%) 45%,
+      hsl(230 18% 91%) 65%, hsl(220 15% 93%) 80%, hsl(220 14% 96%) 100%);
+  }
+  .section-gradient-teal {
+    background: linear-gradient(170deg,
+      hsl(220 14% 96%) 0%, hsl(180 30% 91%) 20%, hsl(190 28% 89%) 45%,
+      hsl(195 22% 91%) 65%, hsl(185 18% 93%) 80%, hsl(220 14% 96%) 100%);
   }
 
-  /* Dark theme: subtle ambient gradients instead of transparent */
-  :root:not(.light) .section-gradient-warm {
-    background: linear-gradient(180deg, transparent 0%, hsl(25 15% 8%) 40%, hsl(30 12% 9%) 60%, transparent 100%);
+  /* ── Section gradients — Dark theme ── */
+  .dark .section-gradient-warm {
+    background: linear-gradient(170deg,
+      transparent 0%, hsl(25 20% 9%) 25%, hsl(30 18% 11%) 50%,
+      hsl(22 15% 10%) 75%, transparent 100%);
   }
-  :root:not(.light) .section-gradient-cool {
-    background: linear-gradient(180deg, transparent 0%, hsl(215 18% 8%) 40%, hsl(220 16% 9%) 60%, transparent 100%);
+  .dark .section-gradient-cool {
+    background: linear-gradient(170deg,
+      transparent 0%, hsl(210 22% 10%) 25%, hsl(220 20% 12%) 50%,
+      hsl(215 18% 10%) 75%, transparent 100%);
   }
-  :root:not(.light) .section-gradient-mint {
-    background: linear-gradient(180deg, transparent 0%, hsl(160 12% 8%) 40%, hsl(165 10% 9%) 60%, transparent 100%);
+  .dark .section-gradient-mint {
+    background: linear-gradient(170deg,
+      transparent 0%, hsl(160 18% 9%) 25%, hsl(168 15% 11%) 50%,
+      hsl(155 12% 10%) 75%, transparent 100%);
   }
-  :root:not(.light) .section-gradient-lavender {
-    background: linear-gradient(180deg, transparent 0%, hsl(250 12% 9%) 40%, hsl(260 10% 10%) 60%, transparent 100%);
+  .dark .section-gradient-lavender {
+    background: linear-gradient(170deg,
+      transparent 0%, hsl(250 18% 10%) 25%, hsl(260 15% 12%) 50%,
+      hsl(245 12% 10%) 75%, transparent 100%);
   }
-  :root:not(.light) .section-gradient-rose {
-    background: linear-gradient(180deg, transparent 0%, hsl(340 10% 8%) 40%, hsl(345 8% 9%) 60%, transparent 100%);
+  .dark .section-gradient-rose {
+    background: linear-gradient(170deg,
+      transparent 0%, hsl(340 15% 9%) 25%, hsl(348 12% 11%) 50%,
+      hsl(335 10% 10%) 75%, transparent 100%);
   }
-  :root:not(.light) .section-gradient-gold {
-    background: linear-gradient(180deg, transparent 0%, hsl(40 12% 8%) 40%, hsl(45 10% 9%) 60%, transparent 100%);
+  .dark .section-gradient-gold {
+    background: linear-gradient(170deg,
+      transparent 0%, hsl(40 18% 9%) 25%, hsl(45 15% 11%) 50%,
+      hsl(38 12% 10%) 75%, transparent 100%);
   }
-  :root:not(.light) .section-gradient-slate {
-    background: linear-gradient(180deg, transparent 0%, hsl(220 14% 8%) 40%, hsl(225 12% 9%) 60%, transparent 100%);
+  .dark .section-gradient-slate {
+    background: linear-gradient(170deg,
+      transparent 0%, hsl(220 18% 9%) 25%, hsl(228 15% 11%) 50%,
+      hsl(222 12% 10%) 75%, transparent 100%);
+  }
+  .dark .section-gradient-teal {
+    background: linear-gradient(170deg,
+      transparent 0%, hsl(182 16% 9%) 25%, hsl(190 14% 11%) 50%,
+      hsl(185 10% 10%) 75%, transparent 100%);
   }
 
   .solid-text {

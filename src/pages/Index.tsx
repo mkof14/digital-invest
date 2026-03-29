@@ -462,7 +462,7 @@ const Index = () => {
       </section>
 
       {/* ═══════════════════ ROI CALCULATOR ═══════════════════ */}
-      <section className="py-20 md:py-28 px-4">
+      <section className="py-20 md:py-28 px-4 section-gradient-teal">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-14 space-y-3">
             <h2 ref={calculatorHeading.ref} className={`text-3xl md:text-5xl font-bold tracking-tight text-foreground animate-heading-reveal ${calculatorHeading.isVisible ? 'visible' : ''}`}>
@@ -630,7 +630,7 @@ const Index = () => {
       </section>
 
       {/* ═══════════════════ CTA — Full-width Dramatic ═══════════════════ */}
-      <section className="py-20 md:py-28 px-4">
+      <section className="py-20 md:py-28 px-4 section-gradient-warm">
         <div className="max-w-5xl mx-auto">
           <div className="relative overflow-hidden rounded-3xl border border-border/30 bg-card/50 p-10 md:p-16 text-center">
             {/* Decorative gradient */}
