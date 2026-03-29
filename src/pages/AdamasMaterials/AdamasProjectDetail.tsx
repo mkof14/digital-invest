@@ -154,7 +154,7 @@ const AdamasProjectDetail = () => {
     .filter(Boolean) as typeof adamasProjects;
 
   return (
-    <div className="min-h-screen bg-[hsl(220,16%,92%)] dark:bg-background">
+    <div className="min-h-screen bg-[hsl(220,14%,96%)] dark:bg-background">
       <AdamasNavigation />
 
       {/* Hero Image */}
