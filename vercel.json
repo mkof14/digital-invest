@@ -7,6 +7,28 @@
   "outputDirectory": "dist",
   "rewrites": [
     {
+      "source": "/adamas",
+      "has": [
+        {
+          "type": "header",
+          "key": "user-agent",
+          "value": "(?i).*(facebookexternalhit|Facebot|Twitterbot|LinkedInBot|Slackbot|TelegramBot|WhatsApp|Discordbot).*"
+        }
+      ],
+      "destination": "/adamas-og.html"
+    },
+    {
+      "source": "/adamas/",
+      "has": [
+        {
+          "type": "header",
+          "key": "user-agent",
+          "value": "(?i).*(facebookexternalhit|Facebot|Twitterbot|LinkedInBot|Slackbot|TelegramBot|WhatsApp|Discordbot).*"
+        }
+      ],
+      "destination": "/adamas-og.html"
+    },
+    {
       "source": "/(.*)",
       "destination": "/index.html"
     }
