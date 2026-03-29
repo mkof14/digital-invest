@@ -78,6 +78,7 @@ const PortfolioOverview = lazy(() => import('./pages/PortfolioOverview'));
 const AdamasMaterialsOverview = lazy(() => import('./pages/AdamasMaterials'));
 const AdamasProjectDetail = lazy(() => import('./pages/AdamasMaterials/AdamasProjectDetail'));
 const AbuMall = lazy(() => import('./pages/AdamasMaterials/AbuMall'));
+const AlmaDiamond = lazy(() => import('./pages/AdamasMaterials/AlmaDiamond'));
 
 // Legacy project routes
 const BioMathLife = lazy(() => import("./pages/Projects/BioMathLife"));
