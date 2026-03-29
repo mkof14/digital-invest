@@ -109,10 +109,10 @@ const ProjectCard = ({ project, index }: { project: typeof adamasProjects[0]; in
         opacity: visible ? 1 : 0,
         filter: visible ? 'blur(0px)' : 'blur(10px)',
         transform: visible
-          ? `perspective(800px) rotateX(${tilt.x}deg) rotateY(${tilt.y}deg) scale(${isHovered ? 1.02 : 1})`
+          ? `perspective(800px) rotateX(${tilt.x}deg) rotateY(${tilt.y}deg) scale(${isHovered ? 1.03 : 1})`
           : 'translateY(80px) scale(0.9)',
         transition: isHovered
-          ? 'transform 0.15s ease-out, opacity 0.7s ease, filter 0.7s ease, box-shadow 0.3s ease'
+          ? 'transform 0.6s cubic-bezier(0.25,0.46,0.45,0.94), opacity 0.7s ease, filter 0.7s ease, box-shadow 0.5s ease'
           : `transform 1.45s cubic-bezier(0.22,1,0.36,1) ${(index % 4) * 180}ms, opacity 1.45s cubic-bezier(0.22,1,0.36,1) ${(index % 4) * 180}ms, filter 1.45s cubic-bezier(0.22,1,0.36,1) ${(index % 4) * 180}ms, box-shadow 0.5s ease`,
         boxShadow: isHovered
           ? '0 25px 60px -12px rgba(0,0,0,0.4), 0 12px 28px -8px rgba(0,0,0,0.25)'
