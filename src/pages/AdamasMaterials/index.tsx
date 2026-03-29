@@ -54,7 +54,7 @@ const useCardReveal = () => {
     if (!el) return;
     const obs = new IntersectionObserver(
       ([e]) => { if (e.isIntersecting) { setVisible(true); obs.unobserve(el); } },
-      { threshold: 0.15, rootMargin: '0px 0px -40px 0px' }
+      { threshold: 0.08, rootMargin: '0px 0px -60px 0px' }
     );
     obs.observe(el);
     return () => obs.unobserve(el);
@@ -77,14 +77,14 @@ const ProjectCard = ({ project, index }: { project: typeof adamasProjects[0]; in
       ref={ref}
       key={project.slug}
       to={`/adamas/${project.slug}`}
-      className={`group relative rounded-2xl overflow-hidden transition-all duration-700 ${
+      className={`group relative rounded-2xl overflow-hidden ${
         isFeatured ? 'md:col-span-2 min-h-[340px]' : isWide ? 'md:col-span-2 min-h-[240px]' : 'min-h-[280px]'
       }`}
       style={{
         opacity: visible ? 1 : 0,
-        transform: visible ? 'translateY(0) scale(1)' : 'translateY(30px) scale(0.97)',
-        transitionDelay: `${(index % 4) * 100}ms`,
-        boxShadow: '0 4px 20px -4px rgba(0,0,0,0.2), 0 0 1px rgba(0,0,0,0.1)',
+        transform: visible ? 'translateY(0) scale(1)' : 'translateY(40px) scale(0.96)',
+        transition: `opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1) ${(index % 4) * 120}ms, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) ${(index % 4) * 120}ms`,
+        boxShadow: '0 4px 24px -4px rgba(0,0,0,0.25), 0 0 1px rgba(0,0,0,0.1)',
       }}
       onMouseEnter={(e) => {
         e.currentTarget.style.boxShadow = '0 20px 60px -10px rgba(0,0,0,0.35), 0 8px 24px -8px rgba(0,0,0,0.2)';
@@ -317,15 +317,13 @@ const AdamasMaterialsOverview = () => {
         </div>
       </section>
 
-      {/* Divider */}
-      <div className="max-w-5xl mx-auto px-4">
-        <div className="h-px bg-gradient-to-r from-transparent via-border/50 to-transparent" />
-      </div>
+      {/* Smooth gradient transition from dark hero to page background */}
+      <div className="h-32 bg-gradient-to-b from-[hsl(220,20%,8%)] via-[hsl(220,18%,14%)] to-[hsl(220,16%,90%)] dark:from-[hsl(220,20%,6%)] dark:via-[hsl(220,18%,8%)] dark:to-background" />
 
       {/* Projects Grid */}
-      <section className="py-20">
+      <section className="py-16 -mt-8">
         <div className="max-w-6xl mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             {adamasProjects.map((project, idx) => (
               <ProjectCard key={project.slug} project={project} index={idx} />
             ))}
