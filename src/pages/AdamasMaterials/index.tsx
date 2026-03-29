@@ -18,6 +18,7 @@ const AdamasMaterialsOverview = () => {
       <section className="relative pt-32 pb-20 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-accent/5" />
         <div className="max-w-6xl mx-auto px-4 relative z-10 text-center">
+          <img src={adamasLogo} alt="Adamas Materials" className="h-24 md:h-32 mx-auto mb-6 drop-shadow-lg" />
           <span className="inline-block px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase bg-primary/10 text-primary border border-primary/20 mb-6">
             {t('adamas.badge', 'Adamas Materials Projects')}
           </span>
