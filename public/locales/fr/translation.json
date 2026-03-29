@@ -1735,5 +1735,51 @@
     "vision3": "Pas de bruit, juste de belles choses d'abord",
     "ctaTitle": "Intéressé par Alma Diamond ?",
     "ctaDesc": "Alma Diamond est une marque de bijoux axée sur le design et l'éthique, positionnée sur le marché croissant des diamants de laboratoire."
+  },
+  "jatual": {
+    "heroTagline": "Maison de Haute Joaillerie — Place Vendôme, Paris",
+    "philosophy": {
+      "title": "La Maison",
+      "text1": "JATUAL PARIS est une maison de haute joaillerie enracinée dans l'héritage de la Place Vendôme et façonnée par une vision plus consciente du monde moderne. Chaque création met en scène des diamants de laboratoire nouvelle génération — brillants, rares et responsables.",
+      "text2": "La philosophie repose sur un engagement sans faille envers l'artisanat avancé et la beauté responsable. Au-delà de la création de bijoux exquis, JATUAL PARIS façonne une vision raffinée de la royauté moderne."
+    },
+    "pillars": {
+      "title": "Principes fondateurs",
+      "vendome": { "title": "Héritage Place Vendôme", "text": "Enraciné dans l'adresse joaillière la plus prestigieuse au monde, perpétuant des siècles de tradition de haute joaillerie parisienne." },
+      "labGrown": { "title": "Diamants nouvelle génération", "text": "Des diamants sans conflit, respectueux de l'environnement, égalant ou surpassant l'éclat des pierres extraites." },
+      "craftsmanship": { "title": "Artisanat avancé", "text": "Chaque pièce est un chef-d'œuvre de précision, conçu par des artisans exigeant la perfection dans chaque facette." },
+      "personalization": { "title": "Personnalisation raffinée", "text": "Services sur mesure pour les clients recherchant des créations uniques reflétant leur vision personnelle." }
+    },
+    "collections": {
+      "title": "Collections de Haute Joaillerie",
+      "subtitle": "Chaque collection raconte une histoire unique — de la grandeur des jardins parisiens au battement du cœur.",
+      "cielDeParis": { "name": "Ciel de Paris", "description": "Inspirée par le ciel parisien infini, cette collection présente des diamants bleus vifs — des compositions audacieuses et dramatiques dans l'esprit de la haute couture. Pièces signatures : le collier Mediterranean Princess et le Bleu Royal Transformable." },
+      "jardinsDeParis": { "name": "Jardins de Paris", "description": "Une célébration des formes les plus délicates de la nature. Les boucles d'oreilles Papillons et l'ensemble Princesse d'Azure définissent l'esthétique élégante et organique de la collection." },
+      "leCoeurDeParis": { "name": "Le Coeur de Paris", "description": "Des diamants roses et rouges vifs au centre de chefs-d'œuvre conçus pour durer. Des bagues raffinées aux colliers en cascade, chaque pièce pulse de chaleur et de passion." },
+      "reineEnRose": { "name": "Reine en Rose", "description": "Un hommage à la force et la grâce féminines. La Grande Duchesse ancre cette collection — des bijoux de distinction incarnant une vision raffinée de la royauté moderne." }
+    },
+    "categories": { "title": "Catégories de produits", "earrings": "Boucles d'oreilles", "rings": "Bagues", "bracelets": "Bracelets", "necklaces": "Colliers", "pendants": "Pendentifs" },
+    "signature": {
+      "title": "Créations signatures",
+      "mediterraneanPrincess": { "name": "Mediterranean Princess", "description": "Quand vous voulez plus qu'un simple bijou. Ce collier est une histoire entière en un regard." },
+      "princesseDAzure": { "name": "Princesse d'Azure", "description": "Un drame de haute joaillerie en trois actes : collier, bracelet et bague unis par le même souffle de forme et de couleur." },
+      "bleuRoyal": { "name": "Vivid Blue Symphony", "description": "Une vision extraordinaire en bleu vif. Un diamant bleu saisissant encadré de pierres d'accent impeccablement serties." }
+    },
+    "market": {
+      "title": "Positionnement sur le marché",
+      "audience": { "title": "Public cible", "text": "Collectionneurs exigeants, particuliers fortunés et connaisseurs sophistiqués exigeant les plus hauts standards de qualité, design et sourcing éthique." },
+      "differentiation": { "title": "Avantage concurrentiel", "text": "JATUAL PARIS combine de manière unique l'héritage Place Vendôme avec des diamants sans conflit — beauté sans compromis à l'intersection de la tradition et de l'innovation." }
+    },
+    "business": {
+      "title": "Modèle commercial",
+      "directSales": { "title": "Ventes directes haute joaillerie", "text": "Showroom privé et consultations sur rendez-vous pour collectionneurs recherchant des pièces exceptionnelles." },
+      "bespoke": { "title": "Commandes sur mesure", "text": "Créations haute joaillerie uniques selon la vision personnelle du client." },
+      "digitalPresence": { "title": "Expérience digitale de la Maison", "text": "Plateforme en ligne immersive avec photographie premium et prise de rendez-vous pour une clientèle mondiale." }
+    },
+    "vision": {
+      "title": "Vision",
+      "text": "Redéfinir le standard mondial du bijou de luxe en fusionnant la tradition de la haute joaillerie parisienne avec l'innovation durable — créer des pièces qui ne sont pas simplement portées, mais chéries à travers les générations.",
+      "tagline": "« Le luxe réinventé. La beauté sans compromis. »"
+    }
   }
 }
