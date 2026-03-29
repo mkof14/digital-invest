@@ -95,7 +95,7 @@ const AdamasProjectDetail = () => {
       description: projectDesc,
       ogTitle: `${projectTitle} — Adamas Materials Project Portfolio`,
       ogDescription: projectDesc,
-      ogImage: heroImage || 'https://digital-invest.lovable.app/adamas-og-image.jpg',
+      ogImage: heroImage || 'https://digitalinvest.com/adamas-og-image.jpg',
       ogType: 'article',
       canonicalUrl: `https://digitalinvest.com/adamas/${project.slug}`,
     });
@@ -106,7 +106,7 @@ const AdamasProjectDetail = () => {
       "@type": "Product",
       "name": projectTitle,
       "description": projectDesc,
-      "image": heroImage || 'https://digital-invest.lovable.app/adamas-og-image.jpg',
+      "image": heroImage || 'https://digitalinvest.com/adamas-og-image.jpg',
       "url": `https://digitalinvest.com/adamas/${project.slug}`,
       "category": project.category,
       "brand": {
