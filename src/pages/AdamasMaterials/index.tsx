@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useEffect, useRef, useState, useCallback, type MouseEvent as ReactMouseEvent } from 'react';
+import { updateMetaTags } from '@/lib/metaTags';
 import AdamasNavigation from '@/components/AdamasNavigation';
 import AdamasFooter from '@/components/AdamasFooter';
 import { adamasProjects } from './adamasProjects';
@@ -214,6 +215,17 @@ const AdamasMaterialsOverview = () => {
 
   useEffect(() => {
     const timer = setTimeout(() => setHeroVisible(true), 100);
+
+    updateMetaTags({
+      title: 'Adamas Materials — Project Portfolio | Diamond Industry, Robotics & Digital Assets',
+      description: 'Adamas Materials is a diversified project portfolio spanning the diamond industry, robotics, e-commerce, digital assets, and advanced veterinary technology. 12 projects across 7+ sectors in 40+ countries.',
+      ogTitle: 'Adamas Materials — Project Portfolio',
+      ogDescription: 'Diversified portfolio of 12 projects across diamond industry, robotics, e-commerce, digital assets, and veterinary technology. Operating in 40+ countries.',
+      ogImage: 'https://digital-invest.lovable.app/adamas-og-image.jpg',
+      ogType: 'website',
+      canonicalUrl: 'https://digitalinvest.com/adamas',
+    });
+
     return () => clearTimeout(timer);
   }, []);
 
