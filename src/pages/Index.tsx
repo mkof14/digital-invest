@@ -265,13 +265,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* ═══════════════════ SEARCH ═══════════════════ */}
-      <section className="py-8 px-4 relative">
-        <div className="max-w-2xl mx-auto">
-          <SearchBar />
-        </div>
-      </section>
-
       {/* ═══════════════════ ECOSYSTEM VISION — Editorial ═══════════════════ */}
       <section ref={biomathVisionSection.ref} className={`py-20 md:py-28 px-4 section-gradient-cool scroll-fade-in ${biomathVisionSection.isVisible ? 'visible' : ''}`}>
         <div className="max-w-6xl mx-auto">
