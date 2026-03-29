@@ -190,7 +190,7 @@ const AdamasMaterialsOverview = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-[hsl(220,16%,90%)] dark:bg-background">
       <Navigation />
 
       {/* Hero — cinematic, with parallax logo */}
