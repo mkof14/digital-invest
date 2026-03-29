@@ -278,7 +278,7 @@ const AdamasMaterialsOverview = () => {
       {/* Hero — cinematic dark section */}
       <section
         ref={heroRef}
-        className="relative pt-20 pb-28 overflow-hidden bg-[hsl(220,20%,8%)] dark:bg-[hsl(220,20%,6%)]"
+        className="relative pt-20 pb-28 overflow-hidden bg-gradient-to-b from-[hsl(220,14%,99%)] via-[hsl(220,15%,97%)] to-[hsl(220,14%,95%)] dark:bg-[hsl(220,20%,6%)]"
         onMouseMove={handleMouseMove}
       >
         {/* Animated ambient glows */}
