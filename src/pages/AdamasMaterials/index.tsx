@@ -5,6 +5,7 @@ import Footer from '@/components/Footer';
 import { adamasProjects } from './adamasProjects';
 import * as LucideIcons from 'lucide-react';
 import { ArrowRight } from 'lucide-react';
+import adamasLogo from '@/assets/adamas/adamas-materials-logo.png';
 
 const AdamasMaterialsOverview = () => {
   const { t } = useTranslation();
