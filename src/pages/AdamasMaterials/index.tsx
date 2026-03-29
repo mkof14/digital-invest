@@ -124,12 +124,12 @@ const ProjectCard = ({ project, index }: { project: typeof adamasProjects[0]; in
         }}
       />
 
-      {/* 3D glare / light reflection */}
+      {/* Subtle hover glow */}
       <div
-        className="absolute inset-0 pointer-events-none transition-opacity duration-300"
+        className="absolute inset-0 pointer-events-none transition-opacity duration-500"
         style={{
-          opacity: isHovered ? 0.12 : 0,
-          background: `radial-gradient(circle at ${glare.x}% ${glare.y}%, rgba(255,255,255,0.5) 0%, transparent 60%)`,
+          opacity: isHovered ? 0.06 : 0,
+          background: 'radial-gradient(circle at 50% 50%, rgba(255,255,255,0.5) 0%, transparent 60%)',
         }}
       />
 
