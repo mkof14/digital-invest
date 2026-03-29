@@ -223,6 +223,8 @@ const App = () => (
               
               {/* Adamas Materials Projects */}
               <Route path="/adamas" element={<AdamasMaterialsOverview />} />
+              <Route path="/adamas/agron-net" element={<AGRON />} />
+              <Route path="/adamas/agron-work" element={<AGRONWork />} />
               <Route path="/adamas/:slug" element={<AdamasProjectDetail />} />
               
               <Route path="*" element={<NotFound />} />
