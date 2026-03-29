@@ -196,7 +196,7 @@ const Index = () => {
                   <span className="text-accent">Digital Invest Inc.</span>
                 </div>
 
-                <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold leading-[0.95] tracking-tight">
+                <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-semibold leading-[0.95] tracking-tight">
                   <span className="block text-foreground">{t('hero.strategicTitle')}</span>
                   <span className="block mt-2 gradient-tech-animated">{t('hero.strategicHighlight')}</span>
                 </h1>
