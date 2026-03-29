@@ -7,6 +7,44 @@ import * as LucideIcons from 'lucide-react';
 import { ArrowRight } from 'lucide-react';
 import adamasLogo from '@/assets/adamas/adamas-materials-logo.png';
 
+// Hero images for card backgrounds
+import adamasMaterialsHero from '@/assets/adamas/adamas-materials-hero.jpg';
+import originDiamondHero from '@/assets/adamas/origin-diamond-hero.jpg';
+import agronNetHero from '@/assets/adamas/agron-net-hero.jpg';
+import agronWorkHero from '@/assets/adamas/agron-work-hero.jpg';
+import abuMallHero from '@/assets/adamas/abu-mall-hero.jpg';
+import almaDiamondHero from '@/assets/adamas/alma-diamond-hero.jpg';
+import jewelryDropshippingHero from '@/assets/adamas/jewelry-dropshipping-hero.jpg';
+import jatualHero from '@/assets/adamas/jatual-diamonds-hero.jpg';
+import coinsTokensHero from '@/assets/adamas/coins-tokens-hero.jpg';
+import innovationHero from '@/assets/adamas/innovation-diamonds-hero.jpg';
+import itMarketingHero from '@/assets/adamas/it-marketing-hero.jpg';
+import animalVetHero from '@/assets/adamas/animal-vet-hero.jpg';
+
+const cardHeroImages: Record<string, string> = {
+  'adamas-materials': adamasMaterialsHero,
+  'origin-diamond': originDiamondHero,
+  'agron-net': agronNetHero,
+  'agron-work': agronWorkHero,
+  'abu-mall': abuMallHero,
+  'alma-diamond': almaDiamondHero,
+  'jewelry-dropshipping': jewelryDropshippingHero,
+  'jatual-diamonds': jatualHero,
+  'coins-and-tokens': coinsTokensHero,
+  'innovation-diamonds': innovationHero,
+  'it-marketing-group': itMarketingHero,
+  'animal-veterinary-service': animalVetHero,
+};
+
+// Per-project card layout: 'featured' = large, 'standard' = normal, 'wide' = spans 2 cols
+const cardLayouts: Record<string, 'featured' | 'wide' | 'standard'> = {
+  'adamas-materials': 'featured',
+  'innovation-diamonds': 'featured',
+  'jatual-diamonds': 'wide',
+  'agron-net': 'wide',
+  'it-marketing-group': 'wide',
+};
+
 const AdamasMaterialsOverview = () => {
   const { t } = useTranslation();
 
@@ -34,64 +72,84 @@ const AdamasMaterialsOverview = () => {
         </div>
       </section>
 
-      {/* Projects Grid */}
+      {/* Projects Grid — custom layout per project */}
       <section className="pb-24">
         <div className="max-w-6xl mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {adamasProjects.map((project, idx) => {
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            {adamasProjects.map((project) => {
               const IconComponent = (LucideIcons as any)[project.icon] || LucideIcons.Briefcase;
+              const layout = cardLayouts[project.slug] || 'standard';
+              const heroImg = cardHeroImages[project.slug];
+              const isFeatured = layout === 'featured';
+              const isWide = layout === 'wide';
+
               return (
                 <Link
                   key={project.slug}
                   to={`/adamas/${project.slug}`}
-                  className="group relative rounded-2xl border border-border/40 bg-card/60 backdrop-blur-sm p-6 hover:border-primary/30 hover:shadow-xl transition-all duration-500 overflow-hidden"
+                  className={`group relative rounded-2xl overflow-hidden transition-all duration-500 hover:shadow-2xl ${
+                    isFeatured ? 'md:col-span-2 min-h-[320px]' : isWide ? 'md:col-span-2 min-h-[220px]' : 'min-h-[260px]'
+                  }`}
                 >
-                  {/* Accent glow */}
+                  {/* Background image */}
+                  {heroImg && (
+                    <div className="absolute inset-0">
+                      <img
+                        src={heroImg}
+                        alt=""
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      />
+                    </div>
+                  )}
+
+                  {/* Overlay — unique gradient per project using accent */}
                   <div
-                    className="absolute top-0 right-0 w-32 h-32 rounded-full blur-3xl opacity-10 group-hover:opacity-20 transition-opacity duration-500"
-                    style={{ background: `hsl(${project.accentHsl})` }}
+                    className="absolute inset-0 transition-opacity duration-500"
+                    style={{
+                      background: heroImg
+                        ? `linear-gradient(135deg, hsl(${project.accentHsl} / 0.85) 0%, hsl(${project.accentHsl} / 0.6) 40%, rgba(0,0,0,0.7) 100%)`
+                        : `linear-gradient(135deg, hsl(${project.accentHsl} / 0.15) 0%, hsl(${project.accentHsl} / 0.05) 100%)`,
+                    }}
                   />
 
-                  <div className="relative z-10">
-                    {/* Index + Icon */}
-                    <div className="flex items-center justify-between mb-4">
-                      <span className="text-xs font-mono text-muted-foreground/60">
-                        {String(idx + 1).padStart(2, '0')}
-                      </span>
+                  {/* Content */}
+                  <div className={`relative z-10 p-6 md:p-8 flex flex-col justify-end h-full ${heroImg ? 'text-white' : 'text-foreground'}`}>
+                    {/* Icon + Category */}
+                    <div className="flex items-center gap-3 mb-3">
                       <div
-                        className="w-10 h-10 rounded-xl flex items-center justify-center"
-                        style={{ background: `hsl(${project.accentHsl} / 0.12)` }}
+                        className="w-10 h-10 rounded-xl flex items-center justify-center backdrop-blur-md"
+                        style={{
+                          background: heroImg ? 'rgba(255,255,255,0.15)' : `hsl(${project.accentHsl} / 0.12)`,
+                        }}
                       >
                         <IconComponent
                           className="w-5 h-5"
-                          style={{ color: `hsl(${project.accentHsl})` }}
+                          style={{ color: heroImg ? '#fff' : `hsl(${project.accentHsl})` }}
                         />
                       </div>
+                      <span
+                        className="text-[10px] font-semibold uppercase tracking-widest px-2.5 py-0.5 rounded-full backdrop-blur-sm"
+                        style={{
+                          color: heroImg ? '#fff' : `hsl(${project.accentHsl})`,
+                          background: heroImg ? 'rgba(255,255,255,0.15)' : `hsl(${project.accentHsl} / 0.08)`,
+                        }}
+                      >
+                        {t(project.categoryKey, project.category)}
+                      </span>
                     </div>
 
-                    {/* Category */}
-                    <span
-                      className="inline-block text-[10px] font-semibold uppercase tracking-widest mb-3 px-2 py-0.5 rounded-full"
-                      style={{
-                        color: `hsl(${project.accentHsl})`,
-                        background: `hsl(${project.accentHsl} / 0.08)`,
-                      }}
-                    >
-                      {t(project.categoryKey, project.category)}
-                    </span>
-
                     {/* Title */}
-                    <h3 className="text-lg font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">
+                    <h3 className={`font-semibold mb-2 tracking-tight ${isFeatured ? 'text-2xl md:text-3xl' : 'text-lg md:text-xl'}`}>
                       {t(project.titleKey)}
                     </h3>
 
                     {/* Description */}
-                    <p className="text-sm text-muted-foreground leading-relaxed mb-4 line-clamp-3">
+                    <p className={`leading-relaxed mb-4 ${heroImg ? 'text-white/80' : 'text-muted-foreground'} ${isFeatured ? 'text-sm md:text-base max-w-2xl' : 'text-sm line-clamp-3'}`}>
                       {t(project.descriptionKey)}
                     </p>
 
                     {/* CTA */}
-                    <div className="flex items-center gap-1.5 text-sm font-medium text-primary opacity-0 group-hover:opacity-100 translate-y-1 group-hover:translate-y-0 transition-all duration-300">
+                    <div className={`flex items-center gap-1.5 text-sm font-medium ${heroImg ? 'text-white' : 'text-primary'} opacity-0 group-hover:opacity-100 translate-y-1 group-hover:translate-y-0 transition-all duration-300`}>
                       {t('adamas.viewProject', 'View Project')}
                       <ArrowRight className="w-4 h-4" />
                     </div>
