@@ -227,7 +227,38 @@ const AdamasMaterialsOverview = () => {
       canonicalUrl: 'https://digitalinvest.com/adamas',
     });
 
-    return () => clearTimeout(timer);
+    // Organization JSON-LD
+    injectStructuredData({
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Adamas Materials",
+      "url": "https://digitalinvest.com/adamas",
+      "logo": "https://digital-invest.lovable.app/adamas-og-image.jpg",
+      "description": "Diversified project portfolio spanning the diamond industry, robotics, e-commerce, digital assets, and advanced veterinary technology.",
+      "numberOfEmployees": { "@type": "QuantitativeValue", "value": "200+" },
+      "areaServed": "Worldwide",
+      "knowsAbout": ["Diamond Industry", "Robotics", "E-Commerce", "Digital Assets", "Veterinary Technology"]
+    }, 'adamas-org-schema');
+
+    // ItemList JSON-LD for project portfolio
+    injectStructuredData({
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "Adamas Materials Project Portfolio",
+      "numberOfItems": adamasProjects.length,
+      "itemListElement": adamasProjects.map((p, i) => ({
+        "@type": "ListItem",
+        "position": i + 1,
+        "name": p.titleKey.split('.').pop(),
+        "url": `https://digitalinvest.com/adamas/${p.slug}`,
+      }))
+    }, 'adamas-list-schema');
+
+    return () => {
+      clearTimeout(timer);
+      removeStructuredData('adamas-org-schema');
+      removeStructuredData('adamas-list-schema');
+    };
   }, []);
 
   const handleMouseMove = useCallback((e: React.MouseEvent) => {
