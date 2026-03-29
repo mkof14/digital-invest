@@ -193,28 +193,39 @@ const AdamasMaterialsOverview = () => {
     <div className="min-h-screen bg-[hsl(220,16%,90%)] dark:bg-background">
       <AdamasNavigation />
 
-      {/* Hero — cinematic, with parallax logo */}
+      {/* Hero — cinematic dark section */}
       <section
         ref={heroRef}
-        className="relative pt-36 pb-24 overflow-hidden"
+        className="relative pt-20 pb-28 overflow-hidden bg-[hsl(220,20%,8%)] dark:bg-[hsl(220,20%,6%)]"
         onMouseMove={handleMouseMove}
       >
-        {/* Ambient background */}
-        <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-b from-[hsl(220,16%,88%)] via-[hsl(220,14%,90%)] to-[hsl(220,16%,90%)] dark:from-background dark:via-background dark:to-background" />
-          {/* Subtle radial glow */}
+        {/* Animated ambient glows */}
+        <div className="absolute inset-0 overflow-hidden">
           <div
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] rounded-full opacity-[0.04] dark:opacity-[0.06] blur-3xl"
-            style={{ background: 'radial-gradient(circle, hsl(var(--primary)), transparent 70%)' }}
+            className="absolute top-1/3 left-1/4 w-[600px] h-[600px] rounded-full blur-[120px] opacity-20"
+            style={{
+              background: 'radial-gradient(circle, hsl(45, 80%, 55%), transparent 70%)',
+              transform: `translate(${mousePos.x * 0.5}px, ${mousePos.y * 0.5}px)`,
+              transition: 'transform 0.6s ease-out',
+            }}
           />
-          {/* Geometric accent lines */}
-          <div className="absolute top-20 left-[10%] w-px h-40 bg-gradient-to-b from-transparent via-primary/10 to-transparent" />
-          <div className="absolute top-32 right-[15%] w-px h-32 bg-gradient-to-b from-transparent via-primary/8 to-transparent" />
-          <div className="absolute bottom-10 left-[30%] w-20 h-px bg-gradient-to-r from-transparent via-primary/10 to-transparent" />
+          <div
+            className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] rounded-full blur-[100px] opacity-15"
+            style={{
+              background: 'radial-gradient(circle, hsl(200, 60%, 50%), transparent 70%)',
+              transform: `translate(${mousePos.x * -0.3}px, ${mousePos.y * -0.3}px)`,
+              transition: 'transform 0.6s ease-out',
+            }}
+          />
+          {/* Decorative lines */}
+          <div className="absolute top-16 left-[8%] w-px h-48 bg-gradient-to-b from-transparent via-amber-400/20 to-transparent" />
+          <div className="absolute top-28 right-[12%] w-px h-36 bg-gradient-to-b from-transparent via-sky-400/15 to-transparent" />
+          <div className="absolute bottom-20 left-[25%] w-24 h-px bg-gradient-to-r from-transparent via-amber-400/15 to-transparent" />
+          <div className="absolute bottom-32 right-[30%] w-16 h-px bg-gradient-to-r from-transparent via-sky-400/10 to-transparent" />
         </div>
 
         <div className="max-w-5xl mx-auto px-4 relative z-10 text-center">
-          {/* Logo — large, with parallax */}
+          {/* Logo — vivid, with parallax + glow */}
           <div
             className="transition-all duration-700"
             style={{
@@ -224,11 +235,17 @@ const AdamasMaterialsOverview = () => {
                 : 'translateY(-30px)',
             }}
           >
-            <img
-              src={adamasLogo}
-              alt="Adamas Materials"
-              className="h-40 md:h-56 lg:h-64 mx-auto mb-8 drop-shadow-2xl"
-            />
+            <div className="relative inline-block">
+              {/* Glow behind logo */}
+              <div className="absolute inset-0 blur-3xl opacity-30 scale-75"
+                style={{ background: 'radial-gradient(circle, hsl(45, 70%, 60%), transparent 60%)' }}
+              />
+              <img
+                src={adamasLogo}
+                alt="Adamas Materials"
+                className="relative h-48 md:h-64 lg:h-72 mx-auto mb-8 brightness-125 contrast-110 drop-shadow-[0_0_40px_rgba(200,170,80,0.3)]"
+              />
+            </div>
           </div>
 
           {/* Badge */}
@@ -239,7 +256,7 @@ const AdamasMaterialsOverview = () => {
               transform: heroVisible ? 'translateY(0)' : 'translateY(20px)',
             }}
           >
-            <span className="inline-block px-5 py-1.5 rounded border text-[10px] font-medium tracking-[0.25em] uppercase text-muted-foreground border-border/40 bg-muted/30 backdrop-blur-sm mb-8">
+            <span className="inline-block px-6 py-2 rounded-full text-[10px] font-semibold tracking-[0.3em] uppercase text-amber-300/80 border border-amber-400/20 bg-amber-400/5 backdrop-blur-sm mb-8">
               {t('adamas.badge', 'Adamas Materials Projects')}
             </span>
           </div>
@@ -252,10 +269,10 @@ const AdamasMaterialsOverview = () => {
               transform: heroVisible ? 'translateY(0)' : 'translateY(20px)',
             }}
           >
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-light tracking-tight text-foreground mb-4">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white mb-3">
               {t('adamas.heroTitle', 'Adamas Materials')}
             </h1>
-            <p className="text-xl md:text-2xl font-light text-muted-foreground mb-8">
+            <p className="text-xl md:text-2xl font-light text-white/50 mb-8 tracking-wide">
               {t('adamas.heroHighlight', 'Project Portfolio')}
             </p>
           </div>
@@ -268,14 +285,19 @@ const AdamasMaterialsOverview = () => {
               transform: heroVisible ? 'translateY(0)' : 'translateY(20px)',
             }}
           >
-            <p className="max-w-2xl mx-auto text-sm md:text-base text-muted-foreground/70 leading-relaxed">
+            <p className="max-w-2xl mx-auto text-sm md:text-base text-white/40 leading-relaxed">
               {t('adamas.heroSubtitle', 'A diversified collection of projects spanning diamond industry, robotics, e-commerce, digital assets, and advanced veterinary technology.')}
             </p>
           </div>
 
+          {/* Separator line */}
+          <div className="mt-12 mb-10 flex justify-center">
+            <div className="w-24 h-px bg-gradient-to-r from-transparent via-amber-400/40 to-transparent" />
+          </div>
+
           {/* Stats row */}
           <div
-            className="mt-14 flex justify-center gap-12 md:gap-20 transition-all duration-700 delay-700"
+            className="flex justify-center gap-14 md:gap-24 transition-all duration-700 delay-700"
             style={{
               opacity: heroVisible ? 1 : 0,
               transform: heroVisible ? 'translateY(0)' : 'translateY(20px)',
@@ -287,8 +309,8 @@ const AdamasMaterialsOverview = () => {
               { value: '40+', label: t('adamas.statsCountries', 'Countries') },
             ].map((stat) => (
               <div key={stat.label} className="text-center">
-                <div className="text-2xl md:text-3xl font-light text-foreground">{stat.value}</div>
-                <div className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground/50 mt-1">{stat.label}</div>
+                <div className="text-3xl md:text-4xl font-bold text-white">{stat.value}</div>
+                <div className="text-[10px] uppercase tracking-[0.2em] text-white/30 mt-1.5">{stat.label}</div>
               </div>
             ))}
           </div>
