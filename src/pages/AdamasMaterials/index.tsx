@@ -317,15 +317,13 @@ const AdamasMaterialsOverview = () => {
         </div>
       </section>
 
-      {/* Divider */}
-      <div className="max-w-5xl mx-auto px-4">
-        <div className="h-px bg-gradient-to-r from-transparent via-border/50 to-transparent" />
-      </div>
+      {/* Smooth gradient transition from dark hero to page background */}
+      <div className="h-32 bg-gradient-to-b from-[hsl(220,20%,8%)] via-[hsl(220,18%,14%)] to-[hsl(220,16%,90%)] dark:from-[hsl(220,20%,6%)] dark:via-[hsl(220,18%,8%)] dark:to-background" />
 
       {/* Projects Grid */}
-      <section className="py-20">
+      <section className="py-16 -mt-8">
         <div className="max-w-6xl mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             {adamasProjects.map((project, idx) => (
               <ProjectCard key={project.slug} project={project} index={idx} />
             ))}
