@@ -2144,5 +2144,106 @@
     "vision3": "No noise, just beautiful things first",
     "ctaTitle": "Interested in Alma Diamond?",
     "ctaDesc": "Alma Diamond is a design-driven, ethically sourced jewelry brand positioned for the growing lab-grown diamond market."
+  },
+  "jatual": {
+    "heroTagline": "High Jewelry Maison — Place Vendôme, Paris",
+    "philosophy": {
+      "title": "The Maison",
+      "text1": "JATUAL PARIS is a high jewelry maison rooted in the heritage of Place Vendôme and shaped by a more conscious vision for the modern world. Each creation features next-generation lab-grown diamonds — brilliant, rare, and responsibly made.",
+      "text2": "The philosophy centers on an unwavering commitment to advanced craftsmanship and responsible beauty. Beyond creating exquisite jewelry, JATUAL PARIS shapes a refined vision of modern royalty — where elegance meets ethical innovation."
+    },
+    "pillars": {
+      "title": "Defining Principles",
+      "vendome": {
+        "title": "Place Vendôme Heritage",
+        "text": "Rooted in the world's most prestigious jewelry address, carrying forward centuries of Parisian haute joaillerie tradition."
+      },
+      "labGrown": {
+        "title": "Next-Gen Lab-Grown Diamonds",
+        "text": "Conflict-free, environmentally responsible diamonds that match or exceed the brilliance and quality of mined stones."
+      },
+      "craftsmanship": {
+        "title": "Advanced Craftsmanship",
+        "text": "Every piece is a masterwork of precision, designed and crafted by artisans who demand perfection in every facet."
+      },
+      "personalization": {
+        "title": "Refined Personalization",
+        "text": "Bespoke services for clients who seek one-of-a-kind creations that reflect their unique vision and story."
+      }
+    },
+    "collections": {
+      "title": "High Jewelry Collections",
+      "subtitle": "Each collection tells a unique story — from the grandeur of Parisian gardens to the pulse of the heart itself.",
+      "cielDeParis": {
+        "name": "Ciel de Paris",
+        "description": "Inspired by the endless Parisian sky, this collection features vivid blue diamonds as centerpieces — dramatic, bold compositions that capture the spirit of haute couture. Signature pieces include the Mediterranean Princess necklace and the Bleu Royal Transformable."
+      },
+      "jardinsDeParis": {
+        "name": "Jardins de Paris",
+        "description": "A celebration of nature's most delicate forms, Jardins de Paris translates botanical beauty into precious stones and metals. The Papillons earrings and Princesse d'Azure set define the collection's elegant, organic aesthetic."
+      },
+      "leCoeurDeParis": {
+        "name": "Le Coeur de Paris",
+        "description": "Vivid pink and red lab-grown diamonds take center stage in masterpieces designed to last. From refined rings to statement cascading necklaces, each piece pulses with warmth and passion."
+      },
+      "reineEnRose": {
+        "name": "Reine en Rose",
+        "description": "A tribute to feminine strength and grace. The La Grande Duchesse piece anchors this collection — jewels of distinction that embody a refined vision of modern royalty."
+      }
+    },
+    "categories": {
+      "title": "Product Categories",
+      "earrings": "Earrings",
+      "rings": "Rings",
+      "bracelets": "Bracelets",
+      "necklaces": "Necklaces",
+      "pendants": "Pendants"
+    },
+    "signature": {
+      "title": "Signature Creations",
+      "mediterraneanPrincess": {
+        "name": "Mediterranean Princess",
+        "description": "When you want something more than just jewelry. This necklace is a whole story in one glance — the perfect piece is closer than ever."
+      },
+      "princesseDAzure": {
+        "name": "Princesse d'Azure",
+        "description": "High jewelry drama in three acts: necklace, bracelet, and ring united by the same breath of form and color. Luxury created to live with you."
+      },
+      "bleuRoyal": {
+        "name": "Vivid Blue Symphony",
+        "description": "An extraordinary vision in vivid blue. A striking blue diamond framed by impeccably set accent stones, each chosen for clarity and balance. A signature creation from JATUAL PARIS."
+      }
+    },
+    "market": {
+      "title": "Market Positioning",
+      "audience": {
+        "title": "Target Audience",
+        "text": "Discerning collectors, high-net-worth individuals, and sophisticated connoisseurs who demand the highest standards of quality, design, and ethical sourcing in luxury jewelry."
+      },
+      "differentiation": {
+        "title": "Competitive Edge",
+        "text": "JATUAL PARIS uniquely combines Place Vendôme heritage with next-generation conflict-free diamonds, delivering beauty without compromise — positioning the brand at the intersection of tradition and innovation."
+      }
+    },
+    "business": {
+      "title": "Business Model",
+      "directSales": {
+        "title": "Direct High Jewelry Sales",
+        "text": "Private showroom and appointment-based consultations for collectors seeking exceptional pieces from signature collections."
+      },
+      "bespoke": {
+        "title": "Bespoke Commissions",
+        "text": "Custom haute joaillerie creations for clients who desire one-of-a-kind pieces crafted to their personal vision."
+      },
+      "digitalPresence": {
+        "title": "Digital Maison Experience",
+        "text": "An immersive online platform showcasing collections with premium photography and seamless appointment booking for global clientele."
+      }
+    },
+    "vision": {
+      "title": "Vision",
+      "text": "To redefine the global standard of luxury jewelry by merging Parisian haute joaillerie tradition with sustainable innovation — creating pieces that are not merely worn, but cherished across generations.",
+      "tagline": "\"Luxury Reimagined. Beauty Without Compromise.\""
+    }
   }
 }
