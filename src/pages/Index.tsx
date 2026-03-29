@@ -462,7 +462,7 @@ const Index = () => {
       </section>
 
       {/* ═══════════════════ ROI CALCULATOR ═══════════════════ */}
-      <section className="py-20 md:py-28 px-4">
+      <section className="py-20 md:py-28 px-4 section-gradient-teal">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-14 space-y-3">
             <h2 ref={calculatorHeading.ref} className={`text-3xl md:text-5xl font-bold tracking-tight text-foreground animate-heading-reveal ${calculatorHeading.isVisible ? 'visible' : ''}`}>
