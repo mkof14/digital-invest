@@ -1522,7 +1522,7 @@
     "categories": { "materials": "素材・インフラ", "diamond": "ダイヤモンド産業", "robotics": "ロボティクスネットワーク", "talent": "人材・HR", "ecommerce": "Eコマース", "digital": "デジタル資産", "itMarketing": "IT・マーケティング", "vettech": "獣医テック・ロボティクス" },
     "disclaimer": { "title": "重要なお知らせ:", "text": "このセクションは情報提供のみを目的としています。Adamas Materialsプロジェクトは別途提示され、公募を構成するものではありません。" },
     "projects": {
-      "adamasMaterials": { "title": "Adamas Materials", "description": "グローバルサプライチェーンと先進製造能力を結ぶ戦略的素材調達と産業インフラ。", "longDescription": "Adamas Materialsは原材料調達、サプライチェーン最適化、産業製造インフラの交差点で事業を展開しています。" },
+      "adamasMaterials": { "title": "Adamas Materials", "description": "研究機関、企業R&D、政府・防衛セクター向けのテクニカルダイヤモンドおよび先端材料の米国B2B/B2Gサプライヤー。", "longDescription": "Adamas Materialsは、研究機関、企業R&D部門、政府・防衛機関にテクニカルダイヤモンドと先端材料を供給する米国のB2B/B2G企業です。\n\n製品ポートフォリオは4つの戦略的方向性を網羅：量子・センシング材料、熱管理材料、工具・耐摩耗部品、そして完全な技術仕様を備えた補助材料・鉱物です。\n\n産業・科学サプライヤーとして位置づけ — 消費者向けでも宝飾品でもなく — Adamas MaterialsはRFQベースのモデルで公開価格なし、契約・研究志向に徹底しています。" },
       "originDiamond": { "title": "Origin Diamond", "description": "鉱山から市場までの完全なトレーサビリティを備えた出所確認済みダイヤモンド調達。", "longDescription": "Origin Diamondは包括的な出所確認システムを通じてダイヤモンドサプライチェーンに透明性と信頼をもたらします。" },
       "agronNet": { "title": "AGRON-NET", "description": "自律システムとコマンドインフラを接続する分散ロボティクス運用ネットワーク。", "longDescription": "AGRON-NETは分散ロボティクス運用のための通信・調整バックボーンを提供します。" },
       "agronWork": { "title": "AGRON-Work", "description": "自律ロボティクスと精密農業産業の人材獲得・育成プラットフォーム。", "longDescription": "AGRON-Workは自律ロボティクスと精密農業における重要な人材ギャップに対応します。" },
