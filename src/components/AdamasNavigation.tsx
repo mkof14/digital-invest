@@ -13,9 +13,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 const AdamasNavigation = () => {
-  const [isOpen, setIsOpen] = useState(false);
   const { theme, setTheme } = useTheme();
-  const location = useLocation();
   const { t, i18n } = useTranslation();
 
   const currentLang = languages.find(l => l.code === i18n.language) || languages[0];
@@ -26,37 +24,43 @@ const AdamasNavigation = () => {
     document.documentElement.dir = lang && 'dir' in lang ? 'rtl' : 'ltr';
   };
 
-  const isProjectPage = location.pathname !== '/adamas' && location.pathname.startsWith('/adamas/');
-
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-card/70 backdrop-blur-xl border-b border-border/20">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-card/80 dark:bg-card/70 backdrop-blur-xl border-b border-border/20">
       <div className="max-w-6xl mx-auto px-4">
-        <div className="flex items-center justify-between h-16">
-          {/* Left: Adamas logo + name */}
-          <Link to="/adamas" className="flex items-center gap-3 group">
-            <img src={adamasLogo} alt="Adamas Materials" className="h-8 w-auto" />
-            <span className="text-sm font-semibold text-foreground tracking-tight hidden sm:block">
-              Adamas Materials
-            </span>
+        <div className="flex items-center justify-between h-20">
+          {/* Left: Adamas logo + name — 200% larger */}
+          <Link to="/adamas" className="flex items-center gap-4 group">
+            <img
+              src={adamasLogo}
+              alt="Adamas Materials"
+              className="h-14 md:h-16 w-auto brightness-110 transition-transform duration-300 group-hover:scale-105"
+            />
+            <div className="hidden sm:flex flex-col">
+              <span className="text-base md:text-lg font-semibold text-foreground tracking-tight leading-tight">
+                Adamas Materials
+              </span>
+              <span className="text-[10px] uppercase tracking-[0.2em] text-foreground/40">
+                Project Portfolio
+              </span>
+            </div>
           </Link>
 
           {/* Right: minimal controls */}
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1">
             {/* Link to main site */}
             <Link
               to="/"
-              className="text-xs text-foreground/40 hover:text-foreground/70 transition-colors px-3 py-1.5 rounded-md hover:bg-muted/40"
+              className="text-xs text-foreground/40 hover:text-foreground/70 transition-colors px-3 py-2 rounded-lg hover:bg-muted/40"
             >
-              Digital Invest
+              Digital Invest ↗
             </Link>
 
-            {/* Divider */}
-            <div className="w-px h-4 bg-border/30" />
+            <div className="w-px h-5 bg-border/20 mx-1" />
 
             {/* Language */}
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <button className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-md text-xs text-foreground/50 hover:text-foreground/80 hover:bg-muted/40 transition-colors">
+                <button className="flex items-center gap-1.5 px-2.5 py-2 rounded-lg text-xs text-foreground/50 hover:text-foreground/80 hover:bg-muted/40 transition-colors">
                   <Globe className="w-3.5 h-3.5" />
                   <span className="hidden sm:inline">{currentLang.flag}</span>
                 </button>
@@ -78,7 +82,7 @@ const AdamasNavigation = () => {
             {/* Theme toggle */}
             <button
               onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-              className="p-2 rounded-md text-foreground/50 hover:text-foreground/80 hover:bg-muted/40 transition-colors"
+              className="p-2 rounded-lg text-foreground/50 hover:text-foreground/80 hover:bg-muted/40 transition-colors"
             >
               {theme === 'dark' ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
             </button>
