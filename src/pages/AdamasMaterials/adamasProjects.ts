@@ -121,11 +121,11 @@ export const adamasProjects: AdamasProject[] = [
     icon: 'Lightbulb',
   },
   {
-    slug: 'vet-robotics-service',
+    slug: 'animal-veterinary-service',
     titleKey: 'adamas.projects.vetRobotics.title',
     descriptionKey: 'adamas.projects.vetRobotics.description',
     longDescriptionKey: 'adamas.projects.vetRobotics.longDescription',
-    category: 'VetTech & Robotics',
+    category: 'Animal & Veterinary',
     categoryKey: 'adamas.categories.vettech',
     accentHsl: '140 55% 45%',
     icon: 'HeartPulse',
