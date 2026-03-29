@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useEffect, useRef, useState, useCallback } from 'react';
-import Navigation from '@/components/Navigation';
-import Footer from '@/components/Footer';
+import AdamasNavigation from '@/components/AdamasNavigation';
+import AdamasFooter from '@/components/AdamasFooter';
 import { adamasProjects } from './adamasProjects';
 import adamasLogo from '@/assets/adamas/adamas-materials-logo.png';
 
@@ -191,7 +191,7 @@ const AdamasMaterialsOverview = () => {
 
   return (
     <div className="min-h-screen bg-[hsl(220,16%,90%)] dark:bg-background">
-      <Navigation />
+      <AdamasNavigation />
 
       {/* Hero — cinematic, with parallax logo */}
       <section
@@ -323,7 +323,7 @@ const AdamasMaterialsOverview = () => {
         </div>
       </section>
 
-      <Footer />
+      <AdamasFooter />
     </div>
   );
 };

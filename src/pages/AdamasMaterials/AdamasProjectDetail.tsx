@@ -1,7 +1,7 @@
 import { useParams, Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import Navigation from '@/components/Navigation';
-import Footer from '@/components/Footer';
+import AdamasNavigation from '@/components/AdamasNavigation';
+import AdamasFooter from '@/components/AdamasFooter';
 import { adamasProjects } from './adamasProjects';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import OptimizedImage from '@/components/OptimizedImage';
@@ -47,14 +47,14 @@ const AdamasProjectDetail = () => {
   if (!project) {
     return (
       <div className="min-h-screen bg-background">
-        <Navigation />
+        <AdamasNavigation />
         <div className="flex items-center justify-center min-h-[60vh]">
           <div className="text-center">
             <h1 className="text-2xl font-semibold text-foreground mb-4">{t('common.noResults', 'Project not found')}</h1>
             <Link to="/adamas" className="text-primary hover:underline">{t('adamas.backToProjects', 'Back to Adamas Projects')}</Link>
           </div>
         </div>
-        <Footer />
+        <AdamasFooter />
       </div>
     );
   }
@@ -63,7 +63,7 @@ const AdamasProjectDetail = () => {
 
   return (
     <div className="min-h-screen bg-[hsl(220,16%,92%)] dark:bg-background">
-      <Navigation />
+      <AdamasNavigation />
 
       {/* Hero Image — always dark overlay for readability */}
       {hasHero && (
@@ -235,7 +235,7 @@ const AdamasProjectDetail = () => {
         </div>
       </section>
 
-      <Footer />
+      <AdamasFooter />
     </div>
   );
 };
