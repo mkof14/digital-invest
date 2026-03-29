@@ -65,7 +65,7 @@ const AdamasProjectDetail = () => {
     <div className="min-h-screen bg-[hsl(220,16%,92%)] dark:bg-background">
       <AdamasNavigation />
 
-      {/* Hero Image — always dark overlay for readability */}
+      {/* Hero Image */}
       {hasHero && (
         <section className="relative h-[55vh] min-h-[420px] overflow-hidden">
           <OptimizedImage
@@ -75,7 +75,6 @@ const AdamasProjectDetail = () => {
             className="w-full h-full object-cover"
             showSkeleton={false}
           />
-          {/* Dark cinematic gradient — works in both themes */}
           <div className="absolute inset-0 bg-gradient-to-t from-[rgba(8,10,18,0.95)] via-[rgba(8,10,18,0.4)] to-[rgba(8,10,18,0.2)]" />
 
           <div className="absolute bottom-0 left-0 right-0 p-8 md:p-12">
