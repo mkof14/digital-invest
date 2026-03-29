@@ -161,7 +161,7 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background max-w-[1600px] mx-auto">
       <Navigation />
 
       {/* ═══════════════════ HERO — Vibrant Financial ═══════════════════ */}
@@ -196,7 +196,7 @@ const Index = () => {
                   <span className="text-accent">Digital Invest Inc.</span>
                 </div>
 
-                <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold leading-[0.95] tracking-tight">
+                <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-semibold leading-[0.95] tracking-tight">
                   <span className="block text-foreground">{t('hero.strategicTitle')}</span>
                   <span className="block mt-2 gradient-tech-animated">{t('hero.strategicHighlight')}</span>
                 </h1>
@@ -217,7 +217,7 @@ const Index = () => {
 
               <div className="flex flex-wrap gap-4 animate-fade-in">
                 <Link to="/projects">
-                  <Button size="lg" className="px-8 py-6 text-base group shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 transition-all">
+                  <Button size="lg" variant="ghost" className="px-8 py-6 text-base group border border-border/50 bg-transparent hover:bg-primary/10 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/15 transition-all duration-300">
                     {t('hero.exploreProjects')}
                     <ArrowUpRight className="ml-2 h-5 w-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                   </Button>
@@ -237,17 +237,17 @@ const Index = () => {
                 {/* Glow behind metrics */}
                 <div className="absolute -inset-2 bg-gradient-to-br from-primary/10 via-accent/5 to-info/10 rounded-3xl blur-xl opacity-50" />
                 
-                <div className="relative grid grid-cols-2 gap-px bg-border/50 rounded-2xl overflow-hidden border border-border/40">
+                <div className="relative grid grid-cols-2 gap-px bg-border/50 rounded-2xl overflow-hidden border border-border/40 shadow-elevated">
                   {[
-                    { value: "25+", label: t('hero.yearsExp'), accent: "from-accent/10 to-transparent" },
-                    { value: "5", label: t('hero.activeProjects'), accent: "from-info/10 to-transparent" },
-                    { value: "$19.5B", label: t('hero.exitValue'), accent: "from-success/10 to-transparent" },
-                    { value: "15+", label: t('hero.countriesServed'), accent: "from-primary/10 to-transparent" }
+                    { value: "25+", label: t('hero.yearsExp'), accent: "from-accent/15 via-accent/5 to-transparent", borderColor: "border-l-accent/30" },
+                    { value: "5", label: t('hero.activeProjects'), accent: "from-info/15 via-info/5 to-transparent", borderColor: "border-l-info/30" },
+                    { value: "$19.5B", label: t('hero.exitValue'), accent: "from-success/15 via-success/5 to-transparent", borderColor: "border-l-success/30" },
+                    { value: "15+", label: t('hero.countriesServed'), accent: "from-primary/15 via-primary/5 to-transparent", borderColor: "border-l-primary/30" }
                   ].map((stat, i) => (
-                    <div key={i} className={`relative bg-card/60 backdrop-blur-sm p-8 lg:p-10 flex flex-col justify-center text-center hover:bg-card/80 transition-all duration-500 group`}>
-                      <div className={`absolute inset-0 bg-gradient-to-br ${stat.accent} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+                    <div key={i} className={`relative bg-card/60 backdrop-blur-sm p-8 lg:p-10 flex flex-col justify-center text-center hover:bg-card/90 transition-all duration-500 group hover:shadow-lg`}>
+                      <div className={`absolute inset-0 bg-gradient-to-br ${stat.accent} opacity-40 group-hover:opacity-100 transition-opacity duration-500`} />
                       <div className="relative">
-                        <div className="text-3xl lg:text-4xl xl:text-5xl font-bold text-foreground tracking-tight">{stat.value}</div>
+                        <div className="text-3xl lg:text-4xl xl:text-5xl font-bold text-foreground tracking-tight group-hover:scale-105 transition-transform duration-300">{stat.value}</div>
                         <div className="text-xs md:text-sm text-muted-foreground mt-2 font-medium">{stat.label}</div>
                       </div>
                     </div>
@@ -262,13 +262,6 @@ const Index = () => {
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-pulse">
           <div className="w-px h-12 bg-gradient-to-b from-transparent via-accent/30 to-primary/40" />
           <div className="w-1.5 h-1.5 rounded-full bg-primary/50" />
-        </div>
-      </section>
-
-      {/* ═══════════════════ SEARCH ═══════════════════ */}
-      <section className="py-8 px-4 relative">
-        <div className="max-w-2xl mx-auto">
-          <SearchBar />
         </div>
       </section>
 
@@ -307,25 +300,28 @@ const Index = () => {
               {[
                 { 
                   title: t('ecosystem.dailyHealth'), desc: t('ecosystem.dailyHealthDesc'),
-                  icon: <DailyPulseIcon size={22} />, color: "text-emerald-500"
+                  icon: <DailyPulseIcon size={22} />, color: "text-emerald-500", glow: "shadow-emerald-500/10", gradient: "from-emerald-500/8 to-transparent"
                 },
                 { 
                   title: t('ecosystem.unifiedData'), desc: t('ecosystem.unifiedDataDesc'),
-                  icon: <DataStreamIcon size={22} />, color: "text-blue-500"
+                  icon: <DataStreamIcon size={22} />, color: "text-blue-500", glow: "shadow-blue-500/10", gradient: "from-blue-500/8 to-transparent"
                 },
                 { 
                   title: t('ecosystem.selfImproving'), desc: t('ecosystem.selfImprovingDesc'),
-                  icon: <AILoopIcon size={22} />, color: "text-amber-500"
+                  icon: <AILoopIcon size={22} />, color: "text-amber-500", glow: "shadow-amber-500/10", gradient: "from-amber-500/8 to-transparent"
                 },
                 { 
                   title: t('ecosystem.crossSynergy'), desc: t('ecosystem.crossSynergyDesc'),
-                  icon: <SynergyOrbitIcon size={22} />, color: "text-violet-500"
+                  icon: <SynergyOrbitIcon size={22} />, color: "text-violet-500", glow: "shadow-violet-500/10", gradient: "from-violet-500/8 to-transparent"
                 }
               ].map((node, i) => (
-                <div key={i} className="group bg-card/50 border border-border/40 rounded-xl p-5 md:p-6 hover:bg-card hover:border-border transition-all duration-300 hover:-translate-y-0.5">
-                  <div className={`mb-3 ${node.color}`}>{node.icon}</div>
-                  <h4 className="text-sm font-bold text-foreground mb-1.5">{node.title}</h4>
-                  <p className="text-xs text-muted-foreground leading-relaxed">{node.desc}</p>
+                <div key={i} className={`group relative bg-card/60 border border-border/40 rounded-xl p-5 md:p-6 hover:bg-card hover:border-border/80 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${node.glow} overflow-hidden`}>
+                  <div className={`absolute inset-0 bg-gradient-to-br ${node.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+                  <div className="relative">
+                    <div className={`mb-3 ${node.color} group-hover:scale-110 transition-transform duration-300`}>{node.icon}</div>
+                    <h4 className="text-sm font-bold text-foreground mb-1.5">{node.title}</h4>
+                    <p className="text-xs text-muted-foreground leading-relaxed">{node.desc}</p>
+                  </div>
                 </div>
               ))}
             </div>
@@ -419,40 +415,44 @@ const Index = () => {
           {/* Bento grid: 2 large + 2 small */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {/* Large card — Health */}
-            <div className="group relative overflow-hidden rounded-2xl border border-border/40 bg-card/50 p-8 md:p-10 hover:bg-card hover:border-border transition-all duration-500 min-h-[200px] flex flex-col justify-end">
-              <div className="absolute top-6 right-6 opacity-60">
+            <div className="group relative overflow-hidden rounded-2xl border border-border/40 bg-card/60 p-8 md:p-10 hover:bg-card hover:border-border/80 hover:shadow-xl hover:-translate-y-1 transition-all duration-500 min-h-[200px] flex flex-col justify-end">
+              <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="absolute top-6 right-6 opacity-60 group-hover:opacity-90 group-hover:scale-110 transition-all duration-300">
                 <HealthDNAIcon className="text-primary" size={48} />
               </div>
-              <h3 className="text-2xl font-bold text-foreground mb-2">{t('whatWeBuild.healthTitle')}</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed max-w-sm">{t('whatWeBuild.healthDesc')}</p>
+              <h3 className="text-2xl font-bold text-foreground mb-2 relative">{t('whatWeBuild.healthTitle')}</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed max-w-sm relative">{t('whatWeBuild.healthDesc')}</p>
             </div>
 
             {/* Large card — Agro */}
-            <div className="group relative overflow-hidden rounded-2xl border border-border/40 bg-card/50 p-8 md:p-10 hover:bg-card hover:border-border transition-all duration-500 min-h-[200px] flex flex-col justify-end">
-              <div className="absolute top-6 right-6 opacity-60">
+            <div className="group relative overflow-hidden rounded-2xl border border-border/40 bg-card/60 p-8 md:p-10 hover:bg-card hover:border-border/80 hover:shadow-xl hover:-translate-y-1 transition-all duration-500 min-h-[200px] flex flex-col justify-end">
+              <div className="absolute inset-0 bg-gradient-to-br from-amber-500/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="absolute top-6 right-6 opacity-60 group-hover:opacity-90 group-hover:scale-110 transition-all duration-300">
                 <AgroDataIcon className="text-primary" size={48} />
               </div>
-              <h3 className="text-2xl font-bold text-foreground mb-2">{t('whatWeBuild.agroTitle')}</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed max-w-sm">{t('whatWeBuild.agroDesc')}</p>
+              <h3 className="text-2xl font-bold text-foreground mb-2 relative">{t('whatWeBuild.agroTitle')}</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed max-w-sm relative">{t('whatWeBuild.agroDesc')}</p>
             </div>
 
             {/* Small card — Food */}
-            <div className="group relative overflow-hidden rounded-2xl border border-border/40 bg-card/50 p-6 md:p-8 hover:bg-card hover:border-border transition-all duration-500 flex items-center gap-6">
-              <div className="shrink-0 opacity-60">
+            <div className="group relative overflow-hidden rounded-2xl border border-border/40 bg-card/60 p-6 md:p-8 hover:bg-card hover:border-border/80 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-500 flex items-center gap-6">
+              <div className="absolute inset-0 bg-gradient-to-r from-rose-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="shrink-0 opacity-60 group-hover:opacity-90 group-hover:scale-110 transition-all duration-300">
                 <FoodMolecularIcon className="text-primary" size={40} />
               </div>
-              <div>
+              <div className="relative">
                 <h3 className="text-lg font-bold text-foreground mb-1">{t('whatWeBuild.foodTitle')}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">{t('whatWeBuild.foodDesc')}</p>
               </div>
             </div>
 
             {/* Small card — Infrastructure */}
-            <div className="group relative overflow-hidden rounded-2xl border border-border/40 bg-card/50 p-6 md:p-8 hover:bg-card hover:border-border transition-all duration-500 flex items-center gap-6">
-              <div className="shrink-0 opacity-60">
+            <div className="group relative overflow-hidden rounded-2xl border border-border/40 bg-card/60 p-6 md:p-8 hover:bg-card hover:border-border/80 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-500 flex items-center gap-6">
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="shrink-0 opacity-60 group-hover:opacity-90 group-hover:scale-110 transition-all duration-300">
                 <InfraHubIcon className="text-primary" size={40} />
               </div>
-              <div>
+              <div className="relative">
                 <h3 className="text-lg font-bold text-foreground mb-1">{t('whatWeBuild.infraTitle')}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">{t('whatWeBuild.infraDesc')}</p>
               </div>
@@ -499,9 +499,9 @@ const Index = () => {
                 { icon: <Shield className="w-5 h-5" />, text: "Fully U.S.-based development and operations", num: "05" },
                 { icon: <Target className="w-5 h-5" />, text: "Long-term strategy across real-economy and AI-driven sectors", num: "06" }
               ].map((item, i) => (
-                <div key={i} className="group flex items-start gap-5 p-5 rounded-xl border border-transparent hover:border-border/50 hover:bg-card/50 transition-all duration-300">
-                  <span className="text-xs font-mono text-muted-foreground/50 mt-1 shrink-0">{item.num}</span>
-                  <div className="text-primary/60 mt-0.5 shrink-0">{item.icon}</div>
+                <div key={i} className="group flex items-start gap-5 p-5 rounded-xl border border-border/20 hover:border-border/60 bg-card/30 hover:bg-card/70 hover:shadow-md transition-all duration-300 hover:-translate-x-1">
+                  <span className="text-xs font-mono text-primary/40 mt-1 shrink-0 group-hover:text-primary/70 transition-colors">{item.num}</span>
+                  <div className="text-primary/60 mt-0.5 shrink-0 group-hover:text-primary group-hover:scale-110 transition-all duration-300">{item.icon}</div>
                   <p className="text-base md:text-lg text-foreground font-medium leading-relaxed">{item.text}</p>
                 </div>
               ))}
@@ -519,19 +519,20 @@ const Index = () => {
             </h2>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-border/30 rounded-2xl overflow-hidden border border-border/30">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 rounded-2xl overflow-hidden">
             {[
-              { title: "Real projects", description: "Structured, operational, and designed to scale over time.", icon: <CheckCircle2 className="w-6 h-6" /> },
-              { title: "Clear economics", description: "Each platform has a defined business model and unit logic.", icon: <LineChart className="w-6 h-6" /> },
-              { title: "Shared infrastructure", description: "Core AI, backend, analytics, and manufacturing work across the portfolio.", icon: <Network className="w-6 h-6" /> },
-              { title: "Multi-sector diversification", description: "Exposure to HealthTech, AgroTech, FoodTech, and infrastructure.", icon: <Target className="w-6 h-6" /> },
-              { title: "Defined roadmaps", description: "Every project has a phased, realistic roadmap instead of vague promises.", icon: <FileText className="w-6 h-6" /> },
-              { title: "Private and individual", description: "No public offering. All potential participation is discussed individually.", icon: <Lock className="w-6 h-6" /> }
+              { title: "Real projects", description: "Structured, operational, and designed to scale over time.", icon: <CheckCircle2 className="w-6 h-6" />, gradient: "from-emerald-500/8" },
+              { title: "Clear economics", description: "Each platform has a defined business model and unit logic.", icon: <LineChart className="w-6 h-6" />, gradient: "from-blue-500/8" },
+              { title: "Shared infrastructure", description: "Core AI, backend, analytics, and manufacturing work across the portfolio.", icon: <Network className="w-6 h-6" />, gradient: "from-violet-500/8" },
+              { title: "Multi-sector diversification", description: "Exposure to HealthTech, AgroTech, FoodTech, and infrastructure.", icon: <Target className="w-6 h-6" />, gradient: "from-amber-500/8" },
+              { title: "Defined roadmaps", description: "Every project has a phased, realistic roadmap instead of vague promises.", icon: <FileText className="w-6 h-6" />, gradient: "from-teal-500/8" },
+              { title: "Private and individual", description: "No public offering. All potential participation is discussed individually.", icon: <Lock className="w-6 h-6" />, gradient: "from-rose-500/8" }
             ].map((h, i) => (
-              <div key={i} className="bg-card/60 p-7 md:p-8 space-y-3 hover:bg-card transition-colors duration-300">
-                <div className="text-primary/50">{h.icon}</div>
-                <h3 className="text-lg font-bold text-foreground">{h.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{h.description}</p>
+              <div key={i} className="group relative bg-card/60 border border-border/30 rounded-xl p-7 md:p-8 space-y-3 hover:bg-card hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 overflow-hidden">
+                <div className={`absolute inset-0 bg-gradient-to-br ${h.gradient} to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+                <div className="relative text-primary/60 group-hover:text-primary/80 group-hover:scale-110 transition-all duration-300 origin-left">{h.icon}</div>
+                <h3 className="relative text-lg font-bold text-foreground">{h.title}</h3>
+                <p className="relative text-sm text-muted-foreground leading-relaxed">{h.description}</p>
               </div>
             ))}
           </div>
@@ -550,15 +551,16 @@ const Index = () => {
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { icon: <Lightbulb className="w-8 h-8" />, title: t('capabilities.item1Title'), desc: t('capabilities.item1Desc') },
-              { icon: <Building2 className="w-8 h-8" />, title: t('capabilities.item2Title'), desc: t('capabilities.item2Desc') },
-              { icon: <Target className="w-8 h-8" />, title: t('capabilities.item3Title'), desc: t('capabilities.item3Desc') },
-              { icon: <Award className="w-8 h-8" />, title: t('capabilities.item4Title'), desc: t('capabilities.item4Desc') }
+              { icon: <Lightbulb className="w-8 h-8" />, title: t('capabilities.item1Title'), desc: t('capabilities.item1Desc'), gradient: "from-amber-500/8" },
+              { icon: <Building2 className="w-8 h-8" />, title: t('capabilities.item2Title'), desc: t('capabilities.item2Desc'), gradient: "from-blue-500/8" },
+              { icon: <Target className="w-8 h-8" />, title: t('capabilities.item3Title'), desc: t('capabilities.item3Desc'), gradient: "from-emerald-500/8" },
+              { icon: <Award className="w-8 h-8" />, title: t('capabilities.item4Title'), desc: t('capabilities.item4Desc'), gradient: "from-violet-500/8" }
             ].map((cap, i) => (
-              <div key={i} className="text-center space-y-3 p-6">
-                <div className="inline-flex p-3 rounded-xl bg-muted/50 text-primary/60">{cap.icon}</div>
-                <h3 className="text-base font-bold text-foreground">{cap.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{cap.desc}</p>
+              <div key={i} className="group relative text-center space-y-3 p-6 rounded-xl border border-border/30 bg-card/40 hover:bg-card hover:shadow-lg hover:-translate-y-1 transition-all duration-300 overflow-hidden">
+                <div className={`absolute inset-0 bg-gradient-to-b ${cap.gradient} to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+                <div className="relative inline-flex p-3 rounded-xl bg-muted/50 text-primary/60 group-hover:text-primary group-hover:scale-110 transition-all duration-300">{cap.icon}</div>
+                <h3 className="relative text-base font-bold text-foreground">{cap.title}</h3>
+                <p className="relative text-sm text-muted-foreground leading-relaxed">{cap.desc}</p>
               </div>
             ))}
           </div>
@@ -589,12 +591,12 @@ const Index = () => {
                 { step: "5", title: t('journey.step5Title'), desc: t('journey.step5Desc'), icon: <FileText className="w-4 h-4" /> },
                 { step: "6", title: t('journey.step6Title'), desc: t('journey.step6Desc'), icon: <TrendingUp className="w-4 h-4" /> }
               ].map((item, i) => (
-                <div key={i} className="relative text-center space-y-3">
+                <div key={i} className="group relative text-center space-y-3">
                   {/* Step dot */}
-                  <div className="mx-auto w-12 h-12 rounded-full bg-card border-2 border-border flex items-center justify-center text-sm font-bold text-primary relative z-10">
+                  <div className="mx-auto w-12 h-12 rounded-full bg-card border-2 border-border flex items-center justify-center text-sm font-bold text-primary relative z-10 group-hover:border-primary/50 group-hover:shadow-md group-hover:shadow-primary/10 group-hover:scale-110 transition-all duration-300">
                     {item.step}
                   </div>
-                  <h3 className="text-sm font-bold text-foreground leading-tight">{item.title}</h3>
+                  <h3 className="text-sm font-bold text-foreground leading-tight group-hover:text-primary transition-colors">{item.title}</h3>
                   <p className="text-xs text-muted-foreground leading-relaxed">{item.desc}</p>
                 </div>
               ))}

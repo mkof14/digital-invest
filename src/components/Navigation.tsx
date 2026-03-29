@@ -65,7 +65,7 @@ const Navigation = () => {
             <OptimizedImage 
               src="/lovable-uploads/digital-invest-logo-new.png" 
               alt="Digital Invest Inc. company logo" 
-              className="w-16 h-16 object-contain -my-1"
+              className="w-16 h-16 object-contain -my-1 brightness-110 contrast-105"
               containerClassName="bg-transparent"
               showSkeleton={false}
             />
@@ -129,7 +129,7 @@ const Navigation = () => {
             {isAuthenticated ? (
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <Button variant="outline" className="flex items-center gap-2">
+                  <Button variant="ghost" className="flex items-center gap-2 border border-border/40 bg-transparent hover:bg-primary/10 hover:border-primary/40 transition-all duration-300">
                     <User className="h-4 w-4" />
                     <span className="max-w-[150px] truncate">{user?.email}</span>
                   </Button>
@@ -144,7 +144,7 @@ const Navigation = () => {
                 </DropdownMenuContent>
               </DropdownMenu>
             ) : (
-              <Button variant="outline" asChild className="hover:bg-muted/50 transition-all">
+              <Button variant="ghost" asChild className="border border-border/40 bg-transparent hover:bg-primary/10 hover:border-primary/40 hover:shadow-md hover:shadow-primary/10 transition-all duration-300">
                 <Link to="/investor-auth" className="flex items-center gap-2">
                   <LogIn className="h-4 w-4" />
                   {t('nav.signIn')}
