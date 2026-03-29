@@ -271,7 +271,7 @@ const AdamasMaterialsOverview = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[hsl(220,16%,90%)] dark:bg-background">
+    <div className="min-h-screen bg-[hsl(220,14%,96%)] dark:bg-background">
       <AdamasNavigation />
 
       {/* Hero — cinematic dark section */}
@@ -324,7 +324,7 @@ const AdamasMaterialsOverview = () => {
               <img
                 src={adamasLogo}
                 alt="Adamas Materials"
-                className="relative h-48 md:h-64 lg:h-72 mx-auto mb-8 brightness-125 contrast-110 drop-shadow-[0_0_40px_rgba(200,170,80,0.3)]"
+                className="relative h-48 md:h-64 lg:h-72 mx-auto mb-8 brightness-150 contrast-110 drop-shadow-[0_0_40px_rgba(200,170,80,0.3)]"
               />
             </div>
           </div>
@@ -399,7 +399,7 @@ const AdamasMaterialsOverview = () => {
       </section>
 
       {/* Smooth gradient transition from dark hero to page background */}
-      <div className="h-32 bg-gradient-to-b from-[hsl(220,20%,8%)] via-[hsl(220,18%,14%)] to-[hsl(220,16%,90%)] dark:from-[hsl(220,20%,6%)] dark:via-[hsl(220,18%,8%)] dark:to-background" />
+      <div className="h-32 bg-gradient-to-b from-[hsl(220,20%,8%)] via-[hsl(220,17%,30%)] to-[hsl(220,14%,96%)] dark:from-[hsl(220,20%,6%)] dark:via-[hsl(220,18%,8%)] dark:to-background" />
 
       {/* Projects Grid */}
       <section className="py-16 -mt-8">
