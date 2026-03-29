@@ -5,7 +5,8 @@ import AdamasFooter from '@/components/AdamasFooter';
 import { adamasProjects, type ProjectStatus } from './adamasProjects';
 import { ArrowLeft, ArrowRight, Mail } from 'lucide-react';
 import OptimizedImage from '@/components/OptimizedImage';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { updateMetaTags } from '@/lib/metaTags';
 
 // Per-project hero images
 import originDiamondHero from '@/assets/adamas/origin-diamond-hero.jpg';
