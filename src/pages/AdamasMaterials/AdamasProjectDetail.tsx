@@ -7,6 +7,7 @@ import { ArrowLeft, ArrowRight, Mail } from 'lucide-react';
 import OptimizedImage from '@/components/OptimizedImage';
 import { useEffect, useState } from 'react';
 import { updateMetaTags } from '@/lib/metaTags';
+import { injectStructuredData, removeStructuredData } from '@/lib/structuredData';
 
 // Per-project hero images
 import originDiamondHero from '@/assets/adamas/origin-diamond-hero.jpg';
@@ -98,6 +99,36 @@ const AdamasProjectDetail = () => {
       ogType: 'article',
       canonicalUrl: `https://digitalinvest.com/adamas/${project.slug}`,
     });
+
+    // Product JSON-LD for individual project
+    injectStructuredData({
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": projectTitle,
+      "description": projectDesc,
+      "image": heroImage || 'https://digital-invest.lovable.app/adamas-og-image.jpg',
+      "url": `https://digitalinvest.com/adamas/${project.slug}`,
+      "category": project.category,
+      "brand": {
+        "@type": "Organization",
+        "name": "Adamas Materials"
+      }
+    }, 'adamas-project-schema');
+
+    // BreadcrumbList JSON-LD
+    injectStructuredData({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Adamas Materials", "item": "https://digitalinvest.com/adamas" },
+        { "@type": "ListItem", "position": 2, "name": projectTitle, "item": `https://digitalinvest.com/adamas/${project.slug}` }
+      ]
+    }, 'adamas-breadcrumb-schema');
+
+    return () => {
+      removeStructuredData('adamas-project-schema');
+      removeStructuredData('adamas-breadcrumb-schema');
+    };
   }, [project, projectTitle, projectDesc, heroImage]);
 
   if (!project) {
