@@ -11,11 +11,29 @@ import OptimizedImage from '@/components/OptimizedImage';
 import originDiamondHero from '@/assets/adamas/origin-diamond-hero.jpg';
 import jatualHero from '@/assets/adamas/jatual-diamonds-hero.jpg';
 import innovationHero from '@/assets/adamas/innovation-diamonds-hero.jpg';
+import adamasMaterialsHero from '@/assets/adamas/adamas-materials-hero.jpg';
+import abuMallHero from '@/assets/adamas/abu-mall-hero.jpg';
+import almaDiamondHero from '@/assets/adamas/alma-diamond-hero.jpg';
+import jewelryDropshippingHero from '@/assets/adamas/jewelry-dropshipping-hero.jpg';
+import coinsTokensHero from '@/assets/adamas/coins-tokens-hero.jpg';
+import itMarketingHero from '@/assets/adamas/it-marketing-hero.jpg';
+import animalVetHero from '@/assets/adamas/animal-vet-hero.jpg';
+import agronNetHero from '@/assets/adamas/agron-net-hero.jpg';
+import agronWorkHero from '@/assets/adamas/agron-work-hero.jpg';
 
 const projectHeroImages: Record<string, string> = {
+  'adamas-materials': adamasMaterialsHero,
   'origin-diamond': originDiamondHero,
+  'agron-net': agronNetHero,
+  'agron-work': agronWorkHero,
+  'abu-mall': abuMallHero,
+  'alma-diamond': almaDiamondHero,
+  'jewelry-dropshipping': jewelryDropshippingHero,
   'jatual-diamonds': jatualHero,
+  'coins-and-tokens': coinsTokensHero,
   'innovation-diamonds': innovationHero,
+  'it-marketing-group': itMarketingHero,
+  'animal-veterinary-service': animalVetHero,
 };
 
 const AdamasProjectDetail = () => {
