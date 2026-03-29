@@ -323,7 +323,7 @@ const AdamasMaterialsOverview = () => {
         </div>
       </section>
 
-      <Footer />
+      <AdamasFooter />
     </div>
   );
 };
