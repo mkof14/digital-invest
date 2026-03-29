@@ -300,25 +300,28 @@ const Index = () => {
               {[
                 { 
                   title: t('ecosystem.dailyHealth'), desc: t('ecosystem.dailyHealthDesc'),
-                  icon: <DailyPulseIcon size={22} />, color: "text-emerald-500"
+                  icon: <DailyPulseIcon size={22} />, color: "text-emerald-500", glow: "shadow-emerald-500/10", gradient: "from-emerald-500/8 to-transparent"
                 },
                 { 
                   title: t('ecosystem.unifiedData'), desc: t('ecosystem.unifiedDataDesc'),
-                  icon: <DataStreamIcon size={22} />, color: "text-blue-500"
+                  icon: <DataStreamIcon size={22} />, color: "text-blue-500", glow: "shadow-blue-500/10", gradient: "from-blue-500/8 to-transparent"
                 },
                 { 
                   title: t('ecosystem.selfImproving'), desc: t('ecosystem.selfImprovingDesc'),
-                  icon: <AILoopIcon size={22} />, color: "text-amber-500"
+                  icon: <AILoopIcon size={22} />, color: "text-amber-500", glow: "shadow-amber-500/10", gradient: "from-amber-500/8 to-transparent"
                 },
                 { 
                   title: t('ecosystem.crossSynergy'), desc: t('ecosystem.crossSynergyDesc'),
-                  icon: <SynergyOrbitIcon size={22} />, color: "text-violet-500"
+                  icon: <SynergyOrbitIcon size={22} />, color: "text-violet-500", glow: "shadow-violet-500/10", gradient: "from-violet-500/8 to-transparent"
                 }
               ].map((node, i) => (
-                <div key={i} className="group bg-card/50 border border-border/40 rounded-xl p-5 md:p-6 hover:bg-card hover:border-border transition-all duration-300 hover:-translate-y-0.5">
-                  <div className={`mb-3 ${node.color}`}>{node.icon}</div>
-                  <h4 className="text-sm font-bold text-foreground mb-1.5">{node.title}</h4>
-                  <p className="text-xs text-muted-foreground leading-relaxed">{node.desc}</p>
+                <div key={i} className={`group relative bg-card/60 border border-border/40 rounded-xl p-5 md:p-6 hover:bg-card hover:border-border/80 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${node.glow} overflow-hidden`}>
+                  <div className={`absolute inset-0 bg-gradient-to-br ${node.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+                  <div className="relative">
+                    <div className={`mb-3 ${node.color} group-hover:scale-110 transition-transform duration-300`}>{node.icon}</div>
+                    <h4 className="text-sm font-bold text-foreground mb-1.5">{node.title}</h4>
+                    <p className="text-xs text-muted-foreground leading-relaxed">{node.desc}</p>
+                  </div>
                 </div>
               ))}
             </div>
