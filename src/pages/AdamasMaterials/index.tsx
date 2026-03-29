@@ -67,10 +67,33 @@ const useCardReveal = () => {
 const ProjectCard = ({ project, index }: { project: typeof adamasProjects[0]; index: number }) => {
   const { t } = useTranslation();
   const { ref, visible } = useCardReveal();
+  const cardRef = useRef<HTMLDivElement>(null);
+  const [tilt, setTilt] = useState({ x: 0, y: 0 });
+  const [glare, setGlare] = useState({ x: 50, y: 50 });
+  const [isHovered, setIsHovered] = useState(false);
   const layout = cardLayouts[project.slug] || 'standard';
   const heroImg = cardHeroImages[project.slug];
   const isFeatured = layout === 'featured';
   const isWide = layout === 'wide';
+
+  const handleMouseMove = useCallback((e: ReactMouseEvent<HTMLAnchorElement>) => {
+    const el = e.currentTarget;
+    const rect = el.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width;
+    const y = (e.clientY - rect.top) / rect.height;
+    setTilt({
+      x: (y - 0.5) * -12,
+      y: (x - 0.5) * 12,
+    });
+    setGlare({ x: x * 100, y: y * 100 });
+  }, []);
+
+  const handleMouseEnter = useCallback(() => setIsHovered(true), []);
+  const handleMouseLeave = useCallback(() => {
+    setIsHovered(false);
+    setTilt({ x: 0, y: 0 });
+    setGlare({ x: 50, y: 50 });
+  }, []);
 
   return (
     <Link
@@ -82,18 +105,20 @@ const ProjectCard = ({ project, index }: { project: typeof adamasProjects[0]; in
       }`}
       style={{
         opacity: visible ? 1 : 0,
-        transform: visible ? 'translateY(0) scale(1)' : 'translateY(40px) scale(0.96)',
-        transition: `opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1) ${(index % 4) * 120}ms, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) ${(index % 4) * 120}ms`,
-        boxShadow: '0 4px 24px -4px rgba(0,0,0,0.25), 0 0 1px rgba(0,0,0,0.1)',
+        transform: visible
+          ? `perspective(800px) rotateX(${tilt.x}deg) rotateY(${tilt.y}deg) scale(${isHovered ? 1.02 : 1})`
+          : 'translateY(40px) scale(0.96)',
+        transition: isHovered
+          ? 'transform 0.15s ease-out, opacity 0.8s cubic-bezier(0.16,1,0.3,1), box-shadow 0.3s ease'
+          : `transform 0.5s cubic-bezier(0.16,1,0.3,1) ${(index % 4) * 120}ms, opacity 0.8s cubic-bezier(0.16,1,0.3,1) ${(index % 4) * 120}ms, box-shadow 0.5s ease`,
+        boxShadow: isHovered
+          ? '0 25px 60px -12px rgba(0,0,0,0.4), 0 12px 28px -8px rgba(0,0,0,0.25)'
+          : '0 4px 24px -4px rgba(0,0,0,0.25), 0 0 1px rgba(0,0,0,0.1)',
+        transformStyle: 'preserve-3d',
       }}
-      onMouseEnter={(e) => {
-        e.currentTarget.style.boxShadow = '0 20px 60px -10px rgba(0,0,0,0.35), 0 8px 24px -8px rgba(0,0,0,0.2)';
-        e.currentTarget.style.transform = 'translateY(-4px) scale(1.01)';
-      }}
-      onMouseLeave={(e) => {
-        e.currentTarget.style.boxShadow = '0 4px 20px -4px rgba(0,0,0,0.2), 0 0 1px rgba(0,0,0,0.1)';
-        e.currentTarget.style.transform = 'translateY(0) scale(1)';
-      }}
+      onMouseMove={handleMouseMove}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
     >
       {/* Background image with dark overlay */}
       {heroImg && (
@@ -107,7 +132,7 @@ const ProjectCard = ({ project, index }: { project: typeof adamasProjects[0]; in
         </div>
       )}
 
-      {/* Dark cinematic overlay — muted, not acid */}
+      {/* Dark cinematic overlay */}
       <div
         className="absolute inset-0 transition-all duration-500"
         style={{
@@ -117,14 +142,26 @@ const ProjectCard = ({ project, index }: { project: typeof adamasProjects[0]; in
         }}
       />
 
-      {/* Subtle accent line at top */}
+      {/* 3D glare / light reflection */}
+      <div
+        className="absolute inset-0 pointer-events-none transition-opacity duration-300"
+        style={{
+          opacity: isHovered ? 0.12 : 0,
+          background: `radial-gradient(circle at ${glare.x}% ${glare.y}%, rgba(255,255,255,0.5) 0%, transparent 60%)`,
+        }}
+      />
+
+      {/* Accent line at top */}
       <div
         className="absolute top-0 left-0 right-0 h-[2px] opacity-60 group-hover:opacity-100 transition-opacity duration-500"
         style={{ background: `linear-gradient(90deg, transparent, hsl(${project.accentHsl} / 0.6), transparent)` }}
       />
 
       {/* Content */}
-      <div className={`relative z-10 p-6 md:p-8 flex flex-col justify-end h-full ${heroImg ? 'text-white' : 'text-foreground'}`}>
+      <div
+        className={`relative z-10 p-6 md:p-8 flex flex-col justify-end h-full ${heroImg ? 'text-white' : 'text-foreground'}`}
+        style={{ transform: 'translateZ(20px)' }}
+      >
         {/* Category tag */}
         <div className="mb-auto">
           <span
@@ -149,7 +186,7 @@ const ProjectCard = ({ project, index }: { project: typeof adamasProjects[0]; in
           {t(project.descriptionKey)}
         </p>
 
-        {/* CTA — minimal arrow only */}
+        {/* CTA */}
         <div className={`flex items-center gap-2 text-xs font-medium tracking-wider uppercase ${heroImg ? 'text-white/40 group-hover:text-white/80' : 'text-muted-foreground group-hover:text-primary'} transition-all duration-500`}>
           <span className="group-hover:tracking-[0.25em] transition-all duration-500">
             {t('adamas.viewProject', 'View Project')}
