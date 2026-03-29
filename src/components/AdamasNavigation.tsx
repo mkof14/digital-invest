@@ -27,7 +27,7 @@ const AdamasNavigation = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-card/80 dark:bg-card/70 backdrop-blur-xl border-b border-border/20">
       <div className="max-w-6xl mx-auto px-4">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-14">
           {/* Left: Adamas logo + name — 200% larger */}
           <Link to="/adamas" className="flex items-center gap-4 group">
             <img
