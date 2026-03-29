@@ -235,7 +235,8 @@
     "legalNotice": "重要な法的通知：",
     "legalNoticeText": "Digital Invest Inc.は投資アドバイザー、ブローカーディーラー、公開募集プラットフォームではありません。",
     "riskDisclosure": "リスク開示：",
-    "riskDisclosureText": "参加にはすべて重大なリスクが伴い、資本の損失の可能性があります。招待制のプライベートプロセスです。"
+    "riskDisclosureText": "参加にはすべて重大なリスクが伴い、資本の損失の可能性があります。招待制のプライベートプロセスです。",
+    "adamasMaterials": "Adamas Materials"
   },
   "common": {
     "loading": "読み込み中...",
@@ -1533,6 +1534,5 @@
       "innovationDiamonds": { "title": "INNOVATION DIAMONDS, IT & Marketing Group", "description": "ダイヤモンドおよびラグジュアリーセクターのデジタル変革を支援するフルサービス技術・マーケティング部門。", "longDescription": "INNOVATION DIAMONDSはAdamasエコシステムの技術・マーケティング部門として機能します。" },
       "vetRobotics": { "title": "獣医情報・ロボティクスサービス", "description": "ラクダと馬のための専門獣医診断とロボット支援ケアプラットフォーム。", "longDescription": "この先駆的プロジェクトは、AIとロボティクスを活用してラクダと馬に先進的な獣医ケアを提供します。" }
     }
-  },
-  "footer": { "adamasMaterials": "Adamas Materials" }
+  }
 }

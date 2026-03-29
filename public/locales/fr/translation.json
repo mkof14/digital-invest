@@ -235,7 +235,8 @@
     "legalNotice": "Avis Juridique Important :",
     "legalNoticeText": "Digital Invest Inc. n'est pas un conseiller en investissement, un courtier-négociant ou une plateforme d'offre publique.",
     "riskDisclosure": "Divulgation des Risques :",
-    "riskDisclosureText": "Toute participation comporte des risques importants, y compris la perte potentielle de capital. Processus privé sur invitation uniquement."
+    "riskDisclosureText": "Toute participation comporte des risques importants, y compris la perte potentielle de capital. Processus privé sur invitation uniquement.",
+    "adamasMaterials": "Adamas Materials"
   },
   "common": {
     "loading": "Chargement...",
@@ -1533,6 +1534,5 @@
       "innovationDiamonds": { "title": "INNOVATION DIAMONDS, IT & Marketing Group", "description": "Division technologie et marketing pour la transformation numérique du secteur diamantaire.", "longDescription": "INNOVATION DIAMONDS opère comme le bras technologique et marketing de l'écosystème Adamas." },
       "vetRobotics": { "title": "Service Vétérinaire Info-Robotique", "description": "Diagnostics vétérinaires spécialisés et soins assistés par robots pour chameaux et chevaux.", "longDescription": "Ce projet pionnier offre des soins vétérinaires avancés pour chameaux et chevaux grâce à l'IA et la robotique." }
     }
-  },
-  "footer": { "adamasMaterials": "Adamas Materials" }
+  }
 }

@@ -235,7 +235,8 @@
     "legalNotice": "הודעה משפטית חשובה:",
     "legalNoticeText": "Digital Invest Inc. אינה יועצת השקעות, סוחרת-ברוקרית או פלטפורמת הנפקה ציבורית.",
     "riskDisclosure": "גילוי סיכונים:",
-    "riskDisclosureText": "כל השתתפות כרוכה בסיכון משמעותי, כולל אובדן פוטנציאלי של הון. תהליך פרטי בהזמנה בלבד."
+    "riskDisclosureText": "כל השתתפות כרוכה בסיכון משמעותי, כולל אובדן פוטנציאלי של הון. תהליך פרטי בהזמנה בלבד.",
+    "adamasMaterials": "Adamas Materials"
   },
   "common": {
     "loading": "טוען...",
@@ -1533,6 +1534,5 @@
       "innovationDiamonds": { "title": "INNOVATION DIAMONDS, IT & Marketing Group", "description": "שירותי טכנולוגיה ושיווק מקיפים לטרנספורמציה דיגיטלית במגזר היהלומים.", "longDescription": "INNOVATION DIAMONDS פועלת כזרוע הטכנולוגית והשיווקית של מערכת Adamas." },
       "vetRobotics": { "title": "שירות וטרינרי מידע-רובוטי", "description": "אבחון וטרינרי מתמחה וטיפול בסיוע רובוטי לגמלים וסוסים.", "longDescription": "פרויקט חלוצי זה מספק טיפול וטרינרי מתקדם לגמלים וסוסים באמצעות AI ורובוטיקה." }
     }
-  },
-  "footer": { "adamasMaterials": "Adamas Materials" }
+  }
 }

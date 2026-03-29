@@ -235,7 +235,8 @@
     "legalNotice": "Important Legal Notice:",
     "legalNoticeText": "Digital Invest Inc. is not an investment advisor, broker-dealer, public offering platform, or marketplace. This website is for informational purposes only. Participation in any project is handled privately, offline, and only for eligible individuals or entities following due diligence. We do not guarantee any outcomes, performance, or returns.",
     "riskDisclosure": "Risk Disclosure:",
-    "riskDisclosureText": "All participation involves significant risk, including potential loss of capital. Private, invitation-only process. The actual legal status, structure, rights, and obligations are defined only in formal agreements executed offline, not by website content."
+    "riskDisclosureText": "All participation involves significant risk, including potential loss of capital. Private, invitation-only process. The actual legal status, structure, rights, and obligations are defined only in formal agreements executed offline, not by website content.",
+    "adamasMaterials": "Adamas Materials"
   },
   "common": {
     "loading": "Loading...",
@@ -1998,8 +1999,5 @@
         "longDescription": "This pioneering project delivers advanced veterinary care for camels and horses through a combination of AI-powered diagnostics, robotic-assisted examination tools, and comprehensive health information systems. Designed for desert and equestrian environments where traditional veterinary access is limited.\n\nThe service deploys field-portable diagnostic units, remote health monitoring sensors, and telemedicine capabilities to provide timely, accurate veterinary care. AI analysis of biometric data enables early disease detection and preventive health management for high-value livestock."
       }
     }
-  },
-  "footer": {
-    "adamasMaterials": "Adamas Materials"
   }
 }
