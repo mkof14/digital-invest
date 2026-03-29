@@ -237,17 +237,17 @@ const Index = () => {
                 {/* Glow behind metrics */}
                 <div className="absolute -inset-2 bg-gradient-to-br from-primary/10 via-accent/5 to-info/10 rounded-3xl blur-xl opacity-50" />
                 
-                <div className="relative grid grid-cols-2 gap-px bg-border/50 rounded-2xl overflow-hidden border border-border/40">
+                <div className="relative grid grid-cols-2 gap-px bg-border/50 rounded-2xl overflow-hidden border border-border/40 shadow-elevated">
                   {[
-                    { value: "25+", label: t('hero.yearsExp'), accent: "from-accent/10 to-transparent" },
-                    { value: "5", label: t('hero.activeProjects'), accent: "from-info/10 to-transparent" },
-                    { value: "$19.5B", label: t('hero.exitValue'), accent: "from-success/10 to-transparent" },
-                    { value: "15+", label: t('hero.countriesServed'), accent: "from-primary/10 to-transparent" }
+                    { value: "25+", label: t('hero.yearsExp'), accent: "from-accent/15 via-accent/5 to-transparent", borderColor: "border-l-accent/30" },
+                    { value: "5", label: t('hero.activeProjects'), accent: "from-info/15 via-info/5 to-transparent", borderColor: "border-l-info/30" },
+                    { value: "$19.5B", label: t('hero.exitValue'), accent: "from-success/15 via-success/5 to-transparent", borderColor: "border-l-success/30" },
+                    { value: "15+", label: t('hero.countriesServed'), accent: "from-primary/15 via-primary/5 to-transparent", borderColor: "border-l-primary/30" }
                   ].map((stat, i) => (
-                    <div key={i} className={`relative bg-card/60 backdrop-blur-sm p-8 lg:p-10 flex flex-col justify-center text-center hover:bg-card/80 transition-all duration-500 group`}>
-                      <div className={`absolute inset-0 bg-gradient-to-br ${stat.accent} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+                    <div key={i} className={`relative bg-card/60 backdrop-blur-sm p-8 lg:p-10 flex flex-col justify-center text-center hover:bg-card/90 transition-all duration-500 group hover:shadow-lg`}>
+                      <div className={`absolute inset-0 bg-gradient-to-br ${stat.accent} opacity-40 group-hover:opacity-100 transition-opacity duration-500`} />
                       <div className="relative">
-                        <div className="text-3xl lg:text-4xl xl:text-5xl font-bold text-foreground tracking-tight">{stat.value}</div>
+                        <div className="text-3xl lg:text-4xl xl:text-5xl font-bold text-foreground tracking-tight group-hover:scale-105 transition-transform duration-300">{stat.value}</div>
                         <div className="text-xs md:text-sm text-muted-foreground mt-2 font-medium">{stat.label}</div>
                       </div>
                     </div>
