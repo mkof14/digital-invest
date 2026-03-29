@@ -353,10 +353,10 @@ const AGRONWork = () => {
                 Submit Interest
               </Button>
             </Link>
-            <Link to="/projects">
+            <Link to="/adamas">
               <Button variant="outline" size="lg">
                 <ArrowLeft className="w-5 h-5 mr-2" />
-                All Projects
+                Back to Adamas Projects
               </Button>
             </Link>
           </div>

@@ -45,8 +45,8 @@ const AGRON = () => {
             <div className="absolute inset-0 bg-gradient-to-r from-[hsl(210,30%,8%)]/98 via-background/95 to-background/70" />
           </div>
           <div className="relative z-10 max-w-4xl">
-            <Link to="/projects" className="animate-fade-in">
-              <Button variant="ghost" size="sm" className="mb-6 hover:bg-background/80"><ArrowLeft className="w-4 h-4 mr-2" /> {t('projectCommon.backToProjects')}</Button>
+            <Link to="/adamas" className="animate-fade-in">
+              <Button variant="ghost" size="sm" className="mb-6 hover:bg-background/80"><ArrowLeft className="w-4 h-4 mr-2" /> {t('adamas.backToProjects', 'Back to Adamas Projects')}</Button>
             </Link>
             <div className="animate-fade-in" style={{ animationDelay: '0.1s', animationFillMode: 'backwards' }}>
               <div className="flex items-center gap-6 mb-8">
