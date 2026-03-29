@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useEffect, useRef, useState, useCallback } from 'react';
-import Navigation from '@/components/Navigation';
-import Footer from '@/components/Footer';
+import AdamasNavigation from '@/components/AdamasNavigation';
+import AdamasFooter from '@/components/AdamasFooter';
 import { adamasProjects } from './adamasProjects';
 import adamasLogo from '@/assets/adamas/adamas-materials-logo.png';
 
