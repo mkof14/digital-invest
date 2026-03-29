@@ -1,7 +1,7 @@
 import { useParams, Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import Navigation from '@/components/Navigation';
-import Footer from '@/components/Footer';
+import AdamasNavigation from '@/components/AdamasNavigation';
+import AdamasFooter from '@/components/AdamasFooter';
 import { adamasProjects } from './adamasProjects';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import OptimizedImage from '@/components/OptimizedImage';
