@@ -41,6 +41,12 @@ const MRXHealth = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-[#0a1628]/95 via-[#0a1628]/80 to-[#0a1628]/60" />
         </div>
         <div className="relative z-10 container mx-auto px-4 py-20">
+          <Link to="/projects" className="animate-fade-in">
+            <button className="inline-flex items-center mb-4 text-sm text-white/70 hover:text-white transition-colors">
+              <ArrowLeft className="w-4 h-4 mr-2" />
+              {t('projectCommon.backToProjects')}
+            </button>
+          </Link>
           <div className="max-w-3xl">
             <Badge className="mb-4 bg-cyan-500/20 text-cyan-300 border-cyan-500/30 text-sm px-4 py-1">
               {t('projectMRXHealth.heroBadge')}
