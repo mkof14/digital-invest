@@ -1580,9 +1580,14 @@
         "longDescription": "Coins and Tokens est une ligne de produits de marque spécialisée dans la conception, la production et la distribution mondiale de médaillons propriétaires, pièces commémoratives et jetons de collection en or, argent et autres métaux précieux.\n\nL'entreprise opère sous sa propre marque, la fabrication étant assurée par des partenariats stratégiques avec des installations de production certifiées. Chaque pièce est conçue en interne, alliant vision artistique et artisanat des métaux précieux.\n\nLes ventes mondiales sont réalisées via Amazon, des boutiques e-commerce dédiées et des plateformes partenaires — touchant collectionneurs, acheteurs de cadeaux et passionnés de métaux précieux dans tous les grands marchés."
       },
       "innovationDiamonds": {
-        "title": "INNOVATION DIAMONDS, IT & Marketing Group",
-        "description": "Division technologie et marketing pour la transformation numérique du secteur diamantaire.",
-        "longDescription": "INNOVATION DIAMONDS opère comme le bras technologique et marketing de l'écosystème Adamas."
+        "title": "INNOVATION DIAMONDS",
+        "description": "Fabricant de diamants CVD intégré verticalement — du réacteur au détail. Partenaire exclusif de Diamond Foundry, 15 000–20 000 carats par mois, certifiés IGI 'Grown in USA'.",
+        "longDescription": "Innovation Diamonds est une entreprise de diamants de laboratoire intégrée verticalement, maîtrisant l'ensemble du processus, de la croissance CVD au sertissage final. Née à la Bourse du Diamant d'Israël, elle allie des décennies d'expertise traditionnelle à la technologie CVD de pointe.\n\nPremière entreprise au monde à établir un partenariat exclusif à long terme avec Diamond Foundry — le seul producteur à grande échelle de diamants de laboratoire aux États-Unis — Innovation Diamonds fournit des diamants certifiés IGI 'Grown in USA'.\n\nProduction de 15 000–20 000 carats mensuels : diamants blancs premium DEF (pureté Type IIA, VVS à VS), couleurs fantaisie écologiques uniques et technologie propriétaire PinkOne™. Gamme de 0,05 à 25+ carats.\n\nServices : production joaillière OEM et marque blanche, programmes d'approvisionnement sur mesure, partenariats directs avec marques, grossistes et designers dans 40+ pays."
+      },
+      "itMarketingGroup": {
+        "title": "IT & Marketing Group",
+        "description": "Division technologie et marketing pour la transformation numérique, le branding et les stratégies de mise sur le marché dans les secteurs du diamant et du luxe.",
+        "longDescription": "Le IT & Marketing Group opère comme le bras technologique et marketing de l'écosystème Adamas, fournissant des services numériques complets aux acteurs de l'industrie diamantaire et aux marques de luxe. Les services couvrent le développement de marque, les plateformes e-commerce, le marketing digital, les systèmes CRM et l'analyse de données.\n\nLe groupe apporte des pratiques technologiques modernes aux industries traditionnelles, aidant les partenaires à établir leur présence numérique et à développer des opérations évolutives."
       },
       "vetRobotics": {
         "title": "Service Vétérinaire Info-Robotique",
