@@ -51,6 +51,9 @@ const AGRONWork = () => {
           </div>
           
           <div className="relative z-10 max-w-4xl">
+            <Link to="/adamas" className="animate-fade-in">
+              <Button variant="ghost" size="sm" className="mb-6 hover:bg-background/80 text-white/80 hover:text-white"><ArrowLeft className="w-4 h-4 mr-2" /> Back to Adamas Projects</Button>
+            </Link>
             <Badge className="mb-4 bg-blue-500/20 text-blue-300 border-blue-500/30 text-sm px-4 py-1">
               Talent Platform
             </Badge>
