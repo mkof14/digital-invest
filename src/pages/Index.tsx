@@ -551,15 +551,16 @@ const Index = () => {
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { icon: <Lightbulb className="w-8 h-8" />, title: t('capabilities.item1Title'), desc: t('capabilities.item1Desc') },
-              { icon: <Building2 className="w-8 h-8" />, title: t('capabilities.item2Title'), desc: t('capabilities.item2Desc') },
-              { icon: <Target className="w-8 h-8" />, title: t('capabilities.item3Title'), desc: t('capabilities.item3Desc') },
-              { icon: <Award className="w-8 h-8" />, title: t('capabilities.item4Title'), desc: t('capabilities.item4Desc') }
+              { icon: <Lightbulb className="w-8 h-8" />, title: t('capabilities.item1Title'), desc: t('capabilities.item1Desc'), gradient: "from-amber-500/8" },
+              { icon: <Building2 className="w-8 h-8" />, title: t('capabilities.item2Title'), desc: t('capabilities.item2Desc'), gradient: "from-blue-500/8" },
+              { icon: <Target className="w-8 h-8" />, title: t('capabilities.item3Title'), desc: t('capabilities.item3Desc'), gradient: "from-emerald-500/8" },
+              { icon: <Award className="w-8 h-8" />, title: t('capabilities.item4Title'), desc: t('capabilities.item4Desc'), gradient: "from-violet-500/8" }
             ].map((cap, i) => (
-              <div key={i} className="text-center space-y-3 p-6">
-                <div className="inline-flex p-3 rounded-xl bg-muted/50 text-primary/60">{cap.icon}</div>
-                <h3 className="text-base font-bold text-foreground">{cap.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{cap.desc}</p>
+              <div key={i} className="group relative text-center space-y-3 p-6 rounded-xl border border-border/30 bg-card/40 hover:bg-card hover:shadow-lg hover:-translate-y-1 transition-all duration-300 overflow-hidden">
+                <div className={`absolute inset-0 bg-gradient-to-b ${cap.gradient} to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+                <div className="relative inline-flex p-3 rounded-xl bg-muted/50 text-primary/60 group-hover:text-primary group-hover:scale-110 transition-all duration-300">{cap.icon}</div>
+                <h3 className="relative text-base font-bold text-foreground">{cap.title}</h3>
+                <p className="relative text-sm text-muted-foreground leading-relaxed">{cap.desc}</p>
               </div>
             ))}
           </div>
