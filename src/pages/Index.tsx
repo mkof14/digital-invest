@@ -415,40 +415,44 @@ const Index = () => {
           {/* Bento grid: 2 large + 2 small */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {/* Large card — Health */}
-            <div className="group relative overflow-hidden rounded-2xl border border-border/40 bg-card/50 p-8 md:p-10 hover:bg-card hover:border-border transition-all duration-500 min-h-[200px] flex flex-col justify-end">
-              <div className="absolute top-6 right-6 opacity-60">
+            <div className="group relative overflow-hidden rounded-2xl border border-border/40 bg-card/60 p-8 md:p-10 hover:bg-card hover:border-border/80 hover:shadow-xl hover:-translate-y-1 transition-all duration-500 min-h-[200px] flex flex-col justify-end">
+              <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="absolute top-6 right-6 opacity-60 group-hover:opacity-90 group-hover:scale-110 transition-all duration-300">
                 <HealthDNAIcon className="text-primary" size={48} />
               </div>
-              <h3 className="text-2xl font-bold text-foreground mb-2">{t('whatWeBuild.healthTitle')}</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed max-w-sm">{t('whatWeBuild.healthDesc')}</p>
+              <h3 className="text-2xl font-bold text-foreground mb-2 relative">{t('whatWeBuild.healthTitle')}</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed max-w-sm relative">{t('whatWeBuild.healthDesc')}</p>
             </div>
 
             {/* Large card — Agro */}
-            <div className="group relative overflow-hidden rounded-2xl border border-border/40 bg-card/50 p-8 md:p-10 hover:bg-card hover:border-border transition-all duration-500 min-h-[200px] flex flex-col justify-end">
-              <div className="absolute top-6 right-6 opacity-60">
+            <div className="group relative overflow-hidden rounded-2xl border border-border/40 bg-card/60 p-8 md:p-10 hover:bg-card hover:border-border/80 hover:shadow-xl hover:-translate-y-1 transition-all duration-500 min-h-[200px] flex flex-col justify-end">
+              <div className="absolute inset-0 bg-gradient-to-br from-amber-500/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="absolute top-6 right-6 opacity-60 group-hover:opacity-90 group-hover:scale-110 transition-all duration-300">
                 <AgroDataIcon className="text-primary" size={48} />
               </div>
-              <h3 className="text-2xl font-bold text-foreground mb-2">{t('whatWeBuild.agroTitle')}</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed max-w-sm">{t('whatWeBuild.agroDesc')}</p>
+              <h3 className="text-2xl font-bold text-foreground mb-2 relative">{t('whatWeBuild.agroTitle')}</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed max-w-sm relative">{t('whatWeBuild.agroDesc')}</p>
             </div>
 
             {/* Small card — Food */}
-            <div className="group relative overflow-hidden rounded-2xl border border-border/40 bg-card/50 p-6 md:p-8 hover:bg-card hover:border-border transition-all duration-500 flex items-center gap-6">
-              <div className="shrink-0 opacity-60">
+            <div className="group relative overflow-hidden rounded-2xl border border-border/40 bg-card/60 p-6 md:p-8 hover:bg-card hover:border-border/80 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-500 flex items-center gap-6">
+              <div className="absolute inset-0 bg-gradient-to-r from-rose-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="shrink-0 opacity-60 group-hover:opacity-90 group-hover:scale-110 transition-all duration-300">
                 <FoodMolecularIcon className="text-primary" size={40} />
               </div>
-              <div>
+              <div className="relative">
                 <h3 className="text-lg font-bold text-foreground mb-1">{t('whatWeBuild.foodTitle')}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">{t('whatWeBuild.foodDesc')}</p>
               </div>
             </div>
 
             {/* Small card — Infrastructure */}
-            <div className="group relative overflow-hidden rounded-2xl border border-border/40 bg-card/50 p-6 md:p-8 hover:bg-card hover:border-border transition-all duration-500 flex items-center gap-6">
-              <div className="shrink-0 opacity-60">
+            <div className="group relative overflow-hidden rounded-2xl border border-border/40 bg-card/60 p-6 md:p-8 hover:bg-card hover:border-border/80 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-500 flex items-center gap-6">
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="shrink-0 opacity-60 group-hover:opacity-90 group-hover:scale-110 transition-all duration-300">
                 <InfraHubIcon className="text-primary" size={40} />
               </div>
-              <div>
+              <div className="relative">
                 <h3 className="text-lg font-bold text-foreground mb-1">{t('whatWeBuild.infraTitle')}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">{t('whatWeBuild.infraDesc')}</p>
               </div>
