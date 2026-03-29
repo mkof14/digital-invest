@@ -1529,6 +1529,22 @@
       "itMarketing": "IT・マーケティング",
       "vettech": "動物・獣医"
     },
+    "status": {
+      "active": "アクティブ",
+      "development": "開発中",
+      "planning": "計画中",
+      "launch": "ローンチ"
+    },
+    "contact": {
+      "title": "このプロジェクトに興味がありますか？",
+      "subtitle": "プライベートなお問い合わせやパートナーシップについてチームにご連絡ください。",
+      "button": "お問い合わせ",
+      "namePlaceholder": "お名前",
+      "emailPlaceholder": "メールアドレス",
+      "messagePlaceholder": "メッセージまたはお問い合わせ...",
+      "send": "送信"
+    },
+    "relatedProjects": "関連プロジェクト",
     "disclaimer": {
       "title": "重要なお知らせ:",
       "text": "このセクションは情報提供のみを目的としています。Adamas Materialsプロジェクトは別途提示され、公募を構成するものではありません。"

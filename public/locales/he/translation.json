@@ -1529,6 +1529,22 @@
       "itMarketing": "IT ושיווק",
       "vettech": "חיות ווטרינריה"
     },
+    "status": {
+      "active": "פעיל",
+      "development": "בפיתוח",
+      "planning": "בתכנון",
+      "launch": "השקה"
+    },
+    "contact": {
+      "title": "מעוניינים בפרויקט הזה?",
+      "subtitle": "צרו קשר עם הצוות שלנו לפניות פרטיות ודיוני שותפות.",
+      "button": "שלח פנייה",
+      "namePlaceholder": "השם שלך",
+      "emailPlaceholder": "האימייל שלך",
+      "messagePlaceholder": "ההודעה או הפנייה שלך...",
+      "send": "שלח"
+    },
+    "relatedProjects": "פרויקטים קשורים",
     "disclaimer": {
       "title": "הודעה חשובה:",
       "text": "חלק זה מיועד למידע בלבד. פרויקטי Adamas Materials מוצגים בנפרד ואינם מהווים הצעה ציבורית."

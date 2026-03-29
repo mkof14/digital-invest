@@ -1529,6 +1529,22 @@
       "itMarketing": "IT et Marketing",
       "vettech": "Animal & Vétérinaire"
     },
+    "status": {
+      "active": "Actif",
+      "development": "En développement",
+      "planning": "Planification",
+      "launch": "Lancement"
+    },
+    "contact": {
+      "title": "Intéressé par ce projet ?",
+      "subtitle": "Contactez notre équipe pour des demandes privées et des discussions de partenariat.",
+      "button": "Envoyer une demande",
+      "namePlaceholder": "Votre nom",
+      "emailPlaceholder": "Votre email",
+      "messagePlaceholder": "Votre message ou demande...",
+      "send": "Envoyer"
+    },
+    "relatedProjects": "Projets associés",
     "disclaimer": {
       "title": "Avis Important:",
       "text": "Cette section est à titre informatif uniquement. Les projets Adamas Materials sont présentés séparément et ne constituent pas une offre publique."
