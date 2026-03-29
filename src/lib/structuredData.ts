@@ -107,7 +107,7 @@ export const generateArticleSchema = (post: NewsPost) => {
       "name": "Digital Invest Inc.",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://digitalinvest.com/lovable-uploads/d1011e6f-955a-48d9-adef-662af751c3b9.png"
+        "url": "https://digitalinvest.com/og-image.jpg"
       }
     },
     "mainEntityOfPage": {
