@@ -78,20 +78,27 @@ const ProjectCard = ({ project, index }: { project: typeof adamasProjects[0]; in
   const isFeatured = layout === 'featured';
   const isWide = layout === 'wide';
 
+  const rafRef = useRef<number>(0);
+
   const handleMouseMove = useCallback((e: ReactMouseEvent<HTMLAnchorElement>) => {
-    const el = e.currentTarget;
-    const rect = el.getBoundingClientRect();
-    const x = (e.clientX - rect.left) / rect.width;
-    const y = (e.clientY - rect.top) / rect.height;
-    setTilt({
-      x: (y - 0.5) * -12,
-      y: (x - 0.5) * 12,
+    if (rafRef.current) cancelAnimationFrame(rafRef.current);
+    rafRef.current = requestAnimationFrame(() => {
+      const el = e.currentTarget;
+      if (!el) return;
+      const rect = el.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width;
+      const y = (e.clientY - rect.top) / rect.height;
+      setTilt({
+        x: (y - 0.5) * -6,
+        y: (x - 0.5) * 6,
+      });
+      setGlare({ x: x * 100, y: y * 100 });
     });
-    setGlare({ x: x * 100, y: y * 100 });
   }, []);
 
   const handleMouseEnter = useCallback(() => setIsHovered(true), []);
   const handleMouseLeave = useCallback(() => {
+    if (rafRef.current) cancelAnimationFrame(rafRef.current);
     setIsHovered(false);
     setTilt({ x: 0, y: 0 });
     setGlare({ x: 50, y: 50 });
