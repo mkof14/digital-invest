@@ -44,47 +44,93 @@ const AdamasProjectDetail = () => {
     <div className="min-h-screen bg-background">
       <Navigation />
 
-      {/* Hero */}
-      <section className="relative pt-28 pb-16 overflow-hidden">
-        <div
-          className="absolute inset-0 opacity-[0.04]"
-          style={{ background: `radial-gradient(ellipse at 30% 50%, hsl(${project.accentHsl}), transparent 70%)` }}
-        />
-        <div className="max-w-5xl mx-auto px-4 relative z-10">
-          {/* Back */}
-          <Link
-            to="/adamas"
-            className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors mb-8"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            {t('adamas.backToProjects', 'Back to Adamas Projects')}
-          </Link>
-
-          <div className="flex items-start gap-5 mb-6">
-            <div
-              className="w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0"
-              style={{ background: `hsl(${project.accentHsl} / 0.12)` }}
-            >
-              <IconComponent className="w-7 h-7" style={{ color: `hsl(${project.accentHsl})` }} />
-            </div>
-            <div>
+      {/* Hero Image */}
+      {projectHeroImages[project.slug] && (
+        <section className="relative h-[50vh] min-h-[400px] overflow-hidden">
+          <OptimizedImage
+            src={projectHeroImages[project.slug]}
+            alt={t(project.titleKey)}
+            containerClassName="absolute inset-0 w-full h-full"
+            className="w-full h-full object-cover"
+            showSkeleton={false}
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
+          <div className="absolute bottom-0 left-0 right-0 p-8">
+            <div className="max-w-5xl mx-auto">
+              <Link
+                to="/adamas"
+                className="inline-flex items-center gap-2 text-sm text-white/80 hover:text-white transition-colors mb-4"
+              >
+                <ArrowLeft className="w-4 h-4" />
+                {t('adamas.backToProjects', 'Back to Adamas Projects')}
+              </Link>
               <span
                 className="inline-block text-[10px] font-semibold uppercase tracking-widest mb-2 px-2.5 py-0.5 rounded-full"
-                style={{ color: `hsl(${project.accentHsl})`, background: `hsl(${project.accentHsl} / 0.08)` }}
+                style={{ color: `hsl(${project.accentHsl})`, background: `hsl(${project.accentHsl} / 0.15)`, backdropFilter: 'blur(4px)' }}
               >
                 {t(project.categoryKey, project.category)}
               </span>
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-tight text-foreground">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-tight text-white">
                 {t(project.titleKey)}
               </h1>
             </div>
           </div>
+        </section>
+      )}
 
-          <p className="text-lg text-muted-foreground leading-relaxed max-w-3xl">
-            {t(project.descriptionKey)}
-          </p>
-        </div>
-      </section>
+      {/* Hero fallback (no image) */}
+      {!projectHeroImages[project.slug] && (
+        <section className="relative pt-28 pb-16 overflow-hidden">
+          <div
+            className="absolute inset-0 opacity-[0.04]"
+            style={{ background: `radial-gradient(ellipse at 30% 50%, hsl(${project.accentHsl}), transparent 70%)` }}
+          />
+          <div className="max-w-5xl mx-auto px-4 relative z-10">
+            <Link
+              to="/adamas"
+              className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors mb-8"
+            >
+              <ArrowLeft className="w-4 h-4" />
+              {t('adamas.backToProjects', 'Back to Adamas Projects')}
+            </Link>
+
+            <div className="flex items-start gap-5 mb-6">
+              <div
+                className="w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0"
+                style={{ background: `hsl(${project.accentHsl} / 0.12)` }}
+              >
+                <IconComponent className="w-7 h-7" style={{ color: `hsl(${project.accentHsl})` }} />
+              </div>
+              <div>
+                <span
+                  className="inline-block text-[10px] font-semibold uppercase tracking-widest mb-2 px-2.5 py-0.5 rounded-full"
+                  style={{ color: `hsl(${project.accentHsl})`, background: `hsl(${project.accentHsl} / 0.08)` }}
+                >
+                  {t(project.categoryKey, project.category)}
+                </span>
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-tight text-foreground">
+                  {t(project.titleKey)}
+                </h1>
+              </div>
+            </div>
+
+            <p className="text-lg text-muted-foreground leading-relaxed max-w-3xl">
+              {t(project.descriptionKey)}
+            </p>
+          </div>
+        </section>
+      )}
+
+      {/* Description (shown below hero image) */}
+      {projectHeroImages[project.slug] && (
+        <section className="pt-8 pb-4">
+          <div className="max-w-5xl mx-auto px-4">
+            <p className="text-lg text-muted-foreground leading-relaxed max-w-3xl">
+              {t(project.descriptionKey)}
+            </p>
+          </div>
+        </section>
+      )}
 
       {/* Long Description */}
       <section className="pb-16">
