@@ -591,12 +591,12 @@ const Index = () => {
                 { step: "5", title: t('journey.step5Title'), desc: t('journey.step5Desc'), icon: <FileText className="w-4 h-4" /> },
                 { step: "6", title: t('journey.step6Title'), desc: t('journey.step6Desc'), icon: <TrendingUp className="w-4 h-4" /> }
               ].map((item, i) => (
-                <div key={i} className="relative text-center space-y-3">
+                <div key={i} className="group relative text-center space-y-3">
                   {/* Step dot */}
-                  <div className="mx-auto w-12 h-12 rounded-full bg-card border-2 border-border flex items-center justify-center text-sm font-bold text-primary relative z-10">
+                  <div className="mx-auto w-12 h-12 rounded-full bg-card border-2 border-border flex items-center justify-center text-sm font-bold text-primary relative z-10 group-hover:border-primary/50 group-hover:shadow-md group-hover:shadow-primary/10 group-hover:scale-110 transition-all duration-300">
                     {item.step}
                   </div>
-                  <h3 className="text-sm font-bold text-foreground leading-tight">{item.title}</h3>
+                  <h3 className="text-sm font-bold text-foreground leading-tight group-hover:text-primary transition-colors">{item.title}</h3>
                   <p className="text-xs text-muted-foreground leading-relaxed">{item.desc}</p>
                 </div>
               ))}
