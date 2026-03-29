@@ -83,6 +83,23 @@ const AdamasProjectDetail = () => {
   const prevProject = projectIndex > 0 ? adamasProjects[projectIndex - 1] : null;
   const nextProject = projectIndex < adamasProjects.length - 1 ? adamasProjects[projectIndex + 1] : null;
 
+  const heroImage = project ? projectHeroImages[project.slug] : undefined;
+  const projectTitle = project ? t(project.titleKey) : '';
+  const projectDesc = project ? t(project.descriptionKey) : '';
+
+  useEffect(() => {
+    if (!project) return;
+    updateMetaTags({
+      title: `${projectTitle} — Adamas Materials`,
+      description: projectDesc,
+      ogTitle: `${projectTitle} — Adamas Materials Project Portfolio`,
+      ogDescription: projectDesc,
+      ogImage: heroImage || 'https://digital-invest.lovable.app/adamas-og-image.jpg',
+      ogType: 'article',
+      canonicalUrl: `https://digitalinvest.com/adamas/${project.slug}`,
+    });
+  }, [project, projectTitle, projectDesc, heroImage]);
+
   if (!project) {
     return (
       <div className="min-h-screen bg-background">
@@ -97,22 +114,6 @@ const AdamasProjectDetail = () => {
       </div>
     );
   }
-
-  const heroImage = projectHeroImages[project.slug];
-  const projectTitle = t(project.titleKey);
-  const projectDesc = t(project.descriptionKey);
-
-  useEffect(() => {
-    updateMetaTags({
-      title: `${projectTitle} — Adamas Materials`,
-      description: projectDesc,
-      ogTitle: `${projectTitle} — Adamas Materials Project Portfolio`,
-      ogDescription: projectDesc,
-      ogImage: heroImage || 'https://digital-invest.lovable.app/adamas-og-image.jpg',
-      ogType: 'article',
-      canonicalUrl: `https://digitalinvest.com/adamas/${project.slug}`,
-    });
-  }, [project.slug, projectTitle, projectDesc, heroImage]);
 
   const hasHero = !!heroImage;
   const projectLogo = projectLogos[project.slug];
