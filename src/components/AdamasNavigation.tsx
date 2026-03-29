@@ -36,7 +36,7 @@ const AdamasNavigation = () => {
               className="h-14 md:h-16 w-auto brightness-110 transition-transform duration-300 group-hover:scale-105"
             />
             <div className="hidden sm:flex flex-col">
-              <span className="text-base md:text-lg font-semibold text-foreground tracking-tight leading-tight">
+              <span className="text-base md:text-lg font-semibold text-foreground/90 tracking-tight leading-tight">
                 Adamas Materials
               </span>
               <span className="text-[10px] uppercase tracking-[0.2em] text-foreground/40">

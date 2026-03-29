@@ -399,7 +399,7 @@ const AdamasMaterialsOverview = () => {
       </section>
 
       {/* Smooth gradient transition from dark hero to page background */}
-      <div className="h-32 bg-gradient-to-b from-[hsl(220,20%,8%)] via-[hsl(220,18%,14%)] to-[hsl(220,16%,90%)] dark:from-[hsl(220,20%,6%)] dark:via-[hsl(220,18%,8%)] dark:to-background" />
+      <div className="h-32 bg-gradient-to-b from-[hsl(220,20%,8%)] via-[hsl(220,17%,30%)] to-[hsl(220,14%,96%)] dark:from-[hsl(220,20%,6%)] dark:via-[hsl(220,18%,8%)] dark:to-background" />
 
       {/* Projects Grid */}
       <section className="py-16 -mt-8">
