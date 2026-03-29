@@ -325,7 +325,7 @@ const AdamasMaterialsOverview = () => {
               <img
                 src={adamasLogo}
                 alt="Adamas Materials"
-                className="relative h-48 md:h-64 lg:h-72 mx-auto mb-8 brightness-150 contrast-110 drop-shadow-[0_0_40px_rgba(200,170,80,0.3)]"
+                className="relative h-48 md:h-64 lg:h-72 mx-auto mb-8 dark:brightness-150 contrast-110 drop-shadow-[0_0_40px_rgba(200,170,80,0.3)]"
               />
             </div>
           </div>
