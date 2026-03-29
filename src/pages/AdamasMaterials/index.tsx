@@ -77,14 +77,14 @@ const ProjectCard = ({ project, index }: { project: typeof adamasProjects[0]; in
       ref={ref}
       key={project.slug}
       to={`/adamas/${project.slug}`}
-      className={`group relative rounded-2xl overflow-hidden transition-all duration-700 ${
+      className={`group relative rounded-2xl overflow-hidden ${
         isFeatured ? 'md:col-span-2 min-h-[340px]' : isWide ? 'md:col-span-2 min-h-[240px]' : 'min-h-[280px]'
       }`}
       style={{
         opacity: visible ? 1 : 0,
-        transform: visible ? 'translateY(0) scale(1)' : 'translateY(30px) scale(0.97)',
-        transitionDelay: `${(index % 4) * 100}ms`,
-        boxShadow: '0 4px 20px -4px rgba(0,0,0,0.2), 0 0 1px rgba(0,0,0,0.1)',
+        transform: visible ? 'translateY(0) scale(1)' : 'translateY(40px) scale(0.96)',
+        transition: `opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1) ${(index % 4) * 120}ms, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) ${(index % 4) * 120}ms`,
+        boxShadow: '0 4px 24px -4px rgba(0,0,0,0.25), 0 0 1px rgba(0,0,0,0.1)',
       }}
       onMouseEnter={(e) => {
         e.currentTarget.style.boxShadow = '0 20px 60px -10px rgba(0,0,0,0.35), 0 8px 24px -8px rgba(0,0,0,0.2)';
