@@ -271,7 +271,7 @@ const AdamasMaterialsOverview = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[hsl(220,16%,90%)] dark:bg-background">
+    <div className="min-h-screen bg-[hsl(220,14%,96%)] dark:bg-background">
       <AdamasNavigation />
 
       {/* Hero — cinematic dark section */}
