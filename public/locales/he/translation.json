@@ -1506,5 +1506,33 @@
     "ideal4Desc": "Families prioritizing preventive health and wanting to establish good habits early in childhood.",
     "legalTitle": "Important Legal Notice",
     "legalText": "Family is an informational and organizational tool designed to help parents manage family health routines. It is not a medical device and does not diagnose, treat, or prevent any medical condition. The information and guidance provided are for educational purposes only. All medical decisions regarding children's health should be made in consultation with qualified pediatric healthcare professionals. Family does not replace professional medical advice, diagnosis, or treatment."
-  }
+  },
+  "adamas": {
+    "badge": "פרויקטי Adamas Materials",
+    "heroTitle": "Adamas Materials",
+    "heroHighlight": "תיק פרויקטים",
+    "heroSubtitle": "אוסף מגוון של פרויקטים המקיף את תעשיית היהלומים, רובוטיקה, מסחר אלקטרוני, נכסים דיגיטליים וטכנולוגיה וטרינרית.",
+    "viewProject": "צפה בפרויקט",
+    "backToProjects": "חזרה לפרויקטי Adamas",
+    "overview": "סקירת פרויקט",
+    "highlight1": "ניהול פרטי",
+    "highlight2": "שותפויות אסטרטגיות",
+    "highlight3": "חזון ארוך טווח",
+    "categories": { "materials": "חומרים ותשתית", "diamond": "תעשיית היהלומים", "robotics": "רשת רובוטיקה", "talent": "כישרונות ומשאבי אנוש", "ecommerce": "מסחר אלקטרוני", "digital": "נכסים דיגיטליים", "itMarketing": "IT ושיווק", "vettech": "וטרינריה ורובוטיקה" },
+    "disclaimer": { "title": "הודעה חשובה:", "text": "חלק זה מיועד למידע בלבד. פרויקטי Adamas Materials מוצגים בנפרד ואינם מהווים הצעה ציבורית." },
+    "projects": {
+      "adamasMaterials": { "title": "Adamas Materials", "description": "אספקת חומרים אסטרטגית ותשתית תעשייתית המחברת שרשראות אספקה גלובליות.", "longDescription": "Adamas Materials פועלת בצומת של אספקת חומרי גלם, אופטימיזציה של שרשראות אספקה ותשתית ייצור תעשייתית." },
+      "originDiamond": { "title": "Origin Diamond", "description": "אספקת יהלומים עם מעקב מלא ממכרה לשוק.", "longDescription": "Origin Diamond מביא שקיפות ואמון לשרשרת אספקת היהלומים." },
+      "agronNet": { "title": "AGRON-NET", "description": "רשת פעולות רובוטיות מבוזרת המחברת מערכות אוטונומיות ותשתית פיקוד.", "longDescription": "AGRON-NET מספקת את עמוד השדרה של התקשורת והתיאום לפעולות רובוטיות מבוזרות." },
+      "agronWork": { "title": "AGRON-Work", "description": "פלטפורמת גיוס כישרונות לתעשיות הרובוטיקה האוטונומית והחקלאות המדויקת.", "longDescription": "AGRON-Work מטפלת בפער הכישרונות הקריטי ברובוטיקה אוטונומית וחקלאות מדויקת." },
+      "abuMall": { "title": "Abu Mall", "description": "שוק מקוון פרימיום המחבר מוצרי יוקרה מהמזרח התיכון עם שווקים גלובליים.", "longDescription": "Abu Mall יוצר שוק דיגיטלי פרימיום המחבר יצרנים ואומנים מהמזרח התיכון." },
+      "almaDiamond": { "title": "Alma Diamond", "description": "מותג יהלומים בוטיק המתמחה באבנים בחיתוך מותאם אישית.", "longDescription": "Alma Diamond משלב אומנות יהלומים מסורתית עם חוש עיצובי מודרני." },
+      "jewelryDropshipping": { "title": "Jewelry DropShipping", "description": "תשתית מילוי הזמנות אוטומטית לקמעונאי תכשיטים ללא מלאי.", "longDescription": "Jewelry DropShipping מבטל את עומס ההון של מלאי עבור קמעונאי תכשיטים." },
+      "jatualDiamonds": { "title": "JATUAL DIAMONDS", "description": "אספקת יהלומים תעשייתיים והשקעתיים עם דירוג מדויק.", "longDescription": "JATUAL DIAMONDS משרת קונים תעשייתיים והשקעתיים עם יהלומים ברמה מוסדית." },
+      "coinsTokens": { "title": "Coins and Tokens", "description": "תשתית נכסים דיגיטליים לסחורות מטוקנות ונכסי אספנות.", "longDescription": "Coins and Tokens מפתח תשתית לייצוג נכסים פיזיים כטוקנים דיגיטליים." },
+      "innovationDiamonds": { "title": "INNOVATION DIAMONDS, IT & Marketing Group", "description": "שירותי טכנולוגיה ושיווק מקיפים לטרנספורמציה דיגיטלית במגזר היהלומים.", "longDescription": "INNOVATION DIAMONDS פועלת כזרוע הטכנולוגית והשיווקית של מערכת Adamas." },
+      "vetRobotics": { "title": "שירות וטרינרי מידע-רובוטי", "description": "אבחון וטרינרי מתמחה וטיפול בסיוע רובוטי לגמלים וסוסים.", "longDescription": "פרויקט חלוצי זה מספק טיפול וטרינרי מתקדם לגמלים וסוסים באמצעות AI ורובוטיקה." }
+    }
+  },
+  "footer": { "adamasMaterials": "Adamas Materials" }
 }

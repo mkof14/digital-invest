@@ -1506,5 +1506,33 @@
     "ideal4Desc": "Families prioritizing preventive health and wanting to establish good habits early in childhood.",
     "legalTitle": "Important Legal Notice",
     "legalText": "Family is an informational and organizational tool designed to help parents manage family health routines. It is not a medical device and does not diagnose, treat, or prevent any medical condition. The information and guidance provided are for educational purposes only. All medical decisions regarding children's health should be made in consultation with qualified pediatric healthcare professionals. Family does not replace professional medical advice, diagnosis, or treatment."
-  }
+  },
+  "adamas": {
+    "badge": "Projets Adamas Materials",
+    "heroTitle": "Adamas Materials",
+    "heroHighlight": "Portefeuille de Projets",
+    "heroSubtitle": "Une collection diversifiée de projets couvrant l'industrie du diamant, la robotique, le commerce électronique, les actifs numériques et la technologie vétérinaire.",
+    "viewProject": "Voir le Projet",
+    "backToProjects": "Retour aux Projets Adamas",
+    "overview": "Aperçu du Projet",
+    "highlight1": "Gestion Privée",
+    "highlight2": "Partenariats Stratégiques",
+    "highlight3": "Vision à Long Terme",
+    "categories": { "materials": "Matériaux et Infrastructure", "diamond": "Industrie du Diamant", "robotics": "Réseau Robotique", "talent": "Talents et RH", "ecommerce": "Commerce Électronique", "digital": "Actifs Numériques", "itMarketing": "IT et Marketing", "vettech": "VétériTech et Robotique" },
+    "disclaimer": { "title": "Avis Important:", "text": "Cette section est à titre informatif uniquement. Les projets Adamas Materials sont présentés séparément et ne constituent pas une offre publique." },
+    "projects": {
+      "adamasMaterials": { "title": "Adamas Materials", "description": "Approvisionnement stratégique en matériaux et infrastructure industrielle reliant les chaînes d'approvisionnement mondiales.", "longDescription": "Adamas Materials opère à l'intersection de l'approvisionnement en matières premières, de l'optimisation des chaînes et de l'infrastructure manufacturière." },
+      "originDiamond": { "title": "Origin Diamond", "description": "Approvisionnement en diamants avec traçabilité complète de la mine au marché.", "longDescription": "Origin Diamond apporte transparence et confiance à la chaîne d'approvisionnement des diamants grâce à des systèmes de vérification de provenance." },
+      "agronNet": { "title": "AGRON-NET", "description": "Réseau d'opérations robotiques distribuées connectant les systèmes autonomes et l'infrastructure de commandement.", "longDescription": "AGRON-NET fournit l'épine dorsale de communication et de coordination pour les opérations robotiques distribuées." },
+      "agronWork": { "title": "AGRON-Work", "description": "Plateforme d'acquisition de talents pour les industries de la robotique autonome et de l'agriculture de précision.", "longDescription": "AGRON-Work comble le déficit critique de talents dans la robotique autonome et l'agriculture de précision." },
+      "abuMall": { "title": "Abu Mall", "description": "Marketplace premium reliant les produits de luxe du Moyen-Orient aux marchés mondiaux.", "longDescription": "Abu Mall crée une marketplace numérique premium connectant les artisans du Moyen-Orient aux consommateurs mondiaux." },
+      "almaDiamond": { "title": "Alma Diamond", "description": "Marque de diamants boutique spécialisée dans les pierres sur mesure et le design de bijoux personnalisé.", "longDescription": "Alma Diamond combine l'artisanat traditionnel du diamant avec une sensibilité design moderne." },
+      "jewelryDropshipping": { "title": "Jewelry DropShipping", "description": "Infrastructure de fulfillment automatisée pour les détaillants de bijoux avec zéro stock.", "longDescription": "Jewelry DropShipping élimine la charge de capital d'inventaire pour les détaillants de bijoux." },
+      "jatualDiamonds": { "title": "JATUAL DIAMONDS", "description": "Approvisionnement en diamants industriels et d'investissement avec classification de précision.", "longDescription": "JATUAL DIAMONDS sert les acheteurs industriels et d'investissement avec des diamants de qualité institutionnelle." },
+      "coinsTokens": { "title": "Coins and Tokens", "description": "Infrastructure d'actifs numériques pour les commodités tokenisées et les actifs de collection.", "longDescription": "Coins and Tokens développe l'infrastructure pour représenter des actifs physiques en tokens numériques vérifiables." },
+      "innovationDiamonds": { "title": "INNOVATION DIAMONDS, IT & Marketing Group", "description": "Division technologie et marketing pour la transformation numérique du secteur diamantaire.", "longDescription": "INNOVATION DIAMONDS opère comme le bras technologique et marketing de l'écosystème Adamas." },
+      "vetRobotics": { "title": "Service Vétérinaire Info-Robotique", "description": "Diagnostics vétérinaires spécialisés et soins assistés par robots pour chameaux et chevaux.", "longDescription": "Ce projet pionnier offre des soins vétérinaires avancés pour chameaux et chevaux grâce à l'IA et la robotique." }
+    }
+  },
+  "footer": { "adamasMaterials": "Adamas Materials" }
 }
