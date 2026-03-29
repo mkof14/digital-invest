@@ -78,20 +78,27 @@ const ProjectCard = ({ project, index }: { project: typeof adamasProjects[0]; in
   const isFeatured = layout === 'featured';
   const isWide = layout === 'wide';
 
+  const rafRef = useRef<number>(0);
+
   const handleMouseMove = useCallback((e: ReactMouseEvent<HTMLAnchorElement>) => {
-    const el = e.currentTarget;
-    const rect = el.getBoundingClientRect();
-    const x = (e.clientX - rect.left) / rect.width;
-    const y = (e.clientY - rect.top) / rect.height;
-    setTilt({
-      x: (y - 0.5) * -12,
-      y: (x - 0.5) * 12,
+    if (rafRef.current) cancelAnimationFrame(rafRef.current);
+    rafRef.current = requestAnimationFrame(() => {
+      const el = e.currentTarget;
+      if (!el) return;
+      const rect = el.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width;
+      const y = (e.clientY - rect.top) / rect.height;
+      setTilt({
+        x: (y - 0.5) * -6,
+        y: (x - 0.5) * 6,
+      });
+      setGlare({ x: x * 100, y: y * 100 });
     });
-    setGlare({ x: x * 100, y: y * 100 });
   }, []);
 
   const handleMouseEnter = useCallback(() => setIsHovered(true), []);
   const handleMouseLeave = useCallback(() => {
+    if (rafRef.current) cancelAnimationFrame(rafRef.current);
     setIsHovered(false);
     setTilt({ x: 0, y: 0 });
     setGlare({ x: 50, y: 50 });
@@ -112,7 +119,7 @@ const ProjectCard = ({ project, index }: { project: typeof adamasProjects[0]; in
           ? `perspective(800px) rotateX(${tilt.x}deg) rotateY(${tilt.y}deg) scale(${isHovered ? 1.03 : 1})`
           : 'translateY(80px) scale(0.9)',
         transition: isHovered
-          ? 'transform 0.6s cubic-bezier(0.25,0.46,0.45,0.94), opacity 0.7s ease, filter 0.7s ease, box-shadow 0.5s ease'
+          ? 'transform 0.25s cubic-bezier(0.33,1,0.68,1), opacity 0.7s ease, filter 0.7s ease, box-shadow 0.5s ease'
           : `transform 1.45s cubic-bezier(0.22,1,0.36,1) ${(index % 4) * 180}ms, opacity 1.45s cubic-bezier(0.22,1,0.36,1) ${(index % 4) * 180}ms, filter 1.45s cubic-bezier(0.22,1,0.36,1) ${(index % 4) * 180}ms, box-shadow 0.5s ease`,
         boxShadow: isHovered
           ? '0 25px 60px -12px rgba(0,0,0,0.4), 0 12px 28px -8px rgba(0,0,0,0.25)'
