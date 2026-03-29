@@ -235,7 +235,8 @@
     "legalNotice": "Important Legal Notice:",
     "legalNoticeText": "Digital Invest Inc. is not an investment advisor, broker-dealer, public offering platform, or marketplace. This website is for informational purposes only. Participation in any project is handled privately, offline, and only for eligible individuals or entities following due diligence. We do not guarantee any outcomes, performance, or returns.",
     "riskDisclosure": "Risk Disclosure:",
-    "riskDisclosureText": "All participation involves significant risk, including potential loss of capital. Private, invitation-only process. The actual legal status, structure, rights, and obligations are defined only in formal agreements executed offline, not by website content."
+    "riskDisclosureText": "All participation involves significant risk, including potential loss of capital. Private, invitation-only process. The actual legal status, structure, rights, and obligations are defined only in formal agreements executed offline, not by website content.",
+    "adamasMaterials": "Adamas Materials"
   },
   "common": {
     "loading": "Loading...",
@@ -1915,5 +1916,88 @@
     "ideal4Desc": "Families prioritizing preventive health and wanting to establish good habits early in childhood.",
     "legalTitle": "Important Legal Notice",
     "legalText": "Family is an informational and organizational tool designed to help parents manage family health routines. It is not a medical device and does not diagnose, treat, or prevent any medical condition. The information and guidance provided are for educational purposes only. All medical decisions regarding children's health should be made in consultation with qualified pediatric healthcare professionals. Family does not replace professional medical advice, diagnosis, or treatment."
+  },
+  "adamas": {
+    "badge": "Adamas Materials Projects",
+    "heroTitle": "Adamas Materials",
+    "heroHighlight": "Project Portfolio",
+    "heroSubtitle": "A diversified collection of projects spanning diamond industry, robotics, e-commerce, digital assets, and advanced veterinary technology.",
+    "viewProject": "View Project",
+    "backToProjects": "Back to Adamas Projects",
+    "overview": "Project Overview",
+    "highlight1": "Privately Operated",
+    "highlight2": "Strategic Partnerships",
+    "highlight3": "Long-Term Vision",
+    "categories": {
+      "materials": "Materials & Infrastructure",
+      "diamond": "Diamond Industry",
+      "robotics": "Robotics Network",
+      "talent": "Talent & HR",
+      "ecommerce": "E-Commerce",
+      "digital": "Digital Assets",
+      "itMarketing": "IT & Marketing",
+      "vettech": "VetTech & Robotics"
+    },
+    "disclaimer": {
+      "title": "Important Notice:",
+      "text": "This section is for informational purposes only. Adamas Materials Projects are presented separately and do not constitute a public offering or solicitation. All potential participation is private and handled offline through proper legal channels."
+    },
+    "projects": {
+      "adamasMaterials": {
+        "title": "Adamas Materials",
+        "description": "Strategic materials sourcing and industrial infrastructure connecting global supply chains with advanced manufacturing capabilities.",
+        "longDescription": "Adamas Materials operates at the intersection of raw materials sourcing, supply chain optimization, and industrial manufacturing infrastructure. The project establishes vertically integrated channels for high-value materials procurement and distribution, serving both traditional industries and emerging technology sectors.\n\nThe platform leverages established trade networks, quality certification protocols, and logistics optimization to deliver reliable materials supply for industrial partners worldwide."
+      },
+      "originDiamond": {
+        "title": "Origin Diamond",
+        "description": "Provenance-verified diamond sourcing with full traceability from mine to market, ensuring ethical standards and quality certification.",
+        "longDescription": "Origin Diamond brings transparency and trust to the diamond supply chain through comprehensive provenance verification systems. Every stone is documented from extraction through cutting, polishing, and final certification.\n\nThe project implements blockchain-based traceability, independent quality assessment, and ethical sourcing verification to serve discerning buyers and partners who demand full supply chain visibility."
+      },
+      "agronNet": {
+        "title": "AGRON-NET",
+        "description": "Distributed robotics operations network connecting autonomous systems, field operators, and command infrastructure across multiple sectors.",
+        "longDescription": "AGRON-NET provides the communications and coordination backbone for distributed robotics operations. The network connects autonomous field systems with centralized command, enabling real-time telemetry, mission planning, and fleet management.\n\nBuilt on resilient mesh-network architecture, AGRON-NET supports agricultural drones, industrial robots, and autonomous logistics vehicles with unified monitoring and control protocols."
+      },
+      "agronWork": {
+        "title": "AGRON-Work",
+        "description": "Talent acquisition and workforce development platform for the autonomous robotics and precision agriculture industries.",
+        "longDescription": "AGRON-Work addresses the critical talent gap in autonomous robotics and precision agriculture by connecting trained professionals with operators and manufacturers. The platform provides certification pathways, skills matching, and career development for a rapidly growing sector.\n\nFrom drone pilots and field technicians to robotics engineers and AI specialists, AGRON-Work builds the human capital infrastructure needed for the autonomous operations revolution."
+      },
+      "abuMall": {
+        "title": "Abu Mall",
+        "description": "Premium e-commerce marketplace bridging Middle Eastern luxury goods with global consumer markets through curated digital storefronts.",
+        "longDescription": "Abu Mall creates a premium digital marketplace connecting luxury goods manufacturers and artisans from the Middle East with discerning global consumers. The platform emphasizes authenticity, craftsmanship, and cultural heritage.\n\nFeaturing curated storefronts, authenticated goods, and premium logistics, Abu Mall positions itself as the definitive destination for high-quality jewelry, textiles, fragrances, and artisanal products from the region."
+      },
+      "almaDiamond": {
+        "title": "Alma Diamond",
+        "description": "Boutique diamond brand specializing in custom-cut stones and bespoke jewelry design for high-net-worth individuals and collectors.",
+        "longDescription": "Alma Diamond combines traditional diamond craftsmanship with modern design sensibility to create distinctive, collectible jewelry pieces. Each stone is individually selected and custom-cut to maximize brilliance and character.\n\nThe brand serves private collectors, wedding clients, and investment buyers through personalized consultation, bespoke design services, and a curated collection of exceptional stones with full certification documentation."
+      },
+      "jewelryDropshipping": {
+        "title": "Jewelry DropShipping",
+        "description": "Automated fulfillment infrastructure for jewelry retailers, enabling zero-inventory operations with certified quality and global shipping.",
+        "longDescription": "Jewelry DropShipping eliminates the capital burden of inventory for jewelry retailers by providing a fully automated fulfillment network. Retailers access a curated catalog of certified jewelry and gemstones, with orders fulfilled directly from vetted suppliers.\n\nThe platform handles quality assurance, certification, packaging, insurance, and global shipping — allowing retailers to focus on customer relationships and brand building while the infrastructure handles everything else."
+      },
+      "jatualDiamonds": {
+        "title": "JATUAL DIAMONDS",
+        "description": "Industrial and investment-grade diamond sourcing combining precision grading, secure logistics, and institutional-level documentation.",
+        "longDescription": "JATUAL DIAMONDS serves industrial consumers and investment-grade buyers with precision-graded diamonds backed by institutional-level documentation and secure logistics. The operation maintains strict quality thresholds and independent verification.\n\nFrom manufacturing-grade industrial diamonds to investment-quality certified stones, JATUAL provides a reliable supply chain with comprehensive grading reports, insurance, and secure transfer protocols."
+      },
+      "coinsTokens": {
+        "title": "Coins and Tokens",
+        "description": "Digital asset infrastructure for tokenized commodities and collectible assets, bridging physical value with programmable ownership.",
+        "longDescription": "Coins and Tokens develops infrastructure for representing physical assets — from precious metals and gemstones to collectible items — as verifiable digital tokens. The platform enables fractional ownership, transparent provenance, and programmable transfer of real-world value.\n\nBuilt on established blockchain standards, the project creates bridges between traditional commodity markets and modern digital ownership paradigms, serving both institutional and individual participants."
+      },
+      "innovationDiamonds": {
+        "title": "INNOVATION DIAMONDS, IT & Marketing Group",
+        "description": "Full-service technology and marketing division providing digital transformation, branding, and go-to-market strategies for the diamond and luxury sectors.",
+        "longDescription": "INNOVATION DIAMONDS operates as the technology and marketing arm of the Adamas ecosystem, providing comprehensive digital services to diamond industry participants and luxury brands. Services span brand development, e-commerce platforms, digital marketing, CRM systems, and data analytics.\n\nThe group brings modern technology practices to traditional industries, helping partners establish digital presence, optimize customer acquisition, and build scalable operations through technology-driven solutions."
+      },
+      "vetRobotics": {
+        "title": "Veterinary Information & Robotics Service",
+        "description": "Specialized veterinary diagnostics and robotic-assisted care platform for camels and horses, combining AI analysis with field-deployable technology.",
+        "longDescription": "This pioneering project delivers advanced veterinary care for camels and horses through a combination of AI-powered diagnostics, robotic-assisted examination tools, and comprehensive health information systems. Designed for desert and equestrian environments where traditional veterinary access is limited.\n\nThe service deploys field-portable diagnostic units, remote health monitoring sensors, and telemedicine capabilities to provide timely, accurate veterinary care. AI analysis of biometric data enables early disease detection and preventive health management for high-value livestock."
+      }
+    }
   }
 }

@@ -1,0 +1,123 @@
+export interface AdamasProject {
+  slug: string;
+  titleKey: string;
+  descriptionKey: string;
+  longDescriptionKey: string;
+  category: string;
+  categoryKey: string;
+  accentHsl: string;
+  icon: string; // lucide icon name
+}
+
+export const adamasProjects: AdamasProject[] = [
+  {
+    slug: 'adamas-materials',
+    titleKey: 'adamas.projects.adamasMaterials.title',
+    descriptionKey: 'adamas.projects.adamasMaterials.description',
+    longDescriptionKey: 'adamas.projects.adamasMaterials.longDescription',
+    category: 'Materials & Infrastructure',
+    categoryKey: 'adamas.categories.materials',
+    accentHsl: '220 70% 55%',
+    icon: 'Gem',
+  },
+  {
+    slug: 'origin-diamond',
+    titleKey: 'adamas.projects.originDiamond.title',
+    descriptionKey: 'adamas.projects.originDiamond.description',
+    longDescriptionKey: 'adamas.projects.originDiamond.longDescription',
+    category: 'Diamond Industry',
+    categoryKey: 'adamas.categories.diamond',
+    accentHsl: '280 60% 55%',
+    icon: 'Diamond',
+  },
+  {
+    slug: 'agron-net',
+    titleKey: 'adamas.projects.agronNet.title',
+    descriptionKey: 'adamas.projects.agronNet.description',
+    longDescriptionKey: 'adamas.projects.agronNet.longDescription',
+    category: 'Robotics Network',
+    categoryKey: 'adamas.categories.robotics',
+    accentHsl: '160 60% 45%',
+    icon: 'Network',
+  },
+  {
+    slug: 'agron-work',
+    titleKey: 'adamas.projects.agronWork.title',
+    descriptionKey: 'adamas.projects.agronWork.description',
+    longDescriptionKey: 'adamas.projects.agronWork.longDescription',
+    category: 'Talent & HR',
+    categoryKey: 'adamas.categories.talent',
+    accentHsl: '200 65% 50%',
+    icon: 'Users',
+  },
+  {
+    slug: 'abu-mall',
+    titleKey: 'adamas.projects.abuMall.title',
+    descriptionKey: 'adamas.projects.abuMall.description',
+    longDescriptionKey: 'adamas.projects.abuMall.longDescription',
+    category: 'E-Commerce',
+    categoryKey: 'adamas.categories.ecommerce',
+    accentHsl: '35 80% 50%',
+    icon: 'ShoppingBag',
+  },
+  {
+    slug: 'alma-diamond',
+    titleKey: 'adamas.projects.almaDiamond.title',
+    descriptionKey: 'adamas.projects.almaDiamond.description',
+    longDescriptionKey: 'adamas.projects.almaDiamond.longDescription',
+    category: 'Diamond Industry',
+    categoryKey: 'adamas.categories.diamond',
+    accentHsl: '310 55% 50%',
+    icon: 'Sparkles',
+  },
+  {
+    slug: 'jewelry-dropshipping',
+    titleKey: 'adamas.projects.jewelryDropshipping.title',
+    descriptionKey: 'adamas.projects.jewelryDropshipping.description',
+    longDescriptionKey: 'adamas.projects.jewelryDropshipping.longDescription',
+    category: 'E-Commerce',
+    categoryKey: 'adamas.categories.ecommerce',
+    accentHsl: '45 75% 50%',
+    icon: 'Package',
+  },
+  {
+    slug: 'jatual-diamonds',
+    titleKey: 'adamas.projects.jatualDiamonds.title',
+    descriptionKey: 'adamas.projects.jatualDiamonds.description',
+    longDescriptionKey: 'adamas.projects.jatualDiamonds.longDescription',
+    category: 'Diamond Industry',
+    categoryKey: 'adamas.categories.diamond',
+    accentHsl: '260 55% 55%',
+    icon: 'Crown',
+  },
+  {
+    slug: 'coins-and-tokens',
+    titleKey: 'adamas.projects.coinsTokens.title',
+    descriptionKey: 'adamas.projects.coinsTokens.description',
+    longDescriptionKey: 'adamas.projects.coinsTokens.longDescription',
+    category: 'Digital Assets',
+    categoryKey: 'adamas.categories.digital',
+    accentHsl: '180 60% 45%',
+    icon: 'Coins',
+  },
+  {
+    slug: 'innovation-diamonds',
+    titleKey: 'adamas.projects.innovationDiamonds.title',
+    descriptionKey: 'adamas.projects.innovationDiamonds.description',
+    longDescriptionKey: 'adamas.projects.innovationDiamonds.longDescription',
+    category: 'IT & Marketing',
+    categoryKey: 'adamas.categories.itMarketing',
+    accentHsl: '340 60% 50%',
+    icon: 'Lightbulb',
+  },
+  {
+    slug: 'vet-robotics-service',
+    titleKey: 'adamas.projects.vetRobotics.title',
+    descriptionKey: 'adamas.projects.vetRobotics.description',
+    longDescriptionKey: 'adamas.projects.vetRobotics.longDescription',
+    category: 'VetTech & Robotics',
+    categoryKey: 'adamas.categories.vettech',
+    accentHsl: '140 55% 45%',
+    icon: 'HeartPulse',
+  },
+];

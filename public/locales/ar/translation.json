@@ -235,7 +235,8 @@
     "legalNotice": "إشعار قانوني هام:",
     "legalNoticeText": "Digital Invest Inc. ليست مستشار استثمار أو وسيط-تاجر أو منصة عرض عام.",
     "riskDisclosure": "إفصاح المخاطر:",
-    "riskDisclosureText": "أي مشاركة تنطوي على مخاطر كبيرة، بما في ذلك الخسارة المحتملة لرأس المال. عملية خاصة بدعوة فقط."
+    "riskDisclosureText": "أي مشاركة تنطوي على مخاطر كبيرة، بما في ذلك الخسارة المحتملة لرأس المال. عملية خاصة بدعوة فقط.",
+    "adamasMaterials": "Adamas Materials"
   },
   "common": {
     "loading": "جاري التحميل...",
@@ -1506,5 +1507,32 @@
     "ideal4Desc": "Families prioritizing preventive health and wanting to establish good habits early in childhood.",
     "legalTitle": "Important Legal Notice",
     "legalText": "Family is an informational and organizational tool designed to help parents manage family health routines. It is not a medical device and does not diagnose, treat, or prevent any medical condition. The information and guidance provided are for educational purposes only. All medical decisions regarding children's health should be made in consultation with qualified pediatric healthcare professionals. Family does not replace professional medical advice, diagnosis, or treatment."
+  },
+  "adamas": {
+    "badge": "مشاريع أداماس للمواد",
+    "heroTitle": "Adamas Materials",
+    "heroHighlight": "محفظة المشاريع",
+    "heroSubtitle": "مجموعة متنوعة من المشاريع تشمل صناعة الماس، الروبوتات، التجارة الإلكترونية، الأصول الرقمية، والتكنولوجيا البيطرية.",
+    "viewProject": "عرض المشروع",
+    "backToProjects": "العودة إلى مشاريع أداماس",
+    "overview": "نظرة عامة على المشروع",
+    "highlight1": "إدارة خاصة",
+    "highlight2": "شراكات استراتيجية",
+    "highlight3": "رؤية طويلة المدى",
+    "categories": { "materials": "المواد والبنية التحتية", "diamond": "صناعة الماس", "robotics": "شبكة الروبوتات", "talent": "المواهب والموارد البشرية", "ecommerce": "التجارة الإلكترونية", "digital": "الأصول الرقمية", "itMarketing": "تكنولوجيا المعلومات والتسويق", "vettech": "التكنولوجيا البيطرية والروبوتات" },
+    "disclaimer": { "title": "إشعار مهم:", "text": "هذا القسم للأغراض الإعلامية فقط. مشاريع أداماس للمواد مقدمة بشكل منفصل ولا تشكل عرضاً عاماً." },
+    "projects": {
+      "adamasMaterials": { "title": "Adamas Materials", "description": "توريد استراتيجي للمواد وبنية تحتية صناعية تربط سلاسل التوريد العالمية.", "longDescription": "تعمل أداماس للمواد عند تقاطع توريد المواد الخام وتحسين سلاسل التوريد والبنية التحتية الصناعية." },
+      "originDiamond": { "title": "Origin Diamond", "description": "توريد ماس موثق المصدر مع تتبع كامل من المنجم إلى السوق.", "longDescription": "يوفر Origin Diamond الشفافية والثقة في سلسلة توريد الماس من خلال أنظمة التحقق الشاملة." },
+      "agronNet": { "title": "AGRON-NET", "description": "شبكة عمليات روبوتية موزعة تربط الأنظمة المستقلة والبنية التحتية للقيادة.", "longDescription": "توفر AGRON-NET العمود الفقري للاتصالات والتنسيق لعمليات الروبوتات الموزعة." },
+      "agronWork": { "title": "AGRON-Work", "description": "منصة استقطاب المواهب لصناعات الروبوتات المستقلة والزراعة الدقيقة.", "longDescription": "تعالج AGRON-Work الفجوة الحرجة في المواهب في مجال الروبوتات المستقلة والزراعة الدقيقة." },
+      "abuMall": { "title": "Abu Mall", "description": "سوق إلكتروني فاخر يربط السلع الفاخرة من الشرق الأوسط بالأسواق العالمية.", "longDescription": "ينشئ Abu Mall سوقاً رقمياً فاخراً يربط الحرفيين من الشرق الأوسط بالمستهلكين العالميين." },
+      "almaDiamond": { "title": "Alma Diamond", "description": "علامة ماس بوتيكية متخصصة في الأحجار المقطوعة حسب الطلب.", "longDescription": "تجمع Alma Diamond بين الحرفية التقليدية والتصميم العصري." },
+      "jewelryDropshipping": { "title": "Jewelry DropShipping", "description": "بنية تحتية آلية لتنفيذ طلبات تجار المجوهرات بدون مخزون.", "longDescription": "يزيل Jewelry DropShipping عبء رأس المال المخزون لتجار المجوهرات." },
+      "jatualDiamonds": { "title": "JATUAL DIAMONDS", "description": "توريد ماس صناعي واستثماري بتصنيف دقيق ووثائق مؤسسية.", "longDescription": "يخدم JATUAL DIAMONDS المشترين الصناعيين والاستثماريين بماس عالي الجودة." },
+      "coinsTokens": { "title": "Coins and Tokens", "description": "بنية تحتية للأصول الرقمية للسلع المرمزة والأصول القابلة للتحصيل.", "longDescription": "يطور Coins and Tokens بنية تحتية لتمثيل الأصول المادية كرموز رقمية قابلة للتحقق." },
+      "innovationDiamonds": { "title": "INNOVATION DIAMONDS, IT & Marketing Group", "description": "خدمات تكنولوجية وتسويقية شاملة للتحول الرقمي في قطاع الماس.", "longDescription": "تعمل INNOVATION DIAMONDS كذراع تكنولوجي وتسويقي لمنظومة أداماس." },
+      "vetRobotics": { "title": "خدمة بيطرية معلوماتية-روبوتية", "description": "تشخيصات بيطرية متخصصة ورعاية بمساعدة الروبوتات للجمال والخيول.", "longDescription": "يقدم هذا المشروع الرائد رعاية بيطرية متقدمة للجمال والخيول باستخدام الذكاء الاصطناعي والروبوتات." }
+    }
   }
 }

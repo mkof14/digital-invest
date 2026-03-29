@@ -75,6 +75,8 @@ const InvestorHandbook = lazy(() => import("./pages/InvestorHandbook"));
 const Schedule = lazy(() => import('./pages/Schedule'));
 const LegalOverview = lazy(() => import('./pages/LegalOverview'));
 const PortfolioOverview = lazy(() => import('./pages/PortfolioOverview'));
+const AdamasMaterialsOverview = lazy(() => import('./pages/AdamasMaterials'));
+const AdamasProjectDetail = lazy(() => import('./pages/AdamasMaterials/AdamasProjectDetail'));
 
 // Legacy project routes
 const BioMathLife = lazy(() => import("./pages/Projects/BioMathLife"));
@@ -218,6 +220,10 @@ const App = () => (
               <Route path="/projects/table-served" element={<TableServed />} />
               <Route path="/projects/baseline" element={<BaseLine />} />
               <Route path="/projects/saven" element={<SAVEN />} />
+              
+              {/* Adamas Materials Projects */}
+              <Route path="/adamas" element={<AdamasMaterialsOverview />} />
+              <Route path="/adamas/:slug" element={<AdamasProjectDetail />} />
               
               <Route path="*" element={<NotFound />} />
             </Routes>

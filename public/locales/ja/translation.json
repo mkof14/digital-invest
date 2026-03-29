@@ -235,7 +235,8 @@
     "legalNotice": "重要な法的通知：",
     "legalNoticeText": "Digital Invest Inc.は投資アドバイザー、ブローカーディーラー、公開募集プラットフォームではありません。",
     "riskDisclosure": "リスク開示：",
-    "riskDisclosureText": "参加にはすべて重大なリスクが伴い、資本の損失の可能性があります。招待制のプライベートプロセスです。"
+    "riskDisclosureText": "参加にはすべて重大なリスクが伴い、資本の損失の可能性があります。招待制のプライベートプロセスです。",
+    "adamasMaterials": "Adamas Materials"
   },
   "common": {
     "loading": "読み込み中...",
@@ -1506,5 +1507,32 @@
     "ideal4Desc": "Families prioritizing preventive health and wanting to establish good habits early in childhood.",
     "legalTitle": "Important Legal Notice",
     "legalText": "Family is an informational and organizational tool designed to help parents manage family health routines. It is not a medical device and does not diagnose, treat, or prevent any medical condition. The information and guidance provided are for educational purposes only. All medical decisions regarding children's health should be made in consultation with qualified pediatric healthcare professionals. Family does not replace professional medical advice, diagnosis, or treatment."
+  },
+  "adamas": {
+    "badge": "Adamas Materialsプロジェクト",
+    "heroTitle": "Adamas Materials",
+    "heroHighlight": "プロジェクトポートフォリオ",
+    "heroSubtitle": "ダイヤモンド産業、ロボティクス、Eコマース、デジタル資産、先進獣医技術にわたる多様なプロジェクトコレクション。",
+    "viewProject": "プロジェクトを見る",
+    "backToProjects": "Adamasプロジェクトに戻る",
+    "overview": "プロジェクト概要",
+    "highlight1": "プライベート運営",
+    "highlight2": "戦略的パートナーシップ",
+    "highlight3": "長期ビジョン",
+    "categories": { "materials": "素材・インフラ", "diamond": "ダイヤモンド産業", "robotics": "ロボティクスネットワーク", "talent": "人材・HR", "ecommerce": "Eコマース", "digital": "デジタル資産", "itMarketing": "IT・マーケティング", "vettech": "獣医テック・ロボティクス" },
+    "disclaimer": { "title": "重要なお知らせ:", "text": "このセクションは情報提供のみを目的としています。Adamas Materialsプロジェクトは別途提示され、公募を構成するものではありません。" },
+    "projects": {
+      "adamasMaterials": { "title": "Adamas Materials", "description": "グローバルサプライチェーンと先進製造能力を結ぶ戦略的素材調達と産業インフラ。", "longDescription": "Adamas Materialsは原材料調達、サプライチェーン最適化、産業製造インフラの交差点で事業を展開しています。" },
+      "originDiamond": { "title": "Origin Diamond", "description": "鉱山から市場までの完全なトレーサビリティを備えた出所確認済みダイヤモンド調達。", "longDescription": "Origin Diamondは包括的な出所確認システムを通じてダイヤモンドサプライチェーンに透明性と信頼をもたらします。" },
+      "agronNet": { "title": "AGRON-NET", "description": "自律システムとコマンドインフラを接続する分散ロボティクス運用ネットワーク。", "longDescription": "AGRON-NETは分散ロボティクス運用のための通信・調整バックボーンを提供します。" },
+      "agronWork": { "title": "AGRON-Work", "description": "自律ロボティクスと精密農業産業の人材獲得・育成プラットフォーム。", "longDescription": "AGRON-Workは自律ロボティクスと精密農業における重要な人材ギャップに対応します。" },
+      "abuMall": { "title": "Abu Mall", "description": "中東の高級品をグローバル市場に結ぶプレミアムEコマースマーケットプレイス。", "longDescription": "Abu Mallは中東の職人と世界の消費者を結ぶプレミアムデジタルマーケットプレイスを構築します。" },
+      "almaDiamond": { "title": "Alma Diamond", "description": "カスタムカット石とオーダーメイドジュエリーデザインに特化したブティックダイヤモンドブランド。", "longDescription": "Alma Diamondは伝統的なダイヤモンド職人技と現代的なデザイン感覚を融合します。" },
+      "jewelryDropshipping": { "title": "Jewelry DropShipping", "description": "在庫ゼロ運営を可能にするジュエリー小売業者向け自動フルフィルメントインフラ。", "longDescription": "Jewelry DropShippingはジュエリー小売業者の在庫負担を解消します。" },
+      "jatualDiamonds": { "title": "JATUAL DIAMONDS", "description": "精密グレーディングと機関レベルの文書を備えた産業用・投資用ダイヤモンド調達。", "longDescription": "JATUAL DIAMONDSは機関レベルの品質で産業・投資バイヤーにサービスを提供します。" },
+      "coinsTokens": { "title": "Coins and Tokens", "description": "トークン化された商品とコレクティブル資産のためのデジタル資産インフラ。", "longDescription": "Coins and Tokensは物理的資産を検証可能なデジタルトークンとして表現するインフラを開発します。" },
+      "innovationDiamonds": { "title": "INNOVATION DIAMONDS, IT & Marketing Group", "description": "ダイヤモンドおよびラグジュアリーセクターのデジタル変革を支援するフルサービス技術・マーケティング部門。", "longDescription": "INNOVATION DIAMONDSはAdamasエコシステムの技術・マーケティング部門として機能します。" },
+      "vetRobotics": { "title": "獣医情報・ロボティクスサービス", "description": "ラクダと馬のための専門獣医診断とロボット支援ケアプラットフォーム。", "longDescription": "この先駆的プロジェクトは、AIとロボティクスを活用してラクダと馬に先進的な獣医ケアを提供します。" }
+    }
   }
 }
