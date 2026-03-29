@@ -129,7 +129,7 @@ const Navigation = () => {
             {isAuthenticated ? (
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <Button variant="outline" className="flex items-center gap-2">
+                  <Button variant="ghost" className="flex items-center gap-2 border border-border/40 bg-transparent hover:bg-primary/10 hover:border-primary/40 transition-all duration-300">
                     <User className="h-4 w-4" />
                     <span className="max-w-[150px] truncate">{user?.email}</span>
                   </Button>
