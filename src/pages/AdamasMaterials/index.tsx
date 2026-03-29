@@ -230,18 +230,17 @@ const AdamasMaterialsOverview = () => {
       description: 'Adamas Materials is a diversified project portfolio spanning the diamond industry, robotics, e-commerce, digital assets, and advanced veterinary technology. 12 projects across 7+ sectors in 40+ countries.',
       ogTitle: 'Adamas Materials — Project Portfolio',
       ogDescription: 'Diversified portfolio of 12 projects across diamond industry, robotics, e-commerce, digital assets, and veterinary technology. Operating in 40+ countries.',
-      ogImage: 'https://digitalinvest.com/adamas-og-image.png',
+      ogImage: 'https://www.digitalinvest.com/adamas-og-image.png',
       ogType: 'website',
       canonicalUrl: 'https://digitalinvest.com/adamas',
     });
 
-    // Organization JSON-LD
     injectStructuredData({
       "@context": "https://schema.org",
       "@type": "Organization",
       "name": "Adamas Materials",
       "url": "https://digitalinvest.com/adamas",
-      "logo": "https://digitalinvest.com/adamas-og-image.png",
+      "logo": "https://www.digitalinvest.com/adamas-og-image.png",
       "description": "Diversified project portfolio spanning the diamond industry, robotics, e-commerce, digital assets, and advanced veterinary technology.",
       "numberOfEmployees": { "@type": "QuantitativeValue", "value": "200+" },
       "areaServed": "Worldwide",
