@@ -15,6 +15,7 @@ import { generateProjectSchema, generateBreadcrumbSchema, injectStructuredData, 
 import OptimizedImage from '@/components/OptimizedImage';
 import { MarkdownContent } from '@/components/MarkdownContent';
 import InvestorPageDisclaimer from '@/components/InvestorPageDisclaimer';
+import ProjectDocumentButtons from '@/components/ProjectDocumentButtons';
 import biomathCoreHero from '@/assets/projects/biomath-core-hero.jpg';
 import digitalInvestHero from '@/assets/projects/digitalinvest-hero.jpg';
 
@@ -414,6 +415,7 @@ const ProjectDetail = () => {
                     </a>
                   </Button>
                 )}
+                <ProjectDocumentButtons projectSlug={project.slug} projectId={project.id} />
               </div>
               <p className="text-sm text-muted-foreground mt-2">
                 Non-binding request • No payment required

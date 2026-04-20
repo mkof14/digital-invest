@@ -297,6 +297,12 @@ const AdminDashboard = () => {
               Handbook Downloads
             </Button>
           </Link>
+          <Link to="/admin/project-documents">
+            <Button variant="outline" className="w-full h-20" size="lg">
+              <FileText className="mr-2 h-5 w-5" />
+              Project Documents
+            </Button>
+          </Link>
           <Link to="/admin/users">
             <Button variant="outline" className="w-full h-20" size="lg">
               <Shield className="mr-2 h-5 w-5" />
