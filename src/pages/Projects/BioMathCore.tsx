@@ -241,8 +241,137 @@ const BioMathCore = () => {
           </div>
         </section>
 
+        {/* ═══════════════════════ ECOSYSTEM FAN DIAGRAM ═══════════════════════ */}
+        <section className="relative py-24 overflow-hidden bg-[hsl(220,28%,3.5%)]">
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,hsl(25,90%,12%)_0%,transparent_60%)]" />
+          <div className="container mx-auto px-4 relative z-10">
+            <div className="max-w-3xl mx-auto text-center mb-12">
+              <Badge className="mb-4 bg-[hsl(25,90%,55%)]/10 text-[hsl(25,90%,70%)] border-[hsl(25,90%,55%)]/25 uppercase tracking-wider">
+                {t('projectBiomathCore.fanBadge', 'Ecosystem Map')}
+              </Badge>
+              <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
+                {t('projectBiomathCore.fanTitle', 'One Core. An Entire Ecosystem of Products.')}
+              </h2>
+              <p className="text-base md:text-lg text-[hsl(210,15%,70%)] leading-relaxed">
+                {t('projectBiomathCore.fanLead', 'BioMath Core sits at the center. Every other digital health product in the portfolio — from longevity to family care — connects to and is powered by this single architectural Core.')}
+              </p>
+            </div>
+
+            {(() => {
+              const nodes = [
+                { name: 'BioMath Life',   color: 'hsl(195,85%,60%)' },
+                { name: 'LongevityCore',  color: 'hsl(35,95%,60%)'  },
+                { name: 'FamilyCore',     color: 'hsl(15,85%,60%)'  },
+                { name: 'SkinCore',       color: 'hsl(330,75%,62%)' },
+                { name: 'SeniorCore',     color: 'hsl(45,85%,58%)'  },
+                { name: 'StressCore',     color: 'hsl(270,70%,65%)' },
+                { name: 'BioAgeCore',     color: 'hsl(160,70%,50%)' },
+                { name: 'LunaBalance',    color: 'hsl(310,65%,62%)' },
+                { name: 'VitalCore',      color: 'hsl(0,75%,60%)'   },
+                { name: 'MRX Health',     color: 'hsl(210,80%,62%)' },
+                { name: 'BaseLine',       color: 'hsl(140,60%,55%)' },
+                { name: 'MyDay',          color: 'hsl(250,70%,65%)' },
+              ];
+              const W = 900, H = 620, cx = W / 2, cy = H / 2, r = 250;
+              return (
+                <div className="max-w-5xl mx-auto">
+                  <div className="rounded-3xl border border-[hsl(25,90%,55%)]/15 bg-[hsl(220,30%,5%)]/60 backdrop-blur-sm p-4 md:p-8">
+                    <svg
+                      viewBox={`0 0 ${W} ${H}`}
+                      className="w-full h-auto"
+                      role="img"
+                      aria-label="BioMath Core ecosystem fan diagram"
+                    >
+                      <defs>
+                        <radialGradient id="fanCoreGlow" cx="50%" cy="50%" r="50%">
+                          <stop offset="0%" stopColor="hsl(25,95%,60%)" stopOpacity="0.55" />
+                          <stop offset="100%" stopColor="hsl(25,95%,60%)" stopOpacity="0" />
+                        </radialGradient>
+                        <radialGradient id="fanCoreFill" cx="50%" cy="50%" r="50%">
+                          <stop offset="0%" stopColor="hsl(35,95%,65%)" />
+                          <stop offset="100%" stopColor="hsl(25,95%,50%)" />
+                        </radialGradient>
+                      </defs>
+
+                      {/* Orbit rings */}
+                      <circle cx={cx} cy={cy} r={r * 0.45} fill="none" stroke="hsl(25,90%,55%)" strokeOpacity="0.08" strokeWidth="1" />
+                      <circle cx={cx} cy={cy} r={r * 0.75} fill="none" stroke="hsl(25,90%,55%)" strokeOpacity="0.08" strokeWidth="1" />
+                      <circle cx={cx} cy={cy} r={r}        fill="none" stroke="hsl(25,90%,55%)" strokeOpacity="0.10" strokeWidth="1" />
+
+                      {/* Connecting lines (Core → satellites) */}
+                      {nodes.map((n, i) => {
+                        const a = (i / nodes.length) * Math.PI * 2 - Math.PI / 2;
+                        const x = cx + Math.cos(a) * r;
+                        const y = cy + Math.sin(a) * r;
+                        return (
+                          <line
+                            key={`l-${n.name}`}
+                            x1={cx} y1={cy} x2={x} y2={y}
+                            stroke={n.color}
+                            strokeOpacity="0.45"
+                            strokeWidth="1.25"
+                          />
+                        );
+                      })}
+
+                      {/* Core glow + core node */}
+                      <circle cx={cx} cy={cy} r="120" fill="url(#fanCoreGlow)" />
+                      <circle cx={cx} cy={cy} r="62" fill="url(#fanCoreFill)" stroke="hsl(35,100%,75%)" strokeWidth="1.5" />
+                      <text x={cx} y={cy - 4} textAnchor="middle" fontSize="18" fontWeight="700" fill="white" style={{ fontFamily: 'inherit' }}>BioMath</text>
+                      <text x={cx} y={cy + 18} textAnchor="middle" fontSize="18" fontWeight="700" fill="white" style={{ fontFamily: 'inherit' }}>Core</text>
+
+                      {/* Satellite nodes */}
+                      {nodes.map((n, i) => {
+                        const a = (i / nodes.length) * Math.PI * 2 - Math.PI / 2;
+                        const x = cx + Math.cos(a) * r;
+                        const y = cy + Math.sin(a) * r;
+                        // label offset: push outward from center
+                        const labelDx = Math.cos(a) * 14;
+                        const labelDy = Math.sin(a) * 14;
+                        const anchor = Math.cos(a) > 0.25 ? 'start' : Math.cos(a) < -0.25 ? 'end' : 'middle';
+                        return (
+                          <g key={`n-${n.name}`}>
+                            <circle cx={x} cy={y} r="22" fill="hsl(220,30%,8%)" stroke={n.color} strokeWidth="2" />
+                            <circle cx={x} cy={y} r="6" fill={n.color} />
+                            <text
+                              x={x + labelDx}
+                              y={y + labelDy + 4}
+                              textAnchor={anchor}
+                              fontSize="13"
+                              fontWeight="600"
+                              fill="hsl(210,15%,88%)"
+                              style={{ fontFamily: 'inherit' }}
+                            >
+                              {n.name}
+                            </text>
+                          </g>
+                        );
+                      })}
+                    </svg>
+
+                    {/* Mobile-friendly legend below */}
+                    <div className="mt-6 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 md:hidden">
+                      {nodes.map((n) => (
+                        <div key={`leg-${n.name}`} className="flex items-center gap-2 text-xs text-[hsl(210,15%,80%)]">
+                          <span className="inline-block w-2.5 h-2.5 rounded-full" style={{ background: n.color }} />
+                          {n.name}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <p className="text-center text-xs uppercase tracking-[0.2em] text-[hsl(25,90%,65%)] mt-6 font-semibold">
+                    {t('projectBiomathCore.fanCaption', '12+ products · 200+ services · 1 architectural Core')}
+                  </p>
+                </div>
+              );
+            })()}
+          </div>
+        </section>
+
 
         <section className="container mx-auto px-4 py-20">
+
           <div className="text-center mb-12">
             <Badge className="mb-4 bg-[hsl(25,90%,55%)]/10 text-[hsl(25,90%,70%)] border-[hsl(25,90%,55%)]/25 uppercase tracking-wider">
               The Architecture Difference
