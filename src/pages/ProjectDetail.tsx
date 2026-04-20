@@ -18,6 +18,7 @@ import InvestorPageDisclaimer from '@/components/InvestorPageDisclaimer';
 import ProjectDocumentButtons from '@/components/ProjectDocumentButtons';
 import biomathCoreHero from '@/assets/projects/biomath-core-hero.jpg';
 import digitalInvestHero from '@/assets/projects/digitalinvest-hero.jpg';
+import agronHero from '@/assets/projects/agron-hero.jpg';
 
 interface Project {
   id: string;
@@ -301,11 +302,14 @@ const ProjectDetail = () => {
 
   const isBioMathCore = project.slug === 'biomath-core';
   const isDigitalInvestPortfolio = project.slug === 'digital-invest-portfolio';
+  const isAgron = project.slug === 'agron';
   const heroImageSrc = isBioMathCore
     ? biomathCoreHero
     : isDigitalInvestPortfolio
       ? digitalInvestHero
-      : project.hero_image_url;
+      : isAgron
+        ? agronHero
+        : project.hero_image_url;
 
   const fallbackWebsiteUrl = (() => {
     switch (project.slug) {
