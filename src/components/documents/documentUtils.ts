@@ -42,7 +42,7 @@ export const getFileExtension = (doc: Pick<ProjectDocumentRecord, 'file_name' | 
   return 'FILE';
 };
 
-export const isPreviewable = (doc: Pick<ProjectDocumentRecord, 'file_type' | 'file_name' | 'external_url'>): boolean => {
+export const isPreviewable = (doc: Pick<ProjectDocumentRecord, 'file_type' | 'file_name' | 'external_url' | 'file_path'>): boolean => {
   if (doc.external_url && !doc.file_path) return true;
   const t = (doc.file_type || '').toLowerCase();
   const n = (doc.file_name || '').toLowerCase();
