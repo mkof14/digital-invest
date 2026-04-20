@@ -385,10 +385,18 @@ const BioMathCore = () => {
                             to={`/projects/${n.slug}`}
                             aria-label={`Open ${n.name} project page — ${n.desc}`}
                             className="cursor-pointer outline-none focus-visible:[&_circle]:stroke-white hover:[&_circle:nth-child(2)]:fill-[hsl(220,30%,12%)] hover:[&_text]:fill-white transition-colors"
-                            onMouseEnter={() => setHoveredFan(i)}
-                            onMouseLeave={() => setHoveredFan((cur) => (cur === i ? null : cur))}
+                            onMouseEnter={() => { if (!isTouch) setHoveredFan(i); }}
+                            onMouseLeave={() => { if (!isTouch) setHoveredFan((cur) => (cur === i ? null : cur)); }}
                             onFocus={() => setHoveredFan(i)}
                             onBlur={() => setHoveredFan((cur) => (cur === i ? null : cur))}
+                            onClick={(e) => {
+                              // On touch devices: first tap reveals the tooltip,
+                              // a second tap on the same satellite proceeds to navigate.
+                              if (isTouch && hoveredFan !== i) {
+                                e.preventDefault();
+                                setHoveredFan(i);
+                              }
+                            }}
                           >
                             <g>
                               {/* invisible larger hit target for easier clicking */}
