@@ -16,6 +16,7 @@ import OptimizedImage from '@/components/OptimizedImage';
 import { MarkdownContent } from '@/components/MarkdownContent';
 import InvestorPageDisclaimer from '@/components/InvestorPageDisclaimer';
 import ProjectDocumentButtons from '@/components/ProjectDocumentButtons';
+import ProjectDocumentsSection from '@/components/ProjectDocumentsSection';
 import biomathCoreHero from '@/assets/projects/biomath-core-hero.jpg';
 import digitalInvestHero from '@/assets/projects/digitalinvest-hero.jpg';
 import agronHero from '@/assets/projects/agron-hero.jpg';
@@ -431,6 +432,9 @@ const ProjectDetail = () => {
         </div>
 
         <Separator className="my-12" />
+
+        {/* Documents & Resources Section */}
+        <ProjectDocumentsSection projectSlug={project.slug} projectId={project.id} />
 
         {/* Investment Highlights Section */}
         <section className="mb-16">
