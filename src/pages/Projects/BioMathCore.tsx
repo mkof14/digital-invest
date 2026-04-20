@@ -787,7 +787,7 @@ const BioMathCore = () => {
         <section className="container mx-auto px-4 py-24 cv-auto">
           <div className="text-center mb-14">
             <Badge className="mb-4 bg-[hsl(var(--bm-blue))]/10 text-[hsl(var(--bm-blue-soft))] border-[hsl(var(--bm-blue))]/25 uppercase tracking-wider">
-              Time as an Asset
+              {t('projectBiomathCore.timeBadge', 'Time as an Asset')}
             </Badge>
             <h2 className="text-3xl md:text-5xl font-bold text-[hsl(var(--bm-text-strong))] mb-4">
               {t('projectBiomathCore.timeTitle', 'The Compounding Power of Time')}
