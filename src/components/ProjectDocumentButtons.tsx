@@ -61,7 +61,7 @@ const ProjectDocumentButtons = ({ projectSlug, projectId }: Props) => {
           size="lg"
           variant="outline"
           asChild
-          className="border-primary/40 hover:border-primary"
+          className="text-lg px-8 py-6 border-primary/40 hover:border-primary"
         >
           <a
             href={getUrl(doc)}

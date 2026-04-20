@@ -399,33 +399,35 @@ const ProjectDetail = () => {
           </div>
 
           {/* CTA Buttons */}
-          {project.status === 'OPEN' && (
-            <div className="text-center mb-12 space-y-4">
-              <div className="flex flex-wrap justify-center gap-4">
+          <div className="text-center mb-12 space-y-4">
+            <div className="flex flex-wrap justify-center gap-4">
+              {project.status === 'OPEN' && (
                 <Button size="lg" className="text-lg px-8 py-6" onClick={() => setShowInterestForm(true)}>
                   <TrendingUp className="mr-2 h-5 w-5" />
                   Request Private Information
                 </Button>
-                {websiteUrl && (
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    asChild
-                    className="text-lg px-8 py-6 border-primary/40 hover:border-primary"
-                  >
-                    <a href={websiteUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
-                      <Globe className="h-5 w-5" />
-                      <span>Visit Website</span>
-                    </a>
-                  </Button>
-                )}
-                <ProjectDocumentButtons projectSlug={project.slug} projectId={project.id} />
-              </div>
+              )}
+              {websiteUrl && (
+                <Button
+                  size="lg"
+                  variant="outline"
+                  asChild
+                  className="text-lg px-8 py-6 border-primary/40 hover:border-primary"
+                >
+                  <a href={websiteUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+                    <Globe className="h-5 w-5" />
+                    <span>Visit Website</span>
+                  </a>
+                </Button>
+              )}
+              <ProjectDocumentButtons projectSlug={project.slug} projectId={project.id} />
+            </div>
+            {project.status === 'OPEN' && (
               <p className="text-sm text-muted-foreground mt-2">
                 Non-binding request • No payment required
               </p>
-            </div>
-          )}
+            )}
+          </div>
         </div>
 
         <Separator className="my-12" />
