@@ -279,18 +279,18 @@ const BioMathCore = () => {
 
             {(() => {
               const nodes = [
-                { name: 'BioMath Life',   color: 'hsl(195,85%,60%)', slug: 'biomathlife'    },
-                { name: 'LongevityCore',  color: 'hsl(35,95%,60%)',  slug: 'longevitycore'  },
-                { name: 'FamilyCore',     color: 'hsl(15,85%,60%)',  slug: 'familycore'     },
-                { name: 'SkinCore',       color: 'hsl(330,75%,62%)', slug: 'skincore'       },
-                { name: 'SeniorCore',     color: 'hsl(45,85%,58%)',  slug: 'seniorcore'     },
-                { name: 'StressCore',     color: 'hsl(270,70%,65%)', slug: 'stresscore'     },
-                { name: 'BioAgeCore',     color: 'hsl(160,70%,50%)', slug: 'bioagecore'     },
-                { name: 'LunaBalance',    color: 'hsl(310,65%,62%)', slug: 'luna-balance'   },
-                { name: 'VitalCore',      color: 'hsl(0,75%,60%)',   slug: 'vitalcore'      },
-                { name: 'MRX Health',     color: 'hsl(210,80%,62%)', slug: 'mrx-health'     },
-                { name: 'BaseLine',       color: 'hsl(140,60%,55%)', slug: 'baseline'       },
-                { name: 'MyDay',          color: 'hsl(250,70%,65%)', slug: 'myday'          },
+                { name: 'BioMath Life',   color: 'hsl(195,85%,60%)', slug: 'biomathlife',   desc: 'Personal digital health companion built on the BioMath Core' },
+                { name: 'LongevityCore',  color: 'hsl(35,95%,60%)',  slug: 'longevitycore', desc: 'Biological-age tracking and lifespan optimization' },
+                { name: 'FamilyCore',     color: 'hsl(15,85%,60%)',  slug: 'familycore',    desc: 'Whole-family health graph and shared care decisions' },
+                { name: 'SkinCore',       color: 'hsl(330,75%,62%)', slug: 'skincore',      desc: 'Dermatology and skin-health intelligence' },
+                { name: 'SeniorCore',     color: 'hsl(45,85%,58%)',  slug: 'seniorcore',    desc: 'Healthy aging and senior care monitoring' },
+                { name: 'StressCore',     color: 'hsl(270,70%,65%)', slug: 'stresscore',    desc: 'Stress, recovery and nervous-system balance' },
+                { name: 'BioAgeCore',     color: 'hsl(160,70%,50%)', slug: 'bioagecore',    desc: 'Multi-marker biological-age engine' },
+                { name: 'LunaBalance',    color: 'hsl(310,65%,62%)', slug: 'luna-balance',  desc: "Women's hormonal and cycle health" },
+                { name: 'VitalCore',      color: 'hsl(0,75%,60%)',   slug: 'vitalcore',     desc: 'Continuous vitals and cardiometabolic insights' },
+                { name: 'MRX Health',     color: 'hsl(210,80%,62%)', slug: 'mrx-health',    desc: 'Clinical-grade medical record intelligence' },
+                { name: 'BaseLine',       color: 'hsl(140,60%,55%)', slug: 'baseline',      desc: 'Personal health baseline and trend tracking' },
+                { name: 'MyDay',          color: 'hsl(250,70%,65%)', slug: 'myday',         desc: 'AI daily planning and habit optimization' },
               ];
               const W = 900, H = 620, cx = W / 2, cy = H / 2, r = 250;
               return (
