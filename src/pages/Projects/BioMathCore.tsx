@@ -61,6 +61,7 @@ const BioMathCore = () => {
   const fanRef = useRef<HTMLDivElement | null>(null);
   const [fanInView, setFanInView] = useState(false);
   const [hoveredFan, setHoveredFan] = useState<number | null>(null);
+  const [isTouch, setIsTouch] = useState(false);
   useEffect(() => {
     const el = fanRef.current;
     if (!el) return;
@@ -78,6 +79,25 @@ const BioMathCore = () => {
     obs.observe(el);
     return () => obs.disconnect();
   }, []);
+  // Detect coarse pointer (touch) devices for tap-to-toggle behaviour
+  useEffect(() => {
+    if (typeof window === 'undefined' || !window.matchMedia) return;
+    const mq = window.matchMedia('(hover: none) and (pointer: coarse)');
+    const update = () => setIsTouch(mq.matches);
+    update();
+    mq.addEventListener?.('change', update);
+    return () => mq.removeEventListener?.('change', update);
+  }, []);
+  // Auto-dismiss the tooltip on touch when tapping outside the diagram
+  useEffect(() => {
+    if (!isTouch || hoveredFan === null) return;
+    const onDocPointer = (e: PointerEvent) => {
+      const root = fanRef.current;
+      if (root && !root.contains(e.target as Node)) setHoveredFan(null);
+    };
+    document.addEventListener('pointerdown', onDocPointer, true);
+    return () => document.removeEventListener('pointerdown', onDocPointer, true);
+  }, [isTouch, hoveredFan]);
   return (
     <div className="min-h-screen bg-[hsl(220,20%,4%)] text-[hsl(210,15%,85%)]">
       <Navigation />
@@ -365,10 +385,18 @@ const BioMathCore = () => {
                             to={`/projects/${n.slug}`}
                             aria-label={`Open ${n.name} project page — ${n.desc}`}
                             className="cursor-pointer outline-none focus-visible:[&_circle]:stroke-white hover:[&_circle:nth-child(2)]:fill-[hsl(220,30%,12%)] hover:[&_text]:fill-white transition-colors"
-                            onMouseEnter={() => setHoveredFan(i)}
-                            onMouseLeave={() => setHoveredFan((cur) => (cur === i ? null : cur))}
+                            onMouseEnter={() => { if (!isTouch) setHoveredFan(i); }}
+                            onMouseLeave={() => { if (!isTouch) setHoveredFan((cur) => (cur === i ? null : cur)); }}
                             onFocus={() => setHoveredFan(i)}
                             onBlur={() => setHoveredFan((cur) => (cur === i ? null : cur))}
+                            onClick={(e) => {
+                              // On touch devices: first tap reveals the tooltip,
+                              // a second tap on the same satellite proceeds to navigate.
+                              if (isTouch && hoveredFan !== i) {
+                                e.preventDefault();
+                                setHoveredFan(i);
+                              }
+                            }}
                           >
                             <g>
                               {/* invisible larger hit target for easier clicking */}
