@@ -33,8 +33,7 @@ let prefetchedDetail = false;
 export function prefetchProject(slug: string) {
   if (typeof window === 'undefined') return;
   // Avoid prefetching on slow networks / data-saver
-  // @ts-expect-error - non-standard but widely supported on mobile
-  const conn = (navigator as any).connection;
+  const conn = (navigator as unknown as { connection?: { saveData?: boolean; effectiveType?: string } }).connection;
   if (conn?.saveData) return;
   if (conn?.effectiveType && /^(slow-2g|2g)$/.test(conn.effectiveType)) return;
 
