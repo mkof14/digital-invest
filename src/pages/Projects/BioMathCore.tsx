@@ -62,55 +62,69 @@ const BioMathCore = () => {
       <Navigation />
       
       {/* ═══════════════════════ HERO ═══════════════════════ */}
-      <section className="relative min-h-[85vh] flex items-center overflow-hidden">
+      <section className="relative min-h-[92vh] flex items-center overflow-hidden bg-[hsl(220,30%,3%)]">
+        {/* Deep space backdrop */}
         <div className="absolute inset-0 z-0">
-          <img src={biomathCardBg} alt="" className="w-full h-full object-cover opacity-40" />
-          <div className="absolute inset-0 bg-gradient-to-b from-[hsl(220,20%,4%)]/60 via-[hsl(220,20%,4%)]/30 to-[hsl(220,20%,4%)]" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[hsl(220,20%,4%)]/90 via-transparent to-[hsl(220,20%,4%)]/70" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_70%_50%,hsl(25,90%,15%)_0%,transparent_55%),radial-gradient(ellipse_at_20%_80%,hsl(210,80%,12%)_0%,transparent_50%),hsl(220,30%,3%)]" />
+          {/* Subtle starfield */}
+          <div className="absolute inset-0 opacity-40 [background-image:radial-gradient(white_1px,transparent_1px)] [background-size:48px_48px]" />
         </div>
 
-        <div className="container mx-auto px-4 relative z-10 py-32">
+        {/* Orbital core image — right side, dominant */}
+        <div className="absolute inset-y-0 right-0 w-full md:w-[60%] lg:w-[55%] z-0 pointer-events-none">
+          <div className="relative w-full h-full">
+            <img
+              src={presHero}
+              alt="BioMath Core — orbital architecture of the personal human model"
+              className="absolute inset-0 w-full h-full object-contain object-right opacity-95 [filter:drop-shadow(0_0_80px_hsl(25,95%,55%/0.35))]"
+            />
+            {/* Soft fade into background on the left edge */}
+            <div className="absolute inset-y-0 left-0 w-1/2 bg-gradient-to-r from-[hsl(220,30%,3%)] via-[hsl(220,30%,3%)]/80 to-transparent" />
+          </div>
+        </div>
+
+        <div className="container mx-auto px-4 relative z-10 py-28">
           <Link to="/projects" className="inline-block mb-8">
-            <Button variant="ghost" size="sm" className="text-[hsl(200,80%,70%)] hover:bg-[hsl(200,80%,50%)]/10 border border-[hsl(200,80%,50%)]/20">
+            <Button variant="ghost" size="sm" className="text-[hsl(25,90%,65%)] hover:bg-[hsl(25,90%,55%)]/10 border border-[hsl(25,90%,55%)]/25">
               <ArrowLeft className="w-4 h-4 mr-2" />
               {t('projectCommon.backToProjects')}
             </Button>
           </Link>
 
-          <div className="max-w-4xl">
-            <Badge className="mb-6 bg-[hsl(200,80%,50%)]/15 text-[hsl(200,80%,70%)] border-[hsl(200,80%,50%)]/30 text-sm px-4 py-1">
-              {t('projectBiomathCore.badge', 'Digital Health · Foundation Platform')}
+          <div className="max-w-3xl">
+            <Badge className="mb-6 bg-[hsl(25,90%,55%)]/15 text-[hsl(25,90%,70%)] border-[hsl(25,90%,55%)]/30 text-sm px-4 py-1 uppercase tracking-wider">
+              {t('projectBiomathCore.badge', 'Digital Health · Foundation Architecture')}
             </Badge>
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-[0.95]">
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-[0.92] tracking-tight">
               <span className="text-white">BioMath</span>{" "}
-              <span className="text-[hsl(200,80%,55%)]">Core</span>
+              <span className="bg-gradient-to-r from-[hsl(25,95%,60%)] via-[hsl(35,95%,65%)] to-[hsl(25,95%,55%)] bg-clip-text text-transparent">Core</span>
             </h1>
-            <p className="text-2xl md:text-3xl font-light text-[hsl(210,15%,75%)] mb-4">
+            <p className="text-2xl md:text-4xl font-light text-white/95 mb-5 leading-tight">
               {t('projectBiomathCore.heroSubtitle')}
             </p>
-            <p className="text-lg text-[hsl(210,10%,60%)] max-w-2xl mb-10 leading-relaxed">
+            <p className="text-lg text-[hsl(210,15%,70%)] max-w-2xl mb-10 leading-relaxed">
               {t('projectBiomathCore.heroDesc')}
             </p>
             <div className="flex gap-4 flex-wrap">
               <Link to="/start-investing">
-                <Button size="lg" className="bg-[hsl(200,80%,50%)] hover:bg-[hsl(200,80%,45%)] text-white px-8">
+                <Button size="lg" className="bg-gradient-to-r from-[hsl(25,90%,55%)] to-[hsl(35,95%,55%)] hover:from-[hsl(25,90%,50%)] hover:to-[hsl(35,95%,50%)] text-white px-8 shadow-lg shadow-[hsl(25,90%,40%)]/30 border-0">
                   {t('projectCommon.requestInformation')}
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
               </Link>
-              <Button size="lg" variant="outline" asChild className="border-[hsl(200,80%,50%)]/30 text-[hsl(200,80%,70%)] hover:bg-[hsl(200,80%,50%)]/10">
+              <Button size="lg" variant="outline" asChild className="border-[hsl(200,80%,55%)]/40 text-[hsl(200,80%,75%)] hover:bg-[hsl(200,80%,55%)]/10 bg-[hsl(220,30%,6%)]/60 backdrop-blur-sm">
                 <a href="https://biomathcore.com" target="_blank" rel="noopener noreferrer">
                   <Globe className="h-5 w-5 mr-2" />
                   biomathcore.com
                 </a>
               </Button>
-              <Button size="lg" variant="outline" asChild className="border-[hsl(210,15%,25%)] text-[hsl(210,10%,65%)] hover:bg-[hsl(210,15%,12%)]">
+              <Button size="lg" variant="outline" asChild className="border-[hsl(210,15%,30%)] text-[hsl(210,10%,75%)] hover:bg-[hsl(210,15%,12%)] bg-[hsl(220,30%,6%)]/60 backdrop-blur-sm">
                 <a href="/investor-briefs/biomath-core-investor-brief.pdf" download="BioMath-Core-Investor-Brief.pdf">
                   <Download className="w-5 h-5 mr-2" />
                   {t('projectCommon.investorBrief')}
                 </a>
               </Button>
-              <Button size="lg" variant="outline" asChild className="border-[hsl(210,15%,25%)] text-[hsl(210,10%,65%)] hover:bg-[hsl(210,15%,12%)]">
+              <Button size="lg" variant="outline" asChild className="border-[hsl(210,15%,30%)] text-[hsl(210,10%,75%)] hover:bg-[hsl(210,15%,12%)] bg-[hsl(220,30%,6%)]/60 backdrop-blur-sm">
                 <a href="#infographics">
                   <Images className="w-5 h-5 mr-2" />
                   {t('projectCommon.infographics')}
@@ -119,6 +133,9 @@ const BioMathCore = () => {
             </div>
           </div>
         </div>
+
+        {/* Bottom fade into next section */}
+        <div className="absolute bottom-0 inset-x-0 h-32 bg-gradient-to-b from-transparent to-[hsl(220,20%,4%)] z-10 pointer-events-none" />
       </section>
 
       <main className="relative z-10">
