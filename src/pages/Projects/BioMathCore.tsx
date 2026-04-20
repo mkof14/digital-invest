@@ -316,6 +316,198 @@ const BioMathCore = () => {
           </div>
         </section>
 
+        {/* ═══════════════════════ DUAL-OPINION COGNITIVE ENGINE (from presentation) ═══════════════════════ */}
+        <section className="relative py-24 overflow-hidden bg-[hsl(220,30%,3%)] border-y border-[hsl(210,15%,12%)]">
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_50%,hsl(25,90%,15%)_0%,transparent_60%)] opacity-60" />
+          <div className="container mx-auto px-4 relative z-10">
+            <div className="text-center mb-14">
+              <Badge className="mb-4 bg-[hsl(25,90%,55%)]/10 text-[hsl(25,90%,70%)] border-[hsl(25,90%,55%)]/25 uppercase tracking-wider">
+                How the System Thinks
+              </Badge>
+              <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
+                {t('projectBiomathCore.dualEngineTitle', 'The Dual-Opinion Cognitive Engine')}
+              </h2>
+              <p className="text-[hsl(210,10%,65%)] max-w-2xl mx-auto">
+                {t('projectBiomathCore.dualEngineSubtitle', 'Every new signal is evaluated in parallel — not sequentially. This is not a software function; it is the native way the platform thinks.')}
+              </p>
+            </div>
+
+            <div className="max-w-6xl mx-auto">
+              <div className="flex justify-center mb-8">
+                <div className="bg-[hsl(220,25%,6%)] border border-[hsl(25,90%,55%)]/30 rounded-2xl px-8 py-5 text-center shadow-lg shadow-[hsl(25,90%,30%)]/10">
+                  <p className="text-xs uppercase tracking-widest text-[hsl(25,90%,65%)] mb-1">Input</p>
+                  <p className="text-xl font-bold text-white">{t('projectBiomathCore.dualEngineSignal', 'New Signal')}</p>
+                </div>
+              </div>
+
+              <div className="hidden md:flex justify-center mb-2">
+                <div className="w-2/3 h-12 relative">
+                  <div className="absolute top-0 left-1/2 w-px h-6 bg-gradient-to-b from-[hsl(25,90%,55%)]/50 to-transparent -translate-x-1/2" />
+                  <div className="absolute top-6 left-1/4 right-1/4 h-px bg-gradient-to-r from-[hsl(25,90%,55%)]/40 via-[hsl(25,90%,55%)]/60 to-[hsl(25,90%,55%)]/40" />
+                  <div className="absolute top-6 left-1/4 w-px h-6 bg-gradient-to-b from-[hsl(25,90%,55%)]/50 to-transparent" />
+                  <div className="absolute top-6 right-1/4 w-px h-6 bg-gradient-to-b from-[hsl(25,90%,55%)]/50 to-transparent" />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+                <div className="bg-[hsl(220,22%,7%)] border border-[hsl(200,80%,55%)]/25 rounded-2xl p-8 hover:border-[hsl(200,80%,55%)]/50 transition-all duration-500">
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="w-12 h-12 rounded-xl bg-[hsl(200,80%,55%)]/15 border border-[hsl(200,80%,55%)]/30 flex items-center justify-center">
+                      <Cpu className="w-6 h-6 text-[hsl(200,80%,70%)]" />
+                    </div>
+                    <div>
+                      <p className="text-xs uppercase tracking-wider text-[hsl(200,80%,70%)]">Track 1</p>
+                      <h3 className="text-xl font-bold text-white">{t('projectBiomathCore.dualEngineLocalTitle', 'Local Opinion')}</h3>
+                    </div>
+                  </div>
+                  <p className="text-[hsl(210,15%,75%)] leading-relaxed">
+                    {t('projectBiomathCore.dualEngineLocalDesc', 'Formed inside a specific service or category. Deep, autonomous analysis based purely on local domain logic — clean, focused, undiluted by adjacent context.')}
+                  </p>
+                </div>
+
+                <div className="bg-[hsl(220,22%,7%)] border border-[hsl(25,90%,55%)]/25 rounded-2xl p-8 hover:border-[hsl(25,90%,55%)]/50 transition-all duration-500">
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="w-12 h-12 rounded-xl bg-[hsl(25,90%,55%)]/15 border border-[hsl(25,90%,55%)]/30 flex items-center justify-center">
+                      <Layers className="w-6 h-6 text-[hsl(25,90%,70%)]" />
+                    </div>
+                    <div>
+                      <p className="text-xs uppercase tracking-wider text-[hsl(25,90%,70%)]">Track 2</p>
+                      <h3 className="text-xl font-bold text-white">{t('projectBiomathCore.dualEngineSystemicTitle', 'Systemic Opinion')}</h3>
+                    </div>
+                  </div>
+                  <p className="text-[hsl(210,15%,75%)] leading-relaxed">
+                    {t('projectBiomathCore.dualEngineSystemicDesc', 'Evaluated against active history, cross-category influences and the established structural map of the individual — placing the signal inside the whole picture.')}
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex justify-center mb-6">
+                <div className="flex flex-col items-center gap-2">
+                  <div className="w-px h-8 bg-gradient-to-b from-transparent via-[hsl(25,90%,55%)]/60 to-[hsl(25,90%,55%)]" />
+                  <ArrowRight className="w-5 h-5 text-[hsl(25,90%,65%)] rotate-90" />
+                </div>
+              </div>
+
+              <div className="flex justify-center">
+                <div className="bg-gradient-to-br from-[hsl(25,90%,18%)] via-[hsl(220,25%,6%)] to-[hsl(200,80%,15%)] border border-[hsl(25,90%,55%)]/40 rounded-2xl px-8 py-6 text-center max-w-2xl shadow-xl shadow-[hsl(25,90%,30%)]/20">
+                  <p className="text-xs uppercase tracking-widest text-[hsl(25,90%,70%)] mb-2">Output</p>
+                  <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">
+                    {t('projectBiomathCore.dualEngineUnifiedTitle', 'Unified Conclusion')}
+                  </h3>
+                  <p className="text-[hsl(210,15%,80%)]">
+                    {t('projectBiomathCore.dualEngineUnifiedDesc', 'A single decision that respects both the depth of the domain and the structure of the whole — eliminating superficial interpretations.')}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ═══════════════════════ COMPOUNDING POWER OF TIME (from presentation) ═══════════════════════ */}
+        <section className="container mx-auto px-4 py-24">
+          <div className="text-center mb-14">
+            <Badge className="mb-4 bg-[hsl(200,80%,55%)]/10 text-[hsl(200,80%,75%)] border-[hsl(200,80%,55%)]/25 uppercase tracking-wider">
+              Time as an Asset
+            </Badge>
+            <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
+              {t('projectBiomathCore.timeTitle', 'The Compounding Power of Time')}
+            </h2>
+            <p className="text-[hsl(210,10%,65%)] max-w-2xl mx-auto">
+              {t('projectBiomathCore.timeSubtitle', 'Each phase deepens the structural map. The longer the user stays, the more irreplaceable the model becomes.')}
+            </p>
+          </div>
+
+          <div className="max-w-6xl mx-auto bg-[hsl(220,25%,5%)] border border-[hsl(210,15%,15%)] rounded-2xl p-6 md:p-10 relative overflow-hidden">
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_90%_10%,hsl(25,90%,20%)_0%,transparent_55%)] opacity-50 pointer-events-none" />
+
+            <div className="relative">
+              <svg viewBox="0 0 800 280" className="w-full h-auto" preserveAspectRatio="none" aria-hidden="true">
+                <defs>
+                  <linearGradient id="bmcCurveFill" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stopColor="hsl(25,95%,60%)" stopOpacity="0.45" />
+                    <stop offset="100%" stopColor="hsl(25,95%,60%)" stopOpacity="0" />
+                  </linearGradient>
+                  <linearGradient id="bmcCurveStroke" x1="0" y1="0" x2="1" y2="0">
+                    <stop offset="0%" stopColor="hsl(200,80%,60%)" />
+                    <stop offset="60%" stopColor="hsl(35,95%,60%)" />
+                    <stop offset="100%" stopColor="hsl(25,95%,60%)" />
+                  </linearGradient>
+                </defs>
+
+                {[60, 120, 180, 240].map((y) => (
+                  <line key={y} x1="0" y1={y} x2="800" y2={y} stroke="hsl(210,15%,18%)" strokeDasharray="3 6" strokeWidth="1" />
+                ))}
+
+                <path
+                  d="M 0 250 C 150 248, 250 235, 350 200 C 450 165, 530 110, 620 60 C 690 22, 750 12, 800 8 L 800 280 L 0 280 Z"
+                  fill="url(#bmcCurveFill)"
+                />
+                <path
+                  d="M 0 250 C 150 248, 250 235, 350 200 C 450 165, 530 110, 620 60 C 690 22, 750 12, 800 8"
+                  fill="none"
+                  stroke="url(#bmcCurveStroke)"
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                />
+
+                {[
+                  { x: 80, y: 248 },
+                  { x: 290, y: 218 },
+                  { x: 520, y: 118 },
+                  { x: 740, y: 18 },
+                ].map((p, i) => (
+                  <g key={i}>
+                    <circle cx={p.x} cy={p.y} r="6" fill="hsl(220,30%,3%)" stroke="hsl(25,95%,60%)" strokeWidth="2" />
+                    <circle cx={p.x} cy={p.y} r="2.5" fill="hsl(25,95%,65%)" />
+                  </g>
+                ))}
+              </svg>
+
+              <div className="text-center text-[10px] uppercase tracking-wider text-[hsl(210,10%,50%)] mt-2">
+                Time inside BioMath Core →
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-10">
+              {[
+                {
+                  phase: t('projectBiomathCore.timePhase1Label', 'Phase 1 · Day 1'),
+                  title: t('projectBiomathCore.timePhase1Title', 'First Snapshot'),
+                  desc: t('projectBiomathCore.timePhase1Desc', 'Initial baseline captured. The system has data, but no rhythm.'),
+                  color: "hsl(200,80%,60%)",
+                },
+                {
+                  phase: t('projectBiomathCore.timePhase2Label', 'Phase 2 · Month 1'),
+                  title: t('projectBiomathCore.timePhase2Title', 'Patterns Emerge'),
+                  desc: t('projectBiomathCore.timePhase2Desc', 'Reaction patterns and behavioral anchors begin to stabilize. First cross-category links appear.'),
+                  color: "hsl(180,70%,55%)",
+                },
+                {
+                  phase: t('projectBiomathCore.timePhase3Label', 'Phase 3 · Year 1'),
+                  title: t('projectBiomathCore.timePhase3Title', 'Structural Map'),
+                  desc: t('projectBiomathCore.timePhase3Desc', 'A dense, multi-layered structural map of the individual. Causal logic becomes traceable.'),
+                  color: "hsl(35,95%,60%)",
+                },
+                {
+                  phase: t('projectBiomathCore.timePhase4Label', 'Phase 4 · Year 3+'),
+                  title: t('projectBiomathCore.timePhase4Title', 'Irreplaceable Model'),
+                  desc: t('projectBiomathCore.timePhase4Desc', 'The living digital structure cannot be reconstructed elsewhere. Time itself becomes the moat.'),
+                  color: "hsl(25,95%,60%)",
+                },
+              ].map((p) => (
+                <div
+                  key={p.phase}
+                  className="bg-[hsl(220,22%,7%)] border border-[hsl(210,15%,15%)] rounded-xl p-5 hover:border-[hsl(25,90%,55%)]/30 transition-all duration-500"
+                >
+                  <p className="text-[10px] uppercase tracking-widest mb-2" style={{ color: p.color }}>{p.phase}</p>
+                  <h4 className="text-base font-bold text-white mb-2">{p.title}</h4>
+                  <p className="text-xs text-[hsl(210,10%,65%)] leading-relaxed">{p.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* ═══════════════════════ HEALTH BLACK BOX ═══════════════════════ */}
         <section className="relative py-24 overflow-hidden">
           <div className="absolute inset-0">
