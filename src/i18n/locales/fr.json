@@ -717,6 +717,156 @@
       "longevityEx": "Calcul de l'âge biologique, marqueurs de sénescence, fonction mitochondriale, analyse des télomères",
       "fitnessEx": "Optimisation de l'entraînement, analyse de récupération, VO2max, adaptation musculaire",
       "mentalWellnessEx": "Détection des patterns de stress, suivi de l'humeur, performance cognitive"
+    },
+    "secBadge": {
+      "aes": "Cryptage AES-256",
+      "blockchain": "Intégrité Blockchain",
+      "zerotrust": "Architecture Zero-Trust",
+      "hipaa": "HIPAA & GDPR"
+    },
+    "tech": {
+      "subtitle": "Six couches principales alimentant le système d'exploitation intelligent de la santé",
+      "archive": {
+        "title": "Archive des Modèles",
+        "i1": "Cryptage AES-256 au repos et en transit",
+        "i2": "Intégrité des données vérifiée par la blockchain",
+        "i3": "Contrôles d'autorisation granulaires",
+        "i4": "Infrastructure certifiée SOC 2"
+      },
+      "pipelines": {
+        "title": "Pipelines de Données",
+        "i1": "Plus de 50 sources de données intégrées",
+        "i2": "Synchronisation en temps réel",
+        "i3": "Contrôles qualité automatisés",
+        "i4": "Préservation des données historiques"
+      },
+      "engine": {
+        "title": "Moteur de Connaissances",
+        "i1": "Analyse multidimensionnelle",
+        "i2": "Moteur de corrélation de motifs",
+        "i3": "Systèmes de détection d'anomalies",
+        "i4": "Modélisation prédictive"
+      },
+      "ai": {
+        "title": "Système d'Analyse IA",
+        "i1": "Plus de 200 services IA spécialisés",
+        "i2": "Analyse spécifique par catégorie",
+        "i3": "Explications en langage naturel",
+        "i4": "Amélioration continue des modèles"
+      },
+      "report": {
+        "title": "Moteur de Rapports",
+        "i1": "Visualisations interactives",
+        "i2": "Tableaux de bord personnalisables",
+        "i3": "Rapports médicaux exportables",
+        "i4": "Analyse des tendances historiques"
+      },
+      "integration": {
+        "title": "Couche d'Intégration",
+        "i1": "Points d'accès API sécurisés",
+        "i2": "Intégration des systèmes de santé",
+        "i3": "Connectivité tierce",
+        "i4": "Partage de données de recherche"
+      }
+    },
+    "feat": {
+      "dualAi": {
+        "title": "Analyse IA Double",
+        "desc": "Plusieurs modèles d'IA fournissent une analyse complète avec des recommandations équilibrées et une validation experte."
+      },
+      "realtime": {
+        "title": "Surveillance en Temps Réel",
+        "desc": "Collecte continue de données à partir d'appareils connectés avec détection intelligente de motifs et alertes automatisées."
+      },
+      "unified": {
+        "title": "Dossier de Santé Unifié",
+        "desc": "Toutes les informations de santé unifiées : antécédents médicaux, analyses, génétique, biométrie, mode de vie et notes cliniques."
+      },
+      "smart": {
+        "title": "Rapports Intelligents",
+        "desc": "Informations quotidiennes personnalisées avec des résumés hebdomadaires, un suivi des progrès et des visualisations claires des tendances."
+      },
+      "guidance": {
+        "title": "Conseils Personnalisés",
+        "desc": "Recommandations adaptées pour la nutrition, l'exercice, le sommeil, la gestion du stress basées sur votre profil unique."
+      },
+      "privacy": {
+        "title": "Confidentialité & Sécurité",
+        "desc": "Cryptage de niveau militaire, architecture zero-trust, certification SOC 2. Souveraineté complète des données."
+      }
+    },
+    "op": {
+      "daily": {
+        "title": "Flux de Travail Quotidien de l'Utilisateur",
+        "desc": "Réveillez-vous avec des informations personnalisées. Les appareils connectés suivent automatiquement tout au long de la journée. Les recommandations en temps réel se mettent à jour à mesure que les conditions changent. Les rapports du soir résument et suggèrent."
+      },
+      "service": {
+        "title": "Activation des Services",
+        "desc": "Choisissez les catégories qui vous importent le plus. Activez les services d'IA pertinents. Commencez par quelques-uns, étendez au fil du temps. L'abonnement évolue avec la profondeur, pas avec un tarif forfaitaire."
+      },
+      "clinical": {
+        "title": "Intégration Clinique",
+        "desc": "Les professionnels de la santé reçoivent un accès autorisé par le patient. Outil d'aide à la décision clinique en complément de l'évaluation traditionnelle. Rapports exportables de qualité professionnelle."
+      }
+    },
+    "serves": {
+      "optim": {
+        "title": "Chercheurs d'Optimisation de la Santé",
+        "desc": "Individus axés sur la longévité, la performance, la prévention des maladies. Comprendre leur corps par la biologie personnelle plutôt que par des moyennes génériques."
+      },
+      "chronic": {
+        "title": "Gestionnaires de Conditions Chroniques",
+        "desc": "Gestion du diabète, des maladies cardiovasculaires, des troubles auto-immuns ou des syndromes métaboliques avec une surveillance continue et des conseils d'optimisation."
+      },
+      "athletes": {
+        "title": "Athlètes & Performeurs",
+        "desc": "Athlètes professionnels et sérieux optimisant l'entraînement, la récupération, la nutrition grâce à des informations basées sur les données et la précision du biohacking."
+      },
+      "pros": {
+        "title": "Professionnels de la Santé",
+        "desc": "Médecins, conseillers, nutritionnistes utilisant des analyses avancées pour personnaliser les plans de traitement et suivre efficacement les résultats."
+      }
+    },
+    "unique": {
+      "integration": {
+        "title": "Véritable Intégration de Données",
+        "desc": "Unifie la génétique, les analyses, la biométrie, le mode de vie et les antécédents médicaux dans un modèle biomathématique unique. Les corrélations entre les catégories révèlent des informations impossibles avec des données isolées."
+      },
+      "rigor": {
+        "title": "Rigueur Mathématique",
+        "desc": "Construit sur la biologie computationnelle et la modélisation biomathématique. Simule les processus biologiques, prédit les résultats, tient compte des interactions non linéaires."
+      },
+      "continuous": {
+        "title": "Intelligence Continue",
+        "desc": "Le traitement en temps réel signifie que les informations se mettent à jour à mesure que votre corps change. La plateforme apprend, s'adapte dynamiquement et fournit des conseils opportuns."
+      },
+      "safety": {
+        "title": "La Sécurité Émotionnelle Avant Tout",
+        "desc": "Conçu pour informer et soutenir. Le langage met l'accent sur l'apprentissage et l'optimisation. Les utilisateurs se sentent autonomes, pas anxieux."
+      }
+    },
+    "road": {
+      "current": {
+        "phase": "Actuel",
+        "i1": "20 catégories de santé et plus de 200 services d'IA actifs",
+        "i2": "Coffre-fort Black Box et pipelines d'intégration opérationnels",
+        "i3": "Moteur de connaissances et systèmes de rapports fonctionnels",
+        "i4": "Base d'utilisateurs active dans de nombreux cas d'utilisation de la santé"
+      },
+      "next12": {
+        "phase": "12 Prochains Mois",
+        "i1": "Applications mobiles iOS & Android avec parité fonctionnelle complète",
+        "i2": "Plus de 75 intégrations de dispositifs portables pris en charge",
+        "i3": "Conseiller IA à commande vocale",
+        "i4": "Lancement du portail des praticiens cliniques"
+      },
+      "next36": {
+        "phase": "18 à 36 Mois",
+        "i1": "Modélisation prédictive de la santé pour les risques de maladies chroniques",
+        "i2": "Outils de gestion de la santé familiale",
+        "i3": "Solutions de bien-être en entreprise",
+        "i4": "Expansion internationale avec conformité localisée"
+      }
     }
   },
   "projectTerraAero": {

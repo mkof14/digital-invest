@@ -717,6 +717,156 @@
       "longevityEx": "Biological age calculation, senescence markers, mitochondrial function, telomere analysis, cellular optimization",
       "fitnessEx": "Training optimization, recovery analysis, VO2max tracking, muscle adaptation, performance prediction",
       "mentalWellnessEx": "Stress pattern detection, mood tracking, cognitive performance, mindfulness metrics, sleep quality impact"
+    },
+    "secBadge": {
+      "aes": "AES-256 Encryption",
+      "blockchain": "Blockchain Integrity",
+      "zerotrust": "Zero-Trust Architecture",
+      "hipaa": "HIPAA & GDPR"
+    },
+    "tech": {
+      "subtitle": "Six core layers powering the intelligent health operating system",
+      "archive": {
+        "title": "Model Archive",
+        "i1": "AES-256 encryption at rest & in transit",
+        "i2": "Blockchain-verified data integrity",
+        "i3": "Granular permission controls",
+        "i4": "SOC 2 certified infrastructure"
+      },
+      "pipelines": {
+        "title": "Data Pipelines",
+        "i1": "50+ integrated data sources",
+        "i2": "Real-time synchronization",
+        "i3": "Automated quality checks",
+        "i4": "Historical data preservation"
+      },
+      "engine": {
+        "title": "Knowledge Engine",
+        "i1": "Multi-dimensional analysis",
+        "i2": "Pattern correlation engine",
+        "i3": "Anomaly detection systems",
+        "i4": "Predictive modeling"
+      },
+      "ai": {
+        "title": "AI Insight System",
+        "i1": "200+ specialized AI services",
+        "i2": "Category-specific analysis",
+        "i3": "Natural language explanations",
+        "i4": "Continuous model improvement"
+      },
+      "report": {
+        "title": "Report Engine",
+        "i1": "Interactive visualizations",
+        "i2": "Customizable dashboards",
+        "i3": "Exportable medical reports",
+        "i4": "Historical trend analysis"
+      },
+      "integration": {
+        "title": "Integration Layer",
+        "i1": "Secure API endpoints",
+        "i2": "Healthcare system integration",
+        "i3": "Third-party connectivity",
+        "i4": "Research data sharing"
+      }
+    },
+    "feat": {
+      "dualAi": {
+        "title": "Dual AI Analysis",
+        "desc": "Multiple AI models provide comprehensive analysis with balanced recommendations and expert validation."
+      },
+      "realtime": {
+        "title": "Real-Time Monitoring",
+        "desc": "Continuous data collection from connected devices with intelligent pattern detection and automated alerts."
+      },
+      "unified": {
+        "title": "Unified Health Record",
+        "desc": "All health information unified: medical history, labs, genetics, biometrics, lifestyle, and clinical notes."
+      },
+      "smart": {
+        "title": "Smart Reports",
+        "desc": "Personalized daily insights with weekly summaries, progress tracking, and clear trend visualizations."
+      },
+      "guidance": {
+        "title": "Personalized Guidance",
+        "desc": "Tailored recommendations for nutrition, exercise, sleep, stress management based on your unique profile."
+      },
+      "privacy": {
+        "title": "Privacy & Security",
+        "desc": "Military-grade encryption, zero-trust architecture, SOC 2 certification. Complete data sovereignty."
+      }
+    },
+    "op": {
+      "daily": {
+        "title": "Daily User Workflow",
+        "desc": "Wake to personalized insights. Connected devices auto-track throughout the day. Real-time recommendations update as conditions change. Evening reports summarize and suggest."
+      },
+      "service": {
+        "title": "Service Activation",
+        "desc": "Choose categories that matter most. Activate relevant AI services. Start with a few, expand over time. Subscription scales with depth, not flat-rate."
+      },
+      "clinical": {
+        "title": "Clinical Integration",
+        "desc": "Healthcare providers receive patient-authorized access. Clinical decision support tool alongside traditional evaluation. Professional-grade exportable reports."
+      }
+    },
+    "serves": {
+      "optim": {
+        "title": "Health Optimization Seekers",
+        "desc": "Individuals focused on longevity, performance, disease prevention. Understanding their bodies through personal biology rather than generic averages."
+      },
+      "chronic": {
+        "title": "Chronic Condition Managers",
+        "desc": "Managing diabetes, cardiovascular conditions, autoimmune disorders, or metabolic syndromes with continuous monitoring and optimization guidance."
+      },
+      "athletes": {
+        "title": "Athletes & Performers",
+        "desc": "Professional and serious athletes optimizing training, recovery, nutrition through data-driven insights and biohacking precision."
+      },
+      "pros": {
+        "title": "Healthcare Professionals",
+        "desc": "Physicians, counselors, nutritionists using advanced analytics to personalize treatment plans and track outcomes effectively."
+      }
+    },
+    "unique": {
+      "integration": {
+        "title": "True Data Integration",
+        "desc": "Unifies genetics, labs, biometrics, lifestyle, and medical history into a single biomathematical model. Correlations across categories reveal insights impossible in isolated data."
+      },
+      "rigor": {
+        "title": "Mathematical Rigor",
+        "desc": "Built on computational biology and biomathematical modeling. Simulates biological processes, predicts outcomes, accounts for non-linear interactions."
+      },
+      "continuous": {
+        "title": "Continuous Intelligence",
+        "desc": "Real-time processing means insights update as your body changes. The platform learns, adapts dynamically, and provides timely guidance."
+      },
+      "safety": {
+        "title": "Emotional Safety First",
+        "desc": "Designed to inform and support. Language emphasizes learning and optimization. Users feel empowered, not anxious."
+      }
+    },
+    "road": {
+      "current": {
+        "phase": "Current",
+        "i1": "20 health categories & 200+ AI services active",
+        "i2": "Black Box vault & integration pipelines operational",
+        "i3": "Knowledge engine & reporting systems functional",
+        "i4": "Active user base across multiple health use cases"
+      },
+      "next12": {
+        "phase": "Next 12 Months",
+        "i1": "iOS & Android mobile apps with full feature parity",
+        "i2": "75+ supported wearable device integrations",
+        "i3": "Voice-enabled AI Advisor",
+        "i4": "Clinical practitioner portal launch"
+      },
+      "next36": {
+        "phase": "18–36 Months",
+        "i1": "Predictive health modeling for chronic disease risks",
+        "i2": "Family health management tools",
+        "i3": "Enterprise corporate wellness solutions",
+        "i4": "International expansion with localized compliance"
+      }
     }
   },
   "projectTerraAero": {
