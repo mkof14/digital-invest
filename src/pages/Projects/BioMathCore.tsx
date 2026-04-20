@@ -166,7 +166,82 @@ const BioMathCore = () => {
           </div>
         </section>
 
-        {/* ═══════════════════════ BEYOND STATIC TRACKING (from presentation) ═══════════════════════ */}
+        {/* ═══════════════════════ FLAGSHIP ASSET ═══════════════════════ */}
+        <section className="relative py-24 overflow-hidden bg-[hsl(220,25%,4%)]">
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_20%,hsl(25,90%,18%)_0%,transparent_50%),radial-gradient(ellipse_at_80%_80%,hsl(200,80%,12%)_0%,transparent_45%)]" />
+          <div className="container mx-auto px-4 relative z-10">
+            <div className="max-w-4xl mx-auto text-center mb-14">
+              <Badge className="mb-5 bg-gradient-to-r from-[hsl(25,90%,55%)] to-[hsl(35,95%,55%)] text-white border-0 px-4 py-1 uppercase tracking-wider">
+                ★ {t('projectBiomathCore.flagshipSectionBadge', 'Flagship Asset of the Portfolio')}
+              </Badge>
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+                {t('projectBiomathCore.flagshipTitle', 'The Cornerstone Project. The Engine of an Entire Ecosystem.')}
+              </h2>
+              <p className="text-lg md:text-xl text-[hsl(210,15%,75%)] leading-relaxed">
+                {t('projectBiomathCore.flagshipLead', 'BioMath Core is the central pillar of the Digital Invest portfolio — the highest-capitalization, highest-potential asset and the master service module from which dozens of consumer products, vertical platforms and specialized services are built. Every other digital health project in the portfolio inherits its architecture, data fabric and intelligence from this single Core.')}
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+              {[
+                {
+                  icon: Rocket,
+                  title: t('projectBiomathCore.flagshipCard1Title', 'Highest Capitalization Potential'),
+                  desc: t('projectBiomathCore.flagshipCard1Desc', 'Positioned as the most valuable asset in the portfolio — a foundational platform addressing one of the largest global markets: personal health, longevity and preventive medicine.'),
+                  accent: 'hsl(25,95%,60%)',
+                },
+                {
+                  icon: Server,
+                  title: t('projectBiomathCore.flagshipCard2Title', 'Master Service Module'),
+                  desc: t('projectBiomathCore.flagshipCard2Desc', 'A single architectural Core that powers 200+ specialized micro-services and feeds 20+ vertical product categories — from longevity and family health to mental wellness and biohacking.'),
+                  accent: 'hsl(200,80%,65%)',
+                },
+                {
+                  icon: Layers,
+                  title: t('projectBiomathCore.flagshipCard3Title', 'Ecosystem Multiplier'),
+                  desc: t('projectBiomathCore.flagshipCard3Desc', 'Every subsequent project — BioMath Life, LongevityCore, FamilyCore, SkinCore, SeniorCore and others — extends from this Core, compounding value across the entire portfolio with each new module shipped.'),
+                  accent: 'hsl(35,95%,65%)',
+                },
+              ].map((card) => (
+                <Card key={card.title} className="bg-[hsl(220,30%,6%)]/80 border-[hsl(25,90%,55%)]/15 backdrop-blur-sm hover:border-[hsl(25,90%,55%)]/40 transition-all duration-300 hover:-translate-y-1">
+                  <CardHeader>
+                    <div
+                      className="w-14 h-14 rounded-xl flex items-center justify-center mb-3"
+                      style={{ background: `linear-gradient(135deg, ${card.accent}33, ${card.accent}11)`, border: `1px solid ${card.accent}55` }}
+                    >
+                      <card.icon className="w-7 h-7" style={{ color: card.accent }} />
+                    </div>
+                    <CardTitle className="text-xl text-white leading-snug">{card.title}</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-[hsl(210,15%,70%)] leading-relaxed text-sm">{card.desc}</p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+
+            {/* Ecosystem ribbon */}
+            <div className="mt-14 max-w-5xl mx-auto">
+              <div className="rounded-2xl border border-[hsl(25,90%,55%)]/20 bg-gradient-to-r from-[hsl(220,30%,5%)] via-[hsl(25,40%,7%)] to-[hsl(220,30%,5%)] p-8 md:p-10">
+                <div className="flex flex-col md:flex-row items-start md:items-center gap-6">
+                  <div className="flex-shrink-0 w-16 h-16 rounded-2xl bg-gradient-to-br from-[hsl(25,95%,55%)] to-[hsl(35,95%,55%)] flex items-center justify-center shadow-lg shadow-[hsl(25,90%,40%)]/40">
+                    <Sparkles className="w-8 h-8 text-white" />
+                  </div>
+                  <div className="flex-1">
+                    <p className="text-xs uppercase tracking-[0.2em] text-[hsl(25,90%,65%)] mb-2 font-semibold">
+                      {t('projectBiomathCore.flagshipRibbonKicker', 'One Core · Many Products')}
+                    </p>
+                    <p className="text-lg md:text-xl text-white leading-relaxed">
+                      {t('projectBiomathCore.flagshipRibbonText', 'BioMath Core is not a single product — it is the operating substrate of an entire digital health ecosystem. Its value compounds with every new vertical, every new market and every new service plugged into the Core.')}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+
         <section className="container mx-auto px-4 py-20">
           <div className="text-center mb-12">
             <Badge className="mb-4 bg-[hsl(25,90%,55%)]/10 text-[hsl(25,90%,70%)] border-[hsl(25,90%,55%)]/25 uppercase tracking-wider">
