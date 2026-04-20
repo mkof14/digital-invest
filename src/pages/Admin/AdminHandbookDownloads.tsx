@@ -9,10 +9,20 @@ import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
-import { Download, ArrowLeft, Upload, FileText, Trash2, Eye, EyeOff } from 'lucide-react';
+import { Badge } from '@/components/ui/badge';
+import { Download, ArrowLeft, Upload, FileText, Trash2, Eye, EyeOff, Search } from 'lucide-react';
 import { toast } from 'sonner';
 import { format } from 'date-fns';
 import { useUserRole } from '@/hooks/useUserRole';
+import DocumentActions from '@/components/documents/DocumentActions';
+import DocumentPreviewDialog from '@/components/documents/DocumentPreviewDialog';
+import {
+  formatFileSize as fmtFileSize,
+  getFileExtension,
+  getFileTypeColor,
+  isPreviewable,
+  ProjectDocumentRecord,
+} from '@/components/documents/documentUtils';
 
 interface HandbookDownload {
   id: string;
