@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Heart, Brain, Activity, Shield, Lock, Database, Cpu, Layers, Server, FileText, AlertCircle, Globe, Rocket, ArrowLeft, Download, Images, Eye, Dna, Zap, Users, Stethoscope, Moon, Apple, Leaf, Baby, Microscope, Sparkles, MonitorSmartphone } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { useEffect, useRef, useState } from "react";
 import biomathCoreHero from "@/assets/projects/biomath-core-hero.jpg";
 import biomathWellness from "@/assets/projects/biomath-wellness-center.jpg";
 import biomathSupercomputer from "@/assets/projects/biomath-supercomputer.jpg";
@@ -57,6 +58,25 @@ const categoryData = [
 
 const BioMathCore = () => {
   const { t } = useTranslation();
+  const fanRef = useRef<HTMLDivElement | null>(null);
+  const [fanInView, setFanInView] = useState(false);
+  useEffect(() => {
+    const el = fanRef.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            setFanInView(true);
+            obs.disconnect();
+          }
+        });
+      },
+      { threshold: 0.25 }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
   return (
     <div className="min-h-screen bg-[hsl(220,20%,4%)] text-[hsl(210,15%,85%)]">
       <Navigation />
@@ -274,7 +294,7 @@ const BioMathCore = () => {
               ];
               const W = 900, H = 620, cx = W / 2, cy = H / 2, r = 250;
               return (
-                <div className="max-w-5xl mx-auto">
+                <div className="max-w-5xl mx-auto" ref={fanRef}>
                   <div className="rounded-3xl border border-[hsl(25,90%,55%)]/15 bg-[hsl(220,30%,5%)]/60 backdrop-blur-sm p-4 md:p-8">
                     <svg
                       viewBox={`0 0 ${W} ${H}`}
@@ -298,11 +318,12 @@ const BioMathCore = () => {
                       <circle cx={cx} cy={cy} r={r * 0.75} fill="none" stroke="hsl(25,90%,55%)" strokeOpacity="0.08" strokeWidth="1" />
                       <circle cx={cx} cy={cy} r={r}        fill="none" stroke="hsl(25,90%,55%)" strokeOpacity="0.10" strokeWidth="1" />
 
-                      {/* Connecting lines (Core → satellites) */}
+                      {/* Connecting lines (Core → satellites) — animated draw on scroll into view */}
                       {nodes.map((n, i) => {
                         const a = (i / nodes.length) * Math.PI * 2 - Math.PI / 2;
                         const x = cx + Math.cos(a) * r;
                         const y = cy + Math.sin(a) * r;
+                        // pathLength=1 normalizes the dash math regardless of geometric length
                         return (
                           <line
                             key={`l-${n.name}`}
@@ -310,6 +331,14 @@ const BioMathCore = () => {
                             stroke={n.color}
                             strokeOpacity="0.45"
                             strokeWidth="1.25"
+                            strokeLinecap="round"
+                            pathLength={1}
+                            style={{
+                              strokeDasharray: 1,
+                              strokeDashoffset: fanInView ? 0 : 1,
+                              transition: 'stroke-dashoffset 900ms cubic-bezier(0.22, 1, 0.36, 1)',
+                              transitionDelay: `${i * 90}ms`,
+                            }}
                           />
                         );
                       })}
