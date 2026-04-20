@@ -363,8 +363,12 @@ const BioMathCore = () => {
                           <Link
                             key={`n-${n.name}`}
                             to={`/projects/${n.slug}`}
-                            aria-label={`Open ${n.name} project page`}
+                            aria-label={`Open ${n.name} project page — ${n.desc}`}
                             className="cursor-pointer outline-none focus-visible:[&_circle]:stroke-white hover:[&_circle:nth-child(2)]:fill-[hsl(220,30%,12%)] hover:[&_text]:fill-white transition-colors"
+                            onMouseEnter={() => setHoveredFan(i)}
+                            onMouseLeave={() => setHoveredFan((cur) => (cur === i ? null : cur))}
+                            onFocus={() => setHoveredFan(i)}
+                            onBlur={() => setHoveredFan((cur) => (cur === i ? null : cur))}
                           >
                             <g>
                               {/* invisible larger hit target for easier clicking */}
@@ -412,10 +416,58 @@ const BioMathCore = () => {
                               >
                                 {n.name}
                               </text>
+                              {/* SR-only description */}
+                              <title>{`${n.name} — ${n.desc}`}</title>
                             </g>
                           </Link>
                         );
                       })}
+
+                      {/* Tooltip overlay (rendered last so it sits on top) */}
+                      {hoveredFan !== null && (() => {
+                        const n = nodes[hoveredFan];
+                        const a = (hoveredFan / nodes.length) * Math.PI * 2 - Math.PI / 2;
+                        const sx = cx + Math.cos(a) * r;
+                        const sy = cy + Math.sin(a) * r;
+                        const label = `${n.name} — ${n.desc}`;
+                        // approximate width: ~6.6px per character at 13px font
+                        const tw = Math.min(360, Math.max(180, label.length * 6.6 + 24));
+                        const th = 38;
+                        // place tooltip outward from center, then clamp inside viewBox
+                        const outwardX = sx + Math.cos(a) * 36;
+                        const outwardY = sy + Math.sin(a) * 36;
+                        let tx = outwardX - tw / 2;
+                        let ty = outwardY - th / 2;
+                        tx = Math.max(8, Math.min(W - tw - 8, tx));
+                        ty = Math.max(8, Math.min(H - th - 8, ty));
+                        return (
+                          <g pointerEvents="none" style={{ filter: 'drop-shadow(0 6px 16px rgba(0,0,0,0.55))' }}>
+                            <rect
+                              x={tx}
+                              y={ty}
+                              width={tw}
+                              height={th}
+                              rx={10}
+                              ry={10}
+                              fill="hsl(220,30%,7%)"
+                              stroke={n.color}
+                              strokeOpacity={0.7}
+                              strokeWidth={1}
+                            />
+                            <text
+                              x={tx + 12}
+                              y={ty + th / 2 + 4}
+                              fontSize="13"
+                              fontWeight="600"
+                              fill="hsl(210,15%,92%)"
+                              style={{ fontFamily: 'inherit' }}
+                            >
+                              <tspan fill={n.color} fontWeight="700">{n.name}</tspan>
+                              <tspan dx="6" fill="hsl(210,15%,88%)" fontWeight="500">— {n.desc}</tspan>
+                            </text>
+                          </g>
+                        );
+                      })()}
                     </svg>
                     {/* Pulse keyframes (scoped via unique animation names) */}
                     <style>{`
