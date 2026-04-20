@@ -363,13 +363,43 @@ const BioMathCore = () => {
                             key={`n-${n.name}`}
                             to={`/projects/${n.slug}`}
                             aria-label={`Open ${n.name} project page`}
-                            className="cursor-pointer outline-none focus-visible:[&_circle]:stroke-white hover:[&_circle:first-child]:fill-[hsl(220,30%,12%)] hover:[&_text]:fill-white transition-colors"
+                            className="cursor-pointer outline-none focus-visible:[&_circle]:stroke-white hover:[&_circle:nth-child(2)]:fill-[hsl(220,30%,12%)] hover:[&_text]:fill-white transition-colors"
                           >
                             <g>
                               {/* invisible larger hit target for easier clicking */}
                               <circle cx={x} cy={y} r="34" fill="transparent" />
+                              {/* outer ring */}
                               <circle cx={x} cy={y} r="22" fill="hsl(220,30%,8%)" stroke={n.color} strokeWidth="2" />
-                              <circle cx={x} cy={y} r="6" fill={n.color} />
+                              {/* expanding halo (only when in view) */}
+                              {fanInView && (
+                                <circle
+                                  cx={x}
+                                  cy={y}
+                                  r="22"
+                                  fill="none"
+                                  stroke={n.color}
+                                  strokeWidth="1.5"
+                                  style={{
+                                    transformOrigin: `${x}px ${y}px`,
+                                    animation: `bmcSatHalo 2800ms cubic-bezier(0.22,1,0.36,1) ${2000 + i * 90}ms infinite`,
+                                  }}
+                                />
+                              )}
+                              {/* inner dot — gentle pulse */}
+                              <circle
+                                cx={x}
+                                cy={y}
+                                r="6"
+                                fill={n.color}
+                                style={
+                                  fanInView
+                                    ? {
+                                        transformOrigin: `${x}px ${y}px`,
+                                        animation: `bmcSatPulse 2400ms ease-in-out ${2000 + i * 90}ms infinite`,
+                                      }
+                                    : undefined
+                                }
+                              />
                               <text
                                 x={x + labelDx}
                                 y={y + labelDy + 4}
@@ -386,6 +416,21 @@ const BioMathCore = () => {
                         );
                       })}
                     </svg>
+                    {/* Pulse keyframes (scoped via unique animation names) */}
+                    <style>{`
+                      @keyframes bmcSatPulse {
+                        0%, 100% { transform: scale(1); opacity: 1; }
+                        50%      { transform: scale(1.35); opacity: 0.85; }
+                      }
+                      @keyframes bmcSatHalo {
+                        0%   { transform: scale(1);    opacity: 0.55; }
+                        70%  { transform: scale(1.45); opacity: 0;    }
+                        100% { transform: scale(1.45); opacity: 0;    }
+                      }
+                      @media (prefers-reduced-motion: reduce) {
+                        [style*="bmcSatPulse"], [style*="bmcSatHalo"] { animation: none !important; }
+                      }
+                    `}</style>
 
                     {/* Mobile-friendly legend below (also clickable) */}
                     <div className="mt-6 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 md:hidden">
