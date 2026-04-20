@@ -58,6 +58,25 @@ const categoryData = [
 
 const BioMathCore = () => {
   const { t } = useTranslation();
+  const fanRef = useRef<HTMLDivElement | null>(null);
+  const [fanInView, setFanInView] = useState(false);
+  useEffect(() => {
+    const el = fanRef.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            setFanInView(true);
+            obs.disconnect();
+          }
+        });
+      },
+      { threshold: 0.25 }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
   return (
     <div className="min-h-screen bg-[hsl(220,20%,4%)] text-[hsl(210,15%,85%)]">
       <Navigation />
