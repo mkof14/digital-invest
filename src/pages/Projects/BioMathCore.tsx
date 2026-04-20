@@ -92,9 +92,17 @@ const BioMathCore = () => {
           </Link>
 
           <div className="max-w-3xl">
-            <Badge className="mb-6 bg-[hsl(25,90%,55%)]/15 text-[hsl(25,90%,70%)] border-[hsl(25,90%,55%)]/30 text-sm px-4 py-1 uppercase tracking-wider">
-              {t('projectBiomathCore.badge', 'Digital Health · Foundation Architecture')}
-            </Badge>
+            <div className="flex flex-wrap gap-2 mb-6">
+              <Badge className="bg-gradient-to-r from-[hsl(25,90%,55%)] to-[hsl(35,95%,55%)] text-white border-0 text-sm px-4 py-1 uppercase tracking-wider shadow-lg shadow-[hsl(25,90%,40%)]/30">
+                ★ {t('projectBiomathCore.flagshipBadge', 'Flagship Asset')}
+              </Badge>
+              <Badge className="bg-[hsl(25,90%,55%)]/15 text-[hsl(25,90%,70%)] border-[hsl(25,90%,55%)]/30 text-sm px-4 py-1 uppercase tracking-wider">
+                {t('projectBiomathCore.badge', 'Digital Health · Foundation Architecture')}
+              </Badge>
+              <Badge className="bg-[hsl(200,80%,55%)]/15 text-[hsl(200,80%,75%)] border-[hsl(200,80%,55%)]/30 text-sm px-4 py-1 uppercase tracking-wider">
+                {t('projectBiomathCore.masterModuleBadge', 'Master Service Module')}
+              </Badge>
+            </div>
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-[0.92] tracking-tight">
               <span className="text-white">BioMath</span>{" "}
               <span className="bg-gradient-to-r from-[hsl(25,95%,60%)] via-[hsl(35,95%,65%)] to-[hsl(25,95%,55%)] bg-clip-text text-transparent">Core</span>
