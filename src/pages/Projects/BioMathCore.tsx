@@ -259,18 +259,18 @@ const BioMathCore = () => {
 
             {(() => {
               const nodes = [
-                { name: 'BioMath Life',   color: 'hsl(195,85%,60%)' },
-                { name: 'LongevityCore',  color: 'hsl(35,95%,60%)'  },
-                { name: 'FamilyCore',     color: 'hsl(15,85%,60%)'  },
-                { name: 'SkinCore',       color: 'hsl(330,75%,62%)' },
-                { name: 'SeniorCore',     color: 'hsl(45,85%,58%)'  },
-                { name: 'StressCore',     color: 'hsl(270,70%,65%)' },
-                { name: 'BioAgeCore',     color: 'hsl(160,70%,50%)' },
-                { name: 'LunaBalance',    color: 'hsl(310,65%,62%)' },
-                { name: 'VitalCore',      color: 'hsl(0,75%,60%)'   },
-                { name: 'MRX Health',     color: 'hsl(210,80%,62%)' },
-                { name: 'BaseLine',       color: 'hsl(140,60%,55%)' },
-                { name: 'MyDay',          color: 'hsl(250,70%,65%)' },
+                { name: 'BioMath Life',   color: 'hsl(195,85%,60%)', slug: 'biomathlife'    },
+                { name: 'LongevityCore',  color: 'hsl(35,95%,60%)',  slug: 'longevitycore'  },
+                { name: 'FamilyCore',     color: 'hsl(15,85%,60%)',  slug: 'familycore'     },
+                { name: 'SkinCore',       color: 'hsl(330,75%,62%)', slug: 'skincore'       },
+                { name: 'SeniorCore',     color: 'hsl(45,85%,58%)',  slug: 'seniorcore'     },
+                { name: 'StressCore',     color: 'hsl(270,70%,65%)', slug: 'stresscore'     },
+                { name: 'BioAgeCore',     color: 'hsl(160,70%,50%)', slug: 'bioagecore'     },
+                { name: 'LunaBalance',    color: 'hsl(310,65%,62%)', slug: 'luna-balance'   },
+                { name: 'VitalCore',      color: 'hsl(0,75%,60%)',   slug: 'vitalcore'      },
+                { name: 'MRX Health',     color: 'hsl(210,80%,62%)', slug: 'mrx-health'     },
+                { name: 'BaseLine',       color: 'hsl(140,60%,55%)', slug: 'baseline'       },
+                { name: 'MyDay',          color: 'hsl(250,70%,65%)', slug: 'myday'          },
               ];
               const W = 900, H = 620, cx = W / 2, cy = H / 2, r = 250;
               return (
