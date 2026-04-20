@@ -411,6 +411,11 @@ const Projects = () => {
                       <Badge className={`absolute top-3 left-3 z-20 ${getStatusColor(project.status)} text-xs`}>
                         {project.status.replace('_', ' ')}
                       </Badge>
+                      {isBioMath && (
+                        <Badge className="absolute top-3 left-24 z-20 bg-gradient-to-r from-amber-500 to-orange-500 text-white border-0 text-xs font-semibold shadow-lg">
+                          ★ {t('projects.flagship', 'Flagship')}
+                        </Badge>
+                      )}
                       <Badge className={`absolute top-3 right-3 z-20 bg-black/60 backdrop-blur-sm text-white border-white/20 text-xs`}>
                         {theme.label}
                       </Badge>
@@ -476,6 +481,11 @@ const Projects = () => {
                         <Badge className={`absolute top-3 left-3 z-20 ${getStatusColor(project.status)} text-xs`}>
                           {project.status.replace('_', ' ')}
                         </Badge>
+                        {isBioMath && (
+                          <Badge className="absolute top-3 left-24 z-20 bg-gradient-to-r from-amber-500 to-orange-500 text-white border-0 text-xs font-semibold shadow-lg">
+                            ★ {t('projects.flagship', 'Flagship')}
+                          </Badge>
+                        )}
                       </div>
 
                       <div className="flex-1 flex flex-col">
