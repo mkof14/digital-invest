@@ -964,11 +964,11 @@ const BioMathCore = () => {
                 const Icon = cat.icon;
                 return (
                   <div
-                    key={cat.name}
+                    key={cat.key}
                     className="bg-[hsl(var(--bm-surface))] border border-[hsl(var(--bm-border))] rounded-xl p-5 text-center hover:border-[hsl(var(--bm-blue-deep))]/30 transition-all duration-500 group cursor-default"
                   >
                     <Icon className="w-8 h-8 mx-auto mb-3 transition-transform duration-500 group-hover:scale-110" style={{ color: cat.color }} />
-                    <p className="text-sm font-medium text-[hsl(var(--bm-text-soft))] group-hover:text-[hsl(var(--bm-text-strong))] transition-colors">{cat.name}</p>
+                    <p className="text-sm font-medium text-[hsl(var(--bm-text-soft))] group-hover:text-[hsl(var(--bm-text-strong))] transition-colors">{t(`projectBiomathCore.cat.${cat.key}`, cat.name)}</p>
                   </div>
                 );
               })}
