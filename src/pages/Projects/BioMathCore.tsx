@@ -1170,15 +1170,15 @@ const BioMathCore = () => {
             </p>
             <div className="flex gap-4 justify-center flex-wrap">
               <Link to="/start-investing">
-                <Button size="lg" className="bg-[hsl(var(--bm-blue-deep))] hover:bg-[hsl(var(--bm-blue-deep))] text-[hsl(var(--bm-text-strong))] px-8">
-                  Request Information
+                <Button size="lg" className="bg-[hsl(var(--bm-blue-deep))] hover:bg-[hsl(var(--bm-blue-deep))] text-white px-8">
+                  {t('projectCommon.requestInformation')}
                   <ArrowRight className="ml-2 w-4 h-4" />
                 </Button>
               </Link>
               <Button size="lg" variant="outline" asChild className="border-[hsl(var(--bm-blue-deep))]/30 text-[hsl(var(--bm-blue-soft))] hover:bg-[hsl(var(--bm-blue-deep))]/10">
                 <a href="/investor-briefs/biomath-core-investor-brief.pdf" download="BioMath-Core-Investor-Brief.pdf">
                   <Download className="w-5 h-5 mr-2" />
-                  Investor Brief (PDF)
+                  {t('projectCommon.investorBrief')}
                 </a>
               </Button>
             </div>
