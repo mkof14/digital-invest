@@ -433,6 +433,9 @@ const ProjectDetail = () => {
 
         <Separator className="my-12" />
 
+        {/* Documents & Resources Section */}
+        <ProjectDocumentsSection projectSlug={project.slug} projectId={project.id} />
+
         {/* Investment Highlights Section */}
         <section className="mb-16">
           <h2 className="text-3xl font-bold mb-8 text-foreground">
