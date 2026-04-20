@@ -26,10 +26,39 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from '@/components/ui/collapsible';
-import { ArrowLeft, Upload, Trash2, Eye, EyeOff, ChevronDown, FileText, ExternalLink } from 'lucide-react';
+import {
+  Dialog,
+  DialogContent,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+} from '@/components/ui/dialog';
+import { Badge } from '@/components/ui/badge';
+import {
+  ArrowLeft,
+  Upload,
+  Trash2,
+  Eye,
+  EyeOff,
+  ChevronDown,
+  ExternalLink,
+  Pencil,
+  ArrowUp,
+  ArrowDown,
+  Search,
+} from 'lucide-react';
 import { toast } from 'sonner';
 import { format } from 'date-fns';
 import { useUserRole } from '@/hooks/useUserRole';
+import DocumentActions from '@/components/documents/DocumentActions';
+import DocumentPreviewDialog from '@/components/documents/DocumentPreviewDialog';
+import {
+  formatFileSize,
+  getFileExtension,
+  getFileTypeColor,
+  isPreviewable,
+  ProjectDocumentRecord,
+} from '@/components/documents/documentUtils';
 
 interface Project {
   id: string;
@@ -37,20 +66,10 @@ interface Project {
   title: string;
 }
 
-interface ProjectDocument {
-  id: string;
+interface ProjectDocument extends ProjectDocumentRecord {
   project_id: string | null;
   project_slug: string;
-  title: string;
-  document_type: string | null;
-  description: string | null;
-  file_path: string | null;
-  file_name: string | null;
-  file_type: string | null;
-  file_size: number | null;
-  external_url: string | null;
   is_visible: boolean;
-  sort_order: number;
   created_at: string;
 }
 
@@ -62,6 +81,8 @@ const AdminProjectDocuments = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [uploadOpen, setUploadOpen] = useState(true);
   const [isUploading, setIsUploading] = useState(false);
+  const [search, setSearch] = useState('');
+  const [filterProject, setFilterProject] = useState<string>('all');
 
   // Form state
   const [selectedProjectId, setSelectedProjectId] = useState<string>('');
@@ -71,6 +92,10 @@ const AdminProjectDocuments = () => {
   const [externalUrl, setExternalUrl] = useState('');
   const [file, setFile] = useState<File | null>(null);
   const [sortOrder, setSortOrder] = useState(0);
+
+  // Edit modal
+  const [editDoc, setEditDoc] = useState<ProjectDocument | null>(null);
+  const [previewDoc, setPreviewDoc] = useState<ProjectDocument | null>(null);
 
   useEffect(() => {
     if (roleLoading) return;
@@ -95,8 +120,9 @@ const AdminProjectDocuments = () => {
     const { data, error } = await supabase
       .from('project_documents')
       .select('*')
-      .order('created_at', { ascending: false });
-    if (!error && data) setDocuments(data);
+      .order('project_slug', { ascending: true })
+      .order('sort_order', { ascending: true });
+    if (!error && data) setDocuments(data as ProjectDocument[]);
     setIsLoading(false);
   };
 
@@ -111,18 +137,9 @@ const AdminProjectDocuments = () => {
   };
 
   const handleSubmit = async () => {
-    if (!selectedProjectId) {
-      toast.error('Select a project');
-      return;
-    }
-    if (!title.trim()) {
-      toast.error('Title required');
-      return;
-    }
-    if (!file && !externalUrl.trim()) {
-      toast.error('Provide either a file or an external URL');
-      return;
-    }
+    if (!selectedProjectId) return toast.error('Select a project');
+    if (!title.trim()) return toast.error('Title required');
+    if (!file && !externalUrl.trim()) return toast.error('Provide either a file or an external URL');
 
     const project = projects.find((p) => p.id === selectedProjectId);
     if (!project) return;
@@ -177,11 +194,8 @@ const AdminProjectDocuments = () => {
       .from('project_documents')
       .update({ is_visible: !doc.is_visible })
       .eq('id', doc.id);
-    if (error) {
-      toast.error('Failed to update');
-      return;
-    }
-    toast.success(doc.is_visible ? 'Hidden' : 'Visible');
+    if (error) return toast.error('Failed to update');
+    toast.success(doc.is_visible ? 'Hidden from public' : 'Now visible');
     fetchDocuments();
   };
 
@@ -191,10 +205,7 @@ const AdminProjectDocuments = () => {
       if (doc.file_path) {
         await supabase.storage.from('project-documents').remove([doc.file_path]);
       }
-      const { error } = await supabase
-        .from('project_documents')
-        .delete()
-        .eq('id', doc.id);
+      const { error } = await supabase.from('project_documents').delete().eq('id', doc.id);
       if (error) throw error;
       toast.success('Deleted');
       fetchDocuments();
@@ -203,12 +214,57 @@ const AdminProjectDocuments = () => {
     }
   };
 
-  const formatSize = (b: number | null) => {
-    if (!b) return '—';
-    if (b < 1024) return b + ' B';
-    if (b < 1024 * 1024) return (b / 1024).toFixed(1) + ' KB';
-    return (b / 1024 / 1024).toFixed(1) + ' MB';
+  const moveDoc = async (doc: ProjectDocument, direction: 'up' | 'down') => {
+    const sameProject = documents.filter((d) => d.project_slug === doc.project_slug);
+    const sorted = [...sameProject].sort((a, b) => a.sort_order - b.sort_order);
+    const idx = sorted.findIndex((d) => d.id === doc.id);
+    const swapWith = direction === 'up' ? sorted[idx - 1] : sorted[idx + 1];
+    if (!swapWith) return;
+
+    const updates = await Promise.all([
+      supabase.from('project_documents').update({ sort_order: swapWith.sort_order }).eq('id', doc.id),
+      supabase.from('project_documents').update({ sort_order: doc.sort_order }).eq('id', swapWith.id),
+    ]);
+    if (updates.some((u) => u.error)) {
+      toast.error('Failed to reorder');
+      return;
+    }
+    fetchDocuments();
   };
+
+  const saveEdit = async () => {
+    if (!editDoc) return;
+    const { error } = await supabase
+      .from('project_documents')
+      .update({
+        title: editDoc.title.trim(),
+        document_type: editDoc.document_type?.trim() || null,
+        description: editDoc.description?.trim() || null,
+        external_url: editDoc.external_url?.trim() || null,
+        sort_order: editDoc.sort_order,
+      })
+      .eq('id', editDoc.id);
+    if (error) {
+      toast.error('Save failed');
+      return;
+    }
+    toast.success('Saved');
+    setEditDoc(null);
+    fetchDocuments();
+  };
+
+  const filteredDocs = documents.filter((d) => {
+    if (filterProject !== 'all' && d.project_id !== filterProject) return false;
+    if (search) {
+      const s = search.toLowerCase();
+      return (
+        d.title.toLowerCase().includes(s) ||
+        d.document_type?.toLowerCase().includes(s) ||
+        d.file_name?.toLowerCase().includes(s)
+      );
+    }
+    return true;
+  });
 
   return (
     <div className="space-y-6">
@@ -220,11 +276,11 @@ const AdminProjectDocuments = () => {
       <div>
         <h2 className="text-3xl font-bold text-foreground">Project Documents</h2>
         <p className="text-muted-foreground">
-          Attach unlimited custom documents (any type, any name) to any project. They appear as buttons in the project hero section.
+          Attach unlimited documents to any project. They appear as buttons in the hero and as cards in the public Documents section.
         </p>
       </div>
 
-      {/* Collapsible upload panel */}
+      {/* Upload panel */}
       <Card className="border border-border/50">
         <Collapsible open={uploadOpen} onOpenChange={setUploadOpen}>
           <CollapsibleTrigger asChild>
@@ -234,12 +290,10 @@ const AdminProjectDocuments = () => {
                   <Upload className="h-5 w-5 text-primary" />
                   <CardTitle>Upload Documents</CardTitle>
                 </div>
-                <ChevronDown
-                  className={`h-5 w-5 transition-transform ${uploadOpen ? 'rotate-180' : ''}`}
-                />
+                <ChevronDown className={`h-5 w-5 transition-transform ${uploadOpen ? 'rotate-180' : ''}`} />
               </div>
               <CardDescription>
-                Click to expand. Add a file upload or an external link with any custom name and type.
+                Add a file (any format) or external link. Custom title and type allowed.
               </CardDescription>
             </CardHeader>
           </CollapsibleTrigger>
@@ -254,104 +308,92 @@ const AdminProjectDocuments = () => {
                     </SelectTrigger>
                     <SelectContent>
                       {projects.map((p) => (
-                        <SelectItem key={p.id} value={p.id}>
-                          {p.title}
-                        </SelectItem>
+                        <SelectItem key={p.id} value={p.id}>{p.title}</SelectItem>
                       ))}
                     </SelectContent>
                   </Select>
                 </div>
                 <div>
                   <Label>Title (button label) *</Label>
-                  <Input
-                    value={title}
-                    onChange={(e) => setTitle(e.target.value)}
-                    placeholder="e.g. Investor Presentation"
-                  />
+                  <Input value={title} onChange={(e) => setTitle(e.target.value)} placeholder="e.g. Investor Presentation" />
                 </div>
                 <div>
                   <Label>Document type (free text)</Label>
-                  <Input
-                    value={documentType}
-                    onChange={(e) => setDocumentType(e.target.value)}
-                    placeholder="e.g. Pitch Deck, Whitepaper, Brief, Roadmap..."
-                  />
+                  <Input value={documentType} onChange={(e) => setDocumentType(e.target.value)} placeholder="e.g. Pitch Deck, Whitepaper, Brief..." />
                 </div>
                 <div>
                   <Label>Sort order</Label>
-                  <Input
-                    type="number"
-                    value={sortOrder}
-                    onChange={(e) => setSortOrder(Number(e.target.value))}
-                  />
+                  <Input type="number" value={sortOrder} onChange={(e) => setSortOrder(Number(e.target.value))} />
                 </div>
               </div>
-
               <div>
                 <Label>Description (optional)</Label>
-                <Textarea
-                  value={description}
-                  onChange={(e) => setDescription(e.target.value)}
-                  rows={2}
-                />
+                <Textarea value={description} onChange={(e) => setDescription(e.target.value)} rows={2} />
               </div>
-
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <Label>Upload file (any format)</Label>
-                  <Input
-                    type="file"
-                    onChange={(e) => setFile(e.target.files?.[0] || null)}
-                  />
-                  {file && (
-                    <p className="text-xs text-muted-foreground mt-1">
-                      {file.name} ({formatSize(file.size)})
-                    </p>
-                  )}
+                  <Input type="file" onChange={(e) => setFile(e.target.files?.[0] || null)} />
+                  {file && <p className="text-xs text-muted-foreground mt-1">{file.name} ({formatFileSize(file.size)})</p>}
                 </div>
                 <div>
                   <Label>OR external URL</Label>
-                  <Input
-                    value={externalUrl}
-                    onChange={(e) => setExternalUrl(e.target.value)}
-                    placeholder="https://..."
-                  />
+                  <Input value={externalUrl} onChange={(e) => setExternalUrl(e.target.value)} placeholder="https://..." />
                 </div>
               </div>
-
               <div className="flex gap-2">
                 <Button onClick={handleSubmit} disabled={isUploading}>
                   {isUploading ? 'Saving...' : 'Add Document'}
                 </Button>
-                <Button variant="outline" onClick={resetForm} disabled={isUploading}>
-                  Reset
-                </Button>
+                <Button variant="outline" onClick={resetForm} disabled={isUploading}>Reset</Button>
               </div>
             </CardContent>
           </CollapsibleContent>
         </Collapsible>
       </Card>
 
-      {/* Documents list */}
+      {/* Filters */}
       <Card className="border border-border/50">
         <CardHeader>
-          <CardTitle>All Project Documents ({documents.length})</CardTitle>
-          <CardDescription>Manage visibility, ordering and deletion</CardDescription>
+          <div className="flex items-center justify-between flex-wrap gap-3">
+            <CardTitle>All Documents ({filteredDocs.length})</CardTitle>
+            <div className="flex gap-2 items-center flex-wrap">
+              <div className="relative">
+                <Search className="absolute left-2 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                <Input
+                  value={search}
+                  onChange={(e) => setSearch(e.target.value)}
+                  placeholder="Search..."
+                  className="pl-8 w-56"
+                />
+              </div>
+              <Select value={filterProject} onValueChange={setFilterProject}>
+                <SelectTrigger className="w-56"><SelectValue /></SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="all">All projects</SelectItem>
+                  {projects.map((p) => (
+                    <SelectItem key={p.id} value={p.id}>{p.title}</SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
+          </div>
+          <CardDescription>Preview, edit, reorder, share or delete</CardDescription>
         </CardHeader>
         <CardContent>
           {isLoading ? (
             <p className="text-center py-8 text-muted-foreground">Loading...</p>
-          ) : documents.length === 0 ? (
-            <p className="text-center py-8 text-muted-foreground">No documents yet</p>
+          ) : filteredDocs.length === 0 ? (
+            <p className="text-center py-8 text-muted-foreground">No documents found</p>
           ) : (
             <div className="overflow-x-auto">
               <Table>
                 <TableHeader>
                   <TableRow>
+                    <TableHead className="w-12">Type</TableHead>
                     <TableHead>Project</TableHead>
                     <TableHead>Title</TableHead>
-                    <TableHead>Type</TableHead>
-                    <TableHead>Source</TableHead>
+                    <TableHead>Size</TableHead>
                     <TableHead>Order</TableHead>
                     <TableHead>Status</TableHead>
                     <TableHead>Added</TableHead>
@@ -359,55 +401,68 @@ const AdminProjectDocuments = () => {
                   </TableRow>
                 </TableHeader>
                 <TableBody>
-                  {documents.map((doc) => {
+                  {filteredDocs.map((doc) => {
                     const project = projects.find((p) => p.id === doc.project_id);
+                    const ext = getFileExtension(doc);
+                    const colorClass = getFileTypeColor(ext);
                     return (
                       <TableRow key={doc.id}>
-                        <TableCell className="font-medium">
-                          {project?.title || doc.project_slug}
-                        </TableCell>
-                        <TableCell>{doc.title}</TableCell>
-                        <TableCell className="text-muted-foreground text-sm">
-                          {doc.document_type || '—'}
-                        </TableCell>
                         <TableCell>
-                          {doc.external_url ? (
-                            <span className="inline-flex items-center gap-1 text-xs">
-                              <ExternalLink className="h-3 w-3" /> URL
-                            </span>
-                          ) : doc.file_name ? (
-                            <span className="inline-flex items-center gap-1 text-xs">
-                              <FileText className="h-3 w-3" /> {doc.file_name}
-                            </span>
-                          ) : (
-                            '—'
-                          )}
+                          <div className={`w-10 h-10 rounded border flex items-center justify-center font-bold text-[10px] ${colorClass}`}>
+                            {ext}
+                          </div>
                         </TableCell>
-                        <TableCell>{doc.sort_order}</TableCell>
+                        <TableCell className="font-medium text-sm">{project?.title || doc.project_slug}</TableCell>
+                        <TableCell>
+                          <div>
+                            <div className="font-medium">{doc.title}</div>
+                            {doc.document_type && (
+                              <div className="text-xs text-muted-foreground">{doc.document_type}</div>
+                            )}
+                            {doc.external_url && !doc.file_path && (
+                              <Badge variant="outline" className="mt-1 text-[10px]">
+                                <ExternalLink className="h-2.5 w-2.5 mr-1" /> External
+                              </Badge>
+                            )}
+                          </div>
+                        </TableCell>
+                        <TableCell className="text-xs text-muted-foreground">{formatFileSize(doc.file_size)}</TableCell>
+                        <TableCell>
+                          <div className="flex items-center gap-1">
+                            <Button size="sm" variant="ghost" className="h-6 w-6 p-0" onClick={() => moveDoc(doc, 'up')}>
+                              <ArrowUp className="h-3 w-3" />
+                            </Button>
+                            <span className="text-xs w-4 text-center">{doc.sort_order}</span>
+                            <Button size="sm" variant="ghost" className="h-6 w-6 p-0" onClick={() => moveDoc(doc, 'down')}>
+                              <ArrowDown className="h-3 w-3" />
+                            </Button>
+                          </div>
+                        </TableCell>
                         <TableCell>
                           {doc.is_visible ? (
-                            <span className="text-success text-sm">Visible</span>
+                            <Badge variant="outline" className="text-success border-success/40">Visible</Badge>
                           ) : (
-                            <span className="text-muted-foreground text-sm">Hidden</span>
+                            <Badge variant="outline" className="text-muted-foreground">Hidden</Badge>
                           )}
                         </TableCell>
-                        <TableCell className="text-sm text-muted-foreground">
+                        <TableCell className="text-xs text-muted-foreground">
                           {format(new Date(doc.created_at), 'MMM dd, yyyy')}
                         </TableCell>
                         <TableCell>
-                          <div className="flex justify-end gap-1">
-                            <Button
-                              size="sm"
-                              variant="ghost"
-                              onClick={() => toggleVisibility(doc)}
-                            >
-                              {doc.is_visible ? (
-                                <EyeOff className="h-4 w-4" />
-                              ) : (
+                          <div className="flex justify-end gap-1 items-center">
+                            {isPreviewable(doc) && (
+                              <Button size="sm" variant="ghost" onClick={() => setPreviewDoc(doc)} title="Preview">
                                 <Eye className="h-4 w-4" />
-                              )}
+                              </Button>
+                            )}
+                            <DocumentActions doc={doc} variant="menu" />
+                            <Button size="sm" variant="ghost" onClick={() => setEditDoc(doc)} title="Edit">
+                              <Pencil className="h-4 w-4" />
                             </Button>
-                            <Button size="sm" variant="ghost" onClick={() => deleteDoc(doc)}>
+                            <Button size="sm" variant="ghost" onClick={() => toggleVisibility(doc)} title={doc.is_visible ? 'Hide' : 'Show'}>
+                              {doc.is_visible ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+                            </Button>
+                            <Button size="sm" variant="ghost" onClick={() => deleteDoc(doc)} title="Delete">
                               <Trash2 className="h-4 w-4 text-destructive" />
                             </Button>
                           </div>
@@ -421,6 +476,51 @@ const AdminProjectDocuments = () => {
           )}
         </CardContent>
       </Card>
+
+      {/* Edit dialog */}
+      <Dialog open={!!editDoc} onOpenChange={(v) => !v && setEditDoc(null)}>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>Edit document</DialogTitle>
+          </DialogHeader>
+          {editDoc && (
+            <div className="space-y-4">
+              <div>
+                <Label>Title</Label>
+                <Input value={editDoc.title} onChange={(e) => setEditDoc({ ...editDoc, title: e.target.value })} />
+              </div>
+              <div>
+                <Label>Document type</Label>
+                <Input value={editDoc.document_type || ''} onChange={(e) => setEditDoc({ ...editDoc, document_type: e.target.value })} />
+              </div>
+              <div>
+                <Label>Description</Label>
+                <Textarea value={editDoc.description || ''} onChange={(e) => setEditDoc({ ...editDoc, description: e.target.value })} rows={2} />
+              </div>
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <Label>External URL</Label>
+                  <Input value={editDoc.external_url || ''} onChange={(e) => setEditDoc({ ...editDoc, external_url: e.target.value })} />
+                </div>
+                <div>
+                  <Label>Sort order</Label>
+                  <Input type="number" value={editDoc.sort_order} onChange={(e) => setEditDoc({ ...editDoc, sort_order: Number(e.target.value) })} />
+                </div>
+              </div>
+            </div>
+          )}
+          <DialogFooter>
+            <Button variant="outline" onClick={() => setEditDoc(null)}>Cancel</Button>
+            <Button onClick={saveEdit}>Save</Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
+
+      <DocumentPreviewDialog
+        doc={previewDoc}
+        open={!!previewDoc}
+        onOpenChange={(v) => !v && setPreviewDoc(null)}
+      />
     </div>
   );
 };
