@@ -820,3 +820,74 @@ html {
     box-shadow: 0 6px 24px -4px hsl(var(--project-accent) / 0.4);
   }
 }
+
+/* ═══════════════════════════════════════════════════════════════════════
+   BioMath Core themed scope
+   Use class="theme-biomath" on the page root. All colors are driven by
+   CSS variables so the design adapts automatically to light / dark mode
+   while keeping the signature orange + blue accents intact.
+   ═══════════════════════════════════════════════════════════════════════ */
+.theme-biomath {
+  /* DEFAULT (dark presentation) — preserves the cinematic immersive look */
+  --bm-bg:          220 20% 4%;
+  --bm-bg-deep:     220 30% 3%;
+  --bm-bg-elev:     220 25% 5%;
+  --bm-surface:     220 18% 8%;
+  --bm-surface-2:   220 22% 7%;
+  --bm-surface-3:   220 30% 6%;
+  --bm-overlay:     220 30% 12%;
+  --bm-text:        0 0% 100%;
+  --bm-text-strong: 0 0% 100%;
+  --bm-text-soft:   210 15% 80%;
+  --bm-text-mute:   210 10% 60%;
+  --bm-text-dim:    210 10% 45%;
+  --bm-border:      210 15% 15%;
+  --bm-border-soft: 210 15% 12%;
+  /* Brand accents stay constant across themes (signature look) */
+  --bm-orange:      25 95% 60%;
+  --bm-orange-soft: 25 90% 65%;
+  --bm-orange-deep: 25 90% 50%;
+  --bm-amber:       35 95% 60%;
+  --bm-blue:        200 80% 55%;
+  --bm-blue-soft:   200 80% 70%;
+  --bm-blue-deep:   200 80% 45%;
+  /* Background tints used inside radial gradients (different per theme) */
+  --bm-tint-orange: 25 90% 15%;
+  --bm-tint-blue:   210 80% 12%;
+  /* CTA button text color — white on dark, white on accent in light too */
+  --bm-on-accent:   0 0% 100%;
+}
+
+:root.light .theme-biomath {
+  /* LIGHT counterpart — clean, airy, same brand accents */
+  --bm-bg:          220 30% 98%;
+  --bm-bg-deep:     220 25% 99%;
+  --bm-bg-elev:     220 20% 96%;
+  --bm-surface:     0 0% 100%;
+  --bm-surface-2:   220 18% 97%;
+  --bm-surface-3:   220 18% 95%;
+  --bm-overlay:     220 14% 88%;
+  --bm-text:        225 25% 10%;
+  --bm-text-strong: 225 30% 6%;
+  --bm-text-soft:   225 18% 22%;
+  --bm-text-mute:   220 12% 38%;
+  --bm-text-dim:    220 10% 50%;
+  --bm-border:      220 16% 86%;
+  --bm-border-soft: 220 14% 90%;
+  /* Same brand accents — slightly deeper to keep contrast on white */
+  --bm-orange:      25 90% 50%;
+  --bm-orange-soft: 25 90% 42%;
+  --bm-orange-deep: 25 90% 38%;
+  --bm-amber:       32 95% 48%;
+  --bm-blue:        210 85% 45%;
+  --bm-blue-soft:   210 80% 38%;
+  --bm-blue-deep:   210 85% 35%;
+  /* Soft warm tints for radial backgrounds in light mode */
+  --bm-tint-orange: 25 90% 92%;
+  --bm-tint-blue:   210 80% 94%;
+}
+
+/* When the headline contains an inline <span class="text-white">, swap it
+   to themed strong text in light mode so it stays readable */
+:root.light .theme-biomath .bm-headline { color: hsl(var(--bm-text-strong)); }
+.theme-biomath .bm-headline { color: hsl(var(--bm-text-strong)); }
