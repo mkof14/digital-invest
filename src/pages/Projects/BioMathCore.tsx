@@ -977,14 +977,14 @@ const BioMathCore = () => {
             {/* Category Examples */}
             <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6">
               {[
-                { cat: "Critical Health", examples: "Cardiovascular monitoring, blood pressure analysis, glucose management, medication tracking, vital signs" },
-                { cat: "Longevity & Anti-Aging", examples: "Biological age calculation, senescence markers, mitochondrial function, telomere analysis, cellular optimization" },
-                { cat: "Fitness & Performance", examples: "Training optimization, recovery analysis, VO2max tracking, muscle adaptation, performance prediction" },
-                { cat: "Mental Wellness", examples: "Stress pattern detection, mood tracking, cognitive performance, mindfulness metrics, sleep quality impact" },
+                { catKey: "criticalHealth", examplesKey: "criticalHealthEx" },
+                { catKey: "longevity",      examplesKey: "longevityEx" },
+                { catKey: "fitness",        examplesKey: "fitnessEx" },
+                { catKey: "mentalWellness", examplesKey: "mentalWellnessEx" },
               ].map((item) => (
-                <div key={item.cat} className="bg-[hsl(var(--bm-surface))] border border-[hsl(var(--bm-border-soft))] rounded-xl p-5">
-                  <p className="font-semibold text-[hsl(var(--bm-text-strong))] text-sm mb-2">{item.cat}</p>
-                  <p className="text-xs text-[hsl(var(--bm-text-dim))] leading-relaxed">{item.examples}</p>
+                <div key={item.catKey} className="bg-[hsl(var(--bm-surface))] border border-[hsl(var(--bm-border-soft))] rounded-xl p-5">
+                  <p className="font-semibold text-[hsl(var(--bm-text-strong))] text-sm mb-2">{t(`projectBiomathCore.cat.${item.catKey}`)}</p>
+                  <p className="text-xs text-[hsl(var(--bm-text-dim))] leading-relaxed">{t(`projectBiomathCore.examples.${item.examplesKey}`)}</p>
                 </div>
               ))}
             </div>
