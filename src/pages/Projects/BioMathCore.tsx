@@ -60,6 +60,7 @@ const BioMathCore = () => {
   const { t } = useTranslation();
   const fanRef = useRef<HTMLDivElement | null>(null);
   const [fanInView, setFanInView] = useState(false);
+  const [hoveredFan, setHoveredFan] = useState<number | null>(null);
   useEffect(() => {
     const el = fanRef.current;
     if (!el) return;
@@ -279,18 +280,18 @@ const BioMathCore = () => {
 
             {(() => {
               const nodes = [
-                { name: 'BioMath Life',   color: 'hsl(195,85%,60%)', slug: 'biomathlife'    },
-                { name: 'LongevityCore',  color: 'hsl(35,95%,60%)',  slug: 'longevitycore'  },
-                { name: 'FamilyCore',     color: 'hsl(15,85%,60%)',  slug: 'familycore'     },
-                { name: 'SkinCore',       color: 'hsl(330,75%,62%)', slug: 'skincore'       },
-                { name: 'SeniorCore',     color: 'hsl(45,85%,58%)',  slug: 'seniorcore'     },
-                { name: 'StressCore',     color: 'hsl(270,70%,65%)', slug: 'stresscore'     },
-                { name: 'BioAgeCore',     color: 'hsl(160,70%,50%)', slug: 'bioagecore'     },
-                { name: 'LunaBalance',    color: 'hsl(310,65%,62%)', slug: 'luna-balance'   },
-                { name: 'VitalCore',      color: 'hsl(0,75%,60%)',   slug: 'vitalcore'      },
-                { name: 'MRX Health',     color: 'hsl(210,80%,62%)', slug: 'mrx-health'     },
-                { name: 'BaseLine',       color: 'hsl(140,60%,55%)', slug: 'baseline'       },
-                { name: 'MyDay',          color: 'hsl(250,70%,65%)', slug: 'myday'          },
+                { name: 'BioMath Life',   color: 'hsl(195,85%,60%)', slug: 'biomathlife',   desc: 'Personal digital health companion built on the BioMath Core' },
+                { name: 'LongevityCore',  color: 'hsl(35,95%,60%)',  slug: 'longevitycore', desc: 'Biological-age tracking and lifespan optimization' },
+                { name: 'FamilyCore',     color: 'hsl(15,85%,60%)',  slug: 'familycore',    desc: 'Whole-family health graph and shared care decisions' },
+                { name: 'SkinCore',       color: 'hsl(330,75%,62%)', slug: 'skincore',      desc: 'Dermatology and skin-health intelligence' },
+                { name: 'SeniorCore',     color: 'hsl(45,85%,58%)',  slug: 'seniorcore',    desc: 'Healthy aging and senior care monitoring' },
+                { name: 'StressCore',     color: 'hsl(270,70%,65%)', slug: 'stresscore',    desc: 'Stress, recovery and nervous-system balance' },
+                { name: 'BioAgeCore',     color: 'hsl(160,70%,50%)', slug: 'bioagecore',    desc: 'Multi-marker biological-age engine' },
+                { name: 'LunaBalance',    color: 'hsl(310,65%,62%)', slug: 'luna-balance',  desc: "Women's hormonal and cycle health" },
+                { name: 'VitalCore',      color: 'hsl(0,75%,60%)',   slug: 'vitalcore',     desc: 'Continuous vitals and cardiometabolic insights' },
+                { name: 'MRX Health',     color: 'hsl(210,80%,62%)', slug: 'mrx-health',    desc: 'Clinical-grade medical record intelligence' },
+                { name: 'BaseLine',       color: 'hsl(140,60%,55%)', slug: 'baseline',      desc: 'Personal health baseline and trend tracking' },
+                { name: 'MyDay',          color: 'hsl(250,70%,65%)', slug: 'myday',         desc: 'AI daily planning and habit optimization' },
               ];
               const W = 900, H = 620, cx = W / 2, cy = H / 2, r = 250;
               return (
@@ -362,8 +363,12 @@ const BioMathCore = () => {
                           <Link
                             key={`n-${n.name}`}
                             to={`/projects/${n.slug}`}
-                            aria-label={`Open ${n.name} project page`}
+                            aria-label={`Open ${n.name} project page — ${n.desc}`}
                             className="cursor-pointer outline-none focus-visible:[&_circle]:stroke-white hover:[&_circle:nth-child(2)]:fill-[hsl(220,30%,12%)] hover:[&_text]:fill-white transition-colors"
+                            onMouseEnter={() => setHoveredFan(i)}
+                            onMouseLeave={() => setHoveredFan((cur) => (cur === i ? null : cur))}
+                            onFocus={() => setHoveredFan(i)}
+                            onBlur={() => setHoveredFan((cur) => (cur === i ? null : cur))}
                           >
                             <g>
                               {/* invisible larger hit target for easier clicking */}
@@ -411,10 +416,58 @@ const BioMathCore = () => {
                               >
                                 {n.name}
                               </text>
+                              {/* SR-only description */}
+                              <title>{`${n.name} — ${n.desc}`}</title>
                             </g>
                           </Link>
                         );
                       })}
+
+                      {/* Tooltip overlay (rendered last so it sits on top) */}
+                      {hoveredFan !== null && (() => {
+                        const n = nodes[hoveredFan];
+                        const a = (hoveredFan / nodes.length) * Math.PI * 2 - Math.PI / 2;
+                        const sx = cx + Math.cos(a) * r;
+                        const sy = cy + Math.sin(a) * r;
+                        const label = `${n.name} — ${n.desc}`;
+                        // approximate width: ~6.6px per character at 13px font
+                        const tw = Math.min(360, Math.max(180, label.length * 6.6 + 24));
+                        const th = 38;
+                        // place tooltip outward from center, then clamp inside viewBox
+                        const outwardX = sx + Math.cos(a) * 36;
+                        const outwardY = sy + Math.sin(a) * 36;
+                        let tx = outwardX - tw / 2;
+                        let ty = outwardY - th / 2;
+                        tx = Math.max(8, Math.min(W - tw - 8, tx));
+                        ty = Math.max(8, Math.min(H - th - 8, ty));
+                        return (
+                          <g pointerEvents="none" style={{ filter: 'drop-shadow(0 6px 16px rgba(0,0,0,0.55))' }}>
+                            <rect
+                              x={tx}
+                              y={ty}
+                              width={tw}
+                              height={th}
+                              rx={10}
+                              ry={10}
+                              fill="hsl(220,30%,7%)"
+                              stroke={n.color}
+                              strokeOpacity={0.7}
+                              strokeWidth={1}
+                            />
+                            <text
+                              x={tx + 12}
+                              y={ty + th / 2 + 4}
+                              fontSize="13"
+                              fontWeight="600"
+                              fill="hsl(210,15%,92%)"
+                              style={{ fontFamily: 'inherit' }}
+                            >
+                              <tspan fill={n.color} fontWeight="700">{n.name}</tspan>
+                              <tspan dx="6" fill="hsl(210,15%,88%)" fontWeight="500">— {n.desc}</tspan>
+                            </text>
+                          </g>
+                        );
+                      })()}
                     </svg>
                     {/* Pulse keyframes (scoped via unique animation names) */}
                     <style>{`
