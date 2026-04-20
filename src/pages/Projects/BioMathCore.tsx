@@ -15,6 +15,14 @@ import biomathCardBg from "@/assets/projects/biomathcore-card-bg.png";
 import infographic1 from "@/assets/projects/biomath-core-infographic1.jpg";
 import infographic2 from "@/assets/projects/biomath-core-infographic2.jpg";
 import infographic3 from "@/assets/projects/biomath-core-infographic3.jpg";
+// Presentation-aligned imagery (BioMath Core Architecture deck)
+import presHero from "@/assets/projects/biomath-pres-hero.jpg";
+import presOrbital from "@/assets/projects/biomath-pres-orbital.jpg";
+import presBaseline from "@/assets/projects/biomath-pres-baseline.jpg";
+import presBlackBox from "@/assets/projects/biomath-pres-blackbox.jpg";
+import presOrbitalLoop from "@/assets/projects/biomath-pres-orbital-loop.jpg";
+import presTime from "@/assets/projects/biomath-pres-time.jpg";
+import presOutput from "@/assets/projects/biomath-pres-output.jpg";
 import InvestorPageDisclaimer from "@/components/InvestorPageDisclaimer";
 import { InfographicsGallery } from "@/components/InfographicsGallery";
 
