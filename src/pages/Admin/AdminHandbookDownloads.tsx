@@ -399,18 +399,45 @@ const AdminHandbookDownloads = () => {
             </Dialog>
           </CardHeader>
           <CardContent>
-            {documents.length === 0 ? (
+            {/* Filters */}
+            <div className="flex flex-wrap gap-3 mb-4 items-center">
+              <div className="relative flex-1 min-w-[200px]">
+                <Search className="absolute left-2 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                <Input
+                  value={search}
+                  onChange={(e) => setSearch(e.target.value)}
+                  placeholder="Search documents..."
+                  className="pl-8"
+                />
+              </div>
+              <Select value={filterCategory} onValueChange={setFilterCategory}>
+                <SelectTrigger className="w-48">
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="all">All categories</SelectItem>
+                  <SelectItem value="general">General</SelectItem>
+                  <SelectItem value="financial">Financial</SelectItem>
+                  <SelectItem value="legal">Legal</SelectItem>
+                  <SelectItem value="technical">Technical</SelectItem>
+                  <SelectItem value="marketing">Marketing</SelectItem>
+                </SelectContent>
+              </Select>
+              <Badge variant="secondary">{filteredDocs.length} docs</Badge>
+            </div>
+
+            {filteredDocs.length === 0 ? (
               <div className="text-center py-8 text-muted-foreground">
-                No documents uploaded yet
+                {documents.length === 0 ? 'No documents uploaded yet' : 'No documents match your filters'}
               </div>
             ) : (
               <div className="overflow-x-auto">
                 <Table>
                   <TableHeader>
                     <TableRow>
+                      <TableHead className="w-12">Type</TableHead>
                       <TableHead>Title</TableHead>
                       <TableHead>Category</TableHead>
-                      <TableHead>File Type</TableHead>
                       <TableHead>Size</TableHead>
                       <TableHead>Uploaded</TableHead>
                       <TableHead>Status</TableHead>
@@ -418,70 +445,86 @@ const AdminHandbookDownloads = () => {
                     </TableRow>
                   </TableHeader>
                   <TableBody>
-                    {documents.map((doc) => (
-                      <TableRow key={doc.id}>
-                        <TableCell>
-                          <div>
-                            <p className="font-medium">{doc.title}</p>
-                            {doc.description && (
-                              <p className="text-sm text-muted-foreground">{doc.description}</p>
-                            )}
-                          </div>
-                        </TableCell>
-                        <TableCell className="capitalize">{doc.category}</TableCell>
-                        <TableCell>
-                          <span className="text-xs bg-muted px-2 py-1 rounded">
-                            {doc.file_name.split('.').pop()?.toUpperCase()}
-                          </span>
-                        </TableCell>
-                        <TableCell>{formatFileSize(doc.file_size)}</TableCell>
-                        <TableCell>
-                          {format(new Date(doc.created_at), 'MMM dd, yyyy')}
-                        </TableCell>
-                        <TableCell>
-                          {doc.is_visible ? (
-                            <span className="text-green-600 text-sm">Visible</span>
-                          ) : (
-                            <span className="text-muted-foreground text-sm">Hidden</span>
-                          )}
-                        </TableCell>
-                        <TableCell>
-                          <div className="flex gap-2 justify-end">
-                            <Button
-                              variant="ghost"
-                              size="sm"
-                              onClick={() => downloadDocument(doc.file_path, doc.file_name)}
-                            >
-                              <Download className="h-4 w-4" />
-                            </Button>
-                            <Button
-                              variant="ghost"
-                              size="sm"
-                              onClick={() => toggleVisibility(doc.id, doc.is_visible)}
-                            >
-                              {doc.is_visible ? (
-                                <EyeOff className="h-4 w-4" />
-                              ) : (
-                                <Eye className="h-4 w-4" />
+                    {filteredDocs.map((doc) => {
+                      const record = toRecord(doc);
+                      const ext = getFileExtension(record);
+                      const colorClass = getFileTypeColor(ext);
+                      return (
+                        <TableRow key={doc.id}>
+                          <TableCell>
+                            <div className={`w-10 h-10 rounded border flex items-center justify-center font-bold text-[10px] ${colorClass}`}>
+                              {ext}
+                            </div>
+                          </TableCell>
+                          <TableCell>
+                            <div>
+                              <p className="font-medium">{doc.title}</p>
+                              {doc.description && (
+                                <p className="text-xs text-muted-foreground line-clamp-1">{doc.description}</p>
                               )}
-                            </Button>
-                            <Button
-                              variant="ghost"
-                              size="sm"
-                              onClick={() => deleteDocument(doc.id, doc.file_path)}
-                            >
-                              <Trash2 className="h-4 w-4 text-destructive" />
-                            </Button>
-                          </div>
-                        </TableCell>
-                      </TableRow>
-                    ))}
+                              <p className="text-xs text-muted-foreground/70 truncate max-w-[280px]">{doc.file_name}</p>
+                            </div>
+                          </TableCell>
+                          <TableCell className="capitalize text-sm">{doc.category}</TableCell>
+                          <TableCell className="text-sm">{formatFileSize(doc.file_size)}</TableCell>
+                          <TableCell className="text-sm">
+                            {format(new Date(doc.created_at), 'MMM dd, yyyy')}
+                          </TableCell>
+                          <TableCell>
+                            {doc.is_visible ? (
+                              <Badge variant="outline" className="text-success border-success/40">Visible</Badge>
+                            ) : (
+                              <Badge variant="outline" className="text-muted-foreground">Hidden</Badge>
+                            )}
+                          </TableCell>
+                          <TableCell>
+                            <div className="flex gap-1 justify-end items-center">
+                              {isPreviewable(record) && (
+                                <Button variant="ghost" size="sm" onClick={() => setPreviewDoc(doc)} title="Preview">
+                                  <Eye className="h-4 w-4" />
+                                </Button>
+                              )}
+                              <DocumentActions
+                                doc={record}
+                                variant="menu"
+                                bucket="investor-documents"
+                                isPublicBucket={false}
+                              />
+                              <Button
+                                variant="ghost"
+                                size="sm"
+                                onClick={() => toggleVisibility(doc.id, doc.is_visible)}
+                                title={doc.is_visible ? 'Hide' : 'Show'}
+                              >
+                                {doc.is_visible ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+                              </Button>
+                              <Button
+                                variant="ghost"
+                                size="sm"
+                                onClick={() => deleteDocument(doc.id, doc.file_path)}
+                                title="Delete"
+                              >
+                                <Trash2 className="h-4 w-4 text-destructive" />
+                              </Button>
+                            </div>
+                          </TableCell>
+                        </TableRow>
+                      );
+                    })}
                   </TableBody>
                 </Table>
               </div>
             )}
           </CardContent>
         </Card>
+
+        <DocumentPreviewDialog
+          doc={previewDoc ? toRecord(previewDoc) : null}
+          open={!!previewDoc}
+          onOpenChange={(v) => !v && setPreviewDoc(null)}
+          bucket="investor-documents"
+          isPublicBucket={false}
+        />
 
         {/* Downloads Tracking Section */}
         <Card>
