@@ -80,6 +80,11 @@ const OptimizedImage = ({
             decoding="async"
             // @ts-ignore - fetchPriority is a valid HTML attribute
             fetchpriority={fetchPriority}
+            // Anti-CLS: provide intrinsic size hints when caller did not pass them.
+            // Aspect ratio is enforced via container classes; these defaults give
+            // the browser a reservation box before the image loads.
+            width={(props as { width?: number }).width ?? 1600}
+            height={(props as { height?: number }).height ?? 900}
             className={cn(
               'w-full h-full object-cover transition-opacity duration-500 ease-out',
               isLoading ? 'opacity-0' : 'opacity-100',
