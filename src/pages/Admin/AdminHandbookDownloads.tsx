@@ -60,6 +60,11 @@ const AdminHandbookDownloads = () => {
   const [uploadDescription, setUploadDescription] = useState('');
   const [uploadCategory, setUploadCategory] = useState('general');
 
+  // Preview / search
+  const [previewDoc, setPreviewDoc] = useState<InvestorDocument | null>(null);
+  const [search, setSearch] = useState('');
+  const [filterCategory, setFilterCategory] = useState<string>('all');
+
   useEffect(() => {
     if (roleLoading) return;
     
