@@ -867,6 +867,68 @@
         "i3": "エンタープライズ向けのコーポレートウェルネスソリューション",
         "i4": "各地域のコンプライアンスに対応した国際展開"
       }
+    },
+    "[statCategories] Health Categories": "健康カテゴリー",
+    "[foundationTitle] Core Foundation of the BioMath Ecosystem": "BioMathエコシステムの中核をなす基盤",
+    "[missionSubtitle] Three principles that guide every interaction within the platform": "プラットフォーム内のすべてのインタラクションを導く3つの原則",
+    "[mission1Title] Understanding, Not Overwhelm": "圧倒ではなく、理解を",
+    "[mission1Desc] Convert health signals into meaning, then into gentle supportive guidance": {
+      " Make complex biology accessible and actionable": {
+        "": "健康シグナルを意味のあるものに変換し、優しくサポート的なガイダンスを提供します。複雑な生物学をアクセスしやすく、実用的なものにします。"
+      }
+    },
+    "[mission2Title] Reassurance, Not Urgency": "緊急性ではなく、安心を",
+    "[mission2Desc] Build on emotional safety": {
+      " Users are learning, never failing": {
+        " Guidance is invitational rather than prescriptive": {
+          "": "感情的な安全性を基盤に構築します。ユーザーは学び続ける存在であり、決して失敗することはありません。ガイダンスは指示的ではなく、常に任意参加です。"
+        }
+      }
+    },
+    "[mission3Title] Education, Not Diagnosis": "診断ではなく、教育を",
+    "[mission3Desc] Help users understand how their bodies respond day-to-day": {
+      " Wellness-first interpretation of patterns, not medical diagnosis": {
+        "": "ユーザーが日々の身体の反応を理解するのを助けます。医療診断ではなく、ウェルネスを第一に考えたパターンの解釈。"
+      }
+    },
+    "[howSubtitle] Four interconnected stages transform raw health data into daily actionable intelligence": "4つの連携したステージが、生の健康データを日々の実用的なインテリジェンスに変換します",
+    "[step1Title] Data Aggregation": "データ集約",
+    "[step1Desc] Connect wearables, upload labs, import medical records, add genetic tests": {
+      " All data flows into the encrypted Model Archive vault": {
+        "": "ウェアラブルを接続し、検査結果をアップロードし、医療記録をインポートし、遺伝子検査を追加します。すべてのデータは暗号化されたモデルアーカイブボールトに流れ込みます。"
+      }
+    },
+    "[step2Title] Knowledge Engine": "ナレッジエンジン",
+    "[step2Desc] Server-side engine analyzes data, identifies patterns, correlates metrics across categories, and updates your personal health model continuously": {
+      "": "サーバーサイドのエンジンがデータを分析し、パターンを特定し、カテゴリー間で指標を相関させ、個人の健康モデルを継続的に更新します。"
+    },
+    "[step3Title] AI Insight Generation": "AIによるインサイト生成",
+    "[step3Desc] 200+ specialized AI services examine sleep, nutrition, stress, recovery, cognition, metabolic health and generate personalized insights": {
+      "": "200以上の専門AIサービスが睡眠、栄養、ストレス、回復、認知、代謝の健康を調査し、パーソナライズされたインサイトを生成します。"
+    },
+    "[step4Title] Daily Guidance": "日々のガイダンス",
+    "[step4Desc] Personalized recommendations through clean dashboards": {
+      " Visual reports, smart alerts, and context-rich explanations — designed to inform, not alarm": {
+        "": "クリーンなダッシュボードを通じてパーソナライズされた推奨事項。視覚的なレポート、スマートアラート、文脈豊かな説明 — 不安にさせるのではなく、情報を提供するために設計されています。"
+      }
+    },
+    "[blackBoxTitle] Health Black Box": "健康のブラックボックス",
+    "[blackBoxDesc] Your Model Archive — an encrypted vault storing all personal health data with military-grade security": {
+      " You maintain complete control over data access, sharing, and sovereignty": {
+        "": "あなたのモデルアーカイブ — すべての個人の健康データを軍用レベルのセキュリティで保存する暗号化されたボールト。あなたはデータアクセス、共有、主権を完全に管理します。"
+      }
+    },
+    "[categoriesTitle] 20 Health Categories": "20の健康カテゴリー",
+    "[categoriesSubtitle] 200+ specialized AI services organized across comprehensive health and wellness domains": "包括的な健康とウェルネスの領域にわたって整理された200以上の専門AIサービス",
+    "[uniqueTitle] What Makes BioMath Core Unique": "BioMath Coreがユニークな理由",
+    "[visionDesc] BioMath Core aims to become the foundational operating system for personal health — the layer connecting all data sources, generating unified insights, and coordinating wellness across your entire life": {
+      "": "BioMath Coreは、個人の健康のための基盤となるオペレーティングシステムになることを目指しています — すべてのデータソースを接続し、統一されたインサイトを生成し、あなたの生活全体のウェルネスを調整するレイヤーです。"
+    },
+    "[visionDesc2] Over 5-10 years: family health coordination, senior independence through predictive monitoring, smart home integration, automated medication management, and seamless healthcare provider coordination": {
+      "": "5〜10年以上の展望：家族の健康管理、予測モニタリングによる高齢者の自立支援、スマートホーム連携、自動化された服薬管理、および医療提供者とのシームレスな連携。"
+    },
+    "[secBadge": {
+      "hipaa] HIPAA & GDPR": "HIPAA & GDPR"
     }
   },
   "projectTerraAero": {
