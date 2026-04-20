@@ -55,6 +55,7 @@ const AdminLayout = () => {
     { icon: FolderOpen, label: 'Projects', path: '/admin/projects', minRole: 'EDITOR' },
     { icon: Users, label: 'Investor Leads', path: '/admin/leads', minRole: 'EDITOR' },
     { icon: FileText, label: 'Handbook Downloads', path: '/admin/handbook-downloads', minRole: 'EDITOR' },
+    { icon: FileText, label: 'Project Documents', path: '/admin/project-documents', minRole: 'EDITOR' },
     { icon: UsersRound, label: 'Team Members', path: '/admin/team', minRole: 'EDITOR' },
     { icon: Newspaper, label: 'News & Updates', path: '/admin/news', minRole: 'EDITOR' },
     { icon: Mail, label: 'Email Templates', path: '/admin/email-templates', minRole: 'EDITOR' },
