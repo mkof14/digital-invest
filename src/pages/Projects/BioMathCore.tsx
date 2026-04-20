@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Heart, Brain, Activity, Shield, Lock, Database, Cpu, Layers, Server, FileText, AlertCircle, Globe, Rocket, ArrowLeft, Download, Images, Eye, Dna, Zap, Users, Stethoscope, Moon, Apple, Leaf, Baby, Microscope, Sparkles, MonitorSmartphone } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { useEffect, useRef, useState } from "react";
 import biomathCoreHero from "@/assets/projects/biomath-core-hero.jpg";
 import biomathWellness from "@/assets/projects/biomath-wellness-center.jpg";
 import biomathSupercomputer from "@/assets/projects/biomath-supercomputer.jpg";
