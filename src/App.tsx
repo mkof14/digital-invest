@@ -52,6 +52,7 @@ const AdminConsultations = lazy(() => import("./pages/Admin/AdminConsultations")
 const AdminAvailability = lazy(() => import("./pages/Admin/AdminAvailability"));
 const AdminSitemap = lazy(() => import("./pages/Admin/AdminSitemap"));
 const AdminLaunchChecklist = lazy(() => import("./pages/Admin/AdminLaunchChecklist"));
+const AdminProjectDocuments = lazy(() => import("./pages/Admin/AdminProjectDocuments"));
 const WhyDigitalInvest = lazy(() => import("./pages/WhyDigitalInvest"));
 const ForInvestors = lazy(() => import("./pages/ForInvestors"));
 const InvestorDocuments = lazy(() => import("./pages/InvestorDocuments"));
@@ -199,6 +200,7 @@ const App = () => (
                 <Route path="availability" element={<AdminAvailability />} />
                 <Route path="sitemap" element={<AdminSitemap />} />
                 <Route path="launch-checklist" element={<AdminLaunchChecklist />} />
+                <Route path="project-documents" element={<AdminProjectDocuments />} />
               </Route>
               
               {/* Legacy Project Routes */}
