@@ -570,7 +570,7 @@ const BioMathCore = () => {
         </section>
 
         {/* ═══════════════════════ FOUNDATION BANNER ═══════════════════════ */}
-        <section className="container mx-auto px-4 pb-16">
+        <section className="container mx-auto px-4 pb-16 cv-auto">
           <div className="relative rounded-2xl overflow-hidden border border-[hsl(25,90%,55%)]/15">
             <div className="absolute inset-0">
               <img src={biomathSupercomputer} alt="" className="w-full h-full object-cover opacity-30" />
@@ -593,7 +593,7 @@ const BioMathCore = () => {
         </section>
 
         {/* ═══════════════════════ HUMAN BASELINE (from presentation) + OVERVIEW ═══════════════════════ */}
-        <section className="container mx-auto px-4 pb-20">
+        <section className="container mx-auto px-4 pb-20 cv-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             <div className="rounded-2xl overflow-hidden border border-[hsl(210,15%,15%)] shadow-2xl shadow-[hsl(25,90%,30%)]/10 bg-[hsl(220,25%,3%)]">
               <img src={presBaseline} alt="Constructing the Human Baseline — BioMath Core" className="w-full h-[420px] object-cover" />
