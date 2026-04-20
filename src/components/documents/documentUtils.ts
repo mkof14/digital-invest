@@ -13,13 +13,35 @@ export interface ProjectDocumentRecord {
   sort_order: number;
 }
 
-export const getDocumentUrl = (doc: Pick<ProjectDocumentRecord, 'external_url' | 'file_path'>): string => {
+const SIGNED_URL_EXPIRY = 60 * 60; // 1 hour
+
+export const getDocumentUrl = (
+  doc: Pick<ProjectDocumentRecord, 'external_url' | 'file_path'>,
+  bucket = 'project-documents'
+): string => {
   if (doc.external_url) return doc.external_url;
   if (doc.file_path) {
-    const { data } = supabase.storage.from('project-documents').getPublicUrl(doc.file_path);
+    const { data } = supabase.storage.from(bucket).getPublicUrl(doc.file_path);
     return data.publicUrl;
   }
   return '#';
+};
+
+export const resolveDocumentUrl = async (
+  doc: Pick<ProjectDocumentRecord, 'external_url' | 'file_path'>,
+  bucket = 'project-documents',
+  isPublic = true
+): Promise<string> => {
+  if (doc.external_url) return doc.external_url;
+  if (!doc.file_path) return '#';
+  if (isPublic) {
+    return supabase.storage.from(bucket).getPublicUrl(doc.file_path).data.publicUrl;
+  }
+  const { data, error } = await supabase.storage
+    .from(bucket)
+    .createSignedUrl(doc.file_path, SIGNED_URL_EXPIRY);
+  if (error || !data) return '#';
+  return data.signedUrl;
 };
 
 export const formatFileSize = (bytes: number | null): string => {

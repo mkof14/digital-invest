@@ -7,22 +7,32 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { Eye, Download, Link2, Share2, MoreHorizontal } from 'lucide-react';
 import { toast } from 'sonner';
-import { getDocumentUrl, ProjectDocumentRecord } from './documentUtils';
+import { resolveDocumentUrl, ProjectDocumentRecord } from './documentUtils';
 
 interface Props {
   doc: ProjectDocumentRecord;
   variant?: 'inline' | 'menu';
   size?: 'sm' | 'default';
+  bucket?: string;
+  isPublicBucket?: boolean;
 }
 
-const DocumentActions = ({ doc, variant = 'inline', size = 'sm' }: Props) => {
-  const url = getDocumentUrl(doc);
+const DocumentActions = ({
+  doc,
+  variant = 'inline',
+  size = 'sm',
+  bucket = 'project-documents',
+  isPublicBucket = true,
+}: Props) => {
+  const getUrl = () => resolveDocumentUrl(doc, bucket, isPublicBucket);
 
-  const handleView = () => {
+  const handleView = async () => {
+    const url = await getUrl();
     window.open(url, '_blank', 'noopener,noreferrer');
   };
 
   const handleDownload = async () => {
+    const url = await getUrl();
     if (doc.external_url && !doc.file_path) {
       window.open(url, '_blank', 'noopener,noreferrer');
       return;
@@ -40,30 +50,36 @@ const DocumentActions = ({ doc, variant = 'inline', size = 'sm' }: Props) => {
       URL.revokeObjectURL(blobUrl);
       toast.success('Download started');
     } catch {
-      // Fallback to opening in a new tab
       window.open(url, '_blank', 'noopener,noreferrer');
     }
   };
 
   const handleCopy = async () => {
     try {
+      const url = await getUrl();
       await navigator.clipboard.writeText(url);
-      toast.success('Link copied to clipboard');
+      toast.success(isPublicBucket ? 'Link copied' : 'Temporary link copied (valid 1 hour)');
     } catch {
       toast.error('Could not copy link');
     }
   };
 
   const handleShare = async () => {
+    const url = await getUrl();
     const shareData = { title: doc.title, text: doc.description || doc.title, url };
     if (navigator.share) {
       try {
         await navigator.share(shareData);
       } catch {
-        /* user cancelled */
+        /* cancelled */
       }
     } else {
-      await handleCopy();
+      try {
+        await navigator.clipboard.writeText(url);
+        toast.success('Link copied to clipboard');
+      } catch {
+        toast.error('Could not share');
+      }
     }
   };
 
