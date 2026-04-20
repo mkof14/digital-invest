@@ -259,18 +259,18 @@ const BioMathCore = () => {
 
             {(() => {
               const nodes = [
-                { name: 'BioMath Life',   color: 'hsl(195,85%,60%)' },
-                { name: 'LongevityCore',  color: 'hsl(35,95%,60%)'  },
-                { name: 'FamilyCore',     color: 'hsl(15,85%,60%)'  },
-                { name: 'SkinCore',       color: 'hsl(330,75%,62%)' },
-                { name: 'SeniorCore',     color: 'hsl(45,85%,58%)'  },
-                { name: 'StressCore',     color: 'hsl(270,70%,65%)' },
-                { name: 'BioAgeCore',     color: 'hsl(160,70%,50%)' },
-                { name: 'LunaBalance',    color: 'hsl(310,65%,62%)' },
-                { name: 'VitalCore',      color: 'hsl(0,75%,60%)'   },
-                { name: 'MRX Health',     color: 'hsl(210,80%,62%)' },
-                { name: 'BaseLine',       color: 'hsl(140,60%,55%)' },
-                { name: 'MyDay',          color: 'hsl(250,70%,65%)' },
+                { name: 'BioMath Life',   color: 'hsl(195,85%,60%)', slug: 'biomathlife'    },
+                { name: 'LongevityCore',  color: 'hsl(35,95%,60%)',  slug: 'longevitycore'  },
+                { name: 'FamilyCore',     color: 'hsl(15,85%,60%)',  slug: 'familycore'     },
+                { name: 'SkinCore',       color: 'hsl(330,75%,62%)', slug: 'skincore'       },
+                { name: 'SeniorCore',     color: 'hsl(45,85%,58%)',  slug: 'seniorcore'     },
+                { name: 'StressCore',     color: 'hsl(270,70%,65%)', slug: 'stresscore'     },
+                { name: 'BioAgeCore',     color: 'hsl(160,70%,50%)', slug: 'bioagecore'     },
+                { name: 'LunaBalance',    color: 'hsl(310,65%,62%)', slug: 'luna-balance'   },
+                { name: 'VitalCore',      color: 'hsl(0,75%,60%)',   slug: 'vitalcore'      },
+                { name: 'MRX Health',     color: 'hsl(210,80%,62%)', slug: 'mrx-health'     },
+                { name: 'BaseLine',       color: 'hsl(140,60%,55%)', slug: 'baseline'       },
+                { name: 'MyDay',          color: 'hsl(250,70%,65%)', slug: 'myday'          },
               ];
               const W = 900, H = 620, cx = W / 2, cy = H / 2, r = 250;
               return (
@@ -320,7 +320,7 @@ const BioMathCore = () => {
                       <text x={cx} y={cy - 4} textAnchor="middle" fontSize="18" fontWeight="700" fill="white" style={{ fontFamily: 'inherit' }}>BioMath</text>
                       <text x={cx} y={cy + 18} textAnchor="middle" fontSize="18" fontWeight="700" fill="white" style={{ fontFamily: 'inherit' }}>Core</text>
 
-                      {/* Satellite nodes */}
+                      {/* Satellite nodes (clickable links to project pages) */}
                       {nodes.map((n, i) => {
                         const a = (i / nodes.length) * Math.PI * 2 - Math.PI / 2;
                         const x = cx + Math.cos(a) * r;
@@ -330,32 +330,45 @@ const BioMathCore = () => {
                         const labelDy = Math.sin(a) * 14;
                         const anchor = Math.cos(a) > 0.25 ? 'start' : Math.cos(a) < -0.25 ? 'end' : 'middle';
                         return (
-                          <g key={`n-${n.name}`}>
-                            <circle cx={x} cy={y} r="22" fill="hsl(220,30%,8%)" stroke={n.color} strokeWidth="2" />
-                            <circle cx={x} cy={y} r="6" fill={n.color} />
-                            <text
-                              x={x + labelDx}
-                              y={y + labelDy + 4}
-                              textAnchor={anchor}
-                              fontSize="13"
-                              fontWeight="600"
-                              fill="hsl(210,15%,88%)"
-                              style={{ fontFamily: 'inherit' }}
-                            >
-                              {n.name}
-                            </text>
-                          </g>
+                          <Link
+                            key={`n-${n.name}`}
+                            to={`/projects/${n.slug}`}
+                            aria-label={`Open ${n.name} project page`}
+                            className="cursor-pointer outline-none focus-visible:[&_circle]:stroke-white hover:[&_circle:first-child]:fill-[hsl(220,30%,12%)] hover:[&_text]:fill-white transition-colors"
+                          >
+                            <g>
+                              {/* invisible larger hit target for easier clicking */}
+                              <circle cx={x} cy={y} r="34" fill="transparent" />
+                              <circle cx={x} cy={y} r="22" fill="hsl(220,30%,8%)" stroke={n.color} strokeWidth="2" />
+                              <circle cx={x} cy={y} r="6" fill={n.color} />
+                              <text
+                                x={x + labelDx}
+                                y={y + labelDy + 4}
+                                textAnchor={anchor}
+                                fontSize="13"
+                                fontWeight="600"
+                                fill="hsl(210,15%,88%)"
+                                style={{ fontFamily: 'inherit' }}
+                              >
+                                {n.name}
+                              </text>
+                            </g>
+                          </Link>
                         );
                       })}
                     </svg>
 
-                    {/* Mobile-friendly legend below */}
+                    {/* Mobile-friendly legend below (also clickable) */}
                     <div className="mt-6 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 md:hidden">
                       {nodes.map((n) => (
-                        <div key={`leg-${n.name}`} className="flex items-center gap-2 text-xs text-[hsl(210,15%,80%)]">
+                        <Link
+                          key={`leg-${n.name}`}
+                          to={`/projects/${n.slug}`}
+                          className="flex items-center gap-2 text-xs text-[hsl(210,15%,80%)] hover:text-white transition-colors"
+                        >
                           <span className="inline-block w-2.5 h-2.5 rounded-full" style={{ background: n.color }} />
                           {n.name}
-                        </div>
+                        </Link>
                       ))}
                     </div>
                   </div>
