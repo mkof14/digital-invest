@@ -904,7 +904,12 @@ const BioMathCore = () => {
                 {t('projectBiomathCore.blackBoxDesc')}
               </p>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                {["AES-256 Encryption", "Blockchain Integrity", "Zero-Trust Architecture", "HIPAA & GDPR"].map((item) => (
+                {[
+                  t('projectBiomathCore.secBadge.aes'),
+                  t('projectBiomathCore.secBadge.blockchain'),
+                  t('projectBiomathCore.secBadge.zerotrust'),
+                  t('projectBiomathCore.secBadge.hipaa'),
+                ].map((item) => (
                   <div key={item} className="bg-[hsl(var(--bm-surface))]/80 backdrop-blur-sm border border-[hsl(var(--bm-border))] rounded-xl px-4 py-3 text-sm text-[hsl(var(--bm-text-soft))]">
                     {item}
                   </div>
@@ -922,21 +927,21 @@ const BioMathCore = () => {
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { icon: Lock, title: "Model Archive", items: ["AES-256 encryption at rest & in transit", "Blockchain-verified data integrity", "Granular permission controls", "SOC 2 certified infrastructure"] },
-              { icon: Cpu, title: "Data Pipelines", items: ["50+ integrated data sources", "Real-time synchronization", "Automated quality checks", "Historical data preservation"] },
-              { icon: Server, title: "Knowledge Engine", items: ["Multi-dimensional analysis", "Pattern correlation engine", "Anomaly detection systems", "Predictive modeling"] },
-              { icon: Brain, title: "AI Insight System", items: ["200+ specialized AI services", "Category-specific analysis", "Natural language explanations", "Continuous model improvement"] },
-              { icon: FileText, title: "Report Engine", items: ["Interactive visualizations", "Customizable dashboards", "Exportable medical reports", "Historical trend analysis"] },
-              { icon: Layers, title: "Integration Layer", items: ["Secure API endpoints", "Healthcare system integration", "Third-party connectivity", "Research data sharing"] },
+              { icon: Lock, k: "archive" },
+              { icon: Cpu, k: "pipelines" },
+              { icon: Server, k: "engine" },
+              { icon: Brain, k: "ai" },
+              { icon: FileText, k: "report" },
+              { icon: Layers, k: "integration" },
             ].map((item) => (
-              <div key={item.title} className="bg-[hsl(var(--bm-surface-2))] rounded-2xl p-6 border border-[hsl(var(--bm-border-soft))] hover:border-[hsl(var(--bm-blue-deep))]/20 transition-all duration-500">
+              <div key={item.k} className="bg-[hsl(var(--bm-surface-2))] rounded-2xl p-6 border border-[hsl(var(--bm-border-soft))] hover:border-[hsl(var(--bm-blue-deep))]/20 transition-all duration-500">
                 <item.icon className="w-10 h-10 text-[hsl(var(--bm-blue))] mb-4" />
-                <h3 className="text-lg font-bold text-[hsl(var(--bm-text-strong))] mb-4">{item.title}</h3>
+                <h3 className="text-lg font-bold text-[hsl(var(--bm-text-strong))] mb-4">{t(`projectBiomathCore.tech.${item.k}.title`)}</h3>
                 <ul className="space-y-2">
-                  {item.items.map((point) => (
-                    <li key={point} className="text-sm text-[hsl(var(--bm-text-mute))] flex items-start gap-2">
+                  {[1, 2, 3, 4].map((n) => (
+                    <li key={n} className="text-sm text-[hsl(var(--bm-text-mute))] flex items-start gap-2">
                       <span className="w-1 h-1 rounded-full bg-[hsl(var(--bm-blue))] mt-2 flex-shrink-0" />
-                      {point}
+                      {t(`projectBiomathCore.tech.${item.k}.i${n}`)}
                     </li>
                   ))}
                 </ul>
@@ -996,17 +1001,17 @@ const BioMathCore = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-[hsl(var(--bm-text-strong))] text-center mb-12">{t('projectCommon.keyFeatures')}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { icon: Brain, title: "Dual AI Analysis", desc: "Multiple AI models provide comprehensive analysis with balanced recommendations and expert validation." },
-              { icon: Activity, title: "Real-Time Monitoring", desc: "Continuous data collection from connected devices with intelligent pattern detection and automated alerts." },
-              { icon: Database, title: "Unified Health Record", desc: "All health information unified: medical history, labs, genetics, biometrics, lifestyle, and clinical notes." },
-              { icon: FileText, title: "Smart Reports", desc: "Personalized daily insights with weekly summaries, progress tracking, and clear trend visualizations." },
-              { icon: Heart, title: "Personalized Guidance", desc: "Tailored recommendations for nutrition, exercise, sleep, stress management based on your unique profile." },
-              { icon: Lock, title: "Privacy & Security", desc: "Military-grade encryption, zero-trust architecture, SOC 2 certification. Complete data sovereignty." },
+              { icon: Brain, k: "dualAi" },
+              { icon: Activity, k: "realtime" },
+              { icon: Database, k: "unified" },
+              { icon: FileText, k: "smart" },
+              { icon: Heart, k: "guidance" },
+              { icon: Lock, k: "privacy" },
             ].map((item) => (
-              <div key={item.title} className="bg-[hsl(var(--bm-surface-2))] rounded-2xl p-6 border border-[hsl(var(--bm-border-soft))] hover:border-[hsl(var(--bm-blue-deep))]/20 transition-all duration-500 group">
+              <div key={item.k} className="bg-[hsl(var(--bm-surface-2))] rounded-2xl p-6 border border-[hsl(var(--bm-border-soft))] hover:border-[hsl(var(--bm-blue-deep))]/20 transition-all duration-500 group">
                 <item.icon className="w-10 h-10 text-[hsl(var(--bm-blue))] mb-4 transition-transform group-hover:scale-110" />
-                <h3 className="text-lg font-bold text-[hsl(var(--bm-text-strong))] mb-3">{item.title}</h3>
-                <p className="text-sm text-[hsl(var(--bm-text-mute))] leading-relaxed">{item.desc}</p>
+                <h3 className="text-lg font-bold text-[hsl(var(--bm-text-strong))] mb-3">{t(`projectBiomathCore.feat.${item.k}.title`)}</h3>
+                <p className="text-sm text-[hsl(var(--bm-text-mute))] leading-relaxed">{t(`projectBiomathCore.feat.${item.k}.desc`)}</p>
               </div>
             ))}
           </div>
@@ -1021,14 +1026,10 @@ const BioMathCore = () => {
           <div className="container mx-auto px-4 relative z-10">
             <h2 className="text-3xl md:text-4xl font-bold text-[hsl(var(--bm-text-strong))] text-center mb-12">{t('projectCommon.operationalModel')}</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {[
-                { title: "Daily User Workflow", desc: "Wake to personalized insights. Connected devices auto-track throughout the day. Real-time recommendations update as conditions change. Evening reports summarize and suggest." },
-                { title: "Service Activation", desc: "Choose categories that matter most. Activate relevant AI services. Start with a few, expand over time. Subscription scales with depth, not flat-rate." },
-                { title: "Clinical Integration", desc: "Healthcare providers receive patient-authorized access. Clinical decision support tool alongside traditional evaluation. Professional-grade exportable reports." },
-              ].map((item) => (
-                <div key={item.title} className="bg-[hsl(var(--bm-surface))]/80 backdrop-blur-sm rounded-2xl p-8 border border-[hsl(var(--bm-border))]">
-                  <h3 className="text-xl font-bold text-[hsl(var(--bm-text-strong))] mb-4">{item.title}</h3>
-                  <p className="text-[hsl(var(--bm-text-mute))] leading-relaxed">{item.desc}</p>
+              {["daily", "service", "clinical"].map((k) => (
+                <div key={k} className="bg-[hsl(var(--bm-surface))]/80 backdrop-blur-sm rounded-2xl p-8 border border-[hsl(var(--bm-border))]">
+                  <h3 className="text-xl font-bold text-[hsl(var(--bm-text-strong))] mb-4">{t(`projectBiomathCore.op.${k}.title`)}</h3>
+                  <p className="text-[hsl(var(--bm-text-mute))] leading-relaxed">{t(`projectBiomathCore.op.${k}.desc`)}</p>
                 </div>
               ))}
             </div>
