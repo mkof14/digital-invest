@@ -263,11 +263,34 @@ const AdminHandbookDownloads = () => {
     toast.success('CSV exported successfully');
   };
 
-  const formatFileSize = (bytes: number) => {
-    if (bytes < 1024) return bytes + ' B';
-    if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + ' KB';
-    return (bytes / (1024 * 1024)).toFixed(1) + ' MB';
-  };
+  const formatFileSize = (bytes: number) => fmtFileSize(bytes);
+
+  // Helper: convert investor document to ProjectDocumentRecord shape
+  const toRecord = (d: InvestorDocument): ProjectDocumentRecord => ({
+    id: d.id,
+    title: d.title,
+    document_type: d.category || null,
+    description: d.description,
+    file_path: d.file_path,
+    file_name: d.file_name,
+    file_type: d.file_type,
+    file_size: d.file_size,
+    external_url: null,
+    sort_order: 0,
+  });
+
+  const filteredDocs = documents.filter((d) => {
+    if (filterCategory !== 'all' && d.category !== filterCategory) return false;
+    if (search) {
+      const s = search.toLowerCase();
+      return (
+        d.title.toLowerCase().includes(s) ||
+        d.file_name.toLowerCase().includes(s) ||
+        d.description?.toLowerCase().includes(s)
+      );
+    }
+    return true;
+  });
 
   return (
     <div className="min-h-screen bg-background">
