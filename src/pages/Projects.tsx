@@ -37,6 +37,7 @@ import biomathcoreCardBg from '@/assets/projects/biomathcore-card-bg.png';
 import biomathcoreLogoBanner from '@/assets/projects/biomathcore-logo-banner.png';
 import OptimizedImage from '@/components/OptimizedImage';
 import { shimmerDataURL, getResponsiveImagePaths } from '@/lib/imageUtils';
+import { projectPrefetchHandlers } from '@/lib/projectPrefetch';
 
 // Per-project accent themes: [gradient-from, gradient-to, text-accent, border-accent, button-bg, button-hover]
 const projectThemes: Record<string, { from: string; to: string; accent: string; border: string; btnBg: string; btnHover: string; label: string }> = {
@@ -366,6 +367,7 @@ const Projects = () => {
                 <Link
                   to={`/projects/${project.slug}`}
                   className="group block h-full"
+                  {...projectPrefetchHandlers(project.slug)}
                 >
                   <Card className={`overflow-hidden border ${theme.border} bg-card shadow-elegant hover:shadow-elevated transition-all duration-500 hover:-translate-y-3 hover:scale-[1.02] flex flex-col h-full cursor-pointer`}>
                     {/* Image */}
@@ -453,7 +455,7 @@ const Projects = () => {
 
               return (
                 <ScrollRevealCard key={project.id} index={index}>
-                <Link to={`/projects/${project.slug}`} className="group block">
+                <Link to={`/projects/${project.slug}`} className="group block" {...projectPrefetchHandlers(project.slug)}>
                   <Card className={`overflow-hidden border ${theme.border} bg-card shadow-elegant hover:shadow-elevated transition-all duration-500 hover:-translate-y-1 cursor-pointer`}>
                     <div className="flex flex-col md:flex-row">
                       <div className="relative w-full md:w-80 h-48 overflow-hidden bg-muted">

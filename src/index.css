@@ -91,6 +91,16 @@ html {
   animation: ripple 0.6s ease-out;
 }
 
+/* Performance: defer rendering of off-screen sections.
+   Browsers that support content-visibility skip layout/paint cost
+   for sections outside the viewport, then render them as the user
+   scrolls near. The contain-intrinsic-size value is a placeholder
+   so the scroll bar doesn't jump. */
+.cv-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 800px;
+}
+
 /* Digital Invest - Professional Corporate Design System */
 
 @layer base {

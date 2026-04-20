@@ -570,7 +570,7 @@ const BioMathCore = () => {
         </section>
 
         {/* ═══════════════════════ FOUNDATION BANNER ═══════════════════════ */}
-        <section className="container mx-auto px-4 pb-16">
+        <section className="container mx-auto px-4 pb-16 cv-auto">
           <div className="relative rounded-2xl overflow-hidden border border-[hsl(25,90%,55%)]/15">
             <div className="absolute inset-0">
               <img src={biomathSupercomputer} alt="" className="w-full h-full object-cover opacity-30" />
@@ -593,7 +593,7 @@ const BioMathCore = () => {
         </section>
 
         {/* ═══════════════════════ HUMAN BASELINE (from presentation) + OVERVIEW ═══════════════════════ */}
-        <section className="container mx-auto px-4 pb-20">
+        <section className="container mx-auto px-4 pb-20 cv-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             <div className="rounded-2xl overflow-hidden border border-[hsl(210,15%,15%)] shadow-2xl shadow-[hsl(25,90%,30%)]/10 bg-[hsl(220,25%,3%)]">
               <img src={presBaseline} alt="Constructing the Human Baseline — BioMath Core" className="w-full h-[420px] object-cover" />
@@ -617,7 +617,7 @@ const BioMathCore = () => {
         </section>
 
         {/* ═══════════════════════ BLACK BOX ARCHITECTURE (from presentation) ═══════════════════════ */}
-        <section className="relative py-24 overflow-hidden bg-[hsl(220,30%,3%)] border-y border-[hsl(210,15%,12%)]">
+        <section className="relative py-24 overflow-hidden bg-[hsl(220,30%,3%)] border-y border-[hsl(210,15%,12%)] cv-auto">
           <div className="absolute inset-0 opacity-30">
             <img src={presBlackBox} alt="" className="w-full h-full object-cover" />
             <div className="absolute inset-0 bg-gradient-to-r from-[hsl(220,30%,3%)] via-[hsl(220,30%,3%)]/70 to-transparent" />
@@ -651,7 +651,7 @@ const BioMathCore = () => {
         </section>
 
         {/* ═══════════════════════ CORE MISSION ═══════════════════════ */}
-        <section className="bg-[hsl(220,20%,6%)] border-y border-[hsl(210,15%,12%)] py-20">
+        <section className="bg-[hsl(220,20%,6%)] border-y border-[hsl(210,15%,12%)] py-20 cv-auto">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-4">{t('projectCommon.coreMission')}</h2>
             <p className="text-center text-[hsl(210,10%,55%)] mb-12 max-w-2xl mx-auto">
@@ -674,7 +674,7 @@ const BioMathCore = () => {
         </section>
 
         {/* ═══════════════════════ HOW IT WORKS ═══════════════════════ */}
-        <section className="container mx-auto px-4 py-20">
+        <section className="container mx-auto px-4 py-20 cv-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-4">{t('projectCommon.howPlatformWorks')}</h2>
           <p className="text-center text-[hsl(210,10%,55%)] mb-16 max-w-2xl mx-auto">
             {t('projectBiomathCore.howSubtitle')}
@@ -697,7 +697,7 @@ const BioMathCore = () => {
         </section>
 
         {/* ═══════════════════════ DUAL-OPINION COGNITIVE ENGINE (from presentation) ═══════════════════════ */}
-        <section className="relative py-24 overflow-hidden bg-[hsl(220,30%,3%)] border-y border-[hsl(210,15%,12%)]">
+        <section className="relative py-24 overflow-hidden bg-[hsl(220,30%,3%)] border-y border-[hsl(210,15%,12%)] cv-auto">
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_50%,hsl(25,90%,15%)_0%,transparent_60%)] opacity-60" />
           <div className="container mx-auto px-4 relative z-10">
             <div className="text-center mb-14">
@@ -784,7 +784,7 @@ const BioMathCore = () => {
         </section>
 
         {/* ═══════════════════════ COMPOUNDING POWER OF TIME (from presentation) ═══════════════════════ */}
-        <section className="container mx-auto px-4 py-24">
+        <section className="container mx-auto px-4 py-24 cv-auto">
           <div className="text-center mb-14">
             <Badge className="mb-4 bg-[hsl(200,80%,55%)]/10 text-[hsl(200,80%,75%)] border-[hsl(200,80%,55%)]/25 uppercase tracking-wider">
               Time as an Asset
@@ -889,7 +889,7 @@ const BioMathCore = () => {
         </section>
 
         {/* ═══════════════════════ HEALTH BLACK BOX ═══════════════════════ */}
-        <section className="relative py-24 overflow-hidden">
+        <section className="relative py-24 overflow-hidden cv-auto">
           <div className="absolute inset-0">
             <img src={biomathBlackBox} alt="" className="w-full h-full object-cover opacity-40" />
             <div className="absolute inset-0 bg-gradient-to-r from-[hsl(220,20%,4%)]/95 via-[hsl(220,20%,4%)]/70 to-[hsl(220,20%,4%)]/95" />
@@ -915,7 +915,7 @@ const BioMathCore = () => {
         </section>
 
         {/* ═══════════════════════ TECHNOLOGY ARCHITECTURE ═══════════════════════ */}
-        <section className="container mx-auto px-4 py-20">
+        <section className="container mx-auto px-4 py-20 cv-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-4">{t('projectCommon.technologyArchitecture')}</h2>
           <p className="text-center text-[hsl(210,10%,55%)] mb-12 max-w-2xl mx-auto">
             Six core layers powering the intelligent health operating system
@@ -946,7 +946,7 @@ const BioMathCore = () => {
         </section>
 
         {/* ═══════════════════════ INFOGRAPHICS ═══════════════════════ */}
-        <section className="container mx-auto px-4 py-16" id="infographics">
+        <section className="container mx-auto px-4 py-16 cv-auto" id="infographics">
           <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-4">Platform Architecture & Vision</h2>
           <p className="text-center text-[hsl(210,10%,55%)] mb-10 max-w-3xl mx-auto">
             Visual overview of BioMath Core's living digital model, self-learning architecture, and ecosystem scale
@@ -955,7 +955,7 @@ const BioMathCore = () => {
         </section>
 
         {/* ═══════════════════════ 20 HEALTH CATEGORIES ═══════════════════════ */}
-        <section className="bg-[hsl(220,20%,6%)] border-y border-[hsl(210,15%,12%)] py-20">
+        <section className="bg-[hsl(220,20%,6%)] border-y border-[hsl(210,15%,12%)] py-20 cv-auto">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-4">{t('projectBiomathCore.categoriesTitle')}</h2>
             <p className="text-center text-[hsl(210,10%,55%)] mb-12 max-w-3xl mx-auto">{t('projectBiomathCore.categoriesSubtitle')}</p>
@@ -992,7 +992,7 @@ const BioMathCore = () => {
         </section>
 
         {/* ═══════════════════════ KEY FEATURES ═══════════════════════ */}
-        <section className="container mx-auto px-4 py-20">
+        <section className="container mx-auto px-4 py-20 cv-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-12">{t('projectCommon.keyFeatures')}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
@@ -1013,7 +1013,7 @@ const BioMathCore = () => {
         </section>
 
         {/* ═══════════════════════ MEETING ROOM / OPERATIONAL MODEL ═══════════════════════ */}
-        <section className="relative py-20 overflow-hidden">
+        <section className="relative py-20 overflow-hidden cv-auto">
           <div className="absolute inset-0">
             <img src={biomathMeeting} alt="" className="w-full h-full object-cover opacity-20" />
             <div className="absolute inset-0 bg-gradient-to-b from-[hsl(220,20%,4%)]/90 via-[hsl(220,20%,4%)]/80 to-[hsl(220,20%,4%)]" />
@@ -1036,7 +1036,7 @@ const BioMathCore = () => {
         </section>
 
         {/* ═══════════════════════ WHO IT SERVES ═══════════════════════ */}
-        <section className="container mx-auto px-4 py-20">
+        <section className="container mx-auto px-4 py-20 cv-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-12">{t('projectCommon.whoItServes')}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {[
@@ -1054,7 +1054,7 @@ const BioMathCore = () => {
         </section>
 
         {/* ═══════════════════════ WHAT MAKES IT UNIQUE ═══════════════════════ */}
-        <section className="bg-[hsl(220,20%,6%)] border-y border-[hsl(210,15%,12%)] py-20">
+        <section className="bg-[hsl(220,20%,6%)] border-y border-[hsl(210,15%,12%)] py-20 cv-auto">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-12">{t('projectBiomathCore.uniqueTitle')}</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -1079,7 +1079,7 @@ const BioMathCore = () => {
         </section>
 
         {/* ═══════════════════════ MARKET CONTEXT ═══════════════════════ */}
-        <section className="container mx-auto px-4 py-20">
+        <section className="container mx-auto px-4 py-20 cv-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">{t('projectCommon.marketContext')}</h2>
@@ -1103,7 +1103,7 @@ const BioMathCore = () => {
         </section>
 
         {/* ═══════════════════════ LONG-TERM VISION ═══════════════════════ */}
-        <section className="bg-[hsl(220,20%,6%)] border-y border-[hsl(210,15%,12%)] py-20">
+        <section className="bg-[hsl(220,20%,6%)] border-y border-[hsl(210,15%,12%)] py-20 cv-auto">
           <div className="container mx-auto px-4 max-w-4xl text-center">
             <Globe className="w-14 h-14 text-[hsl(200,80%,55%)] mx-auto mb-6" />
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">{t('projectCommon.longTermVision')}</h2>
@@ -1117,7 +1117,7 @@ const BioMathCore = () => {
         </section>
 
         {/* ═══════════════════════ ROADMAP ═══════════════════════ */}
-        <section className="container mx-auto px-4 py-20">
+        <section className="container mx-auto px-4 py-20 cv-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-12">{t('projectCommon.roadmap')}</h2>
           <div className="max-w-3xl mx-auto space-y-6">
             {[
@@ -1145,7 +1145,7 @@ const BioMathCore = () => {
         </section>
 
         {/* ═══════════════════════ IMPORTANT NOTICE ═══════════════════════ */}
-        <section className="container mx-auto px-4 pb-16">
+        <section className="container mx-auto px-4 pb-16 cv-auto">
           <div className="bg-[hsl(220,18%,8%)] border border-[hsl(35,60%,40%)]/30 rounded-2xl p-8">
             <div className="flex items-start gap-4">
               <AlertCircle className="w-6 h-6 text-[hsl(35,70%,55%)] flex-shrink-0 mt-1" />
