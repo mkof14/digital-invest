@@ -60,6 +60,7 @@ const BioMathCore = () => {
   const { t } = useTranslation();
   const fanRef = useRef<HTMLDivElement | null>(null);
   const [fanInView, setFanInView] = useState(false);
+  const [hoveredFan, setHoveredFan] = useState<number | null>(null);
   useEffect(() => {
     const el = fanRef.current;
     if (!el) return;
