@@ -140,40 +140,71 @@ const BioMathCore = () => {
 
       <main className="relative z-10">
         {/* ═══════════════════════ STATS RIBBON ═══════════════════════ */}
-        <section className="border-y border-[hsl(210,15%,15%)] bg-[hsl(220,20%,6%)]">
-          <div className="container mx-auto px-4 py-8">
+        <section className="border-y border-[hsl(25,90%,55%)]/15 bg-[hsl(220,25%,5%)]">
+          <div className="container mx-auto px-4 py-10">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
               {[
                 { value: "200+", label: t('projectBiomathCore.statServices') },
                 { value: "20", label: t('projectBiomathCore.statCategories') },
-                { value: "50+", label: t('projectBiomathCore.statIntegrations') },
-                { value: "24/7", label: t('projectBiomathCore.statAnalysis') },
+                { value: "360°", label: t('projectBiomathCore.statIntegrations') },
+                { value: "Live", label: t('projectBiomathCore.statAnalysis') },
               ].map((stat) => (
                 <div key={stat.label}>
-                  <p className="text-3xl md:text-4xl font-bold text-[hsl(200,80%,55%)]">{stat.value}</p>
-                  <p className="text-sm text-[hsl(210,10%,55%)] mt-1">{stat.label}</p>
+                  <p className="text-3xl md:text-5xl font-bold bg-gradient-to-r from-[hsl(25,95%,60%)] to-[hsl(35,95%,65%)] bg-clip-text text-transparent">{stat.value}</p>
+                  <p className="text-xs md:text-sm uppercase tracking-wider text-[hsl(210,10%,55%)] mt-2">{stat.label}</p>
                 </div>
               ))}
             </div>
           </div>
         </section>
 
+        {/* ═══════════════════════ BEYOND STATIC TRACKING (from presentation) ═══════════════════════ */}
+        <section className="container mx-auto px-4 py-20">
+          <div className="text-center mb-12">
+            <Badge className="mb-4 bg-[hsl(25,90%,55%)]/10 text-[hsl(25,90%,70%)] border-[hsl(25,90%,55%)]/25 uppercase tracking-wider">
+              The Architecture Difference
+            </Badge>
+            <h2 className="text-3xl md:text-5xl font-bold text-white">
+              {t('projectBiomathCore.beyondTitle', 'Moving Beyond Static Tracking')}
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+            {[
+              { row: t('projectBiomathCore.beyondRow1', 'Architecture'), trad: t('projectBiomathCore.beyondTrad1', 'A collection of disconnected services.'), core: t('projectBiomathCore.beyondCore1', 'A single, unified, living digital structure.') },
+              { row: t('projectBiomathCore.beyondRow2', 'Data Role'), trad: t('projectBiomathCore.beyondTrad2', 'New data simply adds to a historical log.'), core: t('projectBiomathCore.beyondCore2', 'Every new action dynamically alters the entire systemic picture.') },
+              { row: t('projectBiomathCore.beyondRow3', 'Processing'), trad: t('projectBiomathCore.beyondTrad3', 'Linear logging.'), core: t('projectBiomathCore.beyondCore3', 'Simultaneous, multi-layered modeling.') },
+              { row: t('projectBiomathCore.beyondRow4', 'Output'), trad: t('projectBiomathCore.beyondTrad4', 'Isolated reports and profiles.'), core: t('projectBiomathCore.beyondCore4', 'A constantly evolving structural understanding.') },
+            ].map((item) => (
+              <div key={item.row} className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-[hsl(210,15%,15%)] rounded-xl overflow-hidden border border-[hsl(210,15%,15%)]">
+                <div className="bg-[hsl(220,20%,7%)] p-5">
+                  <p className="text-xs uppercase tracking-wider text-[hsl(210,10%,45%)] mb-2">Traditional Trackers</p>
+                  <p className="text-sm text-[hsl(210,10%,65%)] leading-relaxed">{item.trad}</p>
+                </div>
+                <div className="bg-gradient-to-br from-[hsl(25,90%,12%)]/40 to-[hsl(220,20%,7%)] p-5 border-l border-[hsl(25,90%,55%)]/20">
+                  <p className="text-xs uppercase tracking-wider text-[hsl(25,90%,65%)] mb-2 font-semibold">{item.row} · BioMath Core</p>
+                  <p className="text-sm text-white leading-relaxed">{item.core}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
         {/* ═══════════════════════ FOUNDATION BANNER ═══════════════════════ */}
-        <section className="container mx-auto px-4 py-16">
-          <div className="relative rounded-2xl overflow-hidden">
+        <section className="container mx-auto px-4 pb-16">
+          <div className="relative rounded-2xl overflow-hidden border border-[hsl(25,90%,55%)]/15">
             <div className="absolute inset-0">
               <img src={biomathSupercomputer} alt="" className="w-full h-full object-cover opacity-30" />
-              <div className="absolute inset-0 bg-gradient-to-r from-[hsl(220,25%,8%)]/95 via-[hsl(220,25%,8%)]/80 to-[hsl(220,25%,8%)]/60" />
+              <div className="absolute inset-0 bg-gradient-to-r from-[hsl(220,25%,5%)]/95 via-[hsl(220,25%,5%)]/85 to-[hsl(25,90%,15%)]/40" />
             </div>
             <div className="relative z-10 p-8 md:p-12 flex flex-col md:flex-row items-start gap-6">
-              <div className="w-16 h-16 rounded-2xl bg-[hsl(200,80%,50%)]/10 border border-[hsl(200,80%,50%)]/20 flex items-center justify-center flex-shrink-0">
-                <Rocket className="w-8 h-8 text-[hsl(200,80%,55%)]" />
+              <div className="w-16 h-16 rounded-2xl bg-[hsl(25,90%,55%)]/10 border border-[hsl(25,90%,55%)]/25 flex items-center justify-center flex-shrink-0">
+                <Rocket className="w-8 h-8 text-[hsl(25,90%,65%)]" />
               </div>
               <div>
                 <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">
                   {t('projectBiomathCore.foundationTitle')}
                 </h2>
-                <p className="text-[hsl(210,10%,65%)] text-lg leading-relaxed">
+                <p className="text-[hsl(210,10%,70%)] text-lg leading-relaxed">
                   {t('projectBiomathCore.foundationDesc')}
                 </p>
               </div>
@@ -181,20 +212,60 @@ const BioMathCore = () => {
           </div>
         </section>
 
-        {/* ═══════════════════════ WELLNESS CENTER IMAGE + OVERVIEW ═══════════════════════ */}
-        <section className="container mx-auto px-4 pb-16">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-            <div className="rounded-2xl overflow-hidden border border-[hsl(210,15%,15%)] shadow-2xl">
-              <img src={biomathWellness} alt="BioMath Core Wellness Center" className="w-full h-[400px] object-cover" />
+        {/* ═══════════════════════ HUMAN BASELINE (from presentation) + OVERVIEW ═══════════════════════ */}
+        <section className="container mx-auto px-4 pb-20">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+            <div className="rounded-2xl overflow-hidden border border-[hsl(210,15%,15%)] shadow-2xl shadow-[hsl(25,90%,30%)]/10 bg-[hsl(220,25%,3%)]">
+              <img src={presBaseline} alt="Constructing the Human Baseline — BioMath Core" className="w-full h-[420px] object-cover" />
             </div>
             <div className="space-y-6">
+              <Badge className="bg-[hsl(25,90%,55%)]/10 text-[hsl(25,90%,70%)] border-[hsl(25,90%,55%)]/25 uppercase tracking-wider">
+                Constructing the Human Baseline
+              </Badge>
               <h2 className="text-3xl md:text-4xl font-bold text-white">{t('projectCommon.overview')}</h2>
-              <p className="text-lg text-[hsl(210,10%,65%)] leading-relaxed">
+              <p className="text-lg text-[hsl(210,10%,75%)] leading-relaxed">
                 {t('projectBiomathCore.overviewP1')}
               </p>
-              <p className="text-[hsl(210,10%,55%)] leading-relaxed">
+              <p className="text-[hsl(210,10%,60%)] leading-relaxed">
                 {t('projectBiomathCore.overviewP2')}
               </p>
+              <p className="text-sm text-[hsl(25,90%,65%)] italic border-l-2 border-[hsl(25,90%,55%)]/40 pl-4">
+                {t('projectBiomathCore.overviewKeyInsight', 'Key insight: this is not a static medical profile — it is a living structural map that shifts with every new input.')}
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* ═══════════════════════ BLACK BOX ARCHITECTURE (from presentation) ═══════════════════════ */}
+        <section className="relative py-24 overflow-hidden bg-[hsl(220,30%,3%)] border-y border-[hsl(210,15%,12%)]">
+          <div className="absolute inset-0 opacity-30">
+            <img src={presBlackBox} alt="" className="w-full h-full object-cover" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[hsl(220,30%,3%)] via-[hsl(220,30%,3%)]/70 to-transparent" />
+          </div>
+          <div className="container mx-auto px-4 relative z-10">
+            <div className="max-w-2xl">
+              <Badge className="mb-5 bg-[hsl(200,80%,55%)]/10 text-[hsl(200,80%,75%)] border-[hsl(200,80%,55%)]/25 uppercase tracking-wider">
+                Sovereignty by Design
+              </Badge>
+              <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">
+                {t('projectBiomathCore.blackBoxTitle2', 'The Black Box Architecture')}
+              </h2>
+              <p className="text-lg text-[hsl(210,15%,80%)] leading-relaxed mb-6">
+                {t('projectBiomathCore.blackBoxIntro', 'Every user is encapsulated in a deeply protected personal environment. The system computes deeply, but remains entirely hermetic — access is governed entirely by the user.')}
+              </p>
+              <ul className="space-y-3">
+                {[
+                  t('projectBiomathCore.blackBoxL1', 'The complete active history.'),
+                  t('projectBiomathCore.blackBoxL2', 'The internal logic of all systemic changes.'),
+                  t('projectBiomathCore.blackBoxL3', 'The unique structural map of the individual.'),
+                  t('projectBiomathCore.blackBoxL4', 'The proprietary cross-category relationships.'),
+                ].map((line) => (
+                  <li key={line} className="flex items-start gap-3 text-[hsl(210,15%,75%)]">
+                    <Lock className="w-4 h-4 mt-1 flex-shrink-0 text-[hsl(25,90%,65%)]" />
+                    <span>{line}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </section>
