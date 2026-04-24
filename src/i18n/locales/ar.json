@@ -488,6 +488,19 @@
       "agron": "عائلة AGRON",
       "terraaero": "TerraAero",
       "other": "نمط الحياة وأخرى"
+    },
+    "foundationBadge": "أساس",
+    "featuredBadge": "مميز",
+    "newBadge": "جديد",
+    "taglines": {
+      "biomath-core": "الأساس لأكثر من 200 خدمة في النظام البيئي",
+      "biomathcore": "الأساس لأكثر من 200 خدمة في النظام البيئي",
+      "biomathlife": "منصة BioTech الرائدة",
+      "saven": "روبوتات مستقلة للبنية التحتية الطبية والحرجة",
+      "agron": "روبوتات زراعية مستقلة",
+      "agron-work": "منصة القوى العاملة لنظام AGRON البيئي",
+      "terraaero": "الزراعة الدقيقة بالطائرات بدون طيار",
+      "digital-invest-portfolio": "منصة استثمار متعددة القطاعات"
     }
   },
   "team": {

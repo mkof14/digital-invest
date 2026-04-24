@@ -488,6 +488,19 @@
       "agron": "משפחת AGRON",
       "terraaero": "TerraAero",
       "other": "אורח חיים ואחרים"
+    },
+    "foundationBadge": "יסוד",
+    "featuredBadge": "מומלץ",
+    "newBadge": "חדש",
+    "taglines": {
+      "biomath-core": "בסיס ליותר מ-200 שירותי אקוסיסטם",
+      "biomathcore": "בסיס ליותר מ-200 שירותי אקוסיסטם",
+      "biomathlife": "פלטפורמת BioTech דגל",
+      "saven": "רובוטיקה אוטונומית לתשתיות רפואיות וקריטיות",
+      "agron": "רובוטיקה חקלאית אוטונומית",
+      "agron-work": "פלטפורמת כוח אדם לאקוסיסטם AGRON",
+      "terraaero": "חקלאות מדויקת מבוססת רחפנים",
+      "digital-invest-portfolio": "פלטפורמת השקעות רב-מגזרית"
     }
   },
   "team": {
