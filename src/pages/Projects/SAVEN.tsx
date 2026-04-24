@@ -126,6 +126,12 @@ const SAVEN = () => {
                   </Button>
                 </a>
               )}
+              <a href="/documents/saven-infrastructure.pdf" target="_blank" rel="noopener noreferrer" download="SAVEN-Infrastructure-of-Continuous-Execution.pdf">
+                <Button size="lg" variant="outline" className="border-orange-400/40 text-orange-300 hover:bg-orange-500/10 px-8 py-6 text-lg">
+                  <Download className="w-5 h-5 mr-2" />
+                  SAVEN Infrastructure (PDF)
+                </Button>
+              </a>
             </div>
           </div>
         </div>
@@ -427,7 +433,7 @@ const SAVEN = () => {
               {t('projectSaven.presentationDesc')}
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
-              <a href="/documents/SAVEN_Infrastructure_of_Continuous_Execution.pdf" download>
+              <a href="/documents/saven-infrastructure.pdf" target="_blank" rel="noopener noreferrer" download="SAVEN-Infrastructure-of-Continuous-Execution.pdf">
                 <Button size="lg" className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-6 text-lg">
                   <Download className="w-5 h-5 mr-2" /> {t('projectSaven.downloadPDF')}
                 </Button>
