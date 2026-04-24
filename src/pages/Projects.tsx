@@ -295,6 +295,7 @@ const Projects = () => {
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
+  const [filtersOpen, setFiltersOpen] = useState(false);
   const { toast } = useToast();
   const { t } = useTranslation();
 
