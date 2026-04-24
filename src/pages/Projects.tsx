@@ -73,6 +73,8 @@ const projectOrder: string[] = [
   'biomathlife',
   'biomath-core',
   'biomathcore',
+  // SAVEN сразу после BioMath Core
+  'saven',
   'stresscore',
   'vitalcore',
   'bioagecore',
@@ -83,15 +85,13 @@ const projectOrder: string[] = [
   'luna-balance',
   'mrx-health',
   'baseline',
-  'myday',
-  'itsgoodtoday',
-  // AGRON family
+  // После Baseline: AGRON family + TerraAero
   'agron',
   'agron-work',
-  // TerraAero
   'terraaero',
-  // Others
-  'saven',
+  // Остальные
+  'myday',
+  'itsgoodtoday',
   'table-served',
 ];
 
