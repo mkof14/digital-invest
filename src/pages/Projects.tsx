@@ -66,6 +66,94 @@ const projectThemes: Record<string, { from: string; to: string; accent: string; 
 
 const getTheme = (slug: string) => projectThemes[slug] || { from: 'from-primary/20', to: 'to-primary/20', accent: 'text-primary', border: 'border-primary/30', btnBg: 'bg-primary', btnHover: 'hover:bg-primary/80', label: 'Project' };
 
+// Highlight badge type — небольшие выделенные атрибуты под названием карточки
+type Highlight = { label: string; tone?: 'amber' | 'cyan' | 'emerald' | 'violet' | 'rose' | 'sky' | 'pink' | 'orange' | 'teal' | 'lime' | 'slate' };
+type SpecialBadge = 'flagship' | 'featured' | 'new' | 'foundation';
+
+// Дополнительные категории/теги, отображаемые на карточке (помимо основной theme.label).
+// Для SAVEN — Robotics + Medical Infrastructure, как просил пользователь.
+const projectHighlights: Record<string, { extraCategories?: string[]; tagline?: string; special?: SpecialBadge[] }> = {
+  'biomath-core': {
+    extraCategories: ['AI Health', 'Foundation Layer'],
+    tagline: 'Foundation for 200+ ecosystem services',
+    special: ['flagship', 'foundation'],
+  },
+  'biomathcore': {
+    extraCategories: ['AI Health', 'Foundation Layer'],
+    tagline: 'Foundation for 200+ ecosystem services',
+    special: ['flagship', 'foundation'],
+  },
+  'biomathlife': {
+    extraCategories: ['Longevity', 'Wellness Platform'],
+    tagline: 'Flagship BioTech platform',
+    special: ['featured'],
+  },
+  'saven': {
+    extraCategories: ['Robotics', 'Medical Infrastructure'],
+    tagline: 'Autonomous robotics for medical & critical infrastructure',
+    special: ['featured'],
+  },
+  'agron': {
+    extraCategories: ['Autonomous Robots', 'Field Operations'],
+    tagline: 'Autonomous agricultural robotics',
+  },
+  'agron-work': {
+    extraCategories: ['Workforce', 'Operations'],
+    tagline: 'Workforce platform for AGRON ecosystem',
+  },
+  'terraaero': {
+    extraCategories: ['Drones', 'Precision Agriculture'],
+    tagline: 'Drone-powered precision agriculture',
+    special: ['featured'],
+  },
+  'baseline': {
+    extraCategories: ['Diagnostics', 'Continuous Monitoring'],
+  },
+  'mrx-health': {
+    extraCategories: ['Clinical', 'Telehealth'],
+  },
+  'luna-balance': {
+    extraCategories: ["Women's Health", 'Hormonal Cycle'],
+  },
+  'stresscore': {
+    extraCategories: ['Mental Health', 'HRV / Stress'],
+  },
+  'vitalcore': {
+    extraCategories: ['Vitals', 'Wearables'],
+  },
+  'bioagecore': {
+    extraCategories: ['Biological Age', 'Longevity'],
+  },
+  'longevitycore': {
+    extraCategories: ['Anti-Aging', 'Protocols'],
+  },
+  'familycore': {
+    extraCategories: ['Family', 'Multi-User'],
+  },
+  'seniorcore': {
+    extraCategories: ['Senior Care', 'Caregivers'],
+  },
+  'skincore': {
+    extraCategories: ['Beauty', 'Skin Analysis'],
+  },
+  'myday': {
+    extraCategories: ['AI Planning', 'Habits'],
+  },
+  'itsgoodtoday': {
+    extraCategories: ['Wellness', 'Daily Practice'],
+  },
+  'table-served': {
+    extraCategories: ['Restaurants', 'Hospitality'],
+  },
+  'digital-invest-portfolio': {
+    extraCategories: ['Multi-Sector', 'Holding'],
+    tagline: 'Multi-sector investment platform',
+    special: ['featured'],
+  },
+};
+
+const getHighlights = (slug: string) => projectHighlights[slug] || {};
+
 // Custom display order: Digital Invest first, then all BioMath family, then AGRON family, then TerraAero, then others.
 const projectOrder: string[] = [
   'digital-invest-portfolio',
