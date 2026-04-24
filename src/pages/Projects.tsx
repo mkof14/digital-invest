@@ -417,6 +417,50 @@ const Projects = () => {
           );
         })()}
 
+        {/* Quick anchors / jump-to group navigation */}
+        {projects.length > 0 && !searchQuery && selectedCategory === 'all' && (() => {
+          const groupsWithCounts = projectGroups
+            .map(g => ({
+              ...g,
+              count: projects.filter(p => g.slugs.includes(p.slug)).length,
+            }))
+            .filter(g => g.count > 0);
+
+          if (groupsWithCounts.length <= 1) return null;
+
+          return (
+            <nav
+              aria-label={t('projects.jumpToSection', 'Jump to section')}
+              className="mb-10 sticky top-20 z-30 -mx-4 px-4 py-3 bg-background/80 backdrop-blur-md border-y border-border/40"
+            >
+              <div className="flex flex-wrap items-center gap-2 justify-center">
+                <span className="inline-flex items-center gap-1.5 text-xs uppercase tracking-wider text-muted-foreground mr-1">
+                  <Bookmark className="w-3.5 h-3.5" />
+                  {t('projects.jumpToSection', 'Jump to')}:
+                </span>
+                {groupsWithCounts.map(g => (
+                  <a
+                    key={g.id}
+                    href={`#group-${g.id}`}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      const el = document.getElementById(`group-${g.id}`);
+                      if (el) {
+                        const y = el.getBoundingClientRect().top + window.scrollY - 140;
+                        window.scrollTo({ top: y, behavior: 'smooth' });
+                      }
+                    }}
+                    className="px-3 py-1.5 rounded-full text-sm font-medium bg-muted/60 text-muted-foreground hover:bg-primary/10 hover:text-primary border border-transparent hover:border-primary/30 transition-all duration-300"
+                  >
+                    {t(g.titleKey, g.defaultTitle)}{' '}
+                    <span className="opacity-60">({g.count})</span>
+                  </a>
+                ))}
+              </div>
+            </nav>
+          );
+        })()}
+
         {/* Projects Grid/List */}
         {(() => {
           const filteredProjects = projects.filter(p => {
