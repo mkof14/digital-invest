@@ -270,6 +270,33 @@ const accentDots: Record<string, string> = {
   'digital-invest-portfolio': 'bg-slate-400',
 };
 
+// Полная палитра для проектов: text/border/bg/glow используется при hover карточки.
+const accentPalette: Record<string, { text: string; border: string; bgSoft: string; glow: string; ring: string }> = {
+  'biomath-core':   { text: 'text-cyan-400',    border: 'border-cyan-500/60',    bgSoft: 'bg-cyan-500/10',    glow: 'shadow-cyan-500/20',    ring: 'ring-cyan-500/40' },
+  'biomathcore':    { text: 'text-cyan-400',    border: 'border-cyan-500/60',    bgSoft: 'bg-cyan-500/10',    glow: 'shadow-cyan-500/20',    ring: 'ring-cyan-500/40' },
+  'biomathlife':    { text: 'text-sky-400',     border: 'border-sky-500/60',     bgSoft: 'bg-sky-500/10',     glow: 'shadow-sky-500/20',     ring: 'ring-sky-500/40' },
+  'terraaero':      { text: 'text-emerald-400', border: 'border-emerald-500/60', bgSoft: 'bg-emerald-500/10', glow: 'shadow-emerald-500/20', ring: 'ring-emerald-500/40' },
+  'agron':          { text: 'text-lime-400',    border: 'border-lime-500/60',    bgSoft: 'bg-lime-500/10',    glow: 'shadow-lime-500/20',    ring: 'ring-lime-500/40' },
+  'agron-work':     { text: 'text-amber-400',   border: 'border-amber-500/60',   bgSoft: 'bg-amber-500/10',   glow: 'shadow-amber-500/20',   ring: 'ring-amber-500/40' },
+  'myday':          { text: 'text-indigo-400',  border: 'border-indigo-500/60',  bgSoft: 'bg-indigo-500/10',  glow: 'shadow-indigo-500/20',  ring: 'ring-indigo-500/40' },
+  'itsgoodtoday':   { text: 'text-orange-400',  border: 'border-orange-500/60',  bgSoft: 'bg-orange-500/10',  glow: 'shadow-orange-500/20',  ring: 'ring-orange-500/40' },
+  'mrx-health':     { text: 'text-rose-400',    border: 'border-rose-500/60',    bgSoft: 'bg-rose-500/10',    glow: 'shadow-rose-500/20',    ring: 'ring-rose-500/40' },
+  'table-served':   { text: 'text-amber-300',   border: 'border-amber-400/60',   bgSoft: 'bg-amber-400/10',   glow: 'shadow-amber-400/20',   ring: 'ring-amber-400/40' },
+  'baseline':       { text: 'text-teal-400',    border: 'border-teal-500/60',    bgSoft: 'bg-teal-500/10',    glow: 'shadow-teal-500/20',    ring: 'ring-teal-500/40' },
+  'saven':          { text: 'text-violet-400',  border: 'border-violet-500/60',  bgSoft: 'bg-violet-500/10',  glow: 'shadow-violet-500/20',  ring: 'ring-violet-500/40' },
+  'luna-balance':   { text: 'text-pink-400',    border: 'border-pink-500/60',    bgSoft: 'bg-pink-500/10',    glow: 'shadow-pink-500/20',    ring: 'ring-pink-500/40' },
+  'stresscore':     { text: 'text-purple-400',  border: 'border-purple-500/60',  bgSoft: 'bg-purple-500/10',  glow: 'shadow-purple-500/20',  ring: 'ring-purple-500/40' },
+  'vitalcore':      { text: 'text-red-400',     border: 'border-red-500/60',     bgSoft: 'bg-red-500/10',     glow: 'shadow-red-500/20',     ring: 'ring-red-500/40' },
+  'bioagecore':     { text: 'text-fuchsia-400', border: 'border-fuchsia-500/60', bgSoft: 'bg-fuchsia-500/10', glow: 'shadow-fuchsia-500/20', ring: 'ring-fuchsia-500/40' },
+  'longevitycore':  { text: 'text-emerald-300', border: 'border-emerald-400/60', bgSoft: 'bg-emerald-400/10', glow: 'shadow-emerald-400/20', ring: 'ring-emerald-400/40' },
+  'familycore':     { text: 'text-blue-400',    border: 'border-blue-500/60',    bgSoft: 'bg-blue-500/10',    glow: 'shadow-blue-500/20',    ring: 'ring-blue-500/40' },
+  'seniorcore':     { text: 'text-stone-300',   border: 'border-stone-500/60',   bgSoft: 'bg-stone-500/10',   glow: 'shadow-stone-500/20',   ring: 'ring-stone-500/40' },
+  'skincore':       { text: 'text-pink-300',    border: 'border-pink-400/60',    bgSoft: 'bg-pink-400/10',    glow: 'shadow-pink-400/20',    ring: 'ring-pink-400/40' },
+  'digital-invest-portfolio': { text: 'text-slate-300', border: 'border-slate-400/60', bgSoft: 'bg-slate-500/10', glow: 'shadow-slate-500/20', ring: 'ring-slate-400/40' },
+};
+
+const getAccentPalette = (slug: string) => accentPalette[slug] || { text: 'text-primary', border: 'border-primary/60', bgSoft: 'bg-primary/10', glow: 'shadow-primary/20', ring: 'ring-primary/40' };
+
 interface Project {
   id: string;
   slug: string;
