@@ -637,10 +637,14 @@ const Projects = () => {
                       )}
                       <div className="absolute bottom-0 left-0 right-0 z-20 p-4">
                         <div className="flex items-center gap-2 mb-1">
-                          {project.slug === 'baseline' && <img src={baselineLogo} alt="" className="h-6 rounded" />}
                           {project.slug === 'saven' && <img src={savenLogo} alt="" className="h-6 rounded" />}
                           {isBioMath && <img src={biomathcoreLogoBanner} alt="" className="h-7 object-contain" />}
                         </div>
+                        {project.slug === 'baseline' && (
+                          <h3 className="text-white font-extrabold text-4xl md:text-5xl leading-none tracking-tight drop-shadow-[0_4px_12px_rgba(0,0,0,0.7)]">
+                            Baseline
+                          </h3>
+                        )}
                         {!hasLogo && (
                           <h3 className="text-white font-bold text-lg leading-tight drop-shadow-lg">
                             {project.title}
