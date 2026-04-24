@@ -422,6 +422,25 @@ const ProjectDetail = () => {
                 </Button>
               )}
               <ProjectDocumentButtons projectSlug={project.slug} projectId={project.id} />
+              {project.slug === 'agron' && (
+                <Button
+                  size="lg"
+                  variant="outline"
+                  asChild
+                  className="text-lg px-8 py-6 border-primary/40 hover:border-primary"
+                >
+                  <a
+                    href="/documents/agron-network.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    download="The-AGRON-Network.pdf"
+                    className="flex items-center gap-2"
+                  >
+                    <FileText className="h-5 w-5" />
+                    <span>The AGRON Network (PDF)</span>
+                  </a>
+                </Button>
+              )}
             </div>
             {project.status === 'OPEN' && (
               <p className="text-sm text-muted-foreground mt-2">
