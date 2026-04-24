@@ -2,7 +2,21 @@ import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import { supabase } from '@/integrations/supabase/client';
-import { Loader2, ArrowUpRight, Zap, Layers, Activity, Brain, Sprout, Heart, Cpu, Utensils, Sparkles } from 'lucide-react';
+import { Loader2, ArrowUpRight, Layers } from 'lucide-react';
+import {
+  HealthDNAIcon,
+  AgroDataIcon,
+  FoodMolecularIcon,
+  InfraHubIcon,
+  EcosystemCoreIcon,
+  ShieldCircuitIcon,
+  GrowthArrowIcon,
+  PartnershipIcon,
+  DailyPulseIcon,
+  DataStreamIcon,
+  AILoopIcon,
+  SynergyOrbitIcon,
+} from '@/components/icons/BrandIcons';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 
