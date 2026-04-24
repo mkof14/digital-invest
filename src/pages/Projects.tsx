@@ -100,6 +100,60 @@ const getProjectOrderIndex = (slug: string) => {
   return idx === -1 ? 999 : idx;
 };
 
+// Семантические группы для быстрых якорей и разделителей секций.
+// Каждый проект попадает в одну группу; порядок групп = порядок отображения.
+type ProjectGroup = {
+  id: string;        // якорь / id секции
+  titleKey: string;  // ключ перевода (с дефолтом)
+  defaultTitle: string;
+  slugs: string[];
+};
+
+const projectGroups: ProjectGroup[] = [
+  {
+    id: 'flagship',
+    titleKey: 'projects.groups.flagship',
+    defaultTitle: 'Flagship & Portfolio',
+    slugs: ['digital-invest-portfolio'],
+  },
+  {
+    id: 'biomath-life',
+    titleKey: 'projects.groups.biomathLife',
+    defaultTitle: 'BioMath Life Family',
+    slugs: [
+      'biomathlife', 'biomath-core', 'biomathcore', 'saven',
+      'stresscore', 'vitalcore', 'bioagecore', 'longevitycore',
+      'familycore', 'seniorcore', 'skincore', 'luna-balance',
+      'mrx-health', 'baseline',
+    ],
+  },
+  {
+    id: 'agron',
+    titleKey: 'projects.groups.agron',
+    defaultTitle: 'AGRON Family',
+    slugs: ['agron', 'agron-work'],
+  },
+  {
+    id: 'terraaero',
+    titleKey: 'projects.groups.terraaero',
+    defaultTitle: 'TerraAero',
+    slugs: ['terraaero'],
+  },
+  {
+    id: 'other',
+    titleKey: 'projects.groups.other',
+    defaultTitle: 'Lifestyle & Other',
+    slugs: ['myday', 'itsgoodtoday', 'table-served'],
+  },
+];
+
+const getProjectGroupId = (slug: string): string => {
+  for (const g of projectGroups) {
+    if (g.slugs.includes(slug)) return g.id;
+  }
+  return 'other';
+};
+
 
 interface Project {
   id: string;
