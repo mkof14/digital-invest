@@ -702,11 +702,13 @@ const Projects = () => {
             const theme = getTheme(project.slug);
             const isBioMath = project.slug === 'biomath-core' || project.slug === 'biomathcore';
             const projectImage = isBioMath ? biomathcoreCardBg : getProjectImage(project);
+            const highlights = getHighlights(project.slug);
+            const isFlagship = highlights.special?.includes('flagship');
 
             return (
               <ScrollRevealCard key={project.id} index={index}>
                 <Link to={`/projects/${project.slug}`} className="group block" {...projectPrefetchHandlers(project.slug)}>
-                  <Card className={`overflow-hidden border ${theme.border} bg-card shadow-elegant hover:shadow-elevated transition-all duration-500 hover:-translate-y-1 cursor-pointer`}>
+                  <Card className={`overflow-hidden border-2 ${theme.border} bg-card shadow-elegant hover:shadow-elevated transition-all duration-500 hover:-translate-y-1 cursor-pointer ${isFlagship ? 'ring-2 ring-amber-500/30 ring-offset-2 ring-offset-background' : ''}`}>
                     <div className="flex flex-col md:flex-row">
                       <div className="relative w-full md:w-80 h-48 overflow-hidden bg-muted">
                         <div className={`absolute inset-0 bg-gradient-to-r ${theme.from} ${theme.to} z-10 opacity-60`} />
@@ -730,36 +732,55 @@ const Projects = () => {
                             );
                           })()
                         )}
-                        <Badge className={`absolute top-3 left-3 z-20 ${getStatusColor(project.status)} text-xs`}>
-                          {project.status.replace('_', ' ')}
-                        </Badge>
-                        {isBioMath && (
-                          <Badge className="absolute top-3 left-24 z-20 bg-gradient-to-r from-amber-500 to-orange-500 text-white border-0 text-xs font-semibold shadow-lg">
-                            ★ {t('projects.flagship', 'Flagship')}
+                        <div className="absolute top-3 left-3 z-20 flex flex-col gap-1.5 items-start max-w-[80%]">
+                          <Badge className={`${getStatusColor(project.status)} text-xs`}>
+                            {project.status.replace('_', ' ')}
                           </Badge>
-                        )}
+                          <div className="flex flex-wrap gap-1.5">
+                            {renderSpecialBadges(highlights.special)}
+                          </div>
+                        </div>
                       </div>
                       <div className="flex-1 flex flex-col">
                         <CardHeader className="flex-1 space-y-2">
                           <div className="flex items-start justify-between gap-4">
-                            <CardTitle className={`text-xl font-bold ${theme.accent} transition-colors duration-300 leading-tight flex items-center gap-3`}>
-                              {project.slug === 'baseline' && <img src={baselineLogo} alt="" className="h-7 rounded" />}
-                              {project.slug === 'saven' && <img src={savenLogo} alt="" className="h-7 rounded" />}
-                              {isBioMath && <img src={biomathcoreLogoBanner} alt="" className="h-7 object-contain" />}
-                              {project.title}
-                            </CardTitle>
+                            <div className="flex-1 min-w-0">
+                              <CardTitle className={`text-xl font-bold ${theme.accent} transition-colors duration-300 leading-tight flex items-center gap-3 flex-wrap`}>
+                                {project.slug === 'baseline' && <img src={baselineLogo} alt="" className="h-7 rounded" />}
+                                {project.slug === 'saven' && <img src={savenLogo} alt="" className="h-7 rounded" />}
+                                {isBioMath && <img src={biomathcoreLogoBanner} alt="" className="h-7 object-contain" />}
+                                {project.title}
+                              </CardTitle>
+                              {highlights.tagline && (
+                                <p className={`text-xs font-semibold uppercase tracking-wide mt-1 ${theme.accent}`}>
+                                  {t(`projects.taglines.${project.slug}`, highlights.tagline)}
+                                </p>
+                              )}
+                            </div>
                             <Badge className={`${theme.border} bg-black/40 backdrop-blur-sm text-white text-xs shrink-0`}>
                               {theme.label}
                             </Badge>
                           </div>
+                          {highlights.extraCategories && highlights.extraCategories.length > 0 && (
+                            <div className="flex flex-wrap gap-1.5">
+                              {highlights.extraCategories.map(cat => (
+                                <span
+                                  key={cat}
+                                  className={`inline-flex items-center px-2 py-0.5 rounded-md text-[10px] font-semibold uppercase tracking-wider ${theme.border} border bg-muted/40 text-foreground/80`}
+                                >
+                                  {cat}
+                                </span>
+                              ))}
+                            </div>
+                          )}
                           <CardDescription className="text-sm leading-relaxed">
                             {t(`projects.descriptions.${project.slug}`, project.short_description)}
                           </CardDescription>
                         </CardHeader>
                         <CardFooter className="pt-0 pb-4">
-                          <div className="flex items-center gap-2 text-muted-foreground text-sm font-medium transition-all duration-300 group-hover:text-primary">
-                            {t('projects.exploreProject')}
-                            <ArrowRight className="w-4 h-4 transition-all duration-300 group-hover:translate-x-1.5" />
+                          <div className={`inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg text-sm font-bold text-white ${theme.btnBg} ${theme.btnHover} shadow-md hover:shadow-lg transition-all duration-300 group-hover:gap-3`}>
+                            <span>{t('projects.exploreProject')}</span>
+                            <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
                           </div>
                         </CardFooter>
                       </div>
