@@ -10,7 +10,8 @@ import {
   ShieldCheck, Activity, Brain, Cpu, HeartPulse, Building2,
   Home, Hospital, Users, Cog, BarChart3, Network, Zap,
   CheckCircle2, XCircle, Download, Copy, Share2, Mail,
-  Bot, Wrench, Wifi, Truck, Stethoscope, Layers
+  Bot, Wrench, Wifi, Truck, Stethoscope, Layers,
+  Clock, DollarSign, Smile, AlertTriangle, TimerReset, LineChart
 } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import Navigation from '@/components/Navigation';
