@@ -4,7 +4,7 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import {
-  ArrowLeft, ArrowRight, ShoppingBag, Eye, Gem, Store, Globe,
+  ArrowLeft, ArrowRight, ShoppingBag, Eye, Gem, Store, Globe, FileText,
   Sparkles, MousePointerClick, Package, TrendingUp, Users,
   ChevronRight, Shield, BarChart3, Smartphone, Palette
 } from 'lucide-react';
@@ -54,6 +54,12 @@ const AbuMall = () => {
                   {t('projectCommon.expressInterest', 'Express Interest')}
                 </Button>
               </Link>
+              <Button size="lg" variant="outline" asChild className="border-amber-400/40 text-amber-200 hover:bg-amber-500/10 px-8 py-6 text-lg">
+                <a href="/documents/abu-mall-paradigm.pdf" target="_blank" rel="noopener noreferrer" download="The-Abu-Mall-Paradigm.pdf">
+                  <FileText className="w-5 h-5 mr-2" />
+                  The Abu Mall Paradigm (PDF)
+                </a>
+              </Button>
             </div>
           </div>
         </div>
