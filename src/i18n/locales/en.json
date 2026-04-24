@@ -32,7 +32,9 @@
     "yearsExp": "Years Experience",
     "activeProjects": "Active Projects",
     "exitValue": "Previous Exit Value",
-    "countriesServed": "Countries Served"
+    "countriesServed": "Countries Served",
+    "livePortfolioTitle": "Live Portfolio",
+    "livePortfolioSubtitle": "20+ active projects across 5 sectors"
   },
   "ecosystem": {
     "badge": "Ecosystem Vision",

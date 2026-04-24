@@ -32,7 +32,9 @@
     "yearsExp": "Лет опыта",
     "activeProjects": "Активных проектов",
     "exitValue": "Стоимость прошлых выходов",
-    "countriesServed": "Обслуживаемых стран"
+    "countriesServed": "Обслуживаемых стран",
+    "livePortfolioTitle": "Активный портфель",
+    "livePortfolioSubtitle": "20+ проектов в 5 секторах"
   },
   "ecosystem": {
     "badge": "Видение экосистемы",

@@ -32,7 +32,9 @@
     "yearsExp": "年の経験",
     "activeProjects": "アクティブプロジェクト",
     "exitValue": "過去のイグジット価値",
-    "countriesServed": "サービス提供国"
+    "countriesServed": "サービス提供国",
+    "livePortfolioTitle": "ライブポートフォリオ",
+    "livePortfolioSubtitle": "5つの分野で20以上のアクティブプロジェクト"
   },
   "ecosystem": {
     "badge": "エコシステムビジョン",
