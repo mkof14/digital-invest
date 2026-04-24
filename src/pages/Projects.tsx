@@ -372,16 +372,18 @@ const Projects = () => {
     }
   };
 
+  // Outline-style status badge: transparent bg, colored border + text;
+  // fills with color on parent card hover (uses group-hover).
   const getStatusColor = (status: string) => {
     switch (status) {
       case 'OPEN':
-        return 'bg-success text-success-foreground';
+        return 'bg-transparent border border-success text-success backdrop-blur-sm group-hover:bg-success group-hover:text-success-foreground transition-colors duration-300';
       case 'CLOSED':
-        return 'bg-muted text-muted-foreground';
+        return 'bg-transparent border border-muted-foreground/60 text-muted-foreground backdrop-blur-sm group-hover:bg-muted group-hover:text-muted-foreground transition-colors duration-300';
       case 'COMING_SOON':
-        return 'bg-info text-info-foreground';
+        return 'bg-transparent border border-info text-info backdrop-blur-sm group-hover:bg-info group-hover:text-info-foreground transition-colors duration-300';
       default:
-        return 'bg-muted text-muted-foreground';
+        return 'bg-transparent border border-muted-foreground/60 text-muted-foreground backdrop-blur-sm group-hover:bg-muted group-hover:text-muted-foreground transition-colors duration-300';
     }
   };
 
@@ -647,7 +649,7 @@ const Projects = () => {
                       </div>
                       {/* Top-left status + special badges stack */}
                       <div className="absolute top-3 left-3 z-20 flex flex-col gap-1.5 items-start max-w-[70%]">
-                        <Badge className={`${getStatusColor(project.status)} text-xs`}>
+                        <Badge className={`${getStatusColor(project.status)} text-xs font-bold tracking-wider px-2.5 py-0.5 hover:bg-transparent`}>
                           {project.status.replace('_', ' ')}
                         </Badge>
                         <div className="flex flex-wrap gap-1.5">
@@ -733,7 +735,7 @@ const Projects = () => {
                           })()
                         )}
                         <div className="absolute top-3 left-3 z-20 flex flex-col gap-1.5 items-start max-w-[80%]">
-                          <Badge className={`${getStatusColor(project.status)} text-xs`}>
+                          <Badge className={`${getStatusColor(project.status)} text-xs font-bold tracking-wider px-2.5 py-0.5 hover:bg-transparent`}>
                             {project.status.replace('_', ' ')}
                           </Badge>
                           <div className="flex flex-wrap gap-1.5">

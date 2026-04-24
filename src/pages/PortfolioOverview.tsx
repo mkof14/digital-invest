@@ -270,6 +270,33 @@ const accentDots: Record<string, string> = {
   'digital-invest-portfolio': 'bg-slate-400',
 };
 
+// Полная палитра для проектов: text/border/bg/glow используется при hover карточки.
+const accentPalette: Record<string, { text: string; border: string; bgSoft: string; glow: string; ring: string }> = {
+  'biomath-core':   { text: 'text-cyan-400',    border: 'border-cyan-500/60',    bgSoft: 'bg-cyan-500/10',    glow: 'shadow-cyan-500/20',    ring: 'ring-cyan-500/40' },
+  'biomathcore':    { text: 'text-cyan-400',    border: 'border-cyan-500/60',    bgSoft: 'bg-cyan-500/10',    glow: 'shadow-cyan-500/20',    ring: 'ring-cyan-500/40' },
+  'biomathlife':    { text: 'text-sky-400',     border: 'border-sky-500/60',     bgSoft: 'bg-sky-500/10',     glow: 'shadow-sky-500/20',     ring: 'ring-sky-500/40' },
+  'terraaero':      { text: 'text-emerald-400', border: 'border-emerald-500/60', bgSoft: 'bg-emerald-500/10', glow: 'shadow-emerald-500/20', ring: 'ring-emerald-500/40' },
+  'agron':          { text: 'text-lime-400',    border: 'border-lime-500/60',    bgSoft: 'bg-lime-500/10',    glow: 'shadow-lime-500/20',    ring: 'ring-lime-500/40' },
+  'agron-work':     { text: 'text-amber-400',   border: 'border-amber-500/60',   bgSoft: 'bg-amber-500/10',   glow: 'shadow-amber-500/20',   ring: 'ring-amber-500/40' },
+  'myday':          { text: 'text-indigo-400',  border: 'border-indigo-500/60',  bgSoft: 'bg-indigo-500/10',  glow: 'shadow-indigo-500/20',  ring: 'ring-indigo-500/40' },
+  'itsgoodtoday':   { text: 'text-orange-400',  border: 'border-orange-500/60',  bgSoft: 'bg-orange-500/10',  glow: 'shadow-orange-500/20',  ring: 'ring-orange-500/40' },
+  'mrx-health':     { text: 'text-rose-400',    border: 'border-rose-500/60',    bgSoft: 'bg-rose-500/10',    glow: 'shadow-rose-500/20',    ring: 'ring-rose-500/40' },
+  'table-served':   { text: 'text-amber-300',   border: 'border-amber-400/60',   bgSoft: 'bg-amber-400/10',   glow: 'shadow-amber-400/20',   ring: 'ring-amber-400/40' },
+  'baseline':       { text: 'text-teal-400',    border: 'border-teal-500/60',    bgSoft: 'bg-teal-500/10',    glow: 'shadow-teal-500/20',    ring: 'ring-teal-500/40' },
+  'saven':          { text: 'text-violet-400',  border: 'border-violet-500/60',  bgSoft: 'bg-violet-500/10',  glow: 'shadow-violet-500/20',  ring: 'ring-violet-500/40' },
+  'luna-balance':   { text: 'text-pink-400',    border: 'border-pink-500/60',    bgSoft: 'bg-pink-500/10',    glow: 'shadow-pink-500/20',    ring: 'ring-pink-500/40' },
+  'stresscore':     { text: 'text-purple-400',  border: 'border-purple-500/60',  bgSoft: 'bg-purple-500/10',  glow: 'shadow-purple-500/20',  ring: 'ring-purple-500/40' },
+  'vitalcore':      { text: 'text-red-400',     border: 'border-red-500/60',     bgSoft: 'bg-red-500/10',     glow: 'shadow-red-500/20',     ring: 'ring-red-500/40' },
+  'bioagecore':     { text: 'text-fuchsia-400', border: 'border-fuchsia-500/60', bgSoft: 'bg-fuchsia-500/10', glow: 'shadow-fuchsia-500/20', ring: 'ring-fuchsia-500/40' },
+  'longevitycore':  { text: 'text-emerald-300', border: 'border-emerald-400/60', bgSoft: 'bg-emerald-400/10', glow: 'shadow-emerald-400/20', ring: 'ring-emerald-400/40' },
+  'familycore':     { text: 'text-blue-400',    border: 'border-blue-500/60',    bgSoft: 'bg-blue-500/10',    glow: 'shadow-blue-500/20',    ring: 'ring-blue-500/40' },
+  'seniorcore':     { text: 'text-stone-300',   border: 'border-stone-500/60',   bgSoft: 'bg-stone-500/10',   glow: 'shadow-stone-500/20',   ring: 'ring-stone-500/40' },
+  'skincore':       { text: 'text-pink-300',    border: 'border-pink-400/60',    bgSoft: 'bg-pink-400/10',    glow: 'shadow-pink-400/20',    ring: 'ring-pink-400/40' },
+  'digital-invest-portfolio': { text: 'text-slate-300', border: 'border-slate-400/60', bgSoft: 'bg-slate-500/10', glow: 'shadow-slate-500/20', ring: 'ring-slate-400/40' },
+};
+
+const getAccentPalette = (slug: string) => accentPalette[slug] || { text: 'text-primary', border: 'border-primary/60', bgSoft: 'bg-primary/10', glow: 'shadow-primary/20', ring: 'ring-primary/40' };
+
 interface Project {
   id: string;
   slug: string;
@@ -385,12 +412,14 @@ const PortfolioOverview = () => {
             <Loader2 className="h-8 w-8 animate-spin text-primary" />
           </div>
         ) : (
-          <div className="space-y-3">
+          <div className="space-y-4">
             {projects.map((project, index) => {
               const gradient = accentGradients[project.slug] || 'from-primary/20 to-primary/0';
               const dot = accentDots[project.slug] || 'bg-primary';
               const icon = categoryIcons[project.category] || <Zap className="w-4 h-4" />;
               const isHovered = hoveredIdx === index;
+              const palette = getAccentPalette(project.slug);
+              const isFlagship = project.slug === 'biomath-core' || project.slug === 'biomathcore';
 
               return (
                 <Link
@@ -403,38 +432,44 @@ const PortfolioOverview = () => {
                   <div
                     className={`
                       relative overflow-hidden rounded-2xl
-                      border border-border/40
-                      transition-all duration-500 ease-out
-                      ${isHovered ? 'bg-card shadow-xl shadow-primary/[0.06] scale-[1.01] border-border/60' : 'bg-card/40'}
+                      border-2 transition-all duration-500 ease-out
+                      ${isHovered
+                        ? `bg-card shadow-2xl ${palette.glow} scale-[1.015] ${palette.border}`
+                        : `bg-card/50 border-border/40`}
+                      ${isFlagship ? `ring-1 ${palette.ring} ring-offset-2 ring-offset-background` : ''}
                     `}
                   >
-                    {/* Gradient accent overlay */}
-                    <div className={`absolute inset-0 bg-gradient-to-r ${gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+                    {/* Vertical color accent bar (left side) */}
+                    <div className={`absolute left-0 top-0 bottom-0 w-1.5 ${dot} transition-all duration-500 ${isHovered ? 'w-2' : ''}`} />
 
-                    <div className="relative z-10 p-6 md:p-8">
+                    {/* Color gradient overlay on hover */}
+                    <div className={`absolute inset-0 bg-gradient-to-r ${gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none`} />
+
+                    {/* Soft color glow blob */}
+                    <div className={`absolute -top-20 -right-20 w-64 h-64 rounded-full ${palette.bgSoft} blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none`} />
+
+                    <div className="relative z-10 p-6 md:p-8 pl-7 md:pl-9">
                       <div className="flex flex-col md:flex-row md:items-start gap-4 md:gap-8">
-                        {/* Left: index + dot */}
                         <div className="flex items-center gap-4 md:flex-col md:items-center md:gap-2 shrink-0 md:w-12">
-                          <span className="font-mono text-xs text-muted-foreground/50 tabular-nums">
+                          <span className={`font-mono text-xs tabular-nums transition-colors duration-300 ${isHovered ? palette.text : 'text-muted-foreground/50'}`}>
                             {String(index + 1).padStart(2, '0')}
                           </span>
-                          <div className={`h-2 w-2 rounded-full ${dot} transition-all duration-300 ${isHovered ? 'scale-150' : ''}`} />
+                          <div className={`h-2.5 w-2.5 rounded-full ${dot} transition-all duration-300 ${isHovered ? 'scale-150 shadow-lg' : ''}`} />
                         </div>
 
-                        {/* Center: content */}
                         <div className="flex-1 min-w-0 space-y-3">
                           <div className="flex flex-wrap items-center gap-3">
-                            <h2 className={`text-2xl md:text-3xl font-extrabold tracking-tight transition-colors duration-300 ${isHovered ? 'text-primary' : 'text-foreground'}`}>
+                            <h2 className={`text-2xl md:text-3xl font-extrabold tracking-tight transition-colors duration-300 ${isHovered ? palette.text : 'text-foreground'}`}>
                               {project.title}
                             </h2>
-                            <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-muted/60 text-muted-foreground text-xs font-medium">
+                            <div className={`flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium border transition-all duration-300 ${isHovered ? `${palette.bgSoft} ${palette.text} ${palette.border}` : 'bg-muted/60 text-muted-foreground border-transparent'}`}>
                               {icon}
                               <span>{project.category}</span>
                             </div>
-                            {(project.slug === 'biomath-core' || project.slug === 'biomathcore') && (
-                              <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-semibold border border-primary/20">
+                            {isFlagship && (
+                              <div className={`flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold border ${palette.bgSoft} ${palette.text} ${palette.border} shadow-sm`}>
                                 <Layers className="w-3.5 h-3.5" />
-                                <span>{lang === 'ru' ? 'Флагман · 200+ сервисов' : lang === 'uk' ? 'Флагман · 200+ сервісів' : lang === 'fr' ? 'Projet phare · 200+ services' : lang === 'ar' ? 'المشروع الرئيسي · 200+ خدمة' : lang === 'ja' ? 'フラッグシップ · 200+サービス' : lang === 'he' ? 'פרויקט דגל · 200+ שירותים' : 'Flagship · 200+ services'}</span>
+                                <span>{lang === 'ru' ? '★ Флагман · 200+ сервисов' : lang === 'uk' ? '★ Флагман · 200+ сервісів' : lang === 'fr' ? '★ Projet phare · 200+ services' : lang === 'ar' ? '★ المشروع الرئيسي · 200+ خدمة' : lang === 'ja' ? '★ フラッグシップ · 200+サービス' : lang === 'he' ? '★ פרויקט דגל · 200+ שירותים' : '★ Flagship · 200+ services'}</span>
                               </div>
                             )}
                           </div>
@@ -442,14 +477,17 @@ const PortfolioOverview = () => {
                           <p className="text-[15px] md:text-base text-muted-foreground leading-[1.7] max-w-3xl">
                             {getDescription(project.slug, project.short_description)}
                           </p>
+
+                          <div className="h-0.5 w-full bg-border/30 rounded-full overflow-hidden mt-4">
+                            <div className={`h-full ${dot} transition-all duration-700 ease-out ${isHovered ? 'w-1/2' : 'w-0'}`} />
+                          </div>
                         </div>
 
-                        {/* Right: arrow */}
                         <div className="hidden md:flex items-center shrink-0 self-center">
                           <div className={`
-                            w-10 h-10 rounded-full border border-border/50 flex items-center justify-center
+                            w-11 h-11 rounded-full border-2 flex items-center justify-center
                             transition-all duration-300
-                            ${isHovered ? 'bg-primary border-primary text-primary-foreground scale-110' : 'text-muted-foreground/40'}
+                            ${isHovered ? `${dot} ${palette.border} text-white scale-110 shadow-lg ${palette.glow}` : 'border-border/50 text-muted-foreground/40'}
                           `}>
                             <ArrowUpRight className="h-4 w-4" />
                           </div>
