@@ -59,9 +59,17 @@ const LunaBalance = () => {
             <p className="text-xl md:text-2xl text-muted-foreground mb-4 italic">{t('projectLunaBalance.heroSubtitle')}</p>
             <p className="text-lg text-muted-foreground mb-8 max-w-2xl">{t('projectLunaBalance.heroDesc')}</p>
             <p className="text-sm text-muted-foreground mb-8">{t('projectLunaBalance.portfolioNote')}</p>
-            <Button size="lg" onClick={() => setShowInterestForm(true)} className="text-lg px-8">
-              {t('projectLunaBalance.submitInterest')}
-            </Button>
+            <div className="flex flex-wrap gap-4">
+              <Button size="lg" onClick={() => setShowInterestForm(true)} className="text-lg px-8">
+                {t('projectLunaBalance.submitInterest')}
+              </Button>
+              <Button size="lg" variant="outline" asChild className="text-lg px-8">
+                <a href="/documents/luna-self-understanding.pdf" target="_blank" rel="noopener noreferrer" download="LUNA-Your-Path-to-Self.pdf">
+                  <FileText className="w-5 h-5 mr-2" />
+                  LUNA: Your Path to Self (PDF)
+                </a>
+              </Button>
+            </div>
           </div>
         </div>
       </section>
@@ -228,9 +236,17 @@ const LunaBalance = () => {
         </section>
 
         <section className="mb-16 text-center">
-          <Button size="lg" onClick={() => setShowInterestForm(true)} className="text-lg px-8">
-            {t('projectLunaBalance.submitInterest')}
-          </Button>
+          <div className="flex flex-wrap gap-4 justify-center">
+            <Button size="lg" onClick={() => setShowInterestForm(true)} className="text-lg px-8">
+              {t('projectLunaBalance.submitInterest')}
+            </Button>
+            <Button size="lg" variant="outline" asChild className="text-lg px-8">
+              <a href="/documents/luna-self-understanding.pdf" target="_blank" rel="noopener noreferrer" download="LUNA-Your-Path-to-Self.pdf">
+                <FileText className="w-5 h-5 mr-2" />
+                LUNA: Your Path to Self (PDF)
+              </a>
+            </Button>
+          </div>
           <p className="text-xs text-muted-foreground mt-4 max-w-lg mx-auto">{t('projectLunaBalance.nonBinding')}</p>
         </section>
 
