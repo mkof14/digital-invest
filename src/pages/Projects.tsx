@@ -372,16 +372,18 @@ const Projects = () => {
     }
   };
 
+  // Outline-style status badge: transparent bg, colored border + text;
+  // fills with color on parent card hover (uses group-hover).
   const getStatusColor = (status: string) => {
     switch (status) {
       case 'OPEN':
-        return 'bg-success text-success-foreground';
+        return 'bg-transparent border border-success text-success backdrop-blur-sm group-hover:bg-success group-hover:text-success-foreground transition-colors duration-300';
       case 'CLOSED':
-        return 'bg-muted text-muted-foreground';
+        return 'bg-transparent border border-muted-foreground/60 text-muted-foreground backdrop-blur-sm group-hover:bg-muted group-hover:text-muted-foreground transition-colors duration-300';
       case 'COMING_SOON':
-        return 'bg-info text-info-foreground';
+        return 'bg-transparent border border-info text-info backdrop-blur-sm group-hover:bg-info group-hover:text-info-foreground transition-colors duration-300';
       default:
-        return 'bg-muted text-muted-foreground';
+        return 'bg-transparent border border-muted-foreground/60 text-muted-foreground backdrop-blur-sm group-hover:bg-muted group-hover:text-muted-foreground transition-colors duration-300';
     }
   };
 
