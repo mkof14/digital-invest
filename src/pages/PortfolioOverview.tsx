@@ -499,24 +499,6 @@ const PortfolioOverview = () => {
               );
             })}
           </div>
-
-                        {/* Right: arrow */}
-                        <div className="hidden md:flex items-center shrink-0 self-center">
-                          <div className={`
-                            w-10 h-10 rounded-full border border-border/50 flex items-center justify-center
-                            transition-all duration-300
-                            ${isHovered ? 'bg-primary border-primary text-primary-foreground scale-110' : 'text-muted-foreground/40'}
-                          `}>
-                            <ArrowUpRight className="h-4 w-4" />
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </Link>
-              );
-            })}
-          </div>
         )}
 
         {/* Bottom CTA */}
