@@ -488,6 +488,19 @@
       "agron": "AGRON Family",
       "terraaero": "TerraAero",
       "other": "Lifestyle & Other"
+    },
+    "foundationBadge": "Foundation",
+    "featuredBadge": "Featured",
+    "newBadge": "New",
+    "taglines": {
+      "biomath-core": "Foundation for 200+ ecosystem services",
+      "biomathcore": "Foundation for 200+ ecosystem services",
+      "biomathlife": "Flagship BioTech platform",
+      "saven": "Autonomous robotics for medical & critical infrastructure",
+      "agron": "Autonomous agricultural robotics",
+      "agron-work": "Workforce platform for AGRON ecosystem",
+      "terraaero": "Drone-powered precision agriculture",
+      "digital-invest-portfolio": "Multi-sector investment platform"
     }
   },
   "team": {

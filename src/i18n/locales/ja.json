@@ -488,6 +488,19 @@
       "agron": "AGRON ファミリー",
       "terraaero": "TerraAero",
       "other": "ライフスタイル・その他"
+    },
+    "foundationBadge": "基盤",
+    "featuredBadge": "注目",
+    "newBadge": "新着",
+    "taglines": {
+      "biomath-core": "200以上のエコシステムサービスの基盤",
+      "biomathcore": "200以上のエコシステムサービスの基盤",
+      "biomathlife": "フラッグシップ BioTech プラットフォーム",
+      "saven": "医療・重要インフラ向け自律型ロボティクス",
+      "agron": "自律型農業ロボティクス",
+      "agron-work": "AGRON エコシステムのワークフォースプラットフォーム",
+      "terraaero": "ドローンによる精密農業",
+      "digital-invest-portfolio": "マルチセクター投資プラットフォーム"
     }
   },
   "team": {
