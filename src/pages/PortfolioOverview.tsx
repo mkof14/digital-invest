@@ -569,7 +569,7 @@ const PortfolioOverview = () => {
             {projects.map((project, index) => {
               const gradient = accentGradients[project.slug] || 'from-primary/20 to-primary/0';
               const dot = accentDots[project.slug] || 'bg-primary';
-              const icon = categoryIcons[project.category] || <Zap className="w-4 h-4" />;
+              const icon = getProjectIcon(project.slug);
               const isHovered = hoveredIdx === index;
               const palette = getAccentPalette(project.slug);
               const isFlagship = project.slug === 'biomath-core' || project.slug === 'biomathcore';
