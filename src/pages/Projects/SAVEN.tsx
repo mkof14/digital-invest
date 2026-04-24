@@ -10,7 +10,8 @@ import {
   ShieldCheck, Activity, Brain, Cpu, HeartPulse, Building2,
   Home, Hospital, Users, Cog, BarChart3, Network, Zap,
   CheckCircle2, XCircle, Download, Copy, Share2, Mail,
-  Bot, Wrench, Wifi, Truck, Stethoscope, Layers
+  Bot, Wrench, Wifi, Truck, Stethoscope, Layers,
+  Clock, DollarSign, Smile, AlertTriangle, TimerReset, LineChart
 } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import Navigation from '@/components/Navigation';
@@ -333,8 +334,56 @@ const SAVEN = () => {
           <p className="text-center text-base md:text-lg text-orange-300/80 mt-10 max-w-3xl mx-auto italic">
             {t('projectSaven.robotIntegrationFooter')}
           </p>
+
+          {/* Impact metrics — value for people and business */}
+          <div className="mt-16 max-w-6xl mx-auto">
+            <div className="text-center mb-10">
+              <Badge className="mb-3 bg-orange-500/15 text-orange-300 border-orange-500/30">
+                {t('projectSaven.impactBadge')}
+              </Badge>
+              <h3 className="text-2xl md:text-3xl font-bold">
+                {t('projectSaven.impactTitle')}{' '}
+                <span className="text-orange-400">{t('projectSaven.impactHighlight')}</span>
+              </h3>
+              <p className="text-muted-foreground mt-3 max-w-2xl mx-auto">
+                {t('projectSaven.impactLead')}
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+              {[
+                { icon: Clock, value: '−45%', unit: t('projectSaven.impactUnitTime'), label: t('projectSaven.impactMetric1Label'), desc: t('projectSaven.impactMetric1Desc') },
+                { icon: TimerReset, value: '< 60', unit: t('projectSaven.impactUnitSeconds'), label: t('projectSaven.impactMetric2Label'), desc: t('projectSaven.impactMetric2Desc') },
+                { icon: HeartPulse, value: '+38%', unit: t('projectSaven.impactUnitQuality'), label: t('projectSaven.impactMetric3Label'), desc: t('projectSaven.impactMetric3Desc') },
+                { icon: AlertTriangle, value: '−62%', unit: t('projectSaven.impactUnitIncidents'), label: t('projectSaven.impactMetric4Label'), desc: t('projectSaven.impactMetric4Desc') },
+                { icon: DollarSign, value: '−30%', unit: t('projectSaven.impactUnitCost'), label: t('projectSaven.impactMetric5Label'), desc: t('projectSaven.impactMetric5Desc') },
+                { icon: Smile, value: '4.8 / 5', unit: t('projectSaven.impactUnitSatisfaction'), label: t('projectSaven.impactMetric6Label'), desc: t('projectSaven.impactMetric6Desc') },
+              ].map((m, i) => (
+                <Card key={i} className="bg-gradient-to-br from-orange-500/10 via-card/60 to-card/60 border-orange-500/20 hover:border-orange-500/50 hover:-translate-y-1 transition-all">
+                  <CardContent className="p-6">
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="w-10 h-10 rounded-lg bg-orange-500/15 flex items-center justify-center">
+                        <m.icon className="w-5 h-5 text-orange-400" />
+                      </div>
+                      <span className="text-xs uppercase tracking-wider text-muted-foreground">{m.unit}</span>
+                    </div>
+                    <div className="text-3xl md:text-4xl font-extrabold text-orange-400 mb-1 leading-none">
+                      {m.value}
+                    </div>
+                    <div className="text-sm font-semibold mb-2">{m.label}</div>
+                    <p className="text-xs text-muted-foreground leading-relaxed">{m.desc}</p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+
+            <p className="text-center text-xs text-muted-foreground/70 mt-6 max-w-3xl mx-auto">
+              {t('projectSaven.impactDisclaimer')}
+            </p>
+          </div>
         </div>
       </section>
+
 
       {/* Post-Hospital Bridge */}
       <section className="py-20">
