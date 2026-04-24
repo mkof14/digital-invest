@@ -60,7 +60,7 @@ const projectThemes: Record<string, { from: string; to: string; accent: string; 
   'bioagecore': { from: 'from-fuchsia-500/20', to: 'to-pink-600/20', accent: 'text-fuchsia-400', border: 'border-fuchsia-500/30', btnBg: 'bg-fuchsia-600', btnHover: 'hover:bg-fuchsia-500', label: 'Longevity' },
   'longevitycore': { from: 'from-emerald-500/20', to: 'to-teal-600/20', accent: 'text-emerald-400', border: 'border-emerald-500/30', btnBg: 'bg-emerald-600', btnHover: 'hover:bg-emerald-500', label: 'Anti-Aging' },
   'familycore': { from: 'from-blue-500/20', to: 'to-indigo-600/20', accent: 'text-blue-400', border: 'border-blue-500/30', btnBg: 'bg-blue-600', btnHover: 'hover:bg-blue-500', label: 'Family' },
-  'seniorcore': { from: 'from-warmgray-500/20', to: 'to-stone-600/20', accent: 'text-stone-400', border: 'border-stone-500/30', btnBg: 'bg-stone-600', btnHover: 'hover:bg-stone-500', label: 'Senior Care' },
+  'seniorcore': { from: 'from-stone-500/20', to: 'to-stone-600/20', accent: 'text-stone-300', border: 'border-stone-500/30', btnBg: 'bg-stone-600', btnHover: 'hover:bg-stone-500', label: 'Senior Care' },
   'skincore': { from: 'from-pink-400/20', to: 'to-rose-500/20', accent: 'text-pink-300', border: 'border-pink-400/30', btnBg: 'bg-pink-500', btnHover: 'hover:bg-pink-400', label: 'Beauty' },
 };
 
@@ -661,10 +661,8 @@ const Projects = () => {
                       </Badge>
                     </div>
                     <CardHeader className="flex-1 space-y-2 pb-2">
-                      <CardTitle className={`text-xl font-extrabold tracking-tight leading-snug`}>
-                        <span className={`bg-gradient-to-r ${theme.from.replace('/20', '')} ${theme.to.replace('/20', '')} bg-clip-text text-transparent`}>
-                          {project.title}
-                        </span>
+                      <CardTitle className={`text-xl md:text-2xl font-extrabold tracking-tight leading-snug ${theme.accent} drop-shadow-sm`}>
+                        {project.title}
                       </CardTitle>
                       {highlights.tagline && (
                         <p className={`text-xs font-semibold uppercase tracking-wide ${theme.accent}`}>
