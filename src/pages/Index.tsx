@@ -265,8 +265,79 @@ const Index = () => {
         </div>
       </section>
 
+      {/* ═══════════════════ FEATURED PROJECTS — Magazine Strip (moved up) ═══════════════════ */}
+      <section ref={featuredSection.ref} className={`py-20 md:py-28 px-4 section-gradient-cool scroll-fade-in ${featuredSection.isVisible ? 'visible' : ''}`}>
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
+            <div className="space-y-3">
+              <Badge variant="secondary" className="text-xs tracking-wide uppercase">{t('featured.badge')}</Badge>
+              <h2 ref={featuredHeading.ref} className={`text-3xl md:text-5xl font-bold tracking-tight text-foreground animate-heading-reveal ${featuredHeading.isVisible ? 'visible' : ''}`}>
+                {t('featured.title')}
+              </h2>
+              <p className="text-base md:text-lg text-muted-foreground max-w-2xl font-light">
+                {t('featured.subtitle')}
+              </p>
+            </div>
+            <Link to="/projects" className="shrink-0">
+              <Button variant="ghost" className="group text-muted-foreground hover:text-foreground">
+                {t('featured.viewAll')}
+                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </Link>
+          </div>
+
+          {featuredProjects.length > 0 ? (
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {featuredProjects.map((project, index) => (
+                <Link key={project.id} to={`/projects/${project.slug}`} className="group block">
+                  <div className="relative overflow-hidden rounded-2xl bg-card border border-border/40 hover:border-border transition-all duration-500 hover:-translate-y-1" style={{ animationDelay: `${index * 0.1}s` }}>
+                    <div className="relative h-56 overflow-hidden">
+                      <OptimizedImage
+                        src={projectImages[project.slug] || project.hero_image_url || '/placeholder.svg'}
+                        alt={`${project.title} - ${project.category}`}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700 ease-out"
+                        containerClassName="w-full h-full"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent" />
+                      <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between">
+                        <Badge className={`${getStatusColor(project.status)} text-[10px]`}>
+                          {project.status.replace('_', ' ')}
+                        </Badge>
+                        <span className="text-xs text-foreground/70 font-medium bg-background/60 backdrop-blur-sm px-2 py-0.5 rounded-full">
+                          {project.category}
+                        </span>
+                      </div>
+                    </div>
+
+                    <div className="p-5 space-y-3">
+                      <h3 className="text-lg font-bold text-foreground group-hover:text-primary transition-colors duration-300 leading-tight">
+                        {project.title}
+                      </h3>
+                      <p className="text-sm text-muted-foreground line-clamp-2 leading-relaxed">
+                        {project.short_description}
+                      </p>
+                      <div className="flex items-center text-xs text-muted-foreground group-hover:text-primary transition-colors pt-1">
+                        <span>{t('featured.viewDetails')}</span>
+                        <ArrowUpRight className="w-3.5 h-3.5 ml-1 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                      </div>
+                    </div>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          ) : (
+            <div className="text-center py-12">
+              <p className="text-muted-foreground mb-6">{t('featured.noProjects')}</p>
+              <Link to="/projects">
+                <Button size="lg" variant="outline">{t('featured.viewAll')} <ArrowRight className="ml-2 h-5 w-5" /></Button>
+              </Link>
+            </div>
+          )}
+        </div>
+      </section>
+
       {/* ═══════════════════ ECOSYSTEM VISION — Editorial ═══════════════════ */}
-      <section ref={biomathVisionSection.ref} className={`py-20 md:py-28 px-4 section-gradient-cool scroll-fade-in ${biomathVisionSection.isVisible ? 'visible' : ''}`}>
+      <section ref={biomathVisionSection.ref} className={`py-20 md:py-28 px-4 section-gradient-warm scroll-fade-in ${biomathVisionSection.isVisible ? 'visible' : ''}`}>
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-12 gap-8 md:gap-12 items-start">
             {/* Left label */}
@@ -329,76 +400,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* ═══════════════════ FEATURED PROJECTS — Magazine Strip ═══════════════════ */}
-      <section ref={featuredSection.ref} className={`py-20 md:py-28 px-4 section-gradient-warm scroll-fade-in ${featuredSection.isVisible ? 'visible' : ''}`}>
-        <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
-            <div className="space-y-3">
-              <Badge variant="secondary" className="text-xs tracking-wide uppercase">{t('featured.badge')}</Badge>
-              <h2 ref={featuredHeading.ref} className={`text-3xl md:text-5xl font-bold tracking-tight text-foreground animate-heading-reveal ${featuredHeading.isVisible ? 'visible' : ''}`}>
-                {t('featured.title')}
-              </h2>
-              <p className="text-base md:text-lg text-muted-foreground max-w-2xl font-light">
-                {t('featured.subtitle')}
-              </p>
-            </div>
-            <Link to="/projects" className="shrink-0">
-              <Button variant="ghost" className="group text-muted-foreground hover:text-foreground">
-                {t('featured.viewAll')}
-                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-              </Button>
-            </Link>
-          </div>
-          
-          {featuredProjects.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {featuredProjects.map((project, index) => (
-                <Link key={project.id} to={`/projects/${project.slug}`} className="group block">
-                  <div className="relative overflow-hidden rounded-2xl bg-card border border-border/40 hover:border-border transition-all duration-500 hover:-translate-y-1" style={{ animationDelay: `${index * 0.1}s` }}>
-                    <div className="relative h-56 overflow-hidden">
-                      <OptimizedImage
-                        src={projectImages[project.slug] || project.hero_image_url || '/placeholder.svg'}
-                        alt={`${project.title} - ${project.category}`}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700 ease-out"
-                        containerClassName="w-full h-full"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent" />
-                      <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between">
-                        <Badge className={`${getStatusColor(project.status)} text-[10px]`}>
-                          {project.status.replace('_', ' ')}
-                        </Badge>
-                        <span className="text-xs text-foreground/70 font-medium bg-background/60 backdrop-blur-sm px-2 py-0.5 rounded-full">
-                          {project.category}
-                        </span>
-                      </div>
-                    </div>
-
-                    <div className="p-5 space-y-3">
-                      <h3 className="text-lg font-bold text-foreground group-hover:text-primary transition-colors duration-300 leading-tight">
-                        {project.title}
-                      </h3>
-                      <p className="text-sm text-muted-foreground line-clamp-2 leading-relaxed">
-                        {project.short_description}
-                      </p>
-                      <div className="flex items-center text-xs text-muted-foreground group-hover:text-primary transition-colors pt-1">
-                        <span>{t('featured.viewDetails')}</span>
-                        <ArrowUpRight className="w-3.5 h-3.5 ml-1 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                      </div>
-                    </div>
-                  </div>
-                </Link>
-              ))}
-            </div>
-          ) : (
-            <div className="text-center py-12">
-              <p className="text-muted-foreground mb-6">{t('featured.noProjects')}</p>
-              <Link to="/projects">
-                <Button size="lg" variant="outline">{t('featured.viewAll')} <ArrowRight className="ml-2 h-5 w-5" /></Button>
-              </Link>
-            </div>
-          )}
-        </div>
-      </section>
 
       {/* ═══════════════════ WHAT WE BUILD — Asymmetric Bento ═══════════════════ */}
       <section ref={whatWeBuildSection.ref} className={`py-20 md:py-28 px-4 section-gradient-mint scroll-slide-up ${whatWeBuildSection.isVisible ? 'visible' : ''}`}>
