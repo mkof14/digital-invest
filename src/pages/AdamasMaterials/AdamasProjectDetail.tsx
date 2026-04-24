@@ -28,8 +28,8 @@ import adamasMaterialsLogoIcon from '@/assets/adamas/logos/adamas-materials-logo
 import originDiamondLogo from '@/assets/adamas/logos/origin-diamond-logo.png';
 import agronNetLogo from '@/assets/adamas/logos/agron-net-logo.png';
 import agronWorkLogo from '@/assets/adamas/logos/agron-work-logo.png';
-import abuMallLogo from '@/assets/adamas/logos/abu-mall-logo.webp';
-import almaDiamondLogo from '@/assets/adamas/logos/alma-diamond-logo.webp';
+import abuMallLogo from '@/assets/adamas/logos/abu-mall-logo.png';
+import almaDiamondLogo from '@/assets/adamas/logos/alma-diamond-logo.png';
 import jewelryDropshippingLogo from '@/assets/adamas/logos/jewelry-dropshipping-logo.png';
 import jatualDiamondsLogo from '@/assets/adamas/logos/jatual-diamonds-logo.png';
 import coinsTokensLogo from '@/assets/adamas/logos/coins-tokens-logo.png';
