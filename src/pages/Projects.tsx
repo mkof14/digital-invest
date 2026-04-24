@@ -577,12 +577,30 @@ const Projects = () => {
             );
           }
 
+          // Helper: render special badges (Flagship / Featured / New / Foundation)
+          const renderSpecialBadges = (special?: SpecialBadge[]) => {
+            if (!special || special.length === 0) return null;
+            const map: Record<SpecialBadge, { text: string; cls: string }> = {
+              flagship: { text: `★ ${t('projects.flagship', 'Flagship')}`, cls: 'bg-gradient-to-r from-amber-500 to-orange-500 text-white' },
+              foundation: { text: t('projects.foundationBadge', 'Foundation'), cls: 'bg-gradient-to-r from-cyan-500 to-blue-600 text-white' },
+              featured: { text: t('projects.featuredBadge', 'Featured'), cls: 'bg-gradient-to-r from-violet-500 to-purple-600 text-white' },
+              new: { text: t('projects.newBadge', 'New'), cls: 'bg-gradient-to-r from-emerald-500 to-teal-500 text-white' },
+            };
+            return special.map(s => (
+              <Badge key={s} className={`${map[s].cls} border-0 text-[10px] font-bold uppercase tracking-wider shadow-lg px-2 py-0.5`}>
+                {map[s].text}
+              </Badge>
+            ));
+          };
+
           // Helper: render a single grid card
           const renderGridCard = (project: Project, index: number) => {
             const theme = getTheme(project.slug);
             const isBioMath = project.slug === 'biomath-core' || project.slug === 'biomathcore';
             const projectImage = isBioMath ? biomathcoreCardBg : getProjectImage(project);
             const hasLogo = project.slug === 'baseline' || project.slug === 'saven' || isBioMath;
+            const highlights = getHighlights(project.slug);
+            const isFlagship = highlights.special?.includes('flagship');
 
             return (
               <ScrollRevealCard key={project.id} index={index}>
@@ -591,7 +609,7 @@ const Projects = () => {
                   className="group block h-full"
                   {...projectPrefetchHandlers(project.slug)}
                 >
-                  <Card className={`overflow-hidden border ${theme.border} bg-card shadow-elegant hover:shadow-elevated transition-all duration-500 hover:-translate-y-3 hover:scale-[1.02] flex flex-col h-full cursor-pointer`}>
+                  <Card className={`overflow-hidden border-2 ${theme.border} bg-card shadow-elegant hover:shadow-elevated transition-all duration-500 hover:-translate-y-3 hover:scale-[1.02] flex flex-col h-full cursor-pointer ${isFlagship ? 'ring-2 ring-amber-500/30 ring-offset-2 ring-offset-background' : ''}`}>
                     <div className="relative h-52 overflow-hidden bg-muted">
                       <div className={`absolute inset-0 bg-gradient-to-t ${theme.from} ${theme.to} z-10 opacity-60`} />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent z-10" />
@@ -627,32 +645,50 @@ const Projects = () => {
                           </h3>
                         )}
                       </div>
-                      <Badge className={`absolute top-3 left-3 z-20 ${getStatusColor(project.status)} text-xs`}>
-                        {project.status.replace('_', ' ')}
-                      </Badge>
-                      {isBioMath && (
-                        <Badge className="absolute top-3 left-24 z-20 bg-gradient-to-r from-amber-500 to-orange-500 text-white border-0 text-xs font-semibold shadow-lg">
-                          ★ {t('projects.flagship', 'Flagship')}
+                      {/* Top-left status + special badges stack */}
+                      <div className="absolute top-3 left-3 z-20 flex flex-col gap-1.5 items-start max-w-[70%]">
+                        <Badge className={`${getStatusColor(project.status)} text-xs`}>
+                          {project.status.replace('_', ' ')}
                         </Badge>
-                      )}
+                        <div className="flex flex-wrap gap-1.5">
+                          {renderSpecialBadges(highlights.special)}
+                        </div>
+                      </div>
                       <Badge className={`absolute top-3 right-3 z-20 bg-black/60 backdrop-blur-sm text-white border-white/20 text-xs`}>
                         {theme.label}
                       </Badge>
                     </div>
-                    <CardHeader className="flex-1 space-y-3 pb-2">
+                    <CardHeader className="flex-1 space-y-2 pb-2">
                       <CardTitle className={`text-xl font-extrabold tracking-tight leading-snug`}>
                         <span className={`bg-gradient-to-r ${theme.from.replace('/20', '')} ${theme.to.replace('/20', '')} bg-clip-text text-transparent`}>
                           {project.title}
                         </span>
                       </CardTitle>
-                      <CardDescription className="text-sm leading-relaxed line-clamp-4 text-muted-foreground/90">
+                      {highlights.tagline && (
+                        <p className={`text-xs font-semibold uppercase tracking-wide ${theme.accent}`}>
+                          {t(`projects.taglines.${project.slug}`, highlights.tagline)}
+                        </p>
+                      )}
+                      {highlights.extraCategories && highlights.extraCategories.length > 0 && (
+                        <div className="flex flex-wrap gap-1.5 pt-0.5">
+                          {highlights.extraCategories.map(cat => (
+                            <span
+                              key={cat}
+                              className={`inline-flex items-center px-2 py-0.5 rounded-md text-[10px] font-semibold uppercase tracking-wider ${theme.border} border bg-muted/40 text-foreground/80`}
+                            >
+                              {cat}
+                            </span>
+                          ))}
+                        </div>
+                      )}
+                      <CardDescription className="text-sm leading-relaxed line-clamp-3 text-muted-foreground/90 pt-1">
                         {t(`projects.descriptions.${project.slug}`, project.short_description)}
                       </CardDescription>
                     </CardHeader>
                     <CardFooter className="pt-0 pb-5">
-                      <div className="w-full flex items-center justify-between text-muted-foreground text-sm font-medium transition-all duration-300 group-hover:text-primary">
+                      <div className={`w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg text-sm font-bold text-white ${theme.btnBg} ${theme.btnHover} shadow-md hover:shadow-lg transition-all duration-300 group-hover:gap-3`}>
                         <span>{t('projects.exploreProject')}</span>
-                        <ArrowRight className="w-4 h-4 transition-all duration-300 group-hover:translate-x-1.5" />
+                        <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
                       </div>
                     </CardFooter>
                   </Card>
