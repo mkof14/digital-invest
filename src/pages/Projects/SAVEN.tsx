@@ -9,7 +9,8 @@ import {
   TrendingUp, ArrowRight, ExternalLink, ArrowLeft, ChevronRight,
   ShieldCheck, Activity, Brain, Cpu, HeartPulse, Building2,
   Home, Hospital, Users, Cog, BarChart3, Network, Zap,
-  CheckCircle2, XCircle, Download, Copy, Share2, Mail
+  CheckCircle2, XCircle, Download, Copy, Share2, Mail,
+  Bot, Wrench, Wifi, Truck, Stethoscope, Layers
 } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import Navigation from '@/components/Navigation';
@@ -289,6 +290,49 @@ const SAVEN = () => {
               </p>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Robotic Bodies & Physical Devices Integration */}
+      <section className="py-20 bg-gradient-to-b from-background via-orange-500/5 to-background">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto text-center mb-14">
+            <Badge className="mb-4 bg-orange-500/15 text-orange-300 border-orange-500/30">
+              {t('projectSaven.robotIntegrationHighlight')}
+            </Badge>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              {t('projectSaven.robotIntegrationTitle')}{' '}
+              <span className="text-orange-400">{t('projectSaven.robotIntegrationHighlight')}</span>
+            </h2>
+            <p className="text-lg text-muted-foreground leading-relaxed">
+              {t('projectSaven.robotIntegrationLead')}
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            {[
+              { icon: Bot, titleKey: 'robotIntegrationItem1Title', descKey: 'robotIntegrationItem1Desc' },
+              { icon: Wrench, titleKey: 'robotIntegrationItem2Title', descKey: 'robotIntegrationItem2Desc' },
+              { icon: Wifi, titleKey: 'robotIntegrationItem3Title', descKey: 'robotIntegrationItem3Desc' },
+              { icon: Truck, titleKey: 'robotIntegrationItem4Title', descKey: 'robotIntegrationItem4Desc' },
+              { icon: Stethoscope, titleKey: 'robotIntegrationItem5Title', descKey: 'robotIntegrationItem5Desc' },
+              { icon: Layers, titleKey: 'robotIntegrationItem6Title', descKey: 'robotIntegrationItem6Desc' },
+            ].map((item, i) => (
+              <Card key={i} className="bg-card/60 border-orange-500/15 hover:border-orange-500/40 hover:-translate-y-1 transition-all">
+                <CardContent className="p-6">
+                  <div className="w-12 h-12 rounded-lg bg-orange-500/10 flex items-center justify-center mb-4">
+                    <item.icon className="w-6 h-6 text-orange-400" />
+                  </div>
+                  <h3 className="text-lg font-semibold mb-2">{t(`projectSaven.${item.titleKey}`)}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{t(`projectSaven.${item.descKey}`)}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+
+          <p className="text-center text-base md:text-lg text-orange-300/80 mt-10 max-w-3xl mx-auto italic">
+            {t('projectSaven.robotIntegrationFooter')}
+          </p>
         </div>
       </section>
 
