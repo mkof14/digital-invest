@@ -5,7 +5,7 @@ import { supabase } from '@/integrations/supabase/client';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { TrendingUp, ArrowRight, Loader2, Grid3x3, List, Search, X, Filter } from 'lucide-react';
+import { TrendingUp, ArrowRight, Loader2, Grid3x3, List, Search, X, Filter, Bookmark } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { useToast } from '@/hooks/use-toast';
 import Navigation from '@/components/Navigation';
