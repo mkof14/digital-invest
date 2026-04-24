@@ -412,12 +412,14 @@ const PortfolioOverview = () => {
             <Loader2 className="h-8 w-8 animate-spin text-primary" />
           </div>
         ) : (
-          <div className="space-y-3">
+          <div className="space-y-4">
             {projects.map((project, index) => {
               const gradient = accentGradients[project.slug] || 'from-primary/20 to-primary/0';
               const dot = accentDots[project.slug] || 'bg-primary';
               const icon = categoryIcons[project.category] || <Zap className="w-4 h-4" />;
               const isHovered = hoveredIdx === index;
+              const palette = getAccentPalette(project.slug);
+              const isFlagship = project.slug === 'biomath-core' || project.slug === 'biomathcore';
 
               return (
                 <Link
@@ -430,38 +432,44 @@ const PortfolioOverview = () => {
                   <div
                     className={`
                       relative overflow-hidden rounded-2xl
-                      border border-border/40
-                      transition-all duration-500 ease-out
-                      ${isHovered ? 'bg-card shadow-xl shadow-primary/[0.06] scale-[1.01] border-border/60' : 'bg-card/40'}
+                      border-2 transition-all duration-500 ease-out
+                      ${isHovered
+                        ? `bg-card shadow-2xl ${palette.glow} scale-[1.015] ${palette.border}`
+                        : `bg-card/50 border-border/40`}
+                      ${isFlagship ? `ring-1 ${palette.ring} ring-offset-2 ring-offset-background` : ''}
                     `}
                   >
-                    {/* Gradient accent overlay */}
-                    <div className={`absolute inset-0 bg-gradient-to-r ${gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+                    {/* Vertical color accent bar (left side) */}
+                    <div className={`absolute left-0 top-0 bottom-0 w-1.5 ${dot} transition-all duration-500 ${isHovered ? 'w-2' : ''}`} />
 
-                    <div className="relative z-10 p-6 md:p-8">
+                    {/* Color gradient overlay on hover */}
+                    <div className={`absolute inset-0 bg-gradient-to-r ${gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none`} />
+
+                    {/* Soft color glow blob */}
+                    <div className={`absolute -top-20 -right-20 w-64 h-64 rounded-full ${palette.bgSoft} blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none`} />
+
+                    <div className="relative z-10 p-6 md:p-8 pl-7 md:pl-9">
                       <div className="flex flex-col md:flex-row md:items-start gap-4 md:gap-8">
-                        {/* Left: index + dot */}
                         <div className="flex items-center gap-4 md:flex-col md:items-center md:gap-2 shrink-0 md:w-12">
-                          <span className="font-mono text-xs text-muted-foreground/50 tabular-nums">
+                          <span className={`font-mono text-xs tabular-nums transition-colors duration-300 ${isHovered ? palette.text : 'text-muted-foreground/50'}`}>
                             {String(index + 1).padStart(2, '0')}
                           </span>
-                          <div className={`h-2 w-2 rounded-full ${dot} transition-all duration-300 ${isHovered ? 'scale-150' : ''}`} />
+                          <div className={`h-2.5 w-2.5 rounded-full ${dot} transition-all duration-300 ${isHovered ? 'scale-150 shadow-lg' : ''}`} />
                         </div>
 
-                        {/* Center: content */}
                         <div className="flex-1 min-w-0 space-y-3">
                           <div className="flex flex-wrap items-center gap-3">
-                            <h2 className={`text-2xl md:text-3xl font-extrabold tracking-tight transition-colors duration-300 ${isHovered ? 'text-primary' : 'text-foreground'}`}>
+                            <h2 className={`text-2xl md:text-3xl font-extrabold tracking-tight transition-colors duration-300 ${isHovered ? palette.text : 'text-foreground'}`}>
                               {project.title}
                             </h2>
-                            <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-muted/60 text-muted-foreground text-xs font-medium">
+                            <div className={`flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium border transition-all duration-300 ${isHovered ? `${palette.bgSoft} ${palette.text} ${palette.border}` : 'bg-muted/60 text-muted-foreground border-transparent'}`}>
                               {icon}
                               <span>{project.category}</span>
                             </div>
-                            {(project.slug === 'biomath-core' || project.slug === 'biomathcore') && (
-                              <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-semibold border border-primary/20">
+                            {isFlagship && (
+                              <div className={`flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold border ${palette.bgSoft} ${palette.text} ${palette.border} shadow-sm`}>
                                 <Layers className="w-3.5 h-3.5" />
-                                <span>{lang === 'ru' ? 'Флагман · 200+ сервисов' : lang === 'uk' ? 'Флагман · 200+ сервісів' : lang === 'fr' ? 'Projet phare · 200+ services' : lang === 'ar' ? 'المشروع الرئيسي · 200+ خدمة' : lang === 'ja' ? 'フラッグシップ · 200+サービス' : lang === 'he' ? 'פרויקט דגל · 200+ שירותים' : 'Flagship · 200+ services'}</span>
+                                <span>{lang === 'ru' ? '★ Флагман · 200+ сервисов' : lang === 'uk' ? '★ Флагман · 200+ сервісів' : lang === 'fr' ? '★ Projet phare · 200+ services' : lang === 'ar' ? '★ المشروع الرئيسي · 200+ خدمة' : lang === 'ja' ? '★ フラッグシップ · 200+サービス' : lang === 'he' ? '★ פרויקט דגל · 200+ שירותים' : '★ Flagship · 200+ services'}</span>
                               </div>
                             )}
                           </div>
@@ -469,7 +477,28 @@ const PortfolioOverview = () => {
                           <p className="text-[15px] md:text-base text-muted-foreground leading-[1.7] max-w-3xl">
                             {getDescription(project.slug, project.short_description)}
                           </p>
+
+                          <div className="h-0.5 w-full bg-border/30 rounded-full overflow-hidden mt-4">
+                            <div className={`h-full ${dot} transition-all duration-700 ease-out ${isHovered ? 'w-1/2' : 'w-0'}`} />
+                          </div>
                         </div>
+
+                        <div className="hidden md:flex items-center shrink-0 self-center">
+                          <div className={`
+                            w-11 h-11 rounded-full border-2 flex items-center justify-center
+                            transition-all duration-300
+                            ${isHovered ? `${dot} ${palette.border} text-white scale-110 shadow-lg ${palette.glow}` : 'border-border/50 text-muted-foreground/40'}
+                          `}>
+                            <ArrowUpRight className="h-4 w-4" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
 
                         {/* Right: arrow */}
                         <div className="hidden md:flex items-center shrink-0 self-center">
