@@ -165,6 +165,97 @@ Today, Digital Invest brings together this multi-sector expertise into a unified
         </div>
       </section>
 
+      {/* Our Team */}
+      <section className="py-16 px-4 section-gradient-cool">
+        <div className="container mx-auto max-w-6xl">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+              <span className="block">{t('team.title1')}</span>
+              <span className="gradient-purple-animated">{t('team.title2')}</span>
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">{t('team.subtitle')}</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
+            {/* Michael Kofman */}
+            <Card className="hover:-translate-y-1 transition-all duration-300 border border-border/50 bg-card hover:shadow-elevated">
+              <CardHeader>
+                <CardTitle className="text-2xl text-foreground">Michael Kofman</CardTitle>
+                <CardDescription className="text-base font-semibold text-primary">CEO/President & Founder</CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  Visionary entrepreneur with 25+ years in executive leadership. Founded Digital Invest Inc. to advance precision medicine through AI and mathematical modeling. Previously founded 9 Net Avenue ($19.5B market valuation).
+                </p>
+                <div className="space-y-2">
+                  <div className="flex items-center space-x-2"><CheckCircle2 className="w-4 h-4 text-secondary flex-shrink-0" /><span className="text-xs">Entrepreneur of the Year 1999</span></div>
+                  <div className="flex items-center space-x-2"><Building2 className="w-4 h-4 text-secondary flex-shrink-0" /><span className="text-xs">Founded 5+ technology companies</span></div>
+                  <div className="flex items-center space-x-2"><Linkedin className="w-4 h-4 text-secondary flex-shrink-0" /><span className="text-xs">Ph.D. in Information Technology</span></div>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Alex Tur */}
+            <Card className="hover:-translate-y-1 transition-all duration-300 border border-border/50 bg-card hover:shadow-elevated">
+              <CardHeader>
+                <CardTitle className="text-2xl text-foreground">Alex Tur</CardTitle>
+                <CardDescription className="text-base font-semibold text-primary">Chief Technology Officer</CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  Distinguished technology architect with 20+ years in software and hardware development. Specializes in cloud-native B2B/B2C platforms, Big Data ecosystems and enterprise-scale distributed systems.
+                </p>
+                <div className="space-y-2">
+                  <div className="flex items-center space-x-2"><CheckCircle2 className="w-4 h-4 text-secondary flex-shrink-0" /><span className="text-xs">Best Defense Enterprise Designer Award</span></div>
+                  <div className="flex items-center space-x-2"><Building2 className="w-4 h-4 text-secondary flex-shrink-0" /><span className="text-xs">20+ years in engineering leadership</span></div>
+                  <div className="flex items-center space-x-2"><Linkedin className="w-4 h-4 text-secondary flex-shrink-0" /><span className="text-xs">Master's in Electrical Engineering</span></div>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Karina Gorfin */}
+            <Card className="hover:-translate-y-1 transition-all duration-300 border border-border/50 bg-card hover:shadow-elevated">
+              <CardHeader>
+                <CardTitle className="text-2xl text-foreground">Karina Gorfin</CardTitle>
+                <CardDescription className="text-base font-semibold text-primary">Chief Legal Officer</CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  Legal strategist and corporate counsel with 25+ years advising international corporations on healthcare regulation, intellectual property and complex technology law matters.
+                </p>
+                <div className="space-y-2">
+                  <div className="flex items-center space-x-2"><CheckCircle2 className="w-4 h-4 text-secondary flex-shrink-0" /><span className="text-xs">Leading Female Attorney in Tech Law</span></div>
+                  <div className="flex items-center space-x-2"><Building2 className="w-4 h-4 text-secondary flex-shrink-0" /><span className="text-xs">Founded legal practice in 2003</span></div>
+                  <div className="flex items-center space-x-2"><Linkedin className="w-4 h-4 text-secondary flex-shrink-0" /><span className="text-xs">NY and NJ State Bars member</span></div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 bg-card/40 rounded-xl p-6 mb-8">
+            {[
+              { label: t('team.combinedExperience'), value: '70+' },
+              { label: t('team.countriesServed'), value: '15+' },
+              { label: t('team.companiesFounded'), value: '10+' },
+              { label: t('team.industryAwards'), value: '25+' },
+            ].map((stat, i) => (
+              <div key={i} className="text-center">
+                <div className="text-3xl md:text-4xl font-bold text-primary mb-1">{stat.value}</div>
+                <div className="text-xs md:text-sm text-muted-foreground">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center">
+            <Button asChild size="lg" variant="outline">
+              <Link to="/team">
+                {t('team.executiveLeadership')} <ArrowRight className="w-4 h-4 ml-2" />
+              </Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
       {/* Our Mission */}
       <section className="py-16 px-4 section-gradient-mint">
         <div className="container mx-auto max-w-4xl">
