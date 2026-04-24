@@ -164,23 +164,28 @@ const Index = () => {
     <div className="min-h-screen bg-background max-w-[1600px] mx-auto">
       <Navigation />
 
-      {/* ═══════════════════ HERO — Vibrant Living Portfolio ═══════════════════ */}
+      {/* ═══════════════════ HERO — Cinematic Living Portfolio ═══════════════════ */}
       <section className="relative min-h-[100svh] flex items-center overflow-hidden">
         {/* Layered background — richer, more cinematic */}
         <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-card/40" />
 
         {/* Vibrant gradient mesh — multi-color ambient depth */}
-        <div className="absolute top-[-10%] left-[-10%] w-[55vw] h-[55vw] rounded-full bg-gradient-to-br from-primary/15 via-accent/10 to-transparent blur-[120px] animate-subtle-float" />
-        <div className="absolute bottom-[-15%] right-[-10%] w-[60vw] h-[60vw] rounded-full bg-gradient-to-tl from-info/12 via-primary/8 to-transparent blur-[140px] animate-subtle-float" style={{ animationDelay: '4s' }} />
-        <div className="absolute top-[20%] right-[15%] w-[30vw] h-[30vw] rounded-full bg-success/[0.07] blur-[100px] animate-subtle-float" style={{ animationDelay: '2s' }} />
-        <div className="absolute bottom-[10%] left-[20%] w-[25vw] h-[25vw] rounded-full bg-accent/[0.08] blur-[90px] animate-subtle-float" style={{ animationDelay: '6s' }} />
+        <div className="absolute top-[-10%] left-[-10%] w-[55vw] h-[55vw] rounded-full bg-gradient-to-br from-primary/20 via-accent/12 to-transparent blur-[120px] animate-subtle-float" />
+        <div className="absolute bottom-[-15%] right-[-10%] w-[60vw] h-[60vw] rounded-full bg-gradient-to-tl from-info/15 via-primary/10 to-transparent blur-[140px] animate-subtle-float" style={{ animationDelay: '4s' }} />
+        <div className="absolute top-[20%] right-[15%] w-[30vw] h-[30vw] rounded-full bg-success/[0.09] blur-[100px] animate-subtle-float" style={{ animationDelay: '2s' }} />
+        <div className="absolute bottom-[10%] left-[20%] w-[25vw] h-[25vw] rounded-full bg-accent/[0.10] blur-[90px] animate-subtle-float" style={{ animationDelay: '6s' }} />
+
+        {/* Spotlight orb behind headline — adds magnetism */}
+        <div className="absolute top-[35%] left-[10%] w-[40vw] h-[40vw] rounded-full bg-[radial-gradient(circle_at_center,hsl(var(--primary)/0.18),transparent_60%)] blur-2xl pointer-events-none" />
 
         <FloatingElements />
 
         {/* Subtle grid */}
-        <div className="absolute inset-0 opacity-[0.03]" style={{
+        <div className="absolute inset-0 opacity-[0.04]" style={{
           backgroundImage: 'linear-gradient(hsl(var(--primary)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--primary)) 1px, transparent 1px)',
-          backgroundSize: '80px 80px'
+          backgroundSize: '80px 80px',
+          maskImage: 'radial-gradient(ellipse at center, black 40%, transparent 75%)',
+          WebkitMaskImage: 'radial-gradient(ellipse at center, black 40%, transparent 75%)'
         }} />
 
         {/* Diagonal accent line */}
@@ -191,28 +196,51 @@ const Index = () => {
             {/* Left — Text */}
             <div className="lg:col-span-7 space-y-8">
               <div className="space-y-6 animate-fade-in">
-                {/* Animated accent bar + label */}
-                <div className="inline-flex items-center gap-3 text-xs tracking-[0.2em] uppercase font-medium">
-                  <div className="w-8 h-px bg-gradient-to-r from-accent to-primary animate-gradient" />
-                  <span className="text-accent">Digital Invest Inc.</span>
+                {/* Premium status pill — instant credibility */}
+                <div className="inline-flex items-center gap-2.5 pl-2 pr-4 py-1.5 rounded-full border border-primary/25 bg-gradient-to-r from-primary/10 via-accent/10 to-info/10 backdrop-blur-md shadow-lg shadow-primary/5 hover:shadow-primary/20 transition-shadow">
+                  <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-gradient-to-br from-primary to-accent">
+                    <Sparkles className="w-3.5 h-3.5 text-primary-foreground" />
+                  </span>
+                  <span className="text-[11px] sm:text-xs font-semibold tracking-[0.18em] uppercase bg-gradient-to-r from-foreground via-primary to-accent bg-clip-text text-transparent">
+                    Digital Invest Inc. · Est. 1998
+                  </span>
+                  <span className="hidden sm:inline-flex items-center gap-1 text-[10px] text-success/90 font-bold tracking-wider">
+                    <span className="w-1.5 h-1.5 rounded-full bg-success animate-pulse" />
+                    LIVE
+                  </span>
                 </div>
 
                 <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-semibold leading-[0.95] tracking-tight">
                   <span className="block text-foreground">{t('hero.strategicTitle')}</span>
-                  <span className="block mt-2 gradient-tech-animated">{t('hero.strategicHighlight')}</span>
+                  <span className="relative block mt-2">
+                    <span className="absolute inset-0 gradient-tech-animated blur-2xl opacity-40 select-none" aria-hidden>
+                      {t('hero.strategicHighlight')}
+                    </span>
+                    <span className="relative gradient-tech-animated">{t('hero.strategicHighlight')}</span>
+                  </span>
                 </h1>
 
                 <p className="text-lg md:text-xl text-muted-foreground max-w-xl leading-relaxed font-light">
                   {t('hero.description')}
                 </p>
 
-                {/* Live pulse indicator */}
-                <div className="flex items-center gap-2 text-xs text-muted-foreground/70">
-                  <span className="relative flex h-2.5 w-2.5">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-success opacity-75" />
-                    <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-success" />
-                  </span>
-                  <span>Active Investment Opportunities</span>
+                {/* Trust row — instant social proof */}
+                <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-xs text-muted-foreground/80">
+                  <div className="flex items-center gap-2">
+                    <span className="relative flex h-2.5 w-2.5">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-success opacity-75" />
+                      <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-success" />
+                    </span>
+                    <span className="font-medium">Active Investment Opportunities</span>
+                  </div>
+                  <div className="hidden sm:flex items-center gap-2">
+                    <Shield className="w-3.5 h-3.5 text-primary/70" />
+                    <span>Private · Trust-based</span>
+                  </div>
+                  <div className="hidden md:flex items-center gap-2">
+                    <Award className="w-3.5 h-3.5 text-accent/80" />
+                    <span>$19.5B in prior exits</span>
+                  </div>
                 </div>
 
                 {/* Sector pills — visual portfolio teaser */}
