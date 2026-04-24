@@ -4,7 +4,7 @@ import { Sun, Moon, Globe } from 'lucide-react';
 import { useTheme } from '@/components/ThemeProvider';
 import { useTranslation } from 'react-i18next';
 import { languages } from '@/i18n';
-import adamasLogo from '@/assets/adamas/adamas-materials-logo.png';
+import adamasLogo from '@/assets/adamas/adamas-materials-logo.webp';
 import {
   DropdownMenu,
   DropdownMenuContent,

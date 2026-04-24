@@ -6,21 +6,21 @@ import { injectStructuredData, removeStructuredData } from '@/lib/structuredData
 import AdamasNavigation from '@/components/AdamasNavigation';
 import AdamasFooter from '@/components/AdamasFooter';
 import { adamasProjects } from './adamasProjects';
-import adamasLogo from '@/assets/adamas/adamas-materials-logo.png';
+import adamasLogo from '@/assets/adamas/adamas-materials-logo.webp';
 
 // Hero images for card backgrounds
 import adamasMaterialsHero from '@/assets/adamas/adamas-materials-hero.jpg';
 import originDiamondHero from '@/assets/adamas/origin-diamond-hero.jpg';
 import agronNetHero from '@/assets/adamas/agron-net-hero.jpg';
-import agronWorkHero from '@/assets/adamas/agron-work-hero.jpg';
-import abuMallHero from '@/assets/adamas/abu-mall-hero.jpg';
+import agronWorkHero from '@/assets/adamas/agron-work-hero.webp';
+import abuMallHero from '@/assets/adamas/abu-mall-hero.webp';
 import almaDiamondHero from '@/assets/adamas/alma-diamond-hero.jpg';
-import jewelryDropshippingHero from '@/assets/adamas/jewelry-dropshipping-hero.jpg';
-import jatualHero from '@/assets/adamas/jatual-diamonds-hero.jpg';
-import coinsTokensHero from '@/assets/adamas/coins-tokens-hero.jpg';
+import jewelryDropshippingHero from '@/assets/adamas/jewelry-dropshipping-hero.webp';
+import jatualHero from '@/assets/adamas/jatual-diamonds-hero.webp';
+import coinsTokensHero from '@/assets/adamas/coins-tokens-hero.webp';
 import innovationHero from '@/assets/adamas/innovation-diamonds-hero.jpg';
-import itMarketingHero from '@/assets/adamas/it-marketing-hero.jpg';
-import animalVetHero from '@/assets/adamas/animal-vet-hero.jpg';
+import itMarketingHero from '@/assets/adamas/it-marketing-hero.webp';
+import animalVetHero from '@/assets/adamas/animal-vet-hero.webp';
 
 const cardHeroImages: Record<string, string> = {
   'adamas-materials': adamasMaterialsHero,

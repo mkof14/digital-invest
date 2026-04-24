@@ -11,25 +11,25 @@ import { injectStructuredData, removeStructuredData } from '@/lib/structuredData
 
 // Per-project hero images
 import originDiamondHero from '@/assets/adamas/origin-diamond-hero.jpg';
-import jatualHero from '@/assets/adamas/jatual-diamonds-hero.jpg';
+import jatualHero from '@/assets/adamas/jatual-diamonds-hero.webp';
 import innovationHero from '@/assets/adamas/innovation-diamonds-hero.jpg';
 import adamasMaterialsHero from '@/assets/adamas/adamas-materials-hero.jpg';
-import abuMallHero from '@/assets/adamas/abu-mall-hero.jpg';
+import abuMallHero from '@/assets/adamas/abu-mall-hero.webp';
 import almaDiamondHero from '@/assets/adamas/alma-diamond-hero.jpg';
-import jewelryDropshippingHero from '@/assets/adamas/jewelry-dropshipping-hero.jpg';
-import coinsTokensHero from '@/assets/adamas/coins-tokens-hero.jpg';
-import itMarketingHero from '@/assets/adamas/it-marketing-hero.jpg';
-import animalVetHero from '@/assets/adamas/animal-vet-hero.jpg';
+import jewelryDropshippingHero from '@/assets/adamas/jewelry-dropshipping-hero.webp';
+import coinsTokensHero from '@/assets/adamas/coins-tokens-hero.webp';
+import itMarketingHero from '@/assets/adamas/it-marketing-hero.webp';
+import animalVetHero from '@/assets/adamas/animal-vet-hero.webp';
 import agronNetHero from '@/assets/adamas/agron-net-hero.jpg';
-import agronWorkHero from '@/assets/adamas/agron-work-hero.jpg';
+import agronWorkHero from '@/assets/adamas/agron-work-hero.webp';
 
 // Per-project logos
 import adamasMaterialsLogoIcon from '@/assets/adamas/logos/adamas-materials-logo-icon.png';
 import originDiamondLogo from '@/assets/adamas/logos/origin-diamond-logo.png';
 import agronNetLogo from '@/assets/adamas/logos/agron-net-logo.png';
 import agronWorkLogo from '@/assets/adamas/logos/agron-work-logo.png';
-import abuMallLogo from '@/assets/adamas/logos/abu-mall-logo.png';
-import almaDiamondLogo from '@/assets/adamas/logos/alma-diamond-logo.png';
+import abuMallLogo from '@/assets/adamas/logos/abu-mall-logo.webp';
+import almaDiamondLogo from '@/assets/adamas/logos/alma-diamond-logo.webp';
 import jewelryDropshippingLogo from '@/assets/adamas/logos/jewelry-dropshipping-logo.png';
 import jatualDiamondsLogo from '@/assets/adamas/logos/jatual-diamonds-logo.png';
 import coinsTokensLogo from '@/assets/adamas/logos/coins-tokens-logo.png';
