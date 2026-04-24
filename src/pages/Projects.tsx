@@ -215,7 +215,10 @@ const Projects = () => {
         .order('created_at', { ascending: false });
 
       if (error) throw error;
-      setProjects(data || []);
+      const sorted = (data || []).slice().sort(
+        (a, b) => getProjectOrderIndex(a.slug) - getProjectOrderIndex(b.slug)
+      );
+      setProjects(sorted);
     } catch (error: any) {
       toast({
         title: 'Error loading projects',
