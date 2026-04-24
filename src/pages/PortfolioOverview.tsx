@@ -470,7 +470,12 @@ const PortfolioOverview = () => {
         .eq('is_visible', true)
         .order('priority', { ascending: false })
         .order('created_at', { ascending: true });
-      if (data) setProjects(data);
+      if (data) {
+        const sorted = data.slice().sort(
+          (a: any, b: any) => getProjectOrderIndex(a.slug) - getProjectOrderIndex(b.slug)
+        );
+        setProjects(sorted);
+      }
       setLoading(false);
     };
     fetchProjects();
