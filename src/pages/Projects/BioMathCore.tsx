@@ -1183,6 +1183,12 @@ const BioMathCore = () => {
                   {t('projectCommon.investorBrief')}
                 </a>
               </Button>
+              <Button size="lg" variant="outline" asChild className="border-[hsl(var(--bm-blue-deep))]/30 text-[hsl(var(--bm-blue-soft))] hover:bg-[hsl(var(--bm-blue-deep))]/10">
+                <a href="/documents/biomath-core-architecture.pdf" target="_blank" rel="noopener noreferrer" download="BioMath-Core-Architecture.pdf">
+                  <FileText className="w-5 h-5 mr-2" />
+                  Architecture Presentation
+                </a>
+              </Button>
             </div>
           </div>
         </section>
