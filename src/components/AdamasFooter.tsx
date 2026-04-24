@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import adamasLogo from '@/assets/adamas/adamas-materials-logo.png';
+import adamasLogo from '@/assets/adamas/adamas-materials-logo.webp';
 
 const AdamasFooter = () => {
   const { t } = useTranslation();

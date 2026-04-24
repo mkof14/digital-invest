@@ -11,8 +11,8 @@ import {
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import OptimizedImage from '@/components/OptimizedImage';
-import heroImg from '@/assets/adamas/abu-mall-hero.jpg';
-import logoImg from '@/assets/adamas/abu-mall-logo.png';
+import heroImg from '@/assets/adamas/abu-mall-hero.webp';
+import logoImg from '@/assets/adamas/abu-mall-logo.webp';
 
 const AbuMall = () => {
   const { t } = useTranslation();

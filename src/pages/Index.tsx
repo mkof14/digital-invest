@@ -66,7 +66,7 @@ import {
 import terraaeroHero from "@/assets/projects/terraaero-hero.jpg";
 import biomathCoreHero from "@/assets/projects/biomathcore-hero.jpg";
 import dishcoreHero from "@/assets/projects/dishcore-hero.jpg";
-import digitalInvestHero from "@/assets/projects/digitalinvest-hero.jpg";
+import digitalInvestHero from "@/assets/projects/digitalinvest-hero.webp";
 import biomathLifeHero from "@/assets/projects/biomathlife-hero.jpg";
 
 interface FeaturedProject {

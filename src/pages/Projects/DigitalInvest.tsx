@@ -11,7 +11,7 @@ import {
   Clock, TrendingUp, Shield, AlertTriangle, CheckCircle2, Rocket, Globe, ArrowLeft
 } from "lucide-react";
 import { Link } from "react-router-dom";
-import digitalInvestHero from "@/assets/projects/digitalinvest-hero.jpg";
+import digitalInvestHero from "@/assets/projects/digitalinvest-hero.webp";
 import InterestForm from "@/components/InterestForm";
 import DownloadInvestorBriefButton from "@/components/DownloadInvestorBriefButton";
 import InvestorPageDisclaimer from "@/components/InvestorPageDisclaimer";

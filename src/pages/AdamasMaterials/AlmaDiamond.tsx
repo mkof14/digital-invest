@@ -12,7 +12,7 @@ import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import OptimizedImage from '@/components/OptimizedImage';
 import heroImg from '@/assets/adamas/alma-diamond-hero.jpg';
-import logoImg from '@/assets/adamas/alma-diamond-logo.png';
+import logoImg from '@/assets/adamas/alma-diamond-logo.webp';
 
 const AlmaDiamond = () => {
   const { t } = useTranslation();

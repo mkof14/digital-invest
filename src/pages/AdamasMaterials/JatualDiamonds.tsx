@@ -4,7 +4,7 @@ import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { ArrowLeft, Crown, Diamond, Gem, Sparkles, Star, Palette, Shield, Globe2, HeartHandshake, Eye, Layers } from 'lucide-react';
 import OptimizedImage from '@/components/OptimizedImage';
-import jatualHero from '@/assets/adamas/jatual-diamonds-hero.jpg';
+import jatualHero from '@/assets/adamas/jatual-diamonds-hero.webp';
 
 const JatualDiamonds = () => {
   const { t } = useTranslation();

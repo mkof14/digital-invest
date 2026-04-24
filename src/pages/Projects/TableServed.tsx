@@ -13,7 +13,7 @@ import {
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import InvestorPageDisclaimer from '@/components/InvestorPageDisclaimer';
-import heroImg from '@/assets/projects/tableserved-hero.jpg';
+import heroImg from '@/assets/projects/tableserved-hero.webp';
 
 const TableServed = () => {
   const [project, setProject] = useState<any>(null);

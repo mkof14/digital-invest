@@ -11,8 +11,8 @@ import {
   Users, Globe, Activity, Rocket, AlertCircle, ArrowLeft, Clock, TrendingUp,
   Lightbulb, Sparkles, Zap
 } from "lucide-react";
-import mydayLogo from "@/assets/myday-logo.png";
-import mydayHero from "@/assets/projects/myday-hero.jpg";
+import mydayLogo from "@/assets/myday-logo.webp";
+import mydayHero from "@/assets/projects/myday-hero.webp";
 import DownloadInvestorBriefButton from "@/components/DownloadInvestorBriefButton";
 import OptimizedImage from "@/components/OptimizedImage";
 import InvestorPageDisclaimer from "@/components/InvestorPageDisclaimer";

@@ -9,9 +9,9 @@ import {
   ArrowRight, ArrowLeft, Globe, Target, CheckCircle2, Users, Building2, Shield, Plane, Truck,
   MapPin, Cpu, GraduationCap, Settings, FileCheck, Network, Factory, Zap, Eye, Download, Share2, Mail, FileText
 } from "lucide-react";
-import agronLogo from "@/assets/agron-logo.png";
-import agronHero from "@/assets/projects/agron-hero.jpg";
-import agronInfographic from "@/assets/projects/agron-infographic.jpeg";
+import agronLogo from "@/assets/agron-logo.webp";
+import agronHero from "@/assets/projects/agron-hero.webp";
+import agronInfographic from "@/assets/projects/agron-infographic.webp";
 import DownloadInvestorBriefButton from "@/components/DownloadInvestorBriefButton";
 import OptimizedImage from "@/components/OptimizedImage";
 import InvestorPageDisclaimer from "@/components/InvestorPageDisclaimer";
