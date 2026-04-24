@@ -32,7 +32,9 @@
     "yearsExp": "Années d'Expérience",
     "activeProjects": "Projets Actifs",
     "exitValue": "Valeur de Sortie Précédente",
-    "countriesServed": "Pays Desservis"
+    "countriesServed": "Pays Desservis",
+    "livePortfolioTitle": "Portefeuille en direct",
+    "livePortfolioSubtitle": "20+ projets actifs dans 5 secteurs"
   },
   "ecosystem": {
     "badge": "Vision de l'Écosystème",

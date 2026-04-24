@@ -32,7 +32,9 @@
     "yearsExp": "سنوات الخبرة",
     "activeProjects": "مشاريع نشطة",
     "exitValue": "قيمة التخارج السابقة",
-    "countriesServed": "دول مخدومة"
+    "countriesServed": "دول مخدومة",
+    "livePortfolioTitle": "محفظة نشطة",
+    "livePortfolioSubtitle": "أكثر من 20 مشروعًا نشطًا في 5 قطاعات"
   },
   "ecosystem": {
     "badge": "رؤية النظام البيئي",

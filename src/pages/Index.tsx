@@ -164,20 +164,21 @@ const Index = () => {
     <div className="min-h-screen bg-background max-w-[1600px] mx-auto">
       <Navigation />
 
-      {/* ═══════════════════ HERO — Vibrant Financial ═══════════════════ */}
+      {/* ═══════════════════ HERO — Vibrant Living Portfolio ═══════════════════ */}
       <section className="relative min-h-[100svh] flex items-center overflow-hidden">
-        {/* Layered background with color depth */}
-        <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-card/30" />
-        
-        {/* Accent color orbs — subtle ambient light */}
-        <div className="absolute top-1/4 -left-32 w-96 h-96 rounded-full bg-accent/[0.06] blur-[120px] animate-subtle-float" />
-        <div className="absolute bottom-1/3 -right-32 w-80 h-80 rounded-full bg-info/[0.05] blur-[100px] animate-subtle-float" style={{ animationDelay: '3s' }} />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-primary/[0.03] blur-[150px]" />
-        
+        {/* Layered background — richer, more cinematic */}
+        <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-card/40" />
+
+        {/* Vibrant gradient mesh — multi-color ambient depth */}
+        <div className="absolute top-[-10%] left-[-10%] w-[55vw] h-[55vw] rounded-full bg-gradient-to-br from-primary/15 via-accent/10 to-transparent blur-[120px] animate-subtle-float" />
+        <div className="absolute bottom-[-15%] right-[-10%] w-[60vw] h-[60vw] rounded-full bg-gradient-to-tl from-info/12 via-primary/8 to-transparent blur-[140px] animate-subtle-float" style={{ animationDelay: '4s' }} />
+        <div className="absolute top-[20%] right-[15%] w-[30vw] h-[30vw] rounded-full bg-success/[0.07] blur-[100px] animate-subtle-float" style={{ animationDelay: '2s' }} />
+        <div className="absolute bottom-[10%] left-[20%] w-[25vw] h-[25vw] rounded-full bg-accent/[0.08] blur-[90px] animate-subtle-float" style={{ animationDelay: '6s' }} />
+
         <FloatingElements />
-        
-        {/* Grid pattern with accent tint */}
-        <div className="absolute inset-0 opacity-[0.025]" style={{
+
+        {/* Subtle grid */}
+        <div className="absolute inset-0 opacity-[0.03]" style={{
           backgroundImage: 'linear-gradient(hsl(var(--primary)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--primary)) 1px, transparent 1px)',
           backgroundSize: '80px 80px'
         }} />
@@ -186,9 +187,9 @@ const Index = () => {
         <div className="absolute top-0 right-0 w-px h-full bg-gradient-to-b from-transparent via-primary/20 to-transparent transform rotate-12 translate-x-[40vw]" />
 
         <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20">
-          <div className="grid lg:grid-cols-12 gap-12 lg:gap-6 items-center">
+          <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
             {/* Left — Text */}
-            <div className="lg:col-span-7 space-y-10">
+            <div className="lg:col-span-7 space-y-8">
               <div className="space-y-6 animate-fade-in">
                 {/* Animated accent bar + label */}
                 <div className="inline-flex items-center gap-3 text-xs tracking-[0.2em] uppercase font-medium">
@@ -213,11 +214,27 @@ const Index = () => {
                   </span>
                   <span>Active Investment Opportunities</span>
                 </div>
+
+                {/* Sector pills — visual portfolio teaser */}
+                <div className="flex flex-wrap gap-2 pt-2">
+                  {[
+                    { icon: <Heart className="w-3.5 h-3.5" />, label: 'HealthTech', color: 'text-rose-400 border-rose-400/30 bg-rose-400/5' },
+                    { icon: <Sprout className="w-3.5 h-3.5" />, label: 'AgriTech', color: 'text-emerald-400 border-emerald-400/30 bg-emerald-400/5' },
+                    { icon: <Utensils className="w-3.5 h-3.5" />, label: 'FoodTech', color: 'text-amber-400 border-amber-400/30 bg-amber-400/5' },
+                    { icon: <Cpu className="w-3.5 h-3.5" />, label: 'AI & Robotics', color: 'text-violet-400 border-violet-400/30 bg-violet-400/5' },
+                    { icon: <Building2 className="w-3.5 h-3.5" />, label: 'Infrastructure', color: 'text-blue-400 border-blue-400/30 bg-blue-400/5' },
+                  ].map((s, i) => (
+                    <span key={i} className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border text-xs font-medium backdrop-blur-sm ${s.color} hover:scale-105 transition-transform`}>
+                      {s.icon}
+                      {s.label}
+                    </span>
+                  ))}
+                </div>
               </div>
 
               <div className="flex flex-wrap gap-4 animate-fade-in">
                 <Link to="/projects">
-                  <Button size="lg" variant="ghost" className="px-8 py-6 text-base group border border-border/50 bg-transparent hover:bg-primary/10 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/15 transition-all duration-300">
+                  <Button size="lg" className="px-8 py-6 text-base group bg-gradient-to-r from-primary via-accent to-primary bg-[length:200%_100%] hover:bg-[position:100%_0] text-primary-foreground shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/40 transition-all duration-500 border-0">
                     {t('hero.exploreProjects')}
                     <ArrowUpRight className="ml-2 h-5 w-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                   </Button>
@@ -231,20 +248,20 @@ const Index = () => {
               </div>
             </div>
 
-            {/* Right — Metrics Column with accent borders */}
-            <div className="lg:col-span-5 animate-fade-in">
+            {/* Right — Metrics + Live Portfolio Card */}
+            <div className="lg:col-span-5 animate-fade-in space-y-4">
               <div className="relative">
                 {/* Glow behind metrics */}
-                <div className="absolute -inset-2 bg-gradient-to-br from-primary/10 via-accent/5 to-info/10 rounded-3xl blur-xl opacity-50" />
-                
+                <div className="absolute -inset-2 bg-gradient-to-br from-primary/15 via-accent/10 to-info/15 rounded-3xl blur-xl opacity-60" />
+
                 <div className="relative grid grid-cols-2 gap-px bg-border/50 rounded-2xl overflow-hidden border border-border/40 shadow-elevated">
                   {[
-                    { value: "25+", label: t('hero.yearsExp'), accent: "from-accent/15 via-accent/5 to-transparent", borderColor: "border-l-accent/30" },
-                    { value: "5", label: t('hero.activeProjects'), accent: "from-info/15 via-info/5 to-transparent", borderColor: "border-l-info/30" },
-                    { value: "$19.5B", label: t('hero.exitValue'), accent: "from-success/15 via-success/5 to-transparent", borderColor: "border-l-success/30" },
-                    { value: "15+", label: t('hero.countriesServed'), accent: "from-primary/15 via-primary/5 to-transparent", borderColor: "border-l-primary/30" }
+                    { value: "25+", label: t('hero.yearsExp'), accent: "from-accent/15 via-accent/5 to-transparent" },
+                    { value: "20+", label: t('hero.activeProjects'), accent: "from-info/15 via-info/5 to-transparent" },
+                    { value: "$19.5B", label: t('hero.exitValue'), accent: "from-success/15 via-success/5 to-transparent" },
+                    { value: "15+", label: t('hero.countriesServed'), accent: "from-primary/15 via-primary/5 to-transparent" }
                   ].map((stat, i) => (
-                    <div key={i} className={`relative bg-card/60 backdrop-blur-sm p-8 lg:p-10 flex flex-col justify-center text-center hover:bg-card/90 transition-all duration-500 group hover:shadow-lg`}>
+                    <div key={i} className={`relative bg-card/60 backdrop-blur-sm p-7 lg:p-9 flex flex-col justify-center text-center hover:bg-card/90 transition-all duration-500 group hover:shadow-lg`}>
                       <div className={`absolute inset-0 bg-gradient-to-br ${stat.accent} opacity-40 group-hover:opacity-100 transition-opacity duration-500`} />
                       <div className="relative">
                         <div className="text-3xl lg:text-4xl xl:text-5xl font-bold text-foreground tracking-tight group-hover:scale-105 transition-transform duration-300">{stat.value}</div>
@@ -254,6 +271,21 @@ const Index = () => {
                   ))}
                 </div>
               </div>
+
+              {/* Live portfolio teaser CTA */}
+              <Link to="/projects" className="group relative block overflow-hidden rounded-2xl border border-border/50 bg-card/70 backdrop-blur-md p-5 hover:border-primary/40 hover:bg-card transition-all duration-300 hover:shadow-xl hover:shadow-primary/10">
+                <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-accent/5 to-info/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="relative flex items-center gap-4">
+                  <div className="shrink-0 p-3 rounded-xl bg-gradient-to-br from-primary/20 to-accent/20 border border-primary/20">
+                    <Orbit className="w-5 h-5 text-primary animate-spin" style={{ animationDuration: '8s' }} />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <div className="text-sm font-bold text-foreground">{t('hero.livePortfolioTitle', 'Live Portfolio')}</div>
+                    <div className="text-xs text-muted-foreground mt-0.5">{t('hero.livePortfolioSubtitle', '20+ active projects across 5 sectors')}</div>
+                  </div>
+                  <ArrowUpRight className="w-5 h-5 text-muted-foreground group-hover:text-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0" />
+                </div>
+              </Link>
             </div>
           </div>
         </div>
@@ -265,8 +297,79 @@ const Index = () => {
         </div>
       </section>
 
+      {/* ═══════════════════ FEATURED PROJECTS — Magazine Strip (moved up) ═══════════════════ */}
+      <section ref={featuredSection.ref} className={`py-20 md:py-28 px-4 section-gradient-cool scroll-fade-in ${featuredSection.isVisible ? 'visible' : ''}`}>
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
+            <div className="space-y-3">
+              <Badge variant="secondary" className="text-xs tracking-wide uppercase">{t('featured.badge')}</Badge>
+              <h2 ref={featuredHeading.ref} className={`text-3xl md:text-5xl font-bold tracking-tight text-foreground animate-heading-reveal ${featuredHeading.isVisible ? 'visible' : ''}`}>
+                {t('featured.title')}
+              </h2>
+              <p className="text-base md:text-lg text-muted-foreground max-w-2xl font-light">
+                {t('featured.subtitle')}
+              </p>
+            </div>
+            <Link to="/projects" className="shrink-0">
+              <Button variant="ghost" className="group text-muted-foreground hover:text-foreground">
+                {t('featured.viewAll')}
+                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </Link>
+          </div>
+
+          {featuredProjects.length > 0 ? (
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {featuredProjects.map((project, index) => (
+                <Link key={project.id} to={`/projects/${project.slug}`} className="group block">
+                  <div className="relative overflow-hidden rounded-2xl bg-card border border-border/40 hover:border-border transition-all duration-500 hover:-translate-y-1" style={{ animationDelay: `${index * 0.1}s` }}>
+                    <div className="relative h-56 overflow-hidden">
+                      <OptimizedImage
+                        src={projectImages[project.slug] || project.hero_image_url || '/placeholder.svg'}
+                        alt={`${project.title} - ${project.category}`}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700 ease-out"
+                        containerClassName="w-full h-full"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent" />
+                      <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between">
+                        <Badge className={`${getStatusColor(project.status)} text-[10px]`}>
+                          {project.status.replace('_', ' ')}
+                        </Badge>
+                        <span className="text-xs text-foreground/70 font-medium bg-background/60 backdrop-blur-sm px-2 py-0.5 rounded-full">
+                          {project.category}
+                        </span>
+                      </div>
+                    </div>
+
+                    <div className="p-5 space-y-3">
+                      <h3 className="text-lg font-bold text-foreground group-hover:text-primary transition-colors duration-300 leading-tight">
+                        {project.title}
+                      </h3>
+                      <p className="text-sm text-muted-foreground line-clamp-2 leading-relaxed">
+                        {project.short_description}
+                      </p>
+                      <div className="flex items-center text-xs text-muted-foreground group-hover:text-primary transition-colors pt-1">
+                        <span>{t('featured.viewDetails')}</span>
+                        <ArrowUpRight className="w-3.5 h-3.5 ml-1 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                      </div>
+                    </div>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          ) : (
+            <div className="text-center py-12">
+              <p className="text-muted-foreground mb-6">{t('featured.noProjects')}</p>
+              <Link to="/projects">
+                <Button size="lg" variant="outline">{t('featured.viewAll')} <ArrowRight className="ml-2 h-5 w-5" /></Button>
+              </Link>
+            </div>
+          )}
+        </div>
+      </section>
+
       {/* ═══════════════════ ECOSYSTEM VISION — Editorial ═══════════════════ */}
-      <section ref={biomathVisionSection.ref} className={`py-20 md:py-28 px-4 section-gradient-cool scroll-fade-in ${biomathVisionSection.isVisible ? 'visible' : ''}`}>
+      <section ref={biomathVisionSection.ref} className={`py-20 md:py-28 px-4 section-gradient-warm scroll-fade-in ${biomathVisionSection.isVisible ? 'visible' : ''}`}>
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-12 gap-8 md:gap-12 items-start">
             {/* Left label */}
@@ -329,76 +432,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* ═══════════════════ FEATURED PROJECTS — Magazine Strip ═══════════════════ */}
-      <section ref={featuredSection.ref} className={`py-20 md:py-28 px-4 section-gradient-warm scroll-fade-in ${featuredSection.isVisible ? 'visible' : ''}`}>
-        <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
-            <div className="space-y-3">
-              <Badge variant="secondary" className="text-xs tracking-wide uppercase">{t('featured.badge')}</Badge>
-              <h2 ref={featuredHeading.ref} className={`text-3xl md:text-5xl font-bold tracking-tight text-foreground animate-heading-reveal ${featuredHeading.isVisible ? 'visible' : ''}`}>
-                {t('featured.title')}
-              </h2>
-              <p className="text-base md:text-lg text-muted-foreground max-w-2xl font-light">
-                {t('featured.subtitle')}
-              </p>
-            </div>
-            <Link to="/projects" className="shrink-0">
-              <Button variant="ghost" className="group text-muted-foreground hover:text-foreground">
-                {t('featured.viewAll')}
-                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-              </Button>
-            </Link>
-          </div>
-          
-          {featuredProjects.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {featuredProjects.map((project, index) => (
-                <Link key={project.id} to={`/projects/${project.slug}`} className="group block">
-                  <div className="relative overflow-hidden rounded-2xl bg-card border border-border/40 hover:border-border transition-all duration-500 hover:-translate-y-1" style={{ animationDelay: `${index * 0.1}s` }}>
-                    <div className="relative h-56 overflow-hidden">
-                      <OptimizedImage
-                        src={projectImages[project.slug] || project.hero_image_url || '/placeholder.svg'}
-                        alt={`${project.title} - ${project.category}`}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700 ease-out"
-                        containerClassName="w-full h-full"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent" />
-                      <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between">
-                        <Badge className={`${getStatusColor(project.status)} text-[10px]`}>
-                          {project.status.replace('_', ' ')}
-                        </Badge>
-                        <span className="text-xs text-foreground/70 font-medium bg-background/60 backdrop-blur-sm px-2 py-0.5 rounded-full">
-                          {project.category}
-                        </span>
-                      </div>
-                    </div>
-
-                    <div className="p-5 space-y-3">
-                      <h3 className="text-lg font-bold text-foreground group-hover:text-primary transition-colors duration-300 leading-tight">
-                        {project.title}
-                      </h3>
-                      <p className="text-sm text-muted-foreground line-clamp-2 leading-relaxed">
-                        {project.short_description}
-                      </p>
-                      <div className="flex items-center text-xs text-muted-foreground group-hover:text-primary transition-colors pt-1">
-                        <span>{t('featured.viewDetails')}</span>
-                        <ArrowUpRight className="w-3.5 h-3.5 ml-1 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                      </div>
-                    </div>
-                  </div>
-                </Link>
-              ))}
-            </div>
-          ) : (
-            <div className="text-center py-12">
-              <p className="text-muted-foreground mb-6">{t('featured.noProjects')}</p>
-              <Link to="/projects">
-                <Button size="lg" variant="outline">{t('featured.viewAll')} <ArrowRight className="ml-2 h-5 w-5" /></Button>
-              </Link>
-            </div>
-          )}
-        </div>
-      </section>
 
       {/* ═══════════════════ WHAT WE BUILD — Asymmetric Bento ═══════════════════ */}
       <section ref={whatWeBuildSection.ref} className={`py-20 md:py-28 px-4 section-gradient-mint scroll-slide-up ${whatWeBuildSection.isVisible ? 'visible' : ''}`}>

@@ -32,7 +32,9 @@
     "yearsExp": "שנות ניסיון",
     "activeProjects": "פרויקטים פעילים",
     "exitValue": "שווי אקזיט קודם",
-    "countriesServed": "מדינות שירות"
+    "countriesServed": "מדינות שירות",
+    "livePortfolioTitle": "תיק פעיל",
+    "livePortfolioSubtitle": "20+ פרויקטים פעילים ב-5 מגזרים"
   },
   "ecosystem": {
     "badge": "חזון אקולוגי",

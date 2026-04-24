@@ -66,6 +66,40 @@ const projectThemes: Record<string, { from: string; to: string; accent: string; 
 
 const getTheme = (slug: string) => projectThemes[slug] || { from: 'from-primary/20', to: 'to-primary/20', accent: 'text-primary', border: 'border-primary/30', btnBg: 'bg-primary', btnHover: 'hover:bg-primary/80', label: 'Project' };
 
+// Custom display order: Digital Invest first, then all BioMath family, then AGRON family, then TerraAero, then others.
+const projectOrder: string[] = [
+  'digital-invest-portfolio',
+  // BioMath Life family / Digital Health ecosystem
+  'biomathlife',
+  'biomath-core',
+  'biomathcore',
+  'stresscore',
+  'vitalcore',
+  'bioagecore',
+  'longevitycore',
+  'familycore',
+  'seniorcore',
+  'skincore',
+  'luna-balance',
+  'mrx-health',
+  'baseline',
+  'myday',
+  'itsgoodtoday',
+  // AGRON family
+  'agron',
+  'agron-work',
+  // TerraAero
+  'terraaero',
+  // Others
+  'saven',
+  'table-served',
+];
+
+const getProjectOrderIndex = (slug: string) => {
+  const idx = projectOrder.indexOf(slug);
+  return idx === -1 ? 999 : idx;
+};
+
 
 interface Project {
   id: string;
@@ -181,7 +215,10 @@ const Projects = () => {
         .order('created_at', { ascending: false });
 
       if (error) throw error;
-      setProjects(data || []);
+      const sorted = (data || []).slice().sort(
+        (a, b) => getProjectOrderIndex(a.slug) - getProjectOrderIndex(b.slug)
+      );
+      setProjects(sorted);
     } catch (error: any) {
       toast({
         title: 'Error loading projects',
