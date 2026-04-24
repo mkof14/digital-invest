@@ -18,8 +18,8 @@ import InvestorPageDisclaimer from '@/components/InvestorPageDisclaimer';
 import ProjectDocumentButtons from '@/components/ProjectDocumentButtons';
 import ProjectDocumentsSection from '@/components/ProjectDocumentsSection';
 import biomathCoreHero from '@/assets/projects/biomath-core-hero.jpg';
-import digitalInvestHero from '@/assets/projects/digitalinvest-hero.jpg';
-import agronHero from '@/assets/projects/agron-hero.jpg';
+import digitalInvestHero from '@/assets/projects/digitalinvest-hero.webp';
+import agronHero from '@/assets/projects/agron-hero.webp';
 
 interface Project {
   id: string;

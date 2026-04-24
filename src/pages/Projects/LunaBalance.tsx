@@ -11,9 +11,9 @@ import Footer from '@/components/Footer';
 import InvestorPageDisclaimer from '@/components/InvestorPageDisclaimer';
 import InterestForm from '@/components/InterestForm';
 import { InfographicsGallery, type Infographic } from '@/components/InfographicsGallery';
-import lunaHero from '@/assets/projects/luna-hero.jpg';
-import lunaLogo from '@/assets/projects/luna-logo.png';
-import lunaInfographic from '@/assets/projects/luna-infographic.jpeg';
+import lunaHero from '@/assets/projects/luna-hero.webp';
+import lunaLogo from '@/assets/projects/luna-logo.webp';
+import lunaInfographic from '@/assets/projects/luna-infographic.webp';
 
 const lunaInfographics: Infographic[] = [
   {

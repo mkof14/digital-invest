@@ -17,11 +17,11 @@ import { useToast } from '@/hooks/use-toast';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import InvestorPageDisclaimer from '@/components/InvestorPageDisclaimer';
-import heroImg from '@/assets/projects/saven-hero.png';
-import logoImg from '@/assets/projects/saven-logo.png';
-import robotImg from '@/assets/projects/saven-robot.png';
-import robotElderlyImg from '@/assets/projects/saven-robot-elderly.jpg';
-import infographicImg from '@/assets/projects/saven-infographic.png';
+import heroImg from '@/assets/projects/saven-hero.webp';
+import logoImg from '@/assets/projects/saven-logo.webp';
+import robotImg from '@/assets/projects/saven-robot.webp';
+import robotElderlyImg from '@/assets/projects/saven-robot-elderly.webp';
+import infographicImg from '@/assets/projects/saven-infographic.webp';
 import acronymImg from '@/assets/projects/saven-acronym.png';
 
 const SAVEN = () => {

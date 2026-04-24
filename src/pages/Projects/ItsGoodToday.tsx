@@ -9,7 +9,7 @@ import {
   ArrowRight, ArrowLeft, Globe, Heart, Utensils, Activity, Smile, Sun,
   CheckCircle2, Users, Target, Sparkles, Clock, Lightbulb, Shield
 } from "lucide-react";
-import itsgoodtodayLogo from "@/assets/itsgoodtoday-logo.png";
+import itsgoodtodayLogo from "@/assets/itsgoodtoday-logo.webp";
 import itsgoodtodayHero from "@/assets/projects/itsgoodtoday-hero.jpg";
 import DownloadInvestorBriefButton from "@/components/DownloadInvestorBriefButton";
 import OptimizedImage from "@/components/OptimizedImage";
