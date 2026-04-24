@@ -735,7 +735,7 @@ const Projects = () => {
                           })()
                         )}
                         <div className="absolute top-3 left-3 z-20 flex flex-col gap-1.5 items-start max-w-[80%]">
-                          <Badge className={`${getStatusColor(project.status)} text-xs`}>
+                          <Badge className={`${getStatusColor(project.status)} text-xs font-bold tracking-wider px-2.5 py-0.5 hover:bg-transparent`}>
                             {project.status.replace('_', ' ')}
                           </Badge>
                           <div className="flex flex-wrap gap-1.5">
