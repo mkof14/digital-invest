@@ -275,14 +275,13 @@ Today, Digital Invest brings together this multi-sector expertise into a unified
         <div className="container mx-auto max-w-6xl">
           <h2 className="text-3xl font-bold text-foreground mb-8">{t('about.visionAhead')}</h2>
           <div className="space-y-8">
-            {['biomathlife', 'biomathcore', 'terraaero', 'dishcore', 'digitalinvest'].map(key => (
+            {['biomathlife', 'biomathcore', 'terraaero', 'digitalinvest'].map(key => (
               <Card key={key}>
                 <CardHeader>
                   <CardTitle className="text-xl">
                     {key === 'biomathlife' ? 'BioMath Life Platform' : 
                      key === 'biomathcore' ? 'BioMath Core' :
-                     key === 'terraaero' ? 'TerraAero' :
-                     key === 'dishcore' ? 'DishCore' : 'Digital Invest Inc.'}
+                     key === 'terraaero' ? 'TerraAero' : 'Digital Invest Inc.'}
                   </CardTitle>
                   <CardDescription className="text-base">{t(`about.vision_${key}`)}</CardDescription>
                 </CardHeader>
