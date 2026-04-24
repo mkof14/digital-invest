@@ -5,7 +5,7 @@ import { supabase } from '@/integrations/supabase/client';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { TrendingUp, ArrowRight, Loader2, Grid3x3, List, Search, X, Filter, Bookmark } from 'lucide-react';
+import { TrendingUp, ArrowRight, Loader2, Grid3x3, List, Search, X, Filter, Bookmark, ChevronDown } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { useToast } from '@/hooks/use-toast';
 import Navigation from '@/components/Navigation';
@@ -295,6 +295,7 @@ const Projects = () => {
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
+  const [filtersOpen, setFiltersOpen] = useState(false);
   const { toast } = useToast();
   const { t } = useTranslation();
 
@@ -451,56 +452,102 @@ const Projects = () => {
                 )}
               </div>
 
-              {/* Category Pills + View Toggle */}
-              <div className="flex flex-wrap items-center justify-between gap-3">
-                <div className="flex flex-wrap items-center gap-2">
-                  <Filter className="h-4 w-4 text-muted-foreground mr-1" />
+              {/* Toggle row: opens both Category + View filters */}
+              <div className="flex items-center justify-center gap-2">
+                <button
+                  type="button"
+                  onClick={() => setFiltersOpen(o => !o)}
+                  aria-expanded={filtersOpen}
+                  aria-controls="projects-filters-panel"
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium bg-muted/60 text-foreground hover:bg-muted border border-border/60 transition-all"
+                >
+                  <Filter className="w-4 h-4" />
+                  {t('projects.filters', 'Filters')}
+                  {selectedCategory !== 'all' && (
+                    <span className="ml-1 px-2 py-0.5 rounded-full bg-primary text-primary-foreground text-[11px]">
+                      {selectedCategory}
+                    </span>
+                  )}
+                  <ChevronDown className={`w-4 h-4 transition-transform ${filtersOpen ? 'rotate-180' : ''}`} />
+                </button>
+                {(selectedCategory !== 'all' || searchQuery) && (
                   <button
-                    onClick={() => setSelectedCategory('all')}
-                    className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-300 ${
-                      selectedCategory === 'all'
-                        ? 'bg-primary text-primary-foreground shadow-md'
-                        : 'bg-muted/60 text-muted-foreground hover:bg-muted hover:text-foreground'
-                    }`}
+                    type="button"
+                    onClick={() => { setSelectedCategory('all'); setSearchQuery(''); }}
+                    className="text-xs text-muted-foreground hover:text-foreground underline-offset-4 hover:underline"
                   >
-                    {t('projects.all')} ({projects.length})
+                    {t('projects.clearFilters', 'Clear')}
                   </button>
-                  {categories.map(cat => {
-                    const count = projects.filter(p => getTheme(p.slug).label === cat).length;
-                    return (
-                      <button
-                        key={cat}
-                        onClick={() => setSelectedCategory(cat)}
-                        className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-300 ${
-                          selectedCategory === cat
-                            ? 'bg-primary text-primary-foreground shadow-md'
-                            : 'bg-muted/60 text-muted-foreground hover:bg-muted hover:text-foreground'
-                        }`}
-                      >
-                        {cat} ({count})
-                      </button>
-                    );
-                  })}
-                </div>
-                <div className="flex gap-2">
-                  <Button
-                    variant={viewMode === 'grid' ? 'default' : 'outline'}
-                    size="sm"
-                    onClick={() => setViewMode('grid')}
-                    className="transition-all duration-300"
-                  >
-                    <Grid3x3 className="w-4 h-4 mr-2" />
-                    {t('projects.grid')}
-                  </Button>
-                  <Button
-                    variant={viewMode === 'list' ? 'default' : 'outline'}
-                    size="sm"
-                    onClick={() => setViewMode('list')}
-                    className="transition-all duration-300"
-                  >
-                    <List className="w-4 h-4 mr-2" />
-                    {t('projects.list')}
-                  </Button>
+                )}
+              </div>
+
+              {/* Collapsible filters panel: categories + view mode */}
+              <div
+                id="projects-filters-panel"
+                className={`grid transition-all duration-300 ease-out ${filtersOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}
+              >
+                <div className="overflow-hidden">
+                  <div className="rounded-2xl border border-border/60 bg-card/60 backdrop-blur-sm p-4 space-y-4">
+                    {/* Category pills */}
+                    <div>
+                      <div className="text-xs uppercase tracking-wider text-muted-foreground mb-2">
+                        {t('projects.category', 'Category')}
+                      </div>
+                      <div className="flex flex-wrap items-center gap-2">
+                        <button
+                          onClick={() => setSelectedCategory('all')}
+                          className={`px-3 py-1.5 rounded-full text-sm font-medium transition-all duration-300 ${
+                            selectedCategory === 'all'
+                              ? 'bg-primary text-primary-foreground shadow-md'
+                              : 'bg-muted/60 text-muted-foreground hover:bg-muted hover:text-foreground'
+                          }`}
+                        >
+                          {t('projects.all')} ({projects.length})
+                        </button>
+                        {categories.map(cat => {
+                          const count = projects.filter(p => getTheme(p.slug).label === cat).length;
+                          return (
+                            <button
+                              key={cat}
+                              onClick={() => setSelectedCategory(cat)}
+                              className={`px-3 py-1.5 rounded-full text-sm font-medium transition-all duration-300 ${
+                                selectedCategory === cat
+                                  ? 'bg-primary text-primary-foreground shadow-md'
+                                  : 'bg-muted/60 text-muted-foreground hover:bg-muted hover:text-foreground'
+                              }`}
+                            >
+                              {cat} ({count})
+                            </button>
+                          );
+                        })}
+                      </div>
+                    </div>
+
+                    {/* View mode */}
+                    <div>
+                      <div className="text-xs uppercase tracking-wider text-muted-foreground mb-2">
+                        {t('projects.view', 'View')}
+                      </div>
+                      <div className="flex gap-2">
+                        <Button
+                          variant={viewMode === 'grid' ? 'default' : 'outline'}
+                          size="sm"
+                          onClick={() => setViewMode('grid')}
+                        >
+                          <Grid3x3 className="w-4 h-4 mr-2" />
+                          {t('projects.grid')}
+                        </Button>
+                        <Button
+                          variant={viewMode === 'list' ? 'default' : 'outline'}
+                          size="sm"
+                          onClick={() => setViewMode('list')}
+                        >
+                          <List className="w-4 h-4 mr-2" />
+                          {t('projects.list')}
+                        </Button>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
