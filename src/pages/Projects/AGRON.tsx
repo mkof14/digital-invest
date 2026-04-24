@@ -62,6 +62,12 @@ const AGRON = () => {
               <div className="flex gap-4 flex-wrap">
                 <Link to="/start-investing"><Button size="lg">{t('projectCommon.requestInformation')} <ArrowRight className="ml-2 w-5 h-5" /></Button></Link>
                 <DownloadInvestorBriefButton projectSlug="agron" size="lg" />
+                <Button size="lg" variant="outline" asChild>
+                  <a href="/documents/agron-network.pdf" target="_blank" rel="noopener noreferrer" download="The-AGRON-Network.pdf">
+                    <FileText className="w-5 h-5 mr-2" />
+                    The AGRON Network (PDF)
+                  </a>
+                </Button>
               </div>
             </div>
           </div>
