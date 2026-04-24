@@ -202,7 +202,7 @@ const Index = () => {
                     <Sparkles className="w-3.5 h-3.5 text-primary-foreground" />
                   </span>
                   <span className="text-[11px] sm:text-xs font-semibold tracking-[0.18em] uppercase bg-gradient-to-r from-foreground via-primary to-accent bg-clip-text text-transparent">
-                    Digital Invest Inc. · Est. 1998
+                    Digital Invest Inc.
                   </span>
                   <span className="hidden sm:inline-flex items-center gap-1 text-[10px] text-success/90 font-bold tracking-wider">
                     <span className="w-1.5 h-1.5 rounded-full bg-success animate-pulse" />
