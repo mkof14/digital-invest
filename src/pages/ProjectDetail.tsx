@@ -367,9 +367,11 @@ const ProjectDetail = () => {
                 )}
                 <div>
                   <div className="flex gap-3 mb-3">
-                    <Badge className={getStatusColor(project.status)}>
-                      {project.status.replace('_', ' ')}
-                    </Badge>
+                    {project.slug !== 'agron' && (
+                      <Badge className={getStatusColor(project.status)}>
+                        {project.status.replace('_', ' ')}
+                      </Badge>
+                    )}
                     <Badge variant="outline">{project.category}</Badge>
                   </div>
                   <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-2">
@@ -384,9 +386,11 @@ const ProjectDetail = () => {
                       </>
                     )}
                     <span>·</span>
-                    <Badge className={getStatusColor(project.status)}>
-                      {project.status.replace('_', ' ')}
-                    </Badge>
+                    {project.slug !== 'agron' && (
+                      <Badge className={getStatusColor(project.status)}>
+                        {project.status.replace('_', ' ')}
+                      </Badge>
+                    )}
                   </div>
                   <p className="text-lg text-muted-foreground/90 mb-1">
                     A portfolio project developed and operated by Digital Invest Inc.
