@@ -5,7 +5,7 @@ import { supabase } from '@/integrations/supabase/client';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { TrendingUp, ArrowRight, Loader2, Grid3x3, List, Search, X, Filter } from 'lucide-react';
+import { TrendingUp, ArrowRight, Loader2, Grid3x3, List, Search, X, Filter, Bookmark } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { useToast } from '@/hooks/use-toast';
 import Navigation from '@/components/Navigation';
@@ -98,6 +98,60 @@ const projectOrder: string[] = [
 const getProjectOrderIndex = (slug: string) => {
   const idx = projectOrder.indexOf(slug);
   return idx === -1 ? 999 : idx;
+};
+
+// Семантические группы для быстрых якорей и разделителей секций.
+// Каждый проект попадает в одну группу; порядок групп = порядок отображения.
+type ProjectGroup = {
+  id: string;        // якорь / id секции
+  titleKey: string;  // ключ перевода (с дефолтом)
+  defaultTitle: string;
+  slugs: string[];
+};
+
+const projectGroups: ProjectGroup[] = [
+  {
+    id: 'flagship',
+    titleKey: 'projects.groups.flagship',
+    defaultTitle: 'Flagship & Portfolio',
+    slugs: ['digital-invest-portfolio'],
+  },
+  {
+    id: 'biomath-life',
+    titleKey: 'projects.groups.biomathLife',
+    defaultTitle: 'BioMath Life Family',
+    slugs: [
+      'biomathlife', 'biomath-core', 'biomathcore', 'saven',
+      'stresscore', 'vitalcore', 'bioagecore', 'longevitycore',
+      'familycore', 'seniorcore', 'skincore', 'luna-balance',
+      'mrx-health', 'baseline',
+    ],
+  },
+  {
+    id: 'agron',
+    titleKey: 'projects.groups.agron',
+    defaultTitle: 'AGRON Family',
+    slugs: ['agron', 'agron-work'],
+  },
+  {
+    id: 'terraaero',
+    titleKey: 'projects.groups.terraaero',
+    defaultTitle: 'TerraAero',
+    slugs: ['terraaero'],
+  },
+  {
+    id: 'other',
+    titleKey: 'projects.groups.other',
+    defaultTitle: 'Lifestyle & Other',
+    slugs: ['myday', 'itsgoodtoday', 'table-served'],
+  },
+];
+
+const getProjectGroupId = (slug: string): string => {
+  for (const g of projectGroups) {
+    if (g.slugs.includes(slug)) return g.id;
+  }
+  return 'other';
 };
 
 
@@ -363,6 +417,50 @@ const Projects = () => {
           );
         })()}
 
+        {/* Quick anchors / jump-to group navigation */}
+        {projects.length > 0 && !searchQuery && selectedCategory === 'all' && (() => {
+          const groupsWithCounts = projectGroups
+            .map(g => ({
+              ...g,
+              count: projects.filter(p => g.slugs.includes(p.slug)).length,
+            }))
+            .filter(g => g.count > 0);
+
+          if (groupsWithCounts.length <= 1) return null;
+
+          return (
+            <nav
+              aria-label={t('projects.jumpToSection', 'Jump to section')}
+              className="mb-10 sticky top-20 z-30 -mx-4 px-4 py-3 bg-background/80 backdrop-blur-md border-y border-border/40"
+            >
+              <div className="flex flex-wrap items-center gap-2 justify-center">
+                <span className="inline-flex items-center gap-1.5 text-xs uppercase tracking-wider text-muted-foreground mr-1">
+                  <Bookmark className="w-3.5 h-3.5" />
+                  {t('projects.jumpToSection', 'Jump to')}:
+                </span>
+                {groupsWithCounts.map(g => (
+                  <a
+                    key={g.id}
+                    href={`#group-${g.id}`}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      const el = document.getElementById(`group-${g.id}`);
+                      if (el) {
+                        const y = el.getBoundingClientRect().top + window.scrollY - 140;
+                        window.scrollTo({ top: y, behavior: 'smooth' });
+                      }
+                    }}
+                    className="px-3 py-1.5 rounded-full text-sm font-medium bg-muted/60 text-muted-foreground hover:bg-primary/10 hover:text-primary border border-transparent hover:border-primary/30 transition-all duration-300"
+                  >
+                    {t(g.titleKey, g.defaultTitle)}{' '}
+                    <span className="opacity-60">({g.count})</span>
+                  </a>
+                ))}
+              </div>
+            </nav>
+          );
+        })()}
+
         {/* Projects Grid/List */}
         {(() => {
           const filteredProjects = projects.filter(p => {
@@ -391,27 +489,24 @@ const Projects = () => {
             );
           }
 
-          return viewMode === 'grid' ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredProjects.map((project, index) => {
-              const theme = getTheme(project.slug);
-              const isBioMath = project.slug === 'biomath-core' || project.slug === 'biomathcore';
-              const projectImage = isBioMath ? biomathcoreCardBg : getProjectImage(project);
-              const hasLogo = project.slug === 'baseline' || project.slug === 'saven' || isBioMath;
-              
-              return (
-                <ScrollRevealCard key={project.id} index={index}>
+          // Helper: render a single grid card
+          const renderGridCard = (project: Project, index: number) => {
+            const theme = getTheme(project.slug);
+            const isBioMath = project.slug === 'biomath-core' || project.slug === 'biomathcore';
+            const projectImage = isBioMath ? biomathcoreCardBg : getProjectImage(project);
+            const hasLogo = project.slug === 'baseline' || project.slug === 'saven' || isBioMath;
+
+            return (
+              <ScrollRevealCard key={project.id} index={index}>
                 <Link
                   to={`/projects/${project.slug}`}
                   className="group block h-full"
                   {...projectPrefetchHandlers(project.slug)}
                 >
                   <Card className={`overflow-hidden border ${theme.border} bg-card shadow-elegant hover:shadow-elevated transition-all duration-500 hover:-translate-y-3 hover:scale-[1.02] flex flex-col h-full cursor-pointer`}>
-                    {/* Image */}
                     <div className="relative h-52 overflow-hidden bg-muted">
                       <div className={`absolute inset-0 bg-gradient-to-t ${theme.from} ${theme.to} z-10 opacity-60`} />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent z-10" />
-                      
                       {isBioMath ? (
                         <img src={projectImage} alt={project.title} className="w-full h-full object-cover group-hover:scale-110 transition-all duration-700" />
                       ) : (
@@ -432,8 +527,6 @@ const Projects = () => {
                           );
                         })()
                       )}
-
-                      {/* Title overlay on image */}
                       <div className="absolute bottom-0 left-0 right-0 z-20 p-4">
                         <div className="flex items-center gap-2 mb-1">
                           {project.slug === 'baseline' && <img src={baselineLogo} alt="" className="h-6 rounded" />}
@@ -446,7 +539,6 @@ const Projects = () => {
                           </h3>
                         )}
                       </div>
-
                       <Badge className={`absolute top-3 left-3 z-20 ${getStatusColor(project.status)} text-xs`}>
                         {project.status.replace('_', ' ')}
                       </Badge>
@@ -459,7 +551,6 @@ const Projects = () => {
                         {theme.label}
                       </Badge>
                     </div>
-
                     <CardHeader className="flex-1 space-y-3 pb-2">
                       <CardTitle className={`text-xl font-extrabold tracking-tight leading-snug`}>
                         <span className={`bg-gradient-to-r ${theme.from.replace('/20', '')} ${theme.to.replace('/20', '')} bg-clip-text text-transparent`}>
@@ -470,7 +561,6 @@ const Projects = () => {
                         {t(`projects.descriptions.${project.slug}`, project.short_description)}
                       </CardDescription>
                     </CardHeader>
-
                     <CardFooter className="pt-0 pb-5">
                       <div className="w-full flex items-center justify-between text-muted-foreground text-sm font-medium transition-all duration-300 group-hover:text-primary">
                         <span>{t('projects.exploreProject')}</span>
@@ -479,19 +569,18 @@ const Projects = () => {
                     </CardFooter>
                   </Card>
                 </Link>
-                </ScrollRevealCard>
-              );
-            })}
-          </div>
-        ) : (
-          <div className="flex flex-col gap-6">
-            {filteredProjects.map((project, index) => {
-              const theme = getTheme(project.slug);
-              const isBioMath = project.slug === 'biomath-core' || project.slug === 'biomathcore';
-              const projectImage = isBioMath ? biomathcoreCardBg : getProjectImage(project);
+              </ScrollRevealCard>
+            );
+          };
 
-              return (
-                <ScrollRevealCard key={project.id} index={index}>
+          // Helper: render a single list card
+          const renderListCard = (project: Project, index: number) => {
+            const theme = getTheme(project.slug);
+            const isBioMath = project.slug === 'biomath-core' || project.slug === 'biomathcore';
+            const projectImage = isBioMath ? biomathcoreCardBg : getProjectImage(project);
+
+            return (
+              <ScrollRevealCard key={project.id} index={index}>
                 <Link to={`/projects/${project.slug}`} className="group block" {...projectPrefetchHandlers(project.slug)}>
                   <Card className={`overflow-hidden border ${theme.border} bg-card shadow-elegant hover:shadow-elevated transition-all duration-500 hover:-translate-y-1 cursor-pointer`}>
                     <div className="flex flex-col md:flex-row">
@@ -526,7 +615,6 @@ const Projects = () => {
                           </Badge>
                         )}
                       </div>
-
                       <div className="flex-1 flex flex-col">
                         <CardHeader className="flex-1 space-y-2">
                           <div className="flex items-start justify-between gap-4">
@@ -544,7 +632,6 @@ const Projects = () => {
                             {t(`projects.descriptions.${project.slug}`, project.short_description)}
                           </CardDescription>
                         </CardHeader>
-
                         <CardFooter className="pt-0 pb-4">
                           <div className="flex items-center gap-2 text-muted-foreground text-sm font-medium transition-all duration-300 group-hover:text-primary">
                             {t('projects.exploreProject')}
@@ -555,11 +642,60 @@ const Projects = () => {
                     </div>
                   </Card>
                 </Link>
-                </ScrollRevealCard>
-              );
-            })}
-          </div>
-        );
+              </ScrollRevealCard>
+            );
+          };
+
+          // Section header component
+          const SectionHeader = ({ id, title, count }: { id: string; title: string; count: number }) => (
+            <div id={`group-${id}`} className="scroll-mt-32 mb-6 mt-4 first:mt-0">
+              <div className="flex items-center gap-4">
+                <h2 className="text-2xl md:text-3xl font-bold gradient-blue-animated">
+                  {title}
+                </h2>
+                <Badge variant="outline" className="text-xs border-primary/30 text-muted-foreground">
+                  {count}
+                </Badge>
+                <div className="flex-1 h-px bg-gradient-to-r from-border via-border to-transparent" />
+              </div>
+            </div>
+          );
+
+          const isGrouped = !searchQuery && selectedCategory === 'all';
+          const renderCard = viewMode === 'grid' ? renderGridCard : renderListCard;
+          const wrapperClass = viewMode === 'grid'
+            ? 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'
+            : 'flex flex-col gap-6';
+
+          if (!isGrouped) {
+            return (
+              <div className={wrapperClass}>
+                {filteredProjects.map((p, i) => renderCard(p, i))}
+              </div>
+            );
+          }
+
+          // Grouped rendering
+          let runningIndex = 0;
+          return (
+            <div className="space-y-12">
+              {projectGroups.map(group => {
+                const groupProjects = filteredProjects.filter(p => getProjectGroupId(p.slug) === group.id);
+                if (groupProjects.length === 0) return null;
+                const cards = groupProjects.map(p => renderCard(p, runningIndex++));
+                return (
+                  <section key={group.id} aria-labelledby={`group-${group.id}`}>
+                    <SectionHeader
+                      id={group.id}
+                      title={t(group.titleKey, group.defaultTitle)}
+                      count={groupProjects.length}
+                    />
+                    <div className={wrapperClass}>{cards}</div>
+                  </section>
+                );
+              })}
+            </div>
+          );
         })()}
         </div>
 

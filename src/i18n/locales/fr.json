@@ -480,6 +480,14 @@
       "seniorcore": "Système de soutien pour les seniors et les aidants — surveillance des patterns de bien-être, observance médicamenteuse et niveaux d'activité. Insights santé en temps réel garantissant sécurité, indépendance et tranquillité familiale.",
       "vitalcore": "Tableau de bord unifié des signes vitaux combinant FC, VFC, sommeil, stress et patterns d'activité. Détecte les anomalies avant les urgences et fournit des alertes actionnables pour une gestion proactive de la santé.",
       "bioagecore": "Analyse de l'âge biologique par IA comparant l'âge chronologique à l'état réel du corps. Suivi d'optimisation continu et interventions personnalisées aident les utilisateurs à contrôler leur trajectoire de vieillissement."
+    },
+    "jumpToSection": "Aller à",
+    "groups": {
+      "flagship": "Aperçu du portefeuille",
+      "biomathLife": "Famille BioMath Life",
+      "agron": "Famille AGRON",
+      "terraaero": "TerraAero",
+      "other": "Lifestyle et autres"
     }
   },
   "team": {

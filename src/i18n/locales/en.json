@@ -480,6 +480,14 @@
       "seniorcore": "Support system for seniors and caregivers — monitoring wellness patterns, medication adherence, and activity levels. Real-time health insights ensuring safety, independence, and family peace of mind.",
       "vitalcore": "Unified vital signs dashboard combining HR, HRV, sleep, stress, and activity patterns. Detects anomalies before emergencies and provides actionable alerts for proactive health management.",
       "bioagecore": "AI-powered biological age analysis comparing chronological age to real body condition. Continuous optimization tracking and personalized interventions help users control their aging trajectory."
+    },
+    "jumpToSection": "Jump to",
+    "groups": {
+      "flagship": "Portfolio Overview",
+      "biomathLife": "BioMath Life Family",
+      "agron": "AGRON Family",
+      "terraaero": "TerraAero",
+      "other": "Lifestyle & Other"
     }
   },
   "team": {
