@@ -140,6 +140,7 @@ const Footer = () => {
               <li><Link to="/start-investing" className={linkClass}><span className="w-0 group-hover/link:w-2 h-px bg-primary transition-all duration-300" />{t('footer.investorInfo')}</Link></li>
               <li><Link to="/glossary" className={linkClass}><span className="w-0 group-hover/link:w-2 h-px bg-primary transition-all duration-300" />{t('footer.glossary')}</Link></li>
               <li><Link to="/document-library" className={linkClass}><span className="w-0 group-hover/link:w-2 h-px bg-primary transition-all duration-300" />{t('footer.documentLibrary')}</Link></li>
+              <li><Link to="/resources" className={linkClass}><span className="w-0 group-hover/link:w-2 h-px bg-primary transition-all duration-300" />Resource Library</Link></li>
               <li><Link to="/infrastructure" className={linkClass}><span className="w-0 group-hover/link:w-2 h-px bg-primary transition-all duration-300" />{t('footer.infrastructure')}</Link></li>
             </ul>
 

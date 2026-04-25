@@ -58,6 +58,7 @@ const ForInvestors = lazy(() => import("./pages/ForInvestors"));
 const InvestorDocuments = lazy(() => import("./pages/InvestorDocuments"));
 const Glossary = lazy(() => import("./pages/Glossary"));
 const DocumentLibrary = lazy(() => import("./pages/DocumentLibrary"));
+const ResourcesLibrary = lazy(() => import("./pages/ResourcesLibrary"));
 const About = lazy(() => import("./pages/About"));
 const Demo = lazy(() => import("./pages/Demo"));
 const Compliance = lazy(() => import("./pages/Compliance"));
@@ -172,6 +173,7 @@ const App = () => (
               <Route path="/investor-handbook" element={<InvestorHandbook />} />
               <Route path="/glossary" element={<Glossary />} />
               <Route path="/document-library" element={<DocumentLibrary />} />
+              <Route path="/resources" element={<ResourcesLibrary />} />
               <Route path="/overview" element={<PortfolioOverview />} />
               
               <Route path="/legal-overview" element={<LegalOverview />} />
