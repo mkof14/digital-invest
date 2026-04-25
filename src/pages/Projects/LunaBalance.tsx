@@ -14,12 +14,18 @@ import { InfographicsGallery, type Infographic } from '@/components/Infographics
 import lunaHero from '@/assets/projects/luna-hero.webp';
 import lunaLogo from '@/assets/projects/luna-logo.webp';
 import lunaInfographic from '@/assets/projects/luna-infographic.webp';
+import lunaInfographic1 from '@/assets/luna-infographic-1.jpeg';
 
 const lunaInfographics: Infographic[] = [
   {
     src: lunaInfographic,
     title: 'Luna: The Intelligence Layer for Women\'s Wellbeing',
     alt: 'Luna Balance architecture and intelligence layer infographic',
+  },
+  {
+    src: lunaInfographic1,
+    title: 'Luna: Personal Understanding & Strategic Intelligence Layer',
+    alt: 'Luna personal understanding system, four-layer data stack, and bridge to professional care',
   },
 ];
 
