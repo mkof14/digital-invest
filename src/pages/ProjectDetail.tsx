@@ -470,7 +470,6 @@ const ProjectDetail = () => {
             <InfographicsGallery
               infographics={[
                 { src: agronInfographic, title: 'AGRON Network Overview', alt: 'AGRON network overview infographic' },
-                { src: agronInfographic1, title: 'AGRON: The Future of Robotics & Drone Workforce Development', alt: 'AGRON Integrated Framework and Training to Career Model' },
                 { src: agronInfographic2, title: 'AGRON: The Aerial-Ground Robotics Operations Network Ecosystem', alt: 'AGRON Ecosystem: Education, Practical Operations, and Career Integration' },
               ]}
               projectTitle="AGRON"
