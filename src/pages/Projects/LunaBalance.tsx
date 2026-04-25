@@ -14,18 +14,12 @@ import { InfographicsGallery, type Infographic } from '@/components/Infographics
 import lunaHero from '@/assets/projects/luna-hero.webp';
 import lunaLogo from '@/assets/projects/luna-logo.webp';
 import lunaInfographic from '@/assets/projects/luna-infographic.webp';
-import lunaInfographic1 from '@/assets/luna-infographic-1.jpeg';
 
 const lunaInfographics: Infographic[] = [
   {
     src: lunaInfographic,
     title: 'Luna: The Intelligence Layer for Women\'s Wellbeing',
     alt: 'Luna Balance architecture and intelligence layer infographic',
-  },
-  {
-    src: lunaInfographic1,
-    title: 'Luna: Personal Understanding & Strategic Intelligence Layer',
-    alt: 'Luna personal understanding system, four-layer data stack, and bridge to professional care',
   },
 ];
 
@@ -73,6 +67,12 @@ const LunaBalance = () => {
                 <a href="/documents/luna-self-understanding.pdf" target="_blank" rel="noopener noreferrer" download="LUNA-Your-Path-to-Self.pdf">
                   <FileText className="w-5 h-5 mr-2" />
                   LUNA: Your Path to Self (PDF)
+                </a>
+              </Button>
+              <Button size="lg" variant="outline" asChild className="text-lg px-8">
+                <a href="/documents/luna-state-intelligence.pdf" target="_blank" rel="noopener noreferrer" download="Luna-State-Intelligence.pdf">
+                  <FileText className="w-5 h-5 mr-2" />
+                  Luna: State Intelligence (PDF)
                 </a>
               </Button>
             </div>
@@ -250,6 +250,12 @@ const LunaBalance = () => {
               <a href="/documents/luna-self-understanding.pdf" target="_blank" rel="noopener noreferrer" download="LUNA-Your-Path-to-Self.pdf">
                 <FileText className="w-5 h-5 mr-2" />
                 LUNA: Your Path to Self (PDF)
+              </a>
+            </Button>
+            <Button size="lg" variant="outline" asChild className="text-lg px-8">
+              <a href="/documents/luna-state-intelligence.pdf" target="_blank" rel="noopener noreferrer" download="Luna-State-Intelligence.pdf">
+                <FileText className="w-5 h-5 mr-2" />
+                Luna: State Intelligence (PDF)
               </a>
             </Button>
           </div>
