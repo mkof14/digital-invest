@@ -20,6 +20,10 @@ import ProjectDocumentsSection from '@/components/ProjectDocumentsSection';
 import biomathCoreHero from '@/assets/projects/biomath-core-hero.jpg';
 import digitalInvestHero from '@/assets/projects/digitalinvest-hero.webp';
 import agronHero from '@/assets/projects/agron-hero.webp';
+import agronInfographic from '@/assets/projects/agron-infographic.webp';
+import agronInfographic1 from '@/assets/agron-infographic-1.jpeg';
+import agronInfographic2 from '@/assets/agron-infographic-2.jpeg';
+import { InfographicsGallery } from '@/components/InfographicsGallery';
 
 interface Project {
   id: string;
@@ -458,6 +462,21 @@ const ProjectDetail = () => {
 
         {/* Documents & Resources Section */}
         <ProjectDocumentsSection projectSlug={project.slug} projectId={project.id} />
+
+        {/* AGRON Infographics */}
+        {project.slug === 'agron' && (
+          <section className="mb-16">
+            <h2 className="text-3xl font-bold mb-8 text-foreground">Infographics</h2>
+            <InfographicsGallery
+              infographics={[
+                { src: agronInfographic, title: 'AGRON Network Overview', alt: 'AGRON network overview infographic' },
+                { src: agronInfographic1, title: 'AGRON: The Future of Robotics & Drone Workforce Development', alt: 'AGRON Integrated Framework and Training to Career Model' },
+                { src: agronInfographic2, title: 'AGRON: The Aerial-Ground Robotics Operations Network Ecosystem', alt: 'AGRON Ecosystem: Education, Practical Operations, and Career Integration' },
+              ]}
+              projectTitle="AGRON"
+            />
+          </section>
+        )}
 
         {/* Investment Highlights Section */}
         <section className="mb-16">
