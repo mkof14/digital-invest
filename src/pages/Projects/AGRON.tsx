@@ -12,6 +12,8 @@ import {
 import agronLogo from "@/assets/agron-logo.webp";
 import agronHero from "@/assets/projects/agron-hero.webp";
 import agronInfographic from "@/assets/projects/agron-infographic.webp";
+import agronInfographic1 from "@/assets/agron-infographic-1.jpeg";
+import agronInfographic2 from "@/assets/agron-infographic-2.jpeg";
 import DownloadInvestorBriefButton from "@/components/DownloadInvestorBriefButton";
 import OptimizedImage from "@/components/OptimizedImage";
 import InvestorPageDisclaimer from "@/components/InvestorPageDisclaimer";
@@ -22,7 +24,11 @@ const AGRON = () => {
   const { toast } = useToast();
   const { t } = useTranslation();
 
-  const infographics = [{ src: agronInfographic, title: t('projectAgron.presentationName'), alt: "AGRON infographic" }];
+  const infographics = [
+    { src: agronInfographic, title: t('projectAgron.presentationName'), alt: "AGRON infographic" },
+    { src: agronInfographic1, title: "AGRON: The Future of Robotics & Drone Workforce Development", alt: "AGRON Integrated Framework and Training to Career Model" },
+    { src: agronInfographic2, title: "AGRON: The Aerial-Ground Robotics Operations Network Ecosystem", alt: "AGRON Ecosystem: Education, Practical Operations, and Career Integration" },
+  ];
 
   const handleSharePresentation = async () => {
     if (navigator.share) { try { await navigator.share({ title: t('projectAgron.presentationName'), url: window.location.href }); } catch {} }
