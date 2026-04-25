@@ -343,9 +343,9 @@ const Index = () => {
       </section>
 
       {/* ═══════════════════ FEATURED PROJECTS — Magazine Strip (moved up) ═══════════════════ */}
-      <section ref={featuredSection.ref} className={`py-20 md:py-28 px-4 section-gradient-cool scroll-fade-in ${featuredSection.isVisible ? 'visible' : ''}`}>
+      <section ref={featuredSection.ref} className={`pt-8 pb-16 md:pt-12 md:pb-20 px-4 section-gradient-cool scroll-fade-in ${featuredSection.isVisible ? 'visible' : ''}`}>
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-8">
             <div className="space-y-3">
               <Badge variant="secondary" className="text-xs tracking-wide uppercase">{t('featured.badge')}</Badge>
               <h2 ref={featuredHeading.ref} className={`text-3xl md:text-5xl font-bold tracking-tight text-foreground animate-heading-reveal ${featuredHeading.isVisible ? 'visible' : ''}`}>
