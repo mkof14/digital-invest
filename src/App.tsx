@@ -55,6 +55,7 @@ const AdminLaunchChecklist = lazy(() => import("./pages/Admin/AdminLaunchCheckli
 const AdminProjectDocuments = lazy(() => import("./pages/Admin/AdminProjectDocuments"));
 const WhyDigitalInvest = lazy(() => import("./pages/WhyDigitalInvest"));
 const ForInvestors = lazy(() => import("./pages/ForInvestors"));
+const InvestorApplication = lazy(() => import("./pages/InvestorApplication"));
 const InvestorDocuments = lazy(() => import("./pages/InvestorDocuments"));
 const Glossary = lazy(() => import("./pages/Glossary"));
 const DocumentLibrary = lazy(() => import("./pages/DocumentLibrary"));
@@ -156,6 +157,7 @@ const App = () => (
               <Route path="/about" element={<About />} />
               <Route path="/why-digital-invest" element={<WhyDigitalInvest />} />
               <Route path="/for-investors" element={<ForInvestors />} />
+              <Route path="/investor-application" element={<InvestorApplication />} />
               <Route path="/investor-documents" element={<InvestorDocuments />} />
               <Route path="/demo" element={<Demo />} />
               
