@@ -72,12 +72,6 @@
 
   <!-- Investment Resources -->
   <url>
-    <loc>https://digitalinvest.com/investor-handbook</loc>
-    <lastmod>2026-03-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://digitalinvest.com/investor-documents</loc>
     <lastmod>2026-03-28</lastmod>
     <changefreq>monthly</changefreq>
@@ -268,11 +262,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://digitalinvest.com/press-center</loc>
-    <lastmod>2026-03-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
   <url>
     <loc>https://digitalinvest.com/media-kit</loc>
     <lastmod>2026-03-28</lastmod>
