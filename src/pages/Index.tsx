@@ -9,6 +9,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { Link } from "react-router-dom";
 import { supabase } from '@/integrations/supabase/client';
 import { generateFAQSchema, injectStructuredData, removeStructuredData } from '@/lib/structuredData';
+import { updateMetaTags, resetMetaTags } from '@/lib/metaTags';
 import OptimizedImage from "@/components/OptimizedImage";
 import FloatingElements from "@/components/FloatingElements";
 import ROICalculator from "@/components/ROICalculator";
@@ -120,6 +121,20 @@ const Index = () => {
   useEffect(() => {
     fetchFeaturedProjects();
 
+    // Investor-focused meta tags & Open Graph
+    updateMetaTags({
+      title: 'Digital Invest Inc. — Private Multi-Sector Investment Portfolio',
+      description: 'Private investment company building operating systems across health, biotechnology, agrotech and food production. Information for qualified and accredited investors only. Not a public offering.',
+      ogTitle: 'Digital Invest Inc. — Where Capital Meets Real-World Execution',
+      ogDescription: 'A private portfolio of 20+ active projects across digital health, agrotech drones, food manufacturing and multi-sector infrastructure. By invitation, for qualified investors.',
+      ogImage: 'https://digitalinvest.com/og-digital-invest.webp',
+      ogType: 'website',
+      twitterTitle: 'Digital Invest Inc. — Private Multi-Sector Portfolio',
+      twitterDescription: 'Operating systems for health, agrotech and food. For qualified investors. Not a public offering.',
+      twitterImage: 'https://digitalinvest.com/og-digital-invest.webp',
+      canonicalUrl: 'https://digitalinvest.com/',
+    });
+
     const faqData = [
       { question: "Is this a crowdfunding platform?", answer: "No. Digital Invest Inc. is not a crowdfunding platform. This website is informational only." },
       { question: "Can I invest online through this website?", answer: "No. This website does not process payments or facilitate direct online investment." },
@@ -132,7 +147,10 @@ const Index = () => {
     const faqSchema = generateFAQSchema(faqData);
     injectStructuredData(faqSchema, 'faq-structured-data');
 
-    return () => { removeStructuredData('faq-structured-data'); };
+    return () => {
+      removeStructuredData('faq-structured-data');
+      resetMetaTags();
+    };
   }, []);
 
   const fetchFeaturedProjects = async () => {
