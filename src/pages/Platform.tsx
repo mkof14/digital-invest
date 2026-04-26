@@ -40,7 +40,7 @@ const Platform = () => {
               Mathematical Precision
               <span className="block text-primary mt-2">Meets Medical Science</span>
             </h1>
-            <p className="text-xl max-w-4xl mx-auto leading-relaxed mb-8 text-secondary">
+            <p className="text-xl max-w-4xl mx-auto leading-relaxed mb-8 text-primary-light">
               Since 2010, we've pioneered advanced human genome analysis. The BioMath Life Platform represents 
               our evolution from statistical methods to precise mathematical modeling. Through biomathematical 
               simulation and digital prediction systems, we can forecast disease progression and treatment 

@@ -425,10 +425,10 @@ const Projects = () => {
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
             <span className="gradient-blue-animated">{t('projects.title')}</span>
           </h1>
-          <p className="text-xl max-w-3xl mx-auto text-secondary">
+          <p className="text-xl max-w-3xl mx-auto text-primary-light">
             {t('projects.subtitle')}
           </p>
-          <p className="text-sm text-secondary mt-4 max-w-2xl mx-auto border-l-4 border-primary pl-4 py-2 bg-black/20 backdrop-blur-sm rounded-r-lg">
+          <p className="text-sm text-primary-light mt-4 max-w-2xl mx-auto border-l-4 border-primary pl-4 py-2 bg-black/20 backdrop-blur-sm rounded-r-lg">
             <strong>{t('projects.important')}:</strong> {t('projects.disclaimer')}
           </p>
         </div>
