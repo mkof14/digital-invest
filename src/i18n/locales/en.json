@@ -373,7 +373,8 @@
     "viewAllProjects": "View All Projects",
     "privateConfidential": "Private & Confidential",
     "noCommitment": "No Commitment Required",
-    "personalFollowup": "Personal Follow-up"
+    "personalFollowup": "Personal Follow-up",
+    "submitApplication": "Submit application"
   },
   "about": {
     "title": "About Us",
@@ -2301,5 +2302,68 @@
     "ctaTitle": "T1/2D is part of the BioMath Life Family",
     "ctaDesc": "A focused operational layer for daily diabetes management, built on the same data principles as the rest of the BioMath Life portfolio.",
     "ctaAll": "All BioMath Life Family"
+  },
+  "investorApplication": {
+    "metaTitle": "Investor Application",
+    "badge": "Private — by invitation",
+    "title": "Investor Application",
+    "subtitle": "Submit an expression of interest to explore opportunities across the Digital Invest portfolio. This is an informational request — not an investment commitment.",
+    "back": "Back",
+    "whatHappens": "What happens next",
+    "step1": "Our team reviews your request privately",
+    "step2": "We follow up within 1–2 business days via your preferred channel",
+    "step3": "If aligned, we share project materials and arrange a call",
+    "confidentialTitle": "Confidential",
+    "confidentialDesc": "Your information is handled privately and used only to evaluate fit. No public listing, no broadcast.",
+    "directContact": "Prefer email?",
+    "successTitle": "Application received",
+    "successDesc": "Thank you for reaching out. A confirmation has been sent to your email. Our team will follow up within 1–2 business days.",
+    "submitAnother": "Submit another",
+    "explorePortfolio": "Explore portfolio",
+    "submit": "Submit application",
+    "submitting": "Sending…",
+    "cancel": "Cancel",
+    "fields": {
+      "name": "Full name",
+      "email": "Email",
+      "phone": "Phone",
+      "country": "Country",
+      "investorType": "Investor type",
+      "amountRange": "Indicative range (USD)",
+      "sectors": "Sectors of interest",
+      "message": "Message",
+      "messagePlaceholder": "Tell us briefly what you are looking for and any context that helps us route your request."
+    },
+    "investorType": {
+      "private": "Private investor",
+      "family_office": "Family office",
+      "institutional": "Institutional",
+      "other": "Other"
+    },
+    "amount": {
+      "undisclosed": "Prefer not to disclose",
+      "under_100k": "Under $100K",
+      "100k_500k": "$100K – $500K",
+      "500k_2m": "$500K – $2M",
+      "2m_plus": "$2M+",
+      "help": "For internal sizing only. Non-binding."
+    },
+    "consent": {
+      "label": "I agree to be contacted by Digital Invest about this request.",
+      "help": "This submission is informational only and does not constitute an offer or commitment. See our",
+      "privacy": "Privacy Policy"
+    },
+    "errors": {
+      "nameShort": "Please enter your full name",
+      "email": "Please enter a valid email",
+      "messageLong": "Message is too long",
+      "consent": "You must agree to be contacted",
+      "generic": "Something went wrong. Please try again."
+    },
+    "toast": {
+      "successTitle": "Application received",
+      "successDesc": "Thank you. Our team will reach out within 1–2 business days.",
+      "errorTitle": "Submission failed"
+    }
   }
 }
