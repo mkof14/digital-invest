@@ -923,7 +923,6 @@ const Projects = () => {
         <div className="mt-16 max-w-5xl mx-auto">
           <InvestorPageDisclaimer />
         </div>
-      </div>
       <Footer />
     </div>
   );
