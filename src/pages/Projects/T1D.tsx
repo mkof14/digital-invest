@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -9,21 +10,25 @@ import { Separator } from '@/components/ui/separator';
 import {
   ArrowLeft, ArrowRight, Activity, Bell, BookOpen, Users, Globe,
   Utensils, Layers, Smartphone, ShieldCheck, Languages, Eye,
+  Radio, Brain, GitBranch, HeartHandshake,
 } from 'lucide-react';
 import OptimizedImage from '@/components/OptimizedImage';
 import InvestorPageDisclaimer from '@/components/InvestorPageDisclaimer';
 import t1dHero from '@/assets/projects/t1d-hero.jpg';
+import t1dVisual from '@/assets/projects/t1d-visual.jpg';
 
 /**
  * T1/2D — A unified platform for daily life with diabetes.
- * Part of the BioMath Life Family. Page is intentionally written without
- * generic AI/healthcare marketing phrasing — content is operational and
- * mirrors the project description provided by the team.
+ * Part of the BioMath Life Family. Multilingual via projectT1D namespace.
  */
 const T1D = () => {
+  const { t } = useTranslation();
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  const tp = (k: string) => t(`projectT1D.${k}`);
 
   return (
     <div className="min-h-screen bg-background">
@@ -33,55 +38,53 @@ const T1D = () => {
       <section className="relative h-[60vh] min-h-[520px] overflow-hidden">
         <OptimizedImage
           src={t1dHero}
-          alt="T1/2D — A unified platform for daily life with diabetes"
+          alt="T1/2D — daily life with diabetes platform"
           containerClassName="absolute inset-0 w-full h-full"
           className="w-full h-full object-cover"
           showSkeleton={false}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-background/55 via-background/80 to-background" />
+        {/* Animated gradient blobs */}
+        <div className="absolute -top-24 -left-24 w-[420px] h-[420px] bg-primary/15 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-0 right-0 w-[380px] h-[380px] bg-amber-400/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1.5s' }} />
 
         <div className="relative h-full container mx-auto px-4 flex flex-col justify-center max-w-5xl">
           <Link to="/projects" className="animate-fade-in">
             <Button variant="ghost" size="sm" className="mb-4 hover:bg-background/80 w-fit">
               <ArrowLeft className="w-4 h-4 mr-2" />
-              Back to Projects
+              {t('projectCommon.backToProjects')}
             </Button>
           </Link>
 
-          <div
-            className="animate-fade-in"
-            style={{ animationDelay: '0.1s', animationFillMode: 'backwards' }}
-          >
+          <div className="animate-fade-in" style={{ animationDelay: '0.1s', animationFillMode: 'backwards' }}>
             <div className="flex flex-wrap gap-2 mb-4">
               <Badge className="bg-primary/15 text-primary border-primary/30 hover:bg-primary/20">
-                Digital Health · Daily Life Infrastructure
+                {tp('badge')}
               </Badge>
               <Badge variant="outline" className="border-border/60 text-muted-foreground">
-                BioMath Life Family
+                {tp('familyBadge')}
               </Badge>
             </div>
-            <h1 className="text-4xl md:text-6xl font-bold mb-5 text-foreground tracking-tight">
-              T1/2D
+            <h1 className="text-4xl md:text-6xl font-bold mb-5 text-foreground tracking-tight bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text">
+              {tp('heroTitle')}
             </h1>
             <p className="text-xl md:text-2xl text-foreground/90 mb-3 max-w-3xl">
-              A unified platform for daily life with diabetes.
+              {tp('heroSubtitle')}
             </p>
             <p className="text-base md:text-lg text-muted-foreground max-w-3xl">
-              A practical system that helps people with Type&nbsp;1 and Type&nbsp;2
-              diabetes understand what is happening, respond in time, and manage
-              daily life with less stress.
+              {tp('heroDesc')}
             </p>
 
             <div className="flex gap-3 flex-wrap mt-7">
               <Link to="/start-investing">
                 <Button size="lg">
-                  Request Information
+                  {tp('ctaPrimary')}
                   <ArrowRight className="ml-2 w-4 h-4" />
                 </Button>
               </Link>
               <Link to="/projects/biomathlife">
                 <Button size="lg" variant="outline">
-                  Part of BioMath Life
+                  {tp('ctaSecondary')}
                 </Button>
               </Link>
             </div>
@@ -92,104 +95,77 @@ const T1D = () => {
       <main className="container mx-auto px-4 py-16 max-w-5xl">
         {/* Overview */}
         <section className="mb-16">
-          <Card className="border-primary/20 shadow-sm">
-            <CardContent className="pt-8 space-y-4">
-              <h2 className="text-3xl font-bold mb-2">Overview</h2>
-              <p className="text-lg leading-relaxed">
-                T1/2D is a unified platform designed to support people living with
-                diabetes in everyday life. It is built around one principle:
-                reduce the effort required to understand and manage the condition
-                on a daily basis.
-              </p>
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                Most existing solutions focus on collecting and displaying data.
-                T1/2D focuses on understanding, timing, clarity, and usability.
-                The system operates continuously and translates incoming data
-                into simple, actionable context.
-              </p>
+          <Card className="border-primary/20 shadow-sm relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-amber-500/5 pointer-events-none" />
+            <CardContent className="pt-8 space-y-4 relative">
+              <h2 className="text-3xl font-bold mb-2">{tp('overviewTitle')}</h2>
+              <p className="text-lg leading-relaxed">{tp('overviewP1')}</p>
+              <p className="text-lg text-muted-foreground leading-relaxed">{tp('overviewP2')}</p>
             </CardContent>
           </Card>
         </section>
 
         <Separator className="my-12" />
 
-        {/* Structure of the Platform */}
+        {/* Structure */}
         <section className="mb-16">
-          <h2 className="text-3xl font-bold mb-3">Structure of the platform</h2>
-          <p className="text-muted-foreground mb-8 max-w-3xl">
-            T1/2D is built as one system with two clearly separated operational
-            modes. Both use the same platform, but behavior, messaging and
-            interaction differ — so different users are not forced into the same
-            experience.
-          </p>
+          <h2 className="text-3xl font-bold mb-3">{tp('structureTitle')}</h2>
+          <p className="text-muted-foreground mb-8 max-w-3xl">{tp('structureDesc')}</p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* T1 */}
-            <Card className="border-border/60 hover:border-primary/40 transition-colors">
+            <Card className="border-border/60 hover:border-primary/40 transition-all hover:shadow-lg group">
               <CardHeader>
-                <Bell className="w-9 h-9 text-primary mb-3" />
-                <CardTitle className="flex items-center gap-3">
-                  Type&nbsp;1 Mode (T1)
-                  <Badge variant="outline" className="text-xs">Timing · Awareness · Response</Badge>
+                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-3 group-hover:bg-primary/20 transition-colors">
+                  <Bell className="w-6 h-6 text-primary" />
+                </div>
+                <CardTitle className="flex flex-wrap items-center gap-3">
+                  {tp('t1Mode')}
+                  <Badge variant="outline" className="text-xs">{tp('t1Tag')}</Badge>
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div>
-                  <p className="text-sm font-semibold text-foreground mb-2">Used by</p>
+                  <p className="text-sm font-semibold text-foreground mb-2">{tp('usedBy')}</p>
                   <ul className="text-muted-foreground space-y-1.5 text-sm">
-                    <li>• Children with Type&nbsp;1 diabetes</li>
-                    <li>• Parents</li>
-                    <li>• Caregivers</li>
-                    <li>• Adults requiring close monitoring</li>
+                    {[1,2,3,4].map(i => <li key={i}>• {tp(`t1Used${i}`)}</li>)}
                   </ul>
                 </div>
                 <div>
-                  <p className="text-sm font-semibold text-foreground mb-2">Key behavior</p>
+                  <p className="text-sm font-semibold text-foreground mb-2">{tp('keyBehavior')}</p>
                   <ul className="text-muted-foreground space-y-1.5 text-sm">
-                    <li>• Detects meaningful changes</li>
-                    <li>• Highlights risk early</li>
-                    <li>• Supports timely response</li>
-                    <li>• Provides caregiver visibility when needed</li>
-                    <li>• Follows recovery after events</li>
+                    {[1,2,3,4,5].map(i => <li key={i}>• {tp(`t1Beh${i}`)}</li>)}
                   </ul>
                 </div>
-                <p className="text-sm text-foreground/80 border-l-2 border-primary/40 pl-3 italic">
-                  Does not overload with constant alerts. Only reacts when
-                  necessary.
-                </p>
+                <p className="text-sm text-foreground/80 border-l-2 border-primary/40 pl-3 italic">{tp('t1Note')}</p>
               </CardContent>
             </Card>
 
             {/* T2 */}
-            <Card className="border-border/60 hover:border-primary/40 transition-colors">
+            <Card className="border-border/60 hover:border-primary/40 transition-all hover:shadow-lg group">
               <CardHeader>
-                <Activity className="w-9 h-9 text-primary mb-3" />
-                <CardTitle className="flex items-center gap-3">
-                  Type&nbsp;2 Mode (T2)
-                  <Badge variant="outline" className="text-xs">Daily Understanding · Routine</Badge>
+                <div className="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center mb-3 group-hover:bg-amber-500/20 transition-colors">
+                  <Activity className="w-6 h-6 text-amber-500" />
+                </div>
+                <CardTitle className="flex flex-wrap items-center gap-3">
+                  {tp('t2Mode')}
+                  <Badge variant="outline" className="text-xs">{tp('t2Tag')}</Badge>
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div>
-                  <p className="text-sm font-semibold text-foreground mb-2">Used by</p>
+                  <p className="text-sm font-semibold text-foreground mb-2">{tp('usedBy')}</p>
                   <ul className="text-muted-foreground space-y-1.5 text-sm">
-                    <li>• Adults managing Type&nbsp;2 diabetes</li>
-                    <li>• Users focused on stability and habits</li>
+                    {[1,2].map(i => <li key={i}>• {tp(`t2Used${i}`)}</li>)}
                   </ul>
                 </div>
                 <div>
-                  <p className="text-sm font-semibold text-foreground mb-2">Key behavior</p>
+                  <p className="text-sm font-semibold text-foreground mb-2">{tp('keyBehavior')}</p>
                   <ul className="text-muted-foreground space-y-1.5 text-sm">
-                    <li>• Shows simple daily states</li>
-                    <li>• Highlights after-meal changes</li>
-                    <li>• Identifies patterns over time</li>
-                    <li>• Provides low-pressure guidance</li>
-                    <li>• Avoids interruption unless needed</li>
+                    {[1,2,3,4,5].map(i => <li key={i}>• {tp(`t2Beh${i}`)}</li>)}
                   </ul>
                 </div>
-                <p className="text-sm text-foreground/80 border-l-2 border-primary/40 pl-3 italic">
-                  No alarm-driven experience. No unnecessary noise.
-                </p>
+                <p className="text-sm text-foreground/80 border-l-2 border-amber-500/40 pl-3 italic">{tp('t2Note')}</p>
               </CardContent>
             </Card>
           </div>
@@ -199,23 +175,20 @@ const T1D = () => {
 
         {/* Real-time interpretation */}
         <section className="mb-16">
-          <h2 className="text-3xl font-bold mb-3">Real-time interpretation</h2>
-          <p className="text-muted-foreground mb-6 max-w-3xl">
-            The system translates incoming signals into simple states shown in
-            plain language. No technical interpretation required from the user.
-          </p>
+          <h2 className="text-3xl font-bold mb-3">{tp('rtTitle')}</h2>
+          <p className="text-muted-foreground mb-6 max-w-3xl">{tp('rtDesc')}</p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {[
-              { label: 'Stable', tone: 'bg-emerald-500/10 text-emerald-400 border-emerald-500/30' },
-              { label: 'Changing', tone: 'bg-sky-500/10 text-sky-400 border-sky-500/30' },
-              { label: 'Possible risk', tone: 'bg-amber-500/10 text-amber-400 border-amber-500/30' },
-              { label: 'Recovery', tone: 'bg-violet-500/10 text-violet-400 border-violet-500/30' },
+              { key: 'stateStable', tone: 'bg-emerald-500/10 text-emerald-400 border-emerald-500/30' },
+              { key: 'stateChanging', tone: 'bg-sky-500/10 text-sky-400 border-sky-500/30' },
+              { key: 'stateRisk', tone: 'bg-amber-500/10 text-amber-400 border-amber-500/30' },
+              { key: 'stateRecovery', tone: 'bg-violet-500/10 text-violet-400 border-violet-500/30' },
             ].map((s) => (
               <div
-                key={s.label}
-                className={`rounded-xl border ${s.tone} p-5 text-center font-semibold`}
+                key={s.key}
+                className={`rounded-xl border ${s.tone} p-5 text-center font-semibold transition-transform hover:scale-105`}
               >
-                {s.label}
+                {tp(s.key)}
               </div>
             ))}
           </div>
@@ -223,67 +196,97 @@ const T1D = () => {
 
         <Separator className="my-12" />
 
-        {/* Daily diary + Nutrition */}
+        {/* Architecture infographic */}
         <section className="mb-16">
-          <h2 className="text-3xl font-bold mb-8">Nutrition & daily diary</h2>
+          <h2 className="text-3xl font-bold mb-3">{tp('archTitle')}</h2>
+          <p className="text-muted-foreground mb-8 max-w-3xl">{tp('archDesc')}</p>
+
+          <Card className="border-border/60 overflow-hidden">
+            <div className="relative">
+              <OptimizedImage
+                src={t1dVisual}
+                alt="T1/2D system flow"
+                containerClassName="absolute inset-0 w-full h-full"
+                className="w-full h-full object-cover opacity-40"
+                showSkeleton={false}
+              />
+              <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background/90" />
+
+              <div className="relative grid grid-cols-2 md:grid-cols-4 gap-4 p-8">
+                {[
+                  { icon: Radio, key: 'archSignals', color: 'text-sky-400', bg: 'bg-sky-500/10', border: 'border-sky-500/30' },
+                  { icon: Brain, key: 'archInterpret', color: 'text-primary', bg: 'bg-primary/10', border: 'border-primary/30' },
+                  { icon: GitBranch, key: 'archMode', color: 'text-amber-400', bg: 'bg-amber-500/10', border: 'border-amber-500/30' },
+                  { icon: HeartHandshake, key: 'archUser', color: 'text-violet-400', bg: 'bg-violet-500/10', border: 'border-violet-500/30' },
+                ].map((step, i) => (
+                  <div key={step.key} className="relative">
+                    <div className={`rounded-xl border ${step.border} ${step.bg} backdrop-blur-sm p-5 text-center h-full flex flex-col items-center justify-center gap-3 transition-all hover:scale-105`}>
+                      <div className={`w-12 h-12 rounded-full ${step.bg} flex items-center justify-center`}>
+                        <step.icon className={`w-6 h-6 ${step.color}`} />
+                      </div>
+                      <p className="font-semibold text-foreground text-sm">{tp(step.key)}</p>
+                      <span className={`text-xs ${step.color} font-mono`}>0{i + 1}</span>
+                    </div>
+                    {i < 3 && (
+                      <div className="hidden md:flex absolute top-1/2 -right-2 -translate-y-1/2 z-10 items-center justify-center w-4 h-4">
+                        <ArrowRight className="w-4 h-4 text-muted-foreground/60" />
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </Card>
+        </section>
+
+        <Separator className="my-12" />
+
+        {/* Nutrition + diary */}
+        <section className="mb-16">
+          <h2 className="text-3xl font-bold mb-8">{tp('nutTitle')}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <Card className="border-border/60">
+            <Card className="border-border/60 hover:shadow-md transition-shadow">
               <CardHeader>
-                <BookOpen className="w-8 h-8 text-primary mb-2" />
-                <CardTitle>Built-in daily diary</CardTitle>
+                <div className="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center mb-2">
+                  <BookOpen className="w-6 h-6 text-primary" />
+                </div>
+                <CardTitle>{tp('diaryTitle')}</CardTitle>
               </CardHeader>
               <CardContent>
                 <ul className="text-muted-foreground space-y-2 text-sm">
-                  <li>• Log meals — breakfast, lunch, dinner, snacks</li>
-                  <li>• Track carbohydrates</li>
-                  <li>• Track calories and nutrients</li>
-                  <li>• Add notes</li>
-                  <li>• Record activity</li>
+                  {[1,2,3,4,5].map(i => <li key={i}>• {tp(`diary${i}`)}</li>)}
                 </ul>
-                <p className="text-xs text-muted-foreground/80 mt-4 italic">
-                  The system supports incomplete entries and real-life usage.
-                </p>
+                <p className="text-xs text-muted-foreground/80 mt-4 italic">{tp('diaryNote')}</p>
               </CardContent>
             </Card>
 
-            <Card className="border-border/60">
+            <Card className="border-border/60 hover:shadow-md transition-shadow">
               <CardHeader>
-                <Layers className="w-8 h-8 text-primary mb-2" />
-                <CardTitle>For Type&nbsp;1 users</CardTitle>
+                <div className="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center mb-2">
+                  <Layers className="w-6 h-6 text-primary" />
+                </div>
+                <CardTitle>{tp('t1UsersTitle')}</CardTitle>
               </CardHeader>
               <CardContent>
                 <ul className="text-muted-foreground space-y-2 text-sm">
-                  <li>• Log insulin doses</li>
-                  <li>• Record bolus and corrections</li>
-                  <li>• Note pump adjustments</li>
+                  {[1,2,3].map(i => <li key={i}>• {tp(`t1U${i}`)}</li>)}
                 </ul>
               </CardContent>
             </Card>
 
-            <Card className="border-border/60 md:col-span-2">
+            <Card className="border-border/60 md:col-span-2 hover:shadow-md transition-shadow">
               <CardHeader>
-                <Utensils className="w-8 h-8 text-primary mb-2" />
-                <CardTitle>Food & nutrition support</CardTitle>
+                <div className="w-11 h-11 rounded-xl bg-amber-500/10 flex items-center justify-center mb-2">
+                  <Utensils className="w-6 h-6 text-amber-500" />
+                </div>
+                <CardTitle>{tp('foodTitle')}</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-muted-foreground mb-4 text-sm">
-                  T1/2D includes structured guidance — content is practical and
-                  directly usable, not advisory boilerplate.
-                </p>
+                <p className="text-muted-foreground mb-4 text-sm">{tp('foodDesc')}</p>
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-3 text-sm">
-                  {[
-                    'Food recommendations',
-                    'Carbohydrate awareness',
-                    'Ready meal plans',
-                    'Simple recipes',
-                    'Vitamin information',
-                    'Nutrition information',
-                  ].map((i) => (
-                    <div
-                      key={i}
-                      className="rounded-lg border border-border/60 px-3 py-2 text-muted-foreground"
-                    >
-                      {i}
+                  {[1,2,3,4,5,6].map(i => (
+                    <div key={i} className="rounded-lg border border-border/60 px-3 py-2 text-muted-foreground hover:border-primary/40 hover:text-foreground transition-colors">
+                      {tp(`food${i}`)}
                     </div>
                   ))}
                 </div>
@@ -294,32 +297,33 @@ const T1D = () => {
 
         <Separator className="my-12" />
 
-        {/* Family and caregiver */}
+        {/* Family */}
         <section className="mb-16">
-          <h2 className="text-3xl font-bold mb-8">Family & caregiver support</h2>
+          <h2 className="text-3xl font-bold mb-8">{tp('famTitle')}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <Card className="border-border/60">
               <CardHeader>
-                <Users className="w-8 h-8 text-primary mb-2" />
-                <CardTitle>For Type&nbsp;1</CardTitle>
+                <div className="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center mb-2">
+                  <Users className="w-6 h-6 text-primary" />
+                </div>
+                <CardTitle>{tp('famT1Title')}</CardTitle>
               </CardHeader>
               <CardContent>
                 <ul className="text-muted-foreground space-y-2 text-sm">
-                  <li>• Shared awareness is available</li>
-                  <li>• Alerts can be forwarded when needed</li>
-                  <li>• Control remains with the user or parent</li>
+                  {[1,2,3].map(i => <li key={i}>• {tp(`famT1_${i}`)}</li>)}
                 </ul>
               </CardContent>
             </Card>
             <Card className="border-border/60">
               <CardHeader>
-                <Eye className="w-8 h-8 text-primary mb-2" />
-                <CardTitle>For Type&nbsp;2</CardTitle>
+                <div className="w-11 h-11 rounded-xl bg-amber-500/10 flex items-center justify-center mb-2">
+                  <Eye className="w-6 h-6 text-amber-500" />
+                </div>
+                <CardTitle>{tp('famT2Title')}</CardTitle>
               </CardHeader>
               <CardContent>
                 <ul className="text-muted-foreground space-y-2 text-sm">
-                  <li>• Caregiver layer is optional</li>
-                  <li>• System remains individual-first</li>
+                  {[1,2].map(i => <li key={i}>• {tp(`famT2_${i}`)}</li>)}
                 </ul>
               </CardContent>
             </Card>
@@ -330,18 +334,14 @@ const T1D = () => {
 
         {/* Daily summaries */}
         <section className="mb-16">
-          <h2 className="text-3xl font-bold mb-3">Daily summaries</h2>
-          <p className="text-muted-foreground mb-6 max-w-3xl">
-            The system provides short, readable summaries. No dashboards. No
-            overload.
-          </p>
+          <h2 className="text-3xl font-bold mb-3">{tp('sumTitle')}</h2>
+          <p className="text-muted-foreground mb-6 max-w-3xl">{tp('sumDesc')}</p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="rounded-xl border border-border/60 bg-muted/20 px-6 py-5">
-              <p className="text-foreground font-medium">“1 alert. Responded. Stable.”</p>
-            </div>
-            <div className="rounded-xl border border-border/60 bg-muted/20 px-6 py-5">
-              <p className="text-foreground font-medium">“Mostly stable today. One after-meal rise.”</p>
-            </div>
+            {[1,2].map(i => (
+              <div key={i} className="rounded-xl border border-border/60 bg-gradient-to-br from-muted/30 to-muted/10 px-6 py-5">
+                <p className="text-foreground font-medium">"{tp(`sum${i}`)}"</p>
+              </div>
+            ))}
           </div>
         </section>
 
@@ -351,22 +351,15 @@ const T1D = () => {
         <section className="mb-16">
           <h2 className="text-3xl font-bold mb-3 flex items-center gap-3">
             <Languages className="w-7 h-7 text-primary" />
-            Multilingual support
+            {tp('mlTitle')}
           </h2>
-          <p className="text-muted-foreground mb-6 max-w-3xl">
-            The platform is designed for global use. All content is structured
-            and consistent across languages.
-          </p>
+          <p className="text-muted-foreground mb-6 max-w-3xl">{tp('mlDesc')}</p>
           <div className="flex flex-wrap gap-2">
             {[
-              'English', 'Spanish', 'Russian', 'Arabic', 'Portuguese', 'French',
-              'German', 'Italian', 'Ukrainian', 'Chinese', 'Hindi', 'Japanese', 'Korean',
+              'English','Spanish','Russian','Arabic','Portuguese','French',
+              'German','Italian','Ukrainian','Chinese','Hindi','Japanese','Korean',
             ].map((l) => (
-              <Badge
-                key={l}
-                variant="outline"
-                className="border-border/60 text-muted-foreground py-1.5 px-3"
-              >
+              <Badge key={l} variant="outline" className="border-border/60 text-muted-foreground py-1.5 px-3 hover:border-primary/40 hover:text-foreground transition-colors">
                 {l}
               </Badge>
             ))}
@@ -377,35 +370,31 @@ const T1D = () => {
 
         {/* Design principles */}
         <section className="mb-16">
-          <h2 className="text-3xl font-bold mb-8">Design principles</h2>
+          <h2 className="text-3xl font-bold mb-8">{tp('designTitle')}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <Card className="border-border/60">
               <CardHeader>
-                <Smartphone className="w-8 h-8 text-primary mb-2" />
-                <CardTitle>What the product is</CardTitle>
+                <div className="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center mb-2">
+                  <Smartphone className="w-6 h-6 text-primary" />
+                </div>
+                <CardTitle>{tp('isTitle')}</CardTitle>
               </CardHeader>
               <CardContent>
                 <ul className="text-muted-foreground space-y-2 text-sm">
-                  <li>• Simple</li>
-                  <li>• Calm</li>
-                  <li>• Readable</li>
-                  <li>• Non-clinical</li>
-                  <li>• Minimal interaction effort</li>
-                  <li>• Mobile-first</li>
+                  {[1,2,3,4,5,6].map(i => <li key={i}>• {tp(`is${i}`)}</li>)}
                 </ul>
               </CardContent>
             </Card>
             <Card className="border-border/60">
               <CardHeader>
-                <ShieldCheck className="w-8 h-8 text-primary mb-2" />
-                <CardTitle>What the product avoids</CardTitle>
+                <div className="w-11 h-11 rounded-xl bg-rose-500/10 flex items-center justify-center mb-2">
+                  <ShieldCheck className="w-6 h-6 text-rose-400" />
+                </div>
+                <CardTitle>{tp('avoidTitle')}</CardTitle>
               </CardHeader>
               <CardContent>
                 <ul className="text-muted-foreground space-y-2 text-sm">
-                  <li>• Charts as default surface</li>
-                  <li>• Dashboards</li>
-                  <li>• Complex controls</li>
-                  <li>• Medical terminology overload</li>
+                  {[1,2,3,4].map(i => <li key={i}>• {tp(`av${i}`)}</li>)}
                 </ul>
               </CardContent>
             </Card>
@@ -414,24 +403,13 @@ const T1D = () => {
 
         <Separator className="my-12" />
 
-        {/* Technology structure */}
+        {/* Technology */}
         <section className="mb-16">
-          <h2 className="text-3xl font-bold mb-8">Technology structure</h2>
+          <h2 className="text-3xl font-bold mb-8">{tp('techTitle')}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {[
-              'Real-time data ingestion',
-              'Interpretation layer',
-              'Mode-based behavior (T1 / T2)',
-              'Modular backend',
-              'Multilingual content system',
-              'Device integration layer',
-              'Scalable architecture',
-            ].map((row) => (
-              <div
-                key={row}
-                className="rounded-lg border border-border/60 px-5 py-3.5 text-sm text-foreground bg-muted/10"
-              >
-                {row}
+            {[1,2,3,4,5,6,7].map(i => (
+              <div key={i} className="rounded-lg border border-border/60 px-5 py-3.5 text-sm text-foreground bg-gradient-to-r from-muted/20 to-transparent hover:border-primary/40 hover:from-primary/5 transition-all">
+                {tp(`tech${i}`)}
               </div>
             ))}
           </div>
@@ -439,31 +417,25 @@ const T1D = () => {
 
         <Separator className="my-12" />
 
-        {/* Why this project matters */}
+        {/* Why */}
         <section className="mb-16">
-          <h2 className="text-3xl font-bold mb-6">Why this project matters</h2>
-          <Card className="border-border/60">
-            <CardContent className="pt-8 space-y-5 text-muted-foreground leading-relaxed">
-              <p className="text-lg text-foreground">
-                Diabetes is managed every day, not occasionally.
-              </p>
-              <p>
-                Existing tools require constant attention, manual interpretation
-                and continuous user effort. T1/2D reduces that effort.
-              </p>
+          <h2 className="text-3xl font-bold mb-6">{tp('whyTitle')}</h2>
+          <Card className="border-border/60 relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-amber-500/5 pointer-events-none" />
+            <CardContent className="pt-8 space-y-5 text-muted-foreground leading-relaxed relative">
+              <p className="text-lg text-foreground">{tp('whyLead')}</p>
+              <p>{tp('whyP')}</p>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
-                <div className="rounded-lg border border-border/60 p-4">
-                  <p className="text-foreground font-semibold mb-1">Clarity</p>
-                  <p className="text-sm">Instead of data overload.</p>
-                </div>
-                <div className="rounded-lg border border-border/60 p-4">
-                  <p className="text-foreground font-semibold mb-1">Timing</p>
-                  <p className="text-sm">Instead of constant monitoring.</p>
-                </div>
-                <div className="rounded-lg border border-border/60 p-4">
-                  <p className="text-foreground font-semibold mb-1">Support</p>
-                  <p className="text-sm">Instead of pressure.</p>
-                </div>
+                {[
+                  { t: 'clarity', d: 'clarityDesc' },
+                  { t: 'timing', d: 'timingDesc' },
+                  { t: 'support', d: 'supportDesc' },
+                ].map(item => (
+                  <div key={item.t} className="rounded-lg border border-border/60 p-4 bg-background/40 backdrop-blur-sm">
+                    <p className="text-foreground font-semibold mb-1">{tp(item.t)}</p>
+                    <p className="text-sm">{tp(item.d)}</p>
+                  </div>
+                ))}
               </div>
             </CardContent>
           </Card>
@@ -471,23 +443,14 @@ const T1D = () => {
 
         <Separator className="my-12" />
 
-        {/* Expected impact */}
+        {/* Impact */}
         <section className="mb-16">
-          <h2 className="text-3xl font-bold mb-8">Expected impact</h2>
+          <h2 className="text-3xl font-bold mb-8">{tp('impactTitle')}</h2>
           <ul className="space-y-3">
-            {[
-              'Fewer missed critical moments (T1)',
-              'Clearer daily understanding (T2)',
-              'Reduced stress for users and families',
-              'More consistent daily control',
-              'Better long-term habits',
-            ].map((row) => (
-              <li
-                key={row}
-                className="flex items-start gap-3 rounded-lg border border-border/60 bg-muted/10 px-5 py-3"
-              >
+            {[1,2,3,4,5].map(i => (
+              <li key={i} className="flex items-start gap-3 rounded-lg border border-border/60 bg-gradient-to-r from-muted/20 to-transparent px-5 py-3 hover:border-primary/40 transition-colors">
                 <span className="mt-1.5 inline-block w-1.5 h-1.5 rounded-full bg-primary" />
-                <span className="text-foreground">{row}</span>
+                <span className="text-foreground">{tp(`imp${i}`)}</span>
               </li>
             ))}
           </ul>
@@ -497,27 +460,22 @@ const T1D = () => {
 
         {/* CTA */}
         <section className="mb-16">
-          <Card className="bg-gradient-to-br from-primary/10 via-primary/5 to-transparent border-primary/20">
-            <CardContent className="py-12 text-center">
-              <h2 className="text-3xl font-bold mb-3">
-                T1/2D is part of the BioMath Life Family
-              </h2>
-              <p className="text-muted-foreground max-w-2xl mx-auto mb-8">
-                A focused operational layer for daily diabetes management,
-                built on the same data principles as the rest of the BioMath
-                Life portfolio.
-              </p>
+          <Card className="bg-gradient-to-br from-primary/15 via-primary/5 to-amber-500/10 border-primary/20 relative overflow-hidden">
+            <div className="absolute -top-20 -right-20 w-64 h-64 bg-primary/10 rounded-full blur-3xl" />
+            <CardContent className="py-12 text-center relative">
+              <h2 className="text-3xl font-bold mb-3">{tp('ctaTitle')}</h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto mb-8">{tp('ctaDesc')}</p>
               <div className="flex gap-3 justify-center flex-wrap">
                 <Link to="/start-investing">
                   <Button size="lg">
-                    Request Information
+                    {tp('ctaPrimary')}
                     <ArrowRight className="ml-2 w-4 h-4" />
                   </Button>
                 </Link>
                 <Link to="/projects">
                   <Button size="lg" variant="outline">
                     <Globe className="w-4 h-4 mr-2" />
-                    All BioMath Life Family
+                    {tp('ctaAll')}
                   </Button>
                 </Link>
               </div>
