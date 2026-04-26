@@ -136,6 +136,15 @@ const Index = () => {
       canonicalUrl: 'https://digitalinvest.com/',
     });
 
+    // DEV-only: verify meta tags both in DOM and in raw server HTML response
+    verifyMetaTags({
+      title: /Digital Invest/i,
+      description: /qualified|accredited|private/i,
+      ogTitle: /Digital Invest/i,
+      ogDescription: /private|qualified|portfolio/i,
+      ogImage: /og-digital-invest\.webp$/i,
+    });
+
     const faqData = [
       { question: "Is this a crowdfunding platform?", answer: "No. Digital Invest Inc. is not a crowdfunding platform. This website is informational only." },
       { question: "Can I invest online through this website?", answer: "No. This website does not process payments or facilitate direct online investment." },
