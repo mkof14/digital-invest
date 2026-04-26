@@ -2189,7 +2189,7 @@
     "ctaSecondary": "Partie de BioMath Life",
     "overviewTitle": "Vue d'ensemble",
     "overviewP1": "T1/2D est une plateforme unifiée conçue pour soutenir les personnes vivant avec le diabète au quotidien. Elle repose sur un principe : réduire l'effort nécessaire pour comprendre et gérer la maladie chaque jour.",
-    "overviewP2": "La plupart des solutions existantes se concentrent sur la collecte et l'affichage des données. T1/2D met l'accent sur l'interprétation, le timing, la clarté et l'utilisabilité — en transformant des signaux continus en un contexte simple et exploitable.",
+    "overviewP2": "La plupart des solutions existantes se concentrent sur la collecte et l'affichage des données. T1/2D met l'accent sur l'interprétation, le timing, la clarté et l'utilisabilité — en transformant les signaux entrants en un contexte clair et prêt à l'action.",
     "structureTitle": "Structure de la plateforme",
     "structureDesc": "T1/2D est un système unique avec deux modes opérationnels clairement séparés. Les deux partagent la même plateforme, mais le comportement, les messages et l'interaction diffèrent — pour ne pas imposer la même expérience à tous les profils.",
     "t1Mode": "Mode Type 1 (T1)",
