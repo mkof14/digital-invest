@@ -153,7 +153,7 @@ const Services = () => {
             Complete Portfolio of
             <span className="block text-primary">Innovation Services</span>
           </h1>
-          <p className="text-xl max-w-4xl mx-auto leading-relaxed text-secondary">
+          <p className="text-xl max-w-4xl mx-auto leading-relaxed text-primary-light">
             From precision medicine to agricultural technology, we offer cutting-edge solutions 
             across multiple domains of technological innovation.
           </p>

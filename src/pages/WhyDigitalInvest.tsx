@@ -18,7 +18,7 @@ const WhyDigitalInvest = () => {
       <PageHero image={heroImage}>
         <div className="max-w-4xl mx-auto text-center space-y-6 animate-fade-in">
           <h1 className="text-4xl md:text-6xl font-bold text-foreground">{t('whyDigitalInvest.heroTitle')}</h1>
-          <p className="text-xl md:text-2xl text-secondary leading-relaxed">{t('whyDigitalInvest.heroSubtitle')}</p>
+          <p className="text-xl md:text-2xl text-primary-light leading-relaxed">{t('whyDigitalInvest.heroSubtitle')}</p>
         </div>
       </PageHero>
 

@@ -22,7 +22,7 @@ const Recognition = () => {
             Leading Innovation in
             <span className="block text-primary">Precision Medicine</span>
           </h1>
-          <p className="text-xl max-w-4xl mx-auto leading-relaxed text-secondary">
+          <p className="text-xl max-w-4xl mx-auto leading-relaxed text-primary-light">
             Our groundbreaking work in biomathematical modeling and precision medicine 
             has earned recognition from leading industry publications and organizations worldwide.
           </p>

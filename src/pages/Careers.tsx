@@ -19,7 +19,7 @@ const Careers = () => {
         <PageHero image={heroImage}>
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-5xl font-bold mb-6">{t('careers.title')}</h1>
-            <p className="text-xl text-secondary">{t('careers.subtitle')}</p>
+            <p className="text-xl text-primary-light">{t('careers.subtitle')}</p>
           </div>
         </PageHero>
 
