@@ -217,6 +217,7 @@ const projectOrder: string[] = [
   'seniorcore',
   'skincore',
   'luna-balance',
+  't1d',
   'mrx-health',
   'baseline',
   'agron',
@@ -253,6 +254,7 @@ const accentGradients: Record<string, string> = {
   'familycore': 'from-blue-500/20 to-blue-500/0',
   'seniorcore': 'from-stone-500/20 to-stone-500/0',
   'skincore': 'from-pink-400/20 to-pink-400/0',
+  't1d': 'from-teal-500/20 to-teal-500/0',
   'digital-invest-portfolio': 'from-slate-400/20 to-slate-400/0',
 };
 
@@ -277,6 +279,7 @@ const accentDots: Record<string, string> = {
   'familycore': 'bg-blue-500',
   'seniorcore': 'bg-stone-500',
   'skincore': 'bg-pink-400',
+  't1d': 'bg-teal-500',
   'digital-invest-portfolio': 'bg-slate-400',
 };
 
@@ -302,6 +305,7 @@ const accentPalette: Record<string, { text: string; border: string; bgSoft: stri
   'familycore':     { text: 'text-blue-400',    border: 'border-blue-500/60',    bgSoft: 'bg-blue-500/10',    glow: 'shadow-blue-500/20',    ring: 'ring-blue-500/40' },
   'seniorcore':     { text: 'text-stone-300',   border: 'border-stone-500/60',   bgSoft: 'bg-stone-500/10',   glow: 'shadow-stone-500/20',   ring: 'ring-stone-500/40' },
   'skincore':       { text: 'text-pink-300',    border: 'border-pink-400/60',    bgSoft: 'bg-pink-400/10',    glow: 'shadow-pink-400/20',    ring: 'ring-pink-400/40' },
+  't1d':            { text: 'text-teal-300',    border: 'border-teal-500/60',    bgSoft: 'bg-teal-500/10',    glow: 'shadow-teal-500/20',    ring: 'ring-teal-500/40' },
   'digital-invest-portfolio': { text: 'text-slate-300', border: 'border-slate-400/60', bgSoft: 'bg-slate-500/10', glow: 'shadow-slate-500/20', ring: 'ring-slate-400/40' },
 };
 
