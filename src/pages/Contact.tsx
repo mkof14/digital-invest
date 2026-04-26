@@ -60,7 +60,7 @@ const Contact = () => {
       <PageHero image={heroImage} className="!pb-12">
         <div className="mb-2 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">{t('contact.title')}</h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-6">{t('contact.subtitle')}</p>
+          <p className="text-xl max-w-3xl mx-auto mb-6 text-secondary">{t('contact.subtitle')}</p>
           <div className="max-w-2xl mx-auto">
             <p className="text-sm text-muted-foreground px-6 py-4 bg-muted/30 rounded-lg border border-border/50">
               <strong>{t('common.important')}:</strong> {t('contact.disclaimer')}

@@ -76,7 +76,7 @@ Today, Digital Invest brings together this multi-sector expertise into a unified
           <h1 className="text-5xl md:text-6xl font-bold">
             <span className="gradient-blue-animated">{t('about.title')}</span>
           </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-xl max-w-3xl mx-auto text-secondary">
             {t('about.subtitle')}
           </p>
         </div>
