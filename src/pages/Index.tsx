@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 import { supabase } from '@/integrations/supabase/client';
 import { generateFAQSchema, injectStructuredData, removeStructuredData } from '@/lib/structuredData';
 import { updateMetaTags, resetMetaTags } from '@/lib/metaTags';
+import { verifyMetaTags } from '@/lib/verifyMetaTags';
 import OptimizedImage from "@/components/OptimizedImage";
 import FloatingElements from "@/components/FloatingElements";
 import ROICalculator from "@/components/ROICalculator";
