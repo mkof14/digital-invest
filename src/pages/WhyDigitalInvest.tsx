@@ -13,12 +13,12 @@ const WhyDigitalInvest = () => {
     <div className="min-h-screen bg-background">
       <Navigation />
 
-      <section className="pt-32 pb-24 px-4">
+      <PageHero image={heroImage}>
         <div className="max-w-4xl mx-auto text-center space-y-6 animate-fade-in">
           <h1 className="text-4xl md:text-6xl font-bold text-foreground">{t('whyDigitalInvest.heroTitle')}</h1>
           <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed">{t('whyDigitalInvest.heroSubtitle')}</p>
         </div>
-      </section>
+      </PageHero>
 
       <section className="py-16 px-4 bg-card/30 section-gradient-cool">
         <div className="max-w-4xl mx-auto">
