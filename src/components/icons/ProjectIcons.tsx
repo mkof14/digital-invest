@@ -128,6 +128,15 @@ export const SunCheckIcon = ({ className = '' }: IconProps) => (
   </svg>
 );
 
+// Subtle glucose-curve icon for T1/2D — sine wave with a single accent dot at peak.
+export const GlucoseCurveIcon = ({ className = '' }: IconProps) => (
+  <svg viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M2 14c2.5 0 3-6 6-6s3.5 8 6 8 3.5-6 6-6 2 4 2 4" />
+    <circle cx="8" cy="8" r="1.4" fill="currentColor" stroke="none" />
+    <circle cx="14" cy="16" r="1.2" fill="currentColor" stroke="none" opacity="0.6" />
+  </svg>
+);
+
 // ---- Per-project registry ----
 
 export const projectIcons: Record<string, React.ReactNode> = {
@@ -151,6 +160,7 @@ export const projectIcons: Record<string, React.ReactNode> = {
   'myday': <AILoopIcon className="w-4 h-4" />,
   'itsgoodtoday': <SunCheckIcon className="w-4 h-4" />,
   'table-served': <PlateForkIcon className="w-4 h-4" />,
+  't1d': <GlucoseCurveIcon className="w-4 h-4" />,
   'digital-invest-portfolio': <GrowthArrowIcon className="w-4 h-4" />,
 };
 
@@ -190,6 +200,7 @@ export const ProjectIcon = ({
     'myday': AILoopIcon,
     'itsgoodtoday': SunCheckIcon,
     'table-served': PlateForkIcon,
+    't1d': GlucoseCurveIcon,
     'digital-invest-portfolio': GrowthArrowIcon,
   };
   const Cmp = Map[slug] || SynergyOrbitIcon;
