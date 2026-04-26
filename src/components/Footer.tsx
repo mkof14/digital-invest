@@ -134,9 +134,7 @@ const Footer = () => {
           <div className="space-y-4">
             <h4 className="font-semibold text-foreground text-sm tracking-wide uppercase">{t('footer.resources')}</h4>
             <ul className="space-y-2.5">
-              <li><Link to="/press-center" className={linkClass}><span className="w-0 group-hover/link:w-2 h-px bg-primary transition-all duration-300" />{t('footer.pressCenter')}</Link></li>
               <li><Link to="/investor-documents" className={linkClass}><span className="w-0 group-hover/link:w-2 h-px bg-primary transition-all duration-300" />{t('footer.investorDocuments')}</Link></li>
-              <li><Link to="/investor-handbook" className={linkClass}><span className="w-0 group-hover/link:w-2 h-px bg-primary transition-all duration-300" />{t('footer.investorHandbook')}</Link></li>
               <li><Link to="/start-investing" className={linkClass}><span className="w-0 group-hover/link:w-2 h-px bg-primary transition-all duration-300" />{t('footer.investorInfo')}</Link></li>
               <li><Link to="/glossary" className={linkClass}><span className="w-0 group-hover/link:w-2 h-px bg-primary transition-all duration-300" />{t('footer.glossary')}</Link></li>
               <li><Link to="/document-library" className={linkClass}><span className="w-0 group-hover/link:w-2 h-px bg-primary transition-all duration-300" />{t('footer.documentLibrary')}</Link></li>
