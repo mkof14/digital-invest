@@ -254,14 +254,14 @@ const StartInvesting = () => {
               </Button>
             </Card>
             
-            <Card className="text-center p-6">
+            <Card className="text-center p-6 border-primary/30 bg-gradient-to-br from-primary/10 via-card to-card">
               <Users className="h-12 w-12 text-primary mx-auto mb-4" />
-              <h3 className="text-lg font-semibold mb-2">Schedule Call</h3>
+              <h3 className="text-lg font-semibold mb-2">Submit application</h3>
               <p className="text-sm text-muted-foreground mb-4">
-                Request a private conversation with our team
+                Send a formal expression of interest. Our team responds within 1–2 business days.
               </p>
-              <Button variant="outline" size="sm" className="w-full" asChild>
-                <Link to="/schedule">Schedule</Link>
+              <Button size="sm" className="w-full" asChild>
+                <Link to="/investor-application">Apply now</Link>
               </Button>
             </Card>
             
