@@ -406,7 +406,7 @@ const PortfolioOverview = () => {
               )}
             </h1>
 
-            <p className="mt-8 text-base md:text-lg text-muted-foreground max-w-2xl leading-relaxed">
+            <p className="mt-8 text-base md:text-lg text-secondary max-w-2xl leading-relaxed">
               {lang === 'ru'
                 ? 'Все проекты портфеля собраны на одной странице для быстрого ознакомления. Для более глубокого изучения — переходите на страницу проекта. Если этого недостаточно — свяжитесь с представителем Digital Invest или отправьте запрос через сайт для получения детальной информации. Ряд данных предоставляется индивидуально в связи с правовыми и конфиденциальными ограничениями.'
                 : lang === 'uk'

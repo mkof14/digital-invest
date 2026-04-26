@@ -45,7 +45,7 @@ const ForInvestors = () => {
             <span className="block text-foreground mb-3">{t('investors.heroTitle1')}</span>
             <span className="block gradient-blue-animated">{t('investors.heroTitle2')}</span>
           </h1>
-          <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed max-w-3xl mx-auto">
+          <p className="text-xl md:text-2xl text-secondary leading-relaxed max-w-3xl mx-auto">
             {t('investors.heroSubtitle')}
           </p>
           <div className="flex flex-wrap gap-4 justify-center pt-6">

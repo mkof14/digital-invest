@@ -10,6 +10,8 @@ import { Input } from '@/components/ui/input';
 import { useToast } from '@/hooks/use-toast';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
+import PageHero from '@/components/PageHero';
+import heroImage from '@/assets/heroes/projects.webp';
 import InvestorPageDisclaimer from '@/components/InvestorPageDisclaimer';
 import terraaeroHero from '@/assets/projects/terraaero-hero.jpg';
 import biomathcoreHero from '@/assets/projects/biomathcore-hero.jpg';
@@ -417,20 +419,23 @@ const Projects = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
-      <div className="pt-24 pb-16 section-gradient-slate">
+      <PageHero image={heroImage}>
         <div className="container mx-auto px-4">
         {/* Header */}
         <div className="mb-12 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
             <span className="gradient-blue-animated">{t('projects.title')}</span>
           </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-xl max-w-3xl mx-auto text-secondary">
             {t('projects.subtitle')}
           </p>
-          <p className="text-sm text-muted-foreground mt-4 max-w-2xl mx-auto border-l-4 border-primary pl-4 py-2">
+          <p className="text-sm text-secondary mt-4 max-w-2xl mx-auto border-l-4 border-primary pl-4 py-2 bg-black/20 backdrop-blur-sm rounded-r-lg">
             <strong>{t('projects.important')}:</strong> {t('projects.disclaimer')}
           </p>
         </div>
+      </PageHero>
+
+      <div className="py-16 bg-background">
 
         {/* Search & Filter Bar */}
         {projects.length > 0 && (() => {
