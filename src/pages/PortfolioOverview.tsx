@@ -188,6 +188,15 @@ const overviewTexts: Record<string, Record<string, string>> = {
     ja: '肌はあなたの最大の臓器。SkinCoreはAI皮膚科学で臨床グレードの精度でパーソナライズされたスキンケアをガイド。経時変化を監視し、専門的注意が必要な異常を検出します。',
     he: 'העור הוא האיבר הגדול ביותר. SkinCore משתמש בדרמטולוגיית AI בדיוק קליני. עוקב אחר שינויים לאורך זמן ומזהה חריגות שמצדיקות תשומת לב מקצועית.'
   },
+  't1d': {
+    en: 'A unified daily-life platform for people with Type 1 and Type 2 diabetes. T1/2D translates continuous signals into simple states — stable, changing, possible risk, recovery — and runs in two distinct modes so children, parents, caregivers and Type 2 adults aren\'t forced into the same experience. No alarm-driven dashboards. Less effort, better timing.',
+    ru: 'Единая платформа повседневной жизни для людей с диабетом 1 и 2 типа. T1/2D переводит непрерывные сигналы в простые состояния — стабильно, изменяется, возможный риск, восстановление — и работает в двух раздельных режимах, чтобы дети, родители, опекуны и взрослые со 2 типом не получали одинаковый опыт. Без дашбордов и тревожных уведомлений по умолчанию.',
+    uk: 'Єдина платформа повсякденного життя для людей з діабетом 1 та 2 типу. T1/2D перетворює безперервні сигнали на прості стани та працює у двох окремих режимах, щоб діти, батьки, опікуни та дорослі з 2 типом не мали однакового досвіду. Без дашбордів і тривожних сповіщень за замовчуванням.',
+    fr: 'Une plateforme unifiée pour la vie quotidienne avec le diabète de type 1 et 2. T1/2D traduit les signaux continus en états simples et fonctionne en deux modes distincts pour que enfants, parents, aidants et adultes type 2 ne partagent pas la même expérience. Pas de tableaux de bord ni d\'alarmes par défaut.',
+    ar: 'منصة موحدة للحياة اليومية لمرضى السكري من النوع 1 والنوع 2. يحول T1/2D الإشارات المستمرة إلى حالات بسيطة ويعمل بوضعين منفصلين حتى لا يضطر الأطفال والآباء ومقدمو الرعاية والبالغون من النوع 2 إلى نفس التجربة. بدون لوحات تحكم أو تنبيهات افتراضية.',
+    ja: 1型・2型糖尿病の日常生活のための統合プラットフォーム。T1/2Dは連続信号をシンプルな状態に変換し、2つの独立したモードで動作するため、子供、親、介護者、2型の大人が同じ体験を強いられません。アラームベースのダッシュボードはありません。',
+    he: 'פלטפורמה מאוחדת לחיי היומיום עם סוכרת מסוג 1 ו-2. T1/2D מתרגם אותות רציפים למצבים פשוטים ופועל בשני מצבים נפרדים כך שילדים, הורים, מטפלים ומבוגרים מסוג 2 לא נאלצים לחוות את אותה חוויה. ללא לוחות מחוונים מבוססי התראות כברירת מחדל.'
+  },
   'digital-invest-portfolio': {
     en: 'The umbrella that holds it all. Digital Invest is a multi-sector portfolio company incubating and scaling technology ventures from health to robotics to food systems. Every project shares infrastructure, data layers, and operational principles — creating compounding value across the entire ecosystem.',
     ru: 'Зонтик, который держит всё. Digital Invest — мультисекторная портфельная компания, инкубирующая и масштабирующая проекты от здоровья до робототехники. Каждый проект делит инфраструктуру, дата-слои и операционные принципы — создавая совокупную ценность по всей экосистеме.',
