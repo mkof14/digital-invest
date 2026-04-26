@@ -104,6 +104,7 @@ const MRXHealth = lazy(() => import("./pages/Projects/MRXHealth"));
 const TableServed = lazy(() => import("./pages/Projects/TableServed"));
 const BaseLine = lazy(() => import("./pages/Projects/BaseLine"));
 const SAVEN = lazy(() => import("./pages/Projects/SAVEN"));
+const T1D = lazy(() => import("./pages/Projects/T1D"));
 
 const PageLoader = () => (
   <div className="min-h-screen flex items-center justify-center bg-background">
@@ -225,6 +226,8 @@ const App = () => (
               <Route path="/projects/table-served" element={<TableServed />} />
               <Route path="/projects/baseline" element={<BaseLine />} />
               <Route path="/projects/saven" element={<SAVEN />} />
+              <Route path="/projects/t1d" element={<T1D />} />
+              <Route path="/projects/t1-2d" element={<T1D />} />
               
               {/* Adamas Materials Projects */}
               <Route path="/adamas" element={<AdamasMaterialsOverview />} />
