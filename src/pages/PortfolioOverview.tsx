@@ -376,12 +376,14 @@ const PortfolioOverview = () => {
 
       {/* Hero — editorial style */}
       <section className="relative pt-32 pb-20 overflow-hidden">
-        {/* Abstract background shapes */}
-        <div className="absolute inset-0">
-          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-primary/[0.03] via-transparent to-transparent" />
-          <div className="absolute top-32 -left-20 w-[500px] h-[500px] rounded-full bg-primary/[0.04] blur-[100px]" />
-          <div className="absolute -bottom-20 right-0 w-[600px] h-[400px] rounded-full bg-accent/[0.04] blur-[120px]" />
-        </div>
+        {/* Themed background image */}
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: `url(${portfolioHero})` }}
+          aria-hidden="true"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-background/92 via-background/75 to-background/45" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-transparent to-background/85" />
 
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl">

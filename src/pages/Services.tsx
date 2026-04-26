@@ -20,6 +20,8 @@ import {
   TrendingUp
 } from "lucide-react";
 import { Link } from "react-router-dom";
+import PageHero from "@/components/PageHero";
+import heroImage from "@/assets/heroes/services.webp";
 
 const Services = () => {
   const biomathServices = [
@@ -142,7 +144,7 @@ const Services = () => {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="py-20 px-4 bg-secondary/10 section-gradient-cool">
+      <PageHero image={heroImage}>
         <div className="max-w-6xl mx-auto text-center">
           <Badge variant="secondary" className="mb-4 px-4 py-2">
             Our Services
@@ -156,7 +158,7 @@ const Services = () => {
             across multiple domains of technological innovation.
           </p>
         </div>
-      </section>
+      </PageHero>
 
       {/* BioMath Life Platform Services */}
       <section className="py-20 px-4 section-gradient-warm">

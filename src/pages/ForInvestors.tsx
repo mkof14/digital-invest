@@ -25,6 +25,8 @@ import {
   BarChart3
 } from "lucide-react";
 import InvestorPageDisclaimer from '@/components/InvestorPageDisclaimer';
+import PageHero from '@/components/PageHero';
+import heroImage from '@/assets/heroes/for-investors.webp';
 
 const ForInvestors = () => {
   const { t } = useTranslation();
@@ -33,9 +35,8 @@ const ForInvestors = () => {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-24 px-4 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-background" />
-        <div className="relative z-10 max-w-5xl mx-auto text-center space-y-8 animate-fade-in">
+      <PageHero image={heroImage}>
+        <div className="max-w-5xl mx-auto text-center space-y-8 animate-fade-in">
           <Badge variant="secondary" className="mb-4 px-6 py-3 text-base">
             <Target className="w-4 h-4 mr-2 inline" />
             {t('investors.badge')}
@@ -67,7 +68,7 @@ const ForInvestors = () => {
             </Link>
           </div>
         </div>
-      </section>
+      </PageHero>
 
       {/* Stats Section */}
       <section className="py-16 px-4 bg-card/30 section-gradient-cool border-y border-border/50">

@@ -9,6 +9,8 @@ import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { MarkdownContent } from '@/components/MarkdownContent';
 import { getContentBlock, renderContentBlock, ContentBlock } from '@/lib/contentService';
+import PageHero from '@/components/PageHero';
+import heroImage from '@/assets/heroes/about.webp';
 
 const About = () => {
   const { t } = useTranslation();
@@ -68,19 +70,17 @@ Today, Digital Invest brings together this multi-sector expertise into a unified
     <div className="min-h-screen bg-background">
       <Navigation />
       {/* Hero Section */}
-      <section className="relative py-24 px-4">
-        <div className="container mx-auto max-w-6xl">
-          <div className="text-center space-y-6">
-            <Badge variant="secondary" className="mb-4">{t('about.title')}</Badge>
-            <h1 className="text-5xl md:text-6xl font-bold">
-              <span className="gradient-blue-animated">{t('about.title')}</span>
-            </h1>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              {t('about.subtitle')}
-            </p>
-          </div>
+      <PageHero image={heroImage}>
+        <div className="text-center space-y-6 max-w-6xl mx-auto">
+          <Badge variant="secondary" className="mb-4">{t('about.title')}</Badge>
+          <h1 className="text-5xl md:text-6xl font-bold">
+            <span className="gradient-blue-animated">{t('about.title')}</span>
+          </h1>
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            {t('about.subtitle')}
+          </p>
         </div>
-      </section>
+      </PageHero>
 
       {/* Our Story */}
       <section className="py-16 px-4 bg-muted/30 section-gradient-cool">

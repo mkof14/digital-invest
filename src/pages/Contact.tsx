@@ -13,6 +13,8 @@ import { useToast } from '@/hooks/use-toast';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { supabase } from '@/integrations/supabase/client';
+import PageHero from '@/components/PageHero';
+import heroImage from '@/assets/heroes/contact.webp';
 
 const formSchema = z.object({
   name: z.string().min(2).max(100),
@@ -55,17 +57,19 @@ const Contact = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
-      <div className="pt-24 pb-16 section-gradient-cool">
-        <div className="container mx-auto px-4">
-          <div className="mb-12 text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">{t('contact.title')}</h1>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-6">{t('contact.subtitle')}</p>
-            <div className="max-w-2xl mx-auto">
-              <p className="text-sm text-muted-foreground px-6 py-4 bg-muted/30 rounded-lg border border-border/50">
-                <strong>{t('common.important')}:</strong> {t('contact.disclaimer')}
-              </p>
-            </div>
+      <PageHero image={heroImage} className="!pb-12">
+        <div className="mb-2 text-center">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">{t('contact.title')}</h1>
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-6">{t('contact.subtitle')}</p>
+          <div className="max-w-2xl mx-auto">
+            <p className="text-sm text-muted-foreground px-6 py-4 bg-muted/30 rounded-lg border border-border/50">
+              <strong>{t('common.important')}:</strong> {t('contact.disclaimer')}
+            </p>
           </div>
+        </div>
+      </PageHero>
+      <div className="pb-16">
+        <div className="container mx-auto px-4">
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             <div className="lg:col-span-2">

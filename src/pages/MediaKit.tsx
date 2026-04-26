@@ -3,6 +3,8 @@ import Footer from "@/components/Footer";
 import { Link } from "react-router-dom";
 import { Download } from "lucide-react";
 import OptimizedImage from "@/components/OptimizedImage";
+import PageHero from "@/components/PageHero";
+import heroImage from "@/assets/heroes/media-kit.webp";
 
 const MediaKit = () => {
   const projects = [
@@ -28,16 +30,16 @@ const MediaKit = () => {
     <div className="min-h-screen bg-background">
       <Navigation />
       
-      <main className="pt-20">
+      <main>
         {/* Hero */}
-        <section className="py-20 px-4 bg-gradient-to-b from-background to-muted/20">
+        <PageHero image={heroImage}>
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-5xl font-bold mb-6">Media Kit</h1>
             <p className="text-xl text-muted-foreground">
               Logos, brand assets, and key materials for media use.
             </p>
           </div>
-        </section>
+        </PageHero>
 
         {/* Content */}
         <section className="py-16 px-4">
