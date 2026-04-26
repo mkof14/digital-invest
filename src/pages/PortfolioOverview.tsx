@@ -6,6 +6,7 @@ import { Loader2, ArrowUpRight, Layers } from 'lucide-react';
 import { getProjectIcon } from '@/components/icons/ProjectIcons';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
+import portfolioHero from '@/assets/heroes/portfolio-overview.webp';
 
 const overviewTexts: Record<string, Record<string, string>> = {
   'biomath-core': {
