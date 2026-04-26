@@ -420,7 +420,6 @@ const Projects = () => {
     <div className="min-h-screen bg-background">
       <Navigation />
       <PageHero image={heroImage}>
-        <div className="container mx-auto px-4">
         {/* Header */}
         <div className="mb-12 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
