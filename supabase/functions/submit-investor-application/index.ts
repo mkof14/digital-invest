@@ -8,8 +8,7 @@ import { renderAsync } from "npm:@react-email/components@0.0.22";
 import React from "npm:react@18.3.1";
 import { z } from "https://esm.sh/zod@3.23.8";
 
-import { InvestorLeadConfirmation } from "../send-notification/_templates/investor-lead-confirmation.tsx";
-import { AdminNotification } from "../send-notification/_templates/admin-notification.tsx";
+// Templates inlined below to keep function self-contained for deployment.
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
