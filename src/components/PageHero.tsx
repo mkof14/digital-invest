@@ -45,17 +45,21 @@ const PageHero = ({
 
       {/* Strong base darkening so text stays legible in both themes */}
       <div
-        className="absolute inset-0 bg-black/55"
+        className="absolute inset-0 bg-black/60"
         aria-hidden="true"
       />
       {/* Left-heavy readability gradient for headline area */}
       <div
-        className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-black/20"
+        className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/50 to-black/30"
         aria-hidden="true"
       />
-      {/* Soft fade into the next section */}
+      {/* Vertical readability gradient — keeps subtitle area dark.
+          Note: we deliberately fade into a fixed deep navy (matching the
+          hero base color) instead of `to-background`, otherwise in light
+          mode the bottom of the hero washes out and the subtitle becomes
+          unreadable. */}
       <div
-        className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-b from-transparent to-background"
+        className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-b from-transparent via-[#0b1220]/40 to-[#0b1220]/85"
         aria-hidden="true"
       />
 
