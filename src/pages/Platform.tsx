@@ -6,6 +6,8 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import biomathPlatform from "@/assets/biomath-platform.jpg";
 import OptimizedImage from "@/components/OptimizedImage";
+import PageHero from "@/components/PageHero";
+import heroImage from "@/assets/heroes/platform.webp";
 import { 
   Dna, 
   Brain, 
@@ -28,7 +30,7 @@ const Platform = () => {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="relative py-20 px-4 bg-gradient-to-br from-card/20 via-background to-card/10">
+      <PageHero image={heroImage}>
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <Badge variant="secondary" className="mb-4 px-4 py-2">
