@@ -119,7 +119,7 @@ const Platform = () => {
             </div>
           </div>
         </div>
-      </section>
+      </PageHero>
 
       {/* Platform Components */}
       <section className="py-20 px-4">

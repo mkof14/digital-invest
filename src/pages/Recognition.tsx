@@ -4,6 +4,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Award, Star, Trophy, Globe, Calendar, Building2, ArrowRight } from "lucide-react";
+import PageHero from "@/components/PageHero";
+import heroImage from "@/assets/heroes/recognition.webp";
 
 const Recognition = () => {
   return (
@@ -11,7 +13,7 @@ const Recognition = () => {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="py-20 px-4 bg-gradient-to-br from-primary/5 via-background to-secondary/5">
+      <PageHero image={heroImage}>
         <div className="max-w-6xl mx-auto text-center">
           <Badge variant="secondary" className="mb-4 px-4 py-2">
             Industry Recognition
@@ -25,7 +27,7 @@ const Recognition = () => {
             has earned recognition from leading industry publications and organizations worldwide.
           </p>
         </div>
-      </section>
+      </PageHero>
 
       {/* Featured Recognition */}
       <section className="py-20 px-4">
