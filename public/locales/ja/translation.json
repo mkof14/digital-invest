@@ -372,7 +372,8 @@
     "viewAllProjects": "全プロジェクト",
     "privateConfidential": "プライベート＆機密",
     "noCommitment": "コミットメント不要",
-    "personalFollowup": "個別フォローアップ"
+    "personalFollowup": "個別フォローアップ",
+    "submitApplication": "申込を送信"
   },
   "about": {
     "title": "会社概要",
@@ -2021,5 +2022,68 @@
     "ctaTitle": "T1/2D は BioMath Life ファミリーの一員",
     "ctaDesc": "BioMath Life ポートフォリオの他のプロジェクトと同じデータ原則に基づき、日々の糖尿病管理に特化した運用レイヤー。",
     "ctaAll": "BioMath Life ファミリー全体"
+  },
+  "investorApplication": {
+    "metaTitle": "投資家申込",
+    "badge": "プライベート — 招待制",
+    "title": "投資家申込",
+    "subtitle": "Digital Invest ポートフォリオの機会を検討するため、関心表明をご提出ください。情報目的の依頼であり、投資の確約ではありません。",
+    "back": "戻る",
+    "whatHappens": "次のステップ",
+    "step1": "当社チームが内容を非公開で確認します",
+    "step2": "1–2 営業日以内にご希望の手段でご連絡します",
+    "step3": "相性が合えば資料を共有し、通話を設定します",
+    "confidentialTitle": "機密",
+    "confidentialDesc": "お預かりした情報は非公開で取り扱い、適合性の評価のみに使用します。",
+    "directContact": "メール希望ですか?",
+    "successTitle": "申込を受領しました",
+    "successDesc": "ありがとうございます。確認メールを送信しました。1–2 営業日以内にご連絡します。",
+    "submitAnother": "もう一件送信",
+    "explorePortfolio": "ポートフォリオを見る",
+    "submit": "申込を送信",
+    "submitting": "送信中…",
+    "cancel": "キャンセル",
+    "fields": {
+      "name": "氏名",
+      "email": "メール",
+      "phone": "電話",
+      "country": "国",
+      "investorType": "投資家タイプ",
+      "amountRange": "想定レンジ (USD)",
+      "sectors": "関心セクター",
+      "message": "メッセージ",
+      "messagePlaceholder": "探していることや、振り分けに役立つ背景を簡潔にお書きください。"
+    },
+    "investorType": {
+      "private": "個人投資家",
+      "family_office": "ファミリーオフィス",
+      "institutional": "機関投資家",
+      "other": "その他"
+    },
+    "amount": {
+      "undisclosed": "回答しない",
+      "under_100k": "$100K 未満",
+      "100k_500k": "$100K – $500K",
+      "500k_2m": "$500K – $2M",
+      "2m_plus": "$2M+",
+      "help": "内部評価のためのみ。拘束力はありません。"
+    },
+    "consent": {
+      "label": "この依頼について Digital Invest からの連絡に同意します。",
+      "help": "この提出は情報目的のみであり、申込や確約を構成しません。",
+      "privacy": "プライバシーポリシー"
+    },
+    "errors": {
+      "nameShort": "氏名を入力してください",
+      "email": "有効なメールを入力してください",
+      "messageLong": "メッセージが長すぎます",
+      "consent": "連絡への同意が必要です",
+      "generic": "問題が発生しました。再度お試しください。"
+    },
+    "toast": {
+      "successTitle": "申込を受領しました",
+      "successDesc": "ありがとうございます。1–2 営業日以内にご連絡します。",
+      "errorTitle": "送信に失敗しました"
+    }
   }
 }

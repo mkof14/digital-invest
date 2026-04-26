@@ -1,0 +1,10 @@
+{
+  "nodeModulesDir": "auto",
+  "compilerOptions": {
+    "jsx": "react",
+    "jsxFactory": "React.createElement",
+    "jsxFragmentFactory": "React.Fragment",
+    "lib": ["deno.window", "dom", "dom.iterable"],
+    "types": ["npm:@types/react@18.3.12"]
+  }
+}

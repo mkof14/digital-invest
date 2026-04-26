@@ -1,10 +1,16 @@
 project_id = "jhpgdswputzzsskmzabv"
 
+[functions.send-notification]
+verify_jwt = true
+
+[functions.submit-investor-application]
+verify_jwt = false
+
 [functions.investor-brief]
 verify_jwt = false
 
 [functions.investor-handbook-pdf]
 verify_jwt = false
 
-[functions.send-notification]
+[functions.track-social-click]
 verify_jwt = false

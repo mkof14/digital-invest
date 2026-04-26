@@ -372,7 +372,8 @@
     "viewAllProjects": "כל הפרויקטים",
     "privateConfidential": "פרטי וסודי",
     "noCommitment": "ללא התחייבות",
-    "personalFollowup": "מעקב אישי"
+    "personalFollowup": "מעקב אישי",
+    "submitApplication": "שליחת בקשה"
   },
   "about": {
     "title": "אודותינו",
@@ -2021,5 +2022,68 @@
     "ctaTitle": "T1/2D היא חלק ממשפחת BioMath Life",
     "ctaDesc": "שכבה תפעולית ממוקדת לניהול יומיומי של סוכרת, הבנויה על אותם עקרונות נתונים כמו שאר תיק BioMath Life.",
     "ctaAll": "כל משפחת BioMath Life"
+  },
+  "investorApplication": {
+    "metaTitle": "בקשת משקיע",
+    "badge": "פרטי — בהזמנה",
+    "title": "בקשת משקיע",
+    "subtitle": "הגישו הבעת עניין לבחינת הזדמנויות בתיק Digital Invest. בקשה מידעית בלבד — לא מחויבות להשקעה.",
+    "back": "חזרה",
+    "whatHappens": "מה קורה הלאה",
+    "step1": "הצוות שלנו בוחן את הבקשה באופן פרטי",
+    "step2": "נחזור אליכם תוך 1–2 ימי עסקים בערוץ המועדף",
+    "step3": "בהתאמה — נשתף חומרים ונקבע שיחה",
+    "confidentialTitle": "חסוי",
+    "confidentialDesc": "המידע מטופל באופן פרטי ומשמש רק להערכת התאמה.",
+    "directContact": "מעדיפים אימייל?",
+    "successTitle": "הבקשה התקבלה",
+    "successDesc": "תודה. נשלח אישור לאימייל שלכם. הצוות יחזור אליכם תוך 1–2 ימי עסקים.",
+    "submitAnother": "שלחו בקשה נוספת",
+    "explorePortfolio": "לעיון בתיק",
+    "submit": "שליחת בקשה",
+    "submitting": "שולח…",
+    "cancel": "ביטול",
+    "fields": {
+      "name": "שם מלא",
+      "email": "אימייל",
+      "phone": "טלפון",
+      "country": "מדינה",
+      "investorType": "סוג משקיע",
+      "amountRange": "טווח משוער (USD)",
+      "sectors": "תחומי עניין",
+      "message": "הודעה",
+      "messagePlaceholder": "תארו בקצרה מה אתם מחפשים ואת ההקשר שיעזור לנו לנתב את הבקשה."
+    },
+    "investorType": {
+      "private": "משקיע פרטי",
+      "family_office": "משרד משפחתי",
+      "institutional": "מוסדי",
+      "other": "אחר"
+    },
+    "amount": {
+      "undisclosed": "מעדיף לא לחשוף",
+      "under_100k": "עד $100K",
+      "100k_500k": "$100K – $500K",
+      "500k_2m": "$500K – $2M",
+      "2m_plus": "$2M+",
+      "help": "לצרכים פנימיים בלבד. ללא מחויבות."
+    },
+    "consent": {
+      "label": "אני מסכים שיצרו עמי קשר מ-Digital Invest בנוגע לבקשה זו.",
+      "help": "הגשה זו מידעית בלבד ואינה מהווה הצעה או מחויבות. ראו",
+      "privacy": "מדיניות פרטיות"
+    },
+    "errors": {
+      "nameShort": "הזינו שם מלא",
+      "email": "אימייל לא תקין",
+      "messageLong": "ההודעה ארוכה מדי",
+      "consent": "יש לאשר יצירת קשר",
+      "generic": "משהו השתבש. נסו שוב."
+    },
+    "toast": {
+      "successTitle": "הבקשה התקבלה",
+      "successDesc": "תודה. הצוות יחזור אליכם תוך 1–2 ימי עסקים.",
+      "errorTitle": "השליחה נכשלה"
+    }
   }
 }
