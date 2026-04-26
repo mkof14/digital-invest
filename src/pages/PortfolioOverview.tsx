@@ -383,9 +383,11 @@ const PortfolioOverview = () => {
           style={{ backgroundImage: `url(${portfolioHero})` }}
           aria-hidden="true"
         />
-        <div className="absolute inset-0 bg-black/55" aria-hidden="true" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-black/20" aria-hidden="true" />
-        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-b from-transparent to-background" aria-hidden="true" />
+        <div className="absolute inset-0 bg-black/60" aria-hidden="true" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/50 to-black/30" aria-hidden="true" />
+        {/* Vertical readability gradient — fades to fixed deep navy (not page background)
+            so the subtitle area stays dark in light mode too. */}
+        <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-b from-transparent via-[#0b1220]/40 to-[#0b1220]/85" aria-hidden="true" />
 
 
         <div className="container mx-auto px-4 relative z-10">
