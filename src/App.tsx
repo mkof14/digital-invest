@@ -68,13 +68,11 @@ const Security = lazy(() => import("./pages/Security"));
 const Governance = lazy(() => import("./pages/Governance"));
 const ESG = lazy(() => import("./pages/ESG"));
 const Values = lazy(() => import("./pages/Values"));
-const PressCenter = lazy(() => import("./pages/PressCenter"));
 const MediaKit = lazy(() => import("./pages/MediaKit"));
 const Careers = lazy(() => import("./pages/Careers"));
 const InternalDocuments = lazy(() => import("./pages/InternalDocuments"));
 const API = lazy(() => import("./pages/API"));
 const Infrastructure = lazy(() => import("./pages/Infrastructure"));
-const InvestorHandbook = lazy(() => import("./pages/InvestorHandbook"));
 const Schedule = lazy(() => import('./pages/Schedule'));
 const LegalOverview = lazy(() => import('./pages/LegalOverview'));
 const PortfolioOverview = lazy(() => import('./pages/PortfolioOverview'));
@@ -167,13 +165,11 @@ const App = () => (
               <Route path="/governance" element={<Governance />} />
               <Route path="/esg" element={<ESG />} />
               <Route path="/values" element={<Values />} />
-              <Route path="/press-center" element={<PressCenter />} />
               <Route path="/media-kit" element={<MediaKit />} />
               <Route path="/careers" element={<Careers />} />
               <Route path="/internal-documents" element={<InternalDocuments />} />
               <Route path="/api" element={<API />} />
               <Route path="/infrastructure" element={<Infrastructure />} />
-              <Route path="/investor-handbook" element={<InvestorHandbook />} />
               <Route path="/glossary" element={<Glossary />} />
               <Route path="/document-library" element={<DocumentLibrary />} />
               <Route path="/resources" element={<ResourcesLibrary />} />

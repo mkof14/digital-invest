@@ -35,7 +35,6 @@ const DocumentLibrary = () => {
   }, []);
 
   const corporateDocs = [
-    { title: "Investor Handbook", url: "/investor-handbook", description: "Comprehensive guide to Digital Invest portfolio" },
     { title: "Terms of Use", url: "/legal/terms", description: "Legal terms and conditions" },
     { title: "Privacy Policy", url: "/legal/privacy", description: "Data protection and privacy practices" },
     { title: "Risk Disclosure", url: "/legal/risk-disclosure", description: "Investment risk factors" }

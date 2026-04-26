@@ -48,7 +48,7 @@ const StartInvesting = () => {
                 </Link>
               </Button>
               <Button size="lg" variant="outline" className="px-8 py-3" asChild>
-                <Link to="/investor-handbook">
+                <Link to="/document-library">
                   <FileText className="mr-2 h-5 w-5" />
                   Download Information Materials
                 </Link>
@@ -245,12 +245,12 @@ const StartInvesting = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <Card className="text-center p-6">
               <FileText className="h-12 w-12 text-primary mx-auto mb-4" />
-              <h3 className="text-lg font-semibold mb-2">Investor Handbook</h3>
+              <h3 className="text-lg font-semibold mb-2">Document Library</h3>
               <p className="text-sm text-muted-foreground mb-4">
                 Comprehensive informational overview of our portfolio
               </p>
               <Button variant="outline" size="sm" className="w-full" asChild>
-                <Link to="/investor-handbook">Download</Link>
+                <Link to="/document-library">Browse</Link>
               </Button>
             </Card>
             
