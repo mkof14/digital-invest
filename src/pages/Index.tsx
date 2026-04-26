@@ -68,6 +68,7 @@ import biomathCoreHero from "@/assets/projects/biomathcore-hero.jpg";
 import dishcoreHero from "@/assets/projects/dishcore-hero.jpg";
 import digitalInvestHero from "@/assets/projects/digitalinvest-hero.webp";
 import biomathLifeHero from "@/assets/projects/biomathlife-hero.jpg";
+import heroBackground from "@/assets/hero-digital-invest.webp";
 
 interface FeaturedProject {
   id: string;
@@ -166,8 +167,18 @@ const Index = () => {
 
       {/* ═══════════════════ HERO — Cinematic Living Portfolio ═══════════════════ */}
       <section className="relative min-h-[100svh] flex items-center overflow-hidden">
+        {/* Hero background image — cinematic photo layer */}
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: `url(${heroBackground})` }}
+          aria-hidden="true"
+        />
+        {/* Readability overlay — keeps text legible over the photo */}
+        <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/70 to-background/40" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-transparent to-background/80" />
+
         {/* Layered background — richer, more cinematic */}
-        <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-card/40" />
+        <div className="absolute inset-0 bg-gradient-to-br from-background/60 via-background/40 to-card/30" />
 
         {/* Vibrant gradient mesh — multi-color ambient depth */}
         <div className="absolute top-[-10%] left-[-10%] w-[55vw] h-[55vw] rounded-full bg-gradient-to-br from-primary/20 via-accent/12 to-transparent blur-[120px] animate-subtle-float" />
