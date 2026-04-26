@@ -48,14 +48,19 @@ const ForInvestors = () => {
             {t('investors.heroSubtitle')}
           </p>
           <div className="flex flex-wrap gap-4 justify-center pt-6">
-            <Link to="/projects">
-              <Button size="lg" className="px-10 py-6 text-lg hover:scale-105 transition-all duration-300">
-                {t('investors.exploreProjects')}
+            <Link to="/investor-application">
+              <Button size="lg" className="px-10 py-6 text-lg hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
+                {t('investors.submitApplication', 'Submit application')}
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>
-            <Link to="/schedule">
+            <Link to="/projects">
               <Button variant="outline" size="lg" className="px-10 py-6 text-lg hover:scale-105 transition-all duration-300">
+                {t('investors.exploreProjects')}
+              </Button>
+            </Link>
+            <Link to="/schedule">
+              <Button variant="ghost" size="lg" className="px-10 py-6 text-lg hover:scale-105 transition-all duration-300">
                 {t('investors.scheduleConsultation')}
                 <Clock className="ml-2 h-5 w-5" />
               </Button>
@@ -334,8 +339,9 @@ const ForInvestors = () => {
           <h2 className="text-4xl md:text-5xl font-bold text-foreground">{t('investors.ctaTitle')}</h2>
           <p className="text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto">{t('investors.ctaSubtitle')}</p>
           <div className="flex flex-wrap gap-6 justify-center pt-6">
-            <Link to="/projects"><Button size="lg" className="px-12 py-7 text-lg hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">{t('investors.viewAllProjects')}<ArrowRight className="ml-3 h-6 w-6" /></Button></Link>
-            <Link to="/schedule"><Button variant="outline" size="lg" className="px-12 py-7 text-lg hover:scale-105 transition-all duration-300">{t('investors.scheduleConsultation')}<Clock className="ml-3 h-6 w-6" /></Button></Link>
+            <Link to="/investor-application"><Button size="lg" className="px-12 py-7 text-lg hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">{t('investors.submitApplication', 'Submit application')}<ArrowRight className="ml-3 h-6 w-6" /></Button></Link>
+            <Link to="/projects"><Button variant="outline" size="lg" className="px-12 py-7 text-lg hover:scale-105 transition-all duration-300">{t('investors.viewAllProjects')}</Button></Link>
+            <Link to="/schedule"><Button variant="ghost" size="lg" className="px-12 py-7 text-lg hover:scale-105 transition-all duration-300">{t('investors.scheduleConsultation')}<Clock className="ml-3 h-6 w-6" /></Button></Link>
           </div>
           <Card className="mt-12 border border-border/50 bg-card/50 backdrop-blur">
             <CardContent className="pt-8 pb-8">
