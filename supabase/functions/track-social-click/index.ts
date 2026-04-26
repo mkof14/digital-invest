@@ -36,25 +36,18 @@ serve(async (req) => {
       .insert({
         social_media_id: socialMediaId,
         referrer,
-        user_agent,
+        user_agent: userAgent,
       });
 
     if (clickError) throw clickError;
 
-    // Update click count and last clicked timestamp
+    // Update click count and last clicked timestamp via SECURITY DEFINER function
     const { error: updateError } = await supabase.rpc('increment_social_click', {
-      social_id: socialMediaId
+      social_id: socialMediaId,
     });
 
     if (updateError) {
-      // If function doesn't exist, use direct update
-      await supabase
-        .from('social_media_links')
-        .update({
-          click_count: supabase.raw('click_count + 1'),
-          last_clicked_at: new Date().toISOString(),
-        })
-        .eq('id', socialMediaId);
+      console.error('increment_social_click failed:', updateError);
     }
 
     return new Response(
@@ -63,8 +56,9 @@ serve(async (req) => {
     );
 
   } catch (error) {
+    const message = error instanceof Error ? error.message : String(error);
     return new Response(
-      JSON.stringify({ error: error.message }),
+      JSON.stringify({ error: message }),
       { status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
     );
   }
