@@ -4,11 +4,74 @@
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 import { Resend } from "npm:resend@2.0.0";
-import { renderAsync } from "npm:@react-email/components@0.0.22";
-import React from "npm:react@18.3.1";
 import { z } from "https://esm.sh/zod@3.23.8";
 
-// Templates inlined below to keep function self-contained for deployment.
+// Inline branded HTML email templates (kept simple to avoid extra deps).
+const escapeHtml = (s: string) =>
+  s.replace(/[&<>"']/g, (c) =>
+    ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]!),
+  );
+
+function renderConfirmationHtml(opts: { name: string; projectTitle: string }) {
+  const name = escapeHtml(opts.name);
+  const project = escapeHtml(opts.projectTitle);
+  return `<!doctype html><html><body style="margin:0;padding:0;background:#f5f5f7;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:#1d1d1f">
+    <table width="100%" cellpadding="0" cellspacing="0" style="background:#f5f5f7;padding:32px 0">
+      <tr><td align="center">
+        <table width="560" cellpadding="0" cellspacing="0" style="background:#ffffff;border-radius:12px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,0.06)">
+          <tr><td style="padding:32px 40px 0;border-bottom:1px solid #eee">
+            <div style="font-size:13px;letter-spacing:0.08em;color:#6e6e73;text-transform:uppercase">Digital Invest Inc.</div>
+          </td></tr>
+          <tr><td style="padding:28px 40px 8px">
+            <h1 style="margin:0 0 12px;font-size:22px;font-weight:600">Thank you, ${name}.</h1>
+            <p style="margin:0 0 16px;font-size:15px;line-height:1.55;color:#3a3a3c">
+              We have received your application regarding the ${project}. A member of our investor relations team will review your submission and reach out within 1–2 business days.
+            </p>
+            <p style="margin:0 0 16px;font-size:15px;line-height:1.55;color:#3a3a3c">
+              This email confirms receipt only and does not constitute an offer, solicitation, or any commitment to invest.
+            </p>
+          </td></tr>
+          <tr><td style="padding:8px 40px 32px">
+            <p style="margin:0;font-size:13px;color:#86868b">— Digital Invest Inc.<br/>info@digitalinvest.com</p>
+          </td></tr>
+        </table>
+      </td></tr>
+    </table>
+  </body></html>`;
+}
+
+function renderAdminHtml(opts: {
+  name: string;
+  email: string;
+  phone?: string;
+  country?: string;
+  amountRange: string;
+  comments?: string;
+}) {
+  const row = (k: string, v?: string) =>
+    v
+      ? `<tr><td style="padding:6px 12px;color:#6e6e73;font-size:13px;width:140px">${escapeHtml(k)}</td><td style="padding:6px 12px;font-size:14px;color:#1d1d1f">${escapeHtml(v)}</td></tr>`
+      : "";
+  return `<!doctype html><html><body style="margin:0;padding:0;background:#f5f5f7;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif">
+    <table width="100%" cellpadding="0" cellspacing="0" style="padding:24px 0;background:#f5f5f7"><tr><td align="center">
+      <table width="600" cellpadding="0" cellspacing="0" style="background:#ffffff;border-radius:10px">
+        <tr><td style="padding:20px 24px;border-bottom:1px solid #eee">
+          <div style="font-size:12px;letter-spacing:0.08em;color:#6e6e73;text-transform:uppercase">New Investor Application</div>
+          <h2 style="margin:6px 0 0;font-size:18px;color:#1d1d1f">${escapeHtml(opts.name)}</h2>
+        </td></tr>
+        <tr><td style="padding:12px 12px 20px">
+          <table width="100%" cellpadding="0" cellspacing="0">
+            ${row("Email", opts.email)}
+            ${row("Phone", opts.phone)}
+            ${row("Country", opts.country)}
+            ${row("Amount range", opts.amountRange)}
+            ${opts.comments ? `<tr><td style="padding:6px 12px;color:#6e6e73;font-size:13px;vertical-align:top">Details</td><td style="padding:6px 12px;font-size:14px;color:#1d1d1f;white-space:pre-wrap">${escapeHtml(opts.comments)}</td></tr>` : ""}
+          </table>
+        </td></tr>
+      </table>
+    </td></tr></table>
+  </body></html>`;
+}
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -142,27 +205,19 @@ const handler = async (req: Request): Promise<Response> => {
     // Email side-effects are best-effort; lead is already saved.
     if (resend) {
       try {
-        const userHtml = await renderAsync(
-          React.createElement(InvestorLeadConfirmation, {
-            name: data.name,
-            projectTitle: "Digital Invest portfolio",
-          }),
-        );
+        const userHtml = renderConfirmationHtml({
+          name: data.name,
+          projectTitle: "Digital Invest portfolio",
+        });
 
-        const adminHtml = await renderAsync(
-          React.createElement(AdminNotification, {
-            type: "investor_lead",
-            data: {
-              name: data.name,
-              email: data.email,
-              phone: data.phone || undefined,
-              country: data.country || undefined,
-              amountRange: data.amountRange,
-              comments: composedComments || undefined,
-              projectTitle: "General — Investor Application",
-            },
-          }),
-        );
+        const adminHtml = renderAdminHtml({
+          name: data.name,
+          email: data.email,
+          phone: data.phone || undefined,
+          country: data.country || undefined,
+          amountRange: data.amountRange,
+          comments: composedComments || undefined,
+        });
 
         await Promise.all([
           resend.emails.send({
