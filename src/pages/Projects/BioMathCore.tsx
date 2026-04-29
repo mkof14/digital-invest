@@ -61,6 +61,32 @@ const serviceCatalog: { key: string; name: string; icon: any; color: string; tin
   { key: "womensSexualHealth",  name: "Women's Sexual Health",      icon: WomensSexualHealthIcon,  color: "hsl(316, 58%, 52%)", tint: "hsl(316, 58%, 97%)", services: ["hormonal_cycle_correlation","libido_cycle_tracking","emotional_state_correlation","reproductive_signal_tracking","stress_impact_analysis","recovery_patterns","long_term_function_trends","hormonal_variability_index","behavioral_pattern_tracking","sexual_health_stability"] },
 ];
 
+// Convert snake_case service identifiers into human-readable Title Case labels.
+// Specific acronyms / domain words are preserved with their canonical casing.
+const SERVICE_ACRONYMS: Record<string, string> = {
+  ai: "AI",
+  api: "API",
+  bmi: "BMI",
+  ecg: "ECG",
+  hr: "HR",
+  hrv: "HRV",
+  id: "ID",
+  ml: "ML",
+  ui: "UI",
+  ux: "UX",
+  vs: "vs",
+};
+const humanizeService = (id: string): string =>
+  id
+    .split("_")
+    .filter(Boolean)
+    .map((w) => {
+      const lower = w.toLowerCase();
+      if (SERVICE_ACRONYMS[lower]) return SERVICE_ACRONYMS[lower];
+      return lower.charAt(0).toUpperCase() + lower.slice(1);
+    })
+    .join(" ");
+
 const infographics = [
   { src: infographic1, title: "Living Digital Human Model", alt: "BioMath Core: Living Digital Human Model" },
   { src: infographic2, title: "Architecture of Digital Modeling", alt: "BioMath Core: Architecture of Living Digital Modeling" },
