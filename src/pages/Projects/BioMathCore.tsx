@@ -739,7 +739,7 @@ const BioMathCore = () => {
           </Accordion>
 
           <p className="text-center text-xs text-[hsl(var(--bm-text-dim))] mt-8 max-w-2xl mx-auto">
-            Service identifiers are presented in canonical snake_case form as used in the BioMath Core data architecture.
+            {t('projectBiomathCore.catalog.idsCaption', 'Each service is shown with its readable name and the canonical identifier used inside the BioMath Core data architecture.')}
           </p>
         </section>
 
