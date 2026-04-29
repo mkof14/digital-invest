@@ -1058,18 +1058,26 @@ const BioMathCore = () => {
                   key={cat.key}
                   value={cat.key}
                   className="bg-[hsl(var(--bm-surface))] border border-[hsl(var(--bm-border))] rounded-xl overflow-hidden transition-all hover:border-[hsl(var(--bm-blue-deep))]/40"
+                  style={{ boxShadow: `inset 3px 0 0 0 ${cat.color}` }}
                 >
                   <AccordionTrigger className="px-5 py-4 hover:no-underline group">
                     <div className="flex items-center gap-4 flex-1 text-left">
                       <span
-                        className="flex-shrink-0 w-11 h-11 rounded-lg flex items-center justify-center"
-                        style={{ background: `${cat.color.replace(')', ',0.12)').replace('hsl(', 'hsla(')}` }}
+                        className="flex-shrink-0 w-11 h-11 rounded-lg flex items-center justify-center ring-1"
+                        style={{
+                          background: cat.color.replace('hsl(', 'hsla(').replace(')', ', 0.10)'),
+                          // ring uses the same accent at low alpha
+                          boxShadow: `inset 0 0 0 1px ${cat.color.replace('hsl(', 'hsla(').replace(')', ', 0.22)')}`,
+                        }}
                       >
                         <Icon className="w-5 h-5" style={{ color: cat.color }} />
                       </span>
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center gap-3 flex-wrap">
-                          <span className="text-xs font-mono text-[hsl(var(--bm-text-dim))]">
+                          <span
+                            className="text-xs font-mono font-semibold tracking-wider"
+                            style={{ color: cat.color }}
+                          >
                             {String(idx + 1).padStart(2, "0")}
                           </span>
                           <span className="font-semibold text-[hsl(var(--bm-text-strong))] text-base md:text-lg">
@@ -1077,7 +1085,7 @@ const BioMathCore = () => {
                           </span>
                           <Badge
                             variant="outline"
-                            className="text-xs border-[hsl(var(--bm-border))] text-[hsl(var(--bm-text-mute))]"
+                            className="text-[10px] uppercase tracking-wider border-[hsl(var(--bm-border))] text-[hsl(var(--bm-text-mute))]"
                           >
                             10 services
                           </Badge>
@@ -1087,19 +1095,23 @@ const BioMathCore = () => {
                   </AccordionTrigger>
                   <AccordionContent className="px-5 pb-5 pt-0">
                     <div
-                      className="h-px w-full mb-4 opacity-30"
+                      className="h-px w-full mb-4"
                       style={{ background: `linear-gradient(90deg, ${cat.color}, transparent)` }}
                     />
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-2">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                       {cat.services.map((svc, sIdx) => (
                         <div
                           key={svc}
-                          className="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-[hsl(var(--bm-bg-elev))]/60 border border-[hsl(var(--bm-border-soft))] hover:border-[hsl(var(--bm-blue-deep))]/30 transition-colors"
+                          className="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-[hsl(var(--bm-bg-elev))]/60 border border-[hsl(var(--bm-border-soft))] transition-colors hover:bg-[hsl(var(--bm-bg-elev))]"
+                          style={{
+                            // soft accent border-left for service rows
+                            borderLeft: `2px solid ${cat.color.replace('hsl(', 'hsla(').replace(')', ', 0.35)')}`,
+                          }}
                         >
                           <span
                             className="flex-shrink-0 w-6 h-6 rounded-md flex items-center justify-center text-[10px] font-mono font-semibold"
                             style={{
-                              background: `${cat.color.replace(')', ',0.10)').replace('hsl(', 'hsla(')}`,
+                              background: cat.color.replace('hsl(', 'hsla(').replace(')', ', 0.12)'),
                               color: cat.color,
                             }}
                           >
