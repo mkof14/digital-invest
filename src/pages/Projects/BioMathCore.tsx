@@ -706,7 +706,7 @@ const BioMathCore = () => {
                       {cat.services.map((svc, sIdx) => (
                         <div
                           key={svc}
-                          className="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-[hsl(var(--bm-bg-elev))]/60 border border-[hsl(var(--bm-border-soft))] transition-colors hover:bg-[hsl(var(--bm-bg-elev))]"
+                          className="flex items-start gap-3 px-3 py-2.5 rounded-lg bg-[hsl(var(--bm-bg-elev))]/60 border border-[hsl(var(--bm-border-soft))] transition-colors hover:bg-[hsl(var(--bm-bg-elev))]"
                           style={{
                             // soft accent border-left for service rows
                             borderLeft: `2px solid ${cat.color.replace('hsl(', 'hsla(').replace(')', ', 0.35)')}`,
