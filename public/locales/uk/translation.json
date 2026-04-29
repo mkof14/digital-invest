@@ -643,36 +643,234 @@
     "heroSubtitle": "Where Data Meets Daily Life",
     "heroDesc": "From sleep to cognition, from movement to mood — BioMath Core brings clarity to your health journey through intelligent real-time insights, 200+ AI-powered services, and a secure personal data vault.",
     "statServices": "AI Services",
-    "statCategories": "Health Categories",
+    "statCategories": "Категорії здоров'я",
     "statIntegrations": "Device Integrations",
     "statAnalysis": "Real-Time Analysis",
-    "foundationTitle": "Core Foundation of the BioMath Ecosystem",
+    "foundationTitle": "Основа екосистеми BioMath Core",
     "foundationDesc": "BioMath Core is the central technological foundation upon which all BioMath services are built. Today, the platform powers over 200 specialized AI services across 20 health categories — from Critical Health and Longevity to Mental Wellness and Biohacking. Every BioMath product in our portfolio relies on BioMath Core as its intelligent backbone.",
     "overviewP1": "BioMath Core is an intelligent health operating system that unifies medical records, biological data, genetic information, wearable metrics, and lifestyle inputs into a single coherent platform.",
     "overviewP2": "Unlike fragmented health apps that track isolated metrics, BioMath Core provides comprehensive analysis across 20 health categories through 200+ specialized AI services — your personal health intelligence layer.",
-    "missionSubtitle": "Three principles that guide every interaction within the platform",
-    "mission1Title": "Understanding, Not Overwhelm",
-    "mission1Desc": "Convert health signals into meaning, then into gentle supportive guidance. Make complex biology accessible and actionable.",
-    "mission2Title": "Reassurance, Not Urgency",
-    "mission2Desc": "Build on emotional safety. Users are learning, never failing. Guidance is invitational rather than prescriptive.",
-    "mission3Title": "Education, Not Diagnosis",
-    "mission3Desc": "Help users understand how their bodies respond day-to-day. Wellness-first interpretation of patterns, not medical diagnosis.",
-    "howSubtitle": "Four interconnected stages transform raw health data into daily actionable intelligence",
-    "step1Title": "Data Aggregation",
-    "step1Desc": "Connect wearables, upload labs, import medical records, add genetic tests. All data flows into the encrypted Model Archive vault.",
-    "step2Title": "Knowledge Engine",
-    "step2Desc": "Server-side engine analyzes data, identifies patterns, correlates metrics across categories, and updates your personal health model continuously.",
-    "step3Title": "AI Insight Generation",
-    "step3Desc": "200+ specialized AI services examine sleep, nutrition, stress, recovery, cognition, metabolic health and generate personalized insights.",
-    "step4Title": "Daily Guidance",
-    "step4Desc": "Personalized recommendations through clean dashboards. Visual reports, smart alerts, and context-rich explanations — designed to inform, not alarm.",
-    "blackBoxTitle": "Health Black Box",
-    "blackBoxDesc": "Your Model Archive — an encrypted vault storing all personal health data with military-grade security. You maintain complete control over data access, sharing, and sovereignty.",
-    "categoriesTitle": "20 Health Categories",
-    "categoriesSubtitle": "200+ specialized AI services organized across comprehensive health and wellness domains",
-    "uniqueTitle": "What Makes BioMath Core Unique",
-    "visionDesc": "BioMath Core aims to become the foundational operating system for personal health — the layer connecting all data sources, generating unified insights, and coordinating wellness across your entire life.",
-    "visionDesc2": "Over 5-10 years: family health coordination, senior independence through predictive monitoring, smart home integration, automated medication management, and seamless healthcare provider coordination."
+    "missionSubtitle": "Три принципи, якими керується кожна взаємодія на платформі",
+    "mission1Title": "Розуміння, а не перевантаження",
+    "mission1Desc": "Перетворюйте сигнали здоров'я на значущу інформацію, а потім на м'які, підтримуючі поради. Зробіть складну біологію доступною та дієвою.",
+    "mission2Title": "Заспокоєння, а не терміновість",
+    "mission2Desc": "Створюйте емоційну безпеку. Користувачі вчаться, а не зазнають невдач. Рекомендації мають запрошувальний, а не наказовий характер.",
+    "mission3Title": "Освіта, а не діагноз",
+    "mission3Desc": "Допомагайте користувачам зрозуміти, як їхнє тіло реагує щодня. Інтерпретація закономірностей з точки зору оздоровлення, а не медичний діагноз.",
+    "howSubtitle": "Чотири взаємопов'язані етапи перетворюють необроблені дані про здоров'я на щоденну корисну інформацію",
+    "step1Title": "Агрегація даних",
+    "step1Desc": "Підключайте носні пристрої, завантажуйте лабораторні аналізи, імпортуйте медичні записи, додавайте генетичні тести. Всі дані надходять у зашифроване сховище Model Archive.",
+    "step2Title": "Двигун знань",
+    "step2Desc": "Серверний двигун аналізує дані, виявляє закономірності, співвідносить показники між категоріями та постійно оновлює вашу особисту модель здоров'я.",
+    "step3Title": "Генерація інсайтів за допомогою ШІ",
+    "step3Desc": "Понад 200 спеціалізованих сервісів ШІ аналізують сон, харчування, стрес, відновлення, когнітивні функції, метаболічне здоров'я та генерують персоналізовані інсайти.",
+    "step4Title": "Щоденні поради",
+    "step4Desc": "Персоналізовані рекомендації через зрозумілі панелі інструментів. Візуальні звіти, розумні сповіщення та контекстно-багаті пояснення, розроблені для інформування, а не для тривоги.",
+    "blackBoxTitle": "Чорна скринька здоров'я",
+    "blackBoxDesc": "Ваш Model Archive — зашифроване сховище, що зберігає всі особисті дані про здоров'я з військовим рівнем безпеки. Ви зберігаєте повний контроль над доступом до даних, їхнім поширенням та суверенітетом.",
+    "categoriesTitle": "20 категорій здоров'я",
+    "categoriesSubtitle": "Понад 200 спеціалізованих сервісів ШІ, організованих за комплексними напрямками здоров'я та оздоровлення",
+    "uniqueTitle": "Що робить BioMath Core унікальним",
+    "visionDesc": "BioMath Core прагне стати фундаментальною операційною системою для особистого здоров'я — шаром, що поєднує всі джерела даних, генерує уніфіковані інсайти та координує оздоровлення протягом усього вашого життя.",
+    "visionDesc2": "Протягом 5-10 років: координація здоров'я сім'ї, незалежність людей похилого віку завдяки предиктивному моніторингу, інтеграція з розумним будинком, автоматизоване управління прийомом ліків та безперебійна координація з постачальниками медичних послуг.",
+    "beyondBadge": "Відмінність в архітектурі",
+    "beyondTraditional": "Традиційні трекери",
+    "baselineBadge": "Побудова базової моделі людини",
+    "sovereigntyBadge": "Суверенітет за дизайном",
+    "dualEngineBadge": "Як система мислить",
+    "timeBadge": "Час як актив",
+    "track1": "Трек 1",
+    "track2": "Трек 2",
+    "input": "Вхід",
+    "output": "Результат",
+    "timeAxis": "Час всередині BioMath Core →",
+    "techSubtitle": "Шість базових шарів інтелектуальної операційної системи здоров'я",
+    "infographicsTitle": "Архітектура платформи та бачення",
+    "infographicsSubtitle": "Візуальний огляд живої цифрової моделі BioMath Core, самонавчальної архітектури та масштабу екосистеми",
+    "ctaTitle": "Дізнайтеся більше про BioMath Core",
+    "ctaSubtitle": "Дізнайтеся, як BioMath Core перетворює дані про здоров'я на персональний інтелект і практичні рекомендації",
+    "importantNoticeBody": "BioMath Core — це інформаційна та освітня wellness-платформа. Вона надає аналіз даних, розпізнавання патернів і рекомендації з оптимізації, але не діагностує захворювань, не призначає лікування і не замінює професійну медичну допомогу.",
+    "marketP1": "Охорона здоров'я тоне в даних, але потерпає від нестачі інсайтів. Носимі пристрої генерують мільйони точок даних, генетичні тести розкривають тисячі варіантів. Та більшість людей не може відповісти на базові питання про власні закономірності здоров'я.",
+    "marketP2": "Обсяг ринку персоналізованої медицини прогнозується понад $120 млрд глобально. Однак більшість платформ зосереджені на окремих доменах без крос-кореляцій.",
+    "marketP3": "BioMath Core закриває розрив між збором даних і практичним розумінням — це інтелектуальний шар, що перетворює розрізнені потоки на єдину операційну систему персонального здоров'я.",
+    "cat": {
+      "criticalHealth": "Критичне здоров'я",
+      "everydayWellness": "Повсякденний wellness",
+      "longevity": "Довголіття та anti-aging",
+      "mentalWellness": "Ментальне здоров'я",
+      "fitness": "Фітнес і продуктивність",
+      "womensHealth": "Жіноче здоров'я",
+      "mensHealth": "Чоловіче здоров'я",
+      "beauty": "Краса та догляд за шкірою",
+      "nutrition": "Харчування і дієта",
+      "sleep": "Сон і відновлення",
+      "environmentalHealth": "Здоров'я довкілля",
+      "familyHealth": "Здоров'я сім'ї",
+      "preventive": "Профілактична медицина",
+      "biohacking": "Біохакінг",
+      "seniorCare": "Догляд за літніми",
+      "eyeHealth": "Здоров'я зору",
+      "digitalTherapeutics": "Цифрова терапія",
+      "sexualLongevity": "Сексуальне довголіття",
+      "mensSexualHealth": "Чоловіче сексуальне здоров'я",
+      "womensSexualHealth": "Жіноче сексуальне здоров'я"
+    },
+    "examples": {
+      "criticalHealthEx": "Моніторинг серцево-судинної системи, аналіз тиску, контроль глюкози, відстеження препаратів",
+      "longevityEx": "Розрахунок біологічного віку, маркери старіння, функція мітохондрій, аналіз теломер",
+      "fitnessEx": "Оптимізація тренувань, аналіз відновлення, VO2max, м'язова адаптація",
+      "mentalWellnessEx": "Розпізнавання патернів стресу, відстеження настрою, когнітивні показники"
+    },
+    "secBadge": {
+      "aes": "Шифрування AES-256",
+      "blockchain": "Цілісність блокчейну",
+      "zerotrust": "Архітектура Zero-Trust",
+      "hipaa": "HIPAA та GDPR"
+    },
+    "tech": {
+      "subtitle": "Шість основних рівнів, що забезпечують інтелектуальну операційну систему охорони здоров'я",
+      "archive": {
+        "title": "Архів моделі",
+        "i1": "Шифрування AES-256 в стані спокою та при передачі",
+        "i2": "Перевірена блокчейном цілісність даних",
+        "i3": "Детальний контроль дозволів",
+        "i4": "Інфраструктура, сертифікована SOC 2"
+      },
+      "pipelines": {
+        "title": "Конвеєри даних",
+        "i1": "50+ інтегрованих джерел даних",
+        "i2": "Синхронізація в режимі реального часу",
+        "i3": "Автоматичні перевірки якості",
+        "i4": "Збереження історичних даних"
+      },
+      "engine": {
+        "title": "Механізм знань",
+        "i1": "Багатовимірний аналіз",
+        "i2": "Механізм кореляції закономірностей",
+        "i3": "Системи виявлення аномалій",
+        "i4": "Прогностичне моделювання"
+      },
+      "ai": {
+        "title": "Система аналізу ШІ",
+        "i1": "200+ спеціалізованих послуг ШІ",
+        "i2": "Аналіз за категоріями",
+        "i3": "Пояснення природною мовою",
+        "i4": "Постійне вдосконалення моделі"
+      },
+      "report": {
+        "title": "Система звітів",
+        "i1": "Інтерактивні візуалізації",
+        "i2": "Настроювані інформаційні панелі",
+        "i3": "Медичні звіти, які можна експортувати",
+        "i4": "Аналіз історичних тенденцій"
+      },
+      "integration": {
+        "title": "Рівень інтеграції",
+        "i1": "Безпечні кінцеві точки API",
+        "i2": "Інтеграція системи охорони здоров'я",
+        "i3": "Підключення сторонніх розробників",
+        "i4": "Обмін дослідницькими даними"
+      }
+    },
+    "feat": {
+      "dualAi": {
+        "title": "Подвійний аналіз ШІ",
+        "desc": "Кілька моделей ШІ забезпечують комплексний аналіз зі збалансованими рекомендаціями та експертною валідацією."
+      },
+      "realtime": {
+        "title": "Моніторинг у реальному часі",
+        "desc": "Безперервний збір даних з підключених пристроїв з інтелектуальним виявленням закономірностей та автоматичними оповіщеннями."
+      },
+      "unified": {
+        "title": "Єдиний медичний запис",
+        "desc": "Вся медична інформація уніфікована: медична історія, лабораторні дослідження, генетика, біометричні дані, спосіб життя та клінічні нотатки."
+      },
+      "smart": {
+        "title": "Розумні звіти",
+        "desc": "Персоналізований щоденний аналіз зі щотижневими зведеннями, відстеженням прогресу та чіткими візуалізаціями тенденцій."
+      },
+      "guidance": {
+        "title": "Персоналізоване керівництво",
+        "desc": "Індивідуальні рекомендації щодо харчування, фізичних вправ, сну, управління стресом на основі вашого унікального профілю."
+      },
+      "privacy": {
+        "title": "Конфіденційність та безпека",
+        "desc": "Шифрування військового рівня, архітектура zero-trust, сертифікація SOC 2. Повна незалежність даних."
+      }
+    },
+    "op": {
+      "daily": {
+        "title": "Щоденний робочий процес користувача",
+        "desc": "Прокидайтеся з персоналізованими висновками. Підключені пристрої автоматично відстежують дані протягом дня. Рекомендації в реальному часі оновлюються зі зміною умов. Вечірні звіти підсумовують та пропонують."
+      },
+      "service": {
+        "title": "Активація послуги",
+        "desc": "Виберіть категорії, які є найважливішими. Активуйте відповідні послуги ШІ. Почніть з кількох, розширюйте з часом. Підписка масштабується за глибиною, а не за фіксованою ставкою."
+      },
+      "clinical": {
+        "title": "Клінічна інтеграція",
+        "desc": "Медичні працівники отримують доступ, авторизований пацієнтом. Інструмент підтримки клінічних рішень поряд з традиційною оцінкою. Професійні експортовані звіти."
+      }
+    },
+    "serves": {
+      "optim": {
+        "title": "Шукачі оптимізації здоров'я",
+        "desc": "Особи, орієнтовані на довголіття, продуктивність, профілактику захворювань. Розуміння свого тіла через особисту біологію, а не загальні середні показники."
+      },
+      "chronic": {
+        "title": "Менеджери хронічних станів",
+        "desc": "Керування діабетом, серцево-судинними захворюваннями, аутоімунними розладами або метаболічними синдромами за допомогою безперервного моніторингу та керівництва щодо оптимізації."
+      },
+      "athletes": {
+        "title": "Спортсмени та виконавці",
+        "desc": "Професійні та серйозні спортсмени, які оптимізують тренування, відновлення, харчування за допомогою даних, що ґрунтуються на аналітиці, та точності біохакінгу."
+      },
+      "pros": {
+        "title": "Медичні працівники",
+        "desc": "Лікарі, консультанти, дієтологи, які використовують передову аналітику для персоналізації планів лікування та ефективного відстеження результатів."
+      }
+    },
+    "unique": {
+      "integration": {
+        "title": "Справжня інтеграція даних",
+        "desc": "Уніфікує генетику, лабораторні дослідження, біометричні дані, спосіб життя та медичну історію в єдину біоматематичну модель. Кореляції між категоріями розкривають приховані дані, що неможливо отримати при ізольованих даних."
+      },
+      "rigor": {
+        "title": "Математична строгість",
+        "desc": "Побудований на обчислювальній біології та біоматематичному моделюванні. Імітує біологічні процеси, прогнозує результати, враховує нелінійні взаємодії."
+      },
+      "continuous": {
+        "title": "Безперервний інтелект",
+        "desc": "Обробка в реальному часі означає, що дані оновлюються, коли ваше тіло змінюється. Платформа вчиться, динамічно адаптується та надає своєчасні рекомендації."
+      },
+      "safety": {
+        "title": "Безпека емоцій понад усе",
+        "desc": "Призначений для інформування та підтримки. Мова підкреслює навчання та оптимізацію. Користувачі почуваються впевнено, а не тривожно."
+      }
+    },
+    "road": {
+      "current": {
+        "phase": "Поточний",
+        "i1": "20 категорій здоров'я та 200+ послуг ШІ активні",
+        "i2": "Сховище Black Box та конвеєри інтеграції працюють",
+        "i3": "Системи знань та звітності функціональні",
+        "i4": "Активна база користувачів у різних сферах використання охорони здоров'я"
+      },
+      "next12": {
+        "phase": "Наступні 12 місяців",
+        "i1": "Мобільні додатки iOS та Android з повною функціональною сумісністю",
+        "i2": "75+ підтримуваних інтеграцій з носіями",
+        "i3": "Голосовий ШІ-радник",
+        "i4": "Запуск порталу клінічних практиків"
+      },
+      "next36": {
+        "phase": "18–36 місяців",
+        "i1": "Прогностичне моделювання здоров'я для ризиків хронічних захворювань",
+        "i2": "Інструменти управління здоров'ям сім'ї",
+        "i3": "Корпоративні оздоровчі рішення для підприємств",
+        "i4": "Міжнародна експансія з локалізованою відповідністю"
+      }
+    }
   },
   "projectTerraAero": {
     "badge": "AgroTech & Drone Manufacturing",

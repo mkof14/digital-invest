@@ -643,36 +643,234 @@
     "heroSubtitle": "Where Data Meets Daily Life",
     "heroDesc": "From sleep to cognition, from movement to mood — BioMath Core brings clarity to your health journey through intelligent real-time insights, 200+ AI-powered services, and a secure personal data vault.",
     "statServices": "AI Services",
-    "statCategories": "Health Categories",
+    "statCategories": "קטגוריות בריאות",
     "statIntegrations": "Device Integrations",
     "statAnalysis": "Real-Time Analysis",
-    "foundationTitle": "Core Foundation of the BioMath Ecosystem",
+    "foundationTitle": "תשתית הליבה של המערכת האקולוגית BioMath",
     "foundationDesc": "BioMath Core is the central technological foundation upon which all BioMath services are built. Today, the platform powers over 200 specialized AI services across 20 health categories — from Critical Health and Longevity to Mental Wellness and Biohacking. Every BioMath product in our portfolio relies on BioMath Core as its intelligent backbone.",
     "overviewP1": "BioMath Core is an intelligent health operating system that unifies medical records, biological data, genetic information, wearable metrics, and lifestyle inputs into a single coherent platform.",
     "overviewP2": "Unlike fragmented health apps that track isolated metrics, BioMath Core provides comprehensive analysis across 20 health categories through 200+ specialized AI services — your personal health intelligence layer.",
-    "missionSubtitle": "Three principles that guide every interaction within the platform",
-    "mission1Title": "Understanding, Not Overwhelm",
-    "mission1Desc": "Convert health signals into meaning, then into gentle supportive guidance. Make complex biology accessible and actionable.",
-    "mission2Title": "Reassurance, Not Urgency",
-    "mission2Desc": "Build on emotional safety. Users are learning, never failing. Guidance is invitational rather than prescriptive.",
-    "mission3Title": "Education, Not Diagnosis",
-    "mission3Desc": "Help users understand how their bodies respond day-to-day. Wellness-first interpretation of patterns, not medical diagnosis.",
-    "howSubtitle": "Four interconnected stages transform raw health data into daily actionable intelligence",
-    "step1Title": "Data Aggregation",
-    "step1Desc": "Connect wearables, upload labs, import medical records, add genetic tests. All data flows into the encrypted Model Archive vault.",
-    "step2Title": "Knowledge Engine",
-    "step2Desc": "Server-side engine analyzes data, identifies patterns, correlates metrics across categories, and updates your personal health model continuously.",
-    "step3Title": "AI Insight Generation",
-    "step3Desc": "200+ specialized AI services examine sleep, nutrition, stress, recovery, cognition, metabolic health and generate personalized insights.",
-    "step4Title": "Daily Guidance",
-    "step4Desc": "Personalized recommendations through clean dashboards. Visual reports, smart alerts, and context-rich explanations — designed to inform, not alarm.",
-    "blackBoxTitle": "Health Black Box",
-    "blackBoxDesc": "Your Model Archive — an encrypted vault storing all personal health data with military-grade security. You maintain complete control over data access, sharing, and sovereignty.",
-    "categoriesTitle": "20 Health Categories",
-    "categoriesSubtitle": "200+ specialized AI services organized across comprehensive health and wellness domains",
-    "uniqueTitle": "What Makes BioMath Core Unique",
-    "visionDesc": "BioMath Core aims to become the foundational operating system for personal health — the layer connecting all data sources, generating unified insights, and coordinating wellness across your entire life.",
-    "visionDesc2": "Over 5-10 years: family health coordination, senior independence through predictive monitoring, smart home integration, automated medication management, and seamless healthcare provider coordination."
+    "missionSubtitle": "שלושה עקרונות המנחים כל אינטראקציה בפלטפורמה",
+    "mission1Title": "הבנה, לא הצפה",
+    "mission1Desc": "המרת אותות בריאותיים למשמעות, ולאחר מכן להכוונה תומכת ועדינה. הפיכת ביולוגיה מורכבת לנגישה וניתנת לפעולה.",
+    "mission2Title": "הרגעת המשתמש, לא יצירת בהילות",
+    "mission2Desc": "בניית ביטחון רגשי. משתמשים לומדים, אף פעם לא נכשלים. ההכוונה היא בגדר המלצה ולא מרשם.",
+    "mission3Title": "חינוך, לא אבחון",
+    "mission3Desc": "עזרה למשתמשים להבין כיצד גופם מגיב ביום-יום. פרשנות של דפוסים מנקודת מבט של רווחה, לא אבחון רפואי.",
+    "howSubtitle": "ארבעה שלבים מקושרים הופכים נתוני בריאות גולמיים לתובנות יומיומיות ניתנות לפעולה",
+    "step1Title": "איסוף נתונים",
+    "step1Desc": "חבר מכשירים לבישים, העלה בדיקות מעבדה, יבא רשומות רפואיות, הוסף בדיקות גנטיות. כל הנתונים זורמים לכספת המוצפנת של Model Archive.",
+    "step2Title": "מנוע ידע",
+    "step2Desc": "מנוע צד-שרת מנתח נתונים, מזהה דפוסים, מבצע קורלציה של מדדים בין קטגוריות, ומעדכן את מודל הבריאות האישי שלך באופן רציף.",
+    "step3Title": "יצירת תובנות בינה מלאכותית",
+    "step3Desc": "מעל 200 שירותי בינה מלאכותית מתמחים בוחנים שינה, תזונה, לחץ, התאוששות, קוגניציה, בריאות מטבולית ומייצרים תובנות מותאמות אישית.",
+    "step4Title": "הכוונה יומית",
+    "step4Desc": "המלצות מותאמות אישית דרך לוחות מחוונים נקיים. דוחות חזותיים, התראות חכמות, והסברים עשירים בהקשר - המיועדים ליידע, לא להבהיל.",
+    "blackBoxTitle": "קופסה שחורה לבריאות",
+    "blackBoxDesc": "ארכיון המודל שלך (Model Archive) - כספת מוצפנת המאחסנת את כל נתוני הבריאות האישיים שלך עם אבטחה ברמה צבאית. אתה שומר על שליטה מלאה על גישה לנתונים, שיתוף וריבונות.",
+    "categoriesTitle": "20 קטגוריות בריאות",
+    "categoriesSubtitle": "מעל 200 שירותי בינה מלאכותית מתמחים המאורגנים בתחומי בריאות ורווחה מקיפים",
+    "uniqueTitle": "מה מייחד את BioMath Core",
+    "visionDesc": "BioMath Core שואפת להפוך למערכת ההפעלה הבסיסית לבריאות אישית - השכבה המחברת בין כל מקורות הנתונים, מייצרת תובנות מאוחדות ומתאמת את הרווחה לאורך כל חייך.",
+    "visionDesc2": "בטווח של 5-10 שנים: תיאום בריאות המשפחה, עצמאות קשישים באמצעות ניטור חזוי, שילוב בית חכם, ניהול תרופות אוטומטי ותיאום חלק עם ספקי שירותי בריאות.",
+    "beyondBadge": "ההבדל הארכיטקטוני",
+    "beyondTraditional": "טראקרים מסורתיים",
+    "baselineBadge": "בניית קו הבסיס האנושי",
+    "sovereigntyBadge": "ריבונות בעיצוב",
+    "dualEngineBadge": "איך המערכת חושבת",
+    "timeBadge": "זמן כנכס",
+    "track1": "מסלול 1",
+    "track2": "מסלול 2",
+    "input": "קלט",
+    "output": "תוצאה",
+    "timeAxis": "זמן בתוך BioMath Core →",
+    "techSubtitle": "שש שכבות ליבה המפעילות מערכת הפעלה בריאותית חכמה",
+    "infographicsTitle": "ארכיטקטורת הפלטפורמה וחזון",
+    "infographicsSubtitle": "סקירה ויזואלית של המודל הדיגיטלי החי של BioMath Core",
+    "ctaTitle": "למידע נוסף על BioMath Core",
+    "ctaSubtitle": "גלו כיצד BioMath Core הופכת נתוני בריאות לאינטליגנציה אישית והנחיות בנות-ביצוע",
+    "importantNoticeBody": "BioMath Core היא פלטפורמת wellness מידעית וחינוכית. אינה מאבחנת מצבים רפואיים ואינה מחליפה טיפול רפואי מקצועי.",
+    "marketP1": "מערכת הבריאות טובעת בנתונים אך רעבה לתובנות.",
+    "marketP2": "שוק הרפואה המדויקת צפוי להגיע ליותר מ-120 מיליארד דולר גלובלית.",
+    "marketP3": "BioMath Core ממלאת את הפער בין איסוף נתונים להבנה ישימה.",
+    "cat": {
+      "criticalHealth": "בריאות קריטית",
+      "everydayWellness": "wellness יומיומי",
+      "longevity": "אריכות ימים ואנטי-אייג'ינג",
+      "mentalWellness": "בריאות נפשית",
+      "fitness": "כושר וביצועים",
+      "womensHealth": "בריאות האישה",
+      "mensHealth": "בריאות הגבר",
+      "beauty": "יופי וטיפוח עור",
+      "nutrition": "תזונה ודיאטה",
+      "sleep": "שינה והתאוששות",
+      "environmentalHealth": "בריאות סביבתית",
+      "familyHealth": "בריאות המשפחה",
+      "preventive": "רפואה מונעת",
+      "biohacking": "ביוהאקינג",
+      "seniorCare": "טיפול בקשישים",
+      "eyeHealth": "סוויטת בריאות העין",
+      "digitalTherapeutics": "תרפיה דיגיטלית",
+      "sexualLongevity": "אריכות מינית",
+      "mensSexualHealth": "בריאות מינית לגבר",
+      "womensSexualHealth": "בריאות מינית לאישה"
+    },
+    "examples": {
+      "criticalHealthEx": "ניטור קרדיווסקולרי, ניתוח לחץ דם, ניהול גלוקוז, מעקב תרופות",
+      "longevityEx": "חישוב גיל ביולוגי, סמני הזדקנות, תפקוד מיטוכונדריאלי",
+      "fitnessEx": "אופטימיזציית אימון, ניתוח התאוששות, VO2max",
+      "mentalWellnessEx": "זיהוי דפוסי לחץ, מעקב מצב רוח, ביצועים קוגניטיביים"
+    },
+    "secBadge": {
+      "aes": "הצפנת AES-256",
+      "blockchain": "שלמות בלוקצ'יין",
+      "zerotrust": "ארכיטקטורת Zero-Trust",
+      "hipaa": "HIPAA ו-GDPR"
+    },
+    "tech": {
+      "subtitle": "שש שכבות ליבה המניעות את מערכת ההפעלה הבריאותית החכמה",
+      "archive": {
+        "title": "ארכיון מודלים",
+        "i1": "הצפנת AES-256 במנוחה ובמעבר",
+        "i2": "שלמות נתונים מאומתת בבלוקצ'יין",
+        "i3": "בקרות הרשאה גרנולריות",
+        "i4": "תשתית מאושרת SOC 2"
+      },
+      "pipelines": {
+        "title": "צינורות נתונים",
+        "i1": "50+ מקורות נתונים משולבים",
+        "i2": "סנכרון בזמן אמת",
+        "i3": "בדיקות איכות אוטומטיות",
+        "i4": "שימור נתונים היסטוריים"
+      },
+      "engine": {
+        "title": "מנוע ידע",
+        "i1": "ניתוח רב-ממדי",
+        "i2": "מנוע קורלציית דפוסים",
+        "i3": "מערכות זיהוי חריגות",
+        "i4": "מודלים חיזויים"
+      },
+      "ai": {
+        "title": "מערכת תובנות AI",
+        "i1": "200+ שירותי AI מתמחים",
+        "i2": "ניתוח ספציפי לקטגוריות",
+        "i3": "הסברים בשפה טבעית",
+        "i4": "שיפור מתמיד של המודל"
+      },
+      "report": {
+        "title": "מנוע דוחות",
+        "i1": "ויזואליזציות אינטראקטיביות",
+        "i2": "לוחות מחוונים ניתנים להתאמה אישית",
+        "i3": "דוחות רפואיים ניתנים לייצוא",
+        "i4": "ניתוח מגמות היסטוריות"
+      },
+      "integration": {
+        "title": "שכבת אינטגרציה",
+        "i1": "נקודות קצה API מאובטחות",
+        "i2": "אינטגרציה של מערכות בריאות",
+        "i3": "קישוריות צד שלישי",
+        "i4": "שיתוף נתוני מחקר"
+      }
+    },
+    "feat": {
+      "dualAi": {
+        "title": "ניתוח AI כפול",
+        "desc": "מספר מודלים של AI מספקים ניתוח מקיף עם המלצות מאוזנות ואימות מומחים."
+      },
+      "realtime": {
+        "title": "ניטור בזמן אמת",
+        "desc": "איסוף נתונים רציף ממכשירים מחוברים עם זיהוי דפוסים חכם והתראות אוטומטיות."
+      },
+      "unified": {
+        "title": "רשומה רפואית מאוחדת",
+        "desc": "כל מידע הבריאות מאוחד: היסטוריה רפואית, בדיקות מעבדה, גנטיקה, ביומטריה, אורח חיים ופתקים קליניים."
+      },
+      "smart": {
+        "title": "דוחות חכמים",
+        "desc": "תובנות יומיות מותאמות אישית עם סיכומים שבועיים, מעקב התקדמות והדמיות מגמה ברורות."
+      },
+      "guidance": {
+        "title": "הכוונה מותאמת אישית",
+        "desc": "המלצות מותאמות לתזונה, פעילות גופנית, שינה, ניהול מתחים בהתבסס על הפרופיל הייחודי שלך."
+      },
+      "privacy": {
+        "title": "פרטיות ואבטחה",
+        "desc": "הצפנה ברמה צבאית, ארכיטקטורת Zero-Trust, אישור SOC 2. ריבונות נתונים מלאה."
+      }
+    },
+    "op": {
+      "daily": {
+        "title": "זרימת עבודה יומית למשתמש",
+        "desc": "התעורר לתובנות מותאמות אישית. מכשירים מחוברים עוקבים אוטומטית לאורך כל היום. המלצות בזמן אמת מתעדכנות ככל שהתנאים משתנים. דוחות ערב מסכמים ומציעים."
+      },
+      "service": {
+        "title": "הפעלת שירות",
+        "desc": "בחר קטגוריות החשובות לך ביותר. הפעל שירותי AI רלוונטיים. התחל עם מעט, הרחב עם הזמן. המנוי מתרחב עם העומק, לא בתעריף אחיד."
+      },
+      "clinical": {
+        "title": "אינטגרציה קלינית",
+        "desc": "ספקי שירותי בריאות מקבלים גישה מאושרת על ידי המטופל. כלי תמיכה בקבלת החלטות קליניות לצד הערכה מסורתית. דוחות מקצועיים הניתנים לייצוא."
+      }
+    },
+    "serves": {
+      "optim": {
+        "title": "אלה המחפשים אופטימיזציה בריאותית",
+        "desc": "אנשים המתמקדים באריכות ימים, ביצועים, מניעת מחלות. הבנת גופם באמצעות ביולוגיה אישית ולא ממוצעים גנריים."
+      },
+      "chronic": {
+        "title": "מנהלי מצבים כרוניים",
+        "desc": "ניהול סוכרת, מצבים קרדיווסקולריים, הפרעות אוטואימוניות או תסמונות מטבוליות עם ניטור רציף והכוונה לאופטימיזציה."
+      },
+      "athletes": {
+        "title": "ספורטאים ומבצעים",
+        "desc": "ספורטאים מקצועיים ורציניים המייעלים אימונים, התאוששות, תזונה באמצעות תובנות מונחות נתונים ודיוק ביוהאקינג."
+      },
+      "pros": {
+        "title": "אנשי מקצוע בתחום הבריאות",
+        "desc": "רופאים, יועצים, תזונאים המשתמשים באנליטיקה מתקדמת כדי להתאים אישית תוכניות טיפול ולעקוב אחר תוצאות ביעילות."
+      }
+    },
+    "unique": {
+      "integration": {
+        "title": "אינטגרציית נתונים אמיתית",
+        "desc": "מאחד גנטיקה, בדיקות מעבדה, ביומטריה, אורח חיים והיסטוריה רפואית למודל ביו-מתמטי יחיד. קורלציות בין קטגוריות חושפות תובנות בלתי אפשריות בנתונים מבודדים."
+      },
+      "rigor": {
+        "title": "דיוק מתמטי",
+        "desc": "בנוי על ביולוגיה חישובית ומודלים ביו-מתמטיים. מדמה תהליכים ביולוגיים, מנבא תוצאות, מתחשב באינטראקציות לא ליניאריות."
+      },
+      "continuous": {
+        "title": "אינטליגנציה מתמשכת",
+        "desc": "עיבוד בזמן אמת פירושו שתובנות מתעדכנות ככל שגופך משתנה. הפלטפורמה לומדת, מסתגלת דינמית ומספקת הכוונה בזמן."
+      },
+      "safety": {
+        "title": "בטיחות רגשית קודמת לכל",
+        "desc": "נועד ליידע ולתמוך. השפה מדגישה למידה ואופטימיזציה. משתמשים מרגישים מועצמים, לא מודאגים."
+      }
+    },
+    "road": {
+      "current": {
+        "phase": "נוכחי",
+        "i1": "20 קטגוריות בריאות ו-200+ שירותי AI פעילים",
+        "i2": "כספת Black Box וצינורות אינטגרציה קיימים ופעילים",
+        "i3": "מנוע ידע ומערכות דיווח מתפקדים",
+        "i4": "בסיס משתמשים פעיל על פני מגוון רחב של תרחישי שימוש בתחום הבריאות"
+      },
+      "next12": {
+        "phase": "12 החודשים הבאים",
+        "i1": "אפליקציות מובייל ל-iOS ולאנדרואיד עם שוויון תכונות מלא",
+        "i2": "75+ אינטגרציות של מכשירים לבישים נתמכים",
+        "i3": "יועץ AI מופעל קולי",
+        "i4": "השקת פורטל למטפלים קליניים"
+      },
+      "next36": {
+        "phase": "18–36 חודשים",
+        "i1": "מודלים חיזויים לבריאות עבור סיכונים למחלות כרוניות",
+        "i2": "כלים לניהול בריאות המשפחה",
+        "i3": "פתרונות בריאות תאגידיים",
+        "i4": "התרחבות בינלאומית עם עמידה בתקנות מקומיות"
+      }
+    }
   },
   "projectTerraAero": {
     "badge": "AgroTech & Drone Manufacturing",

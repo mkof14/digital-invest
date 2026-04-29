@@ -643,36 +643,234 @@
     "heroSubtitle": "Where Data Meets Daily Life",
     "heroDesc": "From sleep to cognition, from movement to mood — BioMath Core brings clarity to your health journey through intelligent real-time insights, 200+ AI-powered services, and a secure personal data vault.",
     "statServices": "AI Services",
-    "statCategories": "Health Categories",
+    "statCategories": "健康カテゴリー",
     "statIntegrations": "Device Integrations",
     "statAnalysis": "Real-Time Analysis",
-    "foundationTitle": "Core Foundation of the BioMath Ecosystem",
+    "foundationTitle": "BioMathエコシステムの中核をなす基盤",
     "foundationDesc": "BioMath Core is the central technological foundation upon which all BioMath services are built. Today, the platform powers over 200 specialized AI services across 20 health categories — from Critical Health and Longevity to Mental Wellness and Biohacking. Every BioMath product in our portfolio relies on BioMath Core as its intelligent backbone.",
     "overviewP1": "BioMath Core is an intelligent health operating system that unifies medical records, biological data, genetic information, wearable metrics, and lifestyle inputs into a single coherent platform.",
     "overviewP2": "Unlike fragmented health apps that track isolated metrics, BioMath Core provides comprehensive analysis across 20 health categories through 200+ specialized AI services — your personal health intelligence layer.",
-    "missionSubtitle": "Three principles that guide every interaction within the platform",
-    "mission1Title": "Understanding, Not Overwhelm",
-    "mission1Desc": "Convert health signals into meaning, then into gentle supportive guidance. Make complex biology accessible and actionable.",
-    "mission2Title": "Reassurance, Not Urgency",
-    "mission2Desc": "Build on emotional safety. Users are learning, never failing. Guidance is invitational rather than prescriptive.",
-    "mission3Title": "Education, Not Diagnosis",
-    "mission3Desc": "Help users understand how their bodies respond day-to-day. Wellness-first interpretation of patterns, not medical diagnosis.",
-    "howSubtitle": "Four interconnected stages transform raw health data into daily actionable intelligence",
-    "step1Title": "Data Aggregation",
-    "step1Desc": "Connect wearables, upload labs, import medical records, add genetic tests. All data flows into the encrypted Model Archive vault.",
-    "step2Title": "Knowledge Engine",
-    "step2Desc": "Server-side engine analyzes data, identifies patterns, correlates metrics across categories, and updates your personal health model continuously.",
-    "step3Title": "AI Insight Generation",
-    "step3Desc": "200+ specialized AI services examine sleep, nutrition, stress, recovery, cognition, metabolic health and generate personalized insights.",
-    "step4Title": "Daily Guidance",
-    "step4Desc": "Personalized recommendations through clean dashboards. Visual reports, smart alerts, and context-rich explanations — designed to inform, not alarm.",
-    "blackBoxTitle": "Health Black Box",
-    "blackBoxDesc": "Your Model Archive — an encrypted vault storing all personal health data with military-grade security. You maintain complete control over data access, sharing, and sovereignty.",
-    "categoriesTitle": "20 Health Categories",
-    "categoriesSubtitle": "200+ specialized AI services organized across comprehensive health and wellness domains",
-    "uniqueTitle": "What Makes BioMath Core Unique",
-    "visionDesc": "BioMath Core aims to become the foundational operating system for personal health — the layer connecting all data sources, generating unified insights, and coordinating wellness across your entire life.",
-    "visionDesc2": "Over 5-10 years: family health coordination, senior independence through predictive monitoring, smart home integration, automated medication management, and seamless healthcare provider coordination."
+    "missionSubtitle": "プラットフォーム内のすべてのインタラクションを導く3つの原則",
+    "mission1Title": "圧倒ではなく、理解を",
+    "mission1Desc": "健康シグナルを意味のあるものに変換し、優しくサポート的なガイダンスを提供します。複雑な生物学をアクセスしやすく、実用的なものにします。",
+    "mission2Title": "緊急性ではなく、安心を",
+    "mission2Desc": "感情的な安全性を基盤に構築します。ユーザーは学び続ける存在であり、決して失敗することはありません。ガイダンスは指示的ではなく、常に任意参加です。",
+    "mission3Title": "診断ではなく、教育を",
+    "mission3Desc": "ユーザーが日々の身体の反応を理解するのを助けます。医療診断ではなく、ウェルネスを第一に考えたパターンの解釈。",
+    "howSubtitle": "4つの連携したステージが、生の健康データを日々の実用的なインテリジェンスに変換します",
+    "step1Title": "データ集約",
+    "step1Desc": "ウェアラブルを接続し、検査結果をアップロードし、医療記録をインポートし、遺伝子検査を追加します。すべてのデータは暗号化されたモデルアーカイブボールトに流れ込みます。",
+    "step2Title": "ナレッジエンジン",
+    "step2Desc": "サーバーサイドのエンジンがデータを分析し、パターンを特定し、カテゴリー間で指標を相関させ、個人の健康モデルを継続的に更新します。",
+    "step3Title": "AIによるインサイト生成",
+    "step3Desc": "200以上の専門AIサービスが睡眠、栄養、ストレス、回復、認知、代謝の健康を調査し、パーソナライズされたインサイトを生成します。",
+    "step4Title": "日々のガイダンス",
+    "step4Desc": "クリーンなダッシュボードを通じてパーソナライズされた推奨事項。視覚的なレポート、スマートアラート、文脈豊かな説明 — 不安にさせるのではなく、情報を提供するために設計されています。",
+    "blackBoxTitle": "健康のブラックボックス",
+    "blackBoxDesc": "あなたのモデルアーカイブ — すべての個人の健康データを軍用レベルのセキュリティで保存する暗号化されたボールト。あなたはデータアクセス、共有、主権を完全に管理します。",
+    "categoriesTitle": "20の健康カテゴリー",
+    "categoriesSubtitle": "包括的な健康とウェルネスの領域にわたって整理された200以上の専門AIサービス",
+    "uniqueTitle": "BioMath Coreがユニークな理由",
+    "visionDesc": "BioMath Coreは、個人の健康のための基盤となるオペレーティングシステムになることを目指しています — すべてのデータソースを接続し、統一されたインサイトを生成し、あなたの生活全体のウェルネスを調整するレイヤーです。",
+    "visionDesc2": "5〜10年以上の展望：家族の健康管理、予測モニタリングによる高齢者の自立支援、スマートホーム連携、自動化された服薬管理、および医療提供者とのシームレスな連携。",
+    "beyondBadge": "アーキテクチャの違い",
+    "beyondTraditional": "従来のトラッカー",
+    "baselineBadge": "ヒューマンベースラインの構築",
+    "sovereigntyBadge": "設計による主権",
+    "dualEngineBadge": "システムの思考方法",
+    "timeBadge": "資産としての時間",
+    "track1": "トラック1",
+    "track2": "トラック2",
+    "input": "入力",
+    "output": "出力",
+    "timeAxis": "BioMath Core 内の時間 →",
+    "techSubtitle": "インテリジェントな健康OSを動かす6つのコアレイヤー",
+    "infographicsTitle": "プラットフォームのアーキテクチャとビジョン",
+    "infographicsSubtitle": "BioMath Core の生きたデジタルモデル、自己学習アーキテクチャ、エコシステム規模のビジュアル概要",
+    "ctaTitle": "BioMath Core についてもっと知る",
+    "ctaSubtitle": "BioMath Core が健康データをパーソナルインテリジェンスと実行可能なガイダンスに変換する仕組みをご覧ください",
+    "importantNoticeBody": "BioMath Core は情報・教育のためのウェルネスプラットフォームです。医学的診断や専門医療の代替にはなりません。",
+    "marketP1": "ヘルスケアはデータに溺れながら洞察に飢えています。",
+    "marketP2": "精密医療市場は世界で1,200億ドル超に達すると予測されています。",
+    "marketP3": "BioMath Core はデータ収集と実行可能な理解の間のギャップを埋めます。",
+    "cat": {
+      "criticalHealth": "クリティカルヘルス",
+      "everydayWellness": "日常のウェルネス",
+      "longevity": "長寿とアンチエイジング",
+      "mentalWellness": "メンタルウェルネス",
+      "fitness": "フィットネスとパフォーマンス",
+      "womensHealth": "女性の健康",
+      "mensHealth": "男性の健康",
+      "beauty": "美容とスキンケア",
+      "nutrition": "栄養と食事",
+      "sleep": "睡眠と回復",
+      "environmentalHealth": "環境ヘルス",
+      "familyHealth": "家族の健康",
+      "preventive": "予防医療",
+      "biohacking": "バイオハッキング",
+      "seniorCare": "シニアケア",
+      "eyeHealth": "アイヘルススイート",
+      "digitalTherapeutics": "デジタル治療",
+      "sexualLongevity": "性的長寿",
+      "mensSexualHealth": "男性の性的健康",
+      "womensSexualHealth": "女性の性的健康"
+    },
+    "examples": {
+      "criticalHealthEx": "心血管モニタリング、血圧分析、血糖管理、服薬追跡、バイタルサイン",
+      "longevityEx": "生物学的年齢計算、老化マーカー、ミトコンドリア機能、テロメア解析",
+      "fitnessEx": "トレーニング最適化、回復分析、VO2max、筋適応",
+      "mentalWellnessEx": "ストレスパターン検出、気分追跡、認知パフォーマンス"
+    },
+    "secBadge": {
+      "aes": "AES-256暗号化",
+      "blockchain": "ブロックチェーンによる完全性",
+      "zerotrust": "ゼロトラスト・アーキテクチャ",
+      "hipaa": "HIPAA & GDPR"
+    },
+    "tech": {
+      "subtitle": "インテリジェント・ヘルス・オペレーティングシステムを支える6つの中核レイヤー",
+      "archive": {
+        "title": "モデルアーカイブ",
+        "i1": "保存時および転送時のAES-256暗号化",
+        "i2": "ブロックチェーンによるデータ完全性の検証",
+        "i3": "詳細な権限管理",
+        "i4": "SOC 2認定インフラストラクチャ"
+      },
+      "pipelines": {
+        "title": "データパイプライン",
+        "i1": "50以上の統合データソース",
+        "i2": "リアルタイム同期",
+        "i3": "自動化された品質チェック",
+        "i4": "過去データの保存"
+      },
+      "engine": {
+        "title": "ナレッジエンジン",
+        "i1": "多次元分析",
+        "i2": "パターン相関エンジン",
+        "i3": "異常検知システム",
+        "i4": "予測モデリング"
+      },
+      "ai": {
+        "title": "AIインサイトシステム",
+        "i1": "200以上の特化型AIサービス",
+        "i2": "カテゴリー特化型分析",
+        "i3": "自然言語による解説",
+        "i4": "継続的なモデル改善"
+      },
+      "report": {
+        "title": "レポートエンジン",
+        "i1": "インタラクティブな視覚化",
+        "i2": "カスタマイズ可能なダッシュボード",
+        "i3": "エクスポート可能な医療レポート",
+        "i4": "過去の傾向分析"
+      },
+      "integration": {
+        "title": "統合レイヤー",
+        "i1": "セキュアなAPIエンドポイント",
+        "i2": "医療システムとの統合",
+        "i3": "サードパーティとの接続性",
+        "i4": "研究データの共有"
+      }
+    },
+    "feat": {
+      "dualAi": {
+        "title": "デュアルAI分析",
+        "desc": "複数のAIモデルが、バランスの取れた推奨事項と専門家による検証を伴う包括的な分析を提供します。"
+      },
+      "realtime": {
+        "title": "リアルタイムモニタリング",
+        "desc": "接続されたデバイスから継続的にデータを収集し、インテリジェントなパターン検出と自動アラート機能を提供します。"
+      },
+      "unified": {
+        "title": "統合ヘルスレコード",
+        "desc": "病歴、検査結果、遺伝子情報、生体情報、生活習慣、臨床記録など、すべての健康情報を一元管理します。"
+      },
+      "smart": {
+        "title": "スマートレポート",
+        "desc": "日々のパーソナライズされたインサイト、週次サマリー、進捗追跡、明確な傾向の視覚化を提供します。"
+      },
+      "guidance": {
+        "title": "パーソナライズされたガイダンス",
+        "desc": "個々のプロファイルに基づき、栄養、運動、睡眠、ストレス管理に関するオーダーメイドの推奨事項を提供します。"
+      },
+      "privacy": {
+        "title": "プライバシーとセキュリティ",
+        "desc": "軍事レベルの暗号化、ゼロトラスト・アーキテクチャ、SOC 2認証。完全なデータ主権を実現します。"
+      }
+    },
+    "op": {
+      "daily": {
+        "title": "日常のユーザーワークフロー",
+        "desc": "パーソナライズされたインサイトで一日を開始。接続デバイスが日中の活動を自動追跡。状態の変化に応じてリアルタイムで推奨事項を更新。夜にはレポートで一日の要約と提案を提供します。"
+      },
+      "service": {
+        "title": "サービスのアクティベーション",
+        "desc": "最も重要なカテゴリーを選択し、関連するAIサービスを有効化。少数から始め、徐々に拡大可能。サブスクリプションは定額制ではなく、利用の深度に応じて変動します。"
+      },
+      "clinical": {
+        "title": "臨床統合",
+        "desc": "医療従事者は患者から承認されたアクセス権を取得。従来の評価と並行して臨床意思決定支援ツールとして利用。プロフェッショナル仕様のエクスポート可能なレポートも提供します。"
+      }
+    },
+    "serves": {
+      "optim": {
+        "title": "健康最適化を追求する人々",
+        "desc": "長寿、パフォーマンス、疾病予防に焦点を当てる個人。一般的な平均値ではなく、個人の生体情報を通じて自身の体を理解します。"
+      },
+      "chronic": {
+        "title": "慢性疾患の管理者",
+        "desc": "糖尿病、心血管疾患、自己免疫疾患、メタボリックシンドロームなどを、継続的なモニタリングと最適化ガイダンスで管理します。"
+      },
+      "athletes": {
+        "title": "アスリートおよびパフォーマー",
+        "desc": "プロおよび本格的なアスリートが、データ駆動型のインサイトとバイオハッキングの精度を通じて、トレーニング、回復、栄養を最適化します。"
+      },
+      "pros": {
+        "title": "医療専門家",
+        "desc": "医師、カウンセラー、栄養士などが、高度な分析を用いて治療計画をパーソナライズし、効果的に成果を追跡します。"
+      }
+    },
+    "unique": {
+      "integration": {
+        "title": "真のデータ統合",
+        "desc": "遺伝子情報、検査結果、生体情報、生活習慣、病歴を単一の生体数理モデルに統合。カテゴリー横断的な相関分析により、分離されたデータでは不可能なインサイトを明らかにします。"
+      },
+      "rigor": {
+        "title": "数理的厳密性",
+        "desc": "計算生物学と生体数理モデリングに基づいて構築。生物学的プロセスをシミュレートし、結果を予測し、非線形な相互作用を考慮します。"
+      },
+      "continuous": {
+        "title": "継続的インテリジェンス",
+        "desc": "リアルタイム処理により、身体の変化に応じてインサイトが更新されます。プラットフォームは動的に学習・適応し、タイムリーなガイダンスを提供します。"
+      },
+      "safety": {
+        "title": "精神的な安全性の優先",
+        "desc": "情報提供と支援を目的として設計。学習と最適化を重視する言葉遣いで、ユーザーが不安ではなく、力づけられていると感じられるようにします。"
+      }
+    },
+    "road": {
+      "current": {
+        "phase": "現在",
+        "i1": "20の健康カテゴリーと200+のAIサービスが稼働中",
+        "i2": "Black Boxヴォールトおよび統合パイプラインが稼働中",
+        "i3": "ナレッジエンジンおよびレポートシステムが機能中",
+        "i4": "複数の健康ユースケースにわたるアクティブなユーザーベース"
+      },
+      "next12": {
+        "phase": "今後12ヶ月",
+        "i1": "全機能搭載のiOS & Androidモバイルアプリ",
+        "i2": "75以上のウェアラブルデバイスとの統合をサポート",
+        "i3": "音声対応AIアドバイザー",
+        "i4": "臨床医向けポータルをローンチ"
+      },
+      "next36": {
+        "phase": "18～36ヶ月後",
+        "i1": "慢性疾患リスクの予測ヘルスモデリング",
+        "i2": "家族の健康管理ツール",
+        "i3": "エンタープライズ向けのコーポレートウェルネスソリューション",
+        "i4": "各地域のコンプライアンスに対応した国際展開"
+      }
+    }
   },
   "projectTerraAero": {
     "badge": "AgroTech & Drone Manufacturing",

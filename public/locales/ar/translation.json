@@ -643,36 +643,234 @@
     "heroSubtitle": "Where Data Meets Daily Life",
     "heroDesc": "From sleep to cognition, from movement to mood — BioMath Core brings clarity to your health journey through intelligent real-time insights, 200+ AI-powered services, and a secure personal data vault.",
     "statServices": "AI Services",
-    "statCategories": "Health Categories",
+    "statCategories": "فئات الصحة",
     "statIntegrations": "Device Integrations",
     "statAnalysis": "Real-Time Analysis",
-    "foundationTitle": "Core Foundation of the BioMath Ecosystem",
+    "foundationTitle": "الأساس الجوهري لنظام BioMath Core",
     "foundationDesc": "BioMath Core is the central technological foundation upon which all BioMath services are built. Today, the platform powers over 200 specialized AI services across 20 health categories — from Critical Health and Longevity to Mental Wellness and Biohacking. Every BioMath product in our portfolio relies on BioMath Core as its intelligent backbone.",
     "overviewP1": "BioMath Core is an intelligent health operating system that unifies medical records, biological data, genetic information, wearable metrics, and lifestyle inputs into a single coherent platform.",
     "overviewP2": "Unlike fragmented health apps that track isolated metrics, BioMath Core provides comprehensive analysis across 20 health categories through 200+ specialized AI services — your personal health intelligence layer.",
-    "missionSubtitle": "Three principles that guide every interaction within the platform",
-    "mission1Title": "Understanding, Not Overwhelm",
-    "mission1Desc": "Convert health signals into meaning, then into gentle supportive guidance. Make complex biology accessible and actionable.",
-    "mission2Title": "Reassurance, Not Urgency",
-    "mission2Desc": "Build on emotional safety. Users are learning, never failing. Guidance is invitational rather than prescriptive.",
-    "mission3Title": "Education, Not Diagnosis",
-    "mission3Desc": "Help users understand how their bodies respond day-to-day. Wellness-first interpretation of patterns, not medical diagnosis.",
-    "howSubtitle": "Four interconnected stages transform raw health data into daily actionable intelligence",
-    "step1Title": "Data Aggregation",
-    "step1Desc": "Connect wearables, upload labs, import medical records, add genetic tests. All data flows into the encrypted Model Archive vault.",
-    "step2Title": "Knowledge Engine",
-    "step2Desc": "Server-side engine analyzes data, identifies patterns, correlates metrics across categories, and updates your personal health model continuously.",
-    "step3Title": "AI Insight Generation",
-    "step3Desc": "200+ specialized AI services examine sleep, nutrition, stress, recovery, cognition, metabolic health and generate personalized insights.",
-    "step4Title": "Daily Guidance",
-    "step4Desc": "Personalized recommendations through clean dashboards. Visual reports, smart alerts, and context-rich explanations — designed to inform, not alarm.",
-    "blackBoxTitle": "Health Black Box",
-    "blackBoxDesc": "Your Model Archive — an encrypted vault storing all personal health data with military-grade security. You maintain complete control over data access, sharing, and sovereignty.",
-    "categoriesTitle": "20 Health Categories",
-    "categoriesSubtitle": "200+ specialized AI services organized across comprehensive health and wellness domains",
-    "uniqueTitle": "What Makes BioMath Core Unique",
-    "visionDesc": "BioMath Core aims to become the foundational operating system for personal health — the layer connecting all data sources, generating unified insights, and coordinating wellness across your entire life.",
-    "visionDesc2": "Over 5-10 years: family health coordination, senior independence through predictive monitoring, smart home integration, automated medication management, and seamless healthcare provider coordination."
+    "missionSubtitle": "ثلاثة مبادئ توجه كل تفاعل داخل المنصة",
+    "mission1Title": "الفهم، وليس الإرهاق",
+    "mission1Desc": "تحويل الإشارات الصحية إلى معنى، ثم إلى توجيه داعم لطيف. جعل علم الأحياء المعقد متاحًا وقابلًا للتنفيذ.",
+    "mission2Title": "الطمأنينة، وليست العجلة",
+    "mission2Desc": "البناء على الأمان العاطفي. المستخدمون يتعلمون، ولا يفشلون أبدًا. التوجيه دعوي وليس إلزاميًا.",
+    "mission3Title": "التثقيف، وليس التشخيص",
+    "mission3Desc": "مساعدة المستخدمين على فهم كيفية استجابة أجسامهم يومًا بعد يوم. تفسير الأنماط الذي يركز على العافية أولاً، وليس التشخيص الطبي.",
+    "howSubtitle": "أربع مراحل مترابطة تحول البيانات الصحية الأولية إلى معلومات استخباراتية يومية قابلة للتنفيذ",
+    "step1Title": "تجميع البيانات",
+    "step1Desc": "قم بتوصيل الأجهزة القابلة للارتداء، وتحميل نتائج المختبرات، واستيراد السجلات الطبية، وإضافة الاختبارات الجينية. تتدفق جميع البيانات إلى قبو أرشيف النماذج المشفر.",
+    "step2Title": "محرك المعرفة",
+    "step2Desc": "يقوم محرك الخادم بتحليل البيانات وتحديد الأنماط وربط المقاييس عبر الفئات وتحديث نموذجك الصحي الشخصي باستمرار.",
+    "step3Title": "توليد رؤى الذكاء الاصطناعي",
+    "step3Desc": "أكثر من 200 خدمة ذكاء اصطناعي متخصصة تفحص النوم والتغذية والتوتر والتعافي والإدراك وصحة التمثيل الغذائي وتولد رؤى مخصصة.",
+    "step4Title": "التوجيه اليومي",
+    "step4Desc": "توصيات مخصصة من خلال لوحات معلومات واضحة. تقارير مرئية وتنبيهات ذكية وشروحات غنية بالسياق — مصممة للإعلام، وليس لإثارة القلق.",
+    "blackBoxTitle": "صندوق الصحة الأسود",
+    "blackBoxDesc": "أرشيف النماذج الخاص بك — قبو مشفر يخزن جميع البيانات الصحية الشخصية بأمان من الدرجة العسكرية. أنت تحتفظ بالسيطرة الكاملة على الوصول إلى البيانات ومشاركتها وسيادتها.",
+    "categoriesTitle": "20 فئة صحية",
+    "categoriesSubtitle": "أكثر من 200 خدمة ذكاء اصطناعي متخصصة منظمة عبر مجالات الصحة والعافية الشاملة",
+    "uniqueTitle": "ما الذي يجعل BioMath Core فريدًا",
+    "visionDesc": "يهدف BioMath Core إلى أن يصبح نظام التشغيل الأساسي للصحة الشخصية — الطبقة التي تربط جميع مصادر البيانات، وتولد رؤى موحدة، وتنسق العافية طوال حياتك.",
+    "visionDesc2": "على مدار 5-10 سنوات: تنسيق صحة الأسرة، واستقلالية كبار السن من خلال المراقبة التنبؤية، وتكامل المنزل الذكي، وإدارة الأدوية الآلية، والتنسيق السلس لمقدمي الرعاية الصحية.",
+    "beyondBadge": "الفرق المعماري",
+    "beyondTraditional": "أجهزة التتبع التقليدية",
+    "baselineBadge": "بناء خط الأساس البشري",
+    "sovereigntyBadge": "السيادة بالتصميم",
+    "dualEngineBadge": "كيف يفكر النظام",
+    "timeBadge": "الزمن كأصل",
+    "track1": "المسار 1",
+    "track2": "المسار 2",
+    "input": "المُدخل",
+    "output": "النتيجة",
+    "timeAxis": "الوقت داخل BioMath Core →",
+    "techSubtitle": "ست طبقات أساسية تشغّل نظام تشغيل صحي ذكي",
+    "infographicsTitle": "هيكلية المنصة والرؤية",
+    "infographicsSubtitle": "نظرة بصرية على النموذج الرقمي الحي لـ BioMath Core وهندسته ذاتية التعلم وحجم منظومته",
+    "ctaTitle": "اعرف المزيد عن BioMath Core",
+    "ctaSubtitle": "اكتشف كيف يحوّل BioMath Core بيانات الصحة إلى ذكاء شخصي وتوجيهات قابلة للتنفيذ",
+    "importantNoticeBody": "BioMath Core منصة تثقيفية ومعلوماتية للصحة. لا تشخّص الحالات الطبية ولا تحل محل الرعاية الطبية المهنية.",
+    "marketP1": "الرعاية الصحية تغرق في البيانات لكنها تفتقر إلى الرؤى الحقيقية.",
+    "marketP2": "يُتوقّع أن يتجاوز سوق الطب الدقيق 120 مليار دولار عالمياً، ومعظم المنصات تركّز على مجالات معزولة.",
+    "marketP3": "يسدّ BioMath Core الفجوة بين جمع البيانات والفهم القابل للتنفيذ.",
+    "cat": {
+      "criticalHealth": "الصحة الحرجة",
+      "everydayWellness": "العافية اليومية",
+      "longevity": "طول العمر ومكافحة الشيخوخة",
+      "mentalWellness": "الصحة النفسية",
+      "fitness": "اللياقة والأداء",
+      "womensHealth": "صحة المرأة",
+      "mensHealth": "صحة الرجل",
+      "beauty": "الجمال والعناية بالبشرة",
+      "nutrition": "التغذية والحمية",
+      "sleep": "النوم والتعافي",
+      "environmentalHealth": "صحة البيئة",
+      "familyHealth": "صحة الأسرة",
+      "preventive": "الطب الوقائي",
+      "biohacking": "الاختراق البيولوجي",
+      "seniorCare": "رعاية كبار السن",
+      "eyeHealth": "صحة العين",
+      "digitalTherapeutics": "العلاج الرقمي",
+      "sexualLongevity": "طول العمر الجنسي",
+      "mensSexualHealth": "الصحة الجنسية للرجل",
+      "womensSexualHealth": "الصحة الجنسية للمرأة"
+    },
+    "examples": {
+      "criticalHealthEx": "مراقبة القلب والأوعية الدموية، تحليل ضغط الدم، إدارة السكر، تتبع الأدوية",
+      "longevityEx": "حساب العمر البيولوجي، علامات الشيخوخة، وظائف الميتوكوندريا، تحليل التيلومير",
+      "fitnessEx": "تحسين التدريب، تحليل التعافي، VO2max، التكيّف العضلي",
+      "mentalWellnessEx": "كشف أنماط التوتر، تتبع المزاج، الأداء المعرفي"
+    },
+    "secBadge": {
+      "aes": "تشفير AES-256",
+      "blockchain": "سلامة البلوك تشين",
+      "zerotrust": "هندسة الثقة المعدومة",
+      "hipaa": "HIPAA و GDPR"
+    },
+    "tech": {
+      "subtitle": "ست طبقات أساسية تشغل نظام التشغيل الصحي الذكي",
+      "archive": {
+        "title": "أرشيف النموذج",
+        "i1": "تشفير AES-256 في وضع السكون وأثناء النقل",
+        "i2": "سلامة البيانات التي تم التحقق منها بواسطة البلوك تشين",
+        "i3": "ضوابط الأذونات الدقيقة",
+        "i4": "بنية تحتية معتمدة من SOC 2"
+      },
+      "pipelines": {
+        "title": "خطوط أنابيب البيانات",
+        "i1": "أكثر من 50 مصدر بيانات مدمج",
+        "i2": "المزامنة في الوقت الفعلي",
+        "i3": "فحوصات الجودة الآلية",
+        "i4": "الحفاظ على البيانات التاريخية"
+      },
+      "engine": {
+        "title": "محرك المعرفة",
+        "i1": "تحليل متعدد الأبعاد",
+        "i2": "محرك ربط الأنماط",
+        "i3": "أنظمة كشف الشذوذ",
+        "i4": "النمذجة التنبؤية"
+      },
+      "ai": {
+        "title": "نظام رؤى الذكاء الاصطناعي",
+        "i1": "أكثر من 200 خدمة ذكاء اصطناعي متخصصة",
+        "i2": "تحليل خاص بالفئة",
+        "i3": "تفسيرات اللغة الطبيعية",
+        "i4": "التحسين المستمر للنموذج"
+      },
+      "report": {
+        "title": "محرك التقارير",
+        "i1": "تصورات تفاعلية",
+        "i2": "لوحات تحكم قابلة للتخصيص",
+        "i3": "تقارير طبية قابلة للتصدير",
+        "i4": "تحليل الاتجاهات التاريخية"
+      },
+      "integration": {
+        "title": "طبقة التكامل",
+        "i1": "نقاط نهاية API آمنة",
+        "i2": "تكامل نظام الرعاية الصحية",
+        "i3": "اتصال من طرف ثالث",
+        "i4": "مشاركة بيانات الأبحاث"
+      }
+    },
+    "feat": {
+      "dualAi": {
+        "title": "تحليل الذكاء الاصطناعي المزدوج",
+        "desc": "توفر نماذج الذكاء الاصطناعي المتعددة تحليلاً شاملاً مع توصيات متوازنة وتحقق من الخبراء."
+      },
+      "realtime": {
+        "title": "المراقبة في الوقت الفعلي",
+        "desc": "جمع البيانات المستمر من الأجهزة المتصلة مع اكتشاف الأنماط الذكي والتنبيهات الآلية."
+      },
+      "unified": {
+        "title": "سجل صحي موحد",
+        "desc": "جميع المعلومات الصحية موحدة: التاريخ الطبي، الفحوصات المخبرية، الوراثة، البيانات البيومترية، نمط الحياة، والملاحظات السريرية."
+      },
+      "smart": {
+        "title": "تقارير ذكية",
+        "desc": "رؤى يومية مخصصة مع ملخصات أسبوعية، تتبع التقدم، وتصورات واضحة للاتجاهات."
+      },
+      "guidance": {
+        "title": "إرشادات مخصصة",
+        "desc": "توصيات مخصصة للتغذية، التمارين الرياضية، النوم، إدارة الإجهاد بناءً على ملفك الشخصي الفريد."
+      },
+      "privacy": {
+        "title": "الخصوصية والأمان",
+        "desc": "تشفير على مستوى عسكري، بنية الثقة المعدومة، شهادة SOC 2. سيادة كاملة للبيانات."
+      }
+    },
+    "op": {
+      "daily": {
+        "title": "سير عمل المستخدم اليومي",
+        "desc": "استيقظ على رؤى مخصصة. تتتبع الأجهزة المتصلة تلقائيًا طوال اليوم. تتحدث التوصيات في الوقت الفعلي مع تغير الظروف. تلخص التقارير المسائية وتقترح."
+      },
+      "service": {
+        "title": "تفعيل الخدمة",
+        "desc": "اختر الفئات الأكثر أهمية. قم بتفعيل خدمات الذكاء الاصطناعي ذات الصلة. ابدأ ببعضها، ثم وسع بمرور الوقت. يشمل الاشتراك العمق، وليس بسعر ثابت."
+      },
+      "clinical": {
+        "title": "التكامل السريري",
+        "desc": "يتلقى مقدمو الرعاية الصحية وصولاً مصرحًا به من المريض. أداة دعم القرار السريري إلى جانب التقييم التقليدي. تقارير قابلة للتصدير على مستوى احترافي."
+      }
+    },
+    "serves": {
+      "optim": {
+        "title": "الباحثون عن تحسين الصحة",
+        "desc": "الأفراد الذين يركزون على طول العمر، الأداء، الوقاية من الأمراض. فهم أجسادهم من خلال البيولوجيا الشخصية بدلاً من المتوسطات العامة."
+      },
+      "chronic": {
+        "title": "مديرو الحالات المزمنة",
+        "desc": "إدارة مرض السكري، حالات القلب والأوعية الدموية، اضطرابات المناعة الذاتية، أو متلازمات الأيض بمراقبة مستمرة وإرشادات التحسين."
+      },
+      "athletes": {
+        "title": "الرياضيون وفنانو الأداء",
+        "desc": "الرياضيون المحترفون والجادون الذين يحسنون التدريب، الاستشفاء، التغذية من خلال رؤى مستندة إلى البيانات ودقة قرصنة الجسم (biohacking)."
+      },
+      "pros": {
+        "title": "متخصصو الرعاية الصحية",
+        "desc": "الأطباء، المستشارون، أخصائيو التغذية الذين يستخدمون التحليلات المتقدمة لتخصيص خطط العلاج وتتبع النتائج بفعالية."
+      }
+    },
+    "unique": {
+      "integration": {
+        "title": "تكامل بيانات حقيقي",
+        "desc": "يوحد الوراثة، الفحوصات المخبرية، البيانات البيومترية، نمط الحياة، والتاريخ الطبي في نموذج بيولوجي رياضي واحد. تكشف الارتباطات عبر الفئات عن رؤى مستحيلة في البيانات المعزولة."
+      },
+      "rigor": {
+        "title": "الدقة الرياضية",
+        "desc": "بنيت على البيولوجيا الحاسوبية والنمذجة البيولوجية الرياضية. تحاكي العمليات البيولوجية، تتنبأ بالنتائج، وتأخذ في الاعتبار التفاعلات غير الخطية."
+      },
+      "continuous": {
+        "title": "الذكاء المستمر",
+        "desc": "معالجة البيانات في الوقت الفعلي تعني تحديث الرؤى مع تغير جسمك. تتعلم المنصة، تتكيف ديناميكيًا، وتقدم إرشادات في الوقت المناسب."
+      },
+      "safety": {
+        "title": "السلامة العاطفية أولاً",
+        "desc": "مصممة للإعلام والدعم. تركز اللغة على التعلم والتحسين. يشعر المستخدمون بالتمكين، وليس القلق."
+      }
+    },
+    "road": {
+      "current": {
+        "phase": "المرحلة الحالية",
+        "i1": "20 فئة صحية و 200+ خدمة AI نشطة",
+        "i2": "خزنة Black Box وخطوط أنابيب التكامل قيد التشغيل",
+        "i3": "محرك المعرفة وأنظمة التقارير تعمل بكامل طاقتها",
+        "i4": "قاعدة مستخدمين نشطة عبر حالات استخدام صحية متعددة"
+      },
+      "next12": {
+        "phase": "الـ 12 شهرًا القادمة",
+        "i1": "تطبيقات جوال iOS & Android مع تكافؤ كامل للميزات",
+        "i2": "أكثر من 75 تكاملًا مدعومًا لأجهزة يمكن ارتداؤها",
+        "i3": "مستشار الذكاء الاصطناعي الصوتي",
+        "i4": "إطلاق بوابة الممارسين السريريين"
+      },
+      "next36": {
+        "phase": "من 18 إلى 36 شهرًا",
+        "i1": "النمذجة الصحية التنبؤية لمخاطر الأمراض المزمنة",
+        "i2": "أدوات إدارة صحة الأسرة",
+        "i3": "حلول العافية المؤسسية للشركات",
+        "i4": "التوسع الدولي مع الالتزام المحلي"
+      }
+    }
   },
   "projectTerraAero": {
     "badge": "AgroTech & Drone Manufacturing",

@@ -639,17 +639,17 @@
     "allBioMathFamily": "All BioMath Life Family"
   },
   "projectBiomathCore": {
-    "badge": "Digital Health · Foundation Platform",
-    "heroSubtitle": "Where Data Meets Daily Life",
-    "heroDesc": "From sleep to cognition, from movement to mood — BioMath Core brings clarity to your health journey through intelligent real-time insights, 200+ AI-powered services, and a secure personal data vault.",
-    "statServices": "AI Services",
+    "badge": "Digital Health · Foundation Architecture",
+    "heroSubtitle": "The Living Digital Architecture of Personal Human Models.",
+    "heroDesc": "BioMath Core is not another health tracker. It is a single, unified, living digital structure where every new signal dynamically reshapes the entire systemic picture — across 20 health categories and 200+ specialized services, governed by a private Black Box architecture you fully control.",
+    "statServices": "Specialized Services",
     "statCategories": "Health Categories",
-    "statIntegrations": "Device Integrations",
-    "statAnalysis": "Real-Time Analysis",
+    "statIntegrations": "Coverage Vector",
+    "statAnalysis": "Active History",
     "foundationTitle": "Core Foundation of the BioMath Ecosystem",
-    "foundationDesc": "BioMath Core is the central technological foundation upon which all BioMath services are built. Today, the platform powers over 200 specialized AI services across 20 health categories — from Critical Health and Longevity to Mental Wellness and Biohacking. Every BioMath product in our portfolio relies on BioMath Core as its intelligent backbone.",
-    "overviewP1": "BioMath Core is an intelligent health operating system that unifies medical records, biological data, genetic information, wearable metrics, and lifestyle inputs into a single coherent platform.",
-    "overviewP2": "Unlike fragmented health apps that track isolated metrics, BioMath Core provides comprehensive analysis across 20 health categories through 200+ specialized AI services — your personal health intelligence layer.",
+    "foundationDesc": "BioMath Core is the central technological foundation upon which the entire BioMath ecosystem is built — over 200 specialized services across 20 health categories, from Critical Health and Longevity to Mental Wellness, Sleep, Recovery and Biohacking. Every BioMath product relies on Core as its cognitive backbone.",
+    "overviewP1": "Traditional health platforms are collections of disconnected services. BioMath Core is the opposite: a single, unified, living digital structure where every new action dynamically alters the entire systemic picture in parallel — not a linear log, but simultaneous multi-layered modeling.",
+    "overviewP2": "The output is not isolated reports. It is a constantly evolving structural understanding of the individual — current state, causal logic, focus zones and dynamics — delivered through a Dual-Opinion Cognitive Engine that thinks both locally and systemically.",
     "missionSubtitle": "Three principles that guide every interaction within the platform",
     "mission1Title": "Understanding, Not Overwhelm",
     "mission1Desc": "Convert health signals into meaning, then into gentle supportive guidance. Make complex biology accessible and actionable.",
@@ -672,7 +672,205 @@
     "categoriesSubtitle": "200+ specialized AI services organized across comprehensive health and wellness domains",
     "uniqueTitle": "What Makes BioMath Core Unique",
     "visionDesc": "BioMath Core aims to become the foundational operating system for personal health — the layer connecting all data sources, generating unified insights, and coordinating wellness across your entire life.",
-    "visionDesc2": "Over 5-10 years: family health coordination, senior independence through predictive monitoring, smart home integration, automated medication management, and seamless healthcare provider coordination."
+    "visionDesc2": "Over 5-10 years: family health coordination, senior independence through predictive monitoring, smart home integration, automated medication management, and seamless healthcare provider coordination.",
+    "beyondBadge": "The Architecture Difference",
+    "beyondTraditional": "Traditional Trackers",
+    "baselineBadge": "Constructing the Human Baseline",
+    "sovereigntyBadge": "Sovereignty by Design",
+    "dualEngineBadge": "How the System Thinks",
+    "timeBadge": "Time as an Asset",
+    "track1": "Track 1",
+    "track2": "Track 2",
+    "input": "Input",
+    "output": "Output",
+    "timeAxis": "Time inside BioMath Core →",
+    "techSubtitle": "Six core layers powering the intelligent health operating system",
+    "infographicsTitle": "Platform Architecture & Vision",
+    "infographicsSubtitle": "Visual overview of BioMath Core's living digital model, self-learning architecture, and ecosystem scale",
+    "ctaTitle": "Learn More About BioMath Core",
+    "ctaSubtitle": "Discover how BioMath Core transforms health data into personal intelligence and actionable guidance",
+    "importantNoticeBody": "BioMath Core is an informational and educational wellness platform. It provides data analysis, pattern recognition, and optimization suggestions but does not diagnose medical conditions, prescribe treatments, or replace professional medical care. All insights should be discussed with qualified healthcare professionals.",
+    "marketP1": "Healthcare is drowning in data but starving for insight. Wearables generate millions of data points. Genetic testing reveals thousands of variants. Yet most people cannot answer basic questions about their health patterns.",
+    "marketP2": "The precision medicine market is projected to reach $120+ billion globally. However, most platforms focus narrowly on single domains without cross-correlation or unified intelligence.",
+    "marketP3": "BioMath Core fills the gap between data collection and actionable understanding — the intelligent layer that transforms disconnected streams into a coherent operating system for personal health.",
+    "cat": {
+      "criticalHealth": "Critical Health",
+      "everydayWellness": "Everyday Wellness",
+      "longevity": "Longevity & Anti-Aging",
+      "mentalWellness": "Mental Wellness",
+      "fitness": "Fitness & Performance",
+      "womensHealth": "Women's Health",
+      "mensHealth": "Men's Health",
+      "beauty": "Beauty & Skincare",
+      "nutrition": "Nutrition & Diet",
+      "sleep": "Sleep & Recovery",
+      "environmentalHealth": "Environmental Health",
+      "familyHealth": "Family Health",
+      "preventive": "Preventive Medicine",
+      "biohacking": "Biohacking",
+      "seniorCare": "Senior Care",
+      "eyeHealth": "Eye-Health Suite",
+      "digitalTherapeutics": "Digital Therapeutics",
+      "sexualLongevity": "Sexual Longevity",
+      "mensSexualHealth": "Men's Sexual Health",
+      "womensSexualHealth": "Women's Sexual Health"
+    },
+    "examples": {
+      "criticalHealthEx": "Cardiovascular monitoring, blood pressure analysis, glucose management, medication tracking, vital signs",
+      "longevityEx": "Biological age calculation, senescence markers, mitochondrial function, telomere analysis, cellular optimization",
+      "fitnessEx": "Training optimization, recovery analysis, VO2max tracking, muscle adaptation, performance prediction",
+      "mentalWellnessEx": "Stress pattern detection, mood tracking, cognitive performance, mindfulness metrics, sleep quality impact"
+    },
+    "secBadge": {
+      "aes": "AES-256 Encryption",
+      "blockchain": "Blockchain Integrity",
+      "zerotrust": "Zero-Trust Architecture",
+      "hipaa": "HIPAA & GDPR"
+    },
+    "tech": {
+      "subtitle": "Six core layers powering the intelligent health operating system",
+      "archive": {
+        "title": "Model Archive",
+        "i1": "AES-256 encryption at rest & in transit",
+        "i2": "Blockchain-verified data integrity",
+        "i3": "Granular permission controls",
+        "i4": "SOC 2 certified infrastructure"
+      },
+      "pipelines": {
+        "title": "Data Pipelines",
+        "i1": "50+ integrated data sources",
+        "i2": "Real-time synchronization",
+        "i3": "Automated quality checks",
+        "i4": "Historical data preservation"
+      },
+      "engine": {
+        "title": "Knowledge Engine",
+        "i1": "Multi-dimensional analysis",
+        "i2": "Pattern correlation engine",
+        "i3": "Anomaly detection systems",
+        "i4": "Predictive modeling"
+      },
+      "ai": {
+        "title": "AI Insight System",
+        "i1": "200+ specialized AI services",
+        "i2": "Category-specific analysis",
+        "i3": "Natural language explanations",
+        "i4": "Continuous model improvement"
+      },
+      "report": {
+        "title": "Report Engine",
+        "i1": "Interactive visualizations",
+        "i2": "Customizable dashboards",
+        "i3": "Exportable medical reports",
+        "i4": "Historical trend analysis"
+      },
+      "integration": {
+        "title": "Integration Layer",
+        "i1": "Secure API endpoints",
+        "i2": "Healthcare system integration",
+        "i3": "Third-party connectivity",
+        "i4": "Research data sharing"
+      }
+    },
+    "feat": {
+      "dualAi": {
+        "title": "Dual AI Analysis",
+        "desc": "Multiple AI models provide comprehensive analysis with balanced recommendations and expert validation."
+      },
+      "realtime": {
+        "title": "Real-Time Monitoring",
+        "desc": "Continuous data collection from connected devices with intelligent pattern detection and automated alerts."
+      },
+      "unified": {
+        "title": "Unified Health Record",
+        "desc": "All health information unified: medical history, labs, genetics, biometrics, lifestyle, and clinical notes."
+      },
+      "smart": {
+        "title": "Smart Reports",
+        "desc": "Personalized daily insights with weekly summaries, progress tracking, and clear trend visualizations."
+      },
+      "guidance": {
+        "title": "Personalized Guidance",
+        "desc": "Tailored recommendations for nutrition, exercise, sleep, stress management based on your unique profile."
+      },
+      "privacy": {
+        "title": "Privacy & Security",
+        "desc": "Military-grade encryption, zero-trust architecture, SOC 2 certification. Complete data sovereignty."
+      }
+    },
+    "op": {
+      "daily": {
+        "title": "Daily User Workflow",
+        "desc": "Wake to personalized insights. Connected devices auto-track throughout the day. Real-time recommendations update as conditions change. Evening reports summarize and suggest."
+      },
+      "service": {
+        "title": "Service Activation",
+        "desc": "Choose categories that matter most. Activate relevant AI services. Start with a few, expand over time. Subscription scales with depth, not flat-rate."
+      },
+      "clinical": {
+        "title": "Clinical Integration",
+        "desc": "Healthcare providers receive patient-authorized access. Clinical decision support tool alongside traditional evaluation. Professional-grade exportable reports."
+      }
+    },
+    "serves": {
+      "optim": {
+        "title": "Health Optimization Seekers",
+        "desc": "Individuals focused on longevity, performance, disease prevention. Understanding their bodies through personal biology rather than generic averages."
+      },
+      "chronic": {
+        "title": "Chronic Condition Managers",
+        "desc": "Managing diabetes, cardiovascular conditions, autoimmune disorders, or metabolic syndromes with continuous monitoring and optimization guidance."
+      },
+      "athletes": {
+        "title": "Athletes & Performers",
+        "desc": "Professional and serious athletes optimizing training, recovery, nutrition through data-driven insights and biohacking precision."
+      },
+      "pros": {
+        "title": "Healthcare Professionals",
+        "desc": "Physicians, counselors, nutritionists using advanced analytics to personalize treatment plans and track outcomes effectively."
+      }
+    },
+    "unique": {
+      "integration": {
+        "title": "True Data Integration",
+        "desc": "Unifies genetics, labs, biometrics, lifestyle, and medical history into a single biomathematical model. Correlations across categories reveal insights impossible in isolated data."
+      },
+      "rigor": {
+        "title": "Mathematical Rigor",
+        "desc": "Built on computational biology and biomathematical modeling. Simulates biological processes, predicts outcomes, accounts for non-linear interactions."
+      },
+      "continuous": {
+        "title": "Continuous Intelligence",
+        "desc": "Real-time processing means insights update as your body changes. The platform learns, adapts dynamically, and provides timely guidance."
+      },
+      "safety": {
+        "title": "Emotional Safety First",
+        "desc": "Designed to inform and support. Language emphasizes learning and optimization. Users feel empowered, not anxious."
+      }
+    },
+    "road": {
+      "current": {
+        "phase": "Current",
+        "i1": "20 health categories & 200+ AI services active",
+        "i2": "Black Box vault & integration pipelines operational",
+        "i3": "Knowledge engine & reporting systems functional",
+        "i4": "Active user base across multiple health use cases"
+      },
+      "next12": {
+        "phase": "Next 12 Months",
+        "i1": "iOS & Android mobile apps with full feature parity",
+        "i2": "75+ supported wearable device integrations",
+        "i3": "Voice-enabled AI Advisor",
+        "i4": "Clinical practitioner portal launch"
+      },
+      "next36": {
+        "phase": "18–36 Months",
+        "i1": "Predictive health modeling for chronic disease risks",
+        "i2": "Family health management tools",
+        "i3": "Enterprise corporate wellness solutions",
+        "i4": "International expansion with localized compliance"
+      }
+    }
   },
   "projectTerraAero": {
     "badge": "AgroTech & Drone Manufacturing",
