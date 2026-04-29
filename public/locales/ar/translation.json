@@ -874,8 +874,7 @@
     "catalog": {
       "badge": "كتالوج الخدمات الكامل",
       "title": "20 فئة · 200 خدمة",
-      "desc": "خريطة خدمات BioMath Core الكاملة — كل فئة تحتوي على مجموعة منظمة من عشر خدمات متخصصة تغذي النموذج الرقمي الموحّد لجسم الإنسان.",
-      "servicesCount": "10 خدمات",
+      "desc": "الخريطة الكاملة لخدمات BioMath Core — تتضمّن كل فئة مجموعة منظَّمة من عشر خدمات متخصّصة تُغذّي النموذج الرقمي الموحَّد لجسم الإنسان.",
       "cats": {
         "criticalHealth": "الصحة الحرجة",
         "everydayWellness": "العافية اليومية",
@@ -885,16 +884,16 @@
         "womensHealth": "صحة المرأة",
         "mensHealth": "صحة الرجل",
         "beauty": "الجمال والعناية بالبشرة",
-        "nutrition": "التغذية والحمية",
+        "nutrition": "التغذية والحِمية",
         "sleep": "النوم والتعافي",
-        "environmentalHealth": "صحة البيئة",
+        "environmentalHealth": "الصحة البيئية",
         "familyHealth": "صحة الأسرة",
-        "preventive": "الطب الوقائي وطول العمر",
-        "biohacking": "البيوهاكينغ والأداء",
+        "preventive": "الطب الوقائي",
+        "biohacking": "تحسين الأداء البيولوجي",
         "seniorCare": "رعاية كبار السن",
-        "eyeHealth": "مجموعة صحة العين",
-        "digitalTherapeutics": "متجر العلاجات الرقمية",
-        "sexualLongevity": "طول العمر الجنسي العام",
+        "eyeHealth": "صحة العين",
+        "digitalTherapeutics": "العلاجات الرقمية",
+        "sexualLongevity": "طول العمر الجنسي",
         "mensSexualHealth": "الصحة الجنسية للرجل",
         "womensSexualHealth": "الصحة الجنسية للمرأة"
       }
