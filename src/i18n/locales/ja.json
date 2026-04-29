@@ -893,6 +893,34 @@
         "i3": "エンタープライズ向けのコーポレートウェルネスソリューション",
         "i4": "各地域のコンプライアンスに対応した国際展開"
       }
+    },
+    "catalog": {
+      "badge": "全サービスカタログ",
+      "title": "20カテゴリー · 200サービス",
+      "desc": "BioMath Coreの完全なサービスマップ — 各カテゴリーは、人体の統合デジタルモデルを支える10の専門サービスで構成されています。",
+      "servicesCount": "10サービス",
+      "cats": {
+        "criticalHealth": "クリティカルヘルス",
+        "everydayWellness": "日々のウェルネス",
+        "longevity": "長寿とアンチエイジング",
+        "mentalWellness": "メンタルウェルネス",
+        "fitness": "フィットネスとパフォーマンス",
+        "womensHealth": "女性の健康",
+        "mensHealth": "男性の健康",
+        "beauty": "ビューティーとスキンケア",
+        "nutrition": "栄養と食事",
+        "sleep": "睡眠と回復",
+        "environmentalHealth": "環境健康",
+        "familyHealth": "家族の健康",
+        "preventive": "予防医療と長寿",
+        "biohacking": "バイオハッキングとパフォーマンス",
+        "seniorCare": "シニアケア",
+        "eyeHealth": "アイヘルス スイート",
+        "digitalTherapeutics": "デジタル治療ストア",
+        "sexualLongevity": "セクシャル・ロンジェビティ",
+        "mensSexualHealth": "男性の性の健康",
+        "womensSexualHealth": "女性の性の健康"
+      }
     }
   },
   "projectTerraAero": {

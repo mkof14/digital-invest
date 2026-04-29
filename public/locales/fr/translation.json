@@ -870,6 +870,34 @@
         "i3": "Solutions de bien-être en entreprise",
         "i4": "Expansion internationale avec conformité localisée"
       }
+    },
+    "catalog": {
+      "badge": "Catalogue complet des services",
+      "title": "20 catégories · 200 services",
+      "desc": "La carte complète des services BioMath Core — chaque catégorie regroupe un ensemble structuré de dix services dédiés qui alimentent le modèle numérique unifié du corps humain.",
+      "servicesCount": "10 services",
+      "cats": {
+        "criticalHealth": "Santé critique",
+        "everydayWellness": "Bien-être quotidien",
+        "longevity": "Longévité et anti-âge",
+        "mentalWellness": "Santé mentale",
+        "fitness": "Fitness et performance",
+        "womensHealth": "Santé des femmes",
+        "mensHealth": "Santé des hommes",
+        "beauty": "Beauté et soin de la peau",
+        "nutrition": "Nutrition et régime",
+        "sleep": "Sommeil et récupération",
+        "environmentalHealth": "Santé environnementale",
+        "familyHealth": "Santé familiale",
+        "preventive": "Médecine préventive et longévité",
+        "biohacking": "Biohacking et performance",
+        "seniorCare": "Soins aux seniors",
+        "eyeHealth": "Suite santé oculaire",
+        "digitalTherapeutics": "Boutique de thérapies numériques",
+        "sexualLongevity": "Longévité sexuelle générale",
+        "mensSexualHealth": "Santé sexuelle masculine",
+        "womensSexualHealth": "Santé sexuelle féminine"
+      }
     }
   },
   "projectTerraAero": {
