@@ -643,36 +643,234 @@
     "heroSubtitle": "Where Data Meets Daily Life",
     "heroDesc": "From sleep to cognition, from movement to mood — BioMath Core brings clarity to your health journey through intelligent real-time insights, 200+ AI-powered services, and a secure personal data vault.",
     "statServices": "AI Services",
-    "statCategories": "Health Categories",
+    "statCategories": "Catégories de santé",
     "statIntegrations": "Device Integrations",
     "statAnalysis": "Real-Time Analysis",
-    "foundationTitle": "Core Foundation of the BioMath Ecosystem",
+    "foundationTitle": "Le cœur de l'écosystème BioMath",
     "foundationDesc": "BioMath Core is the central technological foundation upon which all BioMath services are built. Today, the platform powers over 200 specialized AI services across 20 health categories — from Critical Health and Longevity to Mental Wellness and Biohacking. Every BioMath product in our portfolio relies on BioMath Core as its intelligent backbone.",
     "overviewP1": "BioMath Core is an intelligent health operating system that unifies medical records, biological data, genetic information, wearable metrics, and lifestyle inputs into a single coherent platform.",
     "overviewP2": "Unlike fragmented health apps that track isolated metrics, BioMath Core provides comprehensive analysis across 20 health categories through 200+ specialized AI services — your personal health intelligence layer.",
-    "missionSubtitle": "Three principles that guide every interaction within the platform",
-    "mission1Title": "Understanding, Not Overwhelm",
-    "mission1Desc": "Convert health signals into meaning, then into gentle supportive guidance. Make complex biology accessible and actionable.",
-    "mission2Title": "Reassurance, Not Urgency",
-    "mission2Desc": "Build on emotional safety. Users are learning, never failing. Guidance is invitational rather than prescriptive.",
-    "mission3Title": "Education, Not Diagnosis",
-    "mission3Desc": "Help users understand how their bodies respond day-to-day. Wellness-first interpretation of patterns, not medical diagnosis.",
-    "howSubtitle": "Four interconnected stages transform raw health data into daily actionable intelligence",
-    "step1Title": "Data Aggregation",
-    "step1Desc": "Connect wearables, upload labs, import medical records, add genetic tests. All data flows into the encrypted Model Archive vault.",
-    "step2Title": "Knowledge Engine",
-    "step2Desc": "Server-side engine analyzes data, identifies patterns, correlates metrics across categories, and updates your personal health model continuously.",
-    "step3Title": "AI Insight Generation",
-    "step3Desc": "200+ specialized AI services examine sleep, nutrition, stress, recovery, cognition, metabolic health and generate personalized insights.",
-    "step4Title": "Daily Guidance",
-    "step4Desc": "Personalized recommendations through clean dashboards. Visual reports, smart alerts, and context-rich explanations — designed to inform, not alarm.",
-    "blackBoxTitle": "Health Black Box",
-    "blackBoxDesc": "Your Model Archive — an encrypted vault storing all personal health data with military-grade security. You maintain complete control over data access, sharing, and sovereignty.",
-    "categoriesTitle": "20 Health Categories",
-    "categoriesSubtitle": "200+ specialized AI services organized across comprehensive health and wellness domains",
-    "uniqueTitle": "What Makes BioMath Core Unique",
-    "visionDesc": "BioMath Core aims to become the foundational operating system for personal health — the layer connecting all data sources, generating unified insights, and coordinating wellness across your entire life.",
-    "visionDesc2": "Over 5-10 years: family health coordination, senior independence through predictive monitoring, smart home integration, automated medication management, and seamless healthcare provider coordination."
+    "missionSubtitle": "Trois principes qui guident chaque interaction au sein de la plateforme",
+    "mission1Title": "Compréhension, pas submersion",
+    "mission1Desc": "Transformez les signaux de santé en informations significatives, puis en conseils de soutien bienveillants. Rendez la biologie complexe accessible et exploitable.",
+    "mission2Title": "Réconfort, pas urgence",
+    "mission2Desc": "Misez sur la sécurité émotionnelle. Les utilisateurs apprennent, sans jamais échouer. Les conseils sont des invitations plutôt que des prescriptions.",
+    "mission3Title": "Éducation, pas de diagnostic",
+    "mission3Desc": "Aidez les utilisateurs à comprendre comment leur corps réagit au quotidien. Une interprétation des tendances axée sur le bien-être, et non un diagnostic médical.",
+    "howSubtitle": "Quatre étapes interconnectées transforment les données de santé brutes en informations exploitables au quotidien",
+    "step1Title": "Agrégation de données",
+    "step1Desc": "Connectez des appareils portables, téléchargez des analyses, importez des dossiers médicaux, ajoutez des tests génétiques. Toutes les données sont acheminées vers le coffre-fort crypté Model Archive.",
+    "step2Title": "Moteur de connaissances",
+    "step2Desc": "Le moteur côté serveur analyse les données, identifie les tendances, corrèle les mesures entre les catégories et met à jour en permanence votre modèle de santé personnel.",
+    "step3Title": "Génération d'informations par l'IA",
+    "step3Desc": "Plus de 200 services d'IA spécialisés examinent le sommeil, la nutrition, le stress, la récupération, la cognition, la santé métabolique et génèrent des informations personnalisées.",
+    "step4Title": "Conseils quotidiens",
+    "step4Desc": "Des recommandations personnalisées via des tableaux de bord épurés. Des rapports visuels, des alertes intelligentes et des explications riches en contexte, conçus pour informer, et non pour alarmer.",
+    "blackBoxTitle": "Boîte noire de la santé",
+    "blackBoxDesc": "Votre Model Archive : un coffre-fort crypté stockant toutes vos données de santé personnelles avec une sécurité de niveau militaire. Vous gardez le contrôle total sur l'accès, le partage et la souveraineté des données.",
+    "categoriesTitle": "20 catégories de santé",
+    "categoriesSubtitle": "Plus de 200 services d'IA spécialisés organisés dans des domaines complets de la santé et du bien-être",
+    "uniqueTitle": "Ce qui rend BioMath Core unique",
+    "visionDesc": "BioMath Core a pour ambition de devenir le système d'exploitation fondamental de la santé personnelle - la couche qui connecte toutes les sources de données, génère des informations unifiées et coordonne le bien-être tout au long de votre vie.",
+    "visionDesc2": "D'ici 5 à 10 ans : coordination de la santé familiale, indépendance des personnes âgées grâce à la surveillance prédictive, intégration de la maison intelligente, gestion automatisée des médicaments et coordination transparente avec les prestataires de soins de santé.",
+    "beyondBadge": "La différence architecturale",
+    "beyondTraditional": "Trackers traditionnels",
+    "baselineBadge": "Construire la référence humaine",
+    "sovereigntyBadge": "Souveraineté par conception",
+    "dualEngineBadge": "Comment le système pense",
+    "timeBadge": "Le temps comme actif",
+    "track1": "Voie 1",
+    "track2": "Voie 2",
+    "input": "Entrée",
+    "output": "Résultat",
+    "timeAxis": "Temps à l'intérieur de BioMath Core →",
+    "techSubtitle": "Six couches fondamentales alimentant le système d'exploitation de santé intelligent",
+    "infographicsTitle": "Architecture et vision de la plateforme",
+    "infographicsSubtitle": "Aperçu visuel du modèle numérique vivant de BioMath Core, de son architecture auto-apprenante et de l'échelle de l'écosystème",
+    "ctaTitle": "En savoir plus sur BioMath Core",
+    "ctaSubtitle": "Découvrez comment BioMath Core transforme les données de santé en intelligence personnelle et conseils actionnables",
+    "importantNoticeBody": "BioMath Core est une plateforme wellness informative et éducative. Elle ne diagnostique pas et ne remplace pas les soins médicaux professionnels.",
+    "marketP1": "La santé se noie dans les données mais manque d'insights. Les wearables génèrent des millions de points, les tests génétiques révèlent des milliers de variants.",
+    "marketP2": "Le marché de la médecine de précision devrait atteindre plus de 120 milliards de dollars. La plupart des plateformes se concentrent étroitement sur des domaines isolés.",
+    "marketP3": "BioMath Core comble l'écart entre collecte de données et compréhension actionnable — la couche intelligente qui transforme les flux disparates en un système d'exploitation cohérent.",
+    "cat": {
+      "criticalHealth": "Santé critique",
+      "everydayWellness": "Bien-être quotidien",
+      "longevity": "Longévité et anti-âge",
+      "mentalWellness": "Santé mentale",
+      "fitness": "Fitness et performance",
+      "womensHealth": "Santé féminine",
+      "mensHealth": "Santé masculine",
+      "beauty": "Beauté et soins de la peau",
+      "nutrition": "Nutrition et régime",
+      "sleep": "Sommeil et récupération",
+      "environmentalHealth": "Santé environnementale",
+      "familyHealth": "Santé familiale",
+      "preventive": "Médecine préventive",
+      "biohacking": "Biohacking",
+      "seniorCare": "Soins aux seniors",
+      "eyeHealth": "Suite santé oculaire",
+      "digitalTherapeutics": "Thérapeutique numérique",
+      "sexualLongevity": "Longévité sexuelle",
+      "mensSexualHealth": "Santé sexuelle masculine",
+      "womensSexualHealth": "Santé sexuelle féminine"
+    },
+    "examples": {
+      "criticalHealthEx": "Surveillance cardiovasculaire, analyse de la tension, gestion du glucose, suivi des médicaments",
+      "longevityEx": "Calcul de l'âge biologique, marqueurs de sénescence, fonction mitochondriale, analyse des télomères",
+      "fitnessEx": "Optimisation de l'entraînement, analyse de récupération, VO2max, adaptation musculaire",
+      "mentalWellnessEx": "Détection des patterns de stress, suivi de l'humeur, performance cognitive"
+    },
+    "secBadge": {
+      "aes": "Cryptage AES-256",
+      "blockchain": "Intégrité Blockchain",
+      "zerotrust": "Architecture Zero-Trust",
+      "hipaa": "HIPAA et RGPD"
+    },
+    "tech": {
+      "subtitle": "Six couches principales alimentant le système d'exploitation intelligent de la santé",
+      "archive": {
+        "title": "Archive des Modèles",
+        "i1": "Cryptage AES-256 au repos et en transit",
+        "i2": "Intégrité des données vérifiée par la blockchain",
+        "i3": "Contrôles d'autorisation granulaires",
+        "i4": "Infrastructure certifiée SOC 2"
+      },
+      "pipelines": {
+        "title": "Pipelines de Données",
+        "i1": "Plus de 50 sources de données intégrées",
+        "i2": "Synchronisation en temps réel",
+        "i3": "Contrôles qualité automatisés",
+        "i4": "Préservation des données historiques"
+      },
+      "engine": {
+        "title": "Moteur de Connaissances",
+        "i1": "Analyse multidimensionnelle",
+        "i2": "Moteur de corrélation de motifs",
+        "i3": "Systèmes de détection d'anomalies",
+        "i4": "Modélisation prédictive"
+      },
+      "ai": {
+        "title": "Système d'Analyse IA",
+        "i1": "Plus de 200 services IA spécialisés",
+        "i2": "Analyse spécifique par catégorie",
+        "i3": "Explications en langage naturel",
+        "i4": "Amélioration continue des modèles"
+      },
+      "report": {
+        "title": "Moteur de Rapports",
+        "i1": "Visualisations interactives",
+        "i2": "Tableaux de bord personnalisables",
+        "i3": "Rapports médicaux exportables",
+        "i4": "Analyse des tendances historiques"
+      },
+      "integration": {
+        "title": "Couche d'Intégration",
+        "i1": "Points d'accès API sécurisés",
+        "i2": "Intégration des systèmes de santé",
+        "i3": "Connectivité tierce",
+        "i4": "Partage de données de recherche"
+      }
+    },
+    "feat": {
+      "dualAi": {
+        "title": "Analyse IA Double",
+        "desc": "Plusieurs modèles d'IA fournissent une analyse complète avec des recommandations équilibrées et une validation experte."
+      },
+      "realtime": {
+        "title": "Surveillance en Temps Réel",
+        "desc": "Collecte continue de données à partir d'appareils connectés avec détection intelligente de motifs et alertes automatisées."
+      },
+      "unified": {
+        "title": "Dossier de Santé Unifié",
+        "desc": "Toutes les informations de santé unifiées : antécédents médicaux, analyses, génétique, biométrie, mode de vie et notes cliniques."
+      },
+      "smart": {
+        "title": "Rapports Intelligents",
+        "desc": "Informations quotidiennes personnalisées avec des résumés hebdomadaires, un suivi des progrès et des visualisations claires des tendances."
+      },
+      "guidance": {
+        "title": "Conseils Personnalisés",
+        "desc": "Recommandations adaptées pour la nutrition, l'exercice, le sommeil, la gestion du stress basées sur votre profil unique."
+      },
+      "privacy": {
+        "title": "Confidentialité & Sécurité",
+        "desc": "Cryptage de niveau militaire, architecture zero-trust, certification SOC 2. Souveraineté complète des données."
+      }
+    },
+    "op": {
+      "daily": {
+        "title": "Flux de Travail Quotidien de l'Utilisateur",
+        "desc": "Réveillez-vous avec des informations personnalisées. Les appareils connectés suivent automatiquement tout au long de la journée. Les recommandations en temps réel se mettent à jour à mesure que les conditions changent. Les rapports du soir résument et suggèrent."
+      },
+      "service": {
+        "title": "Activation des Services",
+        "desc": "Choisissez les catégories qui vous importent le plus. Activez les services d'IA pertinents. Commencez par quelques-uns, étendez au fil du temps. L'abonnement évolue avec la profondeur, pas avec un tarif forfaitaire."
+      },
+      "clinical": {
+        "title": "Intégration Clinique",
+        "desc": "Les professionnels de la santé reçoivent un accès autorisé par le patient. Outil d'aide à la décision clinique en complément de l'évaluation traditionnelle. Rapports exportables de qualité professionnelle."
+      }
+    },
+    "serves": {
+      "optim": {
+        "title": "Chercheurs d'Optimisation de la Santé",
+        "desc": "Individus axés sur la longévité, la performance, la prévention des maladies. Comprendre leur corps par la biologie personnelle plutôt que par des moyennes génériques."
+      },
+      "chronic": {
+        "title": "Gestionnaires de Conditions Chroniques",
+        "desc": "Gestion du diabète, des maladies cardiovasculaires, des troubles auto-immuns ou des syndromes métaboliques avec une surveillance continue et des conseils d'optimisation."
+      },
+      "athletes": {
+        "title": "Athlètes & Performeurs",
+        "desc": "Athlètes professionnels et sérieux optimisant l'entraînement, la récupération, la nutrition grâce à des informations basées sur les données et la précision du biohacking."
+      },
+      "pros": {
+        "title": "Professionnels de la Santé",
+        "desc": "Médecins, conseillers, nutritionnistes utilisant des analyses avancées pour personnaliser les plans de traitement et suivre efficacement les résultats."
+      }
+    },
+    "unique": {
+      "integration": {
+        "title": "Véritable Intégration de Données",
+        "desc": "Unifie la génétique, les analyses, la biométrie, le mode de vie et les antécédents médicaux dans un modèle biomathématique unique. Les corrélations entre les catégories révèlent des informations impossibles avec des données isolées."
+      },
+      "rigor": {
+        "title": "Rigueur Mathématique",
+        "desc": "Construit sur la biologie computationnelle et la modélisation biomathématique. Simule les processus biologiques, prédit les résultats, tient compte des interactions non linéaires."
+      },
+      "continuous": {
+        "title": "Intelligence Continue",
+        "desc": "Le traitement en temps réel signifie que les informations se mettent à jour à mesure que votre corps change. La plateforme apprend, s'adapte dynamiquement et fournit des conseils opportuns."
+      },
+      "safety": {
+        "title": "La Sécurité Émotionnelle Avant Tout",
+        "desc": "Conçu pour informer et soutenir. Le langage met l'accent sur l'apprentissage et l'optimisation. Les utilisateurs se sentent autonomes, pas anxieux."
+      }
+    },
+    "road": {
+      "current": {
+        "phase": "Actuel",
+        "i1": "20 catégories de santé et plus de 200 services d'IA actifs",
+        "i2": "Coffre-fort Black Box et pipelines d'intégration opérationnels",
+        "i3": "Moteur de connaissances et systèmes de rapports fonctionnels",
+        "i4": "Base d'utilisateurs active dans de nombreux cas d'utilisation de la santé"
+      },
+      "next12": {
+        "phase": "12 Prochains Mois",
+        "i1": "Applications mobiles iOS & Android avec parité fonctionnelle complète",
+        "i2": "Plus de 75 intégrations de dispositifs portables pris en charge",
+        "i3": "Conseiller IA à commande vocale",
+        "i4": "Lancement du portail des praticiens cliniques"
+      },
+      "next36": {
+        "phase": "18 à 36 Mois",
+        "i1": "Modélisation prédictive de la santé pour les risques de maladies chroniques",
+        "i2": "Outils de gestion de la santé familiale",
+        "i3": "Solutions de bien-être en entreprise",
+        "i4": "Expansion internationale avec conformité localisée"
+      }
+    }
   },
   "projectTerraAero": {
     "badge": "AgroTech & Drone Manufacturing",
