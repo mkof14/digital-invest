@@ -1027,6 +1027,92 @@ const BioMathCore = () => {
           </div>
         </section>
 
+        {/* ═══════════════════════ FULL SERVICE CATALOG: 20 × 10 = 200 ═══════════════════════ */}
+        <section className="container mx-auto px-4 py-24 cv-auto" id="service-catalog">
+          <div className="max-w-5xl mx-auto text-center mb-12">
+            <Badge className="mb-4 bg-[hsl(var(--bm-blue-deep))]/10 text-[hsl(var(--bm-blue-deep))] border-[hsl(var(--bm-blue-deep))]/20">
+              Full Service Catalog
+            </Badge>
+            <h2 className="text-3xl md:text-4xl font-bold text-[hsl(var(--bm-text-strong))] mb-4">
+              20 Categories · 200 Services
+            </h2>
+            <p className="text-[hsl(var(--bm-text-mute))] max-w-3xl mx-auto">
+              The complete BioMath Core service map — every category contains a structured set of ten dedicated services that feed the unified digital model of the human body.
+            </p>
+          </div>
+
+          <Accordion type="multiple" className="max-w-5xl mx-auto space-y-3">
+            {serviceCatalog.map((cat, idx) => {
+              const Icon = cat.icon;
+              return (
+                <AccordionItem
+                  key={cat.key}
+                  value={cat.key}
+                  className="bg-[hsl(var(--bm-surface))] border border-[hsl(var(--bm-border))] rounded-xl overflow-hidden transition-all hover:border-[hsl(var(--bm-blue-deep))]/40"
+                >
+                  <AccordionTrigger className="px-5 py-4 hover:no-underline group">
+                    <div className="flex items-center gap-4 flex-1 text-left">
+                      <span
+                        className="flex-shrink-0 w-11 h-11 rounded-lg flex items-center justify-center"
+                        style={{ background: `${cat.color.replace(')', ',0.12)').replace('hsl(', 'hsla(')}` }}
+                      >
+                        <Icon className="w-5 h-5" style={{ color: cat.color }} />
+                      </span>
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center gap-3 flex-wrap">
+                          <span className="text-xs font-mono text-[hsl(var(--bm-text-dim))]">
+                            {String(idx + 1).padStart(2, "0")}
+                          </span>
+                          <span className="font-semibold text-[hsl(var(--bm-text-strong))] text-base md:text-lg">
+                            {cat.name}
+                          </span>
+                          <Badge
+                            variant="outline"
+                            className="text-xs border-[hsl(var(--bm-border))] text-[hsl(var(--bm-text-mute))]"
+                          >
+                            10 services
+                          </Badge>
+                        </div>
+                      </div>
+                    </div>
+                  </AccordionTrigger>
+                  <AccordionContent className="px-5 pb-5 pt-0">
+                    <div
+                      className="h-px w-full mb-4 opacity-30"
+                      style={{ background: `linear-gradient(90deg, ${cat.color}, transparent)` }}
+                    />
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-2">
+                      {cat.services.map((svc, sIdx) => (
+                        <div
+                          key={svc}
+                          className="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-[hsl(var(--bm-bg-elev))]/60 border border-[hsl(var(--bm-border-soft))] hover:border-[hsl(var(--bm-blue-deep))]/30 transition-colors"
+                        >
+                          <span
+                            className="flex-shrink-0 w-6 h-6 rounded-md flex items-center justify-center text-[10px] font-mono font-semibold"
+                            style={{
+                              background: `${cat.color.replace(')', ',0.10)').replace('hsl(', 'hsla(')}`,
+                              color: cat.color,
+                            }}
+                          >
+                            {String(sIdx + 1).padStart(2, "0")}
+                          </span>
+                          <code className="text-xs md:text-sm font-mono text-[hsl(var(--bm-text-soft))] break-all">
+                            {svc}
+                          </code>
+                        </div>
+                      ))}
+                    </div>
+                  </AccordionContent>
+                </AccordionItem>
+              );
+            })}
+          </Accordion>
+
+          <p className="text-center text-xs text-[hsl(var(--bm-text-dim))] mt-8 max-w-2xl mx-auto">
+            Service identifiers are presented in canonical snake_case form as used in the BioMath Core data architecture.
+          </p>
+        </section>
+
         {/* ═══════════════════════ KEY FEATURES ═══════════════════════ */}
         <section className="container mx-auto px-4 py-20 cv-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-[hsl(var(--bm-text-strong))] text-center mb-12">{t('projectCommon.keyFeatures')}</h2>
