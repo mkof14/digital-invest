@@ -137,7 +137,14 @@ function isAdjectiveCandidate(w) {
   // Skip prepositions/conjunctions and head-nouns; everything else
   // following a head noun is treated as adjective candidate.
   const skip = new Set(['و', 'أو', 'في', 'من', 'إلى', 'على', 'عن', 'مع']);
-  return !skip.has(stripDiacritics(w));
+  const bare = stripDiacritics(w);
+  if (skip.has(bare)) return false;
+  // Coordination ("و..." = "and X") joins another NOUN, not an adjective —
+  // skip to avoid false agreement warnings.
+  if (/^و/.test(bare)) return false;
+  // Prepositional phrases ("بـ..." / "لـ...") are not adjectives.
+  if (/^[بل]ال?/.test(bare) && bare.length > 3) return false;
+  return true;
 }
 
 // ---------- Per-string checks ----------
