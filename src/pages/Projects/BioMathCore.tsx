@@ -1081,13 +1081,13 @@ const BioMathCore = () => {
                             {String(idx + 1).padStart(2, "0")}
                           </span>
                           <span className="font-semibold text-[hsl(var(--bm-text-strong))] text-base md:text-lg">
-                            {cat.name}
+                            {t(`projectBiomathCore.catalog.cats.${cat.key}`, cat.name)}
                           </span>
                           <Badge
                             variant="outline"
                             className="text-[10px] uppercase tracking-wider border-[hsl(var(--bm-border))] text-[hsl(var(--bm-text-mute))]"
                           >
-                            10 services
+                            {t("projectBiomathCore.catalog.servicesCount")}
                           </Badge>
                         </div>
                       </div>
