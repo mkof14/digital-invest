@@ -1040,13 +1040,13 @@ const BioMathCore = () => {
         <section className="container mx-auto px-4 py-24 cv-auto" id="service-catalog">
           <div className="max-w-5xl mx-auto text-center mb-12">
             <Badge className="mb-4 bg-[hsl(var(--bm-blue-deep))]/10 text-[hsl(var(--bm-blue-deep))] border-[hsl(var(--bm-blue-deep))]/20">
-              Full Service Catalog
+              {t("projectBiomathCore.catalog.badge")}
             </Badge>
             <h2 className="text-3xl md:text-4xl font-bold text-[hsl(var(--bm-text-strong))] mb-4">
-              20 Categories · 200 Services
+              {t("projectBiomathCore.catalog.title")}
             </h2>
             <p className="text-[hsl(var(--bm-text-mute))] max-w-3xl mx-auto">
-              The complete BioMath Core service map — every category contains a structured set of ten dedicated services that feed the unified digital model of the human body.
+              {t("projectBiomathCore.catalog.desc")}
             </p>
           </div>
 
