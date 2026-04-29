@@ -61,6 +61,32 @@ const serviceCatalog: { key: string; name: string; icon: any; color: string; tin
   { key: "womensSexualHealth",  name: "Women's Sexual Health",      icon: WomensSexualHealthIcon,  color: "hsl(316, 58%, 52%)", tint: "hsl(316, 58%, 97%)", services: ["hormonal_cycle_correlation","libido_cycle_tracking","emotional_state_correlation","reproductive_signal_tracking","stress_impact_analysis","recovery_patterns","long_term_function_trends","hormonal_variability_index","behavioral_pattern_tracking","sexual_health_stability"] },
 ];
 
+// Convert snake_case service identifiers into human-readable Title Case labels.
+// Specific acronyms / domain words are preserved with their canonical casing.
+const SERVICE_ACRONYMS: Record<string, string> = {
+  ai: "AI",
+  api: "API",
+  bmi: "BMI",
+  ecg: "ECG",
+  hr: "HR",
+  hrv: "HRV",
+  id: "ID",
+  ml: "ML",
+  ui: "UI",
+  ux: "UX",
+  vs: "vs",
+};
+const humanizeService = (id: string): string =>
+  id
+    .split("_")
+    .filter(Boolean)
+    .map((w) => {
+      const lower = w.toLowerCase();
+      if (SERVICE_ACRONYMS[lower]) return SERVICE_ACRONYMS[lower];
+      return lower.charAt(0).toUpperCase() + lower.slice(1);
+    })
+    .join(" ");
+
 const infographics = [
   { src: infographic1, title: "Living Digital Human Model", alt: "BioMath Core: Living Digital Human Model" },
   { src: infographic2, title: "Architecture of Digital Modeling", alt: "BioMath Core: Architecture of Living Digital Modeling" },
@@ -680,7 +706,7 @@ const BioMathCore = () => {
                       {cat.services.map((svc, sIdx) => (
                         <div
                           key={svc}
-                          className="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-[hsl(var(--bm-bg-elev))]/60 border border-[hsl(var(--bm-border-soft))] transition-colors hover:bg-[hsl(var(--bm-bg-elev))]"
+                          className="flex items-start gap-3 px-3 py-2.5 rounded-lg bg-[hsl(var(--bm-bg-elev))]/60 border border-[hsl(var(--bm-border-soft))] transition-colors hover:bg-[hsl(var(--bm-bg-elev))]"
                           style={{
                             // soft accent border-left for service rows
                             borderLeft: `2px solid ${cat.color.replace('hsl(', 'hsla(').replace(')', ', 0.35)')}`,
@@ -695,9 +721,14 @@ const BioMathCore = () => {
                           >
                             {String(sIdx + 1).padStart(2, "0")}
                           </span>
-                          <code className="text-xs md:text-sm font-mono text-[hsl(var(--bm-text-soft))] break-all">
-                            {svc}
-                          </code>
+                          <div className="flex-1 min-w-0">
+                            <p className="text-sm md:text-[15px] font-medium text-[hsl(var(--bm-text-strong))] leading-snug">
+                              {humanizeService(svc)}
+                            </p>
+                            <code className="block mt-0.5 text-[10px] md:text-xs font-mono text-[hsl(var(--bm-text-dim))] break-all">
+                              {svc}
+                            </code>
+                          </div>
                         </div>
                       ))}
                     </div>
@@ -708,7 +739,7 @@ const BioMathCore = () => {
           </Accordion>
 
           <p className="text-center text-xs text-[hsl(var(--bm-text-dim))] mt-8 max-w-2xl mx-auto">
-            Service identifiers are presented in canonical snake_case form as used in the BioMath Core data architecture.
+            {t('projectBiomathCore.catalog.idsCaption', 'Each service is shown with its readable name and the canonical identifier used inside the BioMath Core data architecture.')}
           </p>
         </section>
 
