@@ -577,6 +577,141 @@ const BioMathCore = () => {
           </div>
         </section>
 
+        {/* ═══════════════════════ 20 HEALTH CATEGORIES ═══════════════════════ */}
+        <section className="bg-[hsl(var(--bm-bg-elev))] border-y border-[hsl(var(--bm-border-soft))] py-20 cv-auto">
+          <div className="container mx-auto px-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-[hsl(var(--bm-text-strong))] text-center mb-4">{t('projectBiomathCore.categoriesTitle')}</h2>
+            <p className="text-center text-[hsl(var(--bm-text-mute))] mb-12 max-w-3xl mx-auto">{t('projectBiomathCore.categoriesSubtitle')}</p>
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+              {categoryData.map((cat) => {
+                const Icon = cat.icon;
+                return (
+                  <div
+                    key={cat.key}
+                    className="bg-[hsl(var(--bm-surface))] border border-[hsl(var(--bm-border))] rounded-xl p-5 text-center hover:border-[hsl(var(--bm-blue-deep))]/30 transition-all duration-500 group cursor-default"
+                  >
+                    <Icon className="w-8 h-8 mx-auto mb-3 transition-transform duration-500 group-hover:scale-110" style={{ color: cat.color }} />
+                    <p className="text-sm font-medium text-[hsl(var(--bm-text-soft))] group-hover:text-[hsl(var(--bm-text-strong))] transition-colors">{t(`projectBiomathCore.cat.${cat.key}`, cat.name)}</p>
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* Category Examples */}
+            <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6">
+              {[
+                { catKey: "criticalHealth", examplesKey: "criticalHealthEx" },
+                { catKey: "longevity",      examplesKey: "longevityEx" },
+                { catKey: "fitness",        examplesKey: "fitnessEx" },
+                { catKey: "mentalWellness", examplesKey: "mentalWellnessEx" },
+              ].map((item) => (
+                <div key={item.catKey} className="bg-[hsl(var(--bm-surface))] border border-[hsl(var(--bm-border-soft))] rounded-xl p-5">
+                  <p className="font-semibold text-[hsl(var(--bm-text-strong))] text-sm mb-2">{t(`projectBiomathCore.cat.${item.catKey}`)}</p>
+                  <p className="text-xs text-[hsl(var(--bm-text-dim))] leading-relaxed">{t(`projectBiomathCore.examples.${item.examplesKey}`)}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ═══════════════════════ FULL SERVICE CATALOG: 20 × 10 = 200 ═══════════════════════ */}
+        <section className="container mx-auto px-4 py-24 cv-auto" id="service-catalog">
+          <div className="max-w-5xl mx-auto text-center mb-12">
+            <Badge className="mb-4 bg-[hsl(var(--bm-blue-deep))]/10 text-[hsl(var(--bm-blue-deep))] border-[hsl(var(--bm-blue-deep))]/20">
+              {t("projectBiomathCore.catalog.badge")}
+            </Badge>
+            <h2 className="text-3xl md:text-4xl font-bold text-[hsl(var(--bm-text-strong))] mb-4">
+              {t("projectBiomathCore.catalog.title")}
+            </h2>
+            <p className="text-[hsl(var(--bm-text-mute))] max-w-3xl mx-auto">
+              {t("projectBiomathCore.catalog.desc")}
+            </p>
+          </div>
+
+          <Accordion type="multiple" className="max-w-5xl mx-auto space-y-3">
+            {serviceCatalog.map((cat, idx) => {
+              const Icon = cat.icon;
+              return (
+                <AccordionItem
+                  key={cat.key}
+                  value={cat.key}
+                  className="bg-[hsl(var(--bm-surface))] border border-[hsl(var(--bm-border))] rounded-xl overflow-hidden transition-all hover:border-[hsl(var(--bm-blue-deep))]/40"
+                  style={{ boxShadow: `inset 3px 0 0 0 ${cat.color}` }}
+                >
+                  <AccordionTrigger className="px-5 py-4 hover:no-underline group">
+                    <div className="flex items-center gap-4 flex-1 text-left">
+                      <span
+                        className="flex-shrink-0 w-11 h-11 rounded-lg flex items-center justify-center ring-1"
+                        style={{
+                          background: cat.color.replace('hsl(', 'hsla(').replace(')', ', 0.10)'),
+                          // ring uses the same accent at low alpha
+                          boxShadow: `inset 0 0 0 1px ${cat.color.replace('hsl(', 'hsla(').replace(')', ', 0.22)')}`,
+                        }}
+                      >
+                        <Icon className="w-5 h-5" style={{ color: cat.color }} />
+                      </span>
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center gap-3 flex-wrap">
+                          <span
+                            className="text-xs font-mono font-semibold tracking-wider"
+                            style={{ color: cat.color }}
+                          >
+                            {String(idx + 1).padStart(2, "0")}
+                          </span>
+                          <span className="font-semibold text-[hsl(var(--bm-text-strong))] text-base md:text-lg">
+                            {t(`projectBiomathCore.catalog.cats.${cat.key}`, cat.name)}
+                          </span>
+                          <Badge
+                            variant="outline"
+                            className="text-[10px] uppercase tracking-wider border-[hsl(var(--bm-border))] text-[hsl(var(--bm-text-mute))]"
+                          >
+                            {t("projectBiomathCore.catalog.servicesCount")}
+                          </Badge>
+                        </div>
+                      </div>
+                    </div>
+                  </AccordionTrigger>
+                  <AccordionContent className="px-5 pb-5 pt-0">
+                    <div
+                      className="h-px w-full mb-4"
+                      style={{ background: `linear-gradient(90deg, ${cat.color}, transparent)` }}
+                    />
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                      {cat.services.map((svc, sIdx) => (
+                        <div
+                          key={svc}
+                          className="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-[hsl(var(--bm-bg-elev))]/60 border border-[hsl(var(--bm-border-soft))] transition-colors hover:bg-[hsl(var(--bm-bg-elev))]"
+                          style={{
+                            // soft accent border-left for service rows
+                            borderLeft: `2px solid ${cat.color.replace('hsl(', 'hsla(').replace(')', ', 0.35)')}`,
+                          }}
+                        >
+                          <span
+                            className="flex-shrink-0 w-6 h-6 rounded-md flex items-center justify-center text-[10px] font-mono font-semibold"
+                            style={{
+                              background: cat.color.replace('hsl(', 'hsla(').replace(')', ', 0.12)'),
+                              color: cat.color,
+                            }}
+                          >
+                            {String(sIdx + 1).padStart(2, "0")}
+                          </span>
+                          <code className="text-xs md:text-sm font-mono text-[hsl(var(--bm-text-soft))] break-all">
+                            {svc}
+                          </code>
+                        </div>
+                      ))}
+                    </div>
+                  </AccordionContent>
+                </AccordionItem>
+              );
+            })}
+          </Accordion>
+
+          <p className="text-center text-xs text-[hsl(var(--bm-text-dim))] mt-8 max-w-2xl mx-auto">
+            Service identifiers are presented in canonical snake_case form as used in the BioMath Core data architecture.
+          </p>
+        </section>
+
 
         <section className="container mx-auto px-4 py-20">
 
@@ -999,140 +1134,6 @@ const BioMathCore = () => {
           <InfographicsGallery infographics={infographics} projectTitle="BioMath Core" />
         </section>
 
-        {/* ═══════════════════════ 20 HEALTH CATEGORIES ═══════════════════════ */}
-        <section className="bg-[hsl(var(--bm-bg-elev))] border-y border-[hsl(var(--bm-border-soft))] py-20 cv-auto">
-          <div className="container mx-auto px-4">
-            <h2 className="text-3xl md:text-4xl font-bold text-[hsl(var(--bm-text-strong))] text-center mb-4">{t('projectBiomathCore.categoriesTitle')}</h2>
-            <p className="text-center text-[hsl(var(--bm-text-mute))] mb-12 max-w-3xl mx-auto">{t('projectBiomathCore.categoriesSubtitle')}</p>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-              {categoryData.map((cat) => {
-                const Icon = cat.icon;
-                return (
-                  <div
-                    key={cat.key}
-                    className="bg-[hsl(var(--bm-surface))] border border-[hsl(var(--bm-border))] rounded-xl p-5 text-center hover:border-[hsl(var(--bm-blue-deep))]/30 transition-all duration-500 group cursor-default"
-                  >
-                    <Icon className="w-8 h-8 mx-auto mb-3 transition-transform duration-500 group-hover:scale-110" style={{ color: cat.color }} />
-                    <p className="text-sm font-medium text-[hsl(var(--bm-text-soft))] group-hover:text-[hsl(var(--bm-text-strong))] transition-colors">{t(`projectBiomathCore.cat.${cat.key}`, cat.name)}</p>
-                  </div>
-                );
-              })}
-            </div>
-
-            {/* Category Examples */}
-            <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6">
-              {[
-                { catKey: "criticalHealth", examplesKey: "criticalHealthEx" },
-                { catKey: "longevity",      examplesKey: "longevityEx" },
-                { catKey: "fitness",        examplesKey: "fitnessEx" },
-                { catKey: "mentalWellness", examplesKey: "mentalWellnessEx" },
-              ].map((item) => (
-                <div key={item.catKey} className="bg-[hsl(var(--bm-surface))] border border-[hsl(var(--bm-border-soft))] rounded-xl p-5">
-                  <p className="font-semibold text-[hsl(var(--bm-text-strong))] text-sm mb-2">{t(`projectBiomathCore.cat.${item.catKey}`)}</p>
-                  <p className="text-xs text-[hsl(var(--bm-text-dim))] leading-relaxed">{t(`projectBiomathCore.examples.${item.examplesKey}`)}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ═══════════════════════ FULL SERVICE CATALOG: 20 × 10 = 200 ═══════════════════════ */}
-        <section className="container mx-auto px-4 py-24 cv-auto" id="service-catalog">
-          <div className="max-w-5xl mx-auto text-center mb-12">
-            <Badge className="mb-4 bg-[hsl(var(--bm-blue-deep))]/10 text-[hsl(var(--bm-blue-deep))] border-[hsl(var(--bm-blue-deep))]/20">
-              {t("projectBiomathCore.catalog.badge")}
-            </Badge>
-            <h2 className="text-3xl md:text-4xl font-bold text-[hsl(var(--bm-text-strong))] mb-4">
-              {t("projectBiomathCore.catalog.title")}
-            </h2>
-            <p className="text-[hsl(var(--bm-text-mute))] max-w-3xl mx-auto">
-              {t("projectBiomathCore.catalog.desc")}
-            </p>
-          </div>
-
-          <Accordion type="multiple" className="max-w-5xl mx-auto space-y-3">
-            {serviceCatalog.map((cat, idx) => {
-              const Icon = cat.icon;
-              return (
-                <AccordionItem
-                  key={cat.key}
-                  value={cat.key}
-                  className="bg-[hsl(var(--bm-surface))] border border-[hsl(var(--bm-border))] rounded-xl overflow-hidden transition-all hover:border-[hsl(var(--bm-blue-deep))]/40"
-                  style={{ boxShadow: `inset 3px 0 0 0 ${cat.color}` }}
-                >
-                  <AccordionTrigger className="px-5 py-4 hover:no-underline group">
-                    <div className="flex items-center gap-4 flex-1 text-left">
-                      <span
-                        className="flex-shrink-0 w-11 h-11 rounded-lg flex items-center justify-center ring-1"
-                        style={{
-                          background: cat.color.replace('hsl(', 'hsla(').replace(')', ', 0.10)'),
-                          // ring uses the same accent at low alpha
-                          boxShadow: `inset 0 0 0 1px ${cat.color.replace('hsl(', 'hsla(').replace(')', ', 0.22)')}`,
-                        }}
-                      >
-                        <Icon className="w-5 h-5" style={{ color: cat.color }} />
-                      </span>
-                      <div className="flex-1 min-w-0">
-                        <div className="flex items-center gap-3 flex-wrap">
-                          <span
-                            className="text-xs font-mono font-semibold tracking-wider"
-                            style={{ color: cat.color }}
-                          >
-                            {String(idx + 1).padStart(2, "0")}
-                          </span>
-                          <span className="font-semibold text-[hsl(var(--bm-text-strong))] text-base md:text-lg">
-                            {t(`projectBiomathCore.catalog.cats.${cat.key}`, cat.name)}
-                          </span>
-                          <Badge
-                            variant="outline"
-                            className="text-[10px] uppercase tracking-wider border-[hsl(var(--bm-border))] text-[hsl(var(--bm-text-mute))]"
-                          >
-                            {t("projectBiomathCore.catalog.servicesCount")}
-                          </Badge>
-                        </div>
-                      </div>
-                    </div>
-                  </AccordionTrigger>
-                  <AccordionContent className="px-5 pb-5 pt-0">
-                    <div
-                      className="h-px w-full mb-4"
-                      style={{ background: `linear-gradient(90deg, ${cat.color}, transparent)` }}
-                    />
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                      {cat.services.map((svc, sIdx) => (
-                        <div
-                          key={svc}
-                          className="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-[hsl(var(--bm-bg-elev))]/60 border border-[hsl(var(--bm-border-soft))] transition-colors hover:bg-[hsl(var(--bm-bg-elev))]"
-                          style={{
-                            // soft accent border-left for service rows
-                            borderLeft: `2px solid ${cat.color.replace('hsl(', 'hsla(').replace(')', ', 0.35)')}`,
-                          }}
-                        >
-                          <span
-                            className="flex-shrink-0 w-6 h-6 rounded-md flex items-center justify-center text-[10px] font-mono font-semibold"
-                            style={{
-                              background: cat.color.replace('hsl(', 'hsla(').replace(')', ', 0.12)'),
-                              color: cat.color,
-                            }}
-                          >
-                            {String(sIdx + 1).padStart(2, "0")}
-                          </span>
-                          <code className="text-xs md:text-sm font-mono text-[hsl(var(--bm-text-soft))] break-all">
-                            {svc}
-                          </code>
-                        </div>
-                      ))}
-                    </div>
-                  </AccordionContent>
-                </AccordionItem>
-              );
-            })}
-          </Accordion>
-
-          <p className="text-center text-xs text-[hsl(var(--bm-text-dim))] mt-8 max-w-2xl mx-auto">
-            Service identifiers are presented in canonical snake_case form as used in the BioMath Core data architecture.
-          </p>
-        </section>
 
         {/* ═══════════════════════ KEY FEATURES ═══════════════════════ */}
         <section className="container mx-auto px-4 py-20 cv-auto">
