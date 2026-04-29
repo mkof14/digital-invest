@@ -898,7 +898,6 @@
       "badge": "Full Service Catalog",
       "title": "20 Categories · 200 Services",
       "desc": "The complete BioMath Core service map — every category contains a structured set of ten dedicated services that feed the unified digital model of the human body.",
-      "servicesCount": "10 services",
       "cats": {
         "criticalHealth": "Critical Health",
         "everydayWellness": "Everyday Wellness",
@@ -912,12 +911,12 @@
         "sleep": "Sleep & Recovery",
         "environmentalHealth": "Environmental Health",
         "familyHealth": "Family Health",
-        "preventive": "Preventive Medicine & Longevity",
+        "preventive": "Preventive Medicine",
         "biohacking": "Biohacking & Performance",
         "seniorCare": "Senior Care",
-        "eyeHealth": "Eye-Health Suite",
-        "digitalTherapeutics": "Digital Therapeutics Store",
-        "sexualLongevity": "General Sexual Longevity",
+        "eyeHealth": "Eye Health",
+        "digitalTherapeutics": "Digital Therapeutics",
+        "sexualLongevity": "Sexual Longevity",
         "mensSexualHealth": "Men's Sexual Health",
         "womensSexualHealth": "Women's Sexual Health"
       }
