@@ -721,9 +721,14 @@ const BioMathCore = () => {
                           >
                             {String(sIdx + 1).padStart(2, "0")}
                           </span>
-                          <code className="text-xs md:text-sm font-mono text-[hsl(var(--bm-text-soft))] break-all">
-                            {svc}
-                          </code>
+                          <div className="flex-1 min-w-0">
+                            <p className="text-sm md:text-[15px] font-medium text-[hsl(var(--bm-text-strong))] leading-snug">
+                              {humanizeService(svc)}
+                            </p>
+                            <code className="block mt-0.5 text-[10px] md:text-xs font-mono text-[hsl(var(--bm-text-dim))] break-all">
+                              {svc}
+                            </code>
+                          </div>
                         </div>
                       ))}
                     </div>
