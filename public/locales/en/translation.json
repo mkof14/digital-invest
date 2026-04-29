@@ -870,6 +870,34 @@
         "i3": "Enterprise corporate wellness solutions",
         "i4": "International expansion with localized compliance"
       }
+    },
+    "catalog": {
+      "badge": "Full Service Catalog",
+      "title": "20 Categories · 200 Services",
+      "desc": "The complete BioMath Core service map — every category contains a structured set of ten dedicated services that feed the unified digital model of the human body.",
+      "servicesCount": "10 services",
+      "cats": {
+        "criticalHealth": "Critical Health",
+        "everydayWellness": "Everyday Wellness",
+        "longevity": "Longevity & Anti-Aging",
+        "mentalWellness": "Mental Wellness",
+        "fitness": "Fitness & Performance",
+        "womensHealth": "Women's Health",
+        "mensHealth": "Men's Health",
+        "beauty": "Beauty & Skincare",
+        "nutrition": "Nutrition & Diet",
+        "sleep": "Sleep & Recovery",
+        "environmentalHealth": "Environmental Health",
+        "familyHealth": "Family Health",
+        "preventive": "Preventive Medicine & Longevity",
+        "biohacking": "Biohacking & Performance",
+        "seniorCare": "Senior Care",
+        "eyeHealth": "Eye-Health Suite",
+        "digitalTherapeutics": "Digital Therapeutics Store",
+        "sexualLongevity": "General Sexual Longevity",
+        "mensSexualHealth": "Men's Sexual Health",
+        "womensSexualHealth": "Women's Sexual Health"
+      }
     }
   },
   "projectTerraAero": {

@@ -893,6 +893,34 @@
         "i3": "حلول العافية المؤسسية للشركات",
         "i4": "التوسع الدولي مع الالتزام المحلي"
       }
+    },
+    "catalog": {
+      "badge": "كتالوج الخدمات الكامل",
+      "title": "20 فئة · 200 خدمة",
+      "desc": "خريطة خدمات BioMath Core الكاملة — كل فئة تحتوي على مجموعة منظمة من عشر خدمات متخصصة تغذي النموذج الرقمي الموحّد لجسم الإنسان.",
+      "servicesCount": "10 خدمات",
+      "cats": {
+        "criticalHealth": "الصحة الحرجة",
+        "everydayWellness": "العافية اليومية",
+        "longevity": "طول العمر ومكافحة الشيخوخة",
+        "mentalWellness": "الصحة النفسية",
+        "fitness": "اللياقة والأداء",
+        "womensHealth": "صحة المرأة",
+        "mensHealth": "صحة الرجل",
+        "beauty": "الجمال والعناية بالبشرة",
+        "nutrition": "التغذية والحمية",
+        "sleep": "النوم والتعافي",
+        "environmentalHealth": "صحة البيئة",
+        "familyHealth": "صحة الأسرة",
+        "preventive": "الطب الوقائي وطول العمر",
+        "biohacking": "البيوهاكينغ والأداء",
+        "seniorCare": "رعاية كبار السن",
+        "eyeHealth": "مجموعة صحة العين",
+        "digitalTherapeutics": "متجر العلاجات الرقمية",
+        "sexualLongevity": "طول العمر الجنسي العام",
+        "mensSexualHealth": "الصحة الجنسية للرجل",
+        "womensSexualHealth": "الصحة الجنسية للمرأة"
+      }
     }
   },
   "projectTerraAero": {
