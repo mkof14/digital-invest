@@ -27,29 +27,38 @@ import presOutput from "@/assets/projects/biomath-pres-output.webp";
 import InvestorPageDisclaimer from "@/components/InvestorPageDisclaimer";
 import { InfographicsGallery } from "@/components/InfographicsGallery";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import {
+  CriticalHealthIcon, EverydayWellnessIcon, LongevityIcon, MentalWellnessIcon, FitnessIcon,
+  WomensHealthIcon, MensHealthIcon, BeautyIcon, NutritionIcon, SleepIcon,
+  EnvironmentalIcon, FamilyHealthIcon, PreventiveIcon, BiohackingIcon, SeniorCareIcon,
+  EyeHealthIcon, DigitalTherapeuticsIcon, SexualLongevityIcon, MensSexualHealthIcon, WomensSexualHealthIcon,
+} from "@/components/icons/BioMathCategoryIcons";
 
-// 20 categories × 10 services = 200 service catalog
-const serviceCatalog: { key: string; name: string; icon: any; color: string; services: string[] }[] = [
-  { key: "criticalHealth", name: "Critical Health", icon: Heart, color: "hsl(0,70%,55%)", services: ["vital_signs_tracking","anomaly_detection","acute_event_log","symptom_pattern_tracking","medication_adherence_check","emergency_signal_flagging","risk_score_baseline","alert_prioritization","clinical_event_history","escalation_trigger_system"] },
-  { key: "everydayWellness", name: "Everyday Wellness", icon: Sparkles, color: "hsl(140,60%,50%)", services: ["daily_routine_tracking","energy_level_tracking","hydration_monitoring","lifestyle_balance_score","fatigue_detection","micro_habit_tracking","daily_variability_analysis","personal_stability_index","wellness_pattern_mapping","routine_consistency_score"] },
-  { key: "longevity", name: "Longevity & Anti-Aging", icon: Zap, color: "hsl(35,90%,55%)", services: ["aging_rate_estimation","biological_vs_chronological_gap","longevity_factor_analysis","cellular_stress_proxy","recovery_capacity_tracking","long_term_trend_analysis","resilience_index","decline_pattern_detection","longevity_scenario_modeling","aging_risk_score"] },
-  { key: "mentalWellness", name: "Mental Wellness", icon: Brain, color: "hsl(270,60%,60%)", services: ["mood_pattern_tracking","stress_level_monitoring","cognitive_load_estimation","burnout_detection","emotional_variability_index","mental_stability_score","anxiety_pattern_tracking","attention_drift_analysis","behavioral_signal_mapping","recovery_from_stress_index"] },
-  { key: "fitness", name: "Fitness & Performance", icon: Activity, color: "hsl(330,70%,55%)", services: ["activity_tracking","exertion_level_analysis","performance_trend_tracking","recovery_time_estimation","load_balance_score","overtraining_detection","physical_capacity_index","movement_variability","endurance_tracking","performance_decline_detection"] },
-  { key: "womensHealth", name: "Women's Health", icon: Heart, color: "hsl(320,60%,55%)", services: ["cycle_tracking","hormonal_pattern_proxy","symptom_variation_analysis","cycle_regularization_tracking","fertility_window_estimation","hormonal_impact_on_energy","mood_cycle_correlation","long_term_cycle_history","menopause_transition_tracking","cycle_anomaly_detection"] },
-  { key: "mensHealth", name: "Men's Health", icon: Shield, color: "hsl(210,70%,55%)", services: ["hormonal_balance_proxy","energy_variation_tracking","stress_impact_analysis","reproductive_health_signals","fatigue_pattern_tracking","metabolic_signal_tracking","performance_stability","aging_male_pattern_detection","sleep_impact_on_hormones","long_term_male_health_trends"] },
-  { key: "beauty", name: "Beauty & Skincare", icon: Eye, color: "hsl(350,65%,55%)", services: ["skin_condition_tracking","hydration_skin_correlation","aging_skin_index","environmental_skin_impact","skincare_routine_tracking","inflammation_proxy_tracking","skin_response_analysis","long_term_skin_trends","sleep_skin_correlation","skin_recovery_tracking"] },
-  { key: "nutrition", name: "Nutrition & Diet", icon: Apple, color: "hsl(120,55%,45%)", services: ["food_intake_tracking","macro_micro_balance","nutritional_pattern_analysis","glycemic_response_proxy","digestion_pattern_tracking","meal_timing_analysis","energy_intake_vs_output","deficiency_signal_detection","dietary_consistency_score","nutrition_impact_model"] },
-  { key: "sleep", name: "Sleep & Recovery", icon: Moon, color: "hsl(250,50%,55%)", services: ["sleep_duration_tracking","sleep_quality_index","sleep_cycle_analysis","recovery_score","sleep_disruption_detection","circadian_pattern_tracking","fatigue_sleep_correlation","deep_sleep_estimation","sleep_consistency_score","recovery_trend_analysis"] },
-  { key: "environmentalHealth", name: "Environmental Health", icon: Leaf, color: "hsl(160,55%,45%)", services: ["air_quality_tracking","noise_exposure_monitoring","temperature_impact_tracking","light_exposure_analysis","environment_stability_index","location_based_impact","toxin_exposure_proxy","indoor_vs_outdoor_effects","environmental_stress_score","adaptation_to_environment"] },
-  { key: "familyHealth", name: "Family Health", icon: Baby, color: "hsl(30,70%,55%)", services: ["shared_health_patterns","family_risk_mapping","behavioral_sync_analysis","care_dependency_tracking","caregiver_interaction_log","shared_environment_impact","family_support_index","multi_person_event_tracking","family_health_history_linking","cross_member_pattern_detection"] },
-  { key: "preventive", name: "Preventive Medicine & Longevity", icon: Stethoscope, color: "hsl(180,55%,45%)", services: ["preventive_risk_scoring","screening_reminder_system","long_term_risk_trends","lifestyle_risk_analysis","early_deviation_detection","prevention_compliance_tracking","baseline_shift_detection","cumulative_risk_model","preventive_action_tracking","risk_reduction_projection"] },
-  { key: "biohacking", name: "Biohacking & Performance", icon: Dna, color: "hsl(280,65%,55%)", services: ["self_experiment_tracking","intervention_response_analysis","performance_gain_tracking","recovery_boost_analysis","optimization_feedback_loop","micro_adjustment_tracking","biofeedback_signal_mapping","performance_variation_model","intervention_effect_decay","optimization_stability_index"] },
-  { key: "seniorCare", name: "Senior Care", icon: Users, color: "hsl(45,60%,50%)", services: ["daily_function_tracking","mobility_monitoring","fall_risk_estimation","cognitive_decline_proxy","routine_dependency_index","medication_tracking","caregiver_activity_log","safety_event_tracking","autonomy_score","aging_support_model"] },
-  { key: "eyeHealth", name: "Eye-Health Suite", icon: Eye, color: "hsl(190,60%,50%)", services: ["vision_pattern_tracking","screen_exposure_monitoring","eye_strain_detection","light_sensitivity_tracking","blink_rate_proxy","focus_variability","fatigue_eye_correlation","long_term_vision_trends","eye_recovery_tracking","visual_load_index"] },
-  { key: "digitalTherapeutics", name: "Digital Therapeutics Store", icon: MonitorSmartphone, color: "hsl(240,55%,55%)", services: ["therapy_usage_tracking","adherence_to_digital_programs","therapy_effect_tracking","engagement_score","outcome_variability","digital_intervention_response","therapy_completion_tracking","multi_program_comparison","long_term_effect_tracking","therapy_dropout_detection"] },
-  { key: "sexualLongevity", name: "General Sexual Longevity", icon: Heart, color: "hsl(340,60%,50%)", services: ["libido_pattern_tracking","hormonal_impact_proxy","energy_sexual_correlation","long_term_function_tracking","stress_impact_analysis","recovery_correlation","performance_variability","behavioral_pattern_tracking","age_related_trends","sexual_health_index"] },
-  { key: "mensSexualHealth", name: "Men's Sexual Health", icon: Shield, color: "hsl(200,60%,50%)", services: ["performance_tracking","hormonal_signal_proxy","recovery_pattern_analysis","stress_impact_tracking","long_term_function_trends","fatigue_impact_model","sleep_correlation","intervention_response","age_pattern_detection","stability_index"] },
-  { key: "womensSexualHealth", name: "Women's Sexual Health", icon: Heart, color: "hsl(310,55%,50%)", services: ["hormonal_cycle_correlation","libido_cycle_tracking","emotional_state_correlation","reproductive_signal_tracking","stress_impact_analysis","recovery_patterns","long_term_function_trends","hormonal_variability_index","behavioral_pattern_tracking","sexual_health_stability"] },
+// 20 categories × 10 services = 200 service catalog.
+// Hues are tuned as a harmonized editorial palette: each category sits in a
+// distinct sector of the wheel but shares saturation/lightness so the wall of
+// 20 cards reads as one coherent system rather than a rainbow.
+const serviceCatalog: { key: string; name: string; icon: any; color: string; tint: string; services: string[] }[] = [
+  { key: "criticalHealth",      name: "Critical Health",            icon: CriticalHealthIcon,      color: "hsl(354, 72%, 52%)", tint: "hsl(354, 72%, 96%)", services: ["vital_signs_tracking","anomaly_detection","acute_event_log","symptom_pattern_tracking","medication_adherence_check","emergency_signal_flagging","risk_score_baseline","alert_prioritization","clinical_event_history","escalation_trigger_system"] },
+  { key: "everydayWellness",    name: "Everyday Wellness",          icon: EverydayWellnessIcon,    color: "hsl( 36, 88%, 52%)", tint: "hsl( 36, 88%, 96%)", services: ["daily_routine_tracking","energy_level_tracking","hydration_monitoring","lifestyle_balance_score","fatigue_detection","micro_habit_tracking","daily_variability_analysis","personal_stability_index","wellness_pattern_mapping","routine_consistency_score"] },
+  { key: "longevity",           name: "Longevity & Anti-Aging",     icon: LongevityIcon,           color: "hsl( 28, 78%, 48%)", tint: "hsl( 28, 78%, 96%)", services: ["aging_rate_estimation","biological_vs_chronological_gap","longevity_factor_analysis","cellular_stress_proxy","recovery_capacity_tracking","long_term_trend_analysis","resilience_index","decline_pattern_detection","longevity_scenario_modeling","aging_risk_score"] },
+  { key: "mentalWellness",      name: "Mental Wellness",            icon: MentalWellnessIcon,      color: "hsl(266, 62%, 56%)", tint: "hsl(266, 62%, 97%)", services: ["mood_pattern_tracking","stress_level_monitoring","cognitive_load_estimation","burnout_detection","emotional_variability_index","mental_stability_score","anxiety_pattern_tracking","attention_drift_analysis","behavioral_signal_mapping","recovery_from_stress_index"] },
+  { key: "fitness",             name: "Fitness & Performance",      icon: FitnessIcon,             color: "hsl(  8, 76%, 54%)", tint: "hsl(  8, 76%, 96%)", services: ["activity_tracking","exertion_level_analysis","performance_trend_tracking","recovery_time_estimation","load_balance_score","overtraining_detection","physical_capacity_index","movement_variability","endurance_tracking","performance_decline_detection"] },
+  { key: "womensHealth",        name: "Women's Health",             icon: WomensHealthIcon,        color: "hsl(330, 62%, 54%)", tint: "hsl(330, 62%, 97%)", services: ["cycle_tracking","hormonal_pattern_proxy","symptom_variation_analysis","cycle_regularization_tracking","fertility_window_estimation","hormonal_impact_on_energy","mood_cycle_correlation","long_term_cycle_history","menopause_transition_tracking","cycle_anomaly_detection"] },
+  { key: "mensHealth",          name: "Men's Health",               icon: MensHealthIcon,          color: "hsl(212, 70%, 50%)", tint: "hsl(212, 70%, 96%)", services: ["hormonal_balance_proxy","energy_variation_tracking","stress_impact_analysis","reproductive_health_signals","fatigue_pattern_tracking","metabolic_signal_tracking","performance_stability","aging_male_pattern_detection","sleep_impact_on_hormones","long_term_male_health_trends"] },
+  { key: "beauty",              name: "Beauty & Skincare",          icon: BeautyIcon,              color: "hsl(346, 70%, 60%)", tint: "hsl(346, 70%, 97%)", services: ["skin_condition_tracking","hydration_skin_correlation","aging_skin_index","environmental_skin_impact","skincare_routine_tracking","inflammation_proxy_tracking","skin_response_analysis","long_term_skin_trends","sleep_skin_correlation","skin_recovery_tracking"] },
+  { key: "nutrition",           name: "Nutrition & Diet",           icon: NutritionIcon,           color: "hsl(132, 50%, 40%)", tint: "hsl(132, 50%, 96%)", services: ["food_intake_tracking","macro_micro_balance","nutritional_pattern_analysis","glycemic_response_proxy","digestion_pattern_tracking","meal_timing_analysis","energy_intake_vs_output","deficiency_signal_detection","dietary_consistency_score","nutrition_impact_model"] },
+  { key: "sleep",               name: "Sleep & Recovery",           icon: SleepIcon,               color: "hsl(244, 56%, 56%)", tint: "hsl(244, 56%, 97%)", services: ["sleep_duration_tracking","sleep_quality_index","sleep_cycle_analysis","recovery_score","sleep_disruption_detection","circadian_pattern_tracking","fatigue_sleep_correlation","deep_sleep_estimation","sleep_consistency_score","recovery_trend_analysis"] },
+  { key: "environmentalHealth", name: "Environmental Health",       icon: EnvironmentalIcon,       color: "hsl(162, 58%, 38%)", tint: "hsl(162, 58%, 96%)", services: ["air_quality_tracking","noise_exposure_monitoring","temperature_impact_tracking","light_exposure_analysis","environment_stability_index","location_based_impact","toxin_exposure_proxy","indoor_vs_outdoor_effects","environmental_stress_score","adaptation_to_environment"] },
+  { key: "familyHealth",        name: "Family Health",              icon: FamilyHealthIcon,        color: "hsl( 18, 76%, 54%)", tint: "hsl( 18, 76%, 97%)", services: ["shared_health_patterns","family_risk_mapping","behavioral_sync_analysis","care_dependency_tracking","caregiver_interaction_log","shared_environment_impact","family_support_index","multi_person_event_tracking","family_health_history_linking","cross_member_pattern_detection"] },
+  { key: "preventive",          name: "Preventive Medicine & Longevity", icon: PreventiveIcon,    color: "hsl(186, 64%, 40%)", tint: "hsl(186, 64%, 96%)", services: ["preventive_risk_scoring","screening_reminder_system","long_term_risk_trends","lifestyle_risk_analysis","early_deviation_detection","prevention_compliance_tracking","baseline_shift_detection","cumulative_risk_model","preventive_action_tracking","risk_reduction_projection"] },
+  { key: "biohacking",          name: "Biohacking & Performance",   icon: BiohackingIcon,          color: "hsl(286, 64%, 54%)", tint: "hsl(286, 64%, 97%)", services: ["self_experiment_tracking","intervention_response_analysis","performance_gain_tracking","recovery_boost_analysis","optimization_feedback_loop","micro_adjustment_tracking","biofeedback_signal_mapping","performance_variation_model","intervention_effect_decay","optimization_stability_index"] },
+  { key: "seniorCare",          name: "Senior Care",                icon: SeniorCareIcon,          color: "hsl( 48, 70%, 46%)", tint: "hsl( 48, 70%, 96%)", services: ["daily_function_tracking","mobility_monitoring","fall_risk_estimation","cognitive_decline_proxy","routine_dependency_index","medication_tracking","caregiver_activity_log","safety_event_tracking","autonomy_score","aging_support_model"] },
+  { key: "eyeHealth",           name: "Eye-Health Suite",           icon: EyeHealthIcon,           color: "hsl(196, 72%, 44%)", tint: "hsl(196, 72%, 96%)", services: ["vision_pattern_tracking","screen_exposure_monitoring","eye_strain_detection","light_sensitivity_tracking","blink_rate_proxy","focus_variability","fatigue_eye_correlation","long_term_vision_trends","eye_recovery_tracking","visual_load_index"] },
+  { key: "digitalTherapeutics", name: "Digital Therapeutics Store", icon: DigitalTherapeuticsIcon, color: "hsl(232, 60%, 56%)", tint: "hsl(232, 60%, 97%)", services: ["therapy_usage_tracking","adherence_to_digital_programs","therapy_effect_tracking","engagement_score","outcome_variability","digital_intervention_response","therapy_completion_tracking","multi_program_comparison","long_term_effect_tracking","therapy_dropout_detection"] },
+  { key: "sexualLongevity",     name: "General Sexual Longevity",   icon: SexualLongevityIcon,     color: "hsl(340, 64%, 52%)", tint: "hsl(340, 64%, 97%)", services: ["libido_pattern_tracking","hormonal_impact_proxy","energy_sexual_correlation","long_term_function_tracking","stress_impact_analysis","recovery_correlation","performance_variability","behavioral_pattern_tracking","age_related_trends","sexual_health_index"] },
+  { key: "mensSexualHealth",    name: "Men's Sexual Health",        icon: MensSexualHealthIcon,    color: "hsl(204, 66%, 46%)", tint: "hsl(204, 66%, 96%)", services: ["performance_tracking","hormonal_signal_proxy","recovery_pattern_analysis","stress_impact_tracking","long_term_function_trends","fatigue_impact_model","sleep_correlation","intervention_response","age_pattern_detection","stability_index"] },
+  { key: "womensSexualHealth",  name: "Women's Sexual Health",      icon: WomensSexualHealthIcon,  color: "hsl(316, 58%, 52%)", tint: "hsl(316, 58%, 97%)", services: ["hormonal_cycle_correlation","libido_cycle_tracking","emotional_state_correlation","reproductive_signal_tracking","stress_impact_analysis","recovery_patterns","long_term_function_trends","hormonal_variability_index","behavioral_pattern_tracking","sexual_health_stability"] },
 ];
 
 const infographics = [
@@ -1049,18 +1058,26 @@ const BioMathCore = () => {
                   key={cat.key}
                   value={cat.key}
                   className="bg-[hsl(var(--bm-surface))] border border-[hsl(var(--bm-border))] rounded-xl overflow-hidden transition-all hover:border-[hsl(var(--bm-blue-deep))]/40"
+                  style={{ boxShadow: `inset 3px 0 0 0 ${cat.color}` }}
                 >
                   <AccordionTrigger className="px-5 py-4 hover:no-underline group">
                     <div className="flex items-center gap-4 flex-1 text-left">
                       <span
-                        className="flex-shrink-0 w-11 h-11 rounded-lg flex items-center justify-center"
-                        style={{ background: `${cat.color.replace(')', ',0.12)').replace('hsl(', 'hsla(')}` }}
+                        className="flex-shrink-0 w-11 h-11 rounded-lg flex items-center justify-center ring-1"
+                        style={{
+                          background: cat.color.replace('hsl(', 'hsla(').replace(')', ', 0.10)'),
+                          // ring uses the same accent at low alpha
+                          boxShadow: `inset 0 0 0 1px ${cat.color.replace('hsl(', 'hsla(').replace(')', ', 0.22)')}`,
+                        }}
                       >
                         <Icon className="w-5 h-5" style={{ color: cat.color }} />
                       </span>
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center gap-3 flex-wrap">
-                          <span className="text-xs font-mono text-[hsl(var(--bm-text-dim))]">
+                          <span
+                            className="text-xs font-mono font-semibold tracking-wider"
+                            style={{ color: cat.color }}
+                          >
                             {String(idx + 1).padStart(2, "0")}
                           </span>
                           <span className="font-semibold text-[hsl(var(--bm-text-strong))] text-base md:text-lg">
@@ -1068,7 +1085,7 @@ const BioMathCore = () => {
                           </span>
                           <Badge
                             variant="outline"
-                            className="text-xs border-[hsl(var(--bm-border))] text-[hsl(var(--bm-text-mute))]"
+                            className="text-[10px] uppercase tracking-wider border-[hsl(var(--bm-border))] text-[hsl(var(--bm-text-mute))]"
                           >
                             10 services
                           </Badge>
@@ -1078,19 +1095,23 @@ const BioMathCore = () => {
                   </AccordionTrigger>
                   <AccordionContent className="px-5 pb-5 pt-0">
                     <div
-                      className="h-px w-full mb-4 opacity-30"
+                      className="h-px w-full mb-4"
                       style={{ background: `linear-gradient(90deg, ${cat.color}, transparent)` }}
                     />
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-2">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                       {cat.services.map((svc, sIdx) => (
                         <div
                           key={svc}
-                          className="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-[hsl(var(--bm-bg-elev))]/60 border border-[hsl(var(--bm-border-soft))] hover:border-[hsl(var(--bm-blue-deep))]/30 transition-colors"
+                          className="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-[hsl(var(--bm-bg-elev))]/60 border border-[hsl(var(--bm-border-soft))] transition-colors hover:bg-[hsl(var(--bm-bg-elev))]"
+                          style={{
+                            // soft accent border-left for service rows
+                            borderLeft: `2px solid ${cat.color.replace('hsl(', 'hsla(').replace(')', ', 0.35)')}`,
+                          }}
                         >
                           <span
                             className="flex-shrink-0 w-6 h-6 rounded-md flex items-center justify-center text-[10px] font-mono font-semibold"
                             style={{
-                              background: `${cat.color.replace(')', ',0.10)').replace('hsl(', 'hsla(')}`,
+                              background: cat.color.replace('hsl(', 'hsla(').replace(')', ', 0.12)'),
                               color: cat.color,
                             }}
                           >
