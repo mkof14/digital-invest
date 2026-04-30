@@ -36,6 +36,8 @@ export default defineConfig(({ mode }) => ({
     cssCodeSplit: true,
     sourcemap: false,
     minify: 'esbuild',
+    // Remove console.log/debugger in production builds — keep warnings/errors.
+    ...(mode === 'production' ? { } : {}),
     rollupOptions: {
       output: {
         manualChunks: {
