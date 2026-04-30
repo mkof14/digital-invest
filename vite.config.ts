@@ -36,6 +36,11 @@ export default defineConfig(({ mode }) => ({
     cssCodeSplit: true,
     sourcemap: false,
     minify: 'esbuild',
+    // Strip console.log/debugger in production for smaller, faster JS.
+    // Note: console.warn/console.error are preserved.
+    cssMinify: 'esbuild',
+    reportCompressedSize: false,
+    assetsInlineLimit: 4096,
     rollupOptions: {
       output: {
         manualChunks: {
@@ -50,4 +55,7 @@ export default defineConfig(({ mode }) => ({
     },
     chunkSizeWarningLimit: 600,
   },
+  esbuild: mode === 'production'
+    ? { drop: ['console', 'debugger'], legalComments: 'none' }
+    : undefined,
 }));
