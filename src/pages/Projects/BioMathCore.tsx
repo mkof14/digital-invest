@@ -25,7 +25,6 @@ import presOrbitalLoop from "@/assets/projects/biomath-pres-orbital-loop.webp";
 import presTime from "@/assets/projects/biomath-pres-time.webp";
 import presOutput from "@/assets/projects/biomath-pres-output.webp";
 import InvestorPageDisclaimer from "@/components/InvestorPageDisclaimer";
-import { InfographicsGallery } from "@/components/InfographicsGallery";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import {
   CriticalHealthIcon, EverydayWellnessIcon, LongevityIcon, MentalWellnessIcon, FitnessIcon,
@@ -1238,7 +1237,32 @@ const BioMathCore = () => {
           <p className="text-center text-[hsl(var(--bm-text-mute))] mb-10 max-w-3xl mx-auto">
             {t('projectBiomathCore.infographicsSubtitle', "Visual overview of BioMath Core's living digital model, self-learning architecture, and ecosystem scale")}
           </p>
-          <InfographicsGallery infographics={infographics} projectTitle="BioMath Core" />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {infographics.map((infographic) => (
+              <a
+                key={infographic.src}
+                href={infographic.src}
+                target="_blank"
+                rel="noreferrer"
+                className="group block overflow-hidden rounded-xl border border-[hsl(var(--bm-border))] bg-[hsl(var(--bm-surface))] transition-all duration-300 hover:border-[hsl(var(--bm-blue))]/50 hover:shadow-xl hover:shadow-[hsl(var(--bm-blue))]/10"
+              >
+                <span className="relative block aspect-video overflow-hidden bg-[hsl(var(--bm-bg-deep))]">
+                  <img
+                    src={infographic.src}
+                    alt={infographic.alt}
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                  <span className="absolute inset-0 flex items-center justify-center bg-[hsl(var(--bm-bg-deep))]/0 transition-colors duration-300 group-hover:bg-[hsl(var(--bm-bg-deep))]/35">
+                    <Images className="h-9 w-9 text-[hsl(var(--bm-text-strong))] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                  </span>
+                </span>
+                <span className="block p-4 text-sm font-semibold text-[hsl(var(--bm-text-strong))]">
+                  {infographic.title}
+                </span>
+              </a>
+            ))}
+          </div>
         </section>
 
 
