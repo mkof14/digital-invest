@@ -919,7 +919,13 @@
         "sexualLongevity": "Longévité sexuelle",
         "mensSexualHealth": "Santé sexuelle de l'homme",
         "womensSexualHealth": "Santé sexuelle de la femme"
-      }
+      },
+      "servicesCount": "10 services",
+      "filterAll": "Tous",
+      "filterTitle": "Filtrer les catégories",
+      "filterShowing": "{{count}} sur 20 affichées",
+      "filterClear": "Réinitialiser",
+      "filterEmpty": "Aucune catégorie sélectionnée. Utilisez le filtre ci-dessus pour afficher les services."
     }
   },
   "projectTerraAero": {

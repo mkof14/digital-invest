@@ -919,7 +919,13 @@
         "sexualLongevity": "אריכות תפקוד מיני",
         "mensSexualHealth": "בריאות מינית של הגבר",
         "womensSexualHealth": "בריאות מינית של האישה"
-      }
+      },
+      "servicesCount": "10 שירותים",
+      "filterAll": "הכול",
+      "filterTitle": "סינון קטגוריות",
+      "filterShowing": "מוצגות {{count}} מתוך 20",
+      "filterClear": "איפוס",
+      "filterEmpty": "לא נבחרו קטגוריות. השתמש במסנן שלמעלה כדי להציג שירותים."
     }
   },
   "projectTerraAero": {
