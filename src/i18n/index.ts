@@ -29,7 +29,7 @@ i18n
     },
     backend: {
       loadPath: '/locales/{{lng}}/translation.json',
-      queryStringParams: { v: '20260429-4' },
+      queryStringParams: { v: '20260430-1' },
     },
   });
 
