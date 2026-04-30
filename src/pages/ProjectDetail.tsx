@@ -21,8 +21,8 @@ import biomathCoreHero from '@/assets/projects/biomath-core-hero.jpg';
 import digitalInvestHero from '@/assets/projects/digitalinvest-hero.webp';
 import agronHero from '@/assets/projects/agron-hero.webp';
 import agronInfographic from '@/assets/projects/agron-infographic.webp';
-import agronInfographic1 from '@/assets/agron-infographic-1.jpeg';
-import agronInfographic2 from '@/assets/agron-infographic-2.jpeg';
+import agronInfographic1 from '@/assets/agron-infographic-1.webp';
+import agronInfographic2 from '@/assets/agron-infographic-2.webp';
 import { InfographicsGallery } from '@/components/InfographicsGallery';
 
 interface Project {
@@ -364,7 +364,7 @@ const ProjectDetail = () => {
               <div className="flex items-center gap-4 mb-4">
                 {(isBioMathCore || isDigitalInvestPortfolio) && (
                   <img
-                    src={isBioMathCore ? '/lovable-uploads/biomath-core-logo.png' : '/lovable-uploads/d1011e6f-955a-48d9-adef-662af751c3b9.png'}
+                    src={isBioMathCore ? '/lovable-uploads/biomath-core-logo.webp' : '/lovable-uploads/d1011e6f-955a-48d9-adef-662af751c3b9.png'}
                     alt={isBioMathCore ? 'BioMath Core logo' : 'Digital Invest Inc. logo'}
                     className="w-16 h-16 md:w-20 md:h-20 object-contain"
                   />

@@ -13,7 +13,7 @@ import InvestorPageDisclaimer from '@/components/InvestorPageDisclaimer';
 
 // Infographics
 import agronInfographic from '@/assets/projects/agron-infographic.webp';
-import agronInfographic2 from '@/assets/agron-infographic-2.jpeg';
+import agronInfographic2 from '@/assets/agron-infographic-2.webp';
 import lunaInfographic from '@/assets/projects/luna-infographic.webp';
 import savenInfographic from '@/assets/projects/saven-infographic.webp';
 import terraaeroInfographic from '@/assets/projects/terraaero-infographic.webp';

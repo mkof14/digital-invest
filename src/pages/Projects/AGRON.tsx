@@ -12,8 +12,8 @@ import {
 import agronLogo from "@/assets/agron-logo.webp";
 import agronHero from "@/assets/projects/agron-hero.webp";
 import agronInfographic from "@/assets/projects/agron-infographic.webp";
-import agronInfographic1 from "@/assets/agron-infographic-1.jpeg";
-import agronInfographic2 from "@/assets/agron-infographic-2.jpeg";
+import agronInfographic1 from "@/assets/agron-infographic-1.webp";
+import agronInfographic2 from "@/assets/agron-infographic-2.webp";
 import DownloadInvestorBriefButton from "@/components/DownloadInvestorBriefButton";
 import OptimizedImage from "@/components/OptimizedImage";
 import InvestorPageDisclaimer from "@/components/InvestorPageDisclaimer";
