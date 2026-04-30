@@ -122,6 +122,17 @@ const BioMathCore = () => {
   const [fanInView, setFanInView] = useState(false);
   const [hoveredFan, setHoveredFan] = useState<number | null>(null);
   const [isTouch, setIsTouch] = useState(false);
+  // Catalog filter — empty Set means "show all 20 categories".
+  const [catalogFilter, setCatalogFilter] = useState<Set<string>>(new Set());
+  const toggleCatalogFilter = (key: string) =>
+    setCatalogFilter((prev) => {
+      const next = new Set(prev);
+      next.has(key) ? next.delete(key) : next.add(key);
+      return next;
+    });
+  const filteredCatalog = catalogFilter.size === 0
+    ? serviceCatalog
+    : serviceCatalog.filter((c) => catalogFilter.has(c.key));
   useEffect(() => {
     const el = fanRef.current;
     if (!el) return;
