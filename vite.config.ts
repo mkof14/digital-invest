@@ -4,6 +4,11 @@ import path from "path";
 import { componentTagger } from "lovable-tagger";
 
 export default defineConfig(({ mode }) => ({
+  define: {
+    __REACT_PACKAGE_PATH__: JSON.stringify(path.resolve(__dirname, "./node_modules/react")),
+    __REACT_DOM_PACKAGE_PATH__: JSON.stringify(path.resolve(__dirname, "./node_modules/react-dom")),
+    __REACT_QUERY_PACKAGE_PATH__: JSON.stringify(path.resolve(__dirname, "./node_modules/@tanstack/react-query")),
+  },
   server: {
     host: "::",
     port: 8080,
