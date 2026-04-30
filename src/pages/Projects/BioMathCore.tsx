@@ -665,8 +665,72 @@ const BioMathCore = () => {
             </p>
           </div>
 
+          {/* Category filter */}
+          <div className="max-w-5xl mx-auto mb-6">
+            <div className="flex items-center justify-between mb-3 flex-wrap gap-2">
+              <div className="flex items-center gap-2 text-sm text-[hsl(var(--bm-text-mute))]">
+                <Filter className="w-4 h-4" aria-hidden="true" />
+                <span className="font-medium">{t('projectBiomathCore.catalog.filterTitle', 'Filter categories')}</span>
+                <span className="text-[hsl(var(--bm-text-dim))]">·</span>
+                <span>{t('projectBiomathCore.catalog.filterShowing', 'Showing {{count}} of 20', { count: filteredCatalog.length })}</span>
+              </div>
+              {catalogFilter.size > 0 && (
+                <button
+                  type="button"
+                  onClick={() => setCatalogFilter(new Set())}
+                  className="inline-flex items-center gap-1 text-xs text-[hsl(var(--bm-text-mute))] hover:text-[hsl(var(--bm-text-strong))] transition-colors"
+                >
+                  <X className="w-3.5 h-3.5" aria-hidden="true" />
+                  {t('projectBiomathCore.catalog.filterClear', 'Clear')}
+                </button>
+              )}
+            </div>
+            <div className="flex flex-wrap gap-2" role="group" aria-label={t('projectBiomathCore.catalog.filterTitle', 'Filter categories')}>
+              <button
+                type="button"
+                onClick={() => setCatalogFilter(new Set())}
+                aria-pressed={catalogFilter.size === 0}
+                className={`px-3 py-1.5 rounded-full text-xs font-medium border transition-all ${
+                  catalogFilter.size === 0
+                    ? 'bg-[hsl(var(--bm-text-strong))] text-[hsl(var(--bm-bg))] border-[hsl(var(--bm-text-strong))]'
+                    : 'bg-transparent text-[hsl(var(--bm-text-mute))] border-[hsl(var(--bm-border))] hover:border-[hsl(var(--bm-text-mute))]'
+                }`}
+              >
+                {t('projectBiomathCore.catalog.filterAll', 'All')}
+              </button>
+              {serviceCatalog.map((cat) => {
+                const Icon = cat.icon;
+                const active = catalogFilter.has(cat.key);
+                const accentBg = cat.color.replace('hsl(', 'hsla(').replace(')', ', 0.14)');
+                const accentBorder = cat.color.replace('hsl(', 'hsla(').replace(')', ', 0.45)');
+                return (
+                  <button
+                    key={cat.key}
+                    type="button"
+                    onClick={() => toggleCatalogFilter(cat.key)}
+                    aria-pressed={active}
+                    className="px-3 py-1.5 rounded-full text-xs font-medium border transition-all inline-flex items-center gap-1.5"
+                    style={
+                      active
+                        ? { background: accentBg, borderColor: accentBorder, color: cat.color }
+                        : { background: 'transparent', borderColor: 'hsl(var(--bm-border))', color: 'hsl(var(--bm-text-mute))' }
+                    }
+                  >
+                    <Icon className="w-3.5 h-3.5" style={active ? { color: cat.color } : undefined} aria-hidden="true" />
+                    {t(`projectBiomathCore.catalog.cats.${cat.key}`, cat.name)}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
+          {filteredCatalog.length === 0 ? (
+            <p className="max-w-5xl mx-auto text-center text-sm text-[hsl(var(--bm-text-mute))] py-12 border border-dashed border-[hsl(var(--bm-border))] rounded-xl">
+              {t('projectBiomathCore.catalog.filterEmpty', 'No categories selected. Use the filter above to display services.')}
+            </p>
+          ) : (
           <Accordion type="multiple" className="max-w-5xl mx-auto space-y-3">
-            {serviceCatalog.map((cat, idx) => {
+            {filteredCatalog.map((cat, idx) => {
               const Icon = cat.icon;
               return (
                 <AccordionItem
