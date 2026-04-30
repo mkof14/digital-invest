@@ -896,7 +896,13 @@
         "sexualLongevity": "Сексуальное долголетие",
         "mensSexualHealth": "Мужское сексуальное здоровье",
         "womensSexualHealth": "Женское сексуальное здоровье"
-      }
+      },
+      "servicesCount": "10 сервисов",
+      "filterAll": "Все",
+      "filterTitle": "Фильтр категорий",
+      "filterShowing": "Показано {{count}} из 20",
+      "filterClear": "Сбросить",
+      "filterEmpty": "Категории не выбраны. Используйте фильтр выше, чтобы отобразить сервисы."
     }
   },
   "projectTerraAero": {

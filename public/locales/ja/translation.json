@@ -896,7 +896,13 @@
         "sexualLongevity": "セクシャル・ロンジェビティ",
         "mensSexualHealth": "男性の性の健康",
         "womensSexualHealth": "女性の性の健康"
-      }
+      },
+      "servicesCount": "10サービス",
+      "filterAll": "すべて",
+      "filterTitle": "カテゴリーフィルター",
+      "filterShowing": "20件中 {{count}} 件を表示",
+      "filterClear": "クリア",
+      "filterEmpty": "カテゴリーが選択されていません。上のフィルターでサービスを表示してください。"
     }
   },
   "projectTerraAero": {

@@ -896,7 +896,13 @@
         "sexualLongevity": "الصحة الجنسية المستدامة",
         "mensSexualHealth": "الصحة الجنسية للرجل",
         "womensSexualHealth": "الصحة الجنسية للمرأة"
-      }
+      },
+      "servicesCount": "10 خدمات",
+      "filterAll": "الكل",
+      "filterTitle": "تصفية الفئات",
+      "filterShowing": "عرض {{count}} من 20",
+      "filterClear": "مسح",
+      "filterEmpty": "لم يتم تحديد أي فئة. استخدم المرشّح أعلاه لعرض الخدمات."
     }
   },
   "projectTerraAero": {
