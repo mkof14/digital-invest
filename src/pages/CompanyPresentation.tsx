@@ -189,33 +189,30 @@ const CompanyPresentation = () => {
                 </p>
               </div>
             </div>
-            <div className="flex items-center gap-2">
-              <Button variant="outline" size="sm" onClick={goPrev} disabled={idx <= 0}>
-                <ChevronLeft className="h-4 w-4" />
+            <div className="flex items-center gap-1.5">
+              <Button variant="outline" size="icon" className="h-8 w-8" onClick={goPrev} disabled={idx <= 0} aria-label="Previous">
+                <ChevronLeft className="h-3.5 w-3.5" />
               </Button>
-              <span className="text-xs text-muted-foreground tabular-nums px-1">
+              <span className="text-[11px] text-muted-foreground tabular-nums px-1">
                 {idx + 1} / {items.length}
               </span>
-              <Button
-                variant="outline"
-                size="sm"
-                onClick={goNext}
-                disabled={idx >= items.length - 1}
-              >
-                <ChevronRight className="h-4 w-4" />
+              <Button variant="outline" size="icon" className="h-8 w-8" onClick={goNext} disabled={idx >= items.length - 1} aria-label="Next">
+                <ChevronRight className="h-3.5 w-3.5" />
               </Button>
-              <Button variant="outline" size="sm" asChild>
+              <Button variant="outline" size="icon" className="h-8 w-8" asChild aria-label="Open in new tab" title="Open in new tab">
                 <a href={active.url} target="_blank" rel="noopener noreferrer">
-                  <ExternalLink className="h-4 w-4" />
+                  <ExternalLink className="h-3.5 w-3.5" />
                 </a>
               </Button>
-              <Button variant="default" size="sm" onClick={toggleFullscreen}>
-                {isFullscreen ? (
-                  <Minimize2 className="h-4 w-4 mr-1.5" />
-                ) : (
-                  <Maximize2 className="h-4 w-4 mr-1.5" />
-                )}
-                {isFullscreen ? "Exit" : "Fullscreen"}
+              <Button
+                variant="outline"
+                size="icon"
+                className="h-8 w-8"
+                onClick={toggleFullscreen}
+                aria-label={isFullscreen ? "Exit fullscreen" : "Fullscreen"}
+                title={isFullscreen ? "Exit fullscreen (F)" : "Fullscreen (F)"}
+              >
+                {isFullscreen ? <Minimize2 className="h-3.5 w-3.5" /> : <Maximize2 className="h-3.5 w-3.5" />}
               </Button>
             </div>
           </div>
