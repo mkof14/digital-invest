@@ -138,6 +138,7 @@ const CompanyPresentation = () => {
     document.title = "Company Presentation — Digital Invest";
   }, []);
 
+  useEffect(() => {
     const handler = () => setIsFullscreen(!!document.fullscreenElement);
     document.addEventListener("fullscreenchange", handler);
     return () => document.removeEventListener("fullscreenchange", handler);
