@@ -82,6 +82,7 @@ const AbuMall = lazy(() => import('./pages/AdamasMaterials/AbuMall'));
 const AlmaDiamond = lazy(() => import('./pages/AdamasMaterials/AlmaDiamond'));
 const JatualDiamonds = lazy(() => import('./pages/AdamasMaterials/JatualDiamonds'));
 const DiagnosticsReact = lazy(() => import("./pages/DiagnosticsReact"));
+const CompanyPresentation = lazy(() => import("./pages/CompanyPresentation"));
 
 // Legacy project routes
 const BioMathLife = lazy(() => import("./pages/Projects/BioMathLife"));
@@ -147,6 +148,7 @@ const App = () => (
               <Route path="/terms" element={<Terms />} />
               <Route path="/cookies" element={<Cookies />} />
               <Route path="/diagnostics/react" element={<DiagnosticsReact />} />
+              <Route path="/company-presentation" element={<CompanyPresentation />} />
               
               <Route path="/projects" element={<Projects />} />
               <Route path="/projects/:slug" element={<ProjectDetail />} />
