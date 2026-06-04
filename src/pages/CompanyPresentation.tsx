@@ -161,13 +161,6 @@ const CompanyPresentation = () => {
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
-      <Helmet>
-        <title>Company Presentation — Digital Invest</title>
-        <meta
-          name="description"
-          content="Interactive Digital Invest presentation hub: decks, videos, documents, and links in one place."
-        />
-      </Helmet>
 
       <Navigation />
 
