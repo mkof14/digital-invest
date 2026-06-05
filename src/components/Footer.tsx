@@ -229,10 +229,13 @@ const Footer = () => {
               {/* Theme toggle */}
               <button
                 onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
+                aria-label={theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode'}
+                title={theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode'}
                 className="inline-flex items-center gap-2 px-3 py-2 rounded-lg text-sm text-muted-foreground hover:text-foreground hover:bg-muted/50 border border-border/30 transition-all duration-200"
               >
                 {theme === 'light' ? <Moon className="w-4 h-4" /> : <Sun className="w-4 h-4" />}
                 <span className="hidden sm:inline">{theme === 'light' ? 'Dark' : 'Light'}</span>
+                <span className="sr-only">{theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode'}</span>
               </button>
             </div>
 
