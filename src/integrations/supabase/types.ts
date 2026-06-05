@@ -297,6 +297,54 @@ export type Database = {
           },
         ]
       }
+      presentation_items: {
+        Row: {
+          created_at: string
+          description: string | null
+          file_mime: string | null
+          file_path: string | null
+          file_size: number | null
+          group_name: string | null
+          id: string
+          is_visible: boolean
+          item_type: string
+          sort_order: number
+          title: string
+          updated_at: string
+          url: string
+        }
+        Insert: {
+          created_at?: string
+          description?: string | null
+          file_mime?: string | null
+          file_path?: string | null
+          file_size?: number | null
+          group_name?: string | null
+          id?: string
+          is_visible?: boolean
+          item_type: string
+          sort_order?: number
+          title: string
+          updated_at?: string
+          url: string
+        }
+        Update: {
+          created_at?: string
+          description?: string | null
+          file_mime?: string | null
+          file_path?: string | null
+          file_size?: number | null
+          group_name?: string | null
+          id?: string
+          is_visible?: boolean
+          item_type?: string
+          sort_order?: number
+          title?: string
+          updated_at?: string
+          url?: string
+        }
+        Relationships: []
+      }
       project_documents: {
         Row: {
           created_at: string
