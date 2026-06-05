@@ -125,8 +125,6 @@ const Viewer = ({
   const src =
     item.type === "page"
       ? item.url
-      : item.type === "pdf"
-      ? `${item.url}#toolbar=1&navpanes=0&view=FitH`
       : item.type === "video"
       ? normalizeVideoUrl(item.url)
       : item.url;
