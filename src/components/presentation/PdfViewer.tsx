@@ -269,7 +269,9 @@ const PdfViewer = ({ url, title }: PdfViewerProps) => {
               }}
               className="h-8 w-14 text-xs text-center"
             />
-            <span className="text-muted-foreground tabular-nums">/ {numPages || "…"}</span>
+            <span className="text-muted-foreground tabular-nums whitespace-nowrap">
+              / {numPages || "…"}
+            </span>
           </div>
           <Button
             variant="outline"
@@ -281,6 +283,21 @@ const PdfViewer = ({ url, title }: PdfViewerProps) => {
           >
             <ChevronRight className="h-4 w-4" />
           </Button>
+
+          {/* Progress bar */}
+          <div className="hidden sm:flex items-center gap-2 ml-1">
+            <div className="w-24 h-1.5 bg-muted rounded-full overflow-hidden">
+              <div
+                className="h-full bg-primary transition-all duration-300"
+                style={{
+                  width: `${numPages > 0 ? (page / numPages) * 100 : 0}%`,
+                }}
+              />
+            </div>
+            <span className="text-[10px] text-muted-foreground tabular-nums whitespace-nowrap">
+              {page} of {numPages || "…"}
+            </span>
+          </div>
           <div className="w-px h-5 bg-border mx-1" />
           <Button
             variant={fitMode === "width" ? "default" : "outline"}
