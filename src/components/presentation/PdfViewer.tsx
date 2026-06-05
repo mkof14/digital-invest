@@ -55,7 +55,7 @@ const PdfViewer = ({ url, title }: PdfViewerProps) => {
   const [scale, setScale] = useState(1.25);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [thumbsOpen, setThumbsOpen] = useState(true);
+  const [thumbsOpen, setThumbsOpen] = useState(false);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const renderTaskRef = useRef<any>(null);
 
