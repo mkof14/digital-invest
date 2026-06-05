@@ -152,8 +152,7 @@ const CompanyPresentation = () => {
     [dbItems]
   );
 
-  const initialId =
-    searchParams.get("item") || companyPresentationItems[0]?.id || "";
+  const initialId = searchParams.get("item") || "";
   const [activeId, setActiveId] = useState<string>(initialId);
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [isFullscreen, setIsFullscreen] = useState(false);
@@ -213,6 +212,14 @@ const CompanyPresentation = () => {
     () => items.find((i) => i.id === activeId) ?? items[0],
     [activeId, items]
   );
+
+  // If the URL points to an unknown id (e.g. stale link), snap to the first available item
+  useEffect(() => {
+    if (!items.length) return;
+    if (!items.find((i) => i.id === activeId)) {
+      setActiveId(items[0].id);
+    }
+  }, [items, activeId]);
 
   // Sync active id to URL + recent list
   useEffect(() => {
@@ -701,7 +708,7 @@ const CompanyPresentation = () => {
               ref={stageRef}
               className="flex-1 relative bg-muted/30 min-h-[60vh]"
             >
-              <Viewer item={active} imageZoom={imageZoom} imageRotate={imageRotate} />
+              <Viewer key={active.id} item={active} imageZoom={imageZoom} imageRotate={imageRotate} />
             </div>
 
             {showNotes && (
