@@ -213,6 +213,14 @@ const CompanyPresentation = () => {
     [activeId, items]
   );
 
+  // If the URL points to an unknown id (e.g. stale link), snap to the first available item
+  useEffect(() => {
+    if (!items.length) return;
+    if (!items.find((i) => i.id === activeId)) {
+      setActiveId(items[0].id);
+    }
+  }, [items, activeId]);
+
   // Sync active id to URL + recent list
   useEffect(() => {
     if (!active) return;
