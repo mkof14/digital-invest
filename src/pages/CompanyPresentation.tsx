@@ -597,10 +597,13 @@ const CompanyPresentation = () => {
           <aside
             className={`${
               sidebarOpen ? "w-80" : "w-0"
-            } transition-all duration-300 border-r border-border bg-card/30 overflow-hidden flex-shrink-0`}
+            } transition-all duration-300 border-r border-border/60 overflow-hidden flex-shrink-0
+            bg-gradient-to-b from-primary/5 via-card/60 to-accent/10
+            dark:from-primary/10 dark:via-card/40 dark:to-accent/15
+            shadow-[inset_-1px_0_0_hsl(var(--border)/0.4)]`}
           >
             <div className="w-80 h-full flex flex-col">
-              <div className="p-3 border-b border-border space-y-2">
+              <div className="p-3 border-b border-border/60 space-y-2 bg-gradient-to-b from-primary/10 to-transparent dark:from-primary/15">
                 <Button
                   onClick={() => setAddOpen(true)}
                   className="w-full h-9 gap-2"
