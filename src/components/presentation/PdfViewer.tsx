@@ -69,7 +69,7 @@ const PdfViewer = ({ url, title }: PdfViewerProps) => {
     const saved = loadState(url);
     setPage(saved.page ?? 1);
     setScale(saved.scale ?? 1.25);
-    setThumbsOpen(saved.thumbsOpen ?? true);
+    setThumbsOpen(saved.thumbsOpen ?? false);
 
     const task = pdfjsLib.getDocument({ url, withCredentials: false });
     task.promise
