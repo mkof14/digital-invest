@@ -500,6 +500,34 @@ const CompanyPresentation = () => {
           </div>
         </div>
 
+        {/* Compact shortcuts bar */}
+        <div className="border-b border-border bg-card/20">
+          <div className="container mx-auto px-4 py-1.5 flex items-center justify-between">
+            <div className="flex items-center gap-1">
+              <Button variant="ghost" size="icon" className="h-7 w-7" onClick={() => setSidebarOpen((s) => !s)} title="Toggle sidebar (S)">
+                {sidebarOpen ? <X className="h-3.5 w-3.5" /> : <Menu className="h-3.5 w-3.5" />}
+              </Button>
+              <div className="w-px h-4 bg-border mx-1" />
+              <Button variant="ghost" size="icon" className="h-7 w-7" onClick={goPrev} disabled={idx <= 0} title="Previous (←)">
+                <ChevronLeft className="h-3.5 w-3.5" />
+              </Button>
+              <Button variant="ghost" size="icon" className="h-7 w-7" onClick={goNext} title="Next (→)">
+                <ChevronRight className="h-3.5 w-3.5" />
+              </Button>
+              <div className="w-px h-4 bg-border mx-1" />
+              <Button variant="ghost" size="icon" className="h-7 w-7" onClick={() => setShowNotes((v) => !v)} title="Toggle notes (N)">
+                <Info className="h-3.5 w-3.5" />
+              </Button>
+              <Button variant="ghost" size="icon" className="h-7 w-7" onClick={() => setAutoplay((v) => !v)} title="Slideshow (Space)">
+                {autoplay ? <Pause className="h-3.5 w-3.5" /> : <Play className="h-3.5 w-3.5" />}
+              </Button>
+            </div>
+            <Button variant="ghost" size="icon" className="h-7 w-7" onClick={toggleFullscreen} title="Fullscreen (F)">
+              {isFullscreen ? <Minimize2 className="h-3.5 w-3.5" /> : <Maximize2 className="h-3.5 w-3.5" />}
+            </Button>
+          </div>
+        </div>
+
         <div className="flex-1 flex min-h-[calc(100vh-200px)]">
           {/* Sidebar */}
           <aside
