@@ -791,7 +791,8 @@ const CompanyPresentation = () => {
                       </div>
                     )}
                   </div>
-                ))}
+                  );
+                })}
                 {grouped.length === 0 && (
                   <div className="text-sm text-muted-foreground p-4 text-center">
                     No matches.
