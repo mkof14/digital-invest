@@ -508,7 +508,13 @@ const CompanyPresentation = () => {
               <div className="flex items-center gap-1">
                 <Tooltip>
                   <TooltipTrigger asChild>
-                    <Button variant="ghost" size="icon" className="h-7 w-7" onClick={() => setSidebarOpen((s) => !s)}>
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      className="h-7 w-7"
+                      onClick={() => setSidebarOpen((s) => !s)}
+                      aria-label={sidebarOpen ? "Close sidebar (S)" : "Open sidebar (S)"}
+                    >
                       {sidebarOpen ? <X className="h-3.5 w-3.5" /> : <Menu className="h-3.5 w-3.5" />}
                     </Button>
                   </TooltipTrigger>
@@ -517,7 +523,14 @@ const CompanyPresentation = () => {
                 <div className="w-px h-4 bg-border mx-1" />
                 <Tooltip>
                   <TooltipTrigger asChild>
-                    <Button variant="ghost" size="icon" className="h-7 w-7" onClick={goPrev} disabled={idx <= 0}>
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      className="h-7 w-7"
+                      onClick={goPrev}
+                      disabled={idx <= 0}
+                      aria-label="Previous (←)"
+                    >
                       <ChevronLeft className="h-3.5 w-3.5" />
                     </Button>
                   </TooltipTrigger>
@@ -525,7 +538,7 @@ const CompanyPresentation = () => {
                 </Tooltip>
                 <Tooltip>
                   <TooltipTrigger asChild>
-                    <Button variant="ghost" size="icon" className="h-7 w-7" onClick={goNext}>
+                    <Button variant="ghost" size="icon" className="h-7 w-7" onClick={goNext} aria-label="Next (→)">
                       <ChevronRight className="h-3.5 w-3.5" />
                     </Button>
                   </TooltipTrigger>
@@ -534,7 +547,13 @@ const CompanyPresentation = () => {
                 <div className="w-px h-4 bg-border mx-1" />
                 <Tooltip>
                   <TooltipTrigger asChild>
-                    <Button variant="ghost" size="icon" className="h-7 w-7" onClick={() => setShowNotes((v) => !v)}>
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      className="h-7 w-7"
+                      onClick={() => setShowNotes((v) => !v)}
+                      aria-label="Toggle notes (N)"
+                    >
                       <Info className="h-3.5 w-3.5" />
                     </Button>
                   </TooltipTrigger>
@@ -542,7 +561,13 @@ const CompanyPresentation = () => {
                 </Tooltip>
                 <Tooltip>
                   <TooltipTrigger asChild>
-                    <Button variant="ghost" size="icon" className="h-7 w-7" onClick={() => setAutoplay((v) => !v)}>
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      className="h-7 w-7"
+                      onClick={() => setAutoplay((v) => !v)}
+                      aria-label={autoplay ? "Pause slideshow (Space)" : "Start slideshow (Space)"}
+                    >
                       {autoplay ? <Pause className="h-3.5 w-3.5" /> : <Play className="h-3.5 w-3.5" />}
                     </Button>
                   </TooltipTrigger>
@@ -551,7 +576,13 @@ const CompanyPresentation = () => {
               </div>
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <Button variant="ghost" size="icon" className="h-7 w-7" onClick={toggleFullscreen}>
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    className="h-7 w-7"
+                    onClick={toggleFullscreen}
+                    aria-label={isFullscreen ? "Exit fullscreen (F)" : "Fullscreen (F)"}
+                  >
                     {isFullscreen ? <Minimize2 className="h-3.5 w-3.5" /> : <Maximize2 className="h-3.5 w-3.5" />}
                   </Button>
                 </TooltipTrigger>
