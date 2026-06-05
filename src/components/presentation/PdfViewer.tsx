@@ -55,7 +55,7 @@ const PdfViewer = ({ url, title }: PdfViewerProps) => {
   const [scale, setScale] = useState(1.25);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [thumbsOpen, setThumbsOpen] = useState(true);
+  const [thumbsOpen, setThumbsOpen] = useState(false);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const renderTaskRef = useRef<any>(null);
 
@@ -69,7 +69,7 @@ const PdfViewer = ({ url, title }: PdfViewerProps) => {
     const saved = loadState(url);
     setPage(saved.page ?? 1);
     setScale(saved.scale ?? 1.25);
-    setThumbsOpen(saved.thumbsOpen ?? true);
+    setThumbsOpen(saved.thumbsOpen ?? false);
 
     const task = pdfjsLib.getDocument({ url, withCredentials: false });
     task.promise
