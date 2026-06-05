@@ -36,6 +36,7 @@ import { toast } from "sonner";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import AddContentDialog from "@/components/presentation/AddContentDialog";
+import PdfViewer from "@/components/presentation/PdfViewer";
 import {
   companyPresentationItems,
   PresentationItem,
