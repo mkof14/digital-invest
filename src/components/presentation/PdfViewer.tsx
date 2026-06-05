@@ -9,6 +9,8 @@ import {
   Loader2,
   PanelLeftClose,
   PanelLeftOpen,
+  Maximize,
+  StretchHorizontal,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -24,10 +26,13 @@ const STORAGE_PREFIX = "pdf-viewer:";
 
 const getStorageKey = (url: string) => `${STORAGE_PREFIX}${url}`;
 
+type FitMode = "width" | "page" | "custom";
+
 interface PdfViewerState {
   page: number;
   scale: number;
   thumbsOpen: boolean;
+  fitMode: FitMode;
 }
 
 const loadState = (url: string): Partial<PdfViewerState> => {
@@ -53,10 +58,12 @@ const PdfViewer = ({ url, title }: PdfViewerProps) => {
   const [numPages, setNumPages] = useState(0);
   const [page, setPage] = useState(1);
   const [scale, setScale] = useState(1.25);
+  const [fitMode, setFitMode] = useState<FitMode>("width");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [thumbsOpen, setThumbsOpen] = useState(false);
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const scrollRef = useRef<HTMLDivElement>(null);
   const renderTaskRef = useRef<any>(null);
 
   // Load PDF + restore saved state
@@ -70,6 +77,7 @@ const PdfViewer = ({ url, title }: PdfViewerProps) => {
     setPage(saved.page ?? 1);
     setScale(saved.scale ?? 1.25);
     setThumbsOpen(saved.thumbsOpen ?? false);
+    setFitMode(saved.fitMode ?? "width");
 
     const task = pdfjsLib.getDocument({ url, withCredentials: false });
     task.promise
@@ -96,8 +104,40 @@ const PdfViewer = ({ url, title }: PdfViewerProps) => {
   // Persist state changes
   useEffect(() => {
     if (!pdf) return;
-    saveState(url, { page, scale, thumbsOpen });
-  }, [url, pdf, page, scale, thumbsOpen]);
+    saveState(url, { page, scale, thumbsOpen, fitMode });
+  }, [url, pdf, page, scale, thumbsOpen, fitMode]);
+
+  // Auto-fit: compute scale from container size + current page natural size
+  const recomputeFit = useCallback(async () => {
+    if (!pdf || fitMode === "custom" || !scrollRef.current) return;
+    try {
+      const p = await pdf.getPage(page);
+      const base = p.getViewport({ scale: 1 });
+      const el = scrollRef.current;
+      // account for padding (p-4 = 16px each side)
+      const availW = Math.max(100, el.clientWidth - 32);
+      const availH = Math.max(100, el.clientHeight - 32);
+      const sW = availW / base.width;
+      const sH = availH / base.height;
+      const next = fitMode === "width" ? sW : Math.min(sW, sH);
+      setScale(Math.max(0.25, Math.min(5, next)));
+    } catch {
+      /* ignore */
+    }
+  }, [pdf, page, fitMode]);
+
+  useEffect(() => {
+    recomputeFit();
+  }, [recomputeFit]);
+
+  useEffect(() => {
+    if (fitMode === "custom" || !scrollRef.current) return;
+    const ro = new ResizeObserver(() => {
+      recomputeFit();
+    });
+    ro.observe(scrollRef.current);
+    return () => ro.disconnect();
+  }, [fitMode, recomputeFit]);
 
   // Render current page
   useEffect(() => {
@@ -141,6 +181,15 @@ const PdfViewer = ({ url, title }: PdfViewerProps) => {
     [numPages]
   );
 
+  const zoomOut = () => {
+    setFitMode("custom");
+    setScale((s) => Math.max(0.25, s - 0.25));
+  };
+  const zoomIn = () => {
+    setFitMode("custom");
+    setScale((s) => Math.min(5, s + 0.25));
+  };
+
   // Keyboard nav
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -152,9 +201,9 @@ const PdfViewer = ({ url, title }: PdfViewerProps) => {
         e.preventDefault();
         goPrev();
       } else if (e.key === "+" || e.key === "=") {
-        setScale((s) => Math.min(4, s + 0.25));
+        zoomIn();
       } else if (e.key === "-") {
-        setScale((s) => Math.max(0.5, s - 0.25));
+        zoomOut();
       }
     };
     window.addEventListener("keydown", onKey);
@@ -234,10 +283,30 @@ const PdfViewer = ({ url, title }: PdfViewerProps) => {
           </Button>
           <div className="w-px h-5 bg-border mx-1" />
           <Button
+            variant={fitMode === "width" ? "default" : "outline"}
+            size="icon"
+            className="h-8 w-8"
+            onClick={() => setFitMode("width")}
+            title="Fit width"
+            aria-label="Fit width"
+          >
+            <StretchHorizontal className="h-4 w-4" />
+          </Button>
+          <Button
+            variant={fitMode === "page" ? "default" : "outline"}
+            size="icon"
+            className="h-8 w-8"
+            onClick={() => setFitMode("page")}
+            title="Fit page"
+            aria-label="Fit page"
+          >
+            <Maximize className="h-4 w-4" />
+          </Button>
+          <Button
             variant="outline"
             size="icon"
             className="h-8 w-8"
-            onClick={() => setScale((s) => Math.max(0.5, s - 0.25))}
+            onClick={zoomOut}
             title="Zoom out (-)"
           >
             <ZoomOut className="h-4 w-4" />
@@ -249,7 +318,7 @@ const PdfViewer = ({ url, title }: PdfViewerProps) => {
             variant="outline"
             size="icon"
             className="h-8 w-8"
-            onClick={() => setScale((s) => Math.min(4, s + 0.25))}
+            onClick={zoomIn}
             title="Zoom in (+)"
           >
             <ZoomIn className="h-4 w-4" />
@@ -276,7 +345,10 @@ const PdfViewer = ({ url, title }: PdfViewerProps) => {
         )}
 
         {/* Main page */}
-        <div className="flex-1 overflow-auto p-4 flex items-start justify-center">
+        <div
+          ref={scrollRef}
+          className="flex-1 overflow-auto p-4 flex items-start justify-center"
+        >
           {loading ? (
             <div className="flex items-center gap-2 text-muted-foreground py-12">
               <Loader2 className="h-4 w-4 animate-spin" />
@@ -285,7 +357,7 @@ const PdfViewer = ({ url, title }: PdfViewerProps) => {
           ) : (
             <canvas
               ref={canvasRef}
-              className="shadow-lg bg-white rounded-sm max-w-full"
+              className="shadow-lg bg-white rounded-sm"
             />
           )}
         </div>
