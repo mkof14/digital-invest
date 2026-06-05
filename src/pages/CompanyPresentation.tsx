@@ -385,6 +385,17 @@ const CompanyPresentation = () => {
             </div>
 
             <div className="flex items-center gap-1.5 flex-wrap">
+              <Button
+                size="sm"
+                className="h-8 gap-1.5"
+                onClick={() => setAddOpen(true)}
+                title="Добавить PDF, видео, изображение или ссылку"
+              >
+                <Plus className="h-3.5 w-3.5" />
+                <span className="hidden sm:inline">Add content</span>
+              </Button>
+              <div className="w-px h-5 bg-border mx-1 hidden sm:block" />
+
               {active.type === "image" && (
                 <>
                   <Button variant="outline" size="icon" className="h-8 w-8" onClick={() => setImageZoom((z) => Math.max(0.25, z - 0.25))} aria-label="Zoom out">
