@@ -725,6 +725,12 @@ const CompanyPresentation = () => {
         </div>
       </main>
 
+      <AddContentDialog
+        open={addOpen}
+        onOpenChange={setAddOpen}
+        onCreated={fetchDbItems}
+      />
+
       <Footer />
     </div>
   );
