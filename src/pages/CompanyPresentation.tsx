@@ -23,6 +23,7 @@ import {
   companyPresentationItems,
   PresentationItem,
 } from "@/data/companyPresentationItems";
+import { supabase } from "@/integrations/supabase/client";
 
 const typeIcon = (t: PresentationItem["type"]) => {
   switch (t) {
@@ -84,9 +85,41 @@ const Viewer = ({ item }: { item: PresentationItem }) => {
 };
 
 const CompanyPresentation = () => {
+  const [dbItems, setDbItems] = useState<PresentationItem[]>([]);
+  const items = useMemo(
+    () => [...companyPresentationItems, ...dbItems],
+    [dbItems]
+  );
   const [activeId, setActiveId] = useState<string>(
     companyPresentationItems[0]?.id ?? ""
   );
+  const [sidebarOpen, setSidebarOpen] = useState(true);
+  const [isFullscreen, setIsFullscreen] = useState(false);
+  const [query, setQuery] = useState("");
+  const stageRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    (async () => {
+      const { data } = await supabase
+        .from("presentation_items")
+        .select("*")
+        .eq("is_visible", true)
+        .order("group_name", { ascending: true, nullsFirst: false })
+        .order("sort_order", { ascending: true });
+      if (data) {
+        setDbItems(
+          data.map((r: any) => ({
+            id: `db-${r.id}`,
+            title: r.title,
+            description: r.description ?? undefined,
+            type: r.item_type as PresentationItem["type"],
+            url: r.url,
+            group: r.group_name ?? "Uploaded",
+          }))
+        );
+      }
+    })();
+  }, []);
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [query, setQuery] = useState("");
