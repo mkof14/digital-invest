@@ -27,6 +27,7 @@ import {
   RotateCcw,
   Filter,
   Clock,
+  Plus,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -34,6 +35,7 @@ import { Badge } from "@/components/ui/badge";
 import { toast } from "sonner";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import AddContentDialog from "@/components/presentation/AddContentDialog";
 import {
   companyPresentationItems,
   PresentationItem,
@@ -176,30 +178,33 @@ const CompanyPresentation = () => {
       return [];
     }
   });
+  const [addOpen, setAddOpen] = useState(false);
   const stageRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    (async () => {
-      const { data } = await supabase
-        .from("presentation_items")
-        .select("*")
-        .eq("is_visible", true)
-        .order("group_name", { ascending: true, nullsFirst: false })
-        .order("sort_order", { ascending: true });
-      if (data) {
-        setDbItems(
-          data.map((r: any) => ({
-            id: `db-${r.id}`,
-            title: r.title,
-            description: r.description ?? undefined,
-            type: r.item_type as PresentationItemType,
-            url: r.url,
-            group: r.group_name ?? "Uploaded",
-          }))
-        );
-      }
-    })();
+  const fetchDbItems = useCallback(async () => {
+    const { data } = await supabase
+      .from("presentation_items")
+      .select("*")
+      .eq("is_visible", true)
+      .order("group_name", { ascending: true, nullsFirst: false })
+      .order("sort_order", { ascending: true });
+    if (data) {
+      setDbItems(
+        data.map((r: any) => ({
+          id: `db-${r.id}`,
+          title: r.title,
+          description: r.description ?? undefined,
+          type: r.item_type as PresentationItemType,
+          url: r.url,
+          group: r.group_name ?? "Uploaded",
+        }))
+      );
+    }
   }, []);
+
+  useEffect(() => {
+    fetchDbItems();
+  }, [fetchDbItems]);
 
   const active = useMemo(
     () => items.find((i) => i.id === activeId) ?? items[0],
@@ -380,6 +385,17 @@ const CompanyPresentation = () => {
             </div>
 
             <div className="flex items-center gap-1.5 flex-wrap">
+              <Button
+                size="sm"
+                className="h-8 gap-1.5"
+                onClick={() => setAddOpen(true)}
+                title="Добавить PDF, видео, изображение или ссылку"
+              >
+                <Plus className="h-3.5 w-3.5" />
+                <span className="hidden sm:inline">Add content</span>
+              </Button>
+              <div className="w-px h-5 bg-border mx-1 hidden sm:block" />
+
               {active.type === "image" && (
                 <>
                   <Button variant="outline" size="icon" className="h-8 w-8" onClick={() => setImageZoom((z) => Math.max(0.25, z - 0.25))} aria-label="Zoom out">
@@ -483,6 +499,14 @@ const CompanyPresentation = () => {
           >
             <div className="w-80 h-full flex flex-col">
               <div className="p-3 border-b border-border space-y-2">
+                <Button
+                  onClick={() => setAddOpen(true)}
+                  className="w-full h-9 gap-2"
+                  size="sm"
+                >
+                  <Plus className="h-4 w-4" />
+                  Add content
+                </Button>
                 <div className="relative">
                   <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
                   <Input
@@ -700,6 +724,12 @@ const CompanyPresentation = () => {
           </section>
         </div>
       </main>
+
+      <AddContentDialog
+        open={addOpen}
+        onOpenChange={setAddOpen}
+        onCreated={fetchDbItems}
+      />
 
       <Footer />
     </div>
