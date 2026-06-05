@@ -20,6 +20,34 @@ interface PdfViewerProps {
   title?: string;
 }
 
+const STORAGE_PREFIX = "pdf-viewer:";
+
+const getStorageKey = (url: string) => `${STORAGE_PREFIX}${url}`;
+
+interface PdfViewerState {
+  page: number;
+  scale: number;
+  thumbsOpen: boolean;
+}
+
+const loadState = (url: string): Partial<PdfViewerState> => {
+  try {
+    const raw = localStorage.getItem(getStorageKey(url));
+    if (raw) return JSON.parse(raw) as PdfViewerState;
+  } catch {
+    /* ignore parse errors */
+  }
+  return {};
+};
+
+const saveState = (url: string, state: PdfViewerState) => {
+  try {
+    localStorage.setItem(getStorageKey(url), JSON.stringify(state));
+  } catch {
+    /* ignore storage errors */
+  }
+};
+
 const PdfViewer = ({ url, title }: PdfViewerProps) => {
   const [pdf, setPdf] = useState<pdfjsLib.PDFDocumentProxy | null>(null);
   const [numPages, setNumPages] = useState(0);
@@ -31,13 +59,17 @@ const PdfViewer = ({ url, title }: PdfViewerProps) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const renderTaskRef = useRef<any>(null);
 
-  // Load PDF
+  // Load PDF + restore saved state
   useEffect(() => {
     let cancelled = false;
     setLoading(true);
     setError(null);
     setPdf(null);
-    setPage(1);
+
+    const saved = loadState(url);
+    setPage(saved.page ?? 1);
+    setScale(saved.scale ?? 1.25);
+    setThumbsOpen(saved.thumbsOpen ?? true);
 
     const task = pdfjsLib.getDocument({ url, withCredentials: false });
     task.promise
@@ -45,6 +77,7 @@ const PdfViewer = ({ url, title }: PdfViewerProps) => {
         if (cancelled) return;
         setPdf(doc);
         setNumPages(doc.numPages);
+        setPage((p) => Math.min(Math.max(1, p), doc.numPages));
         setLoading(false);
       })
       .catch((e) => {
@@ -59,6 +92,12 @@ const PdfViewer = ({ url, title }: PdfViewerProps) => {
       task.destroy();
     };
   }, [url]);
+
+  // Persist state changes
+  useEffect(() => {
+    if (!pdf) return;
+    saveState(url, { page, scale, thumbsOpen });
+  }, [url, pdf, page, scale, thumbsOpen]);
 
   // Render current page
   useEffect(() => {
