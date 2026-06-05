@@ -694,11 +694,6 @@ const CompanyPresentation = () => {
                   </div>
                 )}
               </div>
-              <div className="p-3 border-t border-border text-[11px] text-muted-foreground leading-relaxed">
-                <div className="font-semibold mb-1">Shortcuts</div>
-                <div>← → navigate · F fullscreen · S sidebar</div>
-                <div>N notes · Space play/pause slideshow</div>
-              </div>
             </div>
           </aside>
 
