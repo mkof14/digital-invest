@@ -22,14 +22,6 @@ export interface PresentationItem {
 
 export const companyPresentationItems: PresentationItem[] = [
   {
-    id: "overview-deck",
-    title: "Digital Invest — Company Overview",
-    description: "Master deck: vision, portfolio, ecosystem.",
-    type: "pdf",
-    url: "/presentations/digital-invest-overview.pdf",
-    group: "Main Decks",
-  },
-  {
     id: "portfolio-deck",
     title: "Portfolio Snapshot",
     description: "Full portfolio of 20+ projects.",
