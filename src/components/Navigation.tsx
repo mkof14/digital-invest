@@ -118,6 +118,8 @@ const Navigation = () => {
               size="sm"
               onClick={() => setTheme(theme === "light" ? "dark" : "light")}
               className="p-2"
+              aria-label={theme === "light" ? "Switch to dark mode" : "Switch to light mode"}
+              title={theme === "light" ? "Switch to dark mode" : "Switch to light mode"}
             >
               {theme === "light" ? (
                 <Moon className="h-5 w-5" />
@@ -159,6 +161,9 @@ const Navigation = () => {
             size="sm"
             className="md:hidden"
             onClick={() => setIsOpen(!isOpen)}
+            aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
+            aria-expanded={isOpen}
+            aria-controls="mobile-navigation"
           >
             {isOpen ? <X size={20} /> : <Menu size={20} />}
           </Button>

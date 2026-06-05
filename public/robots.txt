@@ -19,4 +19,4 @@ Disallow: /auth
 Disallow: /investor-auth
 Disallow: /admin/setup
 
-Sitemap: https://digitalinvest.com/sitemap.xml
+Sitemap: https://digital-invest.lovable.app/sitemap.xml

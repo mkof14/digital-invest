@@ -1,0 +1,50 @@
+# Digital Invest Inc.
+
+> Private multi-sector investment company building operating systems across digital health, biotechnology, agrotech, food production, and infrastructure. Information for qualified and accredited investors only — not a public offering.
+
+Digital Invest Inc. is a private portfolio company developing 20+ active projects. The website is an informational showcase for invited investors and partners. No payment, subscription, or public fundraising is offered through the site.
+
+## Pages
+
+- [Home](/): Overview of Digital Invest, vision, portfolio highlights.
+- [About](/about): Company background and operating model.
+- [Why Digital Invest](/why-digital-invest): Investment thesis and differentiation.
+- [For Investors](/for-investors): Information for qualified and accredited investors.
+- [How It Works](/how-it-works): Process for engaging with the portfolio.
+- [Portfolio Overview](/overview): Snapshot of all active projects.
+- [Projects](/projects): Full list of portfolio projects.
+- [Team](/team): Leadership and key contributors.
+- [News](/news): Press, announcements, and updates.
+- [Company Presentation](/company-presentation): Interactive deck hub.
+- [Schedule](/schedule): Book a consultation.
+- [Contact](/contact): Get in touch.
+
+## Flagship Projects
+
+- [BioMath Core](/projects/biomath-core): Digital health supercomputer architecture.
+- [Adamas Materials](/adamas): Diamond and luxury materials vertical.
+- [TerraAero](/projects/terraaero): Agrotech drone platform.
+- [MyDay](/projects/myday): AI productivity assistant.
+
+## Governance & Compliance
+
+- [Compliance](/compliance): Regulatory framework and disclosures.
+- [Risk Factors](/risk-factors): Investor risk disclosures.
+- [Governance](/governance): Corporate governance.
+- [ESG](/esg): Environmental, social, governance approach.
+- [Security](/security): Information security posture.
+
+## Optional
+
+- [Glossary](/glossary): Investor terminology.
+- [Document Library](/document-library): Public documents.
+- [Resources](/resources): Reference materials.
+- [Media Kit](/media-kit): Press resources.
+- [Careers](/careers): Open roles.
+- [Recognition](/recognition): Awards and recognition.
+- [Partnerships](/partnerships): Partner ecosystem.
+- [Legal Overview](/legal-overview): Terms, privacy, and risk disclosures.
+- [Privacy Policy](/legal/privacy): Privacy policy.
+- [Terms of Use](/legal/terms): Terms of use.
+- [Risk Disclosure](/legal/risk-disclosure): Risk disclosure.
+- [Cookies](/cookies): Cookie policy.

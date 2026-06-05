@@ -506,7 +506,7 @@ const Index = () => {
                   <div className={`absolute inset-0 bg-gradient-to-br ${node.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
                   <div className="relative">
                     <div className={`mb-3 ${node.color} group-hover:scale-110 transition-transform duration-300`}>{node.icon}</div>
-                    <h4 className="text-sm font-bold text-foreground mb-1.5">{node.title}</h4>
+                    <h3 className="text-sm font-bold text-foreground mb-1.5">{node.title}</h3>
                     <p className="text-xs text-muted-foreground leading-relaxed">{node.desc}</p>
                   </div>
                 </div>
