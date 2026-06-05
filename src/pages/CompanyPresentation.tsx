@@ -178,30 +178,33 @@ const CompanyPresentation = () => {
       return [];
     }
   });
+  const [addOpen, setAddOpen] = useState(false);
   const stageRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    (async () => {
-      const { data } = await supabase
-        .from("presentation_items")
-        .select("*")
-        .eq("is_visible", true)
-        .order("group_name", { ascending: true, nullsFirst: false })
-        .order("sort_order", { ascending: true });
-      if (data) {
-        setDbItems(
-          data.map((r: any) => ({
-            id: `db-${r.id}`,
-            title: r.title,
-            description: r.description ?? undefined,
-            type: r.item_type as PresentationItemType,
-            url: r.url,
-            group: r.group_name ?? "Uploaded",
-          }))
-        );
-      }
-    })();
+  const fetchDbItems = useCallback(async () => {
+    const { data } = await supabase
+      .from("presentation_items")
+      .select("*")
+      .eq("is_visible", true)
+      .order("group_name", { ascending: true, nullsFirst: false })
+      .order("sort_order", { ascending: true });
+    if (data) {
+      setDbItems(
+        data.map((r: any) => ({
+          id: `db-${r.id}`,
+          title: r.title,
+          description: r.description ?? undefined,
+          type: r.item_type as PresentationItemType,
+          url: r.url,
+          group: r.group_name ?? "Uploaded",
+        }))
+      );
+    }
   }, []);
+
+  useEffect(() => {
+    fetchDbItems();
+  }, [fetchDbItems]);
 
   const active = useMemo(
     () => items.find((i) => i.id === activeId) ?? items[0],
