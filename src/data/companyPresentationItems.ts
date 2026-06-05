@@ -46,6 +46,22 @@ export const companyPresentationItems: PresentationItem[] = [
     group: "Flagship Projects",
   },
   {
+    id: "agron-net",
+    title: "AGRON Net",
+    description: "Adamas agricultural network vertical.",
+    type: "page",
+    url: "/adamas/agron-net",
+    group: "Flagship Projects",
+  },
+  {
+    id: "agron-work",
+    title: "AGRON Work",
+    description: "AGRON operational platform.",
+    type: "page",
+    url: "/adamas/agron-work",
+    group: "Flagship Projects",
+  },
+  {
     id: "team",
     title: "Team & Leadership",
     type: "page",
