@@ -226,8 +226,8 @@ const PdfViewer = ({ url, title }: PdfViewerProps) => {
   return (
     <div className="w-full h-full flex flex-col bg-muted/20">
       {/* PDF toolbar */}
-      <div className="flex items-center justify-between gap-2 px-3 py-2 border-b border-border bg-card/60 backdrop-blur">
-        <div className="flex items-center gap-1.5">
+      <div className="flex items-center justify-between gap-2 px-3 py-2 border-b border-border bg-card/60 backdrop-blur flex-wrap">
+        <div className="flex items-center gap-1.5 shrink-0">
           <Button
             variant="ghost"
             size="icon"
@@ -245,7 +245,7 @@ const PdfViewer = ({ url, title }: PdfViewerProps) => {
             {title}
           </span>
         </div>
-        <div className="flex items-center gap-1.5">
+        <div className="flex items-center gap-1.5 flex-wrap justify-end">
           <Button
             variant="outline"
             size="icon"
