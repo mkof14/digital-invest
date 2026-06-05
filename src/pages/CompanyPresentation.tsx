@@ -152,8 +152,7 @@ const CompanyPresentation = () => {
     [dbItems]
   );
 
-  const initialId =
-    searchParams.get("item") || companyPresentationItems[0]?.id || "";
+  const initialId = searchParams.get("item") || "";
   const [activeId, setActiveId] = useState<string>(initialId);
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [isFullscreen, setIsFullscreen] = useState(false);
