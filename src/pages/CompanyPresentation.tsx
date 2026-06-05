@@ -704,11 +704,20 @@ const CompanyPresentation = () => {
                   </div>
                 )}
 
-                {grouped.map(([group, list]) => (
+                {grouped.map(([group, list], gi) => {
+                  const accents = [
+                    "from-primary/15 to-transparent text-primary",
+                    "from-accent/20 to-transparent text-accent-foreground",
+                    "from-secondary/20 to-transparent text-secondary-foreground",
+                    "from-tech/15 to-transparent text-tech",
+                    "from-innovation/15 to-transparent text-innovation",
+                  ];
+                  const accent = accents[gi % accents.length];
+                  return (
                   <div key={group}>
-                    <div className="px-2 py-1 text-[11px] uppercase tracking-wider text-muted-foreground font-semibold flex items-center justify-between">
+                    <div className={`px-2 py-1 mb-1 rounded-md text-[11px] uppercase tracking-wider font-semibold flex items-center justify-between bg-gradient-to-r ${accent}`}>
                       <span>{group}</span>
-                      <span className="text-muted-foreground/70">{list.length}</span>
+                      <span className="opacity-70">{list.length}</span>
                     </div>
 
                     {sidebarView === "list" ? (
@@ -716,10 +725,10 @@ const CompanyPresentation = () => {
                         {list.map((item) => (
                           <div
                             key={item.id}
-                            className={`group w-full px-2.5 py-2 rounded-md flex items-start gap-2.5 transition-colors cursor-pointer ${
+                            className={`group w-full px-2.5 py-2 rounded-md flex items-start gap-2.5 transition-all cursor-pointer ${
                               item.id === active.id
-                                ? "bg-primary/10 border border-primary/30"
-                                : "hover:bg-accent border border-transparent"
+                                ? "bg-gradient-to-r from-primary/20 to-primary/5 border border-primary/40 shadow-sm"
+                                : "hover:bg-accent/60 border border-transparent hover:border-border/50"
                             }`}
                             onClick={() => setActiveId(item.id)}
                           >
