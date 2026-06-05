@@ -499,6 +499,14 @@ const CompanyPresentation = () => {
           >
             <div className="w-80 h-full flex flex-col">
               <div className="p-3 border-b border-border space-y-2">
+                <Button
+                  onClick={() => setAddOpen(true)}
+                  className="w-full h-9 gap-2"
+                  size="sm"
+                >
+                  <Plus className="h-4 w-4" />
+                  Add content
+                </Button>
                 <div className="relative">
                   <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
                   <Input
