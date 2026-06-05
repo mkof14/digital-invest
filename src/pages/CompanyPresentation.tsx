@@ -36,6 +36,7 @@ import { toast } from "sonner";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import AddContentDialog from "@/components/presentation/AddContentDialog";
+import PdfViewer from "@/components/presentation/PdfViewer";
 import {
   companyPresentationItems,
   PresentationItem,
@@ -106,6 +107,10 @@ const Viewer = ({
     );
   }
 
+  if (item.type === "pdf") {
+    return <PdfViewer url={item.url} title={item.title} />;
+  }
+
   if (item.type === "video" && isDirectVideo(item.url)) {
     return (
       <video
@@ -120,8 +125,6 @@ const Viewer = ({
   const src =
     item.type === "page"
       ? item.url
-      : item.type === "pdf"
-      ? `${item.url}#toolbar=1&navpanes=0&view=FitH`
       : item.type === "video"
       ? normalizeVideoUrl(item.url)
       : item.url;
