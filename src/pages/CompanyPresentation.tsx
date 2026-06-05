@@ -597,10 +597,13 @@ const CompanyPresentation = () => {
           <aside
             className={`${
               sidebarOpen ? "w-80" : "w-0"
-            } transition-all duration-300 border-r border-border bg-card/30 overflow-hidden flex-shrink-0`}
+            } transition-all duration-300 border-r border-border/60 overflow-hidden flex-shrink-0
+            bg-gradient-to-b from-primary/5 via-card/60 to-accent/10
+            dark:from-primary/10 dark:via-card/40 dark:to-accent/15
+            shadow-[inset_-1px_0_0_hsl(var(--border)/0.4)]`}
           >
             <div className="w-80 h-full flex flex-col">
-              <div className="p-3 border-b border-border space-y-2">
+              <div className="p-3 border-b border-border/60 space-y-2 bg-gradient-to-b from-primary/10 to-transparent dark:from-primary/15">
                 <Button
                   onClick={() => setAddOpen(true)}
                   className="w-full h-9 gap-2"
@@ -701,11 +704,20 @@ const CompanyPresentation = () => {
                   </div>
                 )}
 
-                {grouped.map(([group, list]) => (
+                {grouped.map(([group, list], gi) => {
+                  const accents = [
+                    "from-primary/15 to-transparent text-primary",
+                    "from-accent/20 to-transparent text-accent-foreground",
+                    "from-secondary/20 to-transparent text-secondary-foreground",
+                    "from-tech/15 to-transparent text-tech",
+                    "from-innovation/15 to-transparent text-innovation",
+                  ];
+                  const accent = accents[gi % accents.length];
+                  return (
                   <div key={group}>
-                    <div className="px-2 py-1 text-[11px] uppercase tracking-wider text-muted-foreground font-semibold flex items-center justify-between">
+                    <div className={`px-2 py-1 mb-1 rounded-md text-[11px] uppercase tracking-wider font-semibold flex items-center justify-between bg-gradient-to-r ${accent}`}>
                       <span>{group}</span>
-                      <span className="text-muted-foreground/70">{list.length}</span>
+                      <span className="opacity-70">{list.length}</span>
                     </div>
 
                     {sidebarView === "list" ? (
@@ -713,10 +725,10 @@ const CompanyPresentation = () => {
                         {list.map((item) => (
                           <div
                             key={item.id}
-                            className={`group w-full px-2.5 py-2 rounded-md flex items-start gap-2.5 transition-colors cursor-pointer ${
+                            className={`group w-full px-2.5 py-2 rounded-md flex items-start gap-2.5 transition-all cursor-pointer ${
                               item.id === active.id
-                                ? "bg-primary/10 border border-primary/30"
-                                : "hover:bg-accent border border-transparent"
+                                ? "bg-gradient-to-r from-primary/20 to-primary/5 border border-primary/40 shadow-sm"
+                                : "hover:bg-accent/60 border border-transparent hover:border-border/50"
                             }`}
                             onClick={() => setActiveId(item.id)}
                           >
@@ -779,7 +791,8 @@ const CompanyPresentation = () => {
                       </div>
                     )}
                   </div>
-                ))}
+                  );
+                })}
                 {grouped.length === 0 && (
                   <div className="text-sm text-muted-foreground p-4 text-center">
                     No matches.
