@@ -284,23 +284,35 @@ const PdfViewer = ({ url, title }: PdfViewerProps) => {
           <div className="w-px h-5 bg-border mx-1" />
           <Button
             variant={fitMode === "width" ? "default" : "outline"}
-            size="icon"
-            className="h-8 w-8"
+            size="sm"
+            className="h-8 px-2 text-xs gap-1"
             onClick={() => setFitMode("width")}
             title="Fit width"
             aria-label="Fit width"
           >
             <StretchHorizontal className="h-4 w-4" />
+            <span className="hidden md:inline">Fit width</span>
           </Button>
           <Button
             variant={fitMode === "page" ? "default" : "outline"}
-            size="icon"
-            className="h-8 w-8"
+            size="sm"
+            className="h-8 px-2 text-xs gap-1"
             onClick={() => setFitMode("page")}
             title="Fit page"
             aria-label="Fit page"
           >
             <Maximize className="h-4 w-4" />
+            <span className="hidden md:inline">Fit page</span>
+          </Button>
+          <Button
+            variant={fitMode === "custom" && Math.round(scale * 100) === 100 ? "default" : "outline"}
+            size="sm"
+            className="h-8 px-2 text-xs"
+            onClick={() => { setFitMode("custom"); setScale(1); }}
+            title="Actual size (100%)"
+            aria-label="Actual size 100%"
+          >
+            100%
           </Button>
           <Button
             variant="outline"
