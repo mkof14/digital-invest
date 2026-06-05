@@ -3,7 +3,7 @@ import { Outlet, Link, useNavigate, useLocation } from 'react-router-dom';
 import { supabase } from '@/integrations/supabase/client';
 import { useUserRole } from '@/hooks/useUserRole';
 import { Button } from '@/components/ui/button';
-import { LayoutDashboard, FolderOpen, Users, LogOut, Loader2, UsersRound, Newspaper, Shield, Layout, FileText, Mail, FileEdit, Calendar, Clock, Map, Rocket, Share2 } from 'lucide-react';
+import { LayoutDashboard, FolderOpen, Users, LogOut, Loader2, UsersRound, Newspaper, Shield, Layout, FileText, Mail, FileEdit, Calendar, Clock, Map, Rocket, Share2, Presentation } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { toast } from 'sonner';
 import OptimizedImage from '@/components/OptimizedImage';
@@ -56,6 +56,7 @@ const AdminLayout = () => {
     { icon: Users, label: 'Investor Leads', path: '/admin/leads', minRole: 'EDITOR' },
     { icon: FileText, label: 'Handbook Downloads', path: '/admin/handbook-downloads', minRole: 'EDITOR' },
     { icon: FileText, label: 'Project Documents', path: '/admin/project-documents', minRole: 'EDITOR' },
+    { icon: Presentation, label: 'Presentations', path: '/admin/presentations', minRole: 'EDITOR' },
     { icon: UsersRound, label: 'Team Members', path: '/admin/team', minRole: 'EDITOR' },
     { icon: Newspaper, label: 'News & Updates', path: '/admin/news', minRole: 'EDITOR' },
     { icon: Mail, label: 'Email Templates', path: '/admin/email-templates', minRole: 'EDITOR' },
