@@ -120,12 +120,6 @@ const CompanyPresentation = () => {
       }
     })();
   }, []);
-  const [sidebarOpen, setSidebarOpen] = useState(true);
-  const [isFullscreen, setIsFullscreen] = useState(false);
-  const [query, setQuery] = useState("");
-  const stageRef = useRef<HTMLDivElement>(null);
-
-  const items = companyPresentationItems;
   const active = useMemo(
     () => items.find((i) => i.id === activeId) ?? items[0],
     [activeId, items]
