@@ -27,6 +27,7 @@ import {
   RotateCcw,
   Filter,
   Clock,
+  Plus,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -34,6 +35,7 @@ import { Badge } from "@/components/ui/badge";
 import { toast } from "sonner";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import AddContentDialog from "@/components/presentation/AddContentDialog";
 import {
   companyPresentationItems,
   PresentationItem,
