@@ -708,7 +708,7 @@ const CompanyPresentation = () => {
               ref={stageRef}
               className="flex-1 relative bg-muted/30 min-h-[60vh]"
             >
-              <Viewer item={active} imageZoom={imageZoom} imageRotate={imageRotate} />
+              <Viewer key={active.id} item={active} imageZoom={imageZoom} imageRotate={imageRotate} />
             </div>
 
             {showNotes && (
