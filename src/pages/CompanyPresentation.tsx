@@ -107,6 +107,10 @@ const Viewer = ({
     );
   }
 
+  if (item.type === "pdf") {
+    return <PdfViewer url={item.url} title={item.title} />;
+  }
+
   if (item.type === "video" && isDirectVideo(item.url)) {
     return (
       <video
