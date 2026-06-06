@@ -158,6 +158,7 @@ const FAV_KEY = "cp:favorites";
 const CompanyPresentation = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [dbItems, setDbItems] = useState<PresentationItem[]>([]);
+  const [dbItemsLoaded, setDbItemsLoaded] = useState(false);
   const items = useMemo(
     () => [...companyPresentationItems, ...dbItems],
     [dbItems]
@@ -195,6 +196,7 @@ const CompanyPresentation = () => {
   const stageRef = useRef<HTMLDivElement>(null);
 
   const fetchDbItems = useCallback(async () => {
+    setDbItemsLoaded(false);
     const { data } = await supabase
       .from("presentation_items")
       .select("*")
@@ -213,24 +215,27 @@ const CompanyPresentation = () => {
         }))
       );
     }
+    setDbItemsLoaded(true);
   }, []);
 
   useEffect(() => {
     fetchDbItems();
   }, [fetchDbItems]);
 
-  const active = useMemo(
-    () => items.find((i) => i.id === activeId) ?? items[0],
-    [activeId, items]
-  );
+  const active = useMemo(() => {
+    const found = items.find((i) => i.id === activeId);
+    if (found) return found;
+    if (initialId && !dbItemsLoaded) return undefined;
+    return items[0];
+  }, [activeId, dbItemsLoaded, initialId, items]);
 
   // If the URL points to an unknown id (e.g. stale link), snap to the first available item
   useEffect(() => {
-    if (!items.length) return;
+    if (!items.length || (initialId && !dbItemsLoaded)) return;
     if (!items.find((i) => i.id === activeId)) {
       setActiveId(items[0].id);
     }
-  }, [items, activeId]);
+  }, [items, activeId, dbItemsLoaded, initialId]);
 
   // Sync active id to URL + recent list
   useEffect(() => {
