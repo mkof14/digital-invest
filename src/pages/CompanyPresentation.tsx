@@ -444,15 +444,19 @@ const CompanyPresentation = () => {
                 />
               )}
 
-              <Button variant="outline" size="icon" className="h-8 w-8" onClick={goPrev} disabled={idx <= 0} aria-label="Previous (←)" title="Previous (←)">
-                <ChevronLeft className="h-3.5 w-3.5" />
-              </Button>
-              <span className="text-[11px] text-muted-foreground tabular-nums px-1">
-                {idx + 1} / {items.length}
-              </span>
-              <Button variant="outline" size="icon" className="h-8 w-8" onClick={goNext} aria-label="Next (→)" title="Next (→)">
-                <ChevronRight className="h-3.5 w-3.5" />
-              </Button>
+              {active.type !== "pdf" && (
+                <>
+                  <Button variant="outline" size="icon" className="h-8 w-8" onClick={goPrev} disabled={idx <= 0} aria-label="Previous (←)" title="Previous item (←)">
+                    <ChevronLeft className="h-3.5 w-3.5" />
+                  </Button>
+                  <span className="text-[11px] text-muted-foreground tabular-nums px-1">
+                    {idx + 1} / {items.length}
+                  </span>
+                  <Button variant="outline" size="icon" className="h-8 w-8" onClick={goNext} aria-label="Next (→)" title="Next item (→)">
+                    <ChevronRight className="h-3.5 w-3.5" />
+                  </Button>
+                </>
+              )}
 
               <Button
                 variant={showNotes ? "default" : "outline"}
