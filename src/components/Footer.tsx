@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { MapPin, Mail, Globe, Sun, Moon, ChevronUp } from 'lucide-react';
 import OptimizedImage from '@/components/OptimizedImage';
 import { useQuery } from '@tanstack/react-query';
@@ -22,9 +22,11 @@ interface SocialMediaLink {
 const Footer = () => {
   const { t, i18n } = useTranslation();
   const { theme, setTheme } = useTheme();
+  const location = useLocation();
   const currentYear = new Date().getFullYear();
   const [langOpen, setLangOpen] = useState(false);
   const langRef = useRef<HTMLDivElement>(null);
+  const isPresentationEmbed = new URLSearchParams(location.search).get('presentationEmbed') === '1';
 
   const changeLanguage = (code: string) => {
     i18n.changeLanguage(code);
@@ -39,6 +41,7 @@ const Footer = () => {
 
   // Close dropdown on outside click
   useEffect(() => {
+    if (isPresentationEmbed) return;
     const handler = (e: MouseEvent) => {
       if (langRef.current && !langRef.current.contains(e.target as Node)) {
         setLangOpen(false);
@@ -46,7 +49,7 @@ const Footer = () => {
     };
     document.addEventListener('mousedown', handler);
     return () => document.removeEventListener('mousedown', handler);
-  }, []);
+  }, [isPresentationEmbed]);
 
   const currentLang = languages.find(l => l.code === i18n.language) || languages[0];
 
@@ -62,9 +65,14 @@ const Footer = () => {
       if (error) throw error;
       return data as SocialMediaLink[];
     },
+    enabled: !isPresentationEmbed,
   });
 
   const linkClass = "text-sm text-muted-foreground hover:text-primary hover:translate-x-1 transition-all duration-300 inline-flex items-center gap-1 group/link";
+
+  if (isPresentationEmbed) {
+    return null;
+  }
 
   return (
     <footer className="bg-card/60 border-t border-border/30">
