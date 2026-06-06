@@ -35,7 +35,6 @@ import { Badge } from "@/components/ui/badge";
 import { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider } from "@/components/ui/tooltip";
 import { toast } from "sonner";
 import Navigation from "@/components/Navigation";
-import Footer from "@/components/Footer";
 import AddContentDialog from "@/components/presentation/AddContentDialog";
 import PdfViewer from "@/components/presentation/PdfViewer";
 import {
@@ -159,6 +158,7 @@ const FAV_KEY = "cp:favorites";
 const CompanyPresentation = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [dbItems, setDbItems] = useState<PresentationItem[]>([]);
+  const [dbItemsLoaded, setDbItemsLoaded] = useState(false);
   const items = useMemo(
     () => [...companyPresentationItems, ...dbItems],
     [dbItems]
@@ -196,6 +196,7 @@ const CompanyPresentation = () => {
   const stageRef = useRef<HTMLDivElement>(null);
 
   const fetchDbItems = useCallback(async () => {
+    setDbItemsLoaded(false);
     const { data } = await supabase
       .from("presentation_items")
       .select("*")
@@ -214,24 +215,27 @@ const CompanyPresentation = () => {
         }))
       );
     }
+    setDbItemsLoaded(true);
   }, []);
 
   useEffect(() => {
     fetchDbItems();
   }, [fetchDbItems]);
 
-  const active = useMemo(
-    () => items.find((i) => i.id === activeId) ?? items[0],
-    [activeId, items]
-  );
+  const active = useMemo(() => {
+    const found = items.find((i) => i.id === activeId);
+    if (found) return found;
+    if (initialId && !dbItemsLoaded) return undefined;
+    return items[0];
+  }, [activeId, dbItemsLoaded, initialId, items]);
 
   // If the URL points to an unknown id (e.g. stale link), snap to the first available item
   useEffect(() => {
-    if (!items.length) return;
+    if (!items.length || (initialId && !dbItemsLoaded)) return;
     if (!items.find((i) => i.id === activeId)) {
       setActiveId(items[0].id);
     }
-  }, [items, activeId]);
+  }, [items, activeId, dbItemsLoaded, initialId]);
 
   // Sync active id to URL + recent list
   useEffect(() => {
@@ -377,12 +381,12 @@ const CompanyPresentation = () => {
   const allTypes: PresentationItemType[] = ["pdf", "video", "image", "page", "link"];
 
   return (
-    <div className="min-h-screen flex flex-col bg-background">
+    <div className="h-screen overflow-hidden flex flex-col bg-background pt-20">
       <Navigation />
 
-      <main className="flex-1 flex flex-col">
+      <main className="flex-1 flex flex-col min-h-0 overflow-hidden">
         {/* Toolbar */}
-        <div className="border-b border-border bg-card/40">
+        <div className={`border-b border-border bg-card/40 ${active.type === "pdf" ? "hidden" : ""}`}>
           <div className="container mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-3">
             <div className="flex items-center gap-3 min-w-0">
               <Button
@@ -517,7 +521,7 @@ const CompanyPresentation = () => {
         </div>
 
 
-        <div className="flex-1 flex min-h-[calc(100vh-200px)]">
+        <div className="flex-1 flex min-h-0 overflow-hidden">
           {/* Sidebar */}
           <aside
             className={`${
@@ -728,10 +732,10 @@ const CompanyPresentation = () => {
           </aside>
 
           {/* Stage + optional notes panel */}
-          <section className="flex-1 flex flex-col min-h-[70vh]">
+          <section className="flex-1 flex flex-col min-h-0 overflow-hidden">
             <div
               ref={stageRef}
-              className="flex-1 relative bg-muted/30 min-h-[60vh]"
+              className="flex-1 relative bg-muted/30 min-h-0 overflow-hidden"
             >
               <Viewer key={active.id} item={active} imageZoom={imageZoom} imageRotate={imageRotate} />
             </div>
@@ -765,8 +769,6 @@ const CompanyPresentation = () => {
         onOpenChange={setAddOpen}
         onCreated={fetchDbItems}
       />
-
-      <Footer />
     </div>
   );
 };
