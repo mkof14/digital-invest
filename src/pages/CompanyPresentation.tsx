@@ -35,7 +35,6 @@ import { Badge } from "@/components/ui/badge";
 import { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider } from "@/components/ui/tooltip";
 import { toast } from "sonner";
 import Navigation from "@/components/Navigation";
-import Footer from "@/components/Footer";
 import AddContentDialog from "@/components/presentation/AddContentDialog";
 import PdfViewer from "@/components/presentation/PdfViewer";
 import {
@@ -377,12 +376,12 @@ const CompanyPresentation = () => {
   const allTypes: PresentationItemType[] = ["pdf", "video", "image", "page", "link"];
 
   return (
-    <div className="min-h-screen flex flex-col bg-background">
+    <div className="h-screen overflow-hidden flex flex-col bg-background pt-20">
       <Navigation />
 
-      <main className="flex-1 flex flex-col">
+      <main className="flex-1 flex flex-col min-h-0 overflow-hidden">
         {/* Toolbar */}
-        <div className="border-b border-border bg-card/40">
+        <div className={`border-b border-border bg-card/40 ${active.type === "pdf" ? "hidden" : ""}`}>
           <div className="container mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-3">
             <div className="flex items-center gap-3 min-w-0">
               <Button
@@ -517,7 +516,7 @@ const CompanyPresentation = () => {
         </div>
 
 
-        <div className="flex-1 flex min-h-[calc(100vh-200px)]">
+        <div className="flex-1 flex min-h-0 overflow-hidden">
           {/* Sidebar */}
           <aside
             className={`${
@@ -728,10 +727,10 @@ const CompanyPresentation = () => {
           </aside>
 
           {/* Stage + optional notes panel */}
-          <section className="flex-1 flex flex-col min-h-[70vh]">
+          <section className="flex-1 flex flex-col min-h-0 overflow-hidden">
             <div
               ref={stageRef}
-              className="flex-1 relative bg-muted/30 min-h-[60vh]"
+              className="flex-1 relative bg-muted/30 min-h-0 overflow-hidden"
             >
               <Viewer key={active.id} item={active} imageZoom={imageZoom} imageRotate={imageRotate} />
             </div>
@@ -765,8 +764,6 @@ const CompanyPresentation = () => {
         onOpenChange={setAddOpen}
         onCreated={fetchDbItems}
       />
-
-      <Footer />
     </div>
   );
 };
