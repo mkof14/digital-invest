@@ -83,6 +83,17 @@ const normalizeVideoUrl = (url: string) => {
 
 const isDirectVideo = (url: string) => /\.(mp4|webm|ogg)(\?|$)/i.test(url);
 
+const withPresentationEmbedParam = (url: string) => {
+  try {
+    const parsed = new URL(url, window.location.origin);
+    if (parsed.origin !== window.location.origin) return url;
+    parsed.searchParams.set("presentationEmbed", "1");
+    return `${parsed.pathname}${parsed.search}${parsed.hash}`;
+  } catch {
+    return url;
+  }
+};
+
 const Viewer = ({
   item,
   imageZoom,
@@ -125,7 +136,7 @@ const Viewer = ({
 
   const src =
     item.type === "page"
-      ? item.url
+      ? withPresentationEmbedParam(item.url)
       : item.type === "video"
       ? normalizeVideoUrl(item.url)
       : item.url;

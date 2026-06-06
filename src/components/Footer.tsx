@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { MapPin, Mail, Globe, Sun, Moon, ChevronUp } from 'lucide-react';
 import OptimizedImage from '@/components/OptimizedImage';
 import { useQuery } from '@tanstack/react-query';
@@ -22,9 +23,14 @@ interface SocialMediaLink {
 const Footer = () => {
   const { t, i18n } = useTranslation();
   const { theme, setTheme } = useTheme();
+  const location = useLocation();
   const currentYear = new Date().getFullYear();
   const [langOpen, setLangOpen] = useState(false);
   const langRef = useRef<HTMLDivElement>(null);
+
+  if (new URLSearchParams(location.search).get('presentationEmbed') === '1') {
+    return null;
+  }
 
   const changeLanguage = (code: string) => {
     i18n.changeLanguage(code);

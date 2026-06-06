@@ -46,6 +46,10 @@ const Navigation = () => {
 
   const currentLang = languages.find(l => l.code === i18n.language) || languages[0];
 
+  if (new URLSearchParams(location.search).get('presentationEmbed') === '1') {
+    return null;
+  }
+
   const changeLanguage = (code: string) => {
     i18n.changeLanguage(code);
     const lang = languages.find(l => l.code === code);
