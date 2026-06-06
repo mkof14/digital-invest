@@ -224,134 +224,133 @@ const PdfViewer = ({ url, title }: PdfViewerProps) => {
   }
 
   return (
-    <div className="w-full h-full flex flex-col bg-muted/20">
-      {/* PDF toolbar */}
-      <div className="flex items-center justify-between gap-2 px-3 py-2 border-b border-border bg-card/60 backdrop-blur flex-wrap">
-        <div className="flex items-center gap-1.5 shrink-0">
-          <Button
-            variant="ghost"
-            size="icon"
-            className="h-8 w-8"
-            onClick={() => setThumbsOpen((v) => !v)}
-            title={thumbsOpen ? "Hide page thumbnails" : "Show page thumbnails"}
-          >
-            {thumbsOpen ? (
-              <PanelLeftClose className="h-4 w-4" />
-            ) : (
-              <PanelLeftOpen className="h-4 w-4" />
-            )}
-          </Button>
-          <span className="text-xs text-muted-foreground truncate max-w-[200px]">
-            {title}
-          </span>
-        </div>
-        <div className="flex items-center gap-1.5 flex-wrap justify-end">
-          <Button
-            variant="outline"
-            size="icon"
-            className="h-8 w-8"
-            onClick={goPrev}
-            disabled={page <= 1}
-            title="Previous page (PgUp)"
-          >
-            <ChevronLeft className="h-4 w-4" />
-          </Button>
-          <div className="flex items-center gap-1 text-xs">
-            <Input
-              type="number"
-              min={1}
-              max={numPages}
-              value={page}
-              onChange={(e) => {
-                const v = Number(e.target.value);
-                if (Number.isFinite(v))
-                  setPage(Math.max(1, Math.min(numPages || 1, v)));
-              }}
-              className="h-8 w-14 text-xs text-center"
-            />
-            <span className="text-muted-foreground tabular-nums whitespace-nowrap">
-              / {numPages || "…"}
+    <div className="w-full h-full flex flex-col bg-muted/20 min-h-0">
+      {/* PDF toolbar — sticky so it never hides under outer chrome; horizontally scrollable on narrow screens */}
+      <div className="sticky top-0 z-20 shrink-0 border-b border-border bg-card/80 backdrop-blur">
+        <div className="flex items-center justify-between gap-2 px-2 sm:px-3 py-2 overflow-x-auto [scrollbar-width:thin]">
+          <div className="flex items-center gap-1.5 shrink-0">
+            <Button
+              variant="ghost"
+              size="icon"
+              className="h-8 w-8"
+              onClick={() => setThumbsOpen((v) => !v)}
+              title={thumbsOpen ? "Hide page thumbnails" : "Show page thumbnails"}
+            >
+              {thumbsOpen ? (
+                <PanelLeftClose className="h-4 w-4" />
+              ) : (
+                <PanelLeftOpen className="h-4 w-4" />
+              )}
+            </Button>
+            <span className="hidden lg:inline text-xs text-muted-foreground truncate max-w-[200px]">
+              {title}
             </span>
           </div>
-          <Button
-            variant="outline"
-            size="icon"
-            className="h-8 w-8"
-            onClick={goNext}
-            disabled={page >= numPages}
-            title="Next page (PgDn)"
-          >
-            <ChevronRight className="h-4 w-4" />
-          </Button>
-
-          {/* Progress bar */}
-          <div className="hidden sm:flex items-center gap-2 ml-1">
-            <div className="w-24 h-1.5 bg-muted rounded-full overflow-hidden">
-              <div
-                className="h-full bg-primary transition-all duration-300"
-                style={{
-                  width: `${numPages > 0 ? (page / numPages) * 100 : 0}%`,
+          <div className="flex items-center gap-1.5 shrink-0">
+            <Button
+              variant="outline"
+              size="icon"
+              className="h-8 w-8 shrink-0"
+              onClick={goPrev}
+              disabled={page <= 1}
+              title="Previous page (PgUp)"
+            >
+              <ChevronLeft className="h-4 w-4" />
+            </Button>
+            <div className="flex items-center gap-1 text-xs shrink-0">
+              <Input
+                type="number"
+                min={1}
+                max={numPages}
+                value={page}
+                onChange={(e) => {
+                  const v = Number(e.target.value);
+                  if (Number.isFinite(v))
+                    setPage(Math.max(1, Math.min(numPages || 1, v)));
                 }}
+                className="h-8 w-12 text-xs text-center px-1"
               />
+              <span className="text-muted-foreground tabular-nums whitespace-nowrap">
+                / {numPages || "…"}
+              </span>
             </div>
-            <span className="text-[10px] text-muted-foreground tabular-nums whitespace-nowrap">
-              {page} of {numPages || "…"}
+            <Button
+              variant="outline"
+              size="icon"
+              className="h-8 w-8 shrink-0"
+              onClick={goNext}
+              disabled={page >= numPages}
+              title="Next page (PgDn)"
+            >
+              <ChevronRight className="h-4 w-4" />
+            </Button>
+
+            {/* Progress bar — hide on smaller screens to keep zoom controls visible */}
+            <div className="hidden xl:flex items-center gap-2 ml-1 shrink-0">
+              <div className="w-24 h-1.5 bg-muted rounded-full overflow-hidden">
+                <div
+                  className="h-full bg-primary transition-all duration-300"
+                  style={{
+                    width: `${numPages > 0 ? (page / numPages) * 100 : 0}%`,
+                  }}
+                />
+              </div>
+            </div>
+            <div className="w-px h-5 bg-border mx-1 shrink-0" />
+            <Button
+              variant={fitMode === "width" ? "default" : "outline"}
+              size="sm"
+              className="h-8 px-2 text-xs gap-1 shrink-0"
+              onClick={() => setFitMode("width")}
+              title="Fit width"
+              aria-label="Fit width"
+            >
+              <StretchHorizontal className="h-4 w-4" />
+              <span className="hidden lg:inline">Fit width</span>
+            </Button>
+            <Button
+              variant={fitMode === "page" ? "default" : "outline"}
+              size="sm"
+              className="h-8 px-2 text-xs gap-1 shrink-0"
+              onClick={() => setFitMode("page")}
+              title="Fit page"
+              aria-label="Fit page"
+            >
+              <Maximize className="h-4 w-4" />
+              <span className="hidden lg:inline">Fit page</span>
+            </Button>
+            <Button
+              variant={fitMode === "custom" && Math.round(scale * 100) === 100 ? "default" : "outline"}
+              size="sm"
+              className="h-8 px-2 text-xs shrink-0"
+              onClick={() => { setFitMode("custom"); setScale(1); }}
+              title="Actual size (100%)"
+              aria-label="Actual size 100%"
+            >
+              100%
+            </Button>
+            <Button
+              variant="outline"
+              size="icon"
+              className="h-8 w-8 shrink-0"
+              onClick={zoomOut}
+              title="Zoom out (-)"
+            >
+              <ZoomOut className="h-4 w-4" />
+            </Button>
+            <span className="text-xs tabular-nums w-11 text-center shrink-0">
+              {Math.round(scale * 100)}%
             </span>
+            <Button
+              variant="outline"
+              size="icon"
+              className="h-8 w-8 shrink-0"
+              onClick={zoomIn}
+              title="Zoom in (+)"
+            >
+              <ZoomIn className="h-4 w-4" />
+            </Button>
           </div>
-          <div className="w-px h-5 bg-border mx-1" />
-          <Button
-            variant={fitMode === "width" ? "default" : "outline"}
-            size="sm"
-            className="h-8 px-2 text-xs gap-1"
-            onClick={() => setFitMode("width")}
-            title="Fit width"
-            aria-label="Fit width"
-          >
-            <StretchHorizontal className="h-4 w-4" />
-            <span className="hidden md:inline">Fit width</span>
-          </Button>
-          <Button
-            variant={fitMode === "page" ? "default" : "outline"}
-            size="sm"
-            className="h-8 px-2 text-xs gap-1"
-            onClick={() => setFitMode("page")}
-            title="Fit page"
-            aria-label="Fit page"
-          >
-            <Maximize className="h-4 w-4" />
-            <span className="hidden md:inline">Fit page</span>
-          </Button>
-          <Button
-            variant={fitMode === "custom" && Math.round(scale * 100) === 100 ? "default" : "outline"}
-            size="sm"
-            className="h-8 px-2 text-xs"
-            onClick={() => { setFitMode("custom"); setScale(1); }}
-            title="Actual size (100%)"
-            aria-label="Actual size 100%"
-          >
-            100%
-          </Button>
-          <Button
-            variant="outline"
-            size="icon"
-            className="h-8 w-8"
-            onClick={zoomOut}
-            title="Zoom out (-)"
-          >
-            <ZoomOut className="h-4 w-4" />
-          </Button>
-          <span className="text-xs tabular-nums w-12 text-center">
-            {Math.round(scale * 100)}%
-          </span>
-          <Button
-            variant="outline"
-            size="icon"
-            className="h-8 w-8"
-            onClick={zoomIn}
-            title="Zoom in (+)"
-          >
-            <ZoomIn className="h-4 w-4" />
-          </Button>
         </div>
       </div>
 
