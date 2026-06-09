@@ -62,17 +62,21 @@ const Navigation = () => {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-card/70 backdrop-blur-xl border-b border-border/30">
-      <div className="container mx-auto px-4 py-3">
+      <div className="container mx-auto px-4 py-1.5">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="flex items-center hover:opacity-80 transition-opacity">
+          <Link to="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
             <OptimizedImage 
-              src="/lovable-uploads/digital-invest-logo-v2.png" 
+              src="/lovable-uploads/digital-invest-logo-new.png" 
               alt="Digital Invest Inc. company logo" 
-              className="h-20 md:h-28 w-auto object-contain -my-6"
+              className="h-14 w-14 object-contain -my-2 brightness-110 contrast-105"
               containerClassName="bg-transparent"
               showSkeleton={false}
             />
+            <span className="text-2xl md:text-3xl font-bold tracking-tight leading-none">
+              <span style={{ color: '#D4A24C' }}>Digital </span>
+              <span style={{ color: '#1E73E8' }}>Invest</span>
+            </span>
           </Link>
 
           {/* Desktop Navigation */}
