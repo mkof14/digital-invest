@@ -67,7 +67,7 @@ const Navigation = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center hover:opacity-80 transition-opacity">
             <OptimizedImage 
-              src="/lovable-uploads/digital-invest-logo-full.png" 
+              src="/lovable-uploads/digital-invest-logo-v2.png" 
               alt="Digital Invest Inc. company logo" 
               className="h-20 md:h-28 w-auto object-contain -my-6"
               containerClassName="bg-transparent"
