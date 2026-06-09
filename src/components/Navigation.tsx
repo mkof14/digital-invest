@@ -69,7 +69,7 @@ const Navigation = () => {
             <OptimizedImage 
               src="/lovable-uploads/digital-invest-logo-full.png" 
               alt="Digital Invest Inc. company logo" 
-              className="h-16 md:h-20 w-auto object-contain -my-3"
+              className="h-20 md:h-28 w-auto object-contain -my-6"
               containerClassName="bg-transparent"
               showSkeleton={false}
             />
