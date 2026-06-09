@@ -81,7 +81,7 @@ const Footer = () => {
           {/* LEFT BLOCK - Company Info */}
           <div className="space-y-4 lg:col-span-1">
             <Link to="/" className="flex items-center mb-2 hover:opacity-80 transition-opacity w-fit">
-              <span className="text-2xl font-bold tracking-tight leading-none">
+              <span className="text-lg sm:text-xl md:text-3xl font-normal tracking-[-0.02em] leading-none whitespace-nowrap">
                 <span style={{ color: '#D4A24C' }}>Digital </span>
                 <span style={{ color: '#1E73E8' }}>Invest</span>
               </span>
