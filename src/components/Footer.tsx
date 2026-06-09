@@ -82,7 +82,7 @@ const Footer = () => {
           <div className="space-y-4 lg:col-span-1">
             <Link to="/" className="flex items-center gap-2 mb-2 hover:opacity-80 transition-opacity w-fit">
               <OptimizedImage 
-                src="/lovable-uploads/digital-invest-logo-new.png" 
+                src="/lovable-uploads/digital-invest-d-only.png" 
                 alt="Digital Invest Inc. company logo" 
                 className="h-14 w-14 object-contain brightness-110 contrast-105"
                 containerClassName="bg-transparent"
