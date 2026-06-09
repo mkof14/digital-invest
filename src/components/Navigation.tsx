@@ -171,7 +171,7 @@ const Navigation = () => {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden mt-4 pb-4 border-t border-border/20">
+          <div id="mobile-navigation" className="md:hidden mt-4 pb-4 border-t border-border/20">
             <div className="flex flex-col space-y-3 pt-4">
               {navItems.map((item) => (
                 <Link
