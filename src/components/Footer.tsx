@@ -80,18 +80,14 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
           {/* LEFT BLOCK - Company Info */}
           <div className="space-y-4 lg:col-span-1">
-            <Link to="/" className="flex items-center gap-2 mb-2 hover:opacity-80 transition-opacity w-fit">
+            <Link to="/" className="inline-block mb-2 hover:opacity-80 transition-opacity">
               <OptimizedImage 
-                src="/lovable-uploads/digital-invest-logo-new.png" 
+                src="/lovable-uploads/digital-invest-logo-v2.png" 
                 alt="Digital Invest Inc. company logo" 
-                className="h-14 w-14 object-contain brightness-110 contrast-105"
+                className="h-24 w-auto object-contain brightness-110 contrast-105"
                 containerClassName="bg-transparent"
                 showSkeleton={false}
               />
-              <span className="text-2xl font-bold tracking-tight leading-none">
-                <span style={{ color: '#D4A24C' }}>Digital </span>
-                <span style={{ color: '#1E73E8' }}>Invest</span>
-              </span>
             </Link>
             <p className="text-sm text-muted-foreground leading-relaxed">
               {t('footer.description')}
