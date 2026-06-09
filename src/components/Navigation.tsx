@@ -65,8 +65,8 @@ const Navigation = () => {
       <div className="container mx-auto px-4 py-1.5">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="flex items-center hover:opacity-80 transition-opacity">
-            <span className="text-2xl md:text-3xl font-normal tracking-[-0.02em] leading-none">
+          <Link to="/" className="flex items-center hover:opacity-80 transition-opacity min-w-0 shrink">
+            <span className="text-lg sm:text-xl md:text-3xl font-normal tracking-[-0.02em] leading-none whitespace-nowrap">
               <span style={{ color: '#D4A24C' }}>Digital </span>
               <span style={{ color: '#1E73E8' }}>Invest</span>
             </span>
@@ -171,7 +171,7 @@ const Navigation = () => {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden mt-4 pb-4 border-t border-border/20">
+          <div id="mobile-navigation" className="md:hidden mt-4 pb-4 border-t border-border/20">
             <div className="flex flex-col space-y-3 pt-4">
               {navItems.map((item) => (
                 <Link
