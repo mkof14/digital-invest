@@ -80,15 +80,8 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
           {/* LEFT BLOCK - Company Info */}
           <div className="space-y-4 lg:col-span-1">
-            <Link to="/" className="flex items-center gap-2 mb-2 hover:opacity-80 transition-opacity w-fit">
-              <OptimizedImage 
-                src="/lovable-uploads/digital-invest-d-only.png" 
-                alt="Digital Invest Inc. company logo" 
-                className="h-14 w-14 object-contain brightness-110 contrast-105"
-                containerClassName="bg-transparent"
-                showSkeleton={false}
-              />
-              <span className="text-4xl font-bold tracking-tight leading-none">
+            <Link to="/" className="flex items-center mb-2 hover:opacity-80 transition-opacity w-fit">
+              <span className="text-2xl font-bold tracking-tight leading-none">
                 <span style={{ color: '#D4A24C' }}>Digital </span>
                 <span style={{ color: '#1E73E8' }}>Invest</span>
               </span>

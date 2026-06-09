@@ -65,15 +65,8 @@ const Navigation = () => {
       <div className="container mx-auto px-4 py-1.5">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
-            <OptimizedImage 
-              src="/lovable-uploads/digital-invest-d-only.png" 
-              alt="Digital Invest Inc. company logo" 
-              className="h-14 w-14 object-contain -my-2 brightness-110 contrast-105"
-              containerClassName="bg-transparent"
-              showSkeleton={false}
-            />
-            <span className="text-4xl md:text-5xl font-bold tracking-tight leading-none">
+          <Link to="/" className="flex items-center hover:opacity-80 transition-opacity">
+            <span className="text-2xl md:text-3xl font-bold tracking-tight leading-none">
               <span style={{ color: '#D4A24C' }}>Digital </span>
               <span style={{ color: '#1E73E8' }}>Invest</span>
             </span>
