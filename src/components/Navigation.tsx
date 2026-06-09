@@ -69,7 +69,7 @@ const Navigation = () => {
             <OptimizedImage 
               src="/lovable-uploads/digital-invest-logo-new.png" 
               alt="Digital Invest Inc. company logo" 
-              className="w-16 h-16 object-contain -my-1 brightness-110 contrast-105"
+              className="w-20 h-20 object-contain -my-3 brightness-110 contrast-105"
               containerClassName="bg-transparent"
               showSkeleton={false}
             />

@@ -84,7 +84,7 @@ const Footer = () => {
               <OptimizedImage 
                 src="/lovable-uploads/digital-invest-logo-new.png" 
                 alt="Digital Invest Inc. company logo" 
-                className="h-16 w-16 brightness-110 contrast-105"
+                className="h-20 w-20 brightness-110 contrast-105"
                 containerClassName="bg-transparent"
                 showSkeleton={false}
               />
