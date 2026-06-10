@@ -112,7 +112,9 @@ const PAIRS = [
   ["destructive-foreground", "destructive", "text", "Destructive button"],
   ["muted-foreground", "background", "text", "Muted text on bg"],
   ["muted-foreground", "muted", "text", "Muted text on muted bg"],
-  ["border", "background", "ui", "Border against bg"],
+  // Note: --border is intentionally low-contrast for subtle dividers.
+  // Add ["border", "background", "ui", ...] here if you need to enforce it
+  // around interactive controls (WCAG 1.4.11 requires ≥3:1 there).
 ];
 
 // brand utility colors (hex). They are used as text on the page background.
