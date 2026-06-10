@@ -358,17 +358,17 @@ const Index = () => {
               </div>
 
               {/* Live portfolio teaser CTA */}
-              <Link to="/projects" className="group relative block overflow-hidden rounded-2xl border border-border/50 bg-card/70 backdrop-blur-md p-5 hover:border-primary/40 hover:bg-card transition-all duration-300 hover:shadow-xl hover:shadow-primary/10">
-                <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-accent/5 to-info/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <Link to="/projects" className="group relative block overflow-hidden rounded-2xl border border-brand-gold/20 bg-card/70 backdrop-blur-md p-5 hover:border-brand-gold/50 hover:bg-card transition-all duration-300 hover:shadow-xl hover:shadow-brand-gold/10">
+                <div className="absolute inset-0 bg-gradient-to-r from-[#D4A24C]/5 via-[#1E73E8]/5 to-[#D4A24C]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <div className="relative flex items-center gap-4">
-                  <div className="shrink-0 p-3 rounded-xl bg-gradient-to-br from-primary/20 to-accent/20 border border-primary/20">
-                    <Orbit className="w-5 h-5 text-primary animate-spin" style={{ animationDuration: '8s' }} />
+                  <div className="shrink-0 p-3 rounded-xl bg-gradient-to-br from-[#D4A24C]/20 to-[#1E73E8]/20 border border-brand-gold/20">
+                    <Orbit className="w-5 h-5 text-brand-gold animate-spin" style={{ animationDuration: '8s' }} />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <div className="text-sm font-bold text-foreground">{t('hero.livePortfolioTitle', 'Live Portfolio')}</div>
+                    <div className="text-sm font-bold text-foreground group-hover:text-brand-gold transition-colors">{t('hero.livePortfolioTitle', 'Live Portfolio')}</div>
                     <div className="text-xs text-muted-foreground mt-0.5">{t('hero.livePortfolioSubtitle', '20+ active projects across 5 sectors')}</div>
                   </div>
-                  <ArrowUpRight className="w-5 h-5 text-muted-foreground group-hover:text-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0" />
+                  <ArrowUpRight className="w-5 h-5 text-muted-foreground group-hover:text-brand-gold group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0" />
                 </div>
               </Link>
             </div>
