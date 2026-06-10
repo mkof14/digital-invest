@@ -302,16 +302,16 @@ const Index = () => {
 
               <div className="flex flex-col sm:flex-row flex-wrap gap-4 animate-fade-in">
                 <Link to="/projects" className="relative group">
-                  {/* Pulsing glow halo */}
-                  <span className="absolute -inset-1 rounded-xl bg-gradient-to-r from-primary via-accent to-info opacity-60 blur-lg group-hover:opacity-90 transition-opacity duration-500 animate-pulse" aria-hidden />
-                  <Button size="lg" className="relative px-8 py-6 text-base font-semibold group bg-gradient-to-r from-primary via-accent to-primary bg-[length:200%_100%] hover:bg-[position:100%_0] text-primary-foreground shadow-xl shadow-primary/30 hover:shadow-2xl hover:shadow-primary/50 transition-all duration-500 border-0">
+                  {/* Pulsing gold glow halo */}
+                  <span className="absolute -inset-1 rounded-xl bg-gradient-to-r from-[#D4A24C] via-[#E8C070] to-[#1E73E8] opacity-50 blur-lg group-hover:opacity-80 transition-opacity duration-500 animate-pulse" aria-hidden />
+                  <Button size="lg" className="relative px-8 py-6 text-base font-semibold group btn-brand-gold shadow-brand-gold">
                     {t('hero.exploreProjects')}
                     <ArrowUpRight className="ml-2 h-5 w-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                   </Button>
                 </Link>
                 <Link to="/why-digital-invest">
-                  <Button size="lg" variant="outline" className="px-8 py-6 text-base group border-border/60 hover:border-primary/40 hover:bg-primary/5 backdrop-blur-sm">
-                    <Play className="mr-2 h-4 w-4 text-primary group-hover:scale-110 transition-transform" />
+                  <Button size="lg" className="px-8 py-6 text-base group btn-brand-outline-blue">
+                    <Play className="mr-2 h-4 w-4 text-brand-blue group-hover:scale-110 transition-transform" />
                     {t('hero.learnWhy')}
                     <ChevronRight className="ml-1 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                   </Button>
