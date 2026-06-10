@@ -446,7 +446,7 @@ const Index = () => {
             <div className="text-center py-12">
               <p className="text-muted-foreground mb-6">{t('featured.noProjects')}</p>
               <Link to="/projects">
-                <Button size="lg" variant="outline">{t('featured.viewAll')} <ArrowRight className="ml-2 h-5 w-5" /></Button>
+                <Button size="lg" className="btn-brand-outline-gold">{t('featured.viewAll')} <ArrowRight className="ml-2 h-5 w-5" /></Button>
               </Link>
             </div>
           )}
