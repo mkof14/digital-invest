@@ -250,14 +250,15 @@ const Index = () => {
                 </div>
 
                 <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-semibold leading-[0.95] tracking-tight">
-                  <span className="block text-foreground">{t('hero.strategicTitle')}</span>
+                  <span className="block text-brand-gold">{t('hero.strategicTitle')}</span>
                   <span className="relative block mt-2">
-                    <span className="absolute inset-0 gradient-tech-animated blur-2xl opacity-40 select-none" aria-hidden>
+                    <span className="absolute inset-0 gradient-brand-animated blur-2xl opacity-40 select-none" aria-hidden>
                       {t('hero.strategicHighlight')}
                     </span>
-                    <span className="relative gradient-tech-animated">{t('hero.strategicHighlight')}</span>
+                    <span className="relative gradient-brand-animated">{t('hero.strategicHighlight')}</span>
                   </span>
                 </h1>
+
 
                 <p className="text-lg md:text-xl text-muted-foreground max-w-xl leading-relaxed font-light">
                   {t('hero.description')}

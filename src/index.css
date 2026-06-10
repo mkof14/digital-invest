@@ -545,6 +545,23 @@ html {
     -webkit-text-fill-color: transparent;
   }
 
+  /* Brand accents — derived from the Digital (gold) + Invest (blue) logo */
+  .text-brand-gold {
+    color: #D4A24C;
+  }
+  .text-brand-blue {
+    color: #1E73E8;
+  }
+  .gradient-brand-animated {
+    background: linear-gradient(110deg, #1E73E8 0%, #4A95F2 25%, #D4A24C 50%, #2D7FE8 75%, #1E73E8 100%);
+    background-size: 300% 300%;
+    animation: gradient-flow 9s ease infinite;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+
   /* Animated heading with scroll reveal */
   .animate-heading-reveal {
     opacity: 0;
