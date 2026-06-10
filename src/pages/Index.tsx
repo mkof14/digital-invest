@@ -396,9 +396,9 @@ const Index = () => {
               </p>
             </div>
             <Link to="/projects" className="shrink-0">
-              <Button variant="ghost" className="group text-muted-foreground hover:text-foreground">
+              <Button variant="ghost" className="group text-muted-foreground hover:text-brand-gold transition-colors duration-300">
                 {t('featured.viewAll')}
-                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 group-hover:text-brand-blue transition-all" />
               </Button>
             </Link>
           </div>
