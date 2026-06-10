@@ -545,15 +545,29 @@ html {
     -webkit-text-fill-color: transparent;
   }
 
-  /* Brand accents — derived from the Digital (gold) + Invest (blue) logo */
+  /* Brand accents — derived from the Digital (gold) + Invest (blue) logo.
+     Theme-aware via CSS variables so contrast is preserved in light mode. */
+  :root {
+    --brand-gold: #D4A24C;
+    --brand-gold-strong: #E8C070;
+    --brand-blue: #4A95F2;
+    --brand-blue-strong: #7AB8F5;
+  }
+  :root.light {
+    /* Darker, WCAG-friendly variants on light backgrounds */
+    --brand-gold: #8A5A14;        /* AA on white for normal text */
+    --brand-gold-strong: #A66E15;
+    --brand-blue: #1456B8;        /* AA on white for normal text */
+    --brand-blue-strong: #1E73E8;
+  }
   .text-brand-gold {
-    color: #D4A24C;
+    color: var(--brand-gold);
   }
   .text-brand-blue {
-    color: #1E73E8;
+    color: var(--brand-blue);
   }
   .gradient-brand-animated {
-    background: linear-gradient(110deg, #1E73E8 0%, #4A95F2 25%, #D4A24C 50%, #2D7FE8 75%, #1E73E8 100%);
+    background: linear-gradient(110deg, var(--brand-blue) 0%, var(--brand-blue-strong) 25%, var(--brand-gold) 50%, var(--brand-blue-strong) 75%, var(--brand-blue) 100%);
     background-size: 300% 300%;
     animation: gradient-flow 9s ease infinite;
     -webkit-background-clip: text;
