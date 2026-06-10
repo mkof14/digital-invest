@@ -202,11 +202,11 @@ const Index = () => {
           aria-hidden="true"
         />
         {/* Readability overlay — keeps text legible over the photo */}
-        <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/70 to-background/40" />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-transparent to-background/80" />
+        <div className="absolute inset-0 bg-gradient-to-r from-white/80 via-white/50 to-white/20 dark:from-background/90 dark:via-background/70 dark:to-background/40" />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/30 via-transparent to-white/60 dark:from-background/40 dark:via-transparent dark:to-background/80" />
 
         {/* Layered background — richer, more cinematic */}
-        <div className="absolute inset-0 bg-gradient-to-br from-background/60 via-background/40 to-card/30" />
+        <div className="absolute inset-0 bg-gradient-to-br from-white/50 via-white/30 to-gray-100/30 dark:from-background/60 dark:via-background/40 dark:to-card/30" />
 
         {/* Vibrant gradient mesh — multi-color ambient depth */}
         <div className="absolute top-[-10%] left-[-10%] w-[55vw] h-[55vw] rounded-full bg-gradient-to-br from-primary/20 via-accent/12 to-transparent blur-[120px] animate-subtle-float" />
