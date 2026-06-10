@@ -302,16 +302,16 @@ const Index = () => {
 
               <div className="flex flex-col sm:flex-row flex-wrap gap-4 animate-fade-in">
                 <Link to="/projects" className="relative group">
-                  {/* Pulsing glow halo */}
-                  <span className="absolute -inset-1 rounded-xl bg-gradient-to-r from-primary via-accent to-info opacity-60 blur-lg group-hover:opacity-90 transition-opacity duration-500 animate-pulse" aria-hidden />
-                  <Button size="lg" className="relative px-8 py-6 text-base font-semibold group bg-gradient-to-r from-primary via-accent to-primary bg-[length:200%_100%] hover:bg-[position:100%_0] text-primary-foreground shadow-xl shadow-primary/30 hover:shadow-2xl hover:shadow-primary/50 transition-all duration-500 border-0">
+                  {/* Pulsing gold glow halo */}
+                  <span className="absolute -inset-1 rounded-xl bg-gradient-to-r from-[#D4A24C] via-[#E8C070] to-[#1E73E8] opacity-50 blur-lg group-hover:opacity-80 transition-opacity duration-500 animate-pulse" aria-hidden />
+                  <Button size="lg" className="relative px-8 py-6 text-base font-semibold group btn-brand-gold shadow-brand-gold">
                     {t('hero.exploreProjects')}
                     <ArrowUpRight className="ml-2 h-5 w-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                   </Button>
                 </Link>
                 <Link to="/why-digital-invest">
-                  <Button size="lg" variant="outline" className="px-8 py-6 text-base group border-border/60 hover:border-primary/40 hover:bg-primary/5 backdrop-blur-sm">
-                    <Play className="mr-2 h-4 w-4 text-primary group-hover:scale-110 transition-transform" />
+                  <Button size="lg" className="px-8 py-6 text-base group btn-brand-outline-blue">
+                    <Play className="mr-2 h-4 w-4 text-brand-blue group-hover:scale-110 transition-transform" />
                     {t('hero.learnWhy')}
                     <ChevronRight className="ml-1 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                   </Button>
@@ -358,17 +358,17 @@ const Index = () => {
               </div>
 
               {/* Live portfolio teaser CTA */}
-              <Link to="/projects" className="group relative block overflow-hidden rounded-2xl border border-border/50 bg-card/70 backdrop-blur-md p-5 hover:border-primary/40 hover:bg-card transition-all duration-300 hover:shadow-xl hover:shadow-primary/10">
-                <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-accent/5 to-info/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <Link to="/projects" className="group relative block overflow-hidden rounded-2xl border border-brand-gold/20 bg-card/70 backdrop-blur-md p-5 hover:border-brand-gold/50 hover:bg-card transition-all duration-300 hover:shadow-xl hover:shadow-brand-gold/10">
+                <div className="absolute inset-0 bg-gradient-to-r from-[#D4A24C]/5 via-[#1E73E8]/5 to-[#D4A24C]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <div className="relative flex items-center gap-4">
-                  <div className="shrink-0 p-3 rounded-xl bg-gradient-to-br from-primary/20 to-accent/20 border border-primary/20">
-                    <Orbit className="w-5 h-5 text-primary animate-spin" style={{ animationDuration: '8s' }} />
+                  <div className="shrink-0 p-3 rounded-xl bg-gradient-to-br from-[#D4A24C]/20 to-[#1E73E8]/20 border border-brand-gold/20">
+                    <Orbit className="w-5 h-5 text-brand-gold animate-spin" style={{ animationDuration: '8s' }} />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <div className="text-sm font-bold text-foreground">{t('hero.livePortfolioTitle', 'Live Portfolio')}</div>
+                    <div className="text-sm font-bold text-foreground group-hover:text-brand-gold transition-colors">{t('hero.livePortfolioTitle', 'Live Portfolio')}</div>
                     <div className="text-xs text-muted-foreground mt-0.5">{t('hero.livePortfolioSubtitle', '20+ active projects across 5 sectors')}</div>
                   </div>
-                  <ArrowUpRight className="w-5 h-5 text-muted-foreground group-hover:text-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0" />
+                  <ArrowUpRight className="w-5 h-5 text-muted-foreground group-hover:text-brand-gold group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0" />
                 </div>
               </Link>
             </div>
@@ -396,9 +396,9 @@ const Index = () => {
               </p>
             </div>
             <Link to="/projects" className="shrink-0">
-              <Button variant="ghost" className="group text-muted-foreground hover:text-foreground">
+              <Button variant="ghost" className="group text-muted-foreground hover:text-brand-gold transition-colors duration-300">
                 {t('featured.viewAll')}
-                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 group-hover:text-brand-blue transition-all" />
               </Button>
             </Link>
           </div>
@@ -446,7 +446,7 @@ const Index = () => {
             <div className="text-center py-12">
               <p className="text-muted-foreground mb-6">{t('featured.noProjects')}</p>
               <Link to="/projects">
-                <Button size="lg" variant="outline">{t('featured.viewAll')} <ArrowRight className="ml-2 h-5 w-5" /></Button>
+                <Button size="lg" className="btn-brand-outline-gold">{t('featured.viewAll')} <ArrowRight className="ml-2 h-5 w-5" /></Button>
               </Link>
             </div>
           )}
@@ -471,15 +471,15 @@ const Index = () => {
               </p>
 
               {/* Core Hub CTA */}
-              <Link to="/projects/biomathcore" className="group inline-flex items-center gap-3 mt-4 p-4 rounded-xl border border-border/60 bg-card/50 hover:bg-card hover:border-primary/30 transition-all duration-300">
-                <div className="shrink-0 p-2.5 bg-primary/10 rounded-lg">
-                  <EcosystemCoreIcon className="text-primary" size={24} />
+              <Link to="/projects/biomathcore" className="group inline-flex items-center gap-3 mt-4 p-4 rounded-xl border border-brand-gold/20 bg-card/50 hover:bg-card hover:border-brand-gold/50 transition-all duration-300 shadow-brand-gold-hover">
+                <div className="shrink-0 p-2.5 bg-gradient-to-br from-[#D4A24C]/15 to-[#1E73E8]/15 rounded-lg">
+                  <EcosystemCoreIcon className="text-brand-gold" size={24} />
                 </div>
                 <div className="min-w-0">
-                  <div className="text-sm font-bold text-foreground">{t('ecosystem.coreTitle')}</div>
-                  <div className="text-xs text-muted-foreground"><span className="text-primary font-semibold">{t('ecosystem.coreServices')}</span> · {t('ecosystem.coreActive')}</div>
+                  <div className="text-sm font-bold text-foreground group-hover:text-brand-gold transition-colors">{t('ecosystem.coreTitle')}</div>
+                  <div className="text-xs text-muted-foreground"><span className="text-brand-blue font-semibold">{t('ecosystem.coreServices')}</span> · {t('ecosystem.coreActive')}</div>
                 </div>
-                <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all shrink-0" />
+                <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-brand-gold group-hover:translate-x-1 transition-all shrink-0" />
               </Link>
             </div>
 
@@ -750,28 +750,28 @@ const Index = () => {
       {/* ═══════════════════ CTA — Full-width Dramatic ═══════════════════ */}
       <section className="py-20 md:py-28 px-4 section-gradient-warm">
         <div className="max-w-5xl mx-auto">
-          <div className="relative overflow-hidden rounded-3xl border border-border/30 bg-card/50 p-10 md:p-16 text-center">
+          <div className="relative overflow-hidden rounded-3xl border border-brand-gold/20 bg-card/50 p-10 md:p-16 text-center gradient-brand-bg-soft">
             {/* Decorative gradient */}
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.03] via-transparent to-primary/[0.06]" />
+            <div className="absolute inset-0 bg-gradient-to-br from-[#D4A24C]/[0.05] via-transparent to-[#1E73E8]/[0.06]" />
             
             <div className="relative z-10 space-y-6">
-              <h2 className="text-3xl md:text-5xl font-bold text-foreground tracking-tight">
+              <h2 className="text-3xl md:text-5xl font-bold tracking-tight gradient-brand-animated">
                 Partner With Us
               </h2>
               <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed font-light">
-                Explore investment opportunities in our innovative biotechnology projects. 
-                Contact our team to learn more about strategic partnerships.
+                Explore <span className="text-brand-gold font-medium">investment opportunities</span> in our innovative biotechnology projects. 
+                Contact our team to learn more about <span className="text-brand-blue font-medium">strategic partnerships</span>.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
                 <Link to="/start-investing">
-                  <Button size="lg" className="px-10 py-6 text-base group">
+                  <Button size="lg" className="px-10 py-6 text-base group btn-brand-gold shadow-brand-gold">
                     Investment Information
                     <ArrowUpRight className="ml-2 h-5 w-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                   </Button>
                 </Link>
                 <Link to="/team">
-                  <Button size="lg" variant="outline" className="px-10 py-6 text-base group">
+                  <Button size="lg" className="px-10 py-6 text-base group btn-brand-outline-blue">
                     Leadership Team
                     <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                   </Button>
@@ -780,10 +780,10 @@ const Index = () => {
               
               <div className="flex flex-wrap justify-center gap-8 pt-10">
                 {[
-                  { icon: <ShieldCircuitIcon className="text-muted-foreground" size={16} />, text: "Regulatory Compliant" },
-                  { icon: <Lock className="w-4 h-4" />, text: "Secure Platform" },
-                  { icon: <GrowthArrowIcon className="text-muted-foreground" size={16} />, text: "Industry Certified" },
-                  { icon: <CheckCircle2 className="w-4 h-4" />, text: "Verified Projects" }
+                  { icon: <ShieldCircuitIcon className="text-brand-gold" size={16} />, text: "Regulatory Compliant" },
+                  { icon: <Lock className="w-4 h-4 text-brand-blue" />, text: "Secure Platform" },
+                  { icon: <GrowthArrowIcon className="text-brand-gold" size={16} />, text: "Industry Certified" },
+                  { icon: <CheckCircle2 className="w-4 h-4 text-brand-blue" />, text: "Verified Projects" }
                 ].map((b, i) => (
                   <div key={i} className="flex items-center gap-2 text-muted-foreground/70">
                     {b.icon}
@@ -800,10 +800,10 @@ const Index = () => {
       <section className="py-8 px-4">
         <div className="max-w-4xl mx-auto text-center">
           <Link to="/overview">
-            <Button variant="ghost" className="gap-2 text-sm text-muted-foreground hover:text-foreground group">
-              <Layers className="w-4 h-4" />
+            <Button variant="ghost" className="gap-2 text-sm text-muted-foreground hover:text-brand-gold group transition-colors duration-300">
+              <Layers className="w-4 h-4 group-hover:text-brand-blue transition-colors" />
               {t('footer.overview', 'Portfolio Overview')}
-              <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 group-hover:text-brand-blue transition-all" />
             </Button>
           </Link>
         </div>
