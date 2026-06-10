@@ -1,0 +1,205 @@
+#!/usr/bin/env node
+/**
+ * Automatic contrast scanner for the design system.
+ *
+ * Parses `src/index.css`, extracts CSS custom properties for both the
+ * default (dark) theme (`:root { ... }`) and the light theme
+ * (`:root.light { ... }`), then validates WCAG 2.1 contrast ratios for
+ * every meaningful foreground/background token pair.
+ *
+ * Run:
+ *   node scripts/contrast-check.mjs
+ *   node scripts/contrast-check.mjs --strict   # treat AA-large warnings as errors
+ *
+ * Exits with code 1 on any AA failure (ratio < 4.5 for normal text,
+ * < 3 for large text / UI components).
+ */
+
+import fs from "node:fs";
+import path from "node:path";
+import url from "node:url";
+
+const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
+const cssPath = path.resolve(__dirname, "..", "src", "index.css");
+const css = fs.readFileSync(cssPath, "utf8");
+
+const STRICT = process.argv.includes("--strict");
+
+// ---------- color math ----------
+const clamp = (n, lo, hi) => Math.max(lo, Math.min(hi, n));
+
+function hslToRgb(h, s, l) {
+  s /= 100;
+  l /= 100;
+  const k = (n) => (n + h / 30) % 12;
+  const a = s * Math.min(l, 1 - l);
+  const f = (n) =>
+    l - a * Math.max(-1, Math.min(k(n) - 3, Math.min(9 - k(n), 1)));
+  return [f(0), f(8), f(4)].map((v) => Math.round(v * 255));
+}
+
+function hexToRgb(hex) {
+  const m = hex.replace("#", "");
+  const v =
+    m.length === 3
+      ? m.split("").map((c) => parseInt(c + c, 16))
+      : [0, 2, 4].map((i) => parseInt(m.slice(i, i + 2), 16));
+  return v;
+}
+
+function relLuminance([r, g, b]) {
+  const f = (c) => {
+    const s = c / 255;
+    return s <= 0.03928 ? s / 12.92 : Math.pow((s + 0.055) / 1.055, 2.4);
+  };
+  return 0.2126 * f(r) + 0.7152 * f(g) + 0.0722 * f(b);
+}
+
+function contrast(rgb1, rgb2) {
+  const L1 = relLuminance(rgb1);
+  const L2 = relLuminance(rgb2);
+  const [hi, lo] = L1 > L2 ? [L1, L2] : [L2, L1];
+  return (hi + 0.05) / (lo + 0.05);
+}
+
+// ---------- CSS extraction ----------
+function extractBlock(selector) {
+  // matches `selector { ... }` (first occurrence)
+  const re = new RegExp(
+    selector.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + "\\s*\\{([^}]*)\\}",
+    "m",
+  );
+  const m = css.match(re);
+  return m ? m[1] : "";
+}
+
+function parseTokens(block) {
+  const tokens = {};
+  const re = /--([a-z0-9-]+)\s*:\s*([^;]+);/gi;
+  let m;
+  while ((m = re.exec(block))) {
+    tokens[m[1]] = m[2].trim();
+  }
+  return tokens;
+}
+
+function tokenToRgb(value) {
+  if (!value) return null;
+  const v = value.trim();
+  if (v.startsWith("#")) return hexToRgb(v);
+  // HSL triplet "H S% L%"
+  const parts = v.split(/\s+/);
+  if (parts.length >= 3) {
+    const h = parseFloat(parts[0]);
+    const s = parseFloat(parts[1]);
+    const l = parseFloat(parts[2]);
+    if (!Number.isNaN(h) && !Number.isNaN(s) && !Number.isNaN(l)) {
+      return hslToRgb(h, clamp(s, 0, 100), clamp(l, 0, 100));
+    }
+  }
+  return null;
+}
+
+// ---------- token pairs to check ----------
+// kind: 'text' (AA >=4.5, AAA >=7) | 'ui' (AA >=3 for large text / non-text)
+const PAIRS = [
+  ["foreground", "background", "text", "Body text on background"],
+  ["card-foreground", "card", "text", "Card text"],
+  ["popover-foreground", "popover", "text", "Popover text"],
+  ["primary-foreground", "primary", "text", "Primary button"],
+  ["secondary-foreground", "secondary", "text", "Secondary button"],
+  ["accent-foreground", "accent", "text", "Accent surface"],
+  ["destructive-foreground", "destructive", "text", "Destructive button"],
+  ["muted-foreground", "background", "text", "Muted text on bg"],
+  ["muted-foreground", "muted", "text", "Muted text on muted bg"],
+  ["border", "background", "ui", "Border against bg"],
+];
+
+// brand utility colors (hex). They are used as text on the page background.
+const BRAND_PAIRS = [
+  ["brand-gold", "background", "text", "Brand gold text"],
+  ["brand-blue", "background", "text", "Brand blue text"],
+];
+
+function check(themeName, tokens) {
+  const results = [];
+  for (const [fgKey, bgKey, kind, label] of [...PAIRS, ...BRAND_PAIRS]) {
+    const fg = tokenToRgb(tokens[fgKey]);
+    const bg = tokenToRgb(tokens[bgKey]);
+    if (!fg || !bg) {
+      results.push({ themeName, label, fgKey, bgKey, missing: true });
+      continue;
+    }
+    const ratio = contrast(fg, bg);
+    const minAA = kind === "text" ? 4.5 : 3;
+    const status =
+      ratio >= minAA ? "pass" : ratio >= 3 && kind === "text" ? "warn" : "fail";
+    results.push({
+      themeName,
+      label,
+      fgKey,
+      bgKey,
+      ratio: +ratio.toFixed(2),
+      kind,
+      minAA,
+      status,
+    });
+  }
+  return results;
+}
+
+// brand tokens live in :root / :root.light too, but the CSS uses both
+// triplet and hex values. We merge both blocks per theme.
+const dark = { ...parseTokens(extractBlock(":root")) };
+const light = { ...parseTokens(extractBlock(":root.light")) };
+
+// `:root` block appears twice in the file (general + brand). Merge extras.
+const allRoot = [...css.matchAll(/:root\s*\{([^}]*)\}/g)]
+  .map((m) => parseTokens(m[1]))
+  .reduce((acc, t) => Object.assign(acc, t), {});
+const allLight = [...css.matchAll(/:root\.light\s*\{([^}]*)\}/g)]
+  .map((m) => parseTokens(m[1]))
+  .reduce((acc, t) => Object.assign(acc, t), {});
+
+const darkAll = { ...allRoot };
+const lightAll = { ...allRoot, ...allLight }; // light inherits, overrides
+
+const results = [...check("dark", darkAll), ...check("light", lightAll)];
+
+// ---------- report ----------
+const RED = "\x1b[31m";
+const YEL = "\x1b[33m";
+const GRN = "\x1b[32m";
+const DIM = "\x1b[2m";
+const RST = "\x1b[0m";
+
+let fails = 0;
+let warns = 0;
+console.log("Design-system contrast scan\n");
+for (const r of results) {
+  if (r.missing) {
+    console.log(
+      `${YEL}? ${r.themeName.padEnd(5)} ${r.label} — missing token (${r.fgKey} / ${r.bgKey})${RST}`,
+    );
+    continue;
+  }
+  const tag =
+    r.status === "pass"
+      ? `${GRN}PASS${RST}`
+      : r.status === "warn"
+        ? `${YEL}WARN${RST}`
+        : `${RED}FAIL${RST}`;
+  if (r.status === "fail") fails++;
+  if (r.status === "warn") warns++;
+  console.log(
+    `${tag} ${r.themeName.padEnd(5)} ${r.ratio.toFixed(2).padStart(5)}:1  ${r.label} ${DIM}(${r.fgKey} on ${r.bgKey}, need ≥${r.minAA})${RST}`,
+  );
+}
+
+console.log(
+  `\n${fails} fail · ${warns} warn · ${results.length - fails - warns} pass`,
+);
+
+if (fails > 0 || (STRICT && warns > 0)) {
+  process.exit(1);
+}
