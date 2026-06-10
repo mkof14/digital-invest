@@ -800,10 +800,10 @@ const Index = () => {
       <section className="py-8 px-4">
         <div className="max-w-4xl mx-auto text-center">
           <Link to="/overview">
-            <Button variant="ghost" className="gap-2 text-sm text-muted-foreground hover:text-foreground group">
-              <Layers className="w-4 h-4" />
+            <Button variant="ghost" className="gap-2 text-sm text-muted-foreground hover:text-brand-gold group transition-colors duration-300">
+              <Layers className="w-4 h-4 group-hover:text-brand-blue transition-colors" />
               {t('footer.overview', 'Portfolio Overview')}
-              <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 group-hover:text-brand-blue transition-all" />
             </Button>
           </Link>
         </div>
