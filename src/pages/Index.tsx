@@ -471,15 +471,15 @@ const Index = () => {
               </p>
 
               {/* Core Hub CTA */}
-              <Link to="/projects/biomathcore" className="group inline-flex items-center gap-3 mt-4 p-4 rounded-xl border border-border/60 bg-card/50 hover:bg-card hover:border-primary/30 transition-all duration-300">
-                <div className="shrink-0 p-2.5 bg-primary/10 rounded-lg">
-                  <EcosystemCoreIcon className="text-primary" size={24} />
+              <Link to="/projects/biomathcore" className="group inline-flex items-center gap-3 mt-4 p-4 rounded-xl border border-brand-gold/20 bg-card/50 hover:bg-card hover:border-brand-gold/50 transition-all duration-300 shadow-brand-gold-hover">
+                <div className="shrink-0 p-2.5 bg-gradient-to-br from-[#D4A24C]/15 to-[#1E73E8]/15 rounded-lg">
+                  <EcosystemCoreIcon className="text-brand-gold" size={24} />
                 </div>
                 <div className="min-w-0">
-                  <div className="text-sm font-bold text-foreground">{t('ecosystem.coreTitle')}</div>
-                  <div className="text-xs text-muted-foreground"><span className="text-primary font-semibold">{t('ecosystem.coreServices')}</span> · {t('ecosystem.coreActive')}</div>
+                  <div className="text-sm font-bold text-foreground group-hover:text-brand-gold transition-colors">{t('ecosystem.coreTitle')}</div>
+                  <div className="text-xs text-muted-foreground"><span className="text-brand-blue font-semibold">{t('ecosystem.coreServices')}</span> · {t('ecosystem.coreActive')}</div>
                 </div>
-                <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all shrink-0" />
+                <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-brand-gold group-hover:translate-x-1 transition-all shrink-0" />
               </Link>
             </div>
 
