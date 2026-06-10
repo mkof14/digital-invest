@@ -750,28 +750,28 @@ const Index = () => {
       {/* ═══════════════════ CTA — Full-width Dramatic ═══════════════════ */}
       <section className="py-20 md:py-28 px-4 section-gradient-warm">
         <div className="max-w-5xl mx-auto">
-          <div className="relative overflow-hidden rounded-3xl border border-border/30 bg-card/50 p-10 md:p-16 text-center">
+          <div className="relative overflow-hidden rounded-3xl border border-brand-gold/20 bg-card/50 p-10 md:p-16 text-center gradient-brand-bg-soft">
             {/* Decorative gradient */}
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.03] via-transparent to-primary/[0.06]" />
+            <div className="absolute inset-0 bg-gradient-to-br from-[#D4A24C]/[0.05] via-transparent to-[#1E73E8]/[0.06]" />
             
             <div className="relative z-10 space-y-6">
-              <h2 className="text-3xl md:text-5xl font-bold text-foreground tracking-tight">
+              <h2 className="text-3xl md:text-5xl font-bold tracking-tight gradient-brand-animated">
                 Partner With Us
               </h2>
               <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed font-light">
-                Explore investment opportunities in our innovative biotechnology projects. 
-                Contact our team to learn more about strategic partnerships.
+                Explore <span className="text-brand-gold font-medium">investment opportunities</span> in our innovative biotechnology projects. 
+                Contact our team to learn more about <span className="text-brand-blue font-medium">strategic partnerships</span>.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
                 <Link to="/start-investing">
-                  <Button size="lg" className="px-10 py-6 text-base group">
+                  <Button size="lg" className="px-10 py-6 text-base group btn-brand-gold shadow-brand-gold">
                     Investment Information
                     <ArrowUpRight className="ml-2 h-5 w-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                   </Button>
                 </Link>
                 <Link to="/team">
-                  <Button size="lg" variant="outline" className="px-10 py-6 text-base group">
+                  <Button size="lg" className="px-10 py-6 text-base group btn-brand-outline-blue">
                     Leadership Team
                     <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                   </Button>
@@ -780,10 +780,10 @@ const Index = () => {
               
               <div className="flex flex-wrap justify-center gap-8 pt-10">
                 {[
-                  { icon: <ShieldCircuitIcon className="text-muted-foreground" size={16} />, text: "Regulatory Compliant" },
-                  { icon: <Lock className="w-4 h-4" />, text: "Secure Platform" },
-                  { icon: <GrowthArrowIcon className="text-muted-foreground" size={16} />, text: "Industry Certified" },
-                  { icon: <CheckCircle2 className="w-4 h-4" />, text: "Verified Projects" }
+                  { icon: <ShieldCircuitIcon className="text-brand-gold" size={16} />, text: "Regulatory Compliant" },
+                  { icon: <Lock className="w-4 h-4 text-brand-blue" />, text: "Secure Platform" },
+                  { icon: <GrowthArrowIcon className="text-brand-gold" size={16} />, text: "Industry Certified" },
+                  { icon: <CheckCircle2 className="w-4 h-4 text-brand-blue" />, text: "Verified Projects" }
                 ].map((b, i) => (
                   <div key={i} className="flex items-center gap-2 text-muted-foreground/70">
                     {b.icon}
