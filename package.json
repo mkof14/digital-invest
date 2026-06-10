@@ -8,7 +8,9 @@
     "build": "vite build",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "contrast": "node scripts/contrast-check.mjs",
+    "contrast:strict": "node scripts/contrast-check.mjs --strict"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
