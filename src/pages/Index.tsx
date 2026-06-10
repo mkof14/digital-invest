@@ -202,11 +202,11 @@ const Index = () => {
           aria-hidden="true"
         />
         {/* Readability overlay — keeps text legible over the photo */}
-        <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/70 to-background/40" />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-transparent to-background/80" />
+        <div className="absolute inset-0 bg-gradient-to-r from-white/80 via-white/50 to-white/20 dark:from-background/90 dark:via-background/70 dark:to-background/40" />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/30 via-transparent to-white/60 dark:from-background/40 dark:via-transparent dark:to-background/80" />
 
         {/* Layered background — richer, more cinematic */}
-        <div className="absolute inset-0 bg-gradient-to-br from-background/60 via-background/40 to-card/30" />
+        <div className="absolute inset-0 bg-gradient-to-br from-white/50 via-white/30 to-gray-100/30 dark:from-background/60 dark:via-background/40 dark:to-card/30" />
 
         {/* Vibrant gradient mesh — multi-color ambient depth */}
         <div className="absolute top-[-10%] left-[-10%] w-[55vw] h-[55vw] rounded-full bg-gradient-to-br from-primary/20 via-accent/12 to-transparent blur-[120px] animate-subtle-float" />
@@ -236,14 +236,11 @@ const Index = () => {
             <div className="lg:col-span-7 space-y-8">
               <div className="space-y-6 animate-fade-in">
                 {/* Premium status pill — instant credibility */}
-                <div className="inline-flex items-center gap-2.5 pl-2 pr-4 py-1.5 rounded-full border border-primary/25 bg-gradient-to-r from-primary/10 via-accent/10 to-info/10 backdrop-blur-md shadow-lg shadow-primary/5 hover:shadow-primary/20 transition-shadow">
-                  <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-gradient-to-br from-primary to-accent">
-                    <Sparkles className="w-3.5 h-3.5 text-primary-foreground" />
-                  </span>
-                  <span className="text-[11px] sm:text-xs font-semibold tracking-[0.18em] uppercase bg-gradient-to-r from-foreground via-primary to-accent bg-clip-text text-transparent">
+                <div className="inline-flex items-center gap-2.5 pl-3 pr-4 py-1.5 rounded-full border border-primary/15 bg-white/70 backdrop-blur-md shadow-sm hover:shadow-md transition-shadow">
+                  <span className="text-[11px] sm:text-xs font-semibold tracking-[0.18em] uppercase text-foreground">
                     Digital Invest Inc.
                   </span>
-                  <span className="hidden sm:inline-flex items-center gap-1 text-[10px] text-success/90 font-bold tracking-wider">
+                  <span className="hidden sm:inline-flex items-center gap-1 text-[10px] text-success font-bold tracking-wider">
                     <span className="w-1.5 h-1.5 rounded-full bg-success animate-pulse" />
                     LIVE
                   </span>
