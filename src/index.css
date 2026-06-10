@@ -217,16 +217,16 @@ html {
   :root.light {
     /* Core Background - Warm off-white with subtle blue tint */
     --background: 220 14% 95%;
-    --foreground: 225 20% 12%;
+    --foreground: 225 30% 8%;
 
     /* Card System - Distinct from background with depth */
     --card: 0 0% 100%;
-    --card-foreground: 225 20% 12%;
+    --card-foreground: 225 30% 8%;
     --card-hover: 215 18% 97%;
 
     /* Popover */
     --popover: 0 0% 100%;
-    --popover-foreground: 225 20% 12%;
+    --popover-foreground: 225 30% 8%;
 
     /* Primary - Rich Slate Blue */
     --primary: 220 25% 28%;
@@ -238,7 +238,7 @@ html {
 
     /* Secondary - Cool Stone */
     --secondary: 218 18% 88%;
-    --secondary-foreground: 225 20% 15%;
+    --secondary-foreground: 225 25% 10%;
     --secondary-glow: 218 18% 78%;
     --secondary-vibrant: 218 18% 82%;
     --secondary-dark: 218 18% 72%;
@@ -246,7 +246,7 @@ html {
 
     /* Muted - Warm Grey with hint of blue */
     --muted: 220 14% 91%;
-    --muted-foreground: 220 12% 38%;
+    --muted-foreground: 220 12% 28%;
 
     /* Accent - Warm Amber Gold */
     --accent: 32 70% 48%;
