@@ -119,8 +119,28 @@ const PAIRS = [
 
 // brand utility colors (hex). They are used as text on the page background.
 const BRAND_PAIRS = [
-  ["brand-gold", "background", "text", "Brand gold text"],
-  ["brand-blue", "background", "text", "Brand blue text"],
+  ["brand-gold", "background", "text", "Brand gold text (link)"],
+  ["brand-blue", "background", "text", "Brand blue text (link)"],
+  ["brand-gold", "card", "text", "Brand gold text on card"],
+  ["brand-blue", "card", "text", "Brand blue text on card"],
+  ["brand-gold-strong", "background", "text", "Brand gold-strong text"],
+  ["brand-blue-strong", "background", "text", "Brand blue-strong text"],
+];
+
+// Literal hardcoded color pairs used by .btn-brand-* and link hovers.
+// These are theme-independent (declared inline in CSS), so we check them once.
+// kind: 'text' (AA ≥4.5) | 'ui' (AA ≥3 — non-text contrast)
+const LITERAL_PAIRS = [
+  // Solid brand buttons
+  ["#0F172A", "#D4A24C", "text", ".btn-brand-gold idle (#0F172A on #D4A24C)"],
+  ["#0F172A", "#E8C070", "text", ".btn-brand-gold hover mid stop"],
+  ["#FFFFFF", "#1E73E8", "text", ".btn-brand-blue idle (#fff on #1E73E8)"],
+  ["#FFFFFF", "#4A95F2", "text", ".btn-brand-blue hover mid stop"],
+  // Outline buttons — dark theme bg (#0F172A-ish)
+  ["#D4A24C", "#0F172A", "text", ".btn-brand-outline-gold on dark"],
+  ["#E8C070", "#0F172A", "text", ".btn-brand-outline-gold:hover on dark"],
+  ["#4A95F2", "#0F172A", "text", ".btn-brand-outline-blue on dark"],
+  ["#7AB8F5", "#0F172A", "text", ".btn-brand-outline-blue:hover on dark"],
 ];
 
 function check(themeName, tokens) {
@@ -150,11 +170,31 @@ function check(themeName, tokens) {
   return results;
 }
 
+function checkLiterals() {
+  const results = [];
+  for (const [fgHex, bgHex, kind, label] of LITERAL_PAIRS) {
+    const fg = hexToRgb(fgHex);
+    const bg = hexToRgb(bgHex);
+    const ratio = contrast(fg, bg);
+    const minAA = kind === "text" ? 4.5 : 3;
+    const status =
+      ratio >= minAA ? "pass" : ratio >= 3 && kind === "text" ? "warn" : "fail";
+    results.push({
+      themeName: "lit  ",
+      label,
+      fgKey: fgHex,
+      bgKey: bgHex,
+      ratio: +ratio.toFixed(2),
+      kind,
+      minAA,
+      status,
+    });
+  }
+  return results;
+}
+
 // brand tokens live in :root / :root.light too, but the CSS uses both
 // triplet and hex values. We merge both blocks per theme.
-const dark = { ...parseTokens(extractBlock(":root")) };
-const light = { ...parseTokens(extractBlock(":root.light")) };
-
 // `:root` block appears twice in the file (general + brand). Merge extras.
 const allRoot = [...css.matchAll(/:root\s*\{([^}]*)\}/g)]
   .map((m) => parseTokens(m[1]))
@@ -166,7 +206,11 @@ const allLight = [...css.matchAll(/:root\.light\s*\{([^}]*)\}/g)]
 const darkAll = { ...allRoot };
 const lightAll = { ...allRoot, ...allLight }; // light inherits, overrides
 
-const results = [...check("dark", darkAll), ...check("light", lightAll)];
+const results = [
+  ...check("dark", darkAll),
+  ...check("light", lightAll),
+  ...checkLiterals(),
+];
 
 // ---------- report ----------
 const RED = "\x1b[31m";
