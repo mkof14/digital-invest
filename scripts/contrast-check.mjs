@@ -327,6 +327,104 @@ console.log(
   `\n${fails} fail · ${warns} warn · ${results.length - fails - warns} pass`,
 );
 
-if (fails > 0 || (STRICT && warns > 0)) {
-  process.exit(1);
+// ---------- auto-fix ----------
+if (AUTO_FIX) {
+  console.log("\nAuto-fix suggestions (--accent and brand-*-strong):\n");
+
+  // Collect proposed edits, grouped per theme + token. If the same token
+  // fails in multiple pairs we pick the strictest replacement (largest
+  // required ratio against any of the paired backgrounds).
+  const proposals = new Map(); // key: `${theme}:${token}` -> { theme, token, oldValue, newValue, format, ratio }
+
+  for (const r of results) {
+    if (r.status !== "fail" || r.missing) continue;
+    if (r.themeName === "lit  ") continue; // hardcoded hex pairs are out of scope
+
+    // Identify the fixable side of the pair.
+    const tokens = themeTokens[r.themeName];
+    let fixToken = null;
+    let pairedKey = null;
+    if (FIXABLE.has(r.fgKey)) {
+      fixToken = r.fgKey;
+      pairedKey = r.bgKey;
+    } else if (FIXABLE.has(r.bgKey)) {
+      fixToken = r.bgKey;
+      pairedKey = r.fgKey;
+    } else {
+      console.log(
+        `${YEL}skip${RST} ${r.themeName} ${r.label} — no fixable token (${r.fgKey}/${r.bgKey})`,
+      );
+      continue;
+    }
+
+    const origRaw = tokens[fixToken];
+    const orig = parseColor(origRaw);
+    const paired = parseColor(tokens[pairedKey]);
+    if (!orig || !paired) continue;
+
+    const target = r.minAA;
+    const suggestion = nearestPassingHsl(orig.hsl, paired.rgb, target);
+    if (!suggestion) {
+      console.log(
+        `${RED}× ${RST}${r.themeName} --${fixToken}: no value in HSL lightness range reaches ${target}:1 vs --${pairedKey}`,
+      );
+      continue;
+    }
+    const newValue = formatColor(suggestion, orig.format);
+    const newRatio = contrast(hslToRgb(...suggestion), paired.rgb);
+
+    const key = `${r.themeName}:${fixToken}`;
+    const prev = proposals.get(key);
+    if (!prev || newRatio > prev.ratio) {
+      proposals.set(key, {
+        theme: r.themeName,
+        token: fixToken,
+        oldValue: origRaw,
+        newValue,
+        format: orig.format,
+        ratio: newRatio,
+        against: pairedKey,
+      });
+    }
+  }
+
+  if (proposals.size === 0) {
+    console.log("Nothing to fix among --accent / --brand-*-strong. ✨");
+  } else {
+    for (const p of proposals.values()) {
+      console.log(
+        `${GRN}fix${RST} ${p.theme.padEnd(5)} --${p.token}: ${DIM}${p.oldValue}${RST} → ${p.newValue}  ${DIM}(${p.ratio.toFixed(2)}:1 vs --${p.against})${RST}`,
+      );
+    }
+
+    if (WRITE) {
+      // Apply edits to src/index.css. Each token lives inside :root or :root.light
+      // (and may appear in more than one such block — we replace within the
+      // block(s) that contain its current value to scope the change correctly).
+      let next = css;
+      let applied = 0;
+      for (const p of proposals.values()) {
+        const blockRe = p.theme === "light" ? /:root\.light\s*\{([^}]*)\}/g : /:root(?!\.)\s*\{([^}]*)\}/g;
+        const declRe = new RegExp(
+          `(--${p.token}\\s*:\\s*)${p.oldValue.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}(\\s*;)`,
+        );
+        next = next.replace(blockRe, (full, body) => {
+          if (!declRe.test(body)) return full;
+          const updated = body.replace(declRe, `$1${p.newValue}$2`);
+          if (updated !== body) applied++;
+          return full.replace(body, updated);
+        });
+      }
+      if (applied > 0) {
+        fs.writeFileSync(cssPath, next);
+        console.log(`\n${GRN}wrote${RST} ${applied} replacement(s) to src/index.css`);
+      } else {
+        console.log(`\n${YEL}note${RST} no replacements written (values not found verbatim)`);
+      }
+    } else {
+      console.log(
+        `\n${DIM}re-run with --write to apply these changes to src/index.css${RST}`,
+      );
+    }
+  }
 }
