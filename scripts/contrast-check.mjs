@@ -134,8 +134,8 @@ const LITERAL_PAIRS = [
   // Solid brand buttons
   ["#0F172A", "#D4A24C", "text", ".btn-brand-gold idle (#0F172A on #D4A24C)"],
   ["#0F172A", "#E8C070", "text", ".btn-brand-gold hover mid stop"],
-  ["#FFFFFF", "#1E73E8", "text", ".btn-brand-blue idle (#fff on #1E73E8)"],
-  ["#FFFFFF", "#4A95F2", "text", ".btn-brand-blue hover mid stop"],
+  ["#FFFFFF", "#1A66D0", "text", ".btn-brand-blue idle (#fff on #1A66D0)"],
+  ["#FFFFFF", "#2D7FE8", "text", ".btn-brand-blue hover mid stop"],
   // Outline buttons — dark theme bg (#0F172A-ish)
   ["#D4A24C", "#0F172A", "text", ".btn-brand-outline-gold on dark"],
   ["#E8C070", "#0F172A", "text", ".btn-brand-outline-gold:hover on dark"],
