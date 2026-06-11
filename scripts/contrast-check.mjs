@@ -428,3 +428,7 @@ if (AUTO_FIX) {
     }
   }
 }
+
+if (fails > 0 || (STRICT && warns > 0)) {
+  process.exit(1);
+}
