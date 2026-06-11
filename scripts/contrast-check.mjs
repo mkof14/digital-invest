@@ -9,11 +9,13 @@
  *
  * Run:
  *   node scripts/contrast-check.mjs
- *   node scripts/contrast-check.mjs --strict     # warnings → errors
- *   node scripts/contrast-check.mjs --auto-fix   # suggest nearest AA-safe color
- *                                                # for --accent and --brand-*-strong
+ *   node scripts/contrast-check.mjs --strict       # warnings → errors
+ *   node scripts/contrast-check.mjs --auto-fix     # suggest nearest AA-safe color
+ *                                                  # for --accent and --brand-*-strong
  *   node scripts/contrast-check.mjs --auto-fix --write
- *                                                # apply suggestions to src/index.css
+ *                                                  # apply suggestions to src/index.css
+ *   node scripts/contrast-check.mjs --interactive  # ask Y/N per candidate and write
+ *                                                  # accepted ones; print before/after
  *
  * Exits with code 1 on any AA failure (ratio < 4.5 for normal text,
  * < 3 for large text / UI components).
