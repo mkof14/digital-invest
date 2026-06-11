@@ -555,8 +555,8 @@ html {
   }
   :root.light {
     /* Darker, WCAG-friendly variants on light backgrounds */
-    --brand-gold: #8A5A14;        /* AA on white for normal text */
-    --brand-gold-strong: #A66E15;
+    --brand-gold: #935D0E;        /* richer gold, AA on white */
+    --brand-gold-strong: #A86E16;
     --brand-blue: #1456B8;        /* AA on white for normal text */
     --brand-blue-strong: #1E73E8;
   }
