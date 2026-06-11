@@ -73,6 +73,74 @@ function contrast(rgb1, rgb2) {
   return (hi + 0.05) / (lo + 0.05);
 }
 
+function rgbToHsl([r, g, b]) {
+  r /= 255; g /= 255; b /= 255;
+  const max = Math.max(r, g, b), min = Math.min(r, g, b);
+  const l = (max + min) / 2;
+  let h = 0, s = 0;
+  if (max !== min) {
+    const d = max - min;
+    s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+    switch (max) {
+      case r: h = (g - b) / d + (g < b ? 6 : 0); break;
+      case g: h = (b - r) / d + 2; break;
+      case b: h = (r - g) / d + 4; break;
+    }
+    h *= 60;
+  }
+  return [h, s * 100, l * 100];
+}
+
+function hslToHex(h, s, l) {
+  const [r, g, b] = hslToRgb(h, s, l);
+  const to = (n) => n.toString(16).padStart(2, "0").toUpperCase();
+  return `#${to(r)}${to(g)}${to(b)}`;
+}
+
+// Parse a token value into { rgb, hsl, format } where format is 'hex' or 'hsl-triplet'.
+function parseColor(value) {
+  if (!value) return null;
+  const v = value.trim();
+  if (v.startsWith("#")) {
+    const rgb = hexToRgb(v);
+    return { rgb, hsl: rgbToHsl(rgb), format: "hex" };
+  }
+  const parts = v.split(/\s+/);
+  if (parts.length >= 3) {
+    const h = parseFloat(parts[0]);
+    const s = parseFloat(parts[1]);
+    const l = parseFloat(parts[2]);
+    if (![h, s, l].some(Number.isNaN)) {
+      return { rgb: hslToRgb(h, s, l), hsl: [h, s, l], format: "hsl-triplet" };
+    }
+  }
+  return null;
+}
+
+function formatColor(hsl, format) {
+  const [h, s, l] = hsl;
+  if (format === "hex") return hslToHex(h, s, l);
+  return `${+h.toFixed(0)} ${+s.toFixed(0)}% ${+l.toFixed(0)}%`;
+}
+
+/**
+ * Walk lightness ±1% from the original, keeping hue & saturation, and return
+ * the nearest HSL that achieves `targetRatio` against `otherRgb`. Returns
+ * null if no value in [0, 100] satisfies the contraint.
+ */
+function nearestPassingHsl(origHsl, otherRgb, targetRatio) {
+  const [h, s, l0] = origHsl;
+  for (let delta = 1; delta <= 100; delta++) {
+    for (const sign of [-1, 1]) {
+      const l = l0 + sign * delta;
+      if (l < 0 || l > 100) continue;
+      const rgb = hslToRgb(h, s, l);
+      if (contrast(rgb, otherRgb) >= targetRatio) return [h, s, l];
+    }
+  }
+  return null;
+}
+
 // ---------- CSS extraction ----------
 function extractBlock(selector) {
   // matches `selector { ... }` (first occurrence)
