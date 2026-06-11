@@ -28,6 +28,13 @@ const cssPath = path.resolve(__dirname, "..", "src", "index.css");
 const css = fs.readFileSync(cssPath, "utf8");
 
 const STRICT = process.argv.includes("--strict");
+const AUTO_FIX = process.argv.includes("--auto-fix") || process.argv.includes("--fix");
+const WRITE = process.argv.includes("--write");
+
+// Tokens we are allowed to nudge to satisfy contrast. For each pair, we try
+// to fix the foreground first, then the background. Only tokens whose name
+// matches one of these patterns are considered fixable.
+const FIXABLE = new Set(["accent", "brand-gold-strong", "brand-blue-strong"]);
 
 // ---------- color math ----------
 const clamp = (n, lo, hi) => Math.max(lo, Math.min(hi, n));
