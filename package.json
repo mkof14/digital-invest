@@ -12,7 +12,8 @@
     "contrast": "node scripts/contrast-check.mjs",
     "contrast:strict": "node scripts/contrast-check.mjs --strict",
     "contrast:fix": "node scripts/contrast-check.mjs --auto-fix",
-    "contrast:fix:write": "node scripts/contrast-check.mjs --auto-fix --write"
+    "contrast:fix:write": "node scripts/contrast-check.mjs --auto-fix --write",
+    "contrast:interactive": "node scripts/contrast-check.mjs --interactive"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
