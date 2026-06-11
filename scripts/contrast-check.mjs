@@ -9,11 +9,13 @@
  *
  * Run:
  *   node scripts/contrast-check.mjs
- *   node scripts/contrast-check.mjs --strict     # warnings → errors
- *   node scripts/contrast-check.mjs --auto-fix   # suggest nearest AA-safe color
- *                                                # for --accent and --brand-*-strong
+ *   node scripts/contrast-check.mjs --strict       # warnings → errors
+ *   node scripts/contrast-check.mjs --auto-fix     # suggest nearest AA-safe color
+ *                                                  # for --accent and --brand-*-strong
  *   node scripts/contrast-check.mjs --auto-fix --write
- *                                                # apply suggestions to src/index.css
+ *                                                  # apply suggestions to src/index.css
+ *   node scripts/contrast-check.mjs --interactive  # ask Y/N per candidate and write
+ *                                                  # accepted ones; print before/after
  *
  * Exits with code 1 on any AA failure (ratio < 4.5 for normal text,
  * < 3 for large text / UI components).
@@ -22,14 +24,29 @@
 import fs from "node:fs";
 import path from "node:path";
 import url from "node:url";
+import readline from "node:readline";
 
 const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
 const cssPath = path.resolve(__dirname, "..", "src", "index.css");
 const css = fs.readFileSync(cssPath, "utf8");
 
 const STRICT = process.argv.includes("--strict");
-const AUTO_FIX = process.argv.includes("--auto-fix") || process.argv.includes("--fix");
-const WRITE = process.argv.includes("--write");
+const INTERACTIVE = process.argv.includes("--interactive") || process.argv.includes("-i");
+const AUTO_FIX =
+  process.argv.includes("--auto-fix") ||
+  process.argv.includes("--fix") ||
+  INTERACTIVE;
+const WRITE = process.argv.includes("--write") || INTERACTIVE;
+
+function prompt(question) {
+  const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
+  return new Promise((resolve) => {
+    rl.question(question, (answer) => {
+      rl.close();
+      resolve(answer.trim().toLowerCase());
+    });
+  });
+}
 
 // Tokens we are allowed to nudge to satisfy contrast. For each pair, we try
 // to fix the foreground first, then the background. Only tokens whose name
@@ -328,19 +345,15 @@ console.log(
 );
 
 // ---------- auto-fix ----------
-if (AUTO_FIX) {
+async function runAutoFix() {
   console.log("\nAuto-fix suggestions (--accent and brand-*-strong):\n");
 
-  // Collect proposed edits, grouped per theme + token. If the same token
-  // fails in multiple pairs we pick the strictest replacement (largest
-  // required ratio against any of the paired backgrounds).
-  const proposals = new Map(); // key: `${theme}:${token}` -> { theme, token, oldValue, newValue, format, ratio }
+  const proposals = new Map();
 
   for (const r of results) {
     if ((r.status !== "fail" && r.status !== "warn") || r.missing) continue;
-    if (r.themeName === "lit  ") continue; // hardcoded hex pairs are out of scope
+    if (r.themeName === "lit  ") continue;
 
-    // Identify the fixable side of the pair.
     const tokens = themeTokens[r.themeName];
     let fixToken = null;
     let pairedKey = null;
@@ -372,6 +385,7 @@ if (AUTO_FIX) {
     }
     const newValue = formatColor(suggestion, orig.format);
     const newRatio = contrast(hslToRgb(...suggestion), paired.rgb);
+    const oldRatio = contrast(orig.rgb, paired.rgb);
 
     const key = `${r.themeName}:${fixToken}`;
     const prev = proposals.get(key);
@@ -383,50 +397,111 @@ if (AUTO_FIX) {
         newValue,
         format: orig.format,
         ratio: newRatio,
+        oldRatio,
         against: pairedKey,
+        label: r.label,
       });
     }
   }
 
   if (proposals.size === 0) {
     console.log("Nothing to fix among --accent / --brand-*-strong. ✨");
+    return;
+  }
+
+  // Decide which proposals to apply.
+  const accepted = [];
+  const rejected = [];
+
+  if (INTERACTIVE) {
+    console.log(`Found ${proposals.size} candidate(s). Review one by one:\n`);
+    for (const p of proposals.values()) {
+      console.log(
+        `${DIM}${p.theme}${RST} ${p.label}\n` +
+          `  --${p.token}: ${DIM}${p.oldValue}${RST} ${RED}(${p.oldRatio.toFixed(2)}:1)${RST}` +
+          ` → ${p.newValue} ${GRN}(${p.ratio.toFixed(2)}:1)${RST} vs --${p.against}`,
+      );
+      const ans = await prompt("  apply? [y/N/q] ");
+      if (ans === "q") {
+        console.log("  aborted by user.");
+        break;
+      }
+      if (ans === "y" || ans === "yes") accepted.push(p);
+      else rejected.push(p);
+    }
   } else {
     for (const p of proposals.values()) {
       console.log(
         `${GRN}fix${RST} ${p.theme.padEnd(5)} --${p.token}: ${DIM}${p.oldValue}${RST} → ${p.newValue}  ${DIM}(${p.ratio.toFixed(2)}:1 vs --${p.against})${RST}`,
       );
+      accepted.push(p);
     }
+  }
 
-    if (WRITE) {
-      // Apply edits to src/index.css. Each token lives inside :root or :root.light
-      // (and may appear in more than one such block — we replace within the
-      // block(s) that contain its current value to scope the change correctly).
-      let next = css;
-      let applied = 0;
-      for (const p of proposals.values()) {
-        const blockRe = p.theme === "light" ? /:root\.light\s*\{([^}]*)\}/g : /:root(?!\.)\s*\{([^}]*)\}/g;
-        const declRe = new RegExp(
-          `(--${p.token}\\s*:\\s*)${p.oldValue.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}(\\s*;)`,
-        );
-        next = next.replace(blockRe, (full, body) => {
-          if (!declRe.test(body)) return full;
-          const updated = body.replace(declRe, `$1${p.newValue}$2`);
-          if (updated !== body) applied++;
-          return full.replace(body, updated);
-        });
-      }
-      if (applied > 0) {
-        fs.writeFileSync(cssPath, next);
-        console.log(`\n${GRN}wrote${RST} ${applied} replacement(s) to src/index.css`);
-      } else {
-        console.log(`\n${YEL}note${RST} no replacements written (values not found verbatim)`);
-      }
+  if (WRITE && accepted.length > 0) {
+    let next = css;
+    let applied = 0;
+    for (const p of accepted) {
+      const blockRe =
+        p.theme === "light"
+          ? /:root\.light\s*\{([^}]*)\}/g
+          : /:root(?!\.)\s*\{([^}]*)\}/g;
+      const declRe = new RegExp(
+        `(--${p.token}\\s*:\\s*)${p.oldValue.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}(\\s*;)`,
+      );
+      next = next.replace(blockRe, (full, body) => {
+        if (!declRe.test(body)) return full;
+        const updated = body.replace(declRe, `$1${p.newValue}$2`);
+        if (updated !== body) applied++;
+        return full.replace(body, updated);
+      });
+    }
+    if (applied > 0) {
+      fs.writeFileSync(cssPath, next);
+      console.log(`\n${GRN}wrote${RST} ${applied} replacement(s) to src/index.css`);
     } else {
+      console.log(`\n${YEL}note${RST} no replacements written (values not found verbatim)`);
+    }
+  } else if (!WRITE) {
+    console.log(
+      `\n${DIM}re-run with --write to apply these changes to src/index.css${RST}`,
+    );
+  }
+
+  // Before/after summary
+  console.log("\n┌─ Summary ──────────────────────────────────────────────");
+  console.log(`│ candidates: ${proposals.size}`);
+  console.log(`│ accepted:   ${accepted.length}`);
+  console.log(`│ rejected:   ${rejected.length}`);
+  if (accepted.length > 0) {
+    console.log("│");
+    console.log("│ before → after:");
+    for (const p of accepted) {
       console.log(
-        `\n${DIM}re-run with --write to apply these changes to src/index.css${RST}`,
+        `│   ${p.theme.padEnd(5)} --${p.token}:`,
+      );
+      console.log(
+        `│     ${DIM}was${RST} ${p.oldValue}  ${RED}${p.oldRatio.toFixed(2)}:1${RST}`,
+      );
+      console.log(
+        `│     ${DIM}now${RST} ${p.newValue}  ${GRN}${p.ratio.toFixed(2)}:1${RST}  vs --${p.against}`,
       );
     }
   }
+  if (rejected.length > 0) {
+    console.log("│");
+    console.log("│ skipped (kept original):");
+    for (const p of rejected) {
+      console.log(
+        `│   ${p.theme.padEnd(5)} --${p.token}  ${DIM}(${p.oldValue}, ${p.oldRatio.toFixed(2)}:1)${RST}`,
+      );
+    }
+  }
+  console.log("└────────────────────────────────────────────────────────");
+}
+
+if (AUTO_FIX) {
+  await runAutoFix();
 }
 
 if (fails > 0 || (STRICT && warns > 0)) {
