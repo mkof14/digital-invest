@@ -10,7 +10,9 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "contrast": "node scripts/contrast-check.mjs",
-    "contrast:strict": "node scripts/contrast-check.mjs --strict"
+    "contrast:strict": "node scripts/contrast-check.mjs --strict",
+    "contrast:fix": "node scripts/contrast-check.mjs --auto-fix",
+    "contrast:fix:write": "node scripts/contrast-check.mjs --auto-fix --write"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
