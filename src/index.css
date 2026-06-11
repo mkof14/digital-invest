@@ -249,7 +249,7 @@ html {
     --muted-foreground: 220 12% 28%;
 
     /* Accent - Warm Amber Gold */
-    --accent: 32 70% 48%;
+    --accent: 32 75% 34%;
     --accent-foreground: 0 0% 100%;
     --accent-glow: 32 70% 58%;
     --accent-vibrant: 32 70% 42%;
@@ -556,9 +556,9 @@ html {
   :root.light {
     /* Darker, WCAG-friendly variants on light backgrounds */
     --brand-gold: #935D0E;        /* richer gold, AA on white */
-    --brand-gold-strong: #A86E16;
+    --brand-gold-strong: #7A4D0A; /* darker for AA when used as text */
     --brand-blue: #1456B8;        /* AA on white for normal text */
-    --brand-blue-strong: #1E73E8;
+    --brand-blue-strong: #0E47A8; /* darker AA variant for text */
   }
   .text-brand-gold {
     color: var(--brand-gold);
@@ -600,17 +600,17 @@ html {
   }
 
   .btn-brand-blue {
-    background: linear-gradient(135deg, #1E73E8 0%, #4A95F2 50%, #1E73E8 100%);
+    background: linear-gradient(135deg, #1A66D0 0%, #1559C2 50%, #1A66D0 100%);
     background-size: 200% 100%;
     color: #fff;
     border: none;
     font-weight: 600;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 4px 16px -4px rgba(30,115,232,0.4);
+    box-shadow: 0 4px 16px -4px rgba(26,102,208,0.4);
   }
   .btn-brand-blue:hover {
     background-position: 100% 0;
-    box-shadow: 0 8px 28px -4px rgba(30,115,232,0.55), 0 0 0 1px rgba(30,115,232,0.3);
+    box-shadow: 0 8px 28px -4px rgba(26,102,208,0.55), 0 0 0 1px rgba(26,102,208,0.3);
     transform: translateY(-2px);
   }
 
