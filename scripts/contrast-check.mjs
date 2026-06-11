@@ -9,7 +9,11 @@
  *
  * Run:
  *   node scripts/contrast-check.mjs
- *   node scripts/contrast-check.mjs --strict   # treat AA-large warnings as errors
+ *   node scripts/contrast-check.mjs --strict     # warnings → errors
+ *   node scripts/contrast-check.mjs --auto-fix   # suggest nearest AA-safe color
+ *                                                # for --accent and --brand-*-strong
+ *   node scripts/contrast-check.mjs --auto-fix --write
+ *                                                # apply suggestions to src/index.css
  *
  * Exits with code 1 on any AA failure (ratio < 4.5 for normal text,
  * < 3 for large text / UI components).
@@ -24,6 +28,13 @@ const cssPath = path.resolve(__dirname, "..", "src", "index.css");
 const css = fs.readFileSync(cssPath, "utf8");
 
 const STRICT = process.argv.includes("--strict");
+const AUTO_FIX = process.argv.includes("--auto-fix") || process.argv.includes("--fix");
+const WRITE = process.argv.includes("--write");
+
+// Tokens we are allowed to nudge to satisfy contrast. For each pair, we try
+// to fix the foreground first, then the background. Only tokens whose name
+// matches one of these patterns are considered fixable.
+const FIXABLE = new Set(["accent", "brand-gold-strong", "brand-blue-strong"]);
 
 // ---------- color math ----------
 const clamp = (n, lo, hi) => Math.max(lo, Math.min(hi, n));
@@ -60,6 +71,74 @@ function contrast(rgb1, rgb2) {
   const L2 = relLuminance(rgb2);
   const [hi, lo] = L1 > L2 ? [L1, L2] : [L2, L1];
   return (hi + 0.05) / (lo + 0.05);
+}
+
+function rgbToHsl([r, g, b]) {
+  r /= 255; g /= 255; b /= 255;
+  const max = Math.max(r, g, b), min = Math.min(r, g, b);
+  const l = (max + min) / 2;
+  let h = 0, s = 0;
+  if (max !== min) {
+    const d = max - min;
+    s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+    switch (max) {
+      case r: h = (g - b) / d + (g < b ? 6 : 0); break;
+      case g: h = (b - r) / d + 2; break;
+      case b: h = (r - g) / d + 4; break;
+    }
+    h *= 60;
+  }
+  return [h, s * 100, l * 100];
+}
+
+function hslToHex(h, s, l) {
+  const [r, g, b] = hslToRgb(h, s, l);
+  const to = (n) => n.toString(16).padStart(2, "0").toUpperCase();
+  return `#${to(r)}${to(g)}${to(b)}`;
+}
+
+// Parse a token value into { rgb, hsl, format } where format is 'hex' or 'hsl-triplet'.
+function parseColor(value) {
+  if (!value) return null;
+  const v = value.trim();
+  if (v.startsWith("#")) {
+    const rgb = hexToRgb(v);
+    return { rgb, hsl: rgbToHsl(rgb), format: "hex" };
+  }
+  const parts = v.split(/\s+/);
+  if (parts.length >= 3) {
+    const h = parseFloat(parts[0]);
+    const s = parseFloat(parts[1]);
+    const l = parseFloat(parts[2]);
+    if (![h, s, l].some(Number.isNaN)) {
+      return { rgb: hslToRgb(h, s, l), hsl: [h, s, l], format: "hsl-triplet" };
+    }
+  }
+  return null;
+}
+
+function formatColor(hsl, format) {
+  const [h, s, l] = hsl;
+  if (format === "hex") return hslToHex(h, s, l);
+  return `${+h.toFixed(0)} ${+s.toFixed(0)}% ${+l.toFixed(0)}%`;
+}
+
+/**
+ * Walk lightness ±1% from the original, keeping hue & saturation, and return
+ * the nearest HSL that achieves `targetRatio` against `otherRgb`. Returns
+ * null if no value in [0, 100] satisfies the contraint.
+ */
+function nearestPassingHsl(origHsl, otherRgb, targetRatio) {
+  const [h, s, l0] = origHsl;
+  for (let delta = 1; delta <= 100; delta++) {
+    for (const sign of [-1, 1]) {
+      const l = l0 + sign * delta;
+      if (l < 0 || l > 100) continue;
+      const rgb = hslToRgb(h, s, l);
+      if (contrast(rgb, otherRgb) >= targetRatio) return [h, s, l];
+    }
+  }
+  return null;
 }
 
 // ---------- CSS extraction ----------
@@ -206,6 +285,8 @@ const allLight = [...css.matchAll(/:root\.light\s*\{([^}]*)\}/g)]
 const darkAll = { ...allRoot };
 const lightAll = { ...allRoot, ...allLight }; // light inherits, overrides
 
+const themeTokens = { dark: darkAll, light: lightAll };
+
 const results = [
   ...check("dark", darkAll),
   ...check("light", lightAll),
@@ -245,6 +326,108 @@ for (const r of results) {
 console.log(
   `\n${fails} fail · ${warns} warn · ${results.length - fails - warns} pass`,
 );
+
+// ---------- auto-fix ----------
+if (AUTO_FIX) {
+  console.log("\nAuto-fix suggestions (--accent and brand-*-strong):\n");
+
+  // Collect proposed edits, grouped per theme + token. If the same token
+  // fails in multiple pairs we pick the strictest replacement (largest
+  // required ratio against any of the paired backgrounds).
+  const proposals = new Map(); // key: `${theme}:${token}` -> { theme, token, oldValue, newValue, format, ratio }
+
+  for (const r of results) {
+    if ((r.status !== "fail" && r.status !== "warn") || r.missing) continue;
+    if (r.themeName === "lit  ") continue; // hardcoded hex pairs are out of scope
+
+    // Identify the fixable side of the pair.
+    const tokens = themeTokens[r.themeName];
+    let fixToken = null;
+    let pairedKey = null;
+    if (FIXABLE.has(r.fgKey)) {
+      fixToken = r.fgKey;
+      pairedKey = r.bgKey;
+    } else if (FIXABLE.has(r.bgKey)) {
+      fixToken = r.bgKey;
+      pairedKey = r.fgKey;
+    } else {
+      console.log(
+        `${YEL}skip${RST} ${r.themeName} ${r.label} — no fixable token (${r.fgKey}/${r.bgKey})`,
+      );
+      continue;
+    }
+
+    const origRaw = tokens[fixToken];
+    const orig = parseColor(origRaw);
+    const paired = parseColor(tokens[pairedKey]);
+    if (!orig || !paired) continue;
+
+    const target = r.minAA;
+    const suggestion = nearestPassingHsl(orig.hsl, paired.rgb, target);
+    if (!suggestion) {
+      console.log(
+        `${RED}× ${RST}${r.themeName} --${fixToken}: no value in HSL lightness range reaches ${target}:1 vs --${pairedKey}`,
+      );
+      continue;
+    }
+    const newValue = formatColor(suggestion, orig.format);
+    const newRatio = contrast(hslToRgb(...suggestion), paired.rgb);
+
+    const key = `${r.themeName}:${fixToken}`;
+    const prev = proposals.get(key);
+    if (!prev || newRatio > prev.ratio) {
+      proposals.set(key, {
+        theme: r.themeName,
+        token: fixToken,
+        oldValue: origRaw,
+        newValue,
+        format: orig.format,
+        ratio: newRatio,
+        against: pairedKey,
+      });
+    }
+  }
+
+  if (proposals.size === 0) {
+    console.log("Nothing to fix among --accent / --brand-*-strong. ✨");
+  } else {
+    for (const p of proposals.values()) {
+      console.log(
+        `${GRN}fix${RST} ${p.theme.padEnd(5)} --${p.token}: ${DIM}${p.oldValue}${RST} → ${p.newValue}  ${DIM}(${p.ratio.toFixed(2)}:1 vs --${p.against})${RST}`,
+      );
+    }
+
+    if (WRITE) {
+      // Apply edits to src/index.css. Each token lives inside :root or :root.light
+      // (and may appear in more than one such block — we replace within the
+      // block(s) that contain its current value to scope the change correctly).
+      let next = css;
+      let applied = 0;
+      for (const p of proposals.values()) {
+        const blockRe = p.theme === "light" ? /:root\.light\s*\{([^}]*)\}/g : /:root(?!\.)\s*\{([^}]*)\}/g;
+        const declRe = new RegExp(
+          `(--${p.token}\\s*:\\s*)${p.oldValue.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}(\\s*;)`,
+        );
+        next = next.replace(blockRe, (full, body) => {
+          if (!declRe.test(body)) return full;
+          const updated = body.replace(declRe, `$1${p.newValue}$2`);
+          if (updated !== body) applied++;
+          return full.replace(body, updated);
+        });
+      }
+      if (applied > 0) {
+        fs.writeFileSync(cssPath, next);
+        console.log(`\n${GRN}wrote${RST} ${applied} replacement(s) to src/index.css`);
+      } else {
+        console.log(`\n${YEL}note${RST} no replacements written (values not found verbatim)`);
+      }
+    } else {
+      console.log(
+        `\n${DIM}re-run with --write to apply these changes to src/index.css${RST}`,
+      );
+    }
+  }
+}
 
 if (fails > 0 || (STRICT && warns > 0)) {
   process.exit(1);
