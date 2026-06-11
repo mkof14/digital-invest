@@ -285,6 +285,8 @@ const allLight = [...css.matchAll(/:root\.light\s*\{([^}]*)\}/g)]
 const darkAll = { ...allRoot };
 const lightAll = { ...allRoot, ...allLight }; // light inherits, overrides
 
+const themeTokens = { dark: darkAll, light: lightAll };
+
 const results = [
   ...check("dark", darkAll),
   ...check("light", lightAll),
