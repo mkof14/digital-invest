@@ -22,14 +22,29 @@
 import fs from "node:fs";
 import path from "node:path";
 import url from "node:url";
+import readline from "node:readline";
 
 const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
 const cssPath = path.resolve(__dirname, "..", "src", "index.css");
 const css = fs.readFileSync(cssPath, "utf8");
 
 const STRICT = process.argv.includes("--strict");
-const AUTO_FIX = process.argv.includes("--auto-fix") || process.argv.includes("--fix");
-const WRITE = process.argv.includes("--write");
+const INTERACTIVE = process.argv.includes("--interactive") || process.argv.includes("-i");
+const AUTO_FIX =
+  process.argv.includes("--auto-fix") ||
+  process.argv.includes("--fix") ||
+  INTERACTIVE;
+const WRITE = process.argv.includes("--write") || INTERACTIVE;
+
+function prompt(question) {
+  const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
+  return new Promise((resolve) => {
+    rl.question(question, (answer) => {
+      rl.close();
+      resolve(answer.trim().toLowerCase());
+    });
+  });
+}
 
 // Tokens we are allowed to nudge to satisfy contrast. For each pair, we try
 // to fix the foreground first, then the background. Only tokens whose name
