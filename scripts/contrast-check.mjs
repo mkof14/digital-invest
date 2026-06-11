@@ -337,7 +337,7 @@ if (AUTO_FIX) {
   const proposals = new Map(); // key: `${theme}:${token}` -> { theme, token, oldValue, newValue, format, ratio }
 
   for (const r of results) {
-    if (r.status !== "fail" || r.missing) continue;
+    if ((r.status !== "fail" && r.status !== "warn") || r.missing) continue;
     if (r.themeName === "lit  ") continue; // hardcoded hex pairs are out of scope
 
     // Identify the fixable side of the pair.
