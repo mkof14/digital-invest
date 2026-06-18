@@ -127,18 +127,6 @@ const ProjectMediaRoom = ({ projectSlug, projectId, websiteUrl, projectTitle }: 
   const items = useMemo<MediaItem[]>(() => {
     const result: MediaItem[] = [];
 
-    if (websiteUrl) {
-      result.push({
-        kind: 'website',
-        id: 'website',
-        title: `${projectTitle ?? 'Project'} — Official Website`,
-        subtitle: websiteUrl.replace(/^https?:\/\//, '').replace(/\/$/, ''),
-        meta: 'Live site',
-        url: websiteUrl,
-        badge: 'WEB',
-      });
-    }
-
     const extras = getProjectMediaExtras(projectSlug);
     result.push(...extras);
 
@@ -166,6 +154,18 @@ const ProjectMediaRoom = ({ projectSlug, projectId, websiteUrl, projectTitle }: 
       } else {
         result.push({ ...base, kind: 'link' });
       }
+    }
+
+    if (websiteUrl) {
+      result.push({
+        kind: 'website',
+        id: 'website',
+        title: `${projectTitle ?? 'Project'} — Official Website`,
+        subtitle: websiteUrl.replace(/^https?:\/\//, '').replace(/\/$/, ''),
+        meta: 'Live site',
+        url: websiteUrl,
+        badge: 'WEB',
+      });
     }
 
     return result;
