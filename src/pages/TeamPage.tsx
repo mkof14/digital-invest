@@ -32,9 +32,7 @@ const TeamPage = () => {
                 </CardHeader>
                 <CardContent className="space-y-6">
                   <p className="text-muted-foreground leading-relaxed">
-                    Visionary entrepreneur and technological innovator with over 25 years of experience in executive leadership. 
-                    Founded Digital Invest Inc. to revolutionize precision medicine through mathematical modeling and AI-driven diagnostics.
-                    Previously founded 9 Net Avenue, which achieved a remarkable $19.5B market valuation.
+                    Founder and technology entrepreneur with more than 25 years of experience creating and scaling technology-driven businesses. Leads Digital Invest Inc., a company focused on human data systems, robotics operations, and advanced materials. Combines engineering, product development, and long-term strategic execution across multiple technology sectors.
                   </p>
                   <div className="space-y-3">
                     <div className="flex items-center space-x-3"><CheckCircle2 className="w-5 h-5 text-secondary" /><span className="text-sm font-medium">Entrepreneur of the Year 1999</span></div>
