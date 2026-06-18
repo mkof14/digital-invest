@@ -36,6 +36,7 @@ import baselineLogo from '@/assets/projects/baseline-logo.png';
 import savenHero from '@/assets/projects/saven-hero.webp';
 import savenLogo from '@/assets/projects/saven-logo.webp';
 import t1dHero from '@/assets/projects/t1d-hero.jpg';
+import oneinowHero from '@/assets/projects/1inow-hero.jpg';
 import biomathcoreCardBg from '@/assets/projects/biomathcore-card-bg.webp';
 import biomathcoreLogoBanner from '@/assets/projects/biomathcore-logo-banner.png';
 import OptimizedImage from '@/components/OptimizedImage';
@@ -66,6 +67,7 @@ const projectThemes: Record<string, { from: string; to: string; accent: string; 
   'seniorcore': { from: 'from-stone-500/20', to: 'to-stone-600/20', accent: 'text-stone-300', border: 'border-stone-500/30', btnBg: 'bg-stone-600', btnHover: 'hover:bg-stone-500', label: 'Senior Care' },
   'skincore': { from: 'from-pink-400/20', to: 'to-rose-500/20', accent: 'text-pink-300', border: 'border-pink-400/30', btnBg: 'bg-pink-500', btnHover: 'hover:bg-pink-400', label: 'Beauty' },
   't1d': { from: 'from-teal-500/20', to: 'to-amber-500/20', accent: 'text-teal-300', border: 'border-teal-500/30', btnBg: 'bg-teal-600', btnHover: 'hover:bg-teal-500', label: 'Diabetes Care' },
+  '1inow': { from: 'from-emerald-500/20', to: 'to-teal-700/20', accent: 'text-emerald-400', border: 'border-emerald-500/30', btnBg: 'bg-emerald-600', btnHover: 'hover:bg-emerald-500', label: 'Productivity' },
 };
 
 const getTheme = (slug: string) => projectThemes[slug] || { from: 'from-primary/20', to: 'to-primary/20', accent: 'text-primary', border: 'border-primary/30', btnBg: 'bg-primary', btnHover: 'hover:bg-primary/80', label: 'Project' };
@@ -159,6 +161,10 @@ const projectHighlights: Record<string, { extraCategories?: string[]; tagline?: 
     tagline: 'Multi-sector investment platform',
     special: ['featured'],
   },
+  '1inow': {
+    extraCategories: ['AI Planning', 'Intelligence Environment'],
+    tagline: 'One place. One context. Right now.',
+  },
 };
 
 const getHighlights = (slug: string) => projectHighlights[slug] || {};
@@ -191,6 +197,7 @@ const projectOrder: string[] = [
   'myday',
   'itsgoodtoday',
   'table-served',
+  '1inow',
 ];
 
 const getProjectOrderIndex = (slug: string) => {
@@ -241,7 +248,7 @@ const projectGroups: ProjectGroup[] = [
     id: 'other',
     titleKey: 'projects.groups.other',
     defaultTitle: 'Lifestyle & Other',
-    slugs: ['myday', 'itsgoodtoday', 'table-served'],
+    slugs: ['myday', 'itsgoodtoday', 'table-served', '1inow'],
   },
 ];
 
@@ -335,6 +342,7 @@ const Projects = () => {
     'baseline': baselineHero,
     'saven': savenHero,
     't1d': t1dHero,
+    '1inow': oneinowHero,
   };
 
   // Get optimized image path based on format support
