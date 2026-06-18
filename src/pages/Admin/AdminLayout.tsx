@@ -57,6 +57,7 @@ const AdminLayout = () => {
     { icon: FileText, label: 'Handbook Downloads', path: '/admin/handbook-downloads', minRole: 'EDITOR' },
     { icon: FileText, label: 'Project Documents', path: '/admin/project-documents', minRole: 'EDITOR' },
     { icon: Presentation, label: 'Presentations', path: '/admin/presentations', minRole: 'EDITOR' },
+    { icon: Library, label: 'Resources', path: '/admin/resources', minRole: 'EDITOR' },
     { icon: UsersRound, label: 'Team Members', path: '/admin/team', minRole: 'EDITOR' },
     { icon: Newspaper, label: 'News & Updates', path: '/admin/news', minRole: 'EDITOR' },
     { icon: Mail, label: 'Email Templates', path: '/admin/email-templates', minRole: 'EDITOR' },
