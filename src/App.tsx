@@ -8,6 +8,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import ScrollToTop from "@/components/ScrollToTop";
 import RouteSEO from "@/components/RouteSEO";
+import ProjectSectionNav from "@/components/ProjectSectionNav";
 import CookieConsent from './components/CookieConsent';
 import { Loader2 } from "lucide-react";
 
@@ -85,6 +86,7 @@ const AlmaDiamond = lazy(() => import('./pages/AdamasMaterials/AlmaDiamond'));
 const JatualDiamonds = lazy(() => import('./pages/AdamasMaterials/JatualDiamonds'));
 const DiagnosticsReact = lazy(() => import("./pages/DiagnosticsReact"));
 const CompanyPresentation = lazy(() => import("./pages/CompanyPresentation"));
+const ProjectSubsection = lazy(() => import("./pages/ProjectSubsection"));
 
 // Legacy project routes
 const BioMathLife = lazy(() => import("./pages/Projects/BioMathLife"));
@@ -137,6 +139,7 @@ const App = () => (
         <BrowserRouter>
           <ScrollToTop />
           <RouteSEO />
+          <ProjectSectionNav />
           <Suspense fallback={<PageLoader />}>
             <Routes>
               <Route path="/" element={<Index />} />
@@ -156,6 +159,7 @@ const App = () => (
               
               <Route path="/projects" element={<Projects />} />
               <Route path="/projects/:slug" element={<ProjectDetail />} />
+              <Route path="/projects/:slug/:section" element={<ProjectSubsection />} />
               <Route path="/how-it-works" element={<HowItWorks />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/news" element={<News />} />
