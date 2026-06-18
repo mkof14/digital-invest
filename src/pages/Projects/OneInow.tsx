@@ -294,6 +294,16 @@ const OneInow = () => {
                 </a>
               </Button>
               <DownloadInvestorBriefButton projectSlug="1inow" size="lg" />
+              <Button
+                size="lg"
+                variant="outline"
+                asChild
+                style={{ borderColor: `${BRAND.accent}55`, color: BRAND.text, background: "transparent" }}
+              >
+                <a href={oneinowPdf.url} target="_blank" rel="noopener noreferrer" download className="flex items-center gap-2">
+                  <FileText className="h-5 w-5" /> Presentation (PDF)
+                </a>
+              </Button>
             </div>
           </div>
         </section>
