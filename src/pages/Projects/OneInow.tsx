@@ -100,7 +100,9 @@ const SectionNav = ({ brand }: { brand: typeof BRAND }) => {
     e.preventDefault();
     const el = document.getElementById(id);
     if (el) {
-      el.scrollIntoView({ behavior: "smooth", block: "start" });
+      const stickyOffset = 124; // main nav (~64px) + section nav (~52px) + safe margin
+      const top = el.getBoundingClientRect().top + window.scrollY - stickyOffset;
+      window.scrollTo({ top, behavior: "smooth" });
       history.replaceState(null, "", `#${id}`);
       setActive(id);
     }
@@ -243,7 +245,7 @@ const OneInow = () => {
         <SectionNav brand={BRAND} />
 
         {/* OVERVIEW */}
-        <section id="overview" className="container mx-auto px-4 py-20 scroll-mt-24">
+        <section id="overview" className="container mx-auto px-4 py-20 scroll-mt-32">
           <div className="max-w-3xl">
             <div className="text-xs tracking-[0.25em] uppercase mb-4" style={{ color: BRAND.accent }}>Overview</div>
             <h2 className="text-3xl md:text-4xl font-semibold mb-6 leading-tight">
@@ -260,7 +262,7 @@ const OneInow = () => {
         </section>
 
         {/* CORE PRINCIPLES */}
-        <section id="principles" className="py-20 scroll-mt-24" style={{ background: BRAND.surface }}>
+        <section id="principles" className="py-20 scroll-mt-32" style={{ background: BRAND.surface }}>
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mb-12">
               <div className="text-xs tracking-[0.25em] uppercase mb-4" style={{ color: BRAND.accent }}>Core Principles</div>
@@ -374,7 +376,7 @@ const OneInow = () => {
         </section>
 
         {/* PRIVACY & COMMUNICATION */}
-        <section id="privacy" className="py-20 scroll-mt-24" style={{ background: BRAND.surface }}>
+        <section id="privacy" className="py-20 scroll-mt-32" style={{ background: BRAND.surface }}>
           <div className="container mx-auto px-4 grid md:grid-cols-2 gap-8">
             <Card className="border-0" style={{ background: BRAND.surfaceSoft }}>
               <CardHeader>
