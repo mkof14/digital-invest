@@ -101,6 +101,80 @@ html {
   contain-intrinsic-size: 1px 800px;
 }
 
+/* ============================================================
+   Global micro-interactions (site-wide)
+   Subtle hover lift on shadcn cards, smooth transitions on
+   buttons & links, gentle image zoom in cards. Respects
+   prefers-reduced-motion.
+   ============================================================ */
+a, button {
+  transition: color 0.2s ease, background-color 0.2s ease,
+              border-color 0.2s ease, transform 0.2s ease,
+              box-shadow 0.2s ease, opacity 0.2s ease;
+}
+
+/* Lift effect for shadcn cards (they consistently use these classes) */
+.rounded-lg.border.bg-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  will-change: transform;
+}
+.rounded-lg.border.bg-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 32px -14px hsl(var(--primary) / 0.22),
+              0 4px 10px -4px hsl(0 0% 0% / 0.12);
+  border-color: hsl(var(--primary) / 0.35);
+}
+
+/* Gentle image zoom when an image sits inside a card */
+.rounded-lg.border.bg-card .group\/card-image img,
+.rounded-lg.border.bg-card img {
+  transition: transform 0.5s ease;
+}
+.rounded-lg.border.bg-card:hover img {
+  transform: scale(1.03);
+}
+
+/* Hide horizontal scrollbar utility (used by ProjectSectionNav) */
+.scrollbar-none::-webkit-scrollbar { display: none; }
+.scrollbar-none { scrollbar-width: none; -ms-overflow-style: none; }
+
+/* Animated underline reveal for inline text links */
+.story-link {
+  position: relative;
+  display: inline-block;
+}
+.story-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 2px;
+  background: hsl(var(--primary));
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+}
+.story-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  a, button,
+  .rounded-lg.border.bg-card,
+  .rounded-lg.border.bg-card img {
+    transition: none !important;
+  }
+  .rounded-lg.border.bg-card:hover {
+    transform: none;
+  }
+  .rounded-lg.border.bg-card:hover img {
+    transform: none;
+  }
+}
+
+
 /* Digital Invest - Professional Corporate Design System */
 
 @layer base {
