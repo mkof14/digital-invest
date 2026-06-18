@@ -13,7 +13,7 @@ import oneinowHero from "@/assets/projects/1inow-hero.jpg";
 import OptimizedImage from "@/components/OptimizedImage";
 import InvestorPageDisclaimer from "@/components/InvestorPageDisclaimer";
 import DownloadInvestorBriefButton from "@/components/DownloadInvestorBriefButton";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { updateMetaTags, resetMetaTags } from "@/lib/metaTags";
 
 // Brand tokens (scoped, applied via inline style to keep tokens isolated to this page)
