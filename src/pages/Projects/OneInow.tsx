@@ -506,6 +506,35 @@ const OneInow = () => {
           </div>
         </section>
 
+        {/* PDF PREVIEW */}
+        <section className="container mx-auto px-4 py-12">
+          <div
+            className="rounded-2xl overflow-hidden border"
+            style={{ borderColor: `${BRAND.accent}33`, background: BRAND.surface }}
+          >
+            <div className="p-4 sm:p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+              <h3 className="text-lg font-semibold" style={{ color: BRAND.text }}>Project Presentation</h3>
+              <Button
+                size="sm"
+                variant="outline"
+                asChild
+                style={{ borderColor: `${BRAND.accent}55`, color: BRAND.text, background: "transparent" }}
+              >
+                <a href={oneinowPdf.url} target="_blank" rel="noopener noreferrer" download className="flex items-center gap-2">
+                  <Download className="h-4 w-4" /> Download PDF
+                </a>
+              </Button>
+            </div>
+            <div className="w-full" style={{ height: "80vh", minHeight: 600 }}>
+              <iframe
+                src={oneinowPdf.url}
+                title="1inow Environment Presentation"
+                className="w-full h-full border-0"
+              />
+            </div>
+          </div>
+        </section>
+
         {/* CTA */}
         <section className="container mx-auto px-4 py-20">
           <div
