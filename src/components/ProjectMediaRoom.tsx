@@ -149,6 +149,33 @@ const ProjectMediaRoom = ({ projectSlug, projectId, websiteUrl, projectTitle }: 
   const [activeId, setActiveId] = useState<string | null>(null);
   const active = items.find((i) => i.id === activeId) ?? items[0];
 
+  const [status, setStatus] = useState<'loading' | 'ready' | 'error'>('loading');
+  const [reloadKey, setReloadKey] = useState(0);
+  const timeoutRef = useRef<number | null>(null);
+
+  useEffect(() => {
+    if (!active) return;
+    setStatus('loading');
+    if (timeoutRef.current) window.clearTimeout(timeoutRef.current);
+    // Fail-safe: if nothing reports load within 15s, surface an error state.
+    timeoutRef.current = window.setTimeout(() => {
+      setStatus((s) => (s === 'loading' ? 'error' : s));
+    }, 15000) as unknown as number;
+    return () => {
+      if (timeoutRef.current) window.clearTimeout(timeoutRef.current);
+    };
+  }, [active?.id, reloadKey]);
+
+  const handleLoaded = () => {
+    if (timeoutRef.current) window.clearTimeout(timeoutRef.current);
+    setStatus('ready');
+  };
+  const handleError = () => {
+    if (timeoutRef.current) window.clearTimeout(timeoutRef.current);
+    setStatus('error');
+  };
+  const retry = () => setReloadKey((k) => k + 1);
+
   if (items.length === 0) return null;
 
   return (
