@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import {
   ArrowRight, ArrowLeft, Globe, MessageSquare, Layers, Brain, Lock,
   Sparkles, CheckCircle2, Eye, GitBranch, Inbox, Workflow, Users, Mic,
+  FileText, Download,
 } from "lucide-react";
 import oneinowLogo from "@/assets/projects/1inow-logo.png";
 import oneinowHero from "@/assets/projects/1inow-hero.jpg";
