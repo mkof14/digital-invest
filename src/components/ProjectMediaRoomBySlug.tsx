@@ -1,28 +1,26 @@
 import { useEffect, useState } from 'react';
 import { supabase } from '@/integrations/supabase/client';
 import ProjectMediaRoom from './ProjectMediaRoom';
+import { Sparkles } from 'lucide-react';
 
 interface Props {
   slug: string;
-  /** Optional fallback title if the project row is missing. */
   fallbackTitle?: string;
-  /** Optional override for the section heading. */
   heading?: string;
-  /** Optional override for the section subheading. */
   subheading?: string;
   className?: string;
 }
 
 /**
  * Drop-in Media Room section for the per-project static pages.
- * Looks up the project's id, title and website_url by slug, then
- * renders the shared <ProjectMediaRoom /> with the proper props.
+ * Visually elevated band — sits high on the page so investors and analysts
+ * can reach presentations, PDFs, videos and the official website immediately.
  */
 const ProjectMediaRoomBySlug = ({
   slug,
   fallbackTitle,
   heading = 'Media Room',
-  subheading = 'Presentations, videos, documents and the official website — all in one place.',
+  subheading = 'Presentations, infographics, videos, documents and the official website — open instantly, no downloads required.',
   className = '',
 }: Props) => {
   const [meta, setMeta] = useState<{
@@ -52,11 +50,26 @@ const ProjectMediaRoomBySlug = ({
   }, [slug, fallbackTitle]);
 
   return (
-    <section className={`py-16 md:py-20 ${className}`} aria-label="Media Room">
+    <section
+      id="media-room"
+      aria-label="Media Room"
+      className={`relative py-14 md:py-20 overflow-hidden border-y border-primary/20 ${className}`}
+    >
+      {/* Elevated background — gradient band + soft orbs to make the section pop */}
+      <div className="absolute inset-0 -z-10 bg-gradient-to-br from-primary/10 via-background to-accent/10" />
+      <div className="absolute -top-24 -left-24 w-[28rem] h-[28rem] rounded-full bg-primary/20 blur-3xl -z-10" aria-hidden />
+      <div className="absolute -bottom-24 -right-24 w-[28rem] h-[28rem] rounded-full bg-accent/20 blur-3xl -z-10" aria-hidden />
+
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mx-auto text-center mb-10">
-          <h2 className="text-3xl md:text-4xl font-bold mb-3">{heading}</h2>
-          <p className="text-muted-foreground">{subheading}</p>
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/30 bg-primary/10 text-primary text-xs font-semibold uppercase tracking-[0.18em] mb-4">
+            <Sparkles className="w-3.5 h-3.5" />
+            For investors & analysts
+          </div>
+          <h2 className="text-3xl md:text-5xl font-bold mb-3 bg-gradient-to-r from-foreground via-foreground to-primary bg-clip-text text-transparent">
+            {heading}
+          </h2>
+          <p className="text-muted-foreground md:text-lg">{subheading}</p>
         </div>
         <ProjectMediaRoom
           projectSlug={slug}

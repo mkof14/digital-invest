@@ -19,6 +19,7 @@ const LongevityCore = () => {
     <div className="min-h-screen bg-background">
       <Navigation />
       
+      <ProjectMediaRoomBySlug slug="longevitycore" />
       <section className="relative h-[60vh] min-h-[500px] flex items-center justify-center overflow-hidden">
         <OptimizedImage
           src={longevitycoreHero}
@@ -140,7 +141,6 @@ const LongevityCore = () => {
         </div>
       </section>
 
-      <ProjectMediaRoomBySlug slug="longevitycore" />
       <Footer />
     </div>
   );

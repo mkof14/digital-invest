@@ -20,6 +20,7 @@ const SeniorCore = () => {
     <div className="min-h-screen bg-background">
       <Navigation />
       
+      <ProjectMediaRoomBySlug slug="seniorcore" />
       <section className="relative h-[60vh] min-h-[500px] flex items-center justify-center overflow-hidden">
         <OptimizedImage
           src={seniorcoreHero}
@@ -141,7 +142,6 @@ const SeniorCore = () => {
         </div>
       </section>
 
-      <ProjectMediaRoomBySlug slug="seniorcore" />
       <Footer />
     </div>
   );

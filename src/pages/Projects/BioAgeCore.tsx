@@ -19,6 +19,7 @@ const BioAgeCore = () => {
     <div className="min-h-screen bg-background">
       <Navigation />
       
+      <ProjectMediaRoomBySlug slug="bioagecore" />
       <section className="relative h-[60vh] min-h-[500px] flex items-center justify-center overflow-hidden">
         <OptimizedImage
           src={bioagecoreHero}
@@ -144,7 +145,6 @@ const BioAgeCore = () => {
         </div>
       </section>
 
-      <ProjectMediaRoomBySlug slug="bioagecore" />
       <Footer />
     </div>
   );
