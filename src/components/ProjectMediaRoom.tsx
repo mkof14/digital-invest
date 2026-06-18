@@ -235,6 +235,8 @@ const ProjectMediaRoom = ({ projectSlug, projectId, websiteUrl, projectTitle }: 
               <button
                 key={item.id}
                 onClick={() => setActiveId(item.id)}
+                aria-label={`Show preview for ${item.title}`}
+                aria-pressed={isActive}
                 className={`group relative text-left flex-shrink-0 lg:flex-shrink w-72 lg:w-auto p-4 rounded-xl border transition-all duration-300 ${
                   isActive
                     ? 'border-primary bg-primary/10 shadow-[0_0_0_1px_hsl(var(--primary)/0.4),0_10px_30px_-12px_hsl(var(--primary)/0.4)]'
