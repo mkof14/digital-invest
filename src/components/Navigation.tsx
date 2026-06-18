@@ -27,6 +27,7 @@ const Navigation = () => {
   const navItems = [
     { label: t('nav.home'), href: '/' },
     { label: t('nav.projects'), href: '/projects' },
+    { label: 'Resources', href: '/resources' },
     { label: t('nav.forInvestors'), href: '/for-investors' },
     { label: t('nav.aboutUs'), href: '/about' },
     { label: t('nav.contact'), href: '/contact' }

@@ -503,6 +503,66 @@ export type Database = {
         }
         Relationships: []
       }
+      resources: {
+        Row: {
+          category: string | null
+          cover_url: string | null
+          created_at: string
+          description: string | null
+          external_url: string | null
+          file_size_bytes: number | null
+          file_type: string | null
+          file_url: string | null
+          icon: string | null
+          id: string
+          is_featured: boolean
+          is_published: boolean
+          kind: Database["public"]["Enums"]["resource_kind"]
+          sort_order: number
+          title: string
+          updated_at: string
+          video_url: string | null
+        }
+        Insert: {
+          category?: string | null
+          cover_url?: string | null
+          created_at?: string
+          description?: string | null
+          external_url?: string | null
+          file_size_bytes?: number | null
+          file_type?: string | null
+          file_url?: string | null
+          icon?: string | null
+          id?: string
+          is_featured?: boolean
+          is_published?: boolean
+          kind: Database["public"]["Enums"]["resource_kind"]
+          sort_order?: number
+          title: string
+          updated_at?: string
+          video_url?: string | null
+        }
+        Update: {
+          category?: string | null
+          cover_url?: string | null
+          created_at?: string
+          description?: string | null
+          external_url?: string | null
+          file_size_bytes?: number | null
+          file_type?: string | null
+          file_url?: string | null
+          icon?: string | null
+          id?: string
+          is_featured?: boolean
+          is_published?: boolean
+          kind?: Database["public"]["Enums"]["resource_kind"]
+          sort_order?: number
+          title?: string
+          updated_at?: string
+          video_url?: string | null
+        }
+        Relationships: []
+      }
       site_sections: {
         Row: {
           created_at: string | null
@@ -748,6 +808,13 @@ export type Database = {
       app_role: "SUPER_ADMIN" | "ADMIN" | "EDITOR" | "VIEWER"
       lead_status: "NEW" | "CONTACTED" | "QUALIFIED" | "DECLINED"
       project_status: "OPEN" | "CLOSED" | "COMING_SOON"
+      resource_kind:
+        | "presentation"
+        | "research"
+        | "video"
+        | "download"
+        | "media"
+        | "technology"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -878,6 +945,14 @@ export const Constants = {
       app_role: ["SUPER_ADMIN", "ADMIN", "EDITOR", "VIEWER"],
       lead_status: ["NEW", "CONTACTED", "QUALIFIED", "DECLINED"],
       project_status: ["OPEN", "CLOSED", "COMING_SOON"],
+      resource_kind: [
+        "presentation",
+        "research",
+        "video",
+        "download",
+        "media",
+        "technology",
+      ],
     },
   },
 } as const

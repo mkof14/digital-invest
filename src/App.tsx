@@ -64,6 +64,9 @@ const InvestorDocuments = lazy(() => import("./pages/InvestorDocuments"));
 const Glossary = lazy(() => import("./pages/Glossary"));
 const DocumentLibrary = lazy(() => import("./pages/DocumentLibrary"));
 const ResourcesLibrary = lazy(() => import("./pages/ResourcesLibrary"));
+const IntelligenceCenter = lazy(() => import("./pages/Resources/IntelligenceCenter"));
+const ResourceViewer = lazy(() => import("./pages/Resources/ResourceViewer"));
+const AdminResources = lazy(() => import("./pages/Admin/AdminResources"));
 const About = lazy(() => import("./pages/About"));
 const Demo = lazy(() => import("./pages/Demo"));
 const Compliance = lazy(() => import("./pages/Compliance"));
@@ -186,7 +189,9 @@ const App = () => (
               <Route path="/infrastructure" element={<Infrastructure />} />
               <Route path="/glossary" element={<Glossary />} />
               <Route path="/document-library" element={<DocumentLibrary />} />
-              <Route path="/resources" element={<ResourcesLibrary />} />
+              <Route path="/resources" element={<IntelligenceCenter />} />
+              <Route path="/resources/:id" element={<ResourceViewer />} />
+              <Route path="/resources-legacy" element={<ResourcesLibrary />} />
               <Route path="/overview" element={<PortfolioOverview />} />
               
               <Route path="/legal-overview" element={<LegalOverview />} />
@@ -217,6 +222,7 @@ const App = () => (
                 <Route path="launch-checklist" element={<AdminLaunchChecklist />} />
                 <Route path="project-documents" element={<AdminProjectDocuments />} />
                 <Route path="presentations" element={<AdminPresentations />} />
+                <Route path="resources" element={<AdminResources />} />
               </Route>
               
               {/* Legacy Project Routes */}
