@@ -107,6 +107,7 @@ const extrasBySlug: Record<string, MediaItem[]> = {
       meta: 'PDF · Presentation',
       url: oneinowEnvironmentPdf.url,
       fileName: '1inow-environment.pdf',
+      updatedAt: oneinowEnvironmentPdf.created_at,
     },
     img('1inow-hero', '1inow — Brand Visual', oneinowHero, 'Cover image'),
   ],
