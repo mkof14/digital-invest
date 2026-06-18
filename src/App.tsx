@@ -189,7 +189,9 @@ const App = () => (
               <Route path="/infrastructure" element={<Infrastructure />} />
               <Route path="/glossary" element={<Glossary />} />
               <Route path="/document-library" element={<DocumentLibrary />} />
-              <Route path="/resources" element={<ResourcesLibrary />} />
+              <Route path="/resources" element={<IntelligenceCenter />} />
+              <Route path="/resources/:id" element={<ResourceViewer />} />
+              <Route path="/resources-legacy" element={<ResourcesLibrary />} />
               <Route path="/overview" element={<PortfolioOverview />} />
               
               <Route path="/legal-overview" element={<LegalOverview />} />
