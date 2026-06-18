@@ -229,43 +229,38 @@ const OneInow = () => {
             style={{
               backgroundImage: `url(${oneinowHero})`,
               backgroundSize: "cover",
-              backgroundPosition: "center",
+              backgroundPosition: "center right",
             }}
             aria-hidden
           />
           <div
             className="absolute inset-0 z-0"
             style={{
-              background: `linear-gradient(135deg, ${BRAND.bg}f5 0%, ${BRAND.bg}cc 55%, ${BRAND.bg}99 100%)`,
+              background: `linear-gradient(100deg, ${BRAND.bg} 0%, ${BRAND.bg}ee 45%, ${BRAND.bg}66 75%, ${BRAND.bg}33 100%)`,
             }}
             aria-hidden
           />
           <div className="relative z-10 container mx-auto px-4 pt-32 pb-24">
             <Link to="/projects">
-              <Button variant="ghost" size="sm" className="mb-8 hover:bg-white/5" style={{ color: BRAND.textMuted }}>
+              <Button variant="ghost" size="sm" className="mb-10 hover:bg-white/5" style={{ color: BRAND.textMuted }}>
                 <ArrowLeft className="w-4 h-4 mr-2" /> Back to Projects
               </Button>
             </Link>
 
-            <div className="flex items-center gap-6 mb-10">
-              <OptimizedImage
-                src={oneinowLogo}
-                alt="1inow logo"
-                className="w-24 h-24 md:w-28 md:h-28 object-contain"
-                showSkeleton={false}
-              />
-              <div>
-                <Badge
-                  className="mb-3 border-0"
-                  style={{ background: `${BRAND.accent}22`, color: BRAND.accentSoft }}
-                >
-                  Personal &amp; Business Intelligence
-                </Badge>
-                <h1 className="text-5xl md:text-7xl font-semibold tracking-tight" style={{ color: BRAND.text }}>
-                  <span style={{ color: BRAND.accent }}>1</span>inow
-                </h1>
-              </div>
-            </div>
+            <Badge
+              className="mb-6 border-0"
+              style={{ background: `${BRAND.accent}22`, color: BRAND.accentSoft }}
+            >
+              Personal &amp; Business Intelligence
+            </Badge>
+
+            <h1 className="sr-only">1inow — One place. One context. Right now.</h1>
+            <OptimizedImage
+              src={oneinowLogo}
+              alt="1inow"
+              className="h-20 md:h-28 lg:h-32 w-auto object-contain mb-8 -ml-2"
+              showSkeleton={false}
+            />
 
             <p className="text-2xl md:text-3xl font-light max-w-3xl mb-4" style={{ color: BRAND.text }}>
               One place. One context. Right now.
