@@ -9,6 +9,7 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 import ScrollToTop from "@/components/ScrollToTop";
 import RouteSEO from "@/components/RouteSEO";
 import ProjectSectionNav from "@/components/ProjectSectionNav";
+import ReadingProgress from "@/components/engagement/ReadingProgress";
 import CookieConsent from './components/CookieConsent';
 import { Loader2 } from "lucide-react";
 
