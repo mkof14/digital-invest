@@ -28,7 +28,7 @@ const TeamPage = () => {
               <Card className="hover:-translate-y-1 transition-all duration-300 border border-border/50 bg-card hover:shadow-elevated">
                 <CardHeader>
                   <CardTitle className="text-3xl text-foreground">Michael Kofman</CardTitle>
-                  <CardDescription className="text-xl font-semibold text-primary">CEO/President & Founder</CardDescription>
+                  <CardDescription className="text-xl font-semibold text-primary">Founder, CEO & President</CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-6">
                   <p className="text-muted-foreground leading-relaxed">

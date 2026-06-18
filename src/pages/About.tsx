@@ -181,11 +181,11 @@ Today, Digital Invest brings together this multi-sector expertise into a unified
             <Card className="hover:-translate-y-1 transition-all duration-300 border border-border/50 bg-card hover:shadow-elevated">
               <CardHeader>
                 <CardTitle className="text-2xl text-foreground">Michael Kofman</CardTitle>
-                <CardDescription className="text-base font-semibold text-primary">CEO/President & Founder</CardDescription>
+                <CardDescription className="text-base font-semibold text-primary">Founder, CEO & President</CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
                 <p className="text-sm text-muted-foreground leading-relaxed">
-                  Visionary entrepreneur with 25+ years in executive leadership. Founded Digital Invest Inc. to advance precision medicine through AI and mathematical modeling. Previously founded 9 Net Avenue ($19.5B market valuation).
+                  Founder and technology entrepreneur with more than 25 years of experience creating and scaling technology-driven businesses. Leads Digital Invest Inc., a company focused on human data systems, robotics operations, and advanced materials. Combines engineering, product development, and long-term strategic execution across multiple technology sectors.
                 </p>
                 <div className="space-y-2">
                   <div className="flex items-center space-x-2"><CheckCircle2 className="w-4 h-4 text-secondary flex-shrink-0" /><span className="text-xs">Entrepreneur of the Year 1999</span></div>
