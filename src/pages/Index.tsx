@@ -734,6 +734,9 @@ const Index = () => {
         </div>
       </section>
 
+      {/* ═══════════════════ WEEKLY INSIGHT ═══════════════════ */}
+      <WeeklyInsight />
+
       {/* ═══════════════════ FAQ — Clean ═══════════════════ */}
       <section ref={faqSection.ref} className={`py-20 md:py-28 px-4 section-gradient-cool scroll-fade-in ${faqSection.isVisible ? 'visible' : ''}`}>
         <div className="max-w-3xl mx-auto">
