@@ -71,6 +71,13 @@ import dishcoreHero from "@/assets/projects/dishcore-hero.jpg";
 import digitalInvestHero from "@/assets/projects/digitalinvest-hero.webp";
 import biomathLifeHero from "@/assets/projects/biomathlife-hero.jpg";
 import heroBackground from "@/assets/hero-digital-invest.webp";
+import {
+  CurrentFocusBlock,
+  TodayWeBuild,
+  LiveNumbers,
+  WeeklyInsight,
+  ActivityStrip,
+} from "@/components/engagement/EngagementSections";
 
 interface FeaturedProject {
   id: string;
@@ -379,6 +386,10 @@ const Index = () => {
         </div>
       </section>
 
+      {/* ═══════════════════ ENGAGEMENT — Current Focus + Today We Build ═══════════════════ */}
+      <CurrentFocusBlock />
+      <TodayWeBuild />
+
       {/* ═══════════════════ FEATURED PROJECTS — Magazine Strip (moved up) ═══════════════════ */}
       <section ref={featuredSection.ref} className={`pt-8 pb-16 md:pt-12 md:pb-20 px-4 section-gradient-cool scroll-fade-in ${featuredSection.isVisible ? 'visible' : ''}`}>
         <div className="max-w-7xl mx-auto">
@@ -625,6 +636,9 @@ const Index = () => {
         </div>
       </section>
 
+      {/* ═══════════════════ LIVE NUMBERS ═══════════════════ */}
+      <LiveNumbers />
+
       {/* ═══════════════════ INVESTMENT HIGHLIGHTS — Large Number Grid ═══════════════════ */}
       <section ref={investmentSection.ref} className={`py-20 md:py-28 px-4 section-gradient-gold scroll-fade-in ${investmentSection.isVisible ? 'visible' : ''}`}>
         <div className="max-w-7xl mx-auto">
@@ -720,6 +734,9 @@ const Index = () => {
         </div>
       </section>
 
+      {/* ═══════════════════ WEEKLY INSIGHT ═══════════════════ */}
+      <WeeklyInsight />
+
       {/* ═══════════════════ FAQ — Clean ═══════════════════ */}
       <section ref={faqSection.ref} className={`py-20 md:py-28 px-4 section-gradient-cool scroll-fade-in ${faqSection.isVisible ? 'visible' : ''}`}>
         <div className="max-w-3xl mx-auto">
@@ -743,6 +760,9 @@ const Index = () => {
           </Accordion>
         </div>
       </section>
+
+      {/* ═══════════════════ CURRENT ACTIVITY STRIP ═══════════════════ */}
+      <ActivityStrip />
 
       {/* ═══════════════════ CTA — Full-width Dramatic ═══════════════════ */}
       <section className="py-20 md:py-28 px-4 section-gradient-warm">
