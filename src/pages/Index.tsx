@@ -379,6 +379,10 @@ const Index = () => {
         </div>
       </section>
 
+      {/* ═══════════════════ ENGAGEMENT — Current Focus + Today We Build ═══════════════════ */}
+      <CurrentFocusBlock />
+      <TodayWeBuild />
+
       {/* ═══════════════════ FEATURED PROJECTS — Magazine Strip (moved up) ═══════════════════ */}
       <section ref={featuredSection.ref} className={`pt-8 pb-16 md:pt-12 md:pb-20 px-4 section-gradient-cool scroll-fade-in ${featuredSection.isVisible ? 'visible' : ''}`}>
         <div className="max-w-7xl mx-auto">
