@@ -141,6 +141,7 @@ const App = () => (
           <ScrollToTop />
           <RouteSEO />
           <ProjectSectionNav />
+          <ReadingProgress />
           <Suspense fallback={<PageLoader />}>
             <Routes>
               <Route path="/" element={<Index />} />
