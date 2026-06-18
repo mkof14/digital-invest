@@ -35,7 +35,6 @@ const T1D = () => {
     <div className="min-h-screen bg-background">
       <Navigation />
 
-      <ProjectMediaRoomBySlug slug="t1d" />
       {/* Hero */}
       <section className="relative h-[60vh] min-h-[520px] overflow-hidden">
         <OptimizedImage
@@ -490,6 +489,7 @@ const T1D = () => {
         </div>
       </main>
 
+      <ProjectMediaRoomBySlug slug="t1d" />
       <Footer />
     </div>
   );

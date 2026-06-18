@@ -26,7 +26,6 @@ const BioMathLife = () => {
     <div className="min-h-screen bg-background theme-biomath-life">
       <Navigation />
       
-      <ProjectMediaRoomBySlug slug="biomathlife" />
       <main className="container mx-auto px-4 pt-24 md:pt-28 pb-8">
         {/* Hero Section */}
         <section className="relative py-32 -mx-4 px-4 overflow-hidden mb-16">
@@ -645,6 +644,7 @@ const BioMathLife = () => {
         </div>
       </main>
 
+      <ProjectMediaRoomBySlug slug="biomathlife" />
       <Footer />
     </div>
   );

@@ -24,7 +24,6 @@ const MyDay = () => {
     <div className="min-h-screen bg-background theme-myday">
       <Navigation />
 
-      <ProjectMediaRoomBySlug slug="myday" />
       <main className="container mx-auto px-4 py-8">
         {/* Hero Section */}
         <section className="relative py-32 -mx-4 px-4 overflow-hidden mb-16">
@@ -330,6 +329,7 @@ const MyDay = () => {
         </div>
       </main>
 
+      <ProjectMediaRoomBySlug slug="myday" />
       <Footer />
     </div>
   );

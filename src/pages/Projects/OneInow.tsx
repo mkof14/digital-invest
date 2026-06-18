@@ -224,7 +224,6 @@ const OneInow = () => {
     <div className="min-h-screen" style={{ background: BRAND.bg, color: BRAND.text, fontFamily: "Inter, system-ui, sans-serif" }}>
       <Navigation />
 
-      <ProjectMediaRoomBySlug slug="1inow" />
       <main>
         {/* HERO */}
         <section className="relative overflow-hidden">
@@ -563,6 +562,7 @@ const OneInow = () => {
         </div>
       </main>
 
+      <ProjectMediaRoomBySlug slug="1inow" />
       <Footer />
     </div>
   );

@@ -20,7 +20,6 @@ const VitalCore = () => {
     <div className="min-h-screen bg-background">
         <Navigation />
 
-        <ProjectMediaRoomBySlug slug="vitalcore" />
         <div className="relative h-[60vh] min-h-[500px] overflow-hidden">
           <OptimizedImage
             src={vitalcoreHero}
@@ -149,6 +148,7 @@ const VitalCore = () => {
           </section>
         </div>
 
+        <ProjectMediaRoomBySlug slug="vitalcore" />
         <Footer />
       </div>
   );

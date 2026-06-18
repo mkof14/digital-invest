@@ -90,7 +90,6 @@ const SAVEN = () => {
     <div className="min-h-screen bg-background">
       <Navigation />
 
-      <ProjectMediaRoomBySlug slug="saven" />
       {/* Hero */}
       <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
@@ -613,6 +612,7 @@ const SAVEN = () => {
         <InvestorPageDisclaimer />
       </div>
 
+      <ProjectMediaRoomBySlug slug="saven" />
       <Footer />
     </div>
   );
