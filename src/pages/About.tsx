@@ -11,9 +11,11 @@ import { MarkdownContent } from '@/components/MarkdownContent';
 import { getContentBlock, renderContentBlock, ContentBlock } from '@/lib/contentService';
 import PageHero from '@/components/PageHero';
 import heroImage from '@/assets/heroes/about.webp';
+import { useTeamAboutCacheRefresh } from '@/lib/teamAboutCache';
 
 const About = () => {
   const { t } = useTranslation();
+  useTeamAboutCacheRefresh();
   const [loading, setLoading] = useState(true);
   const [content, setContent] = useState<{
     story: ContentBlock | null;
