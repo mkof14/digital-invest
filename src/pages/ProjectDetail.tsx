@@ -461,13 +461,6 @@ const ProjectDetail = () => {
 
         <Separator className="my-12" />
 
-        {/* Unified Media Room: website, presentations, PDFs, video, documents */}
-        <ProjectMediaRoom
-          projectSlug={project.slug}
-          projectId={project.id}
-          websiteUrl={websiteUrl}
-          projectTitle={project.title}
-        />
 
         {/* AGRON Infographics */}
         {project.slug === 'agron' && (
