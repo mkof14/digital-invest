@@ -7,6 +7,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Moon, Salad, Activity, Clock, Brain, Sparkles, ArrowLeft } from 'lucide-react';
 import OptimizedImage from '@/components/OptimizedImage';
 import longevitycoreHero from '@/assets/projects/longevitycore-hero.jpg';
+import ProjectMediaRoomBySlug from '@/components/ProjectMediaRoomBySlug';
 
 const LongevityCore = () => {
   useEffect(() => {
@@ -139,6 +140,7 @@ const LongevityCore = () => {
         </div>
       </section>
 
+      <ProjectMediaRoomBySlug slug="longevitycore" />
       <Footer />
     </div>
   );

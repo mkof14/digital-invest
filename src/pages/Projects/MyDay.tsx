@@ -16,6 +16,7 @@ import mydayHero from "@/assets/projects/myday-hero.webp";
 import DownloadInvestorBriefButton from "@/components/DownloadInvestorBriefButton";
 import OptimizedImage from "@/components/OptimizedImage";
 import InvestorPageDisclaimer from "@/components/InvestorPageDisclaimer";
+import ProjectMediaRoomBySlug from '@/components/ProjectMediaRoomBySlug';
 
 const MyDay = () => {
   const { t } = useTranslation();
@@ -328,6 +329,7 @@ const MyDay = () => {
         </div>
       </main>
 
+      <ProjectMediaRoomBySlug slug="myday" />
       <Footer />
     </div>
   );

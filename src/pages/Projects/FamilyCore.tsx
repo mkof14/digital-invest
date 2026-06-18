@@ -8,6 +8,7 @@ import { Button } from '@/components/ui/button';
 import { Baby, Moon, Calendar, Salad, Heart, Shield, ArrowLeft } from 'lucide-react';
 import OptimizedImage from '@/components/OptimizedImage';
 import familycoreHero from '@/assets/projects/familycore-hero.jpg';
+import ProjectMediaRoomBySlug from '@/components/ProjectMediaRoomBySlug';
 
 const FamilyCore = () => {
   useEffect(() => {
@@ -140,6 +141,7 @@ const FamilyCore = () => {
         </div>
       </section>
 
+      <ProjectMediaRoomBySlug slug="familycore" />
       <Footer />
     </div>
   );

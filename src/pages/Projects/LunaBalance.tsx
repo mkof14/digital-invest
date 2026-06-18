@@ -14,6 +14,7 @@ import { InfographicsGallery, type Infographic } from '@/components/Infographics
 import lunaHero from '@/assets/projects/luna-hero.webp';
 import lunaLogo from '@/assets/projects/luna-logo.webp';
 import lunaInfographic from '@/assets/projects/luna-infographic.webp';
+import ProjectMediaRoomBySlug from '@/components/ProjectMediaRoomBySlug';
 
 const lunaInfographics: Infographic[] = [
   {
@@ -278,6 +279,7 @@ const LunaBalance = () => {
         onOpenChange={setShowInterestForm}
       />
 
+      <ProjectMediaRoomBySlug slug="luna-balance" />
       <Footer />
     </div>
   );

@@ -23,6 +23,7 @@ import robotImg from '@/assets/projects/saven-robot.webp';
 import robotElderlyImg from '@/assets/projects/saven-robot-elderly.webp';
 import infographicImg from '@/assets/projects/saven-infographic.webp';
 import acronymImg from '@/assets/projects/saven-acronym.png';
+import ProjectMediaRoomBySlug from '@/components/ProjectMediaRoomBySlug';
 
 const SAVEN = () => {
   const [project, setProject] = useState<any>(null);
@@ -611,6 +612,7 @@ const SAVEN = () => {
         <InvestorPageDisclaimer />
       </div>
 
+      <ProjectMediaRoomBySlug slug="saven" />
       <Footer />
     </div>
   );

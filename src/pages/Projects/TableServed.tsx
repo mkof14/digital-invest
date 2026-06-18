@@ -14,6 +14,7 @@ import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import InvestorPageDisclaimer from '@/components/InvestorPageDisclaimer';
 import heroImg from '@/assets/projects/tableserved-hero.webp';
+import ProjectMediaRoomBySlug from '@/components/ProjectMediaRoomBySlug';
 
 const TableServed = () => {
   const [project, setProject] = useState<any>(null);
@@ -245,6 +246,7 @@ const TableServed = () => {
         <InvestorPageDisclaimer />
       </div>
 
+      <ProjectMediaRoomBySlug slug="table-served" />
       <Footer />
     </div>
   );

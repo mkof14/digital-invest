@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 import biomathLifeHero from "@/assets/projects/biomathlife-hero.jpg";
 import DownloadInvestorBriefButton from "@/components/DownloadInvestorBriefButton";
 import InvestorPageDisclaimer from "@/components/InvestorPageDisclaimer";
+import ProjectMediaRoomBySlug from '@/components/ProjectMediaRoomBySlug';
 
 const BioMathLife = () => {
   const { t } = useTranslation();
@@ -643,6 +644,7 @@ const BioMathLife = () => {
         </div>
       </main>
 
+      <ProjectMediaRoomBySlug slug="biomathlife" />
       <Footer />
     </div>
   );

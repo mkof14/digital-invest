@@ -8,6 +8,7 @@ import { Badge } from '@/components/ui/badge';
 import { Brain, Heart, Zap, TrendingUp, MessageSquare, Activity, ArrowLeft } from 'lucide-react';
 import OptimizedImage from '@/components/OptimizedImage';
 import stresscoreHero from '@/assets/projects/stresscore-hero.jpg';
+import ProjectMediaRoomBySlug from '@/components/ProjectMediaRoomBySlug';
 
 const StressCore = () => {
   useEffect(() => {
@@ -158,6 +159,7 @@ const StressCore = () => {
           </section>
         </div>
 
+        <ProjectMediaRoomBySlug slug="stresscore" />
         <Footer />
       </div>
   );

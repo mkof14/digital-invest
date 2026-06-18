@@ -16,6 +16,7 @@ import OptimizedImage from '@/components/OptimizedImage';
 import InvestorPageDisclaimer from '@/components/InvestorPageDisclaimer';
 import t1dHero from '@/assets/projects/t1d-hero.jpg';
 import t1dVisual from '@/assets/projects/t1d-visual.jpg';
+import ProjectMediaRoomBySlug from '@/components/ProjectMediaRoomBySlug';
 
 /**
  * T1/2D — A unified platform for daily life with diabetes.
@@ -488,6 +489,7 @@ const T1D = () => {
         </div>
       </main>
 
+      <ProjectMediaRoomBySlug slug="t1d" />
       <Footer />
     </div>
   );
