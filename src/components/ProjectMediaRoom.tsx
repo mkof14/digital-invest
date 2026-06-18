@@ -197,25 +197,25 @@ const ProjectMediaRoom = ({ projectSlug, projectId, websiteUrl, projectTitle }: 
           <div className="flex gap-2">
             {active.kind === 'pdf' || active.kind === 'image' ? (
               <>
-                <Button variant="outline" size="sm" className="gap-2" asChild>
+                <Button variant="outline" size="sm" className="gap-2" aria-label={`Open ${active.title} in full screen`} asChild>
                   <a href={active.url} target="_blank" rel="noopener noreferrer">
                     <Maximize2 className="w-4 h-4" /> Fullscreen
                   </a>
                 </Button>
-                <Button size="sm" className="gap-2" asChild>
+                <Button size="sm" className="gap-2" aria-label={`Download ${active.title}`} asChild>
                   <a href={active.url} download={active.fileName}>
                     <Download className="w-4 h-4" /> Download
                   </a>
                 </Button>
               </>
             ) : active.kind === 'video' ? (
-              <Button variant="outline" size="sm" className="gap-2" asChild>
+              <Button variant="outline" size="sm" className="gap-2" aria-label={`Watch ${active.title} on YouTube`} asChild>
                 <a href={active.watchUrl ?? active.url} target="_blank" rel="noopener noreferrer">
                   <ExternalLink className="w-4 h-4" /> Open on YouTube
                 </a>
               </Button>
             ) : (
-              <Button variant="outline" size="sm" className="gap-2" asChild>
+              <Button variant="outline" size="sm" className="gap-2" aria-label={`Open ${active.title} in new browser tab`} asChild>
                 <a href={active.url} target="_blank" rel="noopener noreferrer">
                   <ExternalLink className="w-4 h-4" /> Open in new tab
                 </a>
@@ -235,6 +235,8 @@ const ProjectMediaRoom = ({ projectSlug, projectId, websiteUrl, projectTitle }: 
               <button
                 key={item.id}
                 onClick={() => setActiveId(item.id)}
+                aria-label={`Show preview for ${item.title}`}
+                aria-pressed={isActive}
                 className={`group relative text-left flex-shrink-0 lg:flex-shrink w-72 lg:w-auto p-4 rounded-xl border transition-all duration-300 ${
                   isActive
                     ? 'border-primary bg-primary/10 shadow-[0_0_0_1px_hsl(var(--primary)/0.4),0_10px_30px_-12px_hsl(var(--primary)/0.4)]'
@@ -374,10 +376,10 @@ const ProjectMediaRoom = ({ projectSlug, projectId, websiteUrl, projectTitle }: 
                     The file is taking too long or the source blocks embedding. Try again or open it in a new tab.
                   </div>
                   <div className="flex gap-2 mt-2">
-                    <Button size="sm" variant="outline" className="gap-2" onClick={retry}>
+                    <Button size="sm" variant="outline" className="gap-2" aria-label="Retry loading preview" onClick={retry}>
                       <RefreshCw className="w-4 h-4" /> Retry
                     </Button>
-                    <Button size="sm" className="gap-2" asChild>
+                    <Button size="sm" className="gap-2" aria-label="Open content in new browser tab" asChild>
                       <a href={active.watchUrl ?? active.url} target="_blank" rel="noopener noreferrer">
                         <ExternalLink className="w-4 h-4" /> Open in new tab
                       </a>
