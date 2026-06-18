@@ -37,7 +37,6 @@ const AGRONWork = () => {
     <div className="min-h-screen bg-background theme-agron">
       <Navigation />
 
-      <ProjectMediaRoomBySlug slug="agron-work" />
       <main className="container mx-auto px-4 py-8">
         {/* Hero Section */}
         <section className="relative py-32 -mx-4 px-4 overflow-hidden mb-16">
@@ -371,6 +370,7 @@ const AGRONWork = () => {
         <InvestorPageDisclaimer />
       </main>
 
+      <ProjectMediaRoomBySlug slug="agron-work" />
       <Footer />
     </div>
   );

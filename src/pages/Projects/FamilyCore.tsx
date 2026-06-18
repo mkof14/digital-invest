@@ -20,7 +20,6 @@ const FamilyCore = () => {
     <div className="min-h-screen bg-background">
       <Navigation />
       
-      <ProjectMediaRoomBySlug slug="familycore" />
       <section className="relative h-[60vh] min-h-[500px] flex items-center justify-center overflow-hidden">
         <OptimizedImage
           src={familycoreHero}
@@ -142,6 +141,7 @@ const FamilyCore = () => {
         </div>
       </section>
 
+      <ProjectMediaRoomBySlug slug="familycore" />
       <Footer />
     </div>
   );

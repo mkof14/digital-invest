@@ -36,7 +36,6 @@ const TableServed = () => {
     <div className="min-h-screen bg-background theme-tableserved">
       <Navigation />
 
-      <ProjectMediaRoomBySlug slug="table-served" />
       {/* Hero */}
       <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
@@ -247,6 +246,7 @@ const TableServed = () => {
         <InvestorPageDisclaimer />
       </div>
 
+      <ProjectMediaRoomBySlug slug="table-served" />
       <Footer />
     </div>
   );

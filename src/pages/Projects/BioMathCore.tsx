@@ -173,7 +173,6 @@ const BioMathCore = () => {
     <div className="theme-biomath min-h-screen bg-[hsl(var(--bm-bg))] text-[hsl(var(--bm-text))]">
       <Navigation />
       
-      <ProjectMediaRoomBySlug slug="biomath-core" />
       {/* ═══════════════════════ HERO ═══════════════════════ */}
       <section className="relative min-h-[92vh] flex items-center overflow-hidden bg-[hsl(var(--bm-bg-deep))]">
         {/* Deep space backdrop */}
@@ -1465,6 +1464,7 @@ const BioMathCore = () => {
         </div>
       </main>
 
+      <ProjectMediaRoomBySlug slug="biomath-core" />
       <Footer />
     </div>
   );

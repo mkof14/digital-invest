@@ -20,7 +20,6 @@ const SkinCore = () => {
     <div className="min-h-screen bg-background">
       <Navigation />
       
-      <ProjectMediaRoomBySlug slug="skincore" />
       <section className="relative h-[60vh] min-h-[500px] flex items-center justify-center overflow-hidden">
         <OptimizedImage
           src={skincoreHero}
@@ -82,6 +81,7 @@ const SkinCore = () => {
         </div>
       </section>
 
+      <ProjectMediaRoomBySlug slug="skincore" />
       <Footer />
     </div>
   );

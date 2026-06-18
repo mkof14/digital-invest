@@ -20,7 +20,6 @@ const StressCore = () => {
     <div className="min-h-screen bg-background">
         <Navigation />
 
-        <ProjectMediaRoomBySlug slug="stresscore" />
         <div className="relative h-[60vh] min-h-[500px] overflow-hidden">
           <OptimizedImage
             src={stresscoreHero}
@@ -160,6 +159,7 @@ const StressCore = () => {
           </section>
         </div>
 
+        <ProjectMediaRoomBySlug slug="stresscore" />
         <Footer />
       </div>
   );
