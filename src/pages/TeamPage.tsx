@@ -3,9 +3,11 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/com
 import { Linkedin, Building2, CheckCircle2 } from 'lucide-react';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
+import { useTeamAboutCacheRefresh } from '@/lib/teamAboutCache';
 
 const TeamPage = () => {
   const { t } = useTranslation();
+  useTeamAboutCacheRefresh();
 
   return (
     <div className="min-h-screen bg-background">
