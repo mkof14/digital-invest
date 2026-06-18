@@ -24,7 +24,7 @@ import agronInfographic from '@/assets/projects/agron-infographic.webp';
 import agronInfographic1 from '@/assets/agron-infographic-1.webp';
 import agronInfographic2 from '@/assets/agron-infographic-2.webp';
 import { InfographicsGallery } from '@/components/InfographicsGallery';
-import AgronMediaShowcase from '@/components/AgronMediaShowcase';
+
 
 interface Project {
   id: string;
