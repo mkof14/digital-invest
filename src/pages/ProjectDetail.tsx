@@ -461,8 +461,13 @@ const ProjectDetail = () => {
 
         <Separator className="my-12" />
 
-        {/* Documents & Resources Section */}
-        <ProjectDocumentsSection projectSlug={project.slug} projectId={project.id} />
+        {/* Unified Media Room: website, presentations, PDFs, video, documents */}
+        <ProjectMediaRoom
+          projectSlug={project.slug}
+          projectId={project.id}
+          websiteUrl={websiteUrl}
+          projectTitle={project.title}
+        />
 
         {/* AGRON Infographics */}
         {project.slug === 'agron' && (
@@ -477,9 +482,6 @@ const ProjectDetail = () => {
             />
           </section>
         )}
-
-        {/* AGRON Media Showcase (PDFs + Video) */}
-        {project.slug === 'agron' && <AgronMediaShowcase />}
 
         {/* Investment Highlights Section */}
         <section className="mb-16">
