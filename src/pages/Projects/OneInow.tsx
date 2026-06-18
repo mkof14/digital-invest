@@ -7,9 +7,11 @@ import { Link } from "react-router-dom";
 import {
   ArrowRight, ArrowLeft, Globe, MessageSquare, Layers, Brain, Lock,
   Sparkles, CheckCircle2, Eye, GitBranch, Inbox, Workflow, Users, Mic,
+  FileText, Download,
 } from "lucide-react";
 import oneinowLogo from "@/assets/projects/1inow-logo.png";
 import oneinowHero from "@/assets/projects/1inow-hero.jpg";
+import oneinowPdf from "@/assets/projects/1inow-environment.pdf.asset.json";
 import OptimizedImage from "@/components/OptimizedImage";
 import InvestorPageDisclaimer from "@/components/InvestorPageDisclaimer";
 import DownloadInvestorBriefButton from "@/components/DownloadInvestorBriefButton";
@@ -292,6 +294,16 @@ const OneInow = () => {
                 </a>
               </Button>
               <DownloadInvestorBriefButton projectSlug="1inow" size="lg" />
+              <Button
+                size="lg"
+                variant="outline"
+                asChild
+                style={{ borderColor: `${BRAND.accent}55`, color: BRAND.text, background: "transparent" }}
+              >
+                <a href={oneinowPdf.url} target="_blank" rel="noopener noreferrer" download className="flex items-center gap-2">
+                  <FileText className="h-5 w-5" /> Presentation (PDF)
+                </a>
+              </Button>
             </div>
           </div>
         </section>
