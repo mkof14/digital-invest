@@ -222,6 +222,7 @@ const App = () => (
                 <Route path="launch-checklist" element={<AdminLaunchChecklist />} />
                 <Route path="project-documents" element={<AdminProjectDocuments />} />
                 <Route path="presentations" element={<AdminPresentations />} />
+                <Route path="resources" element={<AdminResources />} />
               </Route>
               
               {/* Legacy Project Routes */}
