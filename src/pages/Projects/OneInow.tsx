@@ -164,8 +164,11 @@ const OneInow = () => {
           </div>
         </section>
 
+        {/* SECTION NAV */}
+        <SectionNav brand={BRAND} />
+
         {/* OVERVIEW */}
-        <section className="container mx-auto px-4 py-20">
+        <section id="overview" className="container mx-auto px-4 py-20 scroll-mt-24">
           <div className="max-w-3xl">
             <div className="text-xs tracking-[0.25em] uppercase mb-4" style={{ color: BRAND.accent }}>Overview</div>
             <h2 className="text-3xl md:text-4xl font-semibold mb-6 leading-tight">
