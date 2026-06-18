@@ -299,7 +299,7 @@ const OneInow = () => {
         </section>
 
         {/* PRIVACY & COMMUNICATION */}
-        <section className="py-20" style={{ background: BRAND.surface }}>
+        <section id="privacy" className="py-20 scroll-mt-24" style={{ background: BRAND.surface }}>
           <div className="container mx-auto px-4 grid md:grid-cols-2 gap-8">
             <Card className="border-0" style={{ background: BRAND.surfaceSoft }}>
               <CardHeader>
