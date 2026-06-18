@@ -185,7 +185,7 @@ const OneInow = () => {
         </section>
 
         {/* CORE PRINCIPLES */}
-        <section className="py-20" style={{ background: BRAND.surface }}>
+        <section id="principles" className="py-20 scroll-mt-24" style={{ background: BRAND.surface }}>
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mb-12">
               <div className="text-xs tracking-[0.25em] uppercase mb-4" style={{ color: BRAND.accent }}>Core Principles</div>
