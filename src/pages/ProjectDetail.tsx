@@ -682,6 +682,15 @@ const ProjectDetail = () => {
           </div>
         </div>
 
+        {/* Unified Media Room: website, presentations, PDFs, video, documents */}
+        <ProjectMediaRoom
+          projectSlug={project.slug}
+          projectId={project.id}
+          websiteUrl={websiteUrl}
+          projectTitle={project.title}
+        />
+
+
         {/* Investor Page Disclaimer - Bottom of Page */}
         <InvestorPageDisclaimer className="mt-12" />
 
