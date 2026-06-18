@@ -761,6 +761,9 @@ const Index = () => {
         </div>
       </section>
 
+      {/* ═══════════════════ CURRENT ACTIVITY STRIP ═══════════════════ */}
+      <ActivityStrip />
+
       {/* ═══════════════════ CTA — Full-width Dramatic ═══════════════════ */}
       <section className="py-20 md:py-28 px-4 section-gradient-warm">
         <div className="max-w-5xl mx-auto">
