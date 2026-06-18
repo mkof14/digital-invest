@@ -91,6 +91,7 @@ const BioMathCore = lazy(() => import("./pages/Projects/BioMathCore"));
 const TerraAero = lazy(() => import("./pages/Projects/TerraAero"));
 const DigitalInvest = lazy(() => import("./pages/Projects/DigitalInvest"));
 const MyDay = lazy(() => import("./pages/Projects/MyDay"));
+const OneInow = lazy(() => import("./pages/Projects/OneInow"));
 const ItsGoodToday = lazy(() => import("./pages/Projects/ItsGoodToday"));
 const AGRON = lazy(() => import("./pages/Projects/AGRON"));
 const AGRONWork = lazy(() => import("./pages/Projects/AGRONWork"));
@@ -217,6 +218,7 @@ const App = () => (
               <Route path="/projects/terraaero" element={<TerraAero />} />
               <Route path="/projects/digital-invest" element={<DigitalInvest />} />
               <Route path="/projects/myday" element={<MyDay />} />
+              <Route path="/projects/1inow" element={<OneInow />} />
               <Route path="/projects/itsgoodtoday" element={<ItsGoodToday />} />
               <Route path="/projects/luna-balance" element={<LunaBalance />} />
               <Route path="/projects/stresscore" element={<StressCore />} />

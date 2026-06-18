@@ -198,6 +198,15 @@ const overviewTexts: Record<string, Record<string, string>> = {
     ja: '1型・2型糖尿病の日常生活のための統合プラットフォーム。T1/2Dは連続信号をシンプルな状態に変換し、2つの独立したモードで動作するため、子供、親、介護者、2型の大人が同じ体験を強いられません。アラームベースのダッシュボードはありません。',
     he: 'פלטפורמה מאוחדת לחיי היומיום עם סוכרת מסוג 1 ו-2. T1/2D מתרגם אותות רציפים למצבים פשוטים ופועל בשני מצבים נפרדים כך שילדים, הורים, מטפלים ומבוגרים מסוג 2 לא נאלצים לחוות את אותה חוויה. ללא לוחות מחוונים מבוססי התראות כברירת מחדל.'
   },
+  '1inow': {
+    en: 'One place. One context. Right now. 1inow is a personal and business intelligence environment that quietly connects tasks, notes, projects, files, meetings and messages into a single living context — so users remember less and understand more. Not another app demanding attention: a unified environment where everything naturally works together.',
+    ru: 'Одно место. Один контекст. Прямо сейчас. 1inow — среда личного и делового интеллекта, которая тихо связывает задачи, заметки, проекты, файлы, встречи и сообщения в единый живой контекст. Пользователь меньше помнит — больше понимает. Не очередное приложение, требующее внимания, а единая среда, где всё работает естественно.',
+    uk: 'Одне місце. Один контекст. Просто зараз. 1inow — середовище особистого та бізнес-інтелекту, що тихо з\'єднує задачі, нотатки, проєкти, файли, зустрічі та повідомлення в єдиний живий контекст. Користувач менше пам\'ятає — більше розуміє.',
+    fr: 'Un lieu. Un contexte. Maintenant. 1inow est un environnement d\'intelligence personnelle et professionnelle qui relie discrètement tâches, notes, projets, fichiers, réunions et messages en un seul contexte vivant. Moins de mémoire à charger, plus de compréhension.',
+    ar: 'مكان واحد. سياق واحد. الآن. 1inow بيئة ذكاء شخصي وتجاري تربط بهدوء المهام والملاحظات والمشاريع والملفات والاجتماعات والرسائل في سياق واحد حي. تذكَّر أقل، افهم أكثر.',
+    ja: 'ひとつの場所。ひとつの文脈。今、この瞬間。1inowはタスク、ノート、プロジェクト、ファイル、ミーティング、メッセージを静かにひとつの生きた文脈に結びつける、個人・ビジネス向けインテリジェンス環境です。覚えることを減らし、理解を深める。',
+    he: 'מקום אחד. הקשר אחד. עכשיו. 1inow היא סביבת אינטליגנציה אישית ועסקית שמחברת בשקט משימות, הערות, פרויקטים, קבצים, פגישות והודעות להקשר חי אחד. לזכור פחות, להבין יותר.'
+  },
   'digital-invest-portfolio': {
     en: 'The umbrella that holds it all. Digital Invest is a multi-sector portfolio company incubating and scaling technology ventures from health to robotics to food systems. Every project shares infrastructure, data layers, and operational principles — creating compounding value across the entire ecosystem.',
     ru: 'Зонтик, который держит всё. Digital Invest — мультисекторная портфельная компания, инкубирующая и масштабирующая проекты от здоровья до робототехники. Каждый проект делит инфраструктуру, дата-слои и операционные принципы — создавая совокупную ценность по всей экосистеме.',
@@ -234,6 +243,7 @@ const projectOrder: string[] = [
   'agron-work',
   'terraaero',
   'myday',
+  '1inow',
   'itsgoodtoday',
   'table-served',
 ];
@@ -251,6 +261,7 @@ const accentGradients: Record<string, string> = {
   'agron': 'from-lime-500/20 to-lime-500/0',
   'agron-work': 'from-amber-500/20 to-amber-500/0',
   'myday': 'from-indigo-500/20 to-indigo-500/0',
+  '1inow': 'from-emerald-400/20 to-emerald-400/0',
   'itsgoodtoday': 'from-orange-500/20 to-orange-500/0',
   'mrx-health': 'from-rose-500/20 to-rose-500/0',
   'table-served': 'from-amber-400/20 to-amber-400/0',
@@ -276,6 +287,7 @@ const accentDots: Record<string, string> = {
   'agron': 'bg-lime-500',
   'agron-work': 'bg-amber-500',
   'myday': 'bg-indigo-500',
+  '1inow': 'bg-emerald-400',
   'itsgoodtoday': 'bg-orange-500',
   'mrx-health': 'bg-rose-500',
   'table-served': 'bg-amber-400',
@@ -302,6 +314,7 @@ const accentPalette: Record<string, { text: string; border: string; bgSoft: stri
   'agron':          { text: 'text-lime-400',    border: 'border-lime-500/60',    bgSoft: 'bg-lime-500/10',    glow: 'shadow-lime-500/20',    ring: 'ring-lime-500/40' },
   'agron-work':     { text: 'text-amber-400',   border: 'border-amber-500/60',   bgSoft: 'bg-amber-500/10',   glow: 'shadow-amber-500/20',   ring: 'ring-amber-500/40' },
   'myday':          { text: 'text-indigo-400',  border: 'border-indigo-500/60',  bgSoft: 'bg-indigo-500/10',  glow: 'shadow-indigo-500/20',  ring: 'ring-indigo-500/40' },
+  '1inow':          { text: 'text-emerald-300', border: 'border-emerald-400/60', bgSoft: 'bg-emerald-400/10', glow: 'shadow-emerald-400/20', ring: 'ring-emerald-400/40' },
   'itsgoodtoday':   { text: 'text-orange-400',  border: 'border-orange-500/60',  bgSoft: 'bg-orange-500/10',  glow: 'shadow-orange-500/20',  ring: 'ring-orange-500/40' },
   'mrx-health':     { text: 'text-rose-400',    border: 'border-rose-500/60',    bgSoft: 'bg-rose-500/10',    glow: 'shadow-rose-500/20',    ring: 'ring-rose-500/40' },
   'table-served':   { text: 'text-amber-300',   border: 'border-amber-400/60',   bgSoft: 'bg-amber-400/10',   glow: 'shadow-amber-400/20',   ring: 'ring-amber-400/40' },
