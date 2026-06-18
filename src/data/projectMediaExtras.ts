@@ -60,6 +60,7 @@ const extrasBySlug: Record<string, MediaItem[]> = {
       meta: 'PDF · Deployment & tactics',
       url: agronTacticalPdf.url,
       fileName: 'AGRON_Tactical_Blueprint.pdf',
+      updatedAt: agronTacticalPdf.created_at,
     },
     {
       kind: 'pdf',
@@ -69,6 +70,7 @@ const extrasBySlug: Record<string, MediaItem[]> = {
       meta: 'PDF · Vol. I',
       url: agronAutonomousPdf.url,
       fileName: 'Autonomous_Workforce_Infrastructure.pdf',
+      updatedAt: agronAutonomousPdf.created_at,
     },
     {
       kind: 'pdf',
@@ -78,6 +80,7 @@ const extrasBySlug: Record<string, MediaItem[]> = {
       meta: 'PDF · Vol. II',
       url: agronAutonomousV2Pdf.url,
       fileName: 'Autonomous_Workforce_Infrastructure_v2.pdf',
+      updatedAt: agronAutonomousV2Pdf.created_at,
     },
     {
       kind: 'video',
