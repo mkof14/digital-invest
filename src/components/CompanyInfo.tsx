@@ -53,9 +53,9 @@ const CompanyInfo = () => {
         </h1>
         
         <p className="text-xl text-muted-foreground mb-8 max-w-4xl mx-auto leading-relaxed">
-          Digital Invest Inc. (formerly GENEX Company) — a biotechnology research company 
-          operating since 2010 in advanced human genome analysis and biomathematical modeling. 
-          Our CEO Michael Kofman is an experienced technology leader with over 30 years of experience.
+          Digital Invest Inc. is a technology holding company focused on human data systems, 
+          robotics operations, and advanced materials. Founder, CEO & President Michael Kofman 
+          brings more than 25 years of experience creating and scaling technology-driven businesses.
         </p>
         
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto mb-12">
@@ -154,12 +154,10 @@ const CompanyInfo = () => {
             <div className="lg:col-span-2">
               <h3 className="text-2xl font-bold mb-2">Michael Kofman</h3>
               <Badge className="mb-4 bg-secondary/10 text-secondary border-secondary/20">
-                CEO & Founder
+                Founder, CEO & President
               </Badge>
               <p className="text-muted-foreground mb-4">
-                CEO/President of Digital Invest Inc. Over 30 years of experience in leading, founding, and consulting 
-                companies in the USA and Europe. Technology visionary, strategic consultant, and entrepreneur. 
-                Since 2010, leading the company in biomathematical modeling and precision medicine.
+                Founder and technology entrepreneur with more than 25 years of experience creating and scaling technology-driven businesses. Leads Digital Invest Inc., a company focused on human data systems, robotics operations, and advanced materials. Combines engineering, product development, and long-term strategic execution across multiple technology sectors.
               </p>
               <div className="flex space-x-4">
                 <Button variant="outline" size="sm">
