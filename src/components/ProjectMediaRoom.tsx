@@ -291,17 +291,21 @@ const ProjectMediaRoom = ({ projectSlug, projectId, websiteUrl, projectTitle }: 
             <div className="relative w-full bg-muted" style={{ height: 'min(75vh, 720px)' }}>
               {active?.kind === 'pdf' && (
                 <iframe
-                  key={active.id}
+                  key={`${active.id}-${reloadKey}`}
                   src={`${active.url}#view=FitH&toolbar=1`}
                   title={active.title}
+                  onLoad={handleLoaded}
+                  onError={handleError}
                   className="absolute inset-0 w-full h-full border-0 animate-fade-in"
                 />
               )}
               {active?.kind === 'video' && (
                 <iframe
-                  key={active.id}
+                  key={`${active.id}-${reloadKey}`}
                   src={active.embed ?? active.url}
                   title={active.title}
+                  onLoad={handleLoaded}
+                  onError={handleError}
                   className="absolute inset-0 w-full h-full border-0 animate-fade-in"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   allowFullScreen
@@ -309,18 +313,22 @@ const ProjectMediaRoom = ({ projectSlug, projectId, websiteUrl, projectTitle }: 
               )}
               {active?.kind === 'image' && (
                 <img
-                  key={active.id}
+                  key={`${active.id}-${reloadKey}`}
                   src={active.url}
                   alt={active.title}
+                  onLoad={handleLoaded}
+                  onError={handleError}
                   className="absolute inset-0 w-full h-full object-contain animate-fade-in bg-background"
                 />
               )}
               {(active?.kind === 'website' || active?.kind === 'link') && (
                 <div className="absolute inset-0 flex flex-col">
                   <iframe
-                    key={active.id}
+                    key={`${active.id}-${reloadKey}`}
                     src={active.url}
                     title={active.title}
+                    onLoad={handleLoaded}
+                    onError={handleError}
                     className="flex-1 w-full border-0 animate-fade-in bg-background"
                     sandbox="allow-scripts allow-same-origin allow-popups allow-forms"
                     referrerPolicy="no-referrer"
@@ -337,6 +345,43 @@ const ProjectMediaRoom = ({ projectSlug, projectId, websiteUrl, projectTitle }: 
                     >
                       Open <ExternalLink className="w-3 h-3" />
                     </a>
+                  </div>
+                </div>
+              )}
+
+              {/* Loading overlay */}
+              {status === 'loading' && active && (
+                <div className="absolute inset-0 z-10 flex flex-col items-center justify-center gap-3 bg-background/80 backdrop-blur-sm animate-fade-in">
+                  <Loader2 className="w-8 h-8 text-primary animate-spin" />
+                  <div className="text-sm font-medium text-foreground">Loading {kindMeta(active.kind).toLowerCase()}…</div>
+                  <div className="text-xs text-muted-foreground max-w-xs text-center truncate px-4">
+                    {active.title}
+                  </div>
+                  <div className="w-40 h-1 rounded-full bg-muted overflow-hidden mt-1">
+                    <div className="h-full w-1/3 bg-primary animate-[loading-bar_1.2s_ease-in-out_infinite]" />
+                  </div>
+                </div>
+              )}
+
+              {/* Error overlay */}
+              {status === 'error' && active && (
+                <div className="absolute inset-0 z-10 flex flex-col items-center justify-center gap-3 bg-background/90 backdrop-blur-sm animate-fade-in p-6 text-center">
+                  <div className="w-12 h-12 rounded-full bg-destructive/10 flex items-center justify-center">
+                    <AlertTriangle className="w-6 h-6 text-destructive" />
+                  </div>
+                  <div className="text-base font-semibold text-foreground">Preview couldn't load</div>
+                  <div className="text-sm text-muted-foreground max-w-md">
+                    The file is taking too long or the source blocks embedding. Try again or open it in a new tab.
+                  </div>
+                  <div className="flex gap-2 mt-2">
+                    <Button size="sm" variant="outline" className="gap-2" onClick={retry}>
+                      <RefreshCw className="w-4 h-4" /> Retry
+                    </Button>
+                    <Button size="sm" className="gap-2" asChild>
+                      <a href={active.watchUrl ?? active.url} target="_blank" rel="noopener noreferrer">
+                        <ExternalLink className="w-4 h-4" /> Open in new tab
+                      </a>
+                    </Button>
                   </div>
                 </div>
               )}
