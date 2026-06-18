@@ -73,8 +73,9 @@ const OneInow = () => {
     updateMetaTags({
       title: "1inow \u2014 One place. One context. Right now.",
       description: "1inow is a personal and business intelligence environment that connects tasks, notes, projects, files, meetings and messages into a single living context.",
-      url: typeof window !== "undefined" ? window.location.href : undefined,
-      image: oneinowHero,
+      ogImage: oneinowHero,
+      twitterImage: oneinowHero,
+      canonicalUrl: typeof window !== "undefined" ? window.location.href : undefined,
     });
     return () => resetMetaTags();
   }, []);
