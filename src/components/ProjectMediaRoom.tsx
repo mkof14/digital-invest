@@ -7,19 +7,21 @@ import {
   Download,
   Maximize2,
   PlayCircle,
-  ChevronRight,
   Film,
   Globe,
   ExternalLink,
   Loader2,
   AlertTriangle,
   RefreshCw,
+  Image as ImageIcon,
+  Calendar,
 } from 'lucide-react';
 import {
   ProjectDocumentRecord,
   getDocumentUrl,
   isPreviewable,
   getFileExtension,
+  getFileTypeColor,
 } from './documents/documentUtils';
 import { getProjectMediaExtras } from '@/data/projectMediaExtras';
 
@@ -31,10 +33,13 @@ export interface MediaItem {
   title: string;
   subtitle?: string;
   meta?: string;
-  url: string;       // for pdf/image/link/website — preview url
-  embed?: string;    // for video — embed url
-  watchUrl?: string; // for video — external watch url
-  fileName?: string; // for pdf download
+  url: string;
+  embed?: string;
+  watchUrl?: string;
+  fileName?: string;
+  thumbnail?: string;   // optional preview image for the grid card
+  badge?: string;       // file-type badge label (e.g. PDF, MP4, IMG, LINK)
+  updatedAt?: string;   // ISO date string — rendered as "Updated …"
 }
 
 interface Props {
@@ -44,12 +49,10 @@ interface Props {
   projectTitle?: string;
 }
 
-const kindIcon = (k: MediaKind) => {
-  if (k === 'video') return Film;
-  if (k === 'website') return Globe;
-  if (k === 'link') return ExternalLink;
-  return FileText;
-};
+interface ProjectDocumentRow extends ProjectDocumentRecord {
+  updated_at?: string | null;
+  created_at?: string | null;
+}
 
 const kindMeta = (k: MediaKind) => {
   if (k === 'video') return 'Video';
@@ -59,14 +62,55 @@ const kindMeta = (k: MediaKind) => {
   return 'PDF';
 };
 
+const defaultBadge = (item: MediaItem): string => {
+  if (item.badge) return item.badge;
+  if (item.kind === 'video') return 'MP4';
+  if (item.kind === 'website') return 'WEB';
+  if (item.kind === 'link') return 'LINK';
+  if (item.kind === 'image') return 'IMG';
+  return 'PDF';
+};
+
+const youtubeIdFromUrl = (url?: string): string | null => {
+  if (!url) return null;
+  const m = url.match(/(?:youtube\.com\/(?:embed\/|watch\?v=)|youtu\.be\/)([\w-]{6,})/);
+  return m ? m[1] : null;
+};
+
+const defaultThumb = (item: MediaItem): string | null => {
+  if (item.thumbnail) return item.thumbnail;
+  if (item.kind === 'image') return item.url;
+  if (item.kind === 'video') {
+    const id = youtubeIdFromUrl(item.embed ?? item.watchUrl ?? item.url);
+    return id ? `https://img.youtube.com/vi/${id}/hqdefault.jpg` : null;
+  }
+  return null;
+};
+
+const formatDate = (iso?: string): string | null => {
+  if (!iso) return null;
+  const d = new Date(iso);
+  if (Number.isNaN(d.getTime())) return null;
+  return d.toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' });
+};
+
+const ThumbFallback = ({ item }: { item: MediaItem }) => {
+  const Icon = item.kind === 'video' ? PlayCircle : item.kind === 'website' || item.kind === 'link' ? Globe : item.kind === 'image' ? ImageIcon : FileText;
+  return (
+    <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-primary/15 via-muted to-accent/15">
+      <Icon className="w-12 h-12 text-primary/60" />
+    </div>
+  );
+};
+
 const ProjectMediaRoom = ({ projectSlug, projectId, websiteUrl, projectTitle }: Props) => {
-  const [dbDocs, setDbDocs] = useState<ProjectDocumentRecord[]>([]);
+  const [dbDocs, setDbDocs] = useState<ProjectDocumentRow[]>([]);
 
   useEffect(() => {
     const fetchDocs = async () => {
       let query = supabase
         .from('project_documents')
-        .select('id, title, document_type, description, file_path, file_name, file_type, file_size, external_url, sort_order')
+        .select('id, title, document_type, description, file_path, file_name, file_type, file_size, external_url, sort_order, updated_at, created_at')
         .eq('is_visible', true)
         .order('sort_order', { ascending: true });
       if (projectId) {
@@ -75,7 +119,7 @@ const ProjectMediaRoom = ({ projectSlug, projectId, websiteUrl, projectTitle }: 
         query = query.eq('project_slug', projectSlug);
       }
       const { data, error } = await query;
-      if (!error && data) setDbDocs(data);
+      if (!error && data) setDbDocs(data as ProjectDocumentRow[]);
     };
     fetchDocs();
   }, [projectSlug, projectId]);
@@ -91,6 +135,7 @@ const ProjectMediaRoom = ({ projectSlug, projectId, websiteUrl, projectTitle }: 
         subtitle: websiteUrl.replace(/^https?:\/\//, '').replace(/\/$/, ''),
         meta: 'Live site',
         url: websiteUrl,
+        badge: 'WEB',
       });
     }
 
@@ -98,48 +143,28 @@ const ProjectMediaRoom = ({ projectSlug, projectId, websiteUrl, projectTitle }: 
     result.push(...extras);
 
     for (const d of dbDocs) {
-      const ext = getFileExtension(d).toLowerCase();
-      const isPdf = ext === 'pdf' || (d.file_type || '').includes('pdf');
+      const ext = getFileExtension(d).toUpperCase();
+      const isPdf = ext === 'PDF' || (d.file_type || '').includes('pdf');
       const url = getDocumentUrl(d);
+      const updatedAt = d.updated_at ?? d.created_at ?? undefined;
+      const base = {
+        id: `db-${d.id}`,
+        title: d.title,
+        subtitle: d.document_type ?? undefined,
+        meta: ext || 'File',
+        url,
+        fileName: d.file_name ?? undefined,
+        badge: ext,
+        updatedAt,
+      };
       if (d.external_url && !d.file_path) {
-        result.push({
-          kind: 'link',
-          id: `db-${d.id}`,
-          title: d.title,
-          subtitle: d.document_type ?? undefined,
-          meta: 'External link',
-          url,
-        });
+        result.push({ ...base, kind: 'link', badge: 'LINK' });
       } else if (isPreviewable(d) && isPdf) {
-        result.push({
-          kind: 'pdf',
-          id: `db-${d.id}`,
-          title: d.title,
-          subtitle: d.document_type ?? undefined,
-          meta: 'PDF',
-          url,
-          fileName: d.file_name ?? undefined,
-        });
+        result.push({ ...base, kind: 'pdf', badge: 'PDF' });
       } else if (isPreviewable(d)) {
-        result.push({
-          kind: 'image',
-          id: `db-${d.id}`,
-          title: d.title,
-          subtitle: d.document_type ?? undefined,
-          meta: ext.toUpperCase() || 'Image',
-          url,
-          fileName: d.file_name ?? undefined,
-        });
+        result.push({ ...base, kind: 'image', thumbnail: url });
       } else {
-        result.push({
-          kind: 'link',
-          id: `db-${d.id}`,
-          title: d.title,
-          subtitle: d.document_type ?? undefined,
-          meta: ext.toUpperCase() || 'File',
-          url,
-          fileName: d.file_name ?? undefined,
-        });
+        result.push({ ...base, kind: 'link' });
       }
     }
 
@@ -157,7 +182,6 @@ const ProjectMediaRoom = ({ projectSlug, projectId, websiteUrl, projectTitle }: 
     if (!active) return;
     setStatus('loading');
     if (timeoutRef.current) window.clearTimeout(timeoutRef.current);
-    // Fail-safe: if nothing reports load within 15s, surface an error state.
     timeoutRef.current = window.setTimeout(() => {
       setStatus((s) => (s === 'loading' ? 'error' : s));
     }, 15000) as unknown as number;
@@ -180,118 +204,135 @@ const ProjectMediaRoom = ({ projectSlug, projectId, websiteUrl, projectTitle }: 
 
   return (
     <section className="mb-16">
-      <div className="flex items-end justify-between flex-wrap gap-4 mb-6">
-        <div>
-          <div className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-primary mb-2">
-            <span className="h-px w-8 bg-primary/60" /> Media Room
-          </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-            Presentations, Documents & Video
-          </h2>
-          <p className="text-muted-foreground mt-2 max-w-2xl">
-            Pick an item on the left — it opens instantly in the preview pane. Download, open
-            externally, or expand to fullscreen at any time.
-          </p>
-        </div>
-        {active && (
-          <div className="flex gap-2">
-            {active.kind === 'pdf' || active.kind === 'image' ? (
-              <>
-                <Button variant="outline" size="sm" className="gap-2" aria-label={`Open ${active.title} in full screen`} asChild>
-                  <a href={active.url} target="_blank" rel="noopener noreferrer">
-                    <Maximize2 className="w-4 h-4" /> Fullscreen
-                  </a>
-                </Button>
-                <Button size="sm" className="gap-2" aria-label={`Download ${active.title}`} asChild>
-                  <a href={active.url} download={active.fileName}>
-                    <Download className="w-4 h-4" /> Download
-                  </a>
-                </Button>
-              </>
-            ) : active.kind === 'video' ? (
-              <Button variant="outline" size="sm" className="gap-2" aria-label={`Watch ${active.title} on YouTube`} asChild>
-                <a href={active.watchUrl ?? active.url} target="_blank" rel="noopener noreferrer">
-                  <ExternalLink className="w-4 h-4" /> Open on YouTube
-                </a>
-              </Button>
-            ) : (
-              <Button variant="outline" size="sm" className="gap-2" aria-label={`Open ${active.title} in new browser tab`} asChild>
-                <a href={active.url} target="_blank" rel="noopener noreferrer">
-                  <ExternalLink className="w-4 h-4" /> Open in new tab
-                </a>
-              </Button>
-            )}
-          </div>
-        )}
+      {/* Grid of uniform cards */}
+      <div
+        role="list"
+        aria-label="Media items"
+        className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-8"
+      >
+        {items.map((item) => {
+          const isActive = item.id === active?.id;
+          const thumb = defaultThumb(item);
+          const badge = defaultBadge(item);
+          const dateLabel = formatDate(item.updatedAt);
+          return (
+            <button
+              key={item.id}
+              role="listitem"
+              onClick={() => setActiveId(item.id)}
+              aria-label={`Open ${item.title}`}
+              aria-pressed={isActive}
+              className={`group text-left rounded-xl border bg-card overflow-hidden transition-all duration-300 hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary ${
+                isActive
+                  ? 'border-primary shadow-[0_0_0_1px_hsl(var(--primary)/0.4),0_18px_40px_-18px_hsl(var(--primary)/0.5)]'
+                  : 'border-border/60 hover:border-primary/50 hover:shadow-lg'
+              }`}
+            >
+              {/* Thumbnail (consistent 16:10 frame for every card) */}
+              <div className="relative w-full aspect-[16/10] bg-muted overflow-hidden">
+                {thumb ? (
+                  <img
+                    src={thumb}
+                    alt=""
+                    loading="lazy"
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+                    onError={(e) => {
+                      (e.currentTarget as HTMLImageElement).style.display = 'none';
+                    }}
+                  />
+                ) : (
+                  <ThumbFallback item={item} />
+                )}
+                {/* Always-visible fallback layer behind the image */}
+                {!thumb && <ThumbFallback item={item} />}
+                {/* Overlay for video */}
+                {item.kind === 'video' && (
+                  <div className="absolute inset-0 flex items-center justify-center bg-black/30">
+                    <PlayCircle className="w-14 h-14 text-white drop-shadow-lg" />
+                  </div>
+                )}
+                {/* File-type badge */}
+                <span
+                  className={`absolute top-2 left-2 inline-flex items-center px-2 py-0.5 rounded-md text-[10px] font-bold tracking-wider border ${getFileTypeColor(badge)}`}
+                >
+                  {badge}
+                </span>
+                {isActive && (
+                  <span className="absolute top-2 right-2 inline-flex items-center px-2 py-0.5 rounded-md text-[10px] font-semibold bg-primary text-primary-foreground">
+                    Open
+                  </span>
+                )}
+              </div>
+              {/* Meta row */}
+              <div className="p-3">
+                <h3 className="text-sm font-semibold text-foreground leading-tight line-clamp-2 min-h-[2.5rem]">
+                  {item.title}
+                </h3>
+                {item.subtitle && (
+                  <p className="text-xs text-muted-foreground mt-1 line-clamp-1">{item.subtitle}</p>
+                )}
+                <div className="flex items-center gap-1.5 mt-2 text-[11px] text-muted-foreground">
+                  <Calendar className="w-3 h-3" />
+                  <span>{dateLabel ? `Updated ${dateLabel}` : item.meta ?? kindMeta(item.kind)}</span>
+                </div>
+              </div>
+            </button>
+          );
+        })}
       </div>
 
-      <div className="grid lg:grid-cols-[320px_1fr] gap-4">
-        {/* Selector rail */}
-        <div className="flex lg:flex-col gap-3 overflow-x-auto lg:overflow-visible pb-2 lg:pb-0">
-          {items.map((item) => {
-            const isActive = item.id === active?.id;
-            const Icon = kindIcon(item.kind);
-            return (
-              <button
-                key={item.id}
-                onClick={() => setActiveId(item.id)}
-                aria-label={`Show preview for ${item.title}`}
-                aria-pressed={isActive}
-                className={`group relative text-left flex-shrink-0 lg:flex-shrink w-72 lg:w-auto p-4 rounded-xl border transition-all duration-300 ${
-                  isActive
-                    ? 'border-primary bg-primary/10 shadow-[0_0_0_1px_hsl(var(--primary)/0.4),0_10px_30px_-12px_hsl(var(--primary)/0.4)]'
-                    : 'border-border/60 bg-card hover:border-primary/40 hover:bg-card/80'
-                }`}
-              >
-                <div className="flex items-start gap-3">
-                  <div
-                    className={`w-11 h-11 rounded-lg flex items-center justify-center flex-shrink-0 transition-colors ${
-                      isActive
-                        ? 'bg-primary text-primary-foreground'
-                        : 'bg-primary/10 text-primary group-hover:bg-primary/20'
-                    }`}
-                  >
-                    {item.kind === 'video' ? <PlayCircle className="w-5 h-5" /> : <Icon className="w-5 h-5" />}
-                  </div>
-                  <div className="min-w-0 flex-1">
-                    <div className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground mb-1">
-                      {item.meta ?? kindMeta(item.kind)}
-                    </div>
-                    <h3 className="font-semibold text-foreground leading-tight truncate">{item.title}</h3>
-                    {item.subtitle && (
-                      <p className="text-xs text-muted-foreground mt-0.5 truncate">{item.subtitle}</p>
-                    )}
-                  </div>
-                  <ChevronRight
-                    className={`w-4 h-4 mt-3 flex-shrink-0 transition-all ${
-                      isActive
-                        ? 'text-primary translate-x-1'
-                        : 'text-muted-foreground/40 group-hover:text-primary group-hover:translate-x-0.5'
-                    }`}
-                  />
-                </div>
-                {isActive && (
-                  <span className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-10 rounded-r bg-primary hidden lg:block" />
-                )}
-              </button>
-            );
-          })}
-        </div>
-
-        {/* Preview pane */}
+      {/* Preview pane */}
+      {active && (
         <Card className="border border-primary/30 bg-card overflow-hidden">
-          <div className="flex items-center justify-between px-4 py-3 border-b border-border/60 bg-muted/40">
+          <div className="flex items-center justify-between px-4 py-3 border-b border-border/60 bg-muted/40 flex-wrap gap-2">
             <div className="flex items-center gap-2 min-w-0">
               <span className="inline-flex w-2 h-2 rounded-full bg-primary animate-pulse" />
-              <span className="text-sm font-medium text-foreground truncate">{active?.title}</span>
+              <span
+                className={`inline-flex items-center px-2 py-0.5 rounded-md text-[10px] font-bold tracking-wider border ${getFileTypeColor(defaultBadge(active))}`}
+              >
+                {defaultBadge(active)}
+              </span>
+              <span className="text-sm font-medium text-foreground truncate">{active.title}</span>
             </div>
-            <span className="text-xs text-muted-foreground hidden sm:inline">
-              {active?.meta ?? (active ? kindMeta(active.kind) : '')}
-            </span>
+            <div className="flex items-center gap-2">
+              {formatDate(active.updatedAt) && (
+                <span className="hidden sm:inline-flex items-center gap-1 text-xs text-muted-foreground">
+                  <Calendar className="w-3 h-3" /> Updated {formatDate(active.updatedAt)}
+                </span>
+              )}
+              {(active.kind === 'pdf' || active.kind === 'image') && (
+                <>
+                  <Button variant="outline" size="sm" className="gap-2" aria-label={`Open ${active.title} in full screen`} asChild>
+                    <a href={active.url} target="_blank" rel="noopener noreferrer">
+                      <Maximize2 className="w-4 h-4" /> Fullscreen
+                    </a>
+                  </Button>
+                  <Button size="sm" className="gap-2" aria-label={`Download ${active.title}`} asChild>
+                    <a href={active.url} download={active.fileName}>
+                      <Download className="w-4 h-4" /> Download
+                    </a>
+                  </Button>
+                </>
+              )}
+              {active.kind === 'video' && (
+                <Button variant="outline" size="sm" className="gap-2" aria-label={`Watch ${active.title} on YouTube`} asChild>
+                  <a href={active.watchUrl ?? active.url} target="_blank" rel="noopener noreferrer">
+                    <ExternalLink className="w-4 h-4" /> Open on YouTube
+                  </a>
+                </Button>
+              )}
+              {(active.kind === 'website' || active.kind === 'link') && (
+                <Button variant="outline" size="sm" className="gap-2" aria-label={`Open ${active.title} in new browser tab`} asChild>
+                  <a href={active.url} target="_blank" rel="noopener noreferrer">
+                    <ExternalLink className="w-4 h-4" /> Open in new tab
+                  </a>
+                </Button>
+              )}
+            </div>
           </div>
           <CardContent className="p-0">
             <div className="relative w-full bg-muted" style={{ height: 'min(75vh, 720px)' }}>
-              {active?.kind === 'pdf' && (
+              {active.kind === 'pdf' && (
                 <iframe
                   key={`${active.id}-${reloadKey}`}
                   src={`${active.url}#view=FitH&toolbar=1`}
@@ -301,7 +342,7 @@ const ProjectMediaRoom = ({ projectSlug, projectId, websiteUrl, projectTitle }: 
                   className="absolute inset-0 w-full h-full border-0 animate-fade-in"
                 />
               )}
-              {active?.kind === 'video' && (
+              {active.kind === 'video' && (
                 <iframe
                   key={`${active.id}-${reloadKey}`}
                   src={active.embed ?? active.url}
@@ -313,7 +354,7 @@ const ProjectMediaRoom = ({ projectSlug, projectId, websiteUrl, projectTitle }: 
                   allowFullScreen
                 />
               )}
-              {active?.kind === 'image' && (
+              {active.kind === 'image' && (
                 <img
                   key={`${active.id}-${reloadKey}`}
                   src={active.url}
@@ -323,7 +364,7 @@ const ProjectMediaRoom = ({ projectSlug, projectId, websiteUrl, projectTitle }: 
                   className="absolute inset-0 w-full h-full object-contain animate-fade-in bg-background"
                 />
               )}
-              {(active?.kind === 'website' || active?.kind === 'link') && (
+              {(active.kind === 'website' || active.kind === 'link') && (
                 <div className="absolute inset-0 flex flex-col">
                   <iframe
                     key={`${active.id}-${reloadKey}`}
@@ -351,22 +392,18 @@ const ProjectMediaRoom = ({ projectSlug, projectId, websiteUrl, projectTitle }: 
                 </div>
               )}
 
-              {/* Loading overlay */}
-              {status === 'loading' && active && (
+              {status === 'loading' && (
                 <div className="absolute inset-0 z-10 flex flex-col items-center justify-center gap-3 bg-background/80 backdrop-blur-sm animate-fade-in">
                   <Loader2 className="w-8 h-8 text-primary animate-spin" />
                   <div className="text-sm font-medium text-foreground">Loading {kindMeta(active.kind).toLowerCase()}…</div>
-                  <div className="text-xs text-muted-foreground max-w-xs text-center truncate px-4">
-                    {active.title}
-                  </div>
+                  <div className="text-xs text-muted-foreground max-w-xs text-center truncate px-4">{active.title}</div>
                   <div className="w-40 h-1 rounded-full bg-muted overflow-hidden mt-1">
                     <div className="h-full w-1/3 bg-primary animate-[loading-bar_1.2s_ease-in-out_infinite]" />
                   </div>
                 </div>
               )}
 
-              {/* Error overlay */}
-              {status === 'error' && active && (
+              {status === 'error' && (
                 <div className="absolute inset-0 z-10 flex flex-col items-center justify-center gap-3 bg-background/90 backdrop-blur-sm animate-fade-in p-6 text-center">
                   <div className="w-12 h-12 rounded-full bg-destructive/10 flex items-center justify-center">
                     <AlertTriangle className="w-6 h-6 text-destructive" />
@@ -390,7 +427,7 @@ const ProjectMediaRoom = ({ projectSlug, projectId, websiteUrl, projectTitle }: 
             </div>
           </CardContent>
         </Card>
-      </div>
+      )}
     </section>
   );
 };
