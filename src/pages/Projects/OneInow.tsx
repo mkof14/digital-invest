@@ -13,7 +13,7 @@ import oneinowHero from "@/assets/projects/1inow-hero.jpg";
 import OptimizedImage from "@/components/OptimizedImage";
 import InvestorPageDisclaimer from "@/components/InvestorPageDisclaimer";
 import DownloadInvestorBriefButton from "@/components/DownloadInvestorBriefButton";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { updateMetaTags, resetMetaTags } from "@/lib/metaTags";
 
 // Brand tokens (scoped, applied via inline style to keep tokens isolated to this page)
@@ -67,6 +67,81 @@ const concepts = [
   { icon: Workflow, title: "Continuous, not fragmented" },
   { icon: Users, title: "Personal — just for you" },
 ];
+
+const NAV_SECTIONS = [
+  { id: "overview", label: "Overview" },
+  { id: "principles", label: "Core Principles" },
+  { id: "privacy", label: "Privacy" },
+];
+
+const SectionNav = ({ brand }: { brand: typeof BRAND }) => {
+  const [active, setActive] = useState<string>(NAV_SECTIONS[0].id);
+
+  useEffect(() => {
+    const elements = NAV_SECTIONS
+      .map((s) => document.getElementById(s.id))
+      .filter((el): el is HTMLElement => !!el);
+    if (!elements.length) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((e) => e.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+        if (visible[0]) setActive(visible[0].target.id);
+      },
+      { rootMargin: "-40% 0px -50% 0px", threshold: [0, 0.25, 0.5, 1] }
+    );
+    elements.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    e.preventDefault();
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+      history.replaceState(null, "", `#${id}`);
+      setActive(id);
+    }
+  };
+
+  return (
+    <nav
+      aria-label="Section navigation"
+      className="sticky top-16 z-30 backdrop-blur-md border-y"
+      style={{
+        background: `${brand.bg}cc`,
+        borderColor: `${brand.accent}22`,
+      }}
+    >
+      <div className="container mx-auto px-4">
+        <ul className="flex gap-2 sm:gap-6 overflow-x-auto py-3 text-sm">
+          {NAV_SECTIONS.map((s) => {
+            const isActive = active === s.id;
+            return (
+              <li key={s.id}>
+                <a
+                  href={`#${s.id}`}
+                  onClick={(e) => handleClick(e, s.id)}
+                  aria-current={isActive ? "true" : undefined}
+                  className="relative px-3 py-2 rounded-md whitespace-nowrap transition-colors"
+                  style={{
+                    color: isActive ? brand.bg : brand.textMuted,
+                    background: isActive ? brand.accent : "transparent",
+                    fontWeight: isActive ? 600 : 400,
+                  }}
+                >
+                  {s.label}
+                </a>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+    </nav>
+  );
+};
 
 const OneInow = () => {
   useEffect(() => {
@@ -164,8 +239,11 @@ const OneInow = () => {
           </div>
         </section>
 
+        {/* SECTION NAV */}
+        <SectionNav brand={BRAND} />
+
         {/* OVERVIEW */}
-        <section className="container mx-auto px-4 py-20">
+        <section id="overview" className="container mx-auto px-4 py-20 scroll-mt-24">
           <div className="max-w-3xl">
             <div className="text-xs tracking-[0.25em] uppercase mb-4" style={{ color: BRAND.accent }}>Overview</div>
             <h2 className="text-3xl md:text-4xl font-semibold mb-6 leading-tight">
@@ -182,7 +260,7 @@ const OneInow = () => {
         </section>
 
         {/* CORE PRINCIPLES */}
-        <section className="py-20" style={{ background: BRAND.surface }}>
+        <section id="principles" className="py-20 scroll-mt-24" style={{ background: BRAND.surface }}>
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mb-12">
               <div className="text-xs tracking-[0.25em] uppercase mb-4" style={{ color: BRAND.accent }}>Core Principles</div>
@@ -296,7 +374,7 @@ const OneInow = () => {
         </section>
 
         {/* PRIVACY & COMMUNICATION */}
-        <section className="py-20" style={{ background: BRAND.surface }}>
+        <section id="privacy" className="py-20 scroll-mt-24" style={{ background: BRAND.surface }}>
           <div className="container mx-auto px-4 grid md:grid-cols-2 gap-8">
             <Card className="border-0" style={{ background: BRAND.surfaceSoft }}>
               <CardHeader>
