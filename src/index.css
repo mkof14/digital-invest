@@ -587,6 +587,11 @@ a, button {
     100% { transform: translateX(300%); }
   }
 
+  @keyframes activity-marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
 
 
   /* New animated gradients for page titles */
