@@ -197,25 +197,25 @@ const ProjectMediaRoom = ({ projectSlug, projectId, websiteUrl, projectTitle }: 
           <div className="flex gap-2">
             {active.kind === 'pdf' || active.kind === 'image' ? (
               <>
-                <Button variant="outline" size="sm" className="gap-2" asChild>
+                <Button variant="outline" size="sm" className="gap-2" aria-label={`Open ${active.title} in full screen`} asChild>
                   <a href={active.url} target="_blank" rel="noopener noreferrer">
                     <Maximize2 className="w-4 h-4" /> Fullscreen
                   </a>
                 </Button>
-                <Button size="sm" className="gap-2" asChild>
+                <Button size="sm" className="gap-2" aria-label={`Download ${active.title}`} asChild>
                   <a href={active.url} download={active.fileName}>
                     <Download className="w-4 h-4" /> Download
                   </a>
                 </Button>
               </>
             ) : active.kind === 'video' ? (
-              <Button variant="outline" size="sm" className="gap-2" asChild>
+              <Button variant="outline" size="sm" className="gap-2" aria-label={`Watch ${active.title} on YouTube`} asChild>
                 <a href={active.watchUrl ?? active.url} target="_blank" rel="noopener noreferrer">
                   <ExternalLink className="w-4 h-4" /> Open on YouTube
                 </a>
               </Button>
             ) : (
-              <Button variant="outline" size="sm" className="gap-2" asChild>
+              <Button variant="outline" size="sm" className="gap-2" aria-label={`Open ${active.title} in new browser tab`} asChild>
                 <a href={active.url} target="_blank" rel="noopener noreferrer">
                   <ExternalLink className="w-4 h-4" /> Open in new tab
                 </a>
