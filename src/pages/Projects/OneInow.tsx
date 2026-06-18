@@ -31,7 +31,7 @@ const BRAND = {
 const principles = [
   { icon: Inbox, title: "One Input", desc: "Information is entered only once. Everything else is connected automatically." },
   { icon: Layers, title: "One Context", desc: "Projects, people, files, meetings and decisions live in one continuous environment." },
-  { icon: MessageSquare, title: "One Conversation", desc: "Ask: \u201CPrepare today\u2019s work\u201D, \u201CWhat changed since yesterday?\u201D \u2014 instead of clicking through pages." },
+  { icon: MessageSquare, title: "One Conversation", desc: "Ask: “Prepare today’s work”, “What changed since yesterday?” — instead of clicking through pages." },
   { icon: Brain, title: "One Memory", desc: "Verified knowledge over time: decisions, relationships, documents, workflows, history." },
 ];
 
@@ -63,15 +63,15 @@ const intelligence = [
 const concepts = [
   { icon: Eye, title: "One focus" },
   { icon: GitBranch, title: "In context" },
-  { icon: Sparkles, title: "Now \u2014 in the moment" },
+  { icon: Sparkles, title: "Now — in the moment" },
   { icon: Workflow, title: "Continuous, not fragmented" },
-  { icon: Users, title: "Personal \u2014 just for you" },
+  { icon: Users, title: "Personal — just for you" },
 ];
 
 const OneInow = () => {
   useEffect(() => {
     updateMetaTags({
-      title: "1inow \u2014 One place. One context. Right now.",
+      title: "1inow — One place. One context. Right now.",
       description: "1inow is a personal and business intelligence environment that connects tasks, notes, projects, files, meetings and messages into a single living context.",
       ogImage: oneinowHero,
       twitterImage: oneinowHero,
@@ -174,7 +174,7 @@ const OneInow = () => {
             </h2>
             <p className="text-lg leading-relaxed" style={{ color: BRAND.textMuted }}>
               The goal is simple: <span style={{ color: BRAND.accentSoft }}>remember less, understand more</span>.
-              The system observes, connects, remembers, and prepares information automatically \u2014
+              The system observes, connects, remembers, and prepares information automatically —
               reducing manual work instead of creating it. The user spends less time organizing and
               more time making decisions.
             </p>
@@ -218,7 +218,7 @@ const OneInow = () => {
                 Not another app demanding your attention.
               </h2>
               <p className="leading-relaxed" style={{ color: BRAND.textMuted }}>
-                1inow is a unified environment where all of these elements naturally work together \u2014 not
+                1inow is a unified environment where all of these elements naturally work together — not
                 another silo competing for your focus.
               </p>
             </div>
@@ -229,7 +229,7 @@ const OneInow = () => {
                   className="flex items-center gap-3 px-4 py-3 rounded-lg"
                   style={{ background: BRAND.surface, color: BRAND.textMuted }}
                 >
-                  <span className="text-lg" style={{ color: BRAND.accent }}>\u2014</span>
+                  <span className="text-lg" style={{ color: BRAND.accent }}>—</span>
                   <span>It is not {x}.</span>
                 </div>
               ))}
@@ -242,7 +242,7 @@ const OneInow = () => {
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mb-12">
               <div className="text-xs tracking-[0.25em] uppercase mb-4" style={{ color: BRAND.accent }}>Two layers, one environment</div>
-              <h2 className="text-3xl md:text-4xl font-semibold">Business and personal \u2014 separated by design.</h2>
+              <h2 className="text-3xl md:text-4xl font-semibold">Business and personal — separated by design.</h2>
             </div>
             <div className="grid md:grid-cols-2 gap-5">
               <Card className="border-0" style={{ background: BRAND.surfaceSoft }}>
@@ -320,7 +320,7 @@ const OneInow = () => {
               </CardHeader>
               <CardContent className="space-y-3" style={{ color: BRAND.textMuted }}>
                 <p>The primary interface is conversation. Users can type or speak naturally.</p>
-                <p>The system understands context and transforms conversations into actions, reminders, documents, meetings, workflows and connected knowledge \u2014 without unnecessary forms.</p>
+                <p>The system understands context and transforms conversations into actions, reminders, documents, meetings, workflows and connected knowledge — without unnecessary forms.</p>
               </CardContent>
             </Card>
           </div>
@@ -354,7 +354,7 @@ const OneInow = () => {
               ))}
             </div>
             <p className="text-xl italic" style={{ color: BRAND.accentSoft }}>
-              \u201COne place. One context. Right now.\u201D
+              “One place. One context. Right now.”
             </p>
           </div>
         </section>
@@ -365,7 +365,7 @@ const OneInow = () => {
             className="rounded-3xl p-10 md:p-16 text-center"
             style={{ background: `linear-gradient(135deg, ${BRAND.surfaceSoft}, ${BRAND.surface})`, border: `1px solid ${BRAND.accent}33` }}
           >
-            <h2 className="text-3xl md:text-4xl font-semibold mb-4">Continue, don\u2019t start over.</h2>
+            <h2 className="text-3xl md:text-4xl font-semibold mb-4">Continue, don’t start over.</h2>
             <p className="text-lg max-w-2xl mx-auto mb-8" style={{ color: BRAND.textMuted }}>
               Explore how 1inow fits into the Digital Invest portfolio or request the investor brief.
             </p>
