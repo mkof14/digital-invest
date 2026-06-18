@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import oneinowLogo from "@/assets/projects/1inow-logo.png";
 import oneinowHero from "@/assets/projects/1inow-hero.jpg";
+import oneinowPdf from "@/assets/projects/1inow-environment.pdf.asset.json";
 import OptimizedImage from "@/components/OptimizedImage";
 import InvestorPageDisclaimer from "@/components/InvestorPageDisclaimer";
 import DownloadInvestorBriefButton from "@/components/DownloadInvestorBriefButton";
