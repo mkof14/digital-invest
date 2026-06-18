@@ -351,6 +351,49 @@ const AGRON = () => {
           </Card>
         </section>
 
+        {/* Additional Presentations */}
+        <section className="mb-16">
+          <div className="project-section-divider my-12" />
+          <h2 className="text-3xl font-bold mb-8">Additional Presentations</h2>
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              { title: "AGRON Tactical Blueprint", desc: "Tactical operations and deployment blueprint.", url: agronTacticalPdf.url, file: "AGRON_Tactical_Blueprint.pdf" },
+              { title: "Autonomous Workforce Infrastructure", desc: "Foundations of the autonomous workforce model.", url: agronAutonomousPdf.url, file: "Autonomous_Workforce_Infrastructure.pdf" },
+              { title: "Autonomous Workforce Infrastructure — Vol. II", desc: "Expanded framework and operational layers.", url: agronAutonomousV2Pdf.url, file: "Autonomous_Workforce_Infrastructure_v2.pdf" },
+            ].map((doc) => (
+              <Card key={doc.title} className="border-primary/20 hover:border-primary/40 transition-colors flex flex-col">
+                <CardContent className="pt-6 flex-1 flex flex-col">
+                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4"><FileText className="w-6 h-6 text-primary" /></div>
+                  <h3 className="text-lg font-semibold mb-2">{doc.title}</h3>
+                  <p className="text-sm text-muted-foreground mb-4 flex-1">{doc.desc}</p>
+                  <div className="flex gap-2 flex-wrap">
+                    <a href={doc.url} target="_blank" rel="noopener noreferrer"><Button size="sm" variant="outline" className="gap-2"><Eye className="w-4 h-4" /> View</Button></a>
+                    <a href={doc.url} download={doc.file}><Button size="sm" className="gap-2"><Download className="w-4 h-4" /> PDF</Button></a>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </section>
+
+        {/* Video */}
+        <section className="mb-16">
+          <div className="project-section-divider my-12" />
+          <h2 className="text-3xl font-bold mb-8">Video Overview</h2>
+          <Card className="border-primary/20 overflow-hidden">
+            <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+              <iframe
+                className="absolute inset-0 w-full h-full"
+                src="https://www.youtube.com/embed/tansFOZdKRo"
+                title="AGRON Video Overview"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              />
+            </div>
+          </Card>
+        </section>
+
         {/* Infographics */}
         <section className="mb-16">
           <div className="project-section-divider my-12" />
