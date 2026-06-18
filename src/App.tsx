@@ -136,6 +136,7 @@ const App = () => (
         <CookieConsent />
         <BrowserRouter>
           <ScrollToTop />
+          <RouteSEO />
           <Suspense fallback={<PageLoader />}>
             <Routes>
               <Route path="/" element={<Index />} />
