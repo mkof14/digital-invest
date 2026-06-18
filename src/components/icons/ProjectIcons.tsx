@@ -137,6 +137,15 @@ export const GlucoseCurveIcon = ({ className = '' }: IconProps) => (
   </svg>
 );
 
+// 1inow — concentric rings converging into a single dot ("one place, one context, now").
+export const OneNowIcon = ({ className = '' }: IconProps) => (
+  <svg viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="12" cy="12" r="9" opacity="0.35" />
+    <circle cx="12" cy="12" r="5.5" opacity="0.7" />
+    <circle cx="12" cy="12" r="2" fill="currentColor" stroke="none" />
+  </svg>
+);
+
 // ---- Per-project registry ----
 
 export const projectIcons: Record<string, React.ReactNode> = {
@@ -158,6 +167,7 @@ export const projectIcons: Record<string, React.ReactNode> = {
   'seniorcore': <CaneSeniorIcon className="w-4 h-4" />,
   'skincore': <SkinFaceIcon className="w-4 h-4" />,
   'myday': <AILoopIcon className="w-4 h-4" />,
+  '1inow': <OneNowIcon className="w-4 h-4" />,
   'itsgoodtoday': <SunCheckIcon className="w-4 h-4" />,
   'table-served': <PlateForkIcon className="w-4 h-4" />,
   't1d': <GlucoseCurveIcon className="w-4 h-4" />,
@@ -198,6 +208,7 @@ export const ProjectIcon = ({
     'seniorcore': CaneSeniorIcon,
     'skincore': SkinFaceIcon,
     'myday': AILoopIcon,
+    '1inow': OneNowIcon,
     'itsgoodtoday': SunCheckIcon,
     'table-served': PlateForkIcon,
     't1d': GlucoseCurveIcon,
