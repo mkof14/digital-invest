@@ -22,6 +22,7 @@ const ItsGoodToday = () => {
     <div className="min-h-screen bg-background theme-itsgoodtoday">
       <Navigation />
 
+      <ProjectMediaRoomBySlug slug="itsgoodtoday" />
       <main className="container mx-auto px-4 py-8">
         {/* Hero */}
         <section className="relative py-32 -mx-4 px-4 overflow-hidden mb-16">
@@ -176,7 +177,6 @@ const ItsGoodToday = () => {
         <InvestorPageDisclaimer />
       </main>
 
-      <ProjectMediaRoomBySlug slug="itsgoodtoday" />
       <Footer />
     </div>
   );

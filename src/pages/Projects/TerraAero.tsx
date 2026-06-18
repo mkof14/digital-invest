@@ -63,6 +63,7 @@ const TerraAero = () => {
   return (
     <div className="min-h-screen theme-terraaero" style={{ background: 'hsl(85, 15%, 5%)' }}>
       <Navigation />
+      <ProjectMediaRoomBySlug slug="terraaero" />
       <main className="container mx-auto px-4 py-8">
         {/* Hero */}
         <section className="relative py-32 -mx-4 px-4 overflow-hidden mb-16">
@@ -433,7 +434,6 @@ const TerraAero = () => {
 
         <div className="mt-16"><InvestorPageDisclaimer /></div>
       </main>
-      <ProjectMediaRoomBySlug slug="terraaero" />
       <Footer />
     </div>
   );

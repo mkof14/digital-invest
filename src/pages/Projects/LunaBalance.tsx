@@ -45,6 +45,7 @@ const LunaBalance = () => {
     <div className="min-h-screen bg-background theme-luna">
       <Navigation />
       
+      <ProjectMediaRoomBySlug slug="luna-balance" />
       <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <img src={lunaHero} alt="Luna Balance" className="w-full h-full object-cover" />
@@ -279,7 +280,6 @@ const LunaBalance = () => {
         onOpenChange={setShowInterestForm}
       />
 
-      <ProjectMediaRoomBySlug slug="luna-balance" />
       <Footer />
     </div>
   );

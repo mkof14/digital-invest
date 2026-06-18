@@ -37,6 +37,7 @@ const BaseLine = () => {
     <div className="min-h-screen bg-background">
       <Navigation />
 
+      <ProjectMediaRoomBySlug slug="baseline" />
       <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <img src={heroImg} alt="BaseLine — BioMath Core" className="w-full h-full object-cover" />
@@ -223,7 +224,6 @@ const BaseLine = () => {
         <InvestorPageDisclaimer />
       </div>
 
-      <ProjectMediaRoomBySlug slug="baseline" />
       <Footer />
     </div>
   );

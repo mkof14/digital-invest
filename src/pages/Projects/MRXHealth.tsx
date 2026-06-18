@@ -36,6 +36,7 @@ const MRXHealth = () => {
     <div className="min-h-screen bg-background theme-mrx-health">
       <Navigation />
 
+      <ProjectMediaRoomBySlug slug="mrx-health" />
       <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <img src={mrxHero} alt="MRX.Health" className="w-full h-full object-cover" />
@@ -219,7 +220,6 @@ const MRXHealth = () => {
         <InvestorPageDisclaimer />
       </div>
 
-      <ProjectMediaRoomBySlug slug="mrx-health" />
       <Footer />
     </div>
   );
