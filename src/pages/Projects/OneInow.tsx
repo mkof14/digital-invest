@@ -74,8 +74,63 @@ const NAV_SECTIONS = [
   { id: "privacy", label: "Privacy" },
 ];
 
+const STICKY_OFFSET = 124; // main nav (~64px) + section nav (~52px) + safe margin
+
+const scrollToSection = (id: string, behavior: ScrollBehavior = "smooth") => {
+  const el = document.getElementById(id);
+  if (!el) return false;
+  const top = el.getBoundingClientRect().top + window.scrollY - STICKY_OFFSET;
+  window.scrollTo({ top, behavior });
+  return true;
+};
+
 const SectionNav = ({ brand }: { brand: typeof BRAND }) => {
-  const [active, setActive] = useState<string>(NAV_SECTIONS[0].id);
+  const [active, setActive] = useState<string>(() => {
+    if (typeof window === "undefined") return NAV_SECTIONS[0].id;
+    const hash = window.location.hash.replace("#", "");
+    return NAV_SECTIONS.some((s) => s.id === hash) ? hash : NAV_SECTIONS[0].id;
+  });
+
+  // Restore scroll position from URL hash on mount (with offset for sticky header)
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    // Disable browser default scroll restoration so our hash-aware logic wins
+    const prev = window.history.scrollRestoration;
+    if ("scrollRestoration" in window.history) {
+      window.history.scrollRestoration = "manual";
+    }
+    const hash = window.location.hash.replace("#", "");
+    if (hash && NAV_SECTIONS.some((s) => s.id === hash)) {
+      // Wait a frame so layout (images, fonts) is measured correctly
+      const raf = requestAnimationFrame(() => {
+        requestAnimationFrame(() => scrollToSection(hash, "auto"));
+      });
+      return () => {
+        cancelAnimationFrame(raf);
+        if ("scrollRestoration" in window.history) {
+          window.history.scrollRestoration = prev;
+        }
+      };
+    }
+    return () => {
+      if ("scrollRestoration" in window.history) {
+        window.history.scrollRestoration = prev;
+      }
+    };
+  }, []);
+
+  // Listen for back/forward hash changes
+  useEffect(() => {
+    const onHashChange = () => {
+      const hash = window.location.hash.replace("#", "");
+      if (hash && NAV_SECTIONS.some((s) => s.id === hash)) {
+        setActive(hash);
+        scrollToSection(hash, "smooth");
+      }
+    };
+    window.addEventListener("hashchange", onHashChange);
+    return () => window.removeEventListener("hashchange", onHashChange);
+  }, []);
 
   useEffect(() => {
     const elements = NAV_SECTIONS
@@ -88,7 +143,14 @@ const SectionNav = ({ brand }: { brand: typeof BRAND }) => {
         const visible = entries
           .filter((e) => e.isIntersecting)
           .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
-        if (visible[0]) setActive(visible[0].target.id);
+        if (visible[0]) {
+          const id = visible[0].target.id;
+          setActive(id);
+          // Reflect current section in URL without adding history entries
+          if (window.location.hash.replace("#", "") !== id) {
+            history.replaceState(null, "", `#${id}`);
+          }
+        }
       },
       { rootMargin: "-40% 0px -50% 0px", threshold: [0, 0.25, 0.5, 1] }
     );
@@ -98,12 +160,9 @@ const SectionNav = ({ brand }: { brand: typeof BRAND }) => {
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault();
-    const el = document.getElementById(id);
-    if (el) {
-      const stickyOffset = 124; // main nav (~64px) + section nav (~52px) + safe margin
-      const top = el.getBoundingClientRect().top + window.scrollY - stickyOffset;
-      window.scrollTo({ top, behavior: "smooth" });
-      history.replaceState(null, "", `#${id}`);
+    if (scrollToSection(id, "smooth")) {
+      // Use pushState so back-button returns to previous section
+      history.pushState(null, "", `#${id}`);
       setActive(id);
     }
   };
@@ -144,6 +203,7 @@ const SectionNav = ({ brand }: { brand: typeof BRAND }) => {
     </nav>
   );
 };
+
 
 const OneInow = () => {
   useEffect(() => {
