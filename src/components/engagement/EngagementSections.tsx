@@ -2,10 +2,19 @@ import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { Card } from "@/components/ui/card";
+import {
+  CURRENT_FOCUS,
+  TODAY_WE_BUILD,
+  WEEKLY_INSIGHT,
+  ACTIVITY_STRIP,
+  ROTATION_TIMING,
+} from "@/config/engagement";
 
 /* ──────────────────────────────────────────────────────────────────────────
- * Shared: in-view hook for "play once on enter" animations
+ * Shared hooks
  * ────────────────────────────────────────────────────────────────────────── */
+
+/** Trigger an animation once when an element enters the viewport. */
 const useInView = <T extends HTMLElement>(threshold = 0.2) => {
   const ref = useRef<T | null>(null);
   const [inView, setInView] = useState(false);
@@ -27,39 +36,83 @@ const useInView = <T extends HTMLElement>(threshold = 0.2) => {
   return { ref, inView };
 };
 
-/* ──────────────────────────────────────────────────────────────────────────
- * 1. Current Focus — rotating live initiative
- * ────────────────────────────────────────────────────────────────────────── */
-const focusItems = [
-  { name: "BioMath Core", area: "Human Data Models", track: "Research & Development", status: "Active Development", slug: "biomath-core" },
-  { name: "SAVEN", area: "Connected Infrastructure", track: "Engineering", status: "Active Development", slug: "saven" },
-  { name: "AGRON", area: "Robotic Operations", track: "Field Deployment", status: "Active Development", slug: "agron" },
-  { name: "Adamas Materials", area: "Advanced Materials", track: "Operations", status: "Active Development", slug: "/adamas" },
-];
+/** Returns true while the element is on screen AND the tab is visible. */
+const useActive = <T extends HTMLElement>() => {
+  const ref = useRef<T | null>(null);
+  const [active, setActive] = useState(true);
+  useEffect(() => {
+    let visible = true;
+    let onScreen = true;
+    const sync = () => setActive(visible && onScreen);
 
+    const onVis = () => {
+      visible = document.visibilityState === "visible";
+      sync();
+    };
+    document.addEventListener("visibilitychange", onVis);
+    onVis();
+
+    let obs: IntersectionObserver | null = null;
+    if (ref.current) {
+      obs = new IntersectionObserver(
+        ([e]) => {
+          onScreen = e.isIntersecting;
+          sync();
+        },
+        { threshold: 0.05 }
+      );
+      obs.observe(ref.current);
+    }
+    return () => {
+      document.removeEventListener("visibilitychange", onVis);
+      obs?.disconnect();
+    };
+  }, []);
+  return { ref, active };
+};
+
+const useReducedMotion = () => {
+  const [reduced, setReduced] = useState(false);
+  useEffect(() => {
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const sync = () => setReduced(mq.matches);
+    sync();
+    mq.addEventListener("change", sync);
+    return () => mq.removeEventListener("change", sync);
+  }, []);
+  return reduced;
+};
+
+/* ──────────────────────────────────────────────────────────────────────────
+ * 1. Current Focus
+ * ────────────────────────────────────────────────────────────────────────── */
 export const CurrentFocusBlock = () => {
   const [idx, setIdx] = useState(0);
   const [visible, setVisible] = useState(true);
   const [hovered, setHovered] = useState(false);
+  const { ref, active } = useActive<HTMLDivElement>();
+  const reduced = useReducedMotion();
 
   useEffect(() => {
-    if (hovered) return;
-    const fadeOut = setTimeout(() => setVisible(false), 6500);
+    if (hovered || !active || reduced || CURRENT_FOCUS.length <= 1) return;
+    const { currentFocusInterval: total, currentFocusFadeLead: lead } = ROTATION_TIMING;
+    const fadeOut = setTimeout(() => setVisible(false), total - lead);
     const swap = setTimeout(() => {
-      setIdx((i) => (i + 1) % focusItems.length);
+      setIdx((i) => (i + 1) % CURRENT_FOCUS.length);
       setVisible(true);
-    }, 7000);
+    }, total);
     return () => {
       clearTimeout(fadeOut);
       clearTimeout(swap);
     };
-  }, [idx, hovered]);
+  }, [idx, hovered, active, reduced]);
 
-  const item = focusItems[idx];
+  const item = CURRENT_FOCUS[idx];
+  if (!item) return null;
   const href = item.slug.startsWith("/") ? item.slug : `/projects/${item.slug}`;
 
   return (
-    <section className="py-20 lg:py-28">
+    <section ref={ref} className="py-20 lg:py-28">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div
           className="rounded-2xl border border-border/60 bg-card/60 backdrop-blur-sm p-10 lg:p-14 shadow-sm hover:shadow-md transition-shadow"
@@ -102,16 +155,18 @@ export const CurrentFocusBlock = () => {
             </Link>
           </div>
 
-          <div className="mt-10 flex gap-1.5">
-            {focusItems.map((_, i) => (
-              <span
-                key={i}
-                className={`h-0.5 rounded-full transition-all duration-500 ${
-                  i === idx ? "w-10 bg-primary" : "w-5 bg-border"
-                }`}
-              />
-            ))}
-          </div>
+          {CURRENT_FOCUS.length > 1 && (
+            <div className="mt-10 flex gap-1.5">
+              {CURRENT_FOCUS.map((_, i) => (
+                <span
+                  key={i}
+                  className={`h-0.5 rounded-full transition-all duration-500 ${
+                    i === idx ? "w-10 bg-primary" : "w-5 bg-border"
+                  }`}
+                />
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </section>
@@ -119,34 +174,30 @@ export const CurrentFocusBlock = () => {
 };
 
 /* ──────────────────────────────────────────────────────────────────────────
- * 2. Today We Build — rotating tagline
+ * 2. Today We Build
  * ────────────────────────────────────────────────────────────────────────── */
-const buildLines = [
-  "Human Data Models",
-  "Robotic Operations",
-  "Advanced Materials",
-  "Future Infrastructure",
-  "Connected Systems",
-];
-
 export const TodayWeBuild = () => {
   const [idx, setIdx] = useState(0);
   const [visible, setVisible] = useState(true);
+  const { ref, active } = useActive<HTMLElement>();
+  const reduced = useReducedMotion();
 
   useEffect(() => {
-    const fadeOut = setTimeout(() => setVisible(false), 3600);
+    if (!active || reduced || TODAY_WE_BUILD.length <= 1) return;
+    const { todayWeBuildInterval: total, todayWeBuildFadeLead: lead } = ROTATION_TIMING;
+    const fadeOut = setTimeout(() => setVisible(false), total - lead);
     const swap = setTimeout(() => {
-      setIdx((i) => (i + 1) % buildLines.length);
+      setIdx((i) => (i + 1) % TODAY_WE_BUILD.length);
       setVisible(true);
-    }, 4000);
+    }, total);
     return () => {
       clearTimeout(fadeOut);
       clearTimeout(swap);
     };
-  }, [idx]);
+  }, [idx, active, reduced]);
 
   return (
-    <section className="py-16 lg:py-24 border-y border-border/40">
+    <section ref={ref} className="py-16 lg:py-24 border-y border-border/40">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <p className="text-[11px] tracking-[0.24em] uppercase text-muted-foreground mb-4">
           Today We Build
@@ -158,7 +209,7 @@ export const TodayWeBuild = () => {
               visible ? "opacity-100" : "opacity-0"
             }`}
           >
-            {buildLines[idx]}
+            {TODAY_WE_BUILD[idx]}
           </span>
         </div>
       </div>
@@ -167,7 +218,7 @@ export const TodayWeBuild = () => {
 };
 
 /* ──────────────────────────────────────────────────────────────────────────
- * 3. Live Numbers — count-up once on enter
+ * 3. Live Numbers
  * ────────────────────────────────────────────────────────────────────────── */
 type Stat = { label: string; value: number; suffix?: string; display?: string };
 
@@ -178,10 +229,10 @@ const stats: Stat[] = [
   { label: "Development Hours", value: 0, display: "Thousands" },
 ];
 
-const Counter = ({ stat, run }: { stat: Stat; run: boolean }) => {
-  const [n, setN] = useState(0);
+const Counter = ({ stat, run, reduced }: { stat: Stat; run: boolean; reduced: boolean }) => {
+  const [n, setN] = useState(reduced ? stat.value : 0);
   useEffect(() => {
-    if (!run || stat.display === "Thousands") return;
+    if (!run || reduced || stat.display === "Thousands") return;
     const duration = 1400;
     const start = performance.now();
     let raf = 0;
@@ -193,25 +244,20 @@ const Counter = ({ stat, run }: { stat: Stat; run: boolean }) => {
     };
     raf = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(raf);
-  }, [run, stat]);
+  }, [run, reduced, stat]);
 
-  const text =
-    stat.display && stat.display !== "Thousands"
-      ? stat.display
-      : stat.display === "Thousands"
-      ? "Thousands"
-      : `${n}${stat.suffix ?? ""}`;
-  // When animating numeric ones with custom display like "04", pad
   const final =
-    stat.display === "04" && run
+    stat.display === "Thousands"
+      ? "Thousands"
+      : stat.display === "04"
       ? String(n).padStart(2, "0")
-      : text;
-
+      : `${n}${stat.suffix ?? ""}`;
   return <div className="text-4xl md:text-5xl font-semibold tracking-tight text-foreground tabular-nums">{final}</div>;
 };
 
 export const LiveNumbers = () => {
   const { ref, inView } = useInView<HTMLDivElement>(0.3);
+  const reduced = useReducedMotion();
   return (
     <section ref={ref} className="py-20 lg:py-28">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -224,7 +270,7 @@ export const LiveNumbers = () => {
               }`}
               style={{ transitionDelay: `${i * 90}ms` }}
             >
-              <Counter stat={s} run={inView} />
+              <Counter stat={s} run={inView} reduced={reduced} />
               <div className="mt-3 text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
                 {s.label}
               </div>
@@ -237,61 +283,8 @@ export const LiveNumbers = () => {
 };
 
 /* ──────────────────────────────────────────────────────────────────────────
- * 4. Tech Backdrop — subtle animated background (CSS only)
- * Used as <TechBackdrop /> inside a relative parent.
+ * 4. Weekly Insight
  * ────────────────────────────────────────────────────────────────────────── */
-export const TechBackdrop = () => (
-  <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
-    <div
-      className="absolute inset-0 opacity-[0.05]"
-      style={{
-        backgroundImage:
-          "linear-gradient(hsl(var(--primary)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--primary)) 1px, transparent 1px)",
-        backgroundSize: "60px 60px",
-        maskImage: "radial-gradient(ellipse at center, black 30%, transparent 80%)",
-        WebkitMaskImage: "radial-gradient(ellipse at center, black 30%, transparent 80%)",
-      }}
-    />
-    <div className="absolute top-1/4 left-1/4 w-1.5 h-1.5 rounded-full bg-primary/40 animate-subtle-float" />
-    <div
-      className="absolute top-1/2 right-1/3 w-1 h-1 rounded-full bg-accent/40 animate-subtle-float"
-      style={{ animationDelay: "2s" }}
-    />
-    <div
-      className="absolute bottom-1/4 left-1/2 w-1 h-1 rounded-full bg-info/40 animate-subtle-float"
-      style={{ animationDelay: "4s" }}
-    />
-    <div
-      className="absolute top-1/3 right-1/4 w-1.5 h-1.5 rounded-full bg-primary/30 animate-subtle-float"
-      style={{ animationDelay: "1s" }}
-    />
-  </div>
-);
-
-/* ──────────────────────────────────────────────────────────────────────────
- * 5. Weekly Insight — editorial cards
- * ────────────────────────────────────────────────────────────────────────── */
-const insights = [
-  {
-    category: "Technology",
-    title: "Architecting Human Data Models",
-    desc: "How BioMath Core structures longitudinal health data for high-resolution research.",
-    href: "/projects/biomath-core",
-  },
-  {
-    category: "Operations",
-    title: "Robotic Workforce Patterns",
-    desc: "Field learnings from AGRON deployments and what comes next for autonomous workflows.",
-    href: "/projects/agron",
-  },
-  {
-    category: "Infrastructure",
-    title: "Building Calmly, Building Long",
-    desc: "Our approach to infrastructure that compounds across product cycles.",
-    href: "/why-digital-invest",
-  },
-];
-
 export const WeeklyInsight = () => (
   <section className="py-20 lg:py-28">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -312,7 +305,7 @@ export const WeeklyInsight = () => (
         </Link>
       </div>
       <div className="grid md:grid-cols-3 gap-6">
-        {insights.map((it) => (
+        {WEEKLY_INSIGHT.map((it) => (
           <Card key={it.title} className="group p-7 flex flex-col h-full bg-card/70 backdrop-blur-sm">
             <div className="text-[10px] uppercase tracking-[0.18em] text-primary/80 font-semibold mb-4">
               {it.category}
@@ -336,25 +329,23 @@ export const WeeklyInsight = () => (
 );
 
 /* ──────────────────────────────────────────────────────────────────────────
- * 6. Activity Strip — infinite marquee
+ * 5. Activity Strip — pauses when off-screen / tab hidden / reduced motion
  * ────────────────────────────────────────────────────────────────────────── */
-const activities = [
-  "Design Updates",
-  "Research",
-  "Development",
-  "Testing",
-  "Operations",
-  "Architecture",
-  "Field Work",
-  "Engineering",
-];
-
 export const ActivityStrip = () => {
-  const row = [...activities, ...activities];
+  const row = [...ACTIVITY_STRIP, ...ACTIVITY_STRIP];
+  const { ref, active } = useActive<HTMLElement>();
+  const reduced = useReducedMotion();
+  const animate = active && !reduced;
   return (
-    <section className="py-10 border-y border-border/30 bg-muted/20 overflow-hidden">
+    <section ref={ref} className="py-10 border-y border-border/30 bg-muted/20 overflow-hidden">
       <div className="relative">
-        <div className="flex gap-3 whitespace-nowrap animate-[activity-marquee_45s_linear_infinite]">
+        <div
+          className="flex gap-3 whitespace-nowrap"
+          style={{
+            animation: animate ? "activity-marquee 45s linear infinite" : "none",
+            willChange: animate ? "transform" : "auto",
+          }}
+        >
           {row.map((a, i) => (
             <span
               key={i}
