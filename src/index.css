@@ -508,6 +508,13 @@ html {
     }
   }
 
+  @keyframes loading-bar {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(300%); }
+  }
+
+
+
   /* New animated gradients for page titles */
   .gradient-blue-animated {
     background: linear-gradient(135deg, hsl(210, 100%, 50%), hsl(200, 100%, 60%), hsl(220, 100%, 70%));
