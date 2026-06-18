@@ -19,6 +19,9 @@ import OptimizedImage from "@/components/OptimizedImage";
 import InvestorPageDisclaimer from "@/components/InvestorPageDisclaimer";
 import { InfographicsGallery } from "@/components/InfographicsGallery";
 import { useToast } from "@/hooks/use-toast";
+import agronTacticalPdf from "@/assets/projects/agron-tactical-blueprint.pdf.asset.json";
+import agronAutonomousPdf from "@/assets/projects/agron-autonomous-workforce.pdf.asset.json";
+import agronAutonomousV2Pdf from "@/assets/projects/agron-autonomous-workforce-v2.pdf.asset.json";
 
 const AGRON = () => {
   const { toast } = useToast();
