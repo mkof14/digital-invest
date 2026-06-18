@@ -44,7 +44,7 @@ const TeamPage = () => {
                   <div className="bg-primary/5 rounded-lg p-4 border border-primary/20">
                     <h4 className="font-semibold text-primary mb-2">{t('team.keyAchievements')}</h4>
                     <ul className="text-sm text-muted-foreground space-y-1">
-                      <li>• Led 9 Net Avenue to $19.5B market cap acquisition</li>
+                      
                       <li>• Pioneer in biotechnology mathematical modeling</li>
                       <li>• 25+ years in executive leadership</li>
                       <li>• Strategic advisor to Fortune 500 companies</li>
