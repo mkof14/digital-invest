@@ -24,10 +24,7 @@ import agronInfographic from '@/assets/projects/agron-infographic.webp';
 import agronInfographic1 from '@/assets/agron-infographic-1.webp';
 import agronInfographic2 from '@/assets/agron-infographic-2.webp';
 import { InfographicsGallery } from '@/components/InfographicsGallery';
-import agronTacticalPdf from '@/assets/projects/agron-tactical-blueprint.pdf.asset.json';
-import agronAutonomousPdf from '@/assets/projects/agron-autonomous-workforce.pdf.asset.json';
-import agronAutonomousV2Pdf from '@/assets/projects/agron-autonomous-workforce-v2.pdf.asset.json';
-import { Download, Eye } from 'lucide-react';
+import AgronMediaShowcase from '@/components/AgronMediaShowcase';
 
 interface Project {
   id: string;
