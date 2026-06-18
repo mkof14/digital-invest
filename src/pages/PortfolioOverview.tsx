@@ -198,6 +198,15 @@ const overviewTexts: Record<string, Record<string, string>> = {
     ja: '1型・2型糖尿病の日常生活のための統合プラットフォーム。T1/2Dは連続信号をシンプルな状態に変換し、2つの独立したモードで動作するため、子供、親、介護者、2型の大人が同じ体験を強いられません。アラームベースのダッシュボードはありません。',
     he: 'פלטפורמה מאוחדת לחיי היומיום עם סוכרת מסוג 1 ו-2. T1/2D מתרגם אותות רציפים למצבים פשוטים ופועל בשני מצבים נפרדים כך שילדים, הורים, מטפלים ומבוגרים מסוג 2 לא נאלצים לחוות את אותה חוויה. ללא לוחות מחוונים מבוססי התראות כברירת מחדל.'
   },
+  '1inow': {
+    en: 'One place. One context. Right now. 1inow is a personal and business intelligence environment that quietly connects tasks, notes, projects, files, meetings and messages into a single living context — so users remember less and understand more. Not another app demanding attention: a unified environment where everything naturally works together.',
+    ru: 'Одно место. Один контекст. Прямо сейчас. 1inow — среда личного и делового интеллекта, которая тихо связывает задачи, заметки, проекты, файлы, встречи и сообщения в единый живой контекст. Пользователь меньше помнит — больше понимает. Не очередное приложение, требующее внимания, а единая среда, где всё работает естественно.',
+    uk: 'Одне місце. Один контекст. Просто зараз. 1inow — середовище особистого та бізнес-інтелекту, що тихо з\'єднує задачі, нотатки, проєкти, файли, зустрічі та повідомлення в єдиний живий контекст. Користувач менше пам\'ятає — більше розуміє.',
+    fr: 'Un lieu. Un contexte. Maintenant. 1inow est un environnement d\'intelligence personnelle et professionnelle qui relie discrètement tâches, notes, projets, fichiers, réunions et messages en un seul contexte vivant. Moins de mémoire à charger, plus de compréhension.',
+    ar: 'مكان واحد. سياق واحد. الآن. 1inow بيئة ذكاء شخصي وتجاري تربط بهدوء المهام والملاحظات والمشاريع والملفات والاجتماعات والرسائل في سياق واحد حي. تذكَّر أقل، افهم أكثر.',
+    ja: 'ひとつの場所。ひとつの文脈。今、この瞬間。1inowはタスク、ノート、プロジェクト、ファイル、ミーティング、メッセージを静かにひとつの生きた文脈に結びつける、個人・ビジネス向けインテリジェンス環境です。覚えることを減らし、理解を深める。',
+    he: 'מקום אחד. הקשר אחד. עכשיו. 1inow היא סביבת אינטליגנציה אישית ועסקית שמחברת בשקט משימות, הערות, פרויקטים, קבצים, פגישות והודעות להקשר חי אחד. לזכור פחות, להבין יותר.'
+  },
   'digital-invest-portfolio': {
     en: 'The umbrella that holds it all. Digital Invest is a multi-sector portfolio company incubating and scaling technology ventures from health to robotics to food systems. Every project shares infrastructure, data layers, and operational principles — creating compounding value across the entire ecosystem.',
     ru: 'Зонтик, который держит всё. Digital Invest — мультисекторная портфельная компания, инкубирующая и масштабирующая проекты от здоровья до робототехники. Каждый проект делит инфраструктуру, дата-слои и операционные принципы — создавая совокупную ценность по всей экосистеме.',
