@@ -16,7 +16,7 @@ import OptimizedImage from '@/components/OptimizedImage';
 import { MarkdownContent } from '@/components/MarkdownContent';
 import InvestorPageDisclaimer from '@/components/InvestorPageDisclaimer';
 import ProjectDocumentButtons from '@/components/ProjectDocumentButtons';
-import ProjectDocumentsSection from '@/components/ProjectDocumentsSection';
+import ProjectMediaRoom from '@/components/ProjectMediaRoom';
 import biomathCoreHero from '@/assets/projects/biomath-core-hero.jpg';
 import digitalInvestHero from '@/assets/projects/digitalinvest-hero.webp';
 import agronHero from '@/assets/projects/agron-hero.webp';
@@ -24,7 +24,7 @@ import agronInfographic from '@/assets/projects/agron-infographic.webp';
 import agronInfographic1 from '@/assets/agron-infographic-1.webp';
 import agronInfographic2 from '@/assets/agron-infographic-2.webp';
 import { InfographicsGallery } from '@/components/InfographicsGallery';
-import AgronMediaShowcase from '@/components/AgronMediaShowcase';
+
 
 interface Project {
   id: string;
@@ -461,8 +461,13 @@ const ProjectDetail = () => {
 
         <Separator className="my-12" />
 
-        {/* Documents & Resources Section */}
-        <ProjectDocumentsSection projectSlug={project.slug} projectId={project.id} />
+        {/* Unified Media Room: website, presentations, PDFs, video, documents */}
+        <ProjectMediaRoom
+          projectSlug={project.slug}
+          projectId={project.id}
+          websiteUrl={websiteUrl}
+          projectTitle={project.title}
+        />
 
         {/* AGRON Infographics */}
         {project.slug === 'agron' && (
@@ -477,9 +482,6 @@ const ProjectDetail = () => {
             />
           </section>
         )}
-
-        {/* AGRON Media Showcase (PDFs + Video) */}
-        {project.slug === 'agron' && <AgronMediaShowcase />}
 
         {/* Investment Highlights Section */}
         <section className="mb-16">

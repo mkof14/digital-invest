@@ -1,0 +1,1 @@
+UPDATE public.projects SET website_url = 'https://www.agron1.com' WHERE slug = 'agron';
