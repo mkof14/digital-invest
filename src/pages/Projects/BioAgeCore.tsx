@@ -7,6 +7,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { TrendingUp, Activity, Clock, Lightbulb, BarChart3, Sparkles, ArrowLeft } from 'lucide-react';
 import OptimizedImage from '@/components/OptimizedImage';
 import bioagecoreHero from '@/assets/projects/bioagecore-hero.jpg';
+import ProjectMediaRoomBySlug from '@/components/ProjectMediaRoomBySlug';
 
 const BioAgeCore = () => {
   useEffect(() => {
@@ -143,6 +144,7 @@ const BioAgeCore = () => {
         </div>
       </section>
 
+      <ProjectMediaRoomBySlug slug="bioagecore" />
       <Footer />
     </div>
   );

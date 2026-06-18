@@ -15,6 +15,7 @@ import Footer from '@/components/Footer';
 import InvestorPageDisclaimer from '@/components/InvestorPageDisclaimer';
 import heroImg from '@/assets/projects/baseline-hero.jpg';
 import logoImg from '@/assets/projects/baseline-logo.png';
+import ProjectMediaRoomBySlug from '@/components/ProjectMediaRoomBySlug';
 
 const BaseLine = () => {
   const [project, setProject] = useState<any>(null);
@@ -222,6 +223,7 @@ const BaseLine = () => {
         <InvestorPageDisclaimer />
       </div>
 
+      <ProjectMediaRoomBySlug slug="baseline" />
       <Footer />
     </div>
   );

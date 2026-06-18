@@ -8,6 +8,7 @@ import { Button } from '@/components/ui/button';
 import { Camera, TrendingUp, Sparkles, Eye, ArrowLeft } from 'lucide-react';
 import OptimizedImage from '@/components/OptimizedImage';
 import skincoreHero from '@/assets/projects/skincore-hero.jpg';
+import ProjectMediaRoomBySlug from '@/components/ProjectMediaRoomBySlug';
 
 const SkinCore = () => {
   useEffect(() => {
@@ -80,6 +81,7 @@ const SkinCore = () => {
         </div>
       </section>
 
+      <ProjectMediaRoomBySlug slug="skincore" />
       <Footer />
     </div>
   );

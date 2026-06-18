@@ -8,6 +8,7 @@ import { Badge } from '@/components/ui/badge';
 import { Heart, Activity, AlertTriangle, TrendingDown, Shield, Eye, ArrowLeft } from 'lucide-react';
 import OptimizedImage from '@/components/OptimizedImage';
 import vitalcoreHero from '@/assets/projects/vitalcore-hero.jpg';
+import ProjectMediaRoomBySlug from '@/components/ProjectMediaRoomBySlug';
 
 const VitalCore = () => {
   useEffect(() => {
@@ -147,6 +148,7 @@ const VitalCore = () => {
           </section>
         </div>
 
+        <ProjectMediaRoomBySlug slug="vitalcore" />
         <Footer />
       </div>
   );

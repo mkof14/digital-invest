@@ -26,6 +26,7 @@ import presTime from "@/assets/projects/biomath-pres-time.webp";
 import presOutput from "@/assets/projects/biomath-pres-output.webp";
 import InvestorPageDisclaimer from "@/components/InvestorPageDisclaimer";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import ProjectMediaRoomBySlug from '@/components/ProjectMediaRoomBySlug';
 import {
   CriticalHealthIcon, EverydayWellnessIcon, LongevityIcon, MentalWellnessIcon, FitnessIcon,
   WomensHealthIcon, MensHealthIcon, BeautyIcon, NutritionIcon, SleepIcon,
@@ -1463,6 +1464,7 @@ const BioMathCore = () => {
         </div>
       </main>
 
+      <ProjectMediaRoomBySlug slug="biomath-core" />
       <Footer />
     </div>
   );

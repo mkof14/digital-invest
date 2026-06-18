@@ -17,6 +17,7 @@ import InvestorPageDisclaimer from "@/components/InvestorPageDisclaimer";
 import DownloadInvestorBriefButton from "@/components/DownloadInvestorBriefButton";
 import { useEffect, useState } from "react";
 import { updateMetaTags, resetMetaTags } from "@/lib/metaTags";
+import ProjectMediaRoomBySlug from '@/components/ProjectMediaRoomBySlug';
 
 // Brand tokens (scoped, applied via inline style to keep tokens isolated to this page)
 const BRAND = {
@@ -561,6 +562,7 @@ const OneInow = () => {
         </div>
       </main>
 
+      <ProjectMediaRoomBySlug slug="1inow" />
       <Footer />
     </div>
   );

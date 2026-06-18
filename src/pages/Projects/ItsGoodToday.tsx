@@ -14,6 +14,7 @@ import itsgoodtodayHero from "@/assets/projects/itsgoodtoday-hero.jpg";
 import DownloadInvestorBriefButton from "@/components/DownloadInvestorBriefButton";
 import OptimizedImage from "@/components/OptimizedImage";
 import InvestorPageDisclaimer from "@/components/InvestorPageDisclaimer";
+import ProjectMediaRoomBySlug from '@/components/ProjectMediaRoomBySlug';
 
 const ItsGoodToday = () => {
   const { t } = useTranslation();
@@ -175,6 +176,7 @@ const ItsGoodToday = () => {
         <InvestorPageDisclaimer />
       </main>
 
+      <ProjectMediaRoomBySlug slug="itsgoodtoday" />
       <Footer />
     </div>
   );

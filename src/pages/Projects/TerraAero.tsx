@@ -15,6 +15,7 @@ import OptimizedImage from "@/components/OptimizedImage";
 import InvestorPageDisclaimer from "@/components/InvestorPageDisclaimer";
 import { useToast } from "@/hooks/use-toast";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
+import ProjectMediaRoomBySlug from '@/components/ProjectMediaRoomBySlug';
 
 const TerraAero = () => {
   const [infographicOpen, setInfographicOpen] = useState(false);
@@ -432,6 +433,7 @@ const TerraAero = () => {
 
         <div className="mt-16"><InvestorPageDisclaimer /></div>
       </main>
+      <ProjectMediaRoomBySlug slug="terraaero" />
       <Footer />
     </div>
   );

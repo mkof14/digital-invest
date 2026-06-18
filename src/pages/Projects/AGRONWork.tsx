@@ -29,6 +29,7 @@ import agronworkHero from "@/assets/projects/agronwork-hero.jpg";
 import DownloadInvestorBriefButton from "@/components/DownloadInvestorBriefButton";
 import OptimizedImage from "@/components/OptimizedImage";
 import InvestorPageDisclaimer from "@/components/InvestorPageDisclaimer";
+import ProjectMediaRoomBySlug from '@/components/ProjectMediaRoomBySlug';
 
 const AGRONWork = () => {
   const { t } = useTranslation();
@@ -369,6 +370,7 @@ const AGRONWork = () => {
         <InvestorPageDisclaimer />
       </main>
 
+      <ProjectMediaRoomBySlug slug="agron-work" />
       <Footer />
     </div>
   );

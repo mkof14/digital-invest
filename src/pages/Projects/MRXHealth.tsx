@@ -14,6 +14,7 @@ import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import InvestorPageDisclaimer from '@/components/InvestorPageDisclaimer';
 import mrxHero from '@/assets/projects/mrx-hero.jpg';
+import ProjectMediaRoomBySlug from '@/components/ProjectMediaRoomBySlug';
 
 const MRXHealth = () => {
   const [project, setProject] = useState<any>(null);
@@ -218,6 +219,7 @@ const MRXHealth = () => {
         <InvestorPageDisclaimer />
       </div>
 
+      <ProjectMediaRoomBySlug slug="mrx-health" />
       <Footer />
     </div>
   );

@@ -8,6 +8,7 @@ import { Button } from '@/components/ui/button';
 import { Bell, Heart, Activity, Calendar, Shield, Users, ArrowLeft } from 'lucide-react';
 import OptimizedImage from '@/components/OptimizedImage';
 import seniorcoreHero from '@/assets/projects/seniorcore-hero.jpg';
+import ProjectMediaRoomBySlug from '@/components/ProjectMediaRoomBySlug';
 
 const SeniorCore = () => {
   useEffect(() => {
@@ -140,6 +141,7 @@ const SeniorCore = () => {
         </div>
       </section>
 
+      <ProjectMediaRoomBySlug slug="seniorcore" />
       <Footer />
     </div>
   );
