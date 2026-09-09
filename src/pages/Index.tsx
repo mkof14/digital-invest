@@ -223,12 +223,11 @@ const Index = () => {
         <div className="pointer-events-none absolute inset-x-0 top-0 h-px hero-scanline bg-gradient-to-r from-transparent via-[rgba(20,196,217,0.7)] to-transparent" aria-hidden />
         <div className="hero-wash pointer-events-none absolute inset-0" aria-hidden />
 
-        {/* Orbital system with brand core */}
+        {/* Orbital system */}
         <div className="pointer-events-none absolute -right-[22vw] top-1/2 -translate-y-1/2 w-[80vw] h-[80vw] max-w-[900px] max-h-[900px] lg:right-[-10vw]" aria-hidden>
           <div className="hero-orbit hero-orbit-1" />
           <div className="hero-orbit hero-orbit-2" />
           <div className="hero-orbit hero-orbit-3" />
-          <div className="hero-core" />
           <img
             src={ecosystemCore.url}
             alt=""
