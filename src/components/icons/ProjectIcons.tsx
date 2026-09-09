@@ -146,6 +146,16 @@ export const OneNowIcon = ({ className = '' }: IconProps) => (
   </svg>
 );
 
+// FACETIUM — a faceted arrow/gem mark echoing the brand's central facet.
+export const FacetIcon = ({ className = '' }: IconProps) => (
+  <svg viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M12 3 4 19h16L12 3Z" />
+    <path d="M12 3v16" opacity="0.6" />
+    <path d="M7.5 12h9" opacity="0.35" />
+  </svg>
+);
+
+
 // ---- Per-project registry ----
 
 export const projectIcons: Record<string, React.ReactNode> = {
@@ -168,6 +178,7 @@ export const projectIcons: Record<string, React.ReactNode> = {
   'skincore': <SkinFaceIcon className="w-4 h-4" />,
   'myday': <AILoopIcon className="w-4 h-4" />,
   '1inow': <OneNowIcon className="w-4 h-4" />,
+  'facetium': <FacetIcon className="w-4 h-4" />,
   'itsgoodtoday': <SunCheckIcon className="w-4 h-4" />,
   'table-served': <PlateForkIcon className="w-4 h-4" />,
   't1d': <GlucoseCurveIcon className="w-4 h-4" />,
@@ -209,6 +220,7 @@ export const ProjectIcon = ({
     'skincore': SkinFaceIcon,
     'myday': AILoopIcon,
     '1inow': OneNowIcon,
+    'facetium': FacetIcon,
     'itsgoodtoday': SunCheckIcon,
     'table-served': PlateForkIcon,
     't1d': GlucoseCurveIcon,

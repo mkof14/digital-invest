@@ -63,18 +63,6 @@ export const adamasProjects: AdamasProject[] = [
     relatedSlugs: ['agron-net', 'it-marketing-group', 'adamas-materials'],
   },
   {
-    slug: 'abu-mall',
-    titleKey: 'adamas.projects.abuMall.title',
-    descriptionKey: 'adamas.projects.abuMall.description',
-    longDescriptionKey: 'adamas.projects.abuMall.longDescription',
-    category: 'E-Commerce',
-    categoryKey: 'adamas.categories.ecommerce',
-    accentHsl: '35 80% 50%',
-    icon: 'ShoppingBag',
-    status: 'development',
-    relatedSlugs: ['jewelry-dropshipping', 'coins-and-tokens', 'jatual-diamonds'],
-  },
-  {
     slug: 'alma-diamond',
     titleKey: 'adamas.projects.almaDiamond.title',
     descriptionKey: 'adamas.projects.almaDiamond.description',
@@ -96,7 +84,7 @@ export const adamasProjects: AdamasProject[] = [
     accentHsl: '45 75% 50%',
     icon: 'Package',
     status: 'planning',
-    relatedSlugs: ['abu-mall', 'jatual-diamonds', 'alma-diamond'],
+    relatedSlugs: ['jatual-diamonds', 'alma-diamond', 'origin-diamond'],
   },
   {
     slug: 'jatual-diamonds',
@@ -120,7 +108,7 @@ export const adamasProjects: AdamasProject[] = [
     accentHsl: '180 60% 45%',
     icon: 'Coins',
     status: 'active',
-    relatedSlugs: ['abu-mall', 'adamas-materials', 'jewelry-dropshipping'],
+    relatedSlugs: ['adamas-materials', 'jewelry-dropshipping', 'alma-diamond'],
   },
   {
     slug: 'innovation-diamonds',
