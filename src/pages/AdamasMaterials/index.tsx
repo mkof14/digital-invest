@@ -13,7 +13,6 @@ import adamasMaterialsHero from '@/assets/adamas/adamas-materials-hero.jpg';
 import originDiamondHero from '@/assets/adamas/origin-diamond-hero.jpg';
 import agronNetHero from '@/assets/adamas/agron-net-hero.jpg';
 import agronWorkHero from '@/assets/adamas/agron-work-hero.webp';
-import abuMallHero from '@/assets/adamas/abu-mall-hero.webp';
 import almaDiamondHero from '@/assets/adamas/alma-diamond-hero.jpg';
 import jewelryDropshippingHero from '@/assets/adamas/jewelry-dropshipping-hero.webp';
 import jatualHero from '@/assets/adamas/jatual-diamonds-hero.webp';
@@ -27,7 +26,6 @@ const cardHeroImages: Record<string, string> = {
   'origin-diamond': originDiamondHero,
   'agron-net': agronNetHero,
   'agron-work': agronWorkHero,
-  'abu-mall': abuMallHero,
   'alma-diamond': almaDiamondHero,
   'jewelry-dropshipping': jewelryDropshippingHero,
   'jatual-diamonds': jatualHero,

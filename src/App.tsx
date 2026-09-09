@@ -4,7 +4,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import ScrollToTop from "@/components/ScrollToTop";
 import RouteSEO from "@/components/RouteSEO";
@@ -85,7 +85,7 @@ const LegalOverview = lazy(() => import('./pages/LegalOverview'));
 const PortfolioOverview = lazy(() => import('./pages/PortfolioOverview'));
 const AdamasMaterialsOverview = lazy(() => import('./pages/AdamasMaterials'));
 const AdamasProjectDetail = lazy(() => import('./pages/AdamasMaterials/AdamasProjectDetail'));
-const AbuMall = lazy(() => import('./pages/AdamasMaterials/AbuMall'));
+const Facetium = lazy(() => import('./pages/Projects/Facetium'));
 const AlmaDiamond = lazy(() => import('./pages/AdamasMaterials/AlmaDiamond'));
 const JatualDiamonds = lazy(() => import('./pages/AdamasMaterials/JatualDiamonds'));
 const DiagnosticsReact = lazy(() => import("./pages/DiagnosticsReact"));
@@ -248,12 +248,13 @@ const App = () => (
               <Route path="/projects/saven" element={<SAVEN />} />
               <Route path="/projects/t1d" element={<T1D />} />
               <Route path="/projects/t1-2d" element={<T1D />} />
+              <Route path="/projects/facetium" element={<Facetium />} />
               
               {/* Adamas Materials Projects */}
               <Route path="/adamas" element={<AdamasMaterialsOverview />} />
               <Route path="/adamas/agron-net" element={<AGRON />} />
               <Route path="/adamas/agron-work" element={<AGRONWork />} />
-              <Route path="/adamas/abu-mall" element={<AbuMall />} />
+              <Route path="/adamas/abu-mall" element={<Navigate to="/projects/facetium" replace />} />
               <Route path="/adamas/alma-diamond" element={<AlmaDiamond />} />
               <Route path="/adamas/jatual-diamonds" element={<JatualDiamonds />} />
               <Route path="/adamas/:slug" element={<AdamasProjectDetail />} />

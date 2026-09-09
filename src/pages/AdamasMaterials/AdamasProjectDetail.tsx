@@ -14,7 +14,6 @@ import originDiamondHero from '@/assets/adamas/origin-diamond-hero.jpg';
 import jatualHero from '@/assets/adamas/jatual-diamonds-hero.webp';
 import innovationHero from '@/assets/adamas/innovation-diamonds-hero.jpg';
 import adamasMaterialsHero from '@/assets/adamas/adamas-materials-hero.jpg';
-import abuMallHero from '@/assets/adamas/abu-mall-hero.webp';
 import almaDiamondHero from '@/assets/adamas/alma-diamond-hero.jpg';
 import jewelryDropshippingHero from '@/assets/adamas/jewelry-dropshipping-hero.webp';
 import coinsTokensHero from '@/assets/adamas/coins-tokens-hero.webp';
@@ -28,7 +27,6 @@ import adamasMaterialsLogoIcon from '@/assets/adamas/logos/adamas-materials-logo
 import originDiamondLogo from '@/assets/adamas/logos/origin-diamond-logo.png';
 import agronNetLogo from '@/assets/adamas/logos/agron-net-logo.png';
 import agronWorkLogo from '@/assets/adamas/logos/agron-work-logo.png';
-import abuMallLogo from '@/assets/adamas/logos/abu-mall-logo.png';
 import almaDiamondLogo from '@/assets/adamas/logos/alma-diamond-logo.png';
 import jewelryDropshippingLogo from '@/assets/adamas/logos/jewelry-dropshipping-logo.png';
 import jatualDiamondsLogo from '@/assets/adamas/logos/jatual-diamonds-logo.png';
@@ -42,7 +40,6 @@ const projectHeroImages: Record<string, string> = {
   'origin-diamond': originDiamondHero,
   'agron-net': agronNetHero,
   'agron-work': agronWorkHero,
-  'abu-mall': abuMallHero,
   'alma-diamond': almaDiamondHero,
   'jewelry-dropshipping': jewelryDropshippingHero,
   'jatual-diamonds': jatualHero,
@@ -57,7 +54,6 @@ const projectLogos: Record<string, string> = {
   'origin-diamond': originDiamondLogo,
   'agron-net': agronNetLogo,
   'agron-work': agronWorkLogo,
-  'abu-mall': abuMallLogo,
   'alma-diamond': almaDiamondLogo,
   'jewelry-dropshipping': jewelryDropshippingLogo,
   'jatual-diamonds': jatualDiamondsLogo,

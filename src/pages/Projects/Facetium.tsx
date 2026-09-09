@@ -14,7 +14,12 @@ import OptimizedImage from '@/components/OptimizedImage';
 import InterestForm from '@/components/InterestForm';
 import InvestorPageDisclaimer from '@/components/InvestorPageDisclaimer';
 import ProjectMediaRoomBySlug from '@/components/ProjectMediaRoomBySlug';
-import heroImg from '@/assets/projects/facetium-hero.jpg';
+import facetiumLogo from '@/assets/projects/facetium-logo.png.asset.json';
+import facetiumEntrance from '@/assets/projects/facetium-entrance.png.asset.json';
+import facetiumNetwork from '@/assets/projects/facetium-network.png.asset.json';
+import facetiumWorld from '@/assets/projects/facetium-world.png.asset.json';
+import facetiumHeadquarters from '@/assets/projects/facetium-headquarters.jpg.asset.json';
+import interiorImg from '@/assets/projects/facetium-hero.jpg';
 
 const Facetium = () => {
   const [showInterestForm, setShowInterestForm] = useState(false);
@@ -27,13 +32,13 @@ const Facetium = () => {
       <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <OptimizedImage
-            src={heroImg}
-            alt="FACETIUM virtual luxury retail environment"
+            src={facetiumEntrance.url}
+            alt="FACETIUM destination entrance"
             containerClassName="w-full h-full"
             className="w-full h-full object-cover"
             showSkeleton={false}
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#14100a]/95 via-[#14100a]/80 to-[#14100a]/45" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0d0b08]/95 via-[#0d0b08]/85 to-[#0d0b08]/50" />
         </div>
         <div className="relative z-10 container mx-auto px-4 py-20">
           <div className="max-w-3xl">
@@ -43,18 +48,23 @@ const Facetium = () => {
             >
               <ArrowLeft className="w-4 h-4 mr-2" /> Back to Projects
             </Link>
+            <img
+              src={facetiumLogo.url}
+              alt="FACETIUM"
+              width={640}
+              height={205}
+              className="h-16 md:h-24 w-auto object-contain mb-6"
+            />
             <Badge className="mb-4 bg-amber-500/20 text-amber-300 border-amber-500/30 text-sm px-4 py-1">
-              Premium Digital Retail Environments
+              A Network of Digital Commercial Environments
             </Badge>
-            <h1 className="text-5xl md:text-7xl font-bold text-white mb-3 tracking-tight">
-              FACETIUM
-            </h1>
-            <p className="text-xl md:text-2xl text-amber-200/70 font-light italic mb-6">
-              Luxury, experienced in space — not scrolled in a catalog
+            <p className="text-xl md:text-2xl text-amber-200/80 font-light italic mb-6">
+              Enter a place built for commerce
             </p>
             <p className="text-xl text-gray-300 mb-8 leading-relaxed max-w-2xl">
-              FACETIUM builds spatial digital environments for high-value goods, where people walk,
-              look, compare and decide with the calm and confidence of a real luxury destination.
+              Commerce becomes a place. Walk in. Look around. Try. Talk. Buy. FACETIUM builds
+              spatial digital environments for high-value goods — physical architecture reimagined,
+              complex products decoded, human service preserved.
             </p>
             <div className="flex flex-wrap gap-4">
               <Button
@@ -80,6 +90,32 @@ const Facetium = () => {
           </div>
         </div>
       </section>
+
+      {/* Visual gallery */}
+      <section className="py-16 bg-[#0d0b08]">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              { src: facetiumNetwork.url, alt: 'FACETIUM network of digital commercial environments', caption: 'A network of digital commercial environments' },
+              { src: facetiumWorld.url, alt: 'FACETIUM digital world for commerce', caption: 'A digital world for commerce' },
+              { src: facetiumHeadquarters.url, alt: 'FACETIUM flagship destination architecture', caption: 'Architecture designed as a destination' },
+            ].map((item, i) => (
+              <figure key={i} className="group overflow-hidden rounded-xl border border-amber-500/15 bg-black/40">
+                <div className="aspect-[16/10] overflow-hidden">
+                  <img
+                    src={item.src}
+                    alt={item.alt}
+                    loading="lazy"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                </div>
+                <figcaption className="p-4 text-sm text-amber-200/70">{item.caption}</figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
+      </section>
+
 
       {/* Positioning */}
       <section className="py-20 bg-gradient-to-b from-[#14100a] to-background">
@@ -158,7 +194,21 @@ const Facetium = () => {
             ))}
           </div>
         </div>
+        <div className="container mx-auto px-4 mt-12">
+          <div className="rounded-2xl overflow-hidden border border-amber-500/15 max-w-5xl mx-auto">
+            <img
+              src={interiorImg}
+              alt="Interior of a FACETIUM digital commercial environment"
+              loading="lazy"
+              width={1600}
+              height={912}
+              className="w-full h-auto object-cover"
+            />
+          </div>
+        </div>
       </section>
+
+
 
       {/* Experience */}
       <section className="py-20">
@@ -388,7 +438,3 @@ const Facetium = () => {
 };
 
 export default Facetium;
-</content>
-</invoke>
-<invoke name="code--exec">
-<parameter name="command">rg -n "abu-mall|AbuMall" src/App.tsx src/pages/AdamasMaterials/index.tsx src/pages/AdamasMaterials/AdamasProjectDetail.tsx; echo ---; sed -n 150,175p src/pages/ResourcesLibrary.tsx; echo ---; sed -n 305,315p public/sitemap.xml; echo ---; rg -n "Navigate|1inow" src/App.tsx | head
