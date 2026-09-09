@@ -35,7 +35,7 @@ const layerIcons = [Cpu, Settings, Brain, ShieldCheck, GraduationCap, Network];
 const capabilityIcons = [Building2, Search, Layers, GraduationCap, Settings, Network, ShieldCheck];
 const serviceIcons = [Network, Search, Layers, GraduationCap, Settings];
 const protectionIcons = [Eye, Search, Gauge, Bell, LifeBuoy, Lock, Brain];
-const modularIcons = [Ship, Truck, ContainerIcon];
+const modularIcons = [Ship, Truck];
 
 
 /** Vertical on mobile, horizontal on desktop — never overflows. */
@@ -305,7 +305,7 @@ const AGRON = () => {
               <Card key={app.t} className="bg-card/60 border-border/60">
                 <CardContent className="pt-6">
                   <div className="flex items-center gap-3 mb-4">
-                    {i === 0 ? <Ship className="w-5 h-5 text-primary" /> : i === 1 ? <Anchor className="w-5 h-5 text-primary" /> : i === 2 ? <Radar className="w-5 h-5 text-primary" /> : <ContainerIcon className="w-5 h-5 text-primary" />}
+                    {i === 0 ? <Ship className="w-5 h-5 text-primary" /> : i === 1 ? <Anchor className="w-5 h-5 text-primary" /> : i === 2 ? <Radar className="w-5 h-5 text-primary" /> : <ShieldCheck className="w-5 h-5 text-primary" />}
                     <h4 className="font-semibold text-foreground">{app.t}</h4>
                   </div>
                   <ul className="space-y-2">
