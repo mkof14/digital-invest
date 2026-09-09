@@ -221,6 +221,7 @@ const PROJECT_TITLES: Record<string, string> = {
   "agron": "AGRON — Autonomous Agriculture",
   "agron-work": "AGRON Work — Autonomous Workforce",
   "t1d": "T1D — Type 1 Diabetes Platform",
+  "facetium": "FACETIUM — Digital Commercial Environments",
 };
 
 export function seoForPath(pathname: string): RouteSEOData {
