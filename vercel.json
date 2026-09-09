@@ -7,6 +7,10 @@
   "outputDirectory": "dist",
   "rewrites": [
     {
+      "source": "/__l5e/:path*",
+      "destination": "https://digital-invest.lovable.app/__l5e/:path*"
+    },
+    {
       "source": "/adamas",
       "has": [
         {
