@@ -371,22 +371,15 @@ const Index = () => {
             ))}
           </div>
 
-          {/* Full-width atmosphere image with overlay */}
+          {/* Full-width portfolio architecture image */}
           <div className="relative mt-6 overflow-hidden rounded-2xl border border-border/40 bg-card">
             <img
-              src={archVisual.url}
-              alt="Futuristic glass architecture representing Digital Invest infrastructure"
+              src={corporatePortfolioArchitecture.url}
+              alt="Corporate Portfolio Architecture: BioMath Core, SAVEN, AGRON and Adamas Materials as connected pillars of Digital Invest"
               loading="lazy"
               decoding="async"
-              className="theme-responsive-image w-full h-[260px] md:h-[420px] object-cover"
+              className="theme-responsive-image w-full h-auto object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
-            <div className="absolute inset-x-0 bottom-0 p-6 md:p-10">
-              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-brand-gold">Shape the future with us</p>
-              <p className="mt-3 max-w-xl text-lg md:text-2xl font-medium leading-snug text-foreground">
-                Long-horizon technology, built as infrastructure — not as isolated apps.
-              </p>
-            </div>
           </div>
         </div>
       </section>
