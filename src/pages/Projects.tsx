@@ -16,7 +16,7 @@ import InvestorPageDisclaimer from '@/components/InvestorPageDisclaimer';
 import terraaeroHero from '@/assets/projects/terraaero-hero.jpg';
 import biomathcoreHero from '@/assets/projects/biomathcore-hero.jpg';
 import mydayHero from '@/assets/projects/myday-hero.webp';
-import agronHeroAsset from '@/assets/projects/agron-port.png.asset.json';
+import agronHeroAsset from '@/assets/projects/agron-port-card.webp';
 import digitalinvestHero from '@/assets/projects/digitalinvest-hero.webp';
 import biomathlifeHero from '@/assets/projects/biomathlife-hero.jpg';
 import vitalcoreHero from '@/assets/projects/vitalcore-hero.jpg';
@@ -27,12 +27,12 @@ import agronworkHero from '@/assets/projects/agronwork-hero.jpg';
 import mrxHero from '@/assets/projects/mrx-hero.jpg';
 import baselineHero from '@/assets/projects/baseline-hero.jpg';
 import baselineLogo from '@/assets/projects/baseline-logo.png';
-import savenHero from '@/assets/saven/hero.asset.json';
+import savenHero from '@/assets/saven/saven-hero-card.webp';
 import savenLogo from '@/assets/projects/saven-logo.webp';
 import t1dHero from '@/assets/projects/t1d-hero.jpg';
 import oneinowHero from '@/assets/projects/1inow-hero.jpg';
-import facetiumEntrance from '@/assets/projects/facetium-entrance.png.asset.json';
-import starwallHeroAsset from '@/assets/projects/starwall-hero-2026.png.asset.json';
+import facetiumEntrance from '@/assets/projects/facetium-entrance-card.webp';
+import starwallHeroAsset from '@/assets/projects/starwall-hero-card.webp';
 import biomathcoreCardBg from '@/assets/projects/biomathcore-card-bg.webp';
 import biomathcoreLogoBanner from '@/assets/projects/biomathcore-logo-banner.png';
 import OptimizedImage from '@/components/OptimizedImage';
@@ -305,7 +305,7 @@ const Projects = () => {
     biomathcore: biomathcoreHero,
     'biomath-core': biomathcoreHero,
     myday: mydayHero,
-    agron: agronHeroAsset.url,
+    agron: agronHeroAsset,
     'digital-invest-portfolio': digitalinvestHero,
     'digital-invest-ai-lab': digitalinvestHero,
     'digital-invest-manufacturing': digitalinvestHero,
@@ -317,11 +317,11 @@ const Projects = () => {
     'agron-work': agronworkHero,
     'mrx-health': mrxHero,
     'baseline': baselineHero,
-    'saven': savenHero.url,
+    'saven': savenHero,
     't1d': t1dHero,
     '1inow': oneinowHero,
-    'facetium': facetiumEntrance.url,
-    'starwall': starwallHeroAsset.url,
+    'facetium': facetiumEntrance,
+    'starwall': starwallHeroAsset,
   };
 
   // Get optimized image path based on format support
