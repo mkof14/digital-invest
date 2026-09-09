@@ -1164,6 +1164,8 @@ button:not(:disabled):active,
     --muted-foreground: 215 20% 65%;
     --border: 210 25% 72%;
     --card: 222 40% 8%;
+    --brand-gold: #E0B45F;
+    --brand-gold-strong: #F0CD86;
     background-color: hsl(222 47% 5%);
     color: hsl(210 40% 98%);
   }
