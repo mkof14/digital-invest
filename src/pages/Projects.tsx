@@ -562,7 +562,7 @@ const Projects = () => {
           return (
             <nav
               aria-label={t('projects.jumpToSection', 'Jump to section')}
-              className="mb-10 sticky top-20 z-30 -mx-4 px-4 py-3 bg-background/80 backdrop-blur-md border-y border-border/40"
+              className="mb-10 sticky top-20 z-30 py-3 bg-background/80 backdrop-blur-md border-y border-border/40"
             >
               <div className="flex flex-wrap items-center gap-2 justify-center">
                 <span className="inline-flex items-center gap-1.5 text-xs uppercase tracking-wider text-muted-foreground mr-1">
