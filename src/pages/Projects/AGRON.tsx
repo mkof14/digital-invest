@@ -18,7 +18,7 @@ import {
   Eye, Search, Gauge, Bell, LifeBuoy, Lock, Brain, Building2, Layers,
 } from 'lucide-react';
 
-import agronLogo from '@/assets/projects/agron-logo-official.png.asset.json';
+import agronLogo from '@/assets/projects/agron-logo-2026.png.asset.json';
 import agronContainer from '@/assets/projects/agron-container.png.asset.json';
 import agronMarina from '@/assets/projects/agron-marina.png.asset.json';
 import agronPort from '@/assets/projects/agron-port.png.asset.json';
@@ -30,11 +30,15 @@ import starwallLogo from '@/assets/projects/starwall-logo.png.asset.json';
 import { getAgronContent } from './agronContent';
 
 const AGRON_SITE = 'https://www.agron1.com';
+const AGRON_SERVICES = 'https://www.agron1.com/services';
+const AGRON_MARITIME = 'https://www.agron1.com/maritime';
 
 const layerIcons = [Cpu, Settings, Brain, ShieldCheck, GraduationCap, Network];
 const capabilityIcons = [Building2, Search, Layers, GraduationCap, Settings, Network, ShieldCheck];
+const serviceIcons = [Network, Search, Layers, GraduationCap, Settings];
 const protectionIcons = [Eye, Search, Gauge, Bell, LifeBuoy, Lock, Brain];
 const modularIcons = [Ship, Truck, ContainerIcon];
+
 
 /** Vertical on mobile, horizontal on desktop — never overflows. */
 const FlowChain = ({ steps }: { steps: string[] }) => (
