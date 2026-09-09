@@ -86,6 +86,7 @@ const PortfolioOverview = lazy(() => import('./pages/PortfolioOverview'));
 const AdamasMaterialsOverview = lazy(() => import('./pages/AdamasMaterials'));
 const AdamasProjectDetail = lazy(() => import('./pages/AdamasMaterials/AdamasProjectDetail'));
 const Facetium = lazy(() => import('./pages/Projects/Facetium'));
+const StarWall = lazy(() => import('./pages/Projects/StarWall'));
 const AlmaDiamond = lazy(() => import('./pages/AdamasMaterials/AlmaDiamond'));
 const JatualDiamonds = lazy(() => import('./pages/AdamasMaterials/JatualDiamonds'));
 const DiagnosticsReact = lazy(() => import("./pages/DiagnosticsReact"));
@@ -251,6 +252,8 @@ const App = () => (
               <Route path="/projects/facetium" element={<Facetium />} />
               <Route path="/projects/agron" element={<AGRON />} />
               <Route path="/projects/agron-work" element={<AGRONWork />} />
+              <Route path="/projects/starwall" element={<StarWall />} />
+              <Route path="/starwall" element={<Navigate to="/projects/starwall" replace />} />
               
               {/* Adamas Materials Projects */}
               <Route path="/adamas" element={<AdamasMaterialsOverview />} />

@@ -8,6 +8,9 @@ import oneinowEnvironmentPdf from '@/assets/projects/1inow-environment.pdf.asset
 // at least one preview-ready item out of the box.
 import agronInfographic from '@/assets/projects/agron-infographic.webp';
 import starwallOverviewImg from '@/assets/projects/starwall-overview.jpg.asset.json';
+import starwallSystemImg from '@/assets/projects/starwall-system-overview.jpg.asset.json';
+import starwallCommandImg from '@/assets/projects/starwall-command.png.asset.json';
+import starwallHero2026 from '@/assets/projects/starwall-hero-2026.png.asset.json';
 import agronMarinaImg from '@/assets/projects/agron-marina.png.asset.json';
 import agronPortImg from '@/assets/projects/agron-port.png.asset.json';
 import agronIslandImg from '@/assets/projects/agron-island.png.asset.json';
@@ -102,6 +105,14 @@ const extrasBySlug: Record<string, MediaItem[]> = {
     img('agron-port', 'AGRON Maritime — Port Environment', agronPortImg.url, 'Operating environment'),
     img('agron-island', 'AGRON Maritime — Private Island', agronIslandImg.url, 'Operating environment'),
     img('agron-hero', 'AGRON — Brand Visual', agronHero, 'Cover image'),
+  ],
+  starwall: [
+    img('starwall-system', 'StarWall by AGRON — System Overview', starwallSystemImg.url, 'What it is, how it works, who is in charge', 'Infographic'),
+    img('starwall-overview-2', 'StarWall by AGRON — Intelligence Overview', starwallOverviewImg.url, 'Intelligence layer', 'Infographic'),
+    img('starwall-command', 'StarWall — Operating Environment', starwallCommandImg.url, 'Coastal, maritime and urban infrastructure'),
+    img('starwall-brand', 'StarWall by AGRON — Brand Visual', starwallHero2026.url, 'Cover image'),
+    img('starwall-marina', 'StarWall Maritime — Marina Environment', agronMarinaImg.url, 'Application environment'),
+    img('starwall-port', 'StarWall Maritime — Port Environment', agronPortImg.url, 'Application environment'),
   ],
   'agron-work': [
     img('agronwork-hero', 'AGRON Work — Brand Visual', agronWorkHero, 'Cover image'),

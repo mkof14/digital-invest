@@ -38,6 +38,7 @@ import savenLogo from '@/assets/projects/saven-logo.webp';
 import t1dHero from '@/assets/projects/t1d-hero.jpg';
 import oneinowHero from '@/assets/projects/1inow-hero.jpg';
 import facetiumEntrance from '@/assets/projects/facetium-entrance.png.asset.json';
+import starwallHeroAsset from '@/assets/projects/starwall-hero-2026.png.asset.json';
 import biomathcoreCardBg from '@/assets/projects/biomathcore-card-bg.webp';
 import biomathcoreLogoBanner from '@/assets/projects/biomathcore-logo-banner.png';
 import OptimizedImage from '@/components/OptimizedImage';
@@ -69,6 +70,7 @@ const projectThemes: Record<string, { from: string; to: string; accent: string; 
   'skincore': { from: 'from-pink-400/20', to: 'to-rose-500/20', accent: 'text-pink-300', border: 'border-pink-400/30', btnBg: 'bg-pink-500', btnHover: 'hover:bg-pink-400', label: 'Beauty' },
   't1d': { from: 'from-teal-500/20', to: 'to-amber-500/20', accent: 'text-teal-300', border: 'border-teal-500/30', btnBg: 'bg-teal-600', btnHover: 'hover:bg-teal-500', label: 'Diabetes Care' },
   '1inow': { from: 'from-emerald-500/20', to: 'to-teal-700/20', accent: 'text-emerald-400', border: 'border-emerald-500/30', btnBg: 'bg-emerald-600', btnHover: 'hover:bg-emerald-500', label: 'Productivity' },
+  'starwall': { from: 'from-slate-700/25', to: 'to-orange-500/20', accent: 'text-orange-300', border: 'border-orange-500/30', btnBg: 'bg-orange-600', btnHover: 'hover:bg-orange-500', label: 'An AGRON Technology' },
   'facetium': { from: 'from-amber-500/20', to: 'to-yellow-700/20', accent: 'text-amber-300', border: 'border-amber-500/30', btnBg: 'bg-amber-600', btnHover: 'hover:bg-amber-500', label: 'Digital Commerce' },
 };
 
@@ -104,6 +106,11 @@ const projectHighlights: Record<string, { extraCategories?: string[]; tagline?: 
   'agron': {
     extraCategories: ['AI', 'Robotics', 'Intelligence', 'Security'],
     tagline: 'Infrastructure for Autonomous Operations',
+    special: ['featured'],
+  },
+  'starwall': {
+    extraCategories: ['AI', 'Intelligence', 'Security', 'Infrastructure', 'B2B', 'B2G'],
+    tagline: 'Intelligence Across the Physical World — an AGRON technology',
     special: ['featured'],
   },
   'agron-work': {
@@ -194,6 +201,7 @@ const projectOrder: string[] = [
   'baseline',
   // После Baseline: AGRON family + TerraAero
   'agron',
+  'starwall',
   'agron-work',
   'terraaero',
   // Остальные
@@ -240,7 +248,7 @@ const projectGroups: ProjectGroup[] = [
     id: 'agron',
     titleKey: 'projects.groups.agron',
     defaultTitle: 'AGRON Family',
-    slugs: ['agron', 'agron-work'],
+    slugs: ['agron', 'starwall', 'agron-work'],
   },
   {
     id: 'terraaero',
@@ -348,6 +356,7 @@ const Projects = () => {
     't1d': t1dHero,
     '1inow': oneinowHero,
     'facetium': facetiumEntrance.url,
+    'starwall': starwallHeroAsset.url,
   };
 
   // Get optimized image path based on format support

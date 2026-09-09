@@ -431,6 +431,14 @@ const AGRON = () => {
             containerClassName="mt-10 w-full rounded-2xl overflow-hidden border border-border/60"
             className="w-full h-auto object-contain"
           />
+
+          <div className="mt-8">
+            <Button asChild>
+              <Link to="/projects/starwall">
+                Explore StarWall <ArrowRight className="ml-2 w-4 h-4 rtl:rotate-180" />
+              </Link>
+            </Button>
+          </div>
         </section>
 
         {/* MODULAR INFRASTRUCTURE */}
