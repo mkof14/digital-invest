@@ -154,7 +154,7 @@ const pick = (table, idx) =>
   Object.fromEntries(Object.entries(table).map(([k, v]) => [k, v[idx]]));
 
 LANGS.forEach((lang, idx) => {
-  const paths = [`src/i18n/locales/.json`, `public/locales//translation.json`];
+  const paths = [`src/i18n/locales/${lang}.json`, `public/locales/${lang}/translation.json`];
   for (const path of paths) {
   const json = JSON.parse(readFileSync(path, 'utf8'));
   json.projectsCatalog = {
