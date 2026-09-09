@@ -128,16 +128,22 @@ const AGRON = () => {
             <p className="mt-8 text-base md:text-lg text-white/75 leading-relaxed max-w-2xl">{c.hero.desc}</p>
 
             <div className="flex flex-wrap gap-3 mt-10">
-              <Button size="lg" onClick={() => setShowInterest(true)}>
-                {c.hero.ctaPrimary} <ArrowRight className="ml-2 w-5 h-5 rtl:rotate-180" />
+              <Button size="lg" asChild>
+                <a href={AGRON_SERVICES} target="_blank" rel="noopener noreferrer">
+                  {c.services.cta} <ExternalLink className="ml-2 w-4 h-4" />
+                </a>
               </Button>
               <Button size="lg" variant="secondary" asChild>
                 <a href={AGRON_SITE} target="_blank" rel="noopener noreferrer">
                   {c.hero.ctaSecondary} <ExternalLink className="ml-2 w-4 h-4" />
                 </a>
               </Button>
+              <Button size="lg" variant="ghost" className="text-white hover:text-white" onClick={() => setShowInterest(true)}>
+                {c.cta.primary} <ArrowRight className="ml-2 w-5 h-5 rtl:rotate-180" />
+              </Button>
               <DownloadInvestorBriefButton projectSlug="agron" size="lg" />
             </div>
+
           </div>
         </div>
       </section>
