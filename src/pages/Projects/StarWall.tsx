@@ -12,7 +12,7 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import {
-  ArrowLeft, ArrowRight, ArrowDown, ExternalLink, Radar, Camera, Cpu, Radio, Battery,
+  ArrowLeft, ArrowRight, ArrowDown, ExternalLink, Radar, Cpu, Radio, Battery,
   MonitorSmartphone, Plane, Layers, Network, ShieldCheck, GraduationCap, Building2,
   Ship, Factory, Landmark, Sparkles, Boxes, Truck, Anchor, Clock, Users, LineChart,
 } from 'lucide-react';
@@ -331,7 +331,6 @@ const StarWall = () => {
               <div
                 key={level.n}
                 className="p-5 md:p-6 rounded-2xl border border-border/60 bg-card/40"
-                style={{ marginLeft: undefined }}
               >
                 <div className="flex flex-col md:flex-row md:items-center gap-3 md:gap-6">
                   <div className="flex items-center gap-3 md:w-72 flex-shrink-0">
