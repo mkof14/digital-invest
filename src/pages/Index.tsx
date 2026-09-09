@@ -215,14 +215,14 @@ const Index = () => {
           alt=""
           aria-hidden
           decoding="async"
-          className="hero-campus pointer-events-none absolute inset-0 w-full h-full object-cover opacity-95 select-none"
+          className="hero-campus pointer-events-none absolute inset-0 w-full h-full object-cover opacity-95 select-none dark:opacity-45"
         />
         {/* Atmosphere */}
         <div className="absolute inset-0 hero-aurora" aria-hidden />
         <div className="absolute inset-0 hero-tech-grid opacity-70" aria-hidden />
         <div className="absolute inset-0 hero-noise" aria-hidden />
         <div className="pointer-events-none absolute inset-x-0 top-0 h-px hero-scanline bg-gradient-to-r from-transparent via-[rgba(20,196,217,0.7)] to-transparent" aria-hidden />
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[hsl(198_70%_98%)] via-[hsl(198_70%_98%/0.55)] to-transparent" aria-hidden />
+        <div className="hero-wash pointer-events-none absolute inset-0" aria-hidden />
 
         {/* Orbital system with brand core */}
         <div className="pointer-events-none absolute -right-[22vw] top-1/2 -translate-y-1/2 w-[80vw] h-[80vw] max-w-[900px] max-h-[900px] lg:right-[-10vw]" aria-hidden>
@@ -235,7 +235,7 @@ const Index = () => {
             alt=""
             loading="lazy"
             decoding="async"
-            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[46%] max-w-[380px] rounded-full opacity-[0.7] select-none mix-blend-multiply"
+            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[46%] max-w-[380px] rounded-full opacity-[0.7] select-none mix-blend-multiply dark:mix-blend-screen dark:opacity-90"
           />
         </div>
 
