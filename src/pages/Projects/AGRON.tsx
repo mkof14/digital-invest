@@ -316,7 +316,66 @@ const AGRON = () => {
               </Card>
             ))}
           </div>
+
+          <h3 className="text-xl md:text-2xl font-semibold text-foreground mt-14 mb-2">{c.maritimeWater.title}</h3>
+          <p className="text-xs uppercase tracking-[0.2em] text-primary/80 mb-6">{c.maritimeWater.kicker}</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {c.maritimeWater.items.map((item) => (
+              <div key={item.t} className="p-5 rounded-xl border border-border/60 bg-card/40">
+                <h4 className="font-semibold text-foreground">{item.t}</h4>
+                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{item.d}</p>
+              </div>
+            ))}
+          </div>
+          <a
+            href={AGRON_MARITIME}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 mt-6 text-sm font-medium text-primary hover:underline"
+          >
+            {c.maritimeWater.cta} <ExternalLink className="w-4 h-4" />
+          </a>
+
+          <h3 className="text-xl md:text-2xl font-semibold text-foreground mt-14 mb-3">{c.maritimeLand.title}</h3>
+          <p className="text-base text-muted-foreground leading-relaxed max-w-4xl">{c.maritimeLand.p}</p>
+          <div className="flex flex-wrap gap-2 mt-6">
+            {c.maritimeLand.envs.map((env) => (
+              <span key={env} className="px-3 py-2 rounded-lg border border-border/60 bg-background/50 text-xs md:text-sm text-foreground/80">
+                {env}
+              </span>
+            ))}
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+            {c.maritimeLand.items.map((item) => (
+              <div key={item.t} className="p-5 rounded-xl border border-border/60 bg-card/40">
+                <h4 className="font-semibold text-foreground">{item.t}</h4>
+                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{item.d}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-14 p-6 md:p-8 rounded-2xl border border-primary/25 bg-primary/5">
+            <p className="text-xs uppercase tracking-[0.2em] text-primary/80 mb-2">{c.sysArch.kicker}</p>
+            <h3 className="text-xl md:text-2xl font-semibold text-foreground mb-6">{c.sysArch.title}</h3>
+            <FlowChain steps={c.sysArch.flow} />
+          </div>
+
+          <div className="mt-14">
+            <p className="text-xs uppercase tracking-[0.2em] text-primary/80 mb-2">{c.commercial.kicker}</p>
+            <h3 className="text-xl md:text-2xl font-semibold text-foreground mb-3">{c.commercial.title}</h3>
+            <p className="text-base text-muted-foreground leading-relaxed max-w-4xl">{c.commercial.p}</p>
+            <div className="flex flex-wrap gap-2 mt-6">
+              {c.commercial.items.map((item) => (
+                <span key={item} className="px-4 py-2 rounded-full border border-border/60 bg-card/40 text-sm text-foreground/80">
+                  {item}
+                </span>
+              ))}
+            </div>
+            <p className="mt-4 text-xs text-muted-foreground">{c.commercial.note}</p>
+          </div>
         </section>
+
+
 
         {/* STARWALL */}
         <section>
