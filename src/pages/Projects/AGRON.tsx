@@ -558,6 +558,46 @@ const AGRON = () => {
           <p className="mt-4 text-xs text-muted-foreground">{c.maturity.note}</p>
         </section>
 
+        {/* DEVELOPMENT PATH */}
+        <section>
+          <SectionTitle kicker={c.path.kicker} title={c.path.title} />
+          <div className="p-6 md:p-8 rounded-2xl border border-primary/25 bg-primary/5">
+            <FlowChain steps={c.path.steps} />
+          </div>
+          <p className="mt-4 text-xs text-muted-foreground">{c.path.note}</p>
+        </section>
+
+        {/* CURRENT DEVELOPMENT */}
+        <section>
+          <SectionTitle title={c.now.title} />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+            {c.now.items.map((item) => (
+              <div key={item.t} className="flex items-center justify-between gap-4 p-5 rounded-xl border border-border/60 bg-card/40">
+                <span className="text-sm font-medium text-foreground">{item.t}</span>
+                <Badge variant="secondary" className="shrink-0">{item.s}</Badge>
+              </div>
+            ))}
+          </div>
+          <p className="mt-4 text-xs text-muted-foreground">{c.now.note}</p>
+        </section>
+
+        {/* PORTFOLIO ARCHITECTURE */}
+        <section>
+          <SectionTitle title={c.portfolioArch.title} />
+          <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-4xl">{c.portfolioArch.p}</p>
+          <div className="mt-8 p-6 md:p-8 rounded-2xl border border-border/60 bg-card/40">
+            <FlowChain steps={['Digital Invest', 'AGRON']} />
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mt-6">
+              {c.portfolioArch.items.map((item) => (
+                <div key={item} className="px-4 py-3 rounded-lg border border-border/60 bg-background/50 text-sm text-foreground/85">
+                  {item}
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+
         {/* PORTFOLIO FIT */}
         <section>
           <SectionTitle title={c.fit.title} />
