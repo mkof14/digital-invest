@@ -235,7 +235,7 @@ const Index = () => {
             alt=""
             loading="lazy"
             decoding="async"
-            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[46%] max-w-[380px] rounded-full opacity-[0.7] select-none mix-blend-multiply"
+            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[46%] max-w-[380px] rounded-full opacity-[0.7] select-none mix-blend-multiply dark:mix-blend-screen dark:opacity-90"
           />
         </div>
 
