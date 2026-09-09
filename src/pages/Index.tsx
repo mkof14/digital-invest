@@ -277,14 +277,6 @@ const Index = () => {
                     </span>
                     <span className="font-medium">Active Investment Opportunities</span>
                   </div>
-                  <div className="hidden sm:flex items-center gap-2">
-                    <Shield className="w-3.5 h-3.5 text-primary/70" />
-                    <span>Private · Trust-based</span>
-                  </div>
-                  <div className="hidden md:flex items-center gap-2">
-                    <Award className="w-3.5 h-3.5 text-accent/80" />
-                    <span>$19.5B in prior exits</span>
-                  </div>
                 </div>
 
                 {/* Sector pills — visual portfolio teaser */}
