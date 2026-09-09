@@ -57,7 +57,7 @@ const Contact = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
-      <PageHero image={heroImage} className="!pb-12">
+      <PageHero image={heroImage.url} className="!pb-12">
         <div className="mb-2 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">{t('contact.title')}</h1>
           <p className="text-xl max-w-3xl mx-auto mb-6 text-primary-light">{t('contact.subtitle')}</p>
