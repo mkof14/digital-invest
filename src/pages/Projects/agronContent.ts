@@ -483,7 +483,7 @@ const en: AgronContent = {
     next: [
       'AGRON Maritime deployments for yachts, marinas and facilities',
       'StarWall integration with additional sensor and communication systems',
-      'Mobile and containerized security configurations',
+      'Mobile security configurations',
       'Expanded Security Support Center services',
     ],
     futureTitle: 'Future direction',
