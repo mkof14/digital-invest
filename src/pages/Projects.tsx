@@ -27,7 +27,7 @@ import agronworkHero from '@/assets/projects/agronwork-hero.jpg';
 import mrxHero from '@/assets/projects/mrx-hero.jpg';
 import baselineHero from '@/assets/projects/baseline-hero.jpg';
 import baselineLogo from '@/assets/projects/baseline-logo.png';
-import savenHero from '@/assets/projects/saven-hero.webp';
+import savenHero from '@/assets/saven/hero.asset.json';
 import savenLogo from '@/assets/projects/saven-logo.webp';
 import t1dHero from '@/assets/projects/t1d-hero.jpg';
 import oneinowHero from '@/assets/projects/1inow-hero.jpg';
@@ -46,7 +46,7 @@ const projectThemes: Record<string, { from: string; to: string; accent: string; 
   'terraaero': { from: 'from-emerald-500/20', to: 'to-green-700/20', accent: 'text-emerald-400', border: 'border-emerald-500/30', btnBg: 'bg-emerald-600', btnHover: 'hover:bg-emerald-500', label: 'AgriTech' },
   'agron': { from: 'from-slate-600/25', to: 'to-orange-600/20', accent: 'text-orange-400', border: 'border-orange-500/30', btnBg: 'bg-orange-600', btnHover: 'hover:bg-orange-500', label: 'Autonomous Operations' },
   'agron-work': { from: 'from-amber-500/20', to: 'to-orange-600/20', accent: 'text-amber-400', border: 'border-amber-500/30', btnBg: 'bg-amber-600', btnHover: 'hover:bg-amber-500', label: 'Workforce' },
-  'saven': { from: 'from-violet-500/20', to: 'to-purple-700/20', accent: 'text-violet-400', border: 'border-violet-500/30', btnBg: 'bg-violet-600', btnHover: 'hover:bg-violet-500', label: 'Infrastructure' },
+  'saven': { from: 'from-sky-500/20', to: 'to-indigo-700/20', accent: 'text-sky-400', border: 'border-sky-500/30', btnBg: 'bg-sky-600', btnHover: 'hover:bg-sky-500', label: 'AI & Robotics' },
   'myday': { from: 'from-indigo-500/20', to: 'to-violet-600/20', accent: 'text-indigo-400', border: 'border-indigo-500/30', btnBg: 'bg-indigo-600', btnHover: 'hover:bg-indigo-500', label: 'Lifestyle' },
   'mrx-health': { from: 'from-rose-500/20', to: 'to-red-600/20', accent: 'text-rose-400', border: 'border-rose-500/30', btnBg: 'bg-rose-600', btnHover: 'hover:bg-rose-500', label: 'MedTech' },
   'baseline': { from: 'from-teal-500/20', to: 'to-emerald-600/20', accent: 'text-teal-400', border: 'border-teal-500/30', btnBg: 'bg-teal-600', btnHover: 'hover:bg-teal-500', label: 'HealthTech' },
@@ -87,8 +87,8 @@ const projectHighlights: Record<string, { extraCategories?: string[]; tagline?: 
     special: ['featured'],
   },
   'saven': {
-    extraCategories: ['Robotics', 'Medical Infrastructure'],
-    tagline: 'Autonomous robotics for medical & critical infrastructure',
+    extraCategories: ['AI', 'Robotics', 'Human Assistance', 'Human Data'],
+    tagline: 'Intelligence for robots that help people',
     special: ['featured'],
   },
   'agron': {
@@ -311,7 +311,7 @@ const Projects = () => {
     'agron-work': agronworkHero,
     'mrx-health': mrxHero,
     'baseline': baselineHero,
-    'saven': savenHero,
+    'saven': savenHero.url,
     't1d': t1dHero,
     '1inow': oneinowHero,
     'facetium': facetiumEntrance.url,
