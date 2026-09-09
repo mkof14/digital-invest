@@ -31,10 +31,14 @@ import biomathPresOutput from '@/assets/projects/biomath-pres-output.webp';
 import biomathLifeHero from '@/assets/projects/biomathlife-hero.jpg';
 import lunaInfographic from '@/assets/projects/luna-infographic.webp';
 import lunaHero from '@/assets/projects/luna-hero.webp';
-import savenInfographic from '@/assets/projects/saven-infographic.webp';
-import savenHero from '@/assets/projects/saven-hero.webp';
-import savenRobot from '@/assets/projects/saven-robot.webp';
-import savenRobotElderly from '@/assets/projects/saven-robot-elderly.webp';
+import savenHeroNew from '@/assets/saven/hero.asset.json';
+import savenLabImg from '@/assets/saven/lab.asset.json';
+import savenApplicationsImg from '@/assets/saven/applications.asset.json';
+import savenPillarsImg from '@/assets/saven/pillars.asset.json';
+import savenHomeAssistImg from '@/assets/saven/home-assist.asset.json';
+import savenRehabImg from '@/assets/saven/rehabilitation.asset.json';
+import savenInteractionImg from '@/assets/saven/interaction.asset.json';
+import savenEnvironmentsImg from '@/assets/saven/environments.asset.json';
 import terraInfographic from '@/assets/projects/terraaero-infographic.webp';
 import terraHero from '@/assets/projects/terraaero-hero.jpg';
 import t1dVisual from '@/assets/projects/t1d-visual.jpg';
@@ -173,10 +177,14 @@ const extrasBySlug: Record<string, MediaItem[]> = {
     img('myday-hero', 'MyDay — Brand Visual', mydayHero, 'Cover image'),
   ],
   saven: [
-    img('saven-info', 'SAVEN — Capability Map', savenInfographic, 'Infographic', 'Infographic'),
-    img('saven-robot', 'SAVEN — Companion Robot', savenRobot, 'Concept visual'),
-    img('saven-robot-elderly', 'SAVEN — In-Home Use', savenRobotElderly, 'Concept visual'),
-    img('saven-hero', 'SAVEN — Brand Visual', savenHero, 'Cover image'),
+    img('saven-pillars', 'SAVEN — Support · Action · Verification · Environment · Network', savenPillarsImg.url, 'Architecture pillars', 'Infographic'),
+    img('saven-applications', 'SAVEN — Application Environments', savenApplicationsImg.url, 'Potential environments', 'Infographic'),
+    img('saven-lab', 'SAVEN Robotics Lab', savenLabImg.url, 'R&D and integration programme'),
+    img('saven-environments', 'SAVEN — Human Assistance Across Environments', savenEnvironmentsImg.url, 'Concept visual'),
+    img('saven-home-assist', 'SAVEN — Mobility Assistance at Home', savenHomeAssistImg.url, 'Concept visual'),
+    img('saven-rehab', 'SAVEN — Supervised Rehabilitation Support', savenRehabImg.url, 'Concept visual'),
+    img('saven-interaction', 'SAVEN — Human-Robot Interaction', savenInteractionImg.url, 'Concept visual'),
+    img('saven-hero', 'SAVEN — Brand Visual', savenHeroNew.url, 'Cover image'),
   ],
   seniorcore: [
     img('senior-hero', 'Senior Core — Brand Visual', seniorHero, 'Cover image'),
