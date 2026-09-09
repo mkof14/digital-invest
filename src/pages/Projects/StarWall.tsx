@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
@@ -87,6 +87,27 @@ const StarWall = () => {
   const { i18n } = useTranslation();
   const c = getStarWallContent(i18n.language || 'en');
   const [showInterest, setShowInterest] = useState(false);
+
+  // Product / SoftwareApplication structured data for this page only.
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.text = JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'SoftwareApplication',
+      name: 'StarWall by AGRON',
+      applicationCategory: 'SecurityApplication',
+      operatingSystem: 'Web',
+      description:
+        'StarWall by AGRON is a software and intelligence layer designed to connect compatible sensors, systems, operational data and physical infrastructure into a unified decision-support environment for enterprise, government and maritime applications.',
+      url: 'https://digital-invest.lovable.app/projects/starwall',
+      brand: { '@type': 'Brand', name: 'StarWall by AGRON' },
+      publisher: { '@type': 'Organization', name: 'AGRON', url: 'https://www.agron1.com' },
+      isPartOf: { '@type': 'Organization', name: 'Digital Invest', url: 'https://digital-invest.lovable.app' },
+    });
+    document.head.appendChild(script);
+    return () => { document.head.removeChild(script); };
+  }, []);
 
   return (
     <div className="min-h-screen bg-background theme-agron">
