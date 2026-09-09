@@ -200,117 +200,73 @@ const Index = () => {
     <div className="min-h-screen bg-background max-w-[1600px] mx-auto">
       <Navigation />
 
-      {/* ═══════════════════ HERO — Tech Instrument Panel ═══════════════════ */}
-      <section className="hero-tech relative overflow-hidden">
-        {/* Structural layers */}
-        <div className="absolute inset-0 hero-tech-grid" aria-hidden />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_15%_20%,rgba(212,162,76,0.14),transparent_70%)]" aria-hidden />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_60%_at_85%_80%,rgba(30,115,232,0.14),transparent_70%)]" aria-hidden />
-        <div className="pointer-events-none absolute inset-x-0 top-0 h-px hero-scanline bg-gradient-to-r from-transparent via-[rgba(212,162,76,0.5)] to-transparent" aria-hidden />
+      {/* ═══════════════════ HERO — Futuristic Orbital Field ═══════════════════ */}
+      <section className="hero-tech relative overflow-hidden min-h-[92vh] flex flex-col">
+        {/* Atmosphere */}
+        <div className="absolute inset-0 hero-aurora" aria-hidden />
+        <div className="absolute inset-0 hero-tech-grid opacity-70" aria-hidden />
+        <div className="absolute inset-0 hero-noise" aria-hidden />
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-px hero-scanline bg-gradient-to-r from-transparent via-[rgba(224,180,95,0.55)] to-transparent" aria-hidden />
 
-        {/* Instrument status bar */}
-        <div className="relative z-10 border-b border-border/15">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 lg:pt-28">
-            <div className="flex items-center justify-between gap-6 py-3 font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">
-              <span className="flex items-center gap-2 text-foreground">
-                <span className="w-1.5 h-1.5 rounded-full bg-success hero-blink" />
-                DIGITAL_INVEST // PRIVATE PORTFOLIO
-              </span>
-              <span className="hidden sm:inline">SYS.STATUS: ACTIVE</span>
+        {/* Orbital system */}
+        <div className="pointer-events-none absolute -right-[22vw] top-1/2 -translate-y-1/2 w-[80vw] h-[80vw] max-w-[900px] max-h-[900px] lg:right-[-10vw]" aria-hidden>
+          <div className="hero-orbit hero-orbit-1" />
+          <div className="hero-orbit hero-orbit-2" />
+          <div className="hero-orbit hero-orbit-3" />
+          <div className="hero-core" />
+        </div>
+
+        {/* Signal line */}
+        <div className="relative z-10 pt-24 lg:pt-28">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.32em] text-muted-foreground">
+              <span className="w-1.5 h-1.5 rounded-full bg-success hero-blink" />
+              <span className="text-foreground">Digital Invest</span>
+              <span className="hidden sm:inline text-muted-foreground/60">— private multi-sector portfolio</span>
             </div>
           </div>
         </div>
 
-        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 lg:py-20">
-          <div className="grid lg:grid-cols-12 gap-12 lg:gap-10 items-center">
-
-            {/* Left — headline console */}
-            <div className="lg:col-span-7 animate-fade-in">
-              <div className="flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.3em] text-brand-gold">
-                <span className="h-px w-8 bg-[rgba(212,162,76,0.7)]" aria-hidden />
+        <div className="relative z-10 flex-1 flex items-center w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
+          <div className="max-w-3xl">
+            <div className="hero-rise" style={{ animationDelay: '0.05s' }}>
+              <span className="font-mono text-[10px] uppercase tracking-[0.34em] text-brand-gold">
                 Multi-sector technology holding
-              </div>
-
-              <h1 className="mt-7 text-[2.5rem] sm:text-6xl lg:text-[4.4rem] font-semibold leading-[0.97] tracking-[-0.035em] text-foreground">
-                {t('hero.strategicTitle')}{' '}
-                <span className="relative inline-block text-brand-gold">
-                  {t('hero.strategicHighlight')}
-                  <span className="absolute -bottom-2 left-0 h-px w-full bg-gradient-to-r from-[rgba(212,162,76,0.9)] to-transparent" aria-hidden />
-                </span>
-              </h1>
-
-              <p className="mt-9 max-w-xl text-base md:text-lg leading-relaxed text-muted-foreground font-light">
-                {t('hero.description')}
-              </p>
-
-              <div className="mt-10 flex flex-col sm:flex-row gap-3">
-                <Link to="/projects">
-                  <Button size="lg" className="w-full sm:w-auto px-8 py-6 text-xs font-semibold uppercase tracking-[0.18em] btn-brand-gold group">
-                    {t('hero.exploreProjects')}
-                    <ArrowUpRight className="ml-2 h-4 w-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                  </Button>
-                </Link>
-                <Link to="/why-digital-invest">
-                  <Button
-                    size="lg"
-                    variant="ghost"
-                    className="w-full sm:w-auto px-8 py-6 text-xs font-semibold uppercase tracking-[0.18em] text-foreground border border-border/25 hover:border-[rgba(212,162,76,0.6)] hover:text-brand-gold hover:bg-transparent group"
-                  >
-                    {t('hero.learnWhy')}
-                    <ChevronRight className="ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                  </Button>
-                </Link>
-              </div>
-
-              <p className="mt-6 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground/70">
-                No commitment · Private review · Direct conversation
-              </p>
+              </span>
             </div>
 
-            {/* Right — visual module + live readout */}
-            <div className="lg:col-span-5 animate-fade-in">
-              <div className="hero-corner relative aspect-[4/5] sm:aspect-[16/10] lg:aspect-[4/5] overflow-hidden border border-border/20">
-                <div
-                  className="absolute inset-0 bg-cover bg-center opacity-70 saturate-[0.6] contrast-125"
-                  style={{ backgroundImage: `url(${heroBackground})` }}
-                  role="img"
-                  aria-label="Digital Invest technology portfolio"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#050A14] via-[#050A14]/40 to-transparent" aria-hidden />
-                <div className="absolute inset-0 hero-tech-grid opacity-60" aria-hidden />
+            <h1
+              className="hero-rise mt-8 text-[2.7rem] sm:text-6xl lg:text-[5rem] font-semibold leading-[0.95] tracking-[-0.04em]"
+              style={{ animationDelay: '0.15s' }}
+            >
+              <span className="hero-gradient-text">{t('hero.strategicTitle')}</span>{' '}
+              <span className="hero-glow-text">{t('hero.strategicHighlight')}</span>
+            </h1>
 
-                <div className="absolute top-4 left-4 font-mono text-[9px] uppercase tracking-[0.3em] text-brand-gold">
-                  PORTFOLIO / LIVE FEED
-                </div>
+            <p
+              className="hero-rise mt-9 max-w-xl text-base md:text-lg leading-relaxed text-muted-foreground font-light"
+              style={{ animationDelay: '0.28s' }}
+            >
+              {t('hero.description')}
+            </p>
 
-                <div className="absolute inset-x-4 bottom-4 grid grid-cols-2 gap-px bg-border/15 border border-border/20">
-                  {[
-                    { k: 'Sectors', v: '5' },
-                    { k: 'Active projects', v: '20+' },
-                  ].map((m) => (
-                    <div key={m.k} className="bg-[#050A14]/85 backdrop-blur-sm px-4 py-3">
-                      <div className="font-mono text-[9px] uppercase tracking-[0.24em] text-muted-foreground">{m.k}</div>
-                      <div className="mt-1 text-2xl font-semibold tabular-nums text-foreground">{m.v}</div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <Link
-                to="/projects"
-                className="group mt-3 flex items-center justify-between gap-4 border border-border/20 bg-card/40 px-5 py-4 hover:border-[rgba(212,162,76,0.55)] transition-colors"
-              >
-                <div className="min-w-0">
-                  <div className="font-mono text-[9px] uppercase tracking-[0.28em] text-muted-foreground">
-                    {t('hero.livePortfolioTitle', 'Live Portfolio')}
-                  </div>
-                  <div className="mt-1 text-sm text-foreground">
-                    {t('hero.livePortfolioSubtitle', '20+ active projects across 5 sectors')}
-                  </div>
-                </div>
-                <ArrowUpRight className="w-5 h-5 shrink-0 text-muted-foreground group-hover:text-brand-gold group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+            {/* Text-based entries — no buttons */}
+            <div className="hero-rise mt-12 flex flex-col sm:flex-row sm:items-center gap-6 sm:gap-10" style={{ animationDelay: '0.4s' }}>
+              <Link to="/projects" className="hero-entry group">
+                <span className="hero-entry-index">01</span>
+                <span className="hero-entry-label">{t('hero.exploreProjects')}</span>
+                <ArrowUpRight className="h-4 w-4 shrink-0 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
+              </Link>
+              <Link to="/why-digital-invest" className="hero-entry group">
+                <span className="hero-entry-index">02</span>
+                <span className="hero-entry-label">{t('hero.learnWhy')}</span>
+                <ArrowUpRight className="h-4 w-4 shrink-0 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
               </Link>
             </div>
+
+            <p className="hero-rise mt-10 font-mono text-[10px] uppercase tracking-[0.24em] text-muted-foreground/70" style={{ animationDelay: '0.5s' }}>
+              No commitment · Private review · Direct conversation
+            </p>
           </div>
         </div>
 
@@ -331,6 +287,7 @@ const Index = () => {
           </div>
         </div>
       </section>
+
 
       {/* ═══════════════════ ENGAGEMENT — Current Focus + Today We Build ═══════════════════ */}
       <CurrentFocusBlock />
