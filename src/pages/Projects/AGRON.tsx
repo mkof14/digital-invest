@@ -228,7 +228,7 @@ const AGRON = () => {
               <Card key={app.t} className="bg-card/60 border-border/60">
                 <CardContent className="pt-6">
                   <div className="flex items-center gap-3 mb-4">
-                    {i === 0 ? <Ship className="w-5 h-5 text-primary" /> : i === 1 ? <Anchor className="w-5 h-5 text-primary" /> : i === 2 ? <Radar className="w-5 h-5 text-primary" /> : <Container className="w-5 h-5 text-primary" />}
+                    {i === 0 ? <Ship className="w-5 h-5 text-primary" /> : i === 1 ? <Anchor className="w-5 h-5 text-primary" /> : i === 2 ? <Radar className="w-5 h-5 text-primary" /> : <ContainerIcon className="w-5 h-5 text-primary" />}
                     <h4 className="font-semibold text-foreground">{app.t}</h4>
                   </div>
                   <ul className="space-y-2">

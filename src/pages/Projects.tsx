@@ -49,7 +49,7 @@ const projectThemes: Record<string, { from: string; to: string; accent: string; 
   'biomath-core': { from: 'from-cyan-500/20', to: 'to-blue-600/20', accent: 'text-cyan-400', border: 'border-cyan-500/30', btnBg: 'bg-cyan-600', btnHover: 'hover:bg-cyan-500', label: 'Digital Health' },
   'biomathcore': { from: 'from-cyan-500/20', to: 'to-blue-600/20', accent: 'text-cyan-400', border: 'border-cyan-500/30', btnBg: 'bg-cyan-600', btnHover: 'hover:bg-cyan-500', label: 'Digital Health' },
   'terraaero': { from: 'from-emerald-500/20', to: 'to-green-700/20', accent: 'text-emerald-400', border: 'border-emerald-500/30', btnBg: 'bg-emerald-600', btnHover: 'hover:bg-emerald-500', label: 'AgriTech' },
-  'agron': { from: 'from-lime-500/20', to: 'to-green-600/20', accent: 'text-lime-400', border: 'border-lime-500/30', btnBg: 'bg-lime-600', btnHover: 'hover:bg-lime-500', label: 'Robotics' },
+  'agron': { from: 'from-slate-600/25', to: 'to-orange-600/20', accent: 'text-orange-400', border: 'border-orange-500/30', btnBg: 'bg-orange-600', btnHover: 'hover:bg-orange-500', label: 'Autonomous Operations' },
   'agron-work': { from: 'from-amber-500/20', to: 'to-orange-600/20', accent: 'text-amber-400', border: 'border-amber-500/30', btnBg: 'bg-amber-600', btnHover: 'hover:bg-amber-500', label: 'Workforce' },
   'saven': { from: 'from-violet-500/20', to: 'to-purple-700/20', accent: 'text-violet-400', border: 'border-violet-500/30', btnBg: 'bg-violet-600', btnHover: 'hover:bg-violet-500', label: 'Infrastructure' },
   'myday': { from: 'from-indigo-500/20', to: 'to-violet-600/20', accent: 'text-indigo-400', border: 'border-indigo-500/30', btnBg: 'bg-indigo-600', btnHover: 'hover:bg-indigo-500', label: 'Lifestyle' },
@@ -102,8 +102,9 @@ const projectHighlights: Record<string, { extraCategories?: string[]; tagline?: 
     special: ['featured'],
   },
   'agron': {
-    extraCategories: ['Autonomous Robots', 'Field Operations'],
-    tagline: 'Autonomous agricultural robotics',
+    extraCategories: ['Autonomous Operations', 'Maritime Intelligence', 'Security'],
+    tagline: 'Infrastructure for Autonomous Operations',
+    special: ['featured'],
   },
   'agron-work': {
     extraCategories: ['Workforce', 'Operations'],
