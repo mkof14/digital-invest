@@ -7,7 +7,9 @@ import { Card, CardContent } from '@/components/ui/card';
 import {
   ArrowLeft, ArrowRight, Globe, MapPin, ChevronRight, Store, Users,
   Sparkles, Building2, CalendarDays, Layers, Cpu, Briefcase, Boxes,
+  Compass, Wrench, ShieldCheck, Gem, Ticket, Rocket, HelpCircle, Search,
 } from 'lucide-react';
+
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import OptimizedImage from '@/components/OptimizedImage';
@@ -449,6 +451,262 @@ const Facetium = () => {
           <p className="text-lg text-muted-foreground leading-relaxed">{s('diP')}</p>
         </div>
       </section>
+
+      {/* Product architecture */}
+      <section className="py-20 bg-muted/30">
+        <div className="container mx-auto px-4 max-w-6xl">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">{s('archTitle')}</h2>
+          <p className="text-center text-muted-foreground max-w-3xl mx-auto mb-12">{s('archDesc')}</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {items('archItems').map((m, i) => (
+              <Card key={i} className="bg-card border-border/50 hover:border-amber-500/30 transition-all duration-300">
+                <CardContent className="p-6">
+                  <Layers className="w-7 h-7 text-amber-400 mb-4" />
+                  <h3 className="text-lg font-semibold mb-2">{m.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{m.desc}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+          <p className="text-center text-sm text-muted-foreground/80 mt-8">{s('archNote')}</p>
+        </div>
+      </section>
+
+      {/* How a business joins */}
+      <section className="py-20">
+        <div className="container mx-auto px-4 max-w-6xl">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 uppercase tracking-tight">{s('joinTitle')}</h2>
+          <p className="text-center text-muted-foreground mb-12">{s('joinDesc')}</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {items('joinSteps').map((m, i) => (
+              <Card key={i} className="bg-card/50 border-amber-500/10">
+                <CardContent className="p-6">
+                  <span className="text-sm font-mono text-amber-400">
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
+                  <h3 className="text-lg font-semibold mt-2 mb-2">{m.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{m.desc}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Services */}
+      <section className="py-20 bg-muted/30">
+        <div className="container mx-auto px-4 max-w-6xl">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">{s('servicesTitle')}</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {items('servicesItems').map((m, i) => (
+              <Card key={i} className="bg-card border-border/50 hover:border-amber-500/30 transition-all duration-300">
+                <CardContent className="p-6">
+                  <Wrench className="w-7 h-7 text-amber-400 mb-4" />
+                  <h3 className="text-lg font-semibold mb-2">{m.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{m.desc}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Deployment models */}
+      <section className="py-20">
+        <div className="container mx-auto px-4 max-w-6xl">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">{s('deployTitle')}</h2>
+          <p className="text-center text-muted-foreground mb-12">{s('deployDesc')}</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {items('deployItems').map((m, i) => (
+              <Card key={i} className="bg-card/50 border-amber-500/10">
+                <CardContent className="p-6">
+                  <Building2 className="w-7 h-7 text-amber-400 mb-4" />
+                  <h3 className="text-lg font-semibold mb-2">{m.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{m.desc}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+          <p className="text-center text-sm text-muted-foreground/80 mt-8">{s('deployNote')}</p>
+          <div className="text-center mt-8">
+            <Button size="lg" className="px-8 py-6 text-lg" onClick={() => setShowInterestForm(true)}>
+              {s('deployCta')}
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* One identity */}
+      <section className="py-20 bg-muted/30">
+        <div className="container mx-auto px-4 max-w-5xl text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">{s('identityTitle')}</h2>
+          <p className="text-lg text-muted-foreground leading-relaxed mb-10 max-w-3xl mx-auto">{s('identityP')}</p>
+          <Chips values={list('identityItems')} />
+          <p className="text-sm text-muted-foreground/80 mt-8 max-w-3xl mx-auto">{s('identityNote')}</p>
+        </div>
+      </section>
+
+      {/* Discovery & navigation */}
+      <section className="py-20">
+        <div className="container mx-auto px-4 max-w-5xl text-center">
+          <Compass className="w-10 h-10 text-amber-400 mx-auto mb-4" />
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">{s('discoveryTitle')}</h2>
+          <p className="text-muted-foreground mb-10 max-w-3xl mx-auto">{s('discoveryDesc')}</p>
+          <Chips values={list('discoveryCats')} />
+          <div className="mt-10">
+            <Flow values={list('discoveryActions')} />
+          </div>
+          <p className="text-sm text-muted-foreground/80 mt-8 max-w-3xl mx-auto">{s('discoveryNote')}</p>
+        </div>
+      </section>
+
+      {/* Trust */}
+      <section className="py-20 bg-muted/30">
+        <div className="container mx-auto px-4 max-w-4xl">
+          <ShieldCheck className="w-10 h-10 text-amber-400 mx-auto mb-4" />
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-10">{s('trustTitle')}</h2>
+          <Bullets values={list('trustItems')} />
+          <p className="text-sm text-muted-foreground/80 mt-8 text-center">{s('trustNote')}</p>
+        </div>
+      </section>
+
+      {/* Private client */}
+      <section className="py-20">
+        <div className="container mx-auto px-4 max-w-5xl text-center">
+          <Gem className="w-10 h-10 text-amber-400 mx-auto mb-4" />
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">{s('privateTitle')}</h2>
+          <p className="text-lg text-muted-foreground leading-relaxed mb-10 max-w-3xl mx-auto">{s('privateP')}</p>
+          <Flow values={list('privateJourney')} />
+        </div>
+      </section>
+
+      {/* Exhibition organizers */}
+      <section className="py-20 bg-muted/30">
+        <div className="container mx-auto px-4 max-w-5xl text-center">
+          <Ticket className="w-10 h-10 text-amber-400 mx-auto mb-4" />
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 uppercase tracking-tight">{s('expoTitle')}</h2>
+          <p className="text-muted-foreground mb-10">{s('expoDesc')}</p>
+          <Chips values={list('expoItems')} />
+          <p className="text-sm text-muted-foreground/80 mt-8 max-w-3xl mx-auto">{s('expoGoal')}</p>
+        </div>
+      </section>
+
+      {/* For brands / for visitors */}
+      <section className="py-20">
+        <div className="container mx-auto px-4 max-w-6xl">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <div>
+              <h2 className="text-2xl md:text-3xl font-bold mb-6 flex items-center gap-2">
+                <Briefcase className="w-6 h-6 text-amber-400" /> {s('brandsTitle')}
+              </h2>
+              <div className="space-y-3">
+                {list('brandsItems').map((v, i) => (
+                  <div key={i} className="flex items-start gap-3 p-3 rounded-lg bg-card/50 border border-border/50">
+                    <ChevronRight className="w-5 h-5 text-amber-400 mt-0.5 flex-shrink-0" />
+                    <p className="text-muted-foreground">{v}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div>
+              <h2 className="text-2xl md:text-3xl font-bold mb-6 flex items-center gap-2">
+                <Search className="w-6 h-6 text-amber-400" /> {s('visitorsWhyTitle')}
+              </h2>
+              <div className="space-y-3">
+                {list('visitorsWhyItems').map((v, i) => (
+                  <div key={i} className="flex items-start gap-3 p-3 rounded-lg bg-card/50 border border-border/50">
+                    <ChevronRight className="w-5 h-5 text-amber-400 mt-0.5 flex-shrink-0" />
+                    <p className="text-muted-foreground">{v}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Current / Next / Future */}
+      <section className="py-20 bg-muted/30">
+        <div className="container mx-auto px-4 max-w-6xl">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">{s('maturityTitle')}</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {items('maturityItems').map((m, i) => (
+              <Card key={i} className="bg-card border-border/50">
+                <CardContent className="p-6">
+                  <Rocket className="w-7 h-7 text-amber-400 mb-4" />
+                  <h3 className="text-lg font-semibold mb-2">{m.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{m.desc}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+          <p className="text-center text-sm text-muted-foreground/80 mt-8">{s('maturityNote')}</p>
+        </div>
+      </section>
+
+      {/* Request an environment */}
+      <section className="py-20">
+        <div className="container mx-auto px-4 max-w-5xl text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 uppercase tracking-tight">{s('requestTitle')}</h2>
+          <p className="text-lg text-muted-foreground mb-10 max-w-3xl mx-auto">{s('requestDesc')}</p>
+          <div className="flex flex-wrap gap-4 justify-center mb-12">
+            <Button size="lg" className="px-8 py-6 text-lg" onClick={() => setShowInterestForm(true)}>
+              {s('requestCta')} <ArrowRight className="w-5 h-5 ml-2 rtl:rotate-180" />
+            </Button>
+            <Button size="lg" variant="outline" className="px-8 py-6 text-lg" onClick={() => setShowInterestForm(true)}>
+              {s('requestCta2')}
+            </Button>
+          </div>
+          <Chips values={list('requestOptions')} />
+        </div>
+      </section>
+
+      {/* Project overview vs live product */}
+      <section className="py-20 bg-muted/30">
+        <div className="container mx-auto px-4 max-w-5xl">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">{s('statusTitle')}</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <Card className="bg-card/50 border-amber-500/10">
+              <CardContent className="p-6">
+                <Boxes className="w-7 h-7 text-amber-400 mb-4" />
+                <h3 className="text-lg font-semibold mb-2">{s('statusOverviewTitle')}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">{s('statusOverviewDesc')}</p>
+              </CardContent>
+            </Card>
+            <Card className="bg-card/50 border-amber-500/10">
+              <CardContent className="p-6">
+                <Globe className="w-7 h-7 text-amber-400 mb-4" />
+                <h3 className="text-lg font-semibold mb-2">{s('statusProductTitle')}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed mb-4">{s('statusProductDesc')}</p>
+                <Button asChild>
+                  <a href="https://facetium.com" target="_blank" rel="noopener noreferrer">
+                    {s('ctaVisit')}
+                  </a>
+                </Button>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Five answers */}
+      <section className="py-20">
+        <div className="container mx-auto px-4 max-w-5xl">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">{s('fiveTitle')}</h2>
+          <div className="space-y-4">
+            {items('fiveItems').map((m, i) => (
+              <div key={i} className="flex items-start gap-4 p-6 rounded-xl bg-card/50 border border-border/50">
+                <HelpCircle className="w-6 h-6 text-amber-400 mt-1 flex-shrink-0" />
+                <div>
+                  <h3 className="text-lg font-semibold mb-1">{m.title}</h3>
+                  <p className="text-muted-foreground leading-relaxed">{m.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
 
       {/* Media Room */}
       <ProjectMediaRoomBySlug slug="facetium" fallbackTitle="FACETIUM" />
