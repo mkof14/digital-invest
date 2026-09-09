@@ -67,8 +67,9 @@ const Navigation = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center hover:opacity-80 transition-opacity min-w-0 shrink group/logo">
-            <span className="text-lg sm:text-xl md:text-3xl font-normal tracking-[-0.02em] leading-none whitespace-nowrap text-foreground transition-colors duration-300">
-              Digital Invest
+            <span className="text-lg sm:text-xl md:text-3xl font-normal tracking-[-0.02em] leading-none whitespace-nowrap transition-colors duration-300">
+              <span className="text-foreground">Digital</span>
+              <span className="text-muted-foreground"> Invest</span>
             </span>
           </Link>
 
