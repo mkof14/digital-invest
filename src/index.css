@@ -1355,11 +1355,6 @@ button:not(:disabled):active,
   :root:not(.light) .hero-glass .hero-entry::after { background: linear-gradient(90deg, rgba(53,214,236,0.9), rgba(53,214,236,0)); }
   :root:not(.light) .hero-glass .hero-entry:hover { color: #7BEAF6; }
   :root:not(.light) .hero-glass .hero-entry-index { color: rgba(53,214,236,0.95); }
-  :root:not(.light) .hero-glass .hero-orbit { border-color: rgba(53, 214, 236, 0.22); }
-  :root:not(.light) .hero-glass .hero-orbit::after { background: #7BEAF6; box-shadow: 0 0 16px 4px rgba(53,214,236,0.45); }
-  :root:not(.light) .hero-glass .hero-core {
-    background: radial-gradient(circle at 40% 40%, rgba(230, 255, 255, 0.95), rgba(53, 214, 236, 0.4) 45%, transparent 72%);
-  }
   :root:not(.light) .hero-glass-panel {
     background: rgba(10, 30, 42, 0.55);
     border-color: rgba(120, 200, 220, 0.18);
