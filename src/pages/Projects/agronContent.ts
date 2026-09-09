@@ -398,9 +398,8 @@ const en: AgronContent = {
     note:
       'AGRON can integrate technical capability into different physical formats depending on the protected environment. Functional zones are described at a high level only.',
     items: [
-      { t: 'Yacht Modules', d: 'Distributed equipment integrated into the vessel rather than requiring a conventional container.' },
+      { t: 'Yacht Modules', d: 'Distributed equipment integrated directly into the vessel according to its architecture and available space.' },
       { t: 'Mobile Security Unit', d: 'Vehicle-based configuration for marinas, ports, private facilities, events and temporary deployments — for example a Transit-class cargo van.' },
-      { t: 'Containerized Security Unit', d: 'Self-contained infrastructure for ports, commercial vessels, critical sites, islands and larger installations.' },
     ],
     zonesTitle: 'Functional zones',
     zones: [
@@ -451,7 +450,7 @@ const en: AgronContent = {
       { t: 'Technology', items: ['StarWall software', 'System integration', 'Technical infrastructure'] },
       { t: 'Recurring Services', items: ['Software subscriptions', 'Monitoring', 'Intelligence services', 'Support Center', 'Maintenance and support'] },
       { t: 'Training', items: ['Operator training', 'Crew preparation', 'Corporate programmes', 'Academy infrastructure'] },
-      { t: 'Deployment', items: ['Maritime installations', 'Mobile units', 'Containerized units', 'Site-specific integration'] },
+      { t: 'Deployment', items: ['Maritime installations', 'Mobile units', 'Site-specific integration'] },
     ],
     note: 'AGRON is not dependent on a single hardware sale. Prices are not published on Digital Invest.',
   },
@@ -484,7 +483,7 @@ const en: AgronContent = {
     next: [
       'AGRON Maritime deployments for yachts, marinas and facilities',
       'StarWall integration with additional sensor and communication systems',
-      'Mobile and containerized security configurations',
+      'Mobile security configurations',
       'Expanded Security Support Center services',
     ],
     futureTitle: 'Future direction',
@@ -698,9 +697,8 @@ const ru: AgronContent = {
     note:
       'AGRON может интегрировать технические возможности в разные физические форматы в зависимости от охраняемой среды. Функциональные зоны описаны только на верхнем уровне.',
     items: [
-      { t: 'Яхтенные модули', d: 'Распределённое оборудование, интегрируемое в судно без классического контейнера.' },
+      { t: 'Яхтенные модули', d: 'Распределённое оборудование, интегрируемое в судно по его архитектуре и доступному пространству.' },
       { t: 'Мобильный модуль безопасности', d: 'Конфигурация на базе автомобиля для марин, портов, частных объектов, мероприятий и временных развёртываний — например, фургон класса Transit.' },
-      { t: 'Контейнерный модуль безопасности', d: 'Автономная инфраструктура для портов, коммерческих судов, критических объектов, островов и крупных установок.' },
     ],
     zonesTitle: 'Функциональные зоны',
     zones: [
@@ -751,7 +749,7 @@ const ru: AgronContent = {
       { t: 'Технологии', items: ['ПО StarWall', 'Системная интеграция', 'Техническая инфраструктура'] },
       { t: 'Регулярные услуги', items: ['Подписки на ПО', 'Мониторинг', 'Аналитические сервисы', 'Центр поддержки', 'Обслуживание и поддержка'] },
       { t: 'Обучение', items: ['Подготовка операторов', 'Подготовка экипажей', 'Корпоративные программы', 'Инфраструктура академии'] },
-      { t: 'Развёртывание', items: ['Морские установки', 'Мобильные модули', 'Контейнерные модули', 'Интеграция под объект'] },
+      { t: 'Развёртывание', items: ['Морские установки', 'Мобильные модули', 'Интеграция под объект'] },
     ],
     note: 'AGRON не зависит от разовой продажи оборудования. Цены на Digital Invest не публикуются.',
   },
@@ -784,7 +782,7 @@ const ru: AgronContent = {
     next: [
       'Развёртывания AGRON Maritime для яхт, марин и объектов',
       'Интеграция StarWall с дополнительными датчиками и системами связи',
-      'Мобильные и контейнерные конфигурации безопасности',
+      'Мобильные конфигурации безопасности',
       'Расширение услуг Центра поддержки безопасности',
     ],
     futureTitle: 'Направление развития',
