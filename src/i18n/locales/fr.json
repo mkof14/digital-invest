@@ -15,7 +15,8 @@
     "news": "Actualités",
     "whyDigitalInvest": "Pourquoi Digital Invest",
     "careers": "Carrières",
-    "schedule": "Rendez-vous"
+    "schedule": "Rendez-vous",
+    "resources": "Ressources"
   },
   "hero": {
     "badge": "Capital Risque et Innovation",
@@ -480,7 +481,12 @@
       "skincore": "Analyse cutanée IA par caméra suivant la texture, le teint et les changements d'état au fil du temps. Retour au niveau des ingrédients et suivi visuel des tendances aident à comprendre ce qui fonctionne vraiment pour votre peau.",
       "seniorcore": "Système de soutien pour les seniors et les aidants — surveillance des patterns de bien-être, observance médicamenteuse et niveaux d'activité. Insights santé en temps réel garantissant sécurité, indépendance et tranquillité familiale.",
       "vitalcore": "Tableau de bord unifié des signes vitaux combinant FC, VFC, sommeil, stress et patterns d'activité. Détecte les anomalies avant les urgences et fournit des alertes actionnables pour une gestion proactive de la santé.",
-      "bioagecore": "Analyse de l'âge biologique par IA comparant l'âge chronologique à l'état réel du corps. Suivi d'optimisation continu et interventions personnalisées aident les utilisateurs à contrôler leur trajectoire de vieillissement."
+      "bioagecore": "Analyse de l'âge biologique par IA comparant l'âge chronologique à l'état réel du corps. Suivi d'optimisation continu et interventions personnalisées aident les utilisateurs à contrôler leur trajectoire de vieillissement.",
+      "starwall": "L’intelligence du monde physique. Une infrastructure logicielle et informationnelle reliant capteurs, systèmes, données opérationnelles, informations externes et décideurs humains en une seule image opérationnelle.",
+      "facetium": "Un réseau d’environnements commerciaux numériques — des lieux où le commerce premium devient un espace que l’on visite, explore et auquel on fait confiance.",
+      "1inow": "Un lieu. Un contexte. Maintenant. 1inow est un environnement d’intelligence personnelle et professionnelle qui relie tâches, notes, projets, fichiers, réunions et messages en un seul contexte vivant.",
+      "t1d": "Un système pratique qui aide les personnes atteintes de diabète de type 1 et 2 à comprendre ce qui se passe, à réagir à temps et à vivre leur quotidien avec moins de stress.",
+      "health-intelligence-suite": "Cinq directions santé réunies en un seul produit : Stress, Vital, BioAge, Senior et Skin — une couche de signaux, un historique, un modèle de recommandations non médical."
     },
     "jumpToSection": "Aller à",
     "groups": {
@@ -494,15 +500,23 @@
     "featuredBadge": "En vedette",
     "newBadge": "Nouveau",
     "taglines": {
-      "biomath-core": "Fondation pour 200+ services de l'écosystème",
-      "biomathcore": "Fondation pour 200+ services de l'écosystème",
+      "biomath-core": "Base de plus de 200 services de l’écosystème",
+      "biomathcore": "Base de plus de 200 services de l’écosystème",
       "biomathlife": "Plateforme BioTech phare",
-      "saven": "Robotique autonome pour les infrastructures médicales et critiques",
-      "agron": "Robotique agricole autonome",
-      "agron-work": "Plateforme de main-d'œuvre pour l'écosystème AGRON",
+      "saven": "L’intelligence des robots au service des personnes",
+      "agron": "Infrastructure pour opérations autonomes",
+      "agron-work": "Plateforme RH de l’écosystème AGRON",
       "terraaero": "Agriculture de précision par drones",
-      "digital-invest-portfolio": "Plateforme d'investissement multi-secteurs"
-    }
+      "digital-invest-portfolio": "Plateforme d’investissement multisectorielle",
+      "starwall": "L’intelligence du monde physique — une technologie AGRON",
+      "health-intelligence-suite": "Stress, Vital, BioAge, Senior et Skin en un seul produit",
+      "t1d": "Plateforme unifiée du quotidien pour le diabète de type 1 et 2",
+      "1inow": "Un lieu. Un contexte. Maintenant.",
+      "facetium": "Un réseau d’environnements commerciaux numériques"
+    },
+    "filters": "Filtres",
+    "category": "Catégorie",
+    "view": "Affichage"
   },
   "team": {
     "title1": "Bâtisseurs de",
@@ -2397,6 +2411,83 @@
       "successTitle": "Candidature reçue",
       "successDesc": "Merci. Notre équipe vous recontacte sous 1–2 jours ouvrés.",
       "errorTitle": "Échec de l'envoi"
+    }
+  },
+  "projectsCatalog": {
+    "labels": {
+      "digital-health": "Santé numérique",
+      "agritech": "AgriTech",
+      "agrotech": "AgroTech",
+      "autonomous-operations": "Opérations autonomes",
+      "workforce": "Main-d’œuvre",
+      "ai-robotics": "IA et robotique",
+      "lifestyle": "Style de vie",
+      "medtech": "MedTech",
+      "healthtech": "HealthTech",
+      "biotech": "BioTech",
+      "biotechnology": "Biotechnologie",
+      "fintech": "FinTech",
+      "health-intelligence": "Intelligence santé",
+      "anti-aging": "Anti-âge",
+      "family": "Famille",
+      "diabetes-care": "Diabète",
+      "productivity": "Productivité",
+      "an-agron-technology": "Une technologie AGRON",
+      "digital-commerce": "Commerce numérique",
+      "project": "Projet",
+      "multi-sector": "Multisectoriel",
+      "intelligence-security": "Renseignement et sécurité",
+      "ai-productivity": "Productivité IA",
+      "personal-business-intelligence": "Intelligence personnelle et professionnelle",
+      "women-s-wellness": "Bien-être féminin",
+      "talent-platform": "Plateforme de talents"
+    },
+    "tags": {
+      "ai-health": "Santé IA",
+      "foundation-layer": "Couche fondatrice",
+      "longevity": "Longévité",
+      "wellness-platform": "Plateforme bien-être",
+      "ai": "IA",
+      "robotics": "Robotique",
+      "human-assistance": "Assistance humaine",
+      "human-data": "Données humaines",
+      "intelligence": "Renseignement",
+      "security": "Sécurité",
+      "infrastructure": "Infrastructure",
+      "b2b": "B2B",
+      "b2g": "B2G",
+      "workforce": "Main-d’œuvre",
+      "operations": "Opérations",
+      "drones": "Drones",
+      "precision-agriculture": "Agriculture de précision",
+      "diagnostics": "Diagnostics",
+      "continuous-monitoring": "Suivi continu",
+      "clinical": "Clinique",
+      "telehealth": "Télésanté",
+      "women-s-health": "Santé féminine",
+      "hormonal-cycle": "Cycle hormonal",
+      "stress": "Stress",
+      "vitals": "Constantes vitales",
+      "biological-age": "Âge biologique",
+      "senior-care": "Soins aux seniors",
+      "skin": "Peau",
+      "anti-aging": "Anti-âge",
+      "protocols": "Protocoles",
+      "family": "Famille",
+      "multi-user": "Multi-utilisateur",
+      "diabetes": "Diabète",
+      "daily-life": "Vie quotidienne",
+      "ai-planning": "Planification IA",
+      "habits": "Habitudes",
+      "multi-sector": "Multisectoriel",
+      "holding": "Holding",
+      "intelligence-environment": "Environnement d’intelligence"
+    },
+    "statuses": {
+      "OPEN": "Ouvert",
+      "COMING_SOON": "Bientôt",
+      "CLOSED": "Fermé",
+      "IN_DEVELOPMENT": "En développement"
     }
   }
 }

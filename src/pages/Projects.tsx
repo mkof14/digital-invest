@@ -293,6 +293,12 @@ const Projects = () => {
   const { toast } = useToast();
   const { t } = useTranslation();
 
+  // Локализация подписей карточек (категории, теги, статусы) с англ. фолбэком
+  const catalogKey = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+  const tLabel = (s: string) => t(`projectsCatalog.labels.${catalogKey(s)}`, s);
+  const tTag = (s: string) => t(`projectsCatalog.tags.${catalogKey(s)}`, s);
+  const tStatus = (s: string) => t(`projectsCatalog.statuses.${s}`, s.replace('_', ' '));
+
   // Map slugs to actual imported images
   const projectImages: Record<string, string> = {
     terraaero: terraaeroHero,
@@ -510,7 +516,7 @@ const Projects = () => {
                                   : 'bg-muted/60 text-muted-foreground hover:bg-muted hover:text-foreground'
                               }`}
                             >
-                              {cat} ({count})
+                              {tLabel(cat)} ({count})
                             </button>
                           );
                         })}
@@ -695,14 +701,14 @@ const Projects = () => {
                       {/* Top-left status + special badges stack */}
                       <div className="absolute top-3 left-3 z-20 flex flex-col gap-1.5 items-start max-w-[70%]">
                         <Badge className={`${getStatusColor(project.status)} text-xs font-bold tracking-wider px-2.5 py-0.5 hover:bg-transparent`}>
-                          {project.status.replace('_', ' ')}
+                          {tStatus(project.status)}
                         </Badge>
                         <div className="flex flex-wrap gap-1.5">
                           {renderSpecialBadges(highlights.special)}
                         </div>
                       </div>
                       <Badge className={`absolute top-3 right-3 z-20 bg-black/60 backdrop-blur-sm text-white border-white/20 text-xs`}>
-                        {theme.label}
+                        {tLabel(theme.label)}
                       </Badge>
                     </div>
                     <CardHeader className="flex-1 space-y-2 pb-2">
@@ -721,7 +727,7 @@ const Projects = () => {
                               key={cat}
                               className={`inline-flex items-center px-2 py-0.5 rounded-md text-[10px] font-semibold uppercase tracking-wider ${theme.border} border bg-muted/40 text-foreground/80`}
                             >
-                              {cat}
+                              {tTag(cat)}
                             </span>
                           ))}
                         </div>
@@ -779,7 +785,7 @@ const Projects = () => {
                         )}
                         <div className="absolute top-3 left-3 z-20 flex flex-col gap-1.5 items-start max-w-[80%]">
                           <Badge className={`${getStatusColor(project.status)} text-xs font-bold tracking-wider px-2.5 py-0.5 hover:bg-transparent`}>
-                            {project.status.replace('_', ' ')}
+                            {tStatus(project.status)}
                           </Badge>
                           <div className="flex flex-wrap gap-1.5">
                             {renderSpecialBadges(highlights.special)}
@@ -803,7 +809,7 @@ const Projects = () => {
                               )}
                             </div>
                             <Badge className={`${theme.border} bg-black/40 backdrop-blur-sm text-white text-xs shrink-0`}>
-                              {theme.label}
+                              {tLabel(theme.label)}
                             </Badge>
                           </div>
                           {highlights.extraCategories && highlights.extraCategories.length > 0 && (
@@ -813,7 +819,7 @@ const Projects = () => {
                                   key={cat}
                                   className={`inline-flex items-center px-2 py-0.5 rounded-md text-[10px] font-semibold uppercase tracking-wider ${theme.border} border bg-muted/40 text-foreground/80`}
                                 >
-                                  {cat}
+                                  {tTag(cat)}
                                 </span>
                               ))}
                             </div>
