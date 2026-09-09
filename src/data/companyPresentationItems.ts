@@ -47,10 +47,10 @@ export const companyPresentationItems: PresentationItem[] = [
   },
   {
     id: "agron-net",
-    title: "AGRON Net",
-    description: "Adamas agricultural network vertical.",
+    title: "AGRON",
+    description: "Infrastructure for autonomous operations, maritime intelligence and security.",
     type: "page",
-    url: "/adamas/agron-net",
+    url: "/projects/agron",
     group: "Flagship Projects",
   },
   {
@@ -58,7 +58,7 @@ export const companyPresentationItems: PresentationItem[] = [
     title: "AGRON Work",
     description: "AGRON operational platform.",
     type: "page",
-    url: "/adamas/agron-work",
+    url: "/projects/agron-work",
     group: "Flagship Projects",
   },
   {

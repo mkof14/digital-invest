@@ -249,11 +249,13 @@ const App = () => (
               <Route path="/projects/t1d" element={<T1D />} />
               <Route path="/projects/t1-2d" element={<T1D />} />
               <Route path="/projects/facetium" element={<Facetium />} />
+              <Route path="/projects/agron" element={<AGRON />} />
+              <Route path="/projects/agron-work" element={<AGRONWork />} />
               
               {/* Adamas Materials Projects */}
               <Route path="/adamas" element={<AdamasMaterialsOverview />} />
-              <Route path="/adamas/agron-net" element={<AGRON />} />
-              <Route path="/adamas/agron-work" element={<AGRONWork />} />
+              <Route path="/adamas/agron-net" element={<Navigate to="/projects/agron" replace />} />
+              <Route path="/adamas/agron-work" element={<Navigate to="/projects/agron-work" replace />} />
               <Route path="/adamas/abu-mall" element={<Navigate to="/projects/facetium" replace />} />
               <Route path="/adamas/alma-diamond" element={<AlmaDiamond />} />
               <Route path="/adamas/jatual-diamonds" element={<JatualDiamonds />} />

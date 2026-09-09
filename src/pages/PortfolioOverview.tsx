@@ -46,13 +46,13 @@ const overviewTexts: Record<string, Record<string, string>> = {
     he: 'רחפנים שלא רק טסים — הם מחקלאים. השקיה מדויקת, אגרונומיה AI, צי ייצור אמריקאי ב-23 מדינות. כל רחפן מעבד נתוני שטח בזמן אמת ומתאים אספקת מים ומזינים ברמת המטר הרבוע.'
   },
   'agron': {
-    en: 'National-scale robotics infrastructure for training, certification, and coordination. AGRON is the operating system for autonomous machines across America — the backbone nobody sees but everyone needs. It standardizes how robots are deployed, maintained, and governed at industrial scale.',
-    ru: 'Роботизированная инфраструктура национального масштаба: обучение, сертификация, координация. AGRON — операционная система для автономных машин по всей Америке. Стандартизирует развёртывание, обслуживание и управление роботами в промышленном масштабе.',
-    uk: 'Роботизована інфраструктура національного масштабу: навчання, сертифікація, координація. AGRON — операційна система для автономних машин по всій Америці. Стандартизує розгортання, обслуговування та управління роботами у промисловому масштабі.',
-    fr: 'Infrastructure robotique à l\'échelle nationale pour la formation, la certification et la coordination. AGRON standardise le déploiement, la maintenance et la gouvernance des robots à l\'échelle industrielle.',
-    ar: 'بنية تحتية روبوتية على المستوى الوطني للتدريب والشهادات والتنسيق. AGRON يوحد نشر وصيانة وحوكمة الروبوتات على نطاق صناعي عبر أمريكا.',
-    ja: '訓練、認証、調整のための全国規模のロボティクスインフラ。AGRONはアメリカ全土の自律機械のオペレーティングシステム。産業規模でのロボットの展開・保守・ガバナンスを標準化します。',
-    he: 'תשתית רובוטיקה בקנה מידה לאומי לאימון, הסמכה ותיאום. AGRON מתקנן את הפריסה, התחזוקה והממשל של רובוטים בקנה מידה תעשייתי ברחבי אמריקה.'
+    en: 'Infrastructure for autonomous operations. AGRON combines autonomous systems, software, intelligence, training, field operations and security into deployable operational capability — including AGRON Maritime for yachts, marinas, ports and facilities, and the StarWall intelligence layer. Human in command at every critical decision.',
+    ru: 'Инфраструктура автономных операций. AGRON объединяет автономные системы, ПО, аналитику, обучение, полевые операции и безопасность в готовую операционную способность — включая AGRON Maritime для яхт, марин, портов и объектов и аналитический слой StarWall. Критические решения принимает человек.',
+    uk: 'Інфраструктура автономних операцій. AGRON поєднує автономні системи, ПЗ, аналітику, навчання, польові операції та безпеку — включно з AGRON Maritime для яхт, марин, портів і об’єктів та аналітичним шаром StarWall. Критичні рішення ухвалює людина.',
+    fr: 'Infrastructure pour opérations autonomes. AGRON réunit systèmes autonomes, logiciels, renseignement, formation, opérations de terrain et sécurité, dont AGRON Maritime et la couche d’intelligence StarWall. L’humain reste décisionnaire.',
+    ar: 'بنية تحتية للعمليات الذاتية. يجمع AGRON بين الأنظمة الذاتية والبرمجيات والتحليل والتدريب والعمليات الميدانية والأمن، بما في ذلك AGRON Maritime وطبقة StarWall التحليلية. القرار الحاسم يبقى للإنسان.',
+    ja: '自律オペレーションのためのインフラ。AGRONは自律システム、ソフトウェア、インテリジェンス、訓練、現場運用、セキュリティを統合します。AGRON MaritimeとStarWallインテリジェンス層を含み、重要な判断は常に人間が行います。',
+    he: 'תשתית לפעולות אוטונומיות. AGRON משלב מערכות אוטונומיות, תוכנה, מודיעין, הכשרה, פעילות שטח ואבטחה — כולל AGRON Maritime ושכבת המודיעין StarWall. ההחלטות הקריטיות נשארות בידי אדם.'
   },
   'agron-work': {
     en: 'The talent layer for robotics. AGRON Work connects certified operators, technicians, and engineers with the companies building the autonomous future. Where human skill meets machine precision. It\'s not a job board — it\'s a verified professional network with skill certification baked in.',
