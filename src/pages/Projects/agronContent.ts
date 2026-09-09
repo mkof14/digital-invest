@@ -8,6 +8,8 @@
 
 export type Pair = { t: string; d: string };
 export type Group = { t: string; items: string[] };
+export type Area = { t: string; d: string; items?: string[] };
+
 
 export interface AgronContent {
   back: string;
