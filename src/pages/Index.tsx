@@ -80,7 +80,6 @@ import campusVisual from "@/assets/brand/di-campus.asset.json";
 import {
   CurrentFocusBlock,
   TodayWeBuild,
-  LiveNumbers,
   WeeklyInsight,
   ActivityStrip,
 } from "@/components/engagement/EngagementSections";
@@ -645,9 +644,6 @@ const Index = () => {
           </div>
         </div>
       </section>
-
-      {/* ═══════════════════ LIVE NUMBERS ═══════════════════ */}
-      <LiveNumbers />
 
       {/* ═══════════════════ INVESTMENT HIGHLIGHTS — Large Number Grid ═══════════════════ */}
       <section ref={investmentSection.ref} className={`py-20 md:py-28 px-4 section-gradient-gold scroll-fade-in ${investmentSection.isVisible ? 'visible' : ''}`}>
