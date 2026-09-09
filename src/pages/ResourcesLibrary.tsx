@@ -155,18 +155,11 @@ const projects: ProjectResources[] = [
     ],
   },
   {
-    slug: 'abu-mall',
-    name: 'Abu Mall',
-    tagline: 'Adamas Materials Project',
-    projectUrl: '/adamas',
-    documents: [
-      {
-        title: 'Abu Mall — Paradigm',
-        description: 'Strategic paradigm document for the Abu Mall flagship project within the Adamas Materials portfolio.',
-        href: '/documents/abu-mall-paradigm.pdf',
-        filename: 'Abu-Mall-Paradigm.pdf',
-      },
-    ],
+    slug: 'facetium',
+    name: 'FACETIUM',
+    tagline: 'Digital Commercial Environments',
+    projectUrl: '/projects/facetium',
+    documents: [],
     infographics: [],
   },
 ];
