@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { supabase } from '@/integrations/supabase/client';
@@ -6,613 +5,606 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import {
-  TrendingUp, ArrowRight, ExternalLink, ArrowLeft, ChevronRight,
-  ShieldCheck, Activity, Brain, Cpu, HeartPulse, Building2,
-  Home, Hospital, Users, Cog, BarChart3, Network, Zap,
-  CheckCircle2, XCircle, Download, Copy, Share2, Mail,
-  Bot, Wrench, Wifi, Truck, Stethoscope, Layers,
-  Clock, DollarSign, Smile, AlertTriangle, TimerReset, LineChart
+  ArrowLeft, ArrowRight, ExternalLink, Bot, Brain, ShieldCheck, Network,
+  Activity, Layers, Users, Home, Building2, Hospital, Cpu, Workflow,
+  CheckCircle2, XCircle, Handshake, LineChart, Lock, Eye, TrendingUp,
 } from 'lucide-react';
-import { useToast } from '@/hooks/use-toast';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import InvestorPageDisclaimer from '@/components/InvestorPageDisclaimer';
-import heroImg from '@/assets/projects/saven-hero.webp';
-import logoImg from '@/assets/projects/saven-logo.webp';
-import robotImg from '@/assets/projects/saven-robot.webp';
-import robotElderlyImg from '@/assets/projects/saven-robot-elderly.webp';
-import infographicImg from '@/assets/projects/saven-infographic.webp';
-import acronymImg from '@/assets/projects/saven-acronym.png';
 import ProjectMediaRoomBySlug from '@/components/ProjectMediaRoomBySlug';
+import OptimizedImage from '@/components/OptimizedImage';
+import { savenContent as C, SAVEN_LINKS } from './savenContent';
+
+import heroAsset from '@/assets/saven/hero.asset.json';
+import logoAsset from '@/assets/saven/logo.asset.json';
+import labAsset from '@/assets/saven/lab.asset.json';
+import applicationsAsset from '@/assets/saven/applications.asset.json';
+import pillarsAsset from '@/assets/saven/pillars.asset.json';
+import homeAssistAsset from '@/assets/saven/home-assist.asset.json';
+import homeAssist2Asset from '@/assets/saven/home-assist-2.asset.json';
+import interactionAsset from '@/assets/saven/interaction.asset.json';
+import rehabilitationAsset from '@/assets/saven/rehabilitation.asset.json';
+import environmentsAsset from '@/assets/saven/environments.asset.json';
+
+const Section = ({
+  id, kicker, title, children, className = '',
+}: { id?: string; kicker?: string; title?: string; children: React.ReactNode; className?: string }) => (
+  <section id={id} className={`py-16 md:py-24 scroll-mt-24 ${className}`}>
+    <div className="container mx-auto px-4 max-w-6xl">
+      {kicker && (
+        <p className="text-xs md:text-sm uppercase tracking-[0.2em] text-primary/80 font-medium mb-3">{kicker}</p>
+      )}
+      {title && (
+        <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-foreground mb-8">{title}</h2>
+      )}
+      {children}
+    </div>
+  </section>
+);
+
+const Chip = ({ children }: { children: React.ReactNode }) => (
+  <span className="inline-flex items-center rounded-full bg-muted px-3 py-1 text-sm text-muted-foreground">{children}</span>
+);
+
+const Note = ({ children }: { children: React.ReactNode }) => (
+  <p className="mt-6 text-sm text-muted-foreground/80 italic">{children}</p>
+);
+
+const Flow = ({ items }: { items: string[] }) => (
+  <div className="flex flex-wrap items-center gap-2">
+    {items.map((s, i) => (
+      <span key={s} className="flex items-center gap-2">
+        <span className="rounded-lg border border-border bg-card px-3 py-2 text-sm font-medium text-foreground">{s}</span>
+        {i < items.length - 1 && <ArrowRight className="h-4 w-4 text-muted-foreground shrink-0" aria-hidden="true" />}
+      </span>
+    ))}
+  </div>
+);
 
 const SAVEN = () => {
-  const [project, setProject] = useState<any>(null);
-  const [lightboxOpen, setLightboxOpen] = useState(false);
-  const [lightboxImg, setLightboxImg] = useState('');
-  const { toast } = useToast();
-  const { t } = useTranslation();
+  const [project, setProject] = useState<{ website_url?: string | null } | null>(null);
 
   useEffect(() => {
-    const fetchProject = async () => {
-      const { data } = await supabase
-        .from('projects')
-        .select('*')
-        .eq('slug', 'saven')
-        .single();
-      if (data) setProject(data);
-    };
-    fetchProject();
+    supabase.from('projects').select('website_url').eq('slug', 'saven').maybeSingle()
+      .then(({ data }) => data && setProject(data));
   }, []);
 
-  const handleDownload = (src: string, name: string) => {
-    const link = document.createElement('a');
-    link.href = src;
-    link.download = name;
-    link.click();
-    toast({ title: t('projectSaven.downloadStarted'), description: name });
-  };
-
-  const handleCopy = async (src: string) => {
-    try {
-      const res = await fetch(src);
-      const blob = await res.blob();
-      await navigator.clipboard.write([new ClipboardItem({ [blob.type]: blob })]);
-      toast({ title: t('projectSaven.copiedClipboard') });
-    } catch {
-      await navigator.clipboard.writeText(window.location.origin + src);
-      toast({ title: t('projectSaven.linkCopied') });
-    }
-  };
-
-  const handleShare = async (title: string) => {
-    if (navigator.share) {
-      await navigator.share({ title, url: window.location.href });
-    } else {
-      await navigator.clipboard.writeText(window.location.href);
-      toast({ title: t('projectSaven.linkCopiedSharing') });
-    }
-  };
-
-  const handleSend = (title: string) => {
-    const subject = encodeURIComponent(`Check out: ${title}`);
-    const body = encodeURIComponent(`Take a look at this: ${window.location.href}`);
-    window.open(`mailto:?subject=${subject}&body=${body}`);
-  };
-
-  const infographics = [
-    { src: infographicImg, title: 'SAVEN Infrastructure of Care Continuity' },
-    { src: robotImg, title: 'SAVEN Robot — Care Execution Unit' },
-    { src: robotElderlyImg, title: 'SAVEN — Managing Life Between Episodes' },
-    { src: acronymImg, title: 'SAVEN Acronym — S.A.V.E.N.' },
-  ];
+  const siteUrl = project?.website_url || SAVEN_LINKS.site;
 
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
 
       {/* Hero */}
-      <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-[78vh] flex items-center overflow-hidden bg-[#070b14]">
         <div className="absolute inset-0">
-          <img src={heroImg} alt="SAVEN — Managing Life Between Episodes" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0d0f1a]/90 via-[#0d0f1a]/70 to-[#0d0f1a]/40" />
+          <img src={heroAsset.url} alt="SAVEN robotics assisting people in real environments" className="w-full h-full object-cover opacity-70" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#070b14] via-[#070b14]/85 to-[#070b14]/40" />
         </div>
-        <div className="relative z-10 container mx-auto px-4 py-20">
-          <div className="max-w-3xl">
-            <Link to="/projects" className="inline-flex items-center text-orange-300/70 hover:text-orange-300 mb-6 transition-colors">
-              <ArrowLeft className="w-4 h-4 mr-2" /> {t('projectCommon.backToProjects')}
-            </Link>
-            <Badge className="mb-4 bg-orange-500/20 text-orange-300 border-orange-500/30 text-sm px-4 py-1">
-              {t('projectSaven.badge')}
-            </Badge>
-            <h1 className="text-5xl md:text-7xl font-bold text-white mb-2 tracking-tight">
-              S<span className="text-orange-400">A</span>V<span className="text-blue-400">E</span>N
-            </h1>
-            <p className="text-xl md:text-2xl text-gray-300/80 font-light mb-6">
-              {t('projectSaven.heroTagline')}
-            </p>
-            <p className="text-xl text-gray-300 mb-8 leading-relaxed max-w-2xl">
-              {t('projectSaven.heroDesc')}
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <Link to="/contact">
-                <Button size="lg" className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-6 text-lg">
-                  <TrendingUp className="w-5 h-5 mr-2" />
-                  {t('projectSaven.expressInterest')}
-                </Button>
-              </Link>
-              {project?.website_url && (
-                <a href={project.website_url} target="_blank" rel="noopener noreferrer">
-                  <Button size="lg" variant="outline" className="border-orange-400/40 text-orange-300 hover:bg-orange-500/10 px-8 py-6 text-lg">
-                    <ExternalLink className="w-5 h-5 mr-2" /> {t('projectSaven.visitWebsite')}
-                  </Button>
-                </a>
-              )}
-              <a href="/documents/saven-infrastructure.pdf" target="_blank" rel="noopener noreferrer" download="SAVEN-Infrastructure-of-Continuous-Execution.pdf">
-                <Button size="lg" variant="outline" className="border-orange-400/40 text-orange-300 hover:bg-orange-500/10 px-8 py-6 text-lg">
-                  <Download className="w-5 h-5 mr-2" />
-                  SAVEN Infrastructure (PDF)
-                </Button>
+        <div className="relative z-10 container mx-auto px-4 py-24 max-w-6xl">
+          <Link to="/projects" className="inline-flex items-center text-sky-300/80 hover:text-sky-200 mb-6 transition-colors">
+            <ArrowLeft className="w-4 h-4 mr-2" /> {C.back}
+          </Link>
+          <div className="flex items-center gap-4 mb-6">
+            <img src={logoAsset.url} alt="SAVEN Robotics Lab" className="h-14 w-14 rounded-lg object-cover" />
+            <Badge className="bg-sky-500/15 text-sky-200 border-sky-400/30">{C.hero.badge}</Badge>
+          </div>
+          <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-white mb-3">SAVEN</h1>
+          <p className="text-xl md:text-2xl text-amber-200/90 font-light mb-5">{C.hero.tagline}</p>
+          <p className="max-w-2xl text-lg text-slate-200/90 leading-relaxed mb-6">{C.hero.desc}</p>
+          <div className="flex flex-wrap gap-2 mb-8">
+            {C.hero.chips.map((c) => (
+              <span key={c} className="rounded-full border border-white/15 bg-white/5 px-3 py-1 text-sm text-slate-200">{c}</span>
+            ))}
+          </div>
+          <div className="flex flex-wrap gap-3">
+            <a href="#overview">
+              <Button size="lg" className="bg-sky-600 hover:bg-sky-500 text-white">{C.hero.ctaPrimary}</Button>
+            </a>
+            <a href={siteUrl} target="_blank" rel="noopener noreferrer">
+              <Button size="lg" variant="outline" className="border-white/25 text-white hover:bg-white/10">
+                <ExternalLink className="w-4 h-4 mr-2" /> {C.hero.ctaExternal}
+              </Button>
+            </a>
+          </div>
+          <p className="mt-6 text-sm text-slate-300/70">{C.hero.status}</p>
+        </div>
+      </section>
+
+      {/* Core idea */}
+      <Section id="overview" kicker={C.idea.kicker} title={C.idea.title}>
+        <div className="grid gap-10 md:grid-cols-2 items-start">
+          <div>
+            <p className="text-lg text-muted-foreground leading-relaxed mb-4">{C.idea.p1}</p>
+            <p className="text-lg text-muted-foreground leading-relaxed mb-6">{C.idea.p2}</p>
+            <div className="flex flex-wrap gap-2">{C.idea.needs.map((n) => <Chip key={n}>{n}</Chip>)}</div>
+            <p className="mt-6 text-lg font-medium text-foreground">{C.idea.conclusion}</p>
+          </div>
+          <OptimizedImage src={environmentsAsset.url} alt="SAVEN assistance across homes, rehabilitation and care environments" className="rounded-xl w-full h-auto shadow-lg" />
+        </div>
+      </Section>
+
+      {/* Human assistance */}
+      <Section id="human-assistance" kicker={C.assistance.kicker} title={C.assistance.title} className="bg-muted/30">
+        <p className="text-lg text-muted-foreground max-w-3xl mb-8">{C.assistance.p}</p>
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {C.assistance.items.map((i) => (
+            <Card key={i.t} className="border-border/70 transition-shadow hover:shadow-md">
+              <CardContent className="p-6">
+                <Users className="h-5 w-5 text-primary mb-3" aria-hidden="true" />
+                <h3 className="font-semibold text-foreground mb-2">{i.t}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">{i.d}</p>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+        <Note>{C.assistance.note}</Note>
+        <div className="mt-10 grid gap-4 sm:grid-cols-3">
+          <OptimizedImage src={homeAssistAsset.url} alt="SAVEN assistance with mobility at home" className="rounded-xl w-full h-56 object-cover" />
+          <OptimizedImage src={rehabilitationAsset.url} alt="SAVEN concept visual of supervised rehabilitation support" className="rounded-xl w-full h-56 object-cover" />
+          <OptimizedImage src={interactionAsset.url} alt="SAVEN human-robot interaction in a learning environment" className="rounded-xl w-full h-56 object-cover" />
+        </div>
+      </Section>
+
+      {/* Human Assistance Layer */}
+      <Section kicker={C.layer.kicker} title={C.layer.title}>
+        <p className="text-lg text-muted-foreground max-w-3xl mb-10">{C.layer.p}</p>
+        <div className="space-y-4">
+          {C.layer.layers.map((l) => (
+            <div key={l.t} className="rounded-xl border border-border bg-card p-6 transition-colors hover:border-primary/40">
+              <div className="flex flex-col md:flex-row md:items-start gap-4">
+                <span className="text-sm font-mono text-primary/80 md:w-12">{l.n}</span>
+                <div className="flex-1">
+                  <h3 className="text-lg font-semibold text-foreground mb-1">{l.t}</h3>
+                  <p className="text-muted-foreground mb-3">{l.d}</p>
+                  <div className="flex flex-wrap gap-2">{l.items.map((x) => <Chip key={x}>{x}</Chip>)}</div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      {/* Beyond a single robot */}
+      <Section kicker={C.beyondRobot.kicker} title={C.beyondRobot.title} className="bg-muted/30">
+        <p className="text-lg text-muted-foreground max-w-3xl mb-8">{C.beyondRobot.p}</p>
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3 mb-8">
+          {C.beyondRobot.forms.map((f) => (
+            <div key={f} className="flex items-center gap-3 rounded-lg border border-border bg-card px-4 py-3">
+              <Bot className="h-5 w-5 text-primary" aria-hidden="true" />
+              <span className="text-foreground">{f}</span>
+            </div>
+          ))}
+        </div>
+        <Flow items={C.beyondRobot.flow} />
+        <Note>{C.beyondRobot.note}</Note>
+      </Section>
+
+      {/* Hardware-flexible */}
+      <Section kicker={C.hardware.kicker} title={C.hardware.title}>
+        <div className="grid gap-10 md:grid-cols-2">
+          <div>
+            <p className="text-lg text-muted-foreground leading-relaxed mb-4">{C.hardware.p1}</p>
+            <div className="flex flex-wrap gap-2 mb-6">{C.hardware.specialties.map((s) => <Chip key={s}>{s}</Chip>)}</div>
+            <p className="text-lg text-muted-foreground leading-relaxed">{C.hardware.p2}</p>
+          </div>
+          <div>
+            <div className="rounded-xl border border-primary/30 bg-primary/5 p-6">
+              <Flow items={C.hardware.equation} />
+              <p className="mt-4 text-lg font-semibold text-foreground">= {C.hardware.equationResult}</p>
+            </div>
+            <p className="mt-6 font-medium text-foreground">{C.hardware.dependsTitle}</p>
+            <div className="mt-3 flex flex-wrap gap-2">{C.hardware.depends.map((d) => <Chip key={d}>{d}</Chip>)}</div>
+            <Note>{C.hardware.note}</Note>
+          </div>
+        </div>
+      </Section>
+
+      {/* Human Data + Human Data Model */}
+      <Section id="human-data-model" kicker={C.humanData.kicker} title={C.humanData.title} className="bg-muted/30">
+        <p className="text-lg text-muted-foreground max-w-3xl mb-4">{C.humanData.p1}</p>
+        <p className="text-lg text-muted-foreground max-w-3xl mb-6">{C.humanData.p2}</p>
+        <ul className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3 mb-14">
+          {C.humanData.questions.map((q) => (
+            <li key={q} className="flex items-start gap-2 text-muted-foreground">
+              <CheckCircle2 className="h-4 w-4 text-primary mt-1 shrink-0" aria-hidden="true" /> {q}
+            </li>
+          ))}
+        </ul>
+
+        <p className="text-xs uppercase tracking-[0.2em] text-primary/80 font-medium mb-3">{C.hdm.kicker}</p>
+        <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-6">{C.hdm.title}</h3>
+        <p className="text-lg text-muted-foreground max-w-3xl mb-6">{C.hdm.p}</p>
+        <Flow items={C.hdm.chain} />
+        <p className="mt-8 text-lg text-muted-foreground max-w-3xl">{C.hdm.p2}</p>
+        <div className="mt-3 flex flex-wrap gap-2">{C.hdm.qualities.map((q) => <Chip key={q}>{q}</Chip>)}</div>
+
+        <h4 className="mt-12 mb-6 text-xl font-semibold text-foreground">{C.hdm.principlesTitle}</h4>
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {C.hdm.principles.map((p) => (
+            <Card key={p.t} className="border-border/70">
+              <CardContent className="p-6">
+                <Lock className="h-5 w-5 text-primary mb-3" aria-hidden="true" />
+                <h5 className="font-semibold text-foreground mb-2">{p.t}</h5>
+                <p className="text-sm text-muted-foreground leading-relaxed">{p.d}</p>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+        <div className="mt-8">
+          <a href={SAVEN_LINKS.humanDataModel} target="_blank" rel="noopener noreferrer">
+            <Button variant="outline"><ExternalLink className="h-4 w-4 mr-2" /> Human Data Model</Button>
+          </a>
+        </div>
+      </Section>
+
+      {/* BioMath Core */}
+      <Section kicker={C.biomath.kicker} title={C.biomath.title}>
+        <div className="grid gap-10 md:grid-cols-2">
+          <div>
+            <p className="text-lg text-muted-foreground leading-relaxed mb-4">{C.biomath.p1}</p>
+            <p className="text-lg text-muted-foreground leading-relaxed mb-6">{C.biomath.p2}</p>
+            <p className="font-medium text-foreground">{C.biomath.scope}</p>
+            <Note>{C.biomath.scopeNote}</Note>
+            <div className="mt-6 flex flex-wrap gap-3">
+              <Link to="/projects/biomath-core"><Button variant="outline">Explore BioMath Core</Button></Link>
+              <a href={SAVEN_LINKS.biomathCore} target="_blank" rel="noopener noreferrer">
+                <Button variant="ghost"><ExternalLink className="h-4 w-4 mr-2" /> SAVEN × BioMath Core</Button>
               </a>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* What is SAVEN */}
-      <section className="py-20 bg-gradient-to-b from-[#0d0f1a] to-background">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center mb-16">
-            <img src={acronymImg} alt="S.A.V.E.N." className="h-24 mx-auto mb-6 rounded-lg" />
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              {t('projectSaven.systemTitle')} <span className="text-orange-400">{t('projectSaven.systemHighlight')}</span>
-            </h2>
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              {t('projectSaven.systemDesc')}
-            </p>
-          </div>
-
-          {/* What it IS vs IS NOT */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-16">
-            <Card className="bg-card/50 border-red-500/20">
-              <CardContent className="p-6">
-                <h3 className="text-xl font-bold mb-4 text-red-400">{t('projectSaven.whatItIsNot')}</h3>
-                <div className="space-y-3">
-                  {['notItem1', 'notItem2', 'notItem3', 'notItem4'].map((key, i) => (
-                    <div key={i} className="flex items-start gap-2">
-                      <XCircle className="w-5 h-5 text-red-400 mt-0.5 flex-shrink-0" />
-                      <span className="text-muted-foreground">{t(`projectSaven.${key}`)}</span>
-                    </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-            <Card className="bg-card/50 border-green-500/20">
-              <CardContent className="p-6">
-                <h3 className="text-xl font-bold mb-4 text-green-400">{t('projectSaven.whatItIs')}</h3>
-                <div className="space-y-3">
-                  {['isItem1', 'isItem2', 'isItem3', 'isItem4'].map((key, i) => (
-                    <div key={i} className="flex items-start gap-2">
-                      <CheckCircle2 className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
-                      <span className="text-muted-foreground">{t(`projectSaven.${key}`)}</span>
-                    </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-
-          <blockquote className="max-w-3xl mx-auto text-center text-xl italic text-orange-300/80 border-l-4 border-orange-400 pl-6 py-2">
-            "{t('projectSaven.quote')}"
-          </blockquote>
-        </div>
-      </section>
-
-      {/* BioMath Architecture */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-            {t('projectSaven.archTitle')} <span className="text-orange-400">{t('projectSaven.archHighlight')}</span>
-          </h2>
-          <div className="max-w-3xl mx-auto space-y-4">
-            {[
-              { level: 'Level 1', name: 'BioMath Life', descKey: 'archLevel1', color: 'from-blue-500/20 to-blue-600/10', border: 'border-blue-500/30' },
-              { level: 'Level 2', name: 'BioMath Core (The Brain)', descKey: 'archLevel2', color: 'from-teal-500/20 to-teal-600/10', border: 'border-teal-500/30' },
-              { level: 'Level 3', name: 'SAVEN (The Execution Layer)', descKey: 'archLevel3', color: 'from-orange-500/20 to-orange-600/10', border: 'border-orange-500/30' },
-              { level: 'Level 4', name: 'Body Layer', descKey: 'archLevel4', color: 'from-gray-500/20 to-gray-600/10', border: 'border-gray-500/30' },
-            ].map((item, i) => (
-              <Card key={i} className={`bg-gradient-to-r ${item.color} ${item.border} transition-all hover:-translate-y-1`}>
-                <CardContent className="p-6 flex items-center gap-6">
-                  <Badge variant="outline" className="text-sm px-3 py-1 flex-shrink-0">{item.level}</Badge>
+          <ol className="space-y-3">
+            {C.biomath.chain.map((s, i) => (
+              <li key={s.t} className="rounded-lg border border-border bg-card p-4">
+                <div className="flex items-center gap-3">
+                  <span className="text-sm font-mono text-primary/70">{String(i + 1).padStart(2, '0')}</span>
                   <div>
-                    <h3 className="text-lg font-bold">{item.name}</h3>
-                    <p className="text-sm text-muted-foreground">{t(`projectSaven.${item.descKey}`)}</p>
+                    <p className="font-semibold text-foreground">{s.t}</p>
+                    <p className="text-sm text-muted-foreground">{s.d}</p>
                   </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-          <p className="text-center text-sm text-muted-foreground mt-6 italic">
-            {t('projectSaven.archNote')}
-          </p>
-        </div>
-      </section>
-
-      {/* The SAVEN Cycle */}
-      <section className="py-20 bg-muted/30">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
-            {t('projectSaven.cycleTitle')} <span className="text-orange-400">{t('projectSaven.cycleHighlight')}</span>
-          </h2>
-          <p className="text-center text-muted-foreground mb-16 max-w-2xl mx-auto">
-            {t('projectSaven.cycleDesc')}
-          </p>
-          <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-5 gap-4">
-            {[
-              { num: '1', titleKey: 'cycleStep1', descKey: 'cycleStep1Desc', icon: Brain },
-              { num: '2', titleKey: 'cycleStep2', descKey: 'cycleStep2Desc', icon: Zap },
-              { num: '3', titleKey: 'cycleStep3', descKey: 'cycleStep3Desc', icon: CheckCircle2 },
-              { num: '4', titleKey: 'cycleStep4', descKey: 'cycleStep4Desc', icon: BarChart3 },
-              { num: '5', titleKey: 'cycleStep5', descKey: 'cycleStep5Desc', icon: ShieldCheck },
-            ].map((item, i) => (
-              <Card key={i} className="bg-card/50 border-orange-500/10 hover:border-orange-500/30 transition-all text-center">
-                <CardContent className="p-5">
-                  <div className="w-12 h-12 rounded-full bg-orange-500/10 flex items-center justify-center mx-auto mb-3">
-                    <item.icon className="w-6 h-6 text-orange-400" />
-                  </div>
-                  <span className="text-xs text-orange-400 font-bold">{t('projectSaven.step')} {item.num}</span>
-                  <h3 className="text-base font-semibold mt-1">{t(`projectSaven.${item.titleKey}`)}</h3>
-                  <p className="text-xs text-muted-foreground mt-1">{t(`projectSaven.${item.descKey}`)}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Three Environments */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-            {t('projectSaven.envTitle')} <span className="text-orange-400">{t('projectSaven.envHighlight')}</span>
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            {[
-              { icon: Home, titleKey: 'envHome', subKey: 'envHomeSub', descKey: 'envHomeDesc' },
-              { icon: Hospital, titleKey: 'envHospital', subKey: 'envHospitalSub', descKey: 'envHospitalDesc' },
-              { icon: Building2, titleKey: 'envInstitution', subKey: 'envInstitutionSub', descKey: 'envInstitutionDesc' },
-            ].map((item, i) => (
-              <Card key={i} className="bg-gradient-to-b from-card to-card/50 border-orange-500/10 text-center hover:border-orange-500/30 transition-all">
-                <CardContent className="p-8">
-                  <div className="w-16 h-16 rounded-full bg-orange-500/10 flex items-center justify-center mx-auto mb-6">
-                    <item.icon className="w-8 h-8 text-orange-400" />
-                  </div>
-                  <h3 className="text-xl font-bold mb-1">{t(`projectSaven.${item.titleKey}`)}</h3>
-                  <p className="text-sm text-orange-400 mb-3">{t(`projectSaven.${item.subKey}`)}</p>
-                  <p className="text-muted-foreground">{t(`projectSaven.${item.descKey}`)}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-          <p className="text-center text-sm text-muted-foreground mt-8 italic">
-            {t('projectSaven.envNote')}
-          </p>
-        </div>
-      </section>
-
-      {/* Robot & Elderly Image Section */}
-      <section className="py-20 bg-muted/30">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
-            <div>
-              <img src={robotElderlyImg} alt="SAVEN robot assisting elderly person" className="rounded-2xl shadow-2xl w-full" />
-            </div>
-            <div>
-              <h2 className="text-3xl font-bold mb-4">
-                {t('projectSaven.bodyTitle')} <span className="text-orange-400">{t('projectSaven.bodyHighlight')}</span>
-              </h2>
-              <p className="text-muted-foreground leading-relaxed mb-6">
-                {t('projectSaven.bodyDesc1')}
-              </p>
-              <p className="text-muted-foreground leading-relaxed">
-                {t('projectSaven.bodyDesc2')}
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Robotic Bodies & Physical Devices Integration */}
-      <section className="py-20 bg-gradient-to-b from-background via-orange-500/5 to-background">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center mb-14">
-            <Badge className="mb-4 bg-orange-500/15 text-orange-300 border-orange-500/30">
-              {t('projectSaven.robotIntegrationHighlight')}
-            </Badge>
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              {t('projectSaven.robotIntegrationTitle')}{' '}
-              <span className="text-orange-400">{t('projectSaven.robotIntegrationHighlight')}</span>
-            </h2>
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              {t('projectSaven.robotIntegrationLead')}
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-            {[
-              { icon: Bot, titleKey: 'robotIntegrationItem1Title', descKey: 'robotIntegrationItem1Desc' },
-              { icon: Wrench, titleKey: 'robotIntegrationItem2Title', descKey: 'robotIntegrationItem2Desc' },
-              { icon: Wifi, titleKey: 'robotIntegrationItem3Title', descKey: 'robotIntegrationItem3Desc' },
-              { icon: Truck, titleKey: 'robotIntegrationItem4Title', descKey: 'robotIntegrationItem4Desc' },
-              { icon: Stethoscope, titleKey: 'robotIntegrationItem5Title', descKey: 'robotIntegrationItem5Desc' },
-              { icon: Layers, titleKey: 'robotIntegrationItem6Title', descKey: 'robotIntegrationItem6Desc' },
-            ].map((item, i) => (
-              <Card key={i} className="bg-card/60 border-orange-500/15 hover:border-orange-500/40 hover:-translate-y-1 transition-all">
-                <CardContent className="p-6">
-                  <div className="w-12 h-12 rounded-lg bg-orange-500/10 flex items-center justify-center mb-4">
-                    <item.icon className="w-6 h-6 text-orange-400" />
-                  </div>
-                  <h3 className="text-lg font-semibold mb-2">{t(`projectSaven.${item.titleKey}`)}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{t(`projectSaven.${item.descKey}`)}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-
-          <p className="text-center text-base md:text-lg text-orange-300/80 mt-10 max-w-3xl mx-auto italic">
-            {t('projectSaven.robotIntegrationFooter')}
-          </p>
-
-          {/* Impact metrics — value for people and business */}
-          <div className="mt-16 max-w-6xl mx-auto">
-            <div className="text-center mb-10">
-              <Badge className="mb-3 bg-orange-500/15 text-orange-300 border-orange-500/30">
-                {t('projectSaven.impactBadge')}
-              </Badge>
-              <h3 className="text-2xl md:text-3xl font-bold">
-                {t('projectSaven.impactTitle')}{' '}
-                <span className="text-orange-400">{t('projectSaven.impactHighlight')}</span>
-              </h3>
-              <p className="text-muted-foreground mt-3 max-w-2xl mx-auto">
-                {t('projectSaven.impactLead')}
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-              {[
-                { icon: Clock, value: '−45%', unit: t('projectSaven.impactUnitTime'), label: t('projectSaven.impactMetric1Label'), desc: t('projectSaven.impactMetric1Desc') },
-                { icon: TimerReset, value: '< 60', unit: t('projectSaven.impactUnitSeconds'), label: t('projectSaven.impactMetric2Label'), desc: t('projectSaven.impactMetric2Desc') },
-                { icon: HeartPulse, value: '+38%', unit: t('projectSaven.impactUnitQuality'), label: t('projectSaven.impactMetric3Label'), desc: t('projectSaven.impactMetric3Desc') },
-                { icon: AlertTriangle, value: '−62%', unit: t('projectSaven.impactUnitIncidents'), label: t('projectSaven.impactMetric4Label'), desc: t('projectSaven.impactMetric4Desc') },
-                { icon: DollarSign, value: '−30%', unit: t('projectSaven.impactUnitCost'), label: t('projectSaven.impactMetric5Label'), desc: t('projectSaven.impactMetric5Desc') },
-                { icon: Smile, value: '4.8 / 5', unit: t('projectSaven.impactUnitSatisfaction'), label: t('projectSaven.impactMetric6Label'), desc: t('projectSaven.impactMetric6Desc') },
-              ].map((m, i) => (
-                <Card key={i} className="bg-gradient-to-br from-orange-500/10 via-card/60 to-card/60 border-orange-500/20 hover:border-orange-500/50 hover:-translate-y-1 transition-all">
-                  <CardContent className="p-6">
-                    <div className="flex items-center gap-3 mb-4">
-                      <div className="w-10 h-10 rounded-lg bg-orange-500/15 flex items-center justify-center">
-                        <m.icon className="w-5 h-5 text-orange-400" />
-                      </div>
-                      <span className="text-xs uppercase tracking-wider text-muted-foreground">{m.unit}</span>
-                    </div>
-                    <div className="text-3xl md:text-4xl font-extrabold text-orange-400 mb-1 leading-none">
-                      {m.value}
-                    </div>
-                    <div className="text-sm font-semibold mb-2">{m.label}</div>
-                    <p className="text-xs text-muted-foreground leading-relaxed">{m.desc}</p>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-
-            <p className="text-center text-xs text-muted-foreground/70 mt-6 max-w-3xl mx-auto">
-              {t('projectSaven.impactDisclaimer')}
-            </p>
-          </div>
-        </div>
-      </section>
-
-
-      {/* Post-Hospital Bridge */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-              {t('projectSaven.bridgeTitle')} <span className="text-orange-400">{t('projectSaven.bridgeHighlight')}</span>
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <Card className="bg-card border-red-500/20">
-                <CardContent className="p-6">
-                  <h3 className="text-lg font-bold text-red-400 mb-3">{t('projectSaven.bridgeProblem')}</h3>
-                  <p className="text-muted-foreground">{t('projectSaven.bridgeProblemDesc')}</p>
-                </CardContent>
-              </Card>
-              <Card className="bg-card border-orange-500/20">
-                <CardContent className="p-6">
-                  <h3 className="text-lg font-bold text-orange-400 mb-3">{t('projectSaven.bridgeSolution')}</h3>
-                  <p className="text-muted-foreground">{t('projectSaven.bridgeSolutionDesc')}</p>
-                </CardContent>
-              </Card>
-              <Card className="bg-card border-green-500/20">
-                <CardContent className="p-6">
-                  <h3 className="text-lg font-bold text-green-400 mb-3">{t('projectSaven.bridgeImpact')}</h3>
-                  <p className="text-muted-foreground">{t('projectSaven.bridgeImpactDesc')}</p>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Presentation Download */}
-      <section className="py-16 bg-gradient-to-r from-[#0d0f1a] to-[#1a1020]">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl font-bold text-white mb-4">
-              {t('projectSaven.presentationTitle')} <span className="text-orange-400">{t('projectSaven.presentationHighlight')}</span>
-            </h2>
-            <p className="text-gray-300 mb-8">
-              {t('projectSaven.presentationDesc')}
-            </p>
-            <div className="flex flex-wrap gap-4 justify-center">
-              <a href="/documents/saven-infrastructure.pdf" target="_blank" rel="noopener noreferrer" download="SAVEN-Infrastructure-of-Continuous-Execution.pdf">
-                <Button size="lg" className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-6 text-lg">
-                  <Download className="w-5 h-5 mr-2" /> {t('projectSaven.downloadPDF')}
-                </Button>
-              </a>
-              <Button size="lg" variant="outline" className="border-orange-400/40 text-orange-300 hover:bg-orange-500/10 px-8 py-6 text-lg"
-                onClick={() => handleShare('SAVEN Infrastructure of Continuous Execution')}>
-                <Share2 className="w-5 h-5 mr-2" /> {t('projectSaven.share')}
-              </Button>
-              <Button size="lg" variant="outline" className="border-orange-400/40 text-orange-300 hover:bg-orange-500/10 px-8 py-6 text-lg"
-                onClick={() => handleSend('SAVEN Infrastructure of Continuous Execution')}>
-                <Mail className="w-5 h-5 mr-2" /> {t('projectSaven.send')}
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Infographics Gallery */}
-      <section className="py-20 bg-muted/30">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-            <span className="text-orange-400">{t('projectSaven.infographicsTitle')}</span>
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            {infographics.map((item, i) => (
-              <Card key={i} className="bg-card overflow-hidden border-border/50 hover:border-orange-500/30 transition-all group">
-                <div className="cursor-pointer" onClick={() => { setLightboxImg(item.src); setLightboxOpen(true); }}>
-                  <img src={item.src} alt={item.title} className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500" />
                 </div>
-                <CardContent className="p-4">
-                  <p className="font-semibold text-sm mb-3">{item.title}</p>
-                  <div className="flex flex-wrap gap-2">
-                    <Button size="sm" variant="outline" onClick={() => handleDownload(item.src, `saven-${i + 1}.png`)}>
-                      <Download className="w-3 h-3 mr-1" /> {t('projectSaven.download')}
-                    </Button>
-                    <Button size="sm" variant="outline" onClick={() => handleCopy(item.src)}>
-                      <Copy className="w-3 h-3 mr-1" /> {t('projectSaven.copy')}
-                    </Button>
-                    <Button size="sm" variant="outline" onClick={() => handleShare(item.title)}>
-                      <Share2 className="w-3 h-3 mr-1" /> {t('projectSaven.share')}
-                    </Button>
-                    <Button size="sm" variant="outline" onClick={() => handleSend(item.title)}>
-                      <Mail className="w-3 h-3 mr-1" /> {t('projectSaven.send')}
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </Section>
+
+      {/* Systems architecture */}
+      <Section id="technology" kicker={C.systems.kicker} title={C.systems.title} className="bg-muted/30">
+        <div className="grid gap-4 md:grid-cols-3">
+          {C.systems.stack.map((g) => (
+            <Card key={g.t} className="border-border/70">
+              <CardContent className="p-6">
+                <Layers className="h-5 w-5 text-primary mb-3" aria-hidden="true" />
+                <h3 className="font-semibold text-foreground mb-3">{g.t}</h3>
+                <ul className="space-y-1.5">
+                  {g.items.map((i) => <li key={i} className="text-sm text-muted-foreground">{i}</li>)}
+                </ul>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+
+        <div className="mt-14 grid gap-10 md:grid-cols-2">
+          <div>
+            <p className="text-xs uppercase tracking-[0.2em] text-primary/80 font-medium mb-3">{C.knowledge.kicker}</p>
+            <h3 className="text-2xl font-bold text-foreground mb-4">{C.knowledge.title}</h3>
+            <p className="text-muted-foreground mb-6">{C.knowledge.p}</p>
+            <Flow items={C.knowledge.chain} />
+          </div>
+          <div>
+            <p className="text-xs uppercase tracking-[0.2em] text-primary/80 font-medium mb-3">{C.decision.kicker}</p>
+            <h3 className="text-2xl font-bold text-foreground mb-4">{C.decision.title}</h3>
+            <p className="text-muted-foreground mb-4">{C.decision.p}</p>
+            <div className="flex flex-wrap gap-2 mb-4">{C.decision.items.map((i) => <Chip key={i}>{i}</Chip>)}</div>
+            <p className="text-lg font-semibold text-foreground">{C.decision.statement}</p>
+            <Note>{C.decision.note}</Note>
+          </div>
+        </div>
+        <div className="mt-8">
+          <a href={SAVEN_LINKS.systems} target="_blank" rel="noopener noreferrer">
+            <Button variant="outline"><ExternalLink className="h-4 w-4 mr-2" /> SAVEN Systems</Button>
+          </a>
+        </div>
+      </Section>
+
+      {/* Robotics Interface */}
+      <Section id="robotics-interface" kicker={C.interface.kicker} title={C.interface.title}>
+        <p className="text-lg text-muted-foreground max-w-3xl mb-8">{C.interface.p}</p>
+        <div className="grid gap-4 sm:grid-cols-2 mb-10">
+          {C.interface.distinction.map((d) => (
+            <Card key={d.t} className="border-border/70">
+              <CardContent className="p-6">
+                <Network className="h-5 w-5 text-primary mb-3" aria-hidden="true" />
+                <h3 className="font-semibold text-foreground mb-2">{d.t}</h3>
+                <p className="text-sm text-muted-foreground">{d.d}</p>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+        <div className="rounded-xl border border-border bg-card p-6 text-center">
+          <p className="font-semibold text-foreground">{C.interface.top}</p>
+          <div className="my-3 h-6 w-px bg-border mx-auto" aria-hidden="true" />
+          <p className="inline-block rounded-lg bg-primary/10 px-4 py-2 font-semibold text-primary">{C.interface.hub}</p>
+          <div className="mt-6 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
+            {C.interface.endpoints.map((e) => (
+              <span key={e} className="rounded-lg border border-border px-3 py-2 text-sm text-muted-foreground">{e}</span>
             ))}
           </div>
         </div>
-      </section>
-
-      {/* Lightbox */}
-      {lightboxOpen && (
-        <div className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4" onClick={() => setLightboxOpen(false)}>
-          <img src={lightboxImg} alt="SAVEN Infographic" className="max-w-full max-h-[90vh] object-contain rounded-lg" />
+        <Note>{C.interface.note}</Note>
+        <div className="mt-6">
+          <a href={SAVEN_LINKS.roboticsInterface} target="_blank" rel="noopener noreferrer">
+            <Button variant="outline"><ExternalLink className="h-4 w-4 mr-2" /> SAVEN Robotics Interface</Button>
+          </a>
         </div>
-      )}
+      </Section>
 
-      {/* Economic Logic */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-            {t('projectSaven.econTitle')} <span className="text-orange-400">{t('projectSaven.econHighlight')}</span>
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-            {[
-              { icon: Network, titleKey: 'econCost', descKey: 'econCostDesc' },
-              { icon: BarChart3, titleKey: 'econLTV', descKey: 'econLTVDesc' },
-              { icon: ShieldCheck, titleKey: 'econRisk', descKey: 'econRiskDesc' },
-            ].map((item, i) => (
-              <Card key={i} className="bg-card/50 border-orange-500/10 hover:border-orange-500/30 transition-all">
-                <CardContent className="p-6 text-center">
-                  <item.icon className="w-8 h-8 text-orange-400 mx-auto mb-4" />
-                  <h3 className="text-lg font-semibold mb-2">{t(`projectSaven.${item.titleKey}`)}</h3>
-                  <p className="text-sm text-muted-foreground">{t(`projectSaven.${item.descKey}`)}</p>
-                </CardContent>
-              </Card>
-            ))}
+      {/* Robotics Lab */}
+      <Section id="robotics-lab" kicker={C.lab.kicker} title={C.lab.title} className="bg-muted/30">
+        <div className="grid gap-10 md:grid-cols-2 items-start">
+          <div>
+            <p className="text-lg text-muted-foreground mb-6">{C.lab.p}</p>
+            <p className="font-medium text-foreground mb-3">{C.lab.scopeTitle}</p>
+            <div className="flex flex-wrap gap-2">{C.lab.scope.map((s) => <Chip key={s}>{s}</Chip>)}</div>
+            <Note>{C.lab.note}</Note>
+            <div className="mt-6">
+              <a href={SAVEN_LINKS.roboticsLab} target="_blank" rel="noopener noreferrer">
+                <Button variant="outline"><ExternalLink className="h-4 w-4 mr-2" /> SAVEN Robotics Lab</Button>
+              </a>
+            </div>
           </div>
-          <p className="text-center text-muted-foreground mt-8 text-lg italic">
-            {t('projectSaven.econNote')}
-          </p>
+          <OptimizedImage src={labAsset.url} alt="SAVEN Robotics Lab development environment" className="rounded-xl w-full h-auto shadow-lg" />
         </div>
-      </section>
+      </Section>
 
-      {/* Built for Providers */}
-      <section className="py-20 bg-muted/30">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
-            {t('projectSaven.providersTitle')} <span className="text-orange-400">{t('projectSaven.providersHighlight')}</span>
-          </h2>
-          <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-            {t('projectSaven.providersDesc')}
-          </p>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto">
-            {[
-              { icon: Hospital, titleKey: 'provCare' },
-              { icon: ShieldCheck, titleKey: 'provInsurance' },
-              { icon: Cpu, titleKey: 'provDevice' },
-              { icon: Building2, titleKey: 'provInfra' },
-            ].map((item, i) => (
-              <Card key={i} className="bg-card/50 border-border/50 text-center hover:border-orange-500/30 transition-all">
+      {/* Development pathway */}
+      <Section kicker={C.pathway.kicker} title={C.pathway.title}>
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {C.pathway.steps.map((s) => (
+            <Card key={s.t} className="border-border/70 transition-shadow hover:shadow-md">
+              <CardContent className="p-6">
+                <span className="text-sm font-mono text-primary/70">{s.n}</span>
+                <h3 className="mt-1 font-semibold text-foreground mb-3">{s.t}</h3>
+                <ul className="space-y-1.5">
+                  {s.items.map((i) => <li key={i} className="text-sm text-muted-foreground">{i}</li>)}
+                </ul>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+        <Note>{C.pathway.note}</Note>
+      </Section>
+
+      {/* Applications */}
+      <Section kicker={C.environments.kicker} title={C.environments.title} className="bg-muted/30">
+        <p className="text-lg text-muted-foreground max-w-3xl mb-8">{C.environments.p}</p>
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 mb-10">
+          {C.environments.items.map((g, idx) => {
+            const Icon = [Home, Hospital, Activity, Users, Building2, Workflow][idx % 6];
+            return (
+              <Card key={g.t} className="border-border/70">
                 <CardContent className="p-6">
-                  <item.icon className="w-8 h-8 text-orange-400 mx-auto mb-3" />
-                  <p className="font-semibold text-sm">{t(`projectSaven.${item.titleKey}`)}</p>
+                  <Icon className="h-5 w-5 text-primary mb-3" aria-hidden="true" />
+                  <h3 className="font-semibold text-foreground mb-3">{g.t}</h3>
+                  <ul className="space-y-1.5">
+                    {g.items.map((i) => <li key={i} className="text-sm text-muted-foreground">{i}</li>)}
+                  </ul>
                 </CardContent>
               </Card>
-            ))}
-          </div>
+            );
+          })}
         </div>
-      </section>
+        <OptimizedImage src={applicationsAsset.url} alt="SAVEN application environments overview" className="rounded-xl w-full h-auto shadow-lg" />
 
-      {/* Investment Highlights */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-            {t('projectSaven.investTitle')} <span className="text-orange-400">{t('projectSaven.investHighlight')}</span>
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            {[1, 2, 3, 4, 5, 6].map((i) => (
-              <div key={i} className="flex items-start gap-3 p-4 rounded-lg bg-card/50 border border-border/50">
-                <ChevronRight className="w-5 h-5 text-orange-400 mt-0.5 flex-shrink-0" />
-                <p className="text-muted-foreground">{t(`projectSaven.invest${i}`)}</p>
+        <div className="mt-14">
+          <p className="text-xs uppercase tracking-[0.2em] text-primary/80 font-medium mb-3">{C.broader.kicker}</p>
+          <h3 className="text-2xl font-bold text-foreground mb-4">{C.broader.title}</h3>
+          <p className="text-muted-foreground mb-6 max-w-3xl">{C.broader.p}</p>
+          <div className="flex flex-wrap gap-2 mb-4">{C.broader.envs.map((e) => <Chip key={e}>{e}</Chip>)}</div>
+          <p className="text-lg font-semibold text-foreground">{C.broader.common}</p>
+          <p className="text-sm text-muted-foreground">{C.broader.commonNote}</p>
+        </div>
+        <div className="mt-8">
+          <a href={SAVEN_LINKS.applications} target="_blank" rel="noopener noreferrer">
+            <Button variant="outline"><ExternalLink className="h-4 w-4 mr-2" /> SAVEN Applications</Button>
+          </a>
+        </div>
+      </Section>
+
+      {/* Partners */}
+      <Section id="partners" kicker={C.partners.kicker} title={C.partners.title}>
+        <p className="text-lg text-muted-foreground max-w-3xl mb-8">{C.partners.p}</p>
+        <div className="rounded-xl border border-primary/30 bg-primary/5 p-6 mb-10">
+          <Flow items={C.partners.equation} />
+          <p className="mt-4 text-lg font-semibold text-foreground">= {C.partners.equationResult}</p>
+        </div>
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {C.partners.categories.map((c) => (
+            <Card key={c.t} className="border-border/70 transition-shadow hover:shadow-md">
+              <CardContent className="p-6">
+                <Handshake className="h-5 w-5 text-primary mb-3" aria-hidden="true" />
+                <h3 className="font-semibold text-foreground mb-2">{c.t}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">{c.d}</p>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+        <Note>{C.partners.note}</Note>
+
+        <h4 className="mt-12 mb-6 text-xl font-semibold text-foreground">{C.partners.entryTitle}</h4>
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          {C.partners.entry.map((e, i) => (
+            <div key={e.t} className="rounded-lg border border-border bg-card p-4">
+              <span className="text-xs font-mono text-primary/70">{String(i + 1).padStart(2, '0')}</span>
+              <p className="font-semibold text-foreground">{e.t}</p>
+              <p className="text-sm text-muted-foreground">{e.d}</p>
+            </div>
+          ))}
+        </div>
+        <div className="mt-8 flex flex-wrap gap-3">
+          <Link to="/contact"><Button>{C.partners.cta}</Button></Link>
+          <a href={SAVEN_LINKS.partners} target="_blank" rel="noopener noreferrer">
+            <Button variant="outline"><ExternalLink className="h-4 w-4 mr-2" /> SAVEN Partners</Button>
+          </a>
+        </div>
+      </Section>
+
+      {/* Commercial architecture */}
+      <Section kicker={C.commercial.kicker} title={C.commercial.title} className="bg-muted/30">
+        <p className="text-lg text-muted-foreground max-w-3xl mb-8">{C.commercial.p}</p>
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {C.commercial.items.map((i) => (
+            <Card key={i.t} className="border-border/70">
+              <CardContent className="p-5">
+                <LineChart className="h-5 w-5 text-primary mb-3" aria-hidden="true" />
+                <h3 className="font-semibold text-foreground mb-2">{i.t}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">{i.d}</p>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+        <h4 className="mt-12 mb-4 text-xl font-semibold text-foreground">{C.commercial.b2bTitle}</h4>
+        <div className="flex flex-wrap gap-2 mb-8">{C.commercial.b2b.map((b) => <Chip key={b}>{b}</Chip>)}</div>
+        <Flow items={C.commercial.b2bFlow} />
+
+        <div className="mt-14">
+          <p className="text-xs uppercase tracking-[0.2em] text-primary/80 font-medium mb-3">{C.scale.kicker}</p>
+          <h3 className="text-2xl font-bold text-foreground mb-6">{C.scale.title}</h3>
+          <Flow items={C.scale.steps} />
+          <p className="mt-6 text-lg text-foreground max-w-3xl">{C.scale.conclusion}</p>
+        </div>
+      </Section>
+
+      {/* Pillars */}
+      <Section kicker={C.pillars.kicker} title={C.pillars.title}>
+        <div className="grid gap-10 md:grid-cols-2 items-center">
+          <div className="space-y-3">
+            {C.pillars.items.map((p) => (
+              <div key={p.l} className="flex items-start gap-4 rounded-lg border border-border bg-card p-4">
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 font-bold text-primary">{p.l}</span>
+                <div>
+                  <p className="font-semibold text-foreground">{p.t}</p>
+                  <p className="text-sm text-muted-foreground">{p.d}</p>
+                </div>
               </div>
             ))}
+            <p className="pt-2 text-sm uppercase tracking-[0.15em] text-muted-foreground">{C.pillars.line}</p>
           </div>
+          <OptimizedImage src={pillarsAsset.url} alt="SAVEN pillars: Support, Action, Verification, Environment, Network" className="rounded-xl w-full h-auto shadow-lg" />
         </div>
-      </section>
+      </Section>
 
-      {/* Infrastructure Formula */}
-      <section className="py-16 bg-gradient-to-r from-[#0d0f1a] to-[#1a1020]">
-        <div className="container mx-auto px-4 text-center">
-          <h3 className="text-2xl font-bold text-white mb-8">{t('projectSaven.formulaTitle')}</h3>
-          <div className="flex flex-wrap items-center justify-center gap-4 text-lg">
-            <span className="bg-teal-500/20 text-teal-300 px-6 py-3 rounded-lg font-semibold">BioMath Core</span>
-            <span className="text-white text-2xl">+</span>
-            <span className="bg-orange-500/20 text-orange-300 px-6 py-3 rounded-lg font-semibold">SAVEN</span>
-            <span className="text-white text-2xl">+</span>
-            <span className="bg-gray-500/20 text-gray-300 px-6 py-3 rounded-lg font-semibold">{t('projectSaven.formulaBodies')}</span>
-            <span className="text-white text-2xl">=</span>
-            <span className="bg-green-500/20 text-green-300 px-6 py-3 rounded-lg font-bold">{t('projectSaven.formulaResult')}</span>
+      {/* Difference */}
+      <Section kicker={C.difference.kicker} title={C.difference.title} className="bg-muted/30">
+        <p className="text-muted-foreground mb-6">{C.difference.p}</p>
+        <ul className="space-y-2">
+          {C.difference.lines.map((l) => (
+            <li key={l} className="flex items-center gap-3 text-lg text-foreground">
+              <ArrowRight className="h-4 w-4 text-primary" aria-hidden="true" /> {l}
+            </li>
+          ))}
+        </ul>
+      </Section>
+
+      {/* Safety, privacy, boundaries */}
+      <Section kicker={C.safety.kicker} title={C.safety.title}>
+        <div className="grid gap-10 lg:grid-cols-3">
+          <div>
+            <ShieldCheck className="h-6 w-6 text-primary mb-4" aria-hidden="true" />
+            <div className="flex flex-wrap gap-2">{C.safety.items.map((i) => <Chip key={i}>{i}</Chip>)}</div>
+            <p className="mt-6 text-lg font-medium text-foreground">{C.safety.statement}</p>
           </div>
-          <p className="text-gray-400 mt-6 italic">
-            {t('projectSaven.formulaNote')}
-          </p>
+          <div>
+            <Eye className="h-6 w-6 text-primary mb-4" aria-hidden="true" />
+            <h3 className="text-xl font-semibold text-foreground mb-2">{C.privacy.title}</h3>
+            <p className="text-muted-foreground mb-4">{C.privacy.p}</p>
+            <div className="flex flex-wrap gap-2">{C.privacy.items.map((i) => <Chip key={i}>{i}</Chip>)}</div>
+            <Note>{C.privacy.note}</Note>
+            <div className="mt-4">
+              <a href={SAVEN_LINKS.safety} target="_blank" rel="noopener noreferrer">
+                <Button variant="ghost" size="sm"><ExternalLink className="h-4 w-4 mr-2" /> SAVEN Safety</Button>
+              </a>
+            </div>
+          </div>
+          <div>
+            <XCircle className="h-6 w-6 text-destructive mb-4" aria-hidden="true" />
+            <h3 className="text-xl font-semibold text-foreground mb-4">{C.isNot.title}</h3>
+            <ul className="space-y-2">
+              {C.isNot.items.map((i) => (
+                <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
+                  <XCircle className="h-4 w-4 text-destructive/70 mt-0.5 shrink-0" aria-hidden="true" /> {i}
+                </li>
+              ))}
+            </ul>
+            <p className="mt-4 font-medium text-foreground">{C.isNot.statement}</p>
+          </div>
         </div>
-      </section>
+      </Section>
+
+      {/* Portfolio fit */}
+      <Section kicker={C.fit.kicker} title={C.fit.title} className="bg-muted/30">
+        <div className="grid gap-10 md:grid-cols-2">
+          <div>
+            <p className="text-lg text-muted-foreground mb-4">{C.fit.p}</p>
+            <div className="flex flex-wrap gap-2 mb-6">{C.fit.items.map((i) => <Chip key={i}>{i}</Chip>)}</div>
+            <p className="text-lg text-foreground">{C.fit.conclusion}</p>
+            <OptimizedImage src={homeAssist2Asset.url} alt="SAVEN robotic assistance supporting daily independence" className="mt-8 rounded-xl w-full h-auto shadow-lg" />
+          </div>
+          <div>
+            <h3 className="text-xl font-semibold text-foreground mb-4">{C.fit.archTitle}</h3>
+            <ol className="space-y-2">
+              {C.fit.arch.map((a, i) => (
+                <li key={a.t} className="rounded-lg border border-border bg-card p-4">
+                  <div className="flex items-center gap-3">
+                    <span className="text-xs font-mono text-primary/70">{String(i + 1).padStart(2, '0')}</span>
+                    <div>
+                      <p className="font-semibold text-foreground">{a.t}</p>
+                      <p className="text-sm text-muted-foreground">{a.d}</p>
+                    </div>
+                  </div>
+                </li>
+              ))}
+            </ol>
+            <Note>{C.fit.archNote}</Note>
+          </div>
+        </div>
+      </Section>
+
+      {/* Media room */}
+      <Section title={C.mediaTitle}>
+        <ProjectMediaRoomBySlug slug="saven" />
+      </Section>
 
       {/* CTA */}
-      <section className="py-20 bg-gradient-to-r from-[#0d0f1a] to-[#1a0f0a]">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-            {t('projectSaven.ctaTitle')}
-          </h2>
-          <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
-            {t('projectSaven.ctaDesc')}
-          </p>
-          <div className="flex flex-wrap gap-4 justify-center">
+      <section className="py-20 bg-[#070b14]">
+        <div className="container mx-auto px-4 max-w-4xl text-center">
+          <Cpu className="h-8 w-8 text-sky-400 mx-auto mb-6" aria-hidden="true" />
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">{C.cta.title}</h2>
+          <p className="text-slate-300 mb-8">{C.cta.p}</p>
+          <div className="flex flex-wrap justify-center gap-3">
             <Link to="/contact">
-              <Button size="lg" className="bg-orange-500 hover:bg-orange-600 text-white px-10 py-6 text-lg">
-                {t('projectSaven.submitInterest')} <ArrowRight className="w-5 h-5 ml-2" />
+              <Button size="lg" className="bg-sky-600 hover:bg-sky-500 text-white">
+                <TrendingUp className="h-4 w-4 mr-2" /> {C.cta.primary}
               </Button>
             </Link>
-            <Link to="/projects">
-              <Button size="lg" variant="outline" className="border-gray-500 text-gray-300 hover:bg-white/5 px-10 py-6 text-lg">
-                {t('projectSaven.viewAllProjects')}
+            <a href={siteUrl} target="_blank" rel="noopener noreferrer">
+              <Button size="lg" variant="outline" className="border-white/25 text-white hover:bg-white/10">
+                <ExternalLink className="h-4 w-4 mr-2" /> {C.cta.external}
               </Button>
-            </Link>
+            </a>
+            <a href={SAVEN_LINKS.investors} target="_blank" rel="noopener noreferrer">
+              <Button size="lg" variant="ghost" className="text-slate-200 hover:bg-white/10">{C.cta.investors}</Button>
+            </a>
           </div>
         </div>
       </section>
 
-      <div className="container mx-auto px-4 py-12">
+      <div className="container mx-auto px-4 max-w-6xl py-10">
         <InvestorPageDisclaimer />
       </div>
 
-      <ProjectMediaRoomBySlug slug="saven" />
       <Footer />
     </div>
   );
