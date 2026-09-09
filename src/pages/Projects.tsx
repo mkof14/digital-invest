@@ -346,6 +346,7 @@ const Projects = () => {
     'saven': savenHero,
     't1d': t1dHero,
     '1inow': oneinowHero,
+    'facetium': facetiumEntrance.url,
   };
 
   // Get optimized image path based on format support
