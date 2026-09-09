@@ -23,7 +23,7 @@ export interface AgronContent {
     ctaSecondary: string;
     external: string;
   };
-  what: { title: string; p1: string; p2: string; layers: Pair[] };
+  what: { title: string; p1: string; p2: string; layers: Pair[]; flowTitle: string; flow: string[] };
   record: { title: string; note: string; stats: { v: string; l: string }[] };
   capabilities: { title: string; items: Pair[] };
   services: { kicker: string; title: string; p: string; note: string; cta: string; areas: Area[] };
