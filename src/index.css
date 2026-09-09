@@ -123,6 +123,15 @@ button:not(:disabled) {
   cursor: pointer;
 }
 
+[data-ui-button="true"] {
+  border-width: 0 !important;
+  outline: none;
+}
+
+[data-ui-button="true"]:not(:disabled):hover {
+  filter: saturate(1.06);
+}
+
 button:focus:not(:focus-visible),
 [role="button"]:focus:not(:focus-visible) {
   outline: none;
