@@ -80,7 +80,6 @@ import campusVisual from "@/assets/brand/di-campus.asset.json";
 import {
   CurrentFocusBlock,
   TodayWeBuild,
-  LiveNumbers,
   WeeklyInsight,
   ActivityStrip,
 } from "@/components/engagement/EngagementSections";
