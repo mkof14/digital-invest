@@ -22,7 +22,6 @@ Digital Invest Inc. is a private portfolio company developing 20+ active project
 ## Flagship Projects
 
 - [BioMath Core](/projects/biomath-core): Digital health supercomputer architecture.
-- [Adamas Materials](/adamas): Diamond and luxury materials vertical.
 - [TerraAero](/projects/terraaero): Agrotech drone platform.
 - [MyDay](/projects/myday): AI productivity assistant.
 

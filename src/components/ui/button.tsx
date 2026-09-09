@@ -5,25 +5,25 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
 const buttonVariants = cva(
-  "group/button inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md border-0 text-sm font-semibold ring-offset-background transition-[color,background-color,box-shadow,transform,opacity] duration-200 ease-out hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:translate-y-0 disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 [&_svg]:transition-transform [&_svg]:duration-200 group-hover/button:[&_svg]:translate-x-0.5",
+  "group/button relative inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-none border-0 !bg-transparent !shadow-none text-sm font-semibold ring-offset-background transition-[color,transform,opacity] duration-300 ease-out hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-4 disabled:pointer-events-none disabled:translate-y-0 disabled:opacity-50 after:absolute after:inset-x-2 after:bottom-0 after:h-px after:origin-left after:scale-x-0 after:bg-current after:opacity-60 after:transition-transform after:duration-300 hover:after:scale-x-100 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 [&_svg]:transition-transform [&_svg]:duration-300 group-hover/button:[&_svg]:translate-x-1",
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground shadow-sm hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/20",
+        default: "text-primary hover:text-primary/80",
         destructive:
-          "bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90 hover:shadow-lg hover:shadow-destructive/20",
+          "text-destructive hover:text-destructive/80",
         outline:
-          "bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80 hover:shadow-md",
+          "text-foreground hover:text-primary",
         secondary:
-          "bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/75 hover:shadow-md",
-        ghost: "bg-transparent text-foreground hover:bg-muted hover:text-foreground",
-        link: "text-primary underline-offset-4 hover:underline",
+          "text-secondary-foreground hover:text-primary",
+        ghost: "text-foreground hover:text-primary",
+        link: "text-primary hover:text-primary/80",
       },
       size: {
         default: "h-10 px-6 py-2",
-        sm: "h-8 rounded-md px-3 text-xs",
-        lg: "h-12 rounded-lg px-8 text-base",
-        icon: "h-10 w-10",
+        sm: "h-8 px-3 text-xs",
+        lg: "h-12 px-8 text-base",
+        icon: "h-10 w-10 px-0 after:hidden",
       },
     },
     defaultVariants: {

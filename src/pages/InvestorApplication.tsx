@@ -31,7 +31,6 @@ const SECTORS = [
   'Digital Health',
   'AGRON / Agritech',
   'TerraAero / Aerospace',
-  'Adamas Materials',
   'Sustainable Manufacturing',
   'AI & Data Platforms',
 ] as const;
