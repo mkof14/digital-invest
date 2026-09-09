@@ -103,6 +103,18 @@ const en: AgronContent = {
       { t: 'Training', d: 'Operator training, instructor development and certification pathways.' },
       { t: 'Software & Data', d: 'The integration layer connecting sensors, systems and operational data.' },
     ],
+    flowTitle: 'The operational progression',
+    flow: [
+      'Technology',
+      'Assessment & validation',
+      'Training',
+      'Capability development',
+      'Deployment',
+      'Operations',
+      'Intelligence',
+      'Continuous support',
+    ],
+
   },
   record: {
     title: 'Operating Record',
