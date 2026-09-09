@@ -2644,5 +2644,293 @@
       "successDesc": "Thank you. Our team will reach out within 1–2 business days.",
       "errorTitle": "Submission failed"
     }
+  },
+  "facetium": {
+    "back": "Back to Projects",
+    "badge": "Immersive Commerce & Virtual Experiences",
+    "heroTitle": "Virtual Worlds Where Commerce Feels Real.",
+    "heroTagline": "One FACETIUM. Many worlds.",
+    "heroDesc": "FACETIUM creates realistic interactive environments where people can explore destinations, enter boutiques, discover products, communicate with experts, attend events, meet other people, and transact — within one connected experience.",
+    "ctaExplore": "Explore FACETIUM",
+    "ctaVisit": "Visit facetium.com",
+    "ctaInterest": "Express Interest",
+    "galleryCaptions": [
+      "A network of interactive commercial environments",
+      "Destinations designed around commerce and culture",
+      "Architecture built as a place, not a page"
+    ],
+    "pagesTitle": "From Pages to Places.",
+    "pagesP1": "Traditional digital commerce is built around pages, menus, product grids, and search.",
+    "pagesP2": "FACETIUM introduces a spatial model. Users enter an environment, move naturally through it, discover destinations, interact with products, communicate with people, and participate in experiences.",
+    "pagesP3": "The objective is not to reproduce a conventional website in 3D. The objective is to create a believable digital place.",
+    "flow": [
+      "Explore",
+      "Discover",
+      "Interact",
+      "Experience",
+      "Transact"
+    ],
+    "expTitle": "Walk. Explore. Discover.",
+    "expDesc": "FACETIUM should feel like a continuous environment rather than disconnected web pages.",
+    "expItems": [
+      "Streets",
+      "Plazas",
+      "Boutiques",
+      "Galleries",
+      "Showrooms",
+      "Exhibition halls",
+      "Private lounges",
+      "Event venues",
+      "Meeting spaces",
+      "Product showcases"
+    ],
+    "boutiqueTitle": "Boutiques Without Physical Limits.",
+    "model1Title": "Digital counterpart of a real store",
+    "model1Desc": "A brand can create a FACETIUM counterpart of an existing physical boutique.",
+    "model2Title": "Digital-only boutique",
+    "model2Desc": "A brand can create a completely new environment that does not need to exist physically.",
+    "boutiqueCaps": [
+      "Product collections",
+      "Interactive showcases",
+      "Brand storytelling",
+      "Private rooms",
+      "Customer consultations",
+      "Live representatives",
+      "Product launches",
+      "Purchasing",
+      "Special events"
+    ],
+    "productTitle": "See More Than a Product Page Can Show.",
+    "productDesc": "Depending on product category, a FACETIUM environment can support:",
+    "productItems": [
+      "3D product viewing",
+      "360° inspection",
+      "Zoom",
+      "Materials",
+      "Specifications",
+      "Variations",
+      "Customization",
+      "Comparison",
+      "Product history",
+      "Certificates",
+      "Video",
+      "Interactive demonstrations"
+    ],
+    "productJewelry": "For jewelry this may include stone details, metal options, settings, dimensions, certificates, personalization, and virtual try-on where technically appropriate. Capabilities are presented as the product model; not every capability is implemented today.",
+    "humanTitle": "Real People Inside Digital Commerce.",
+    "humanDesc": "FACETIUM preserves human interaction inside the environment.",
+    "humanItems": [
+      "Live sales consultation",
+      "Concierge",
+      "Brand representative",
+      "Private appointment",
+      "Video and voice communication",
+      "Product presentation and private meetings"
+    ],
+    "humanQuote": "Technology provides the environment. People create the relationship.",
+    "commerceTitle": "From Discovery to Transaction.",
+    "journey": [
+      "Discover",
+      "Explore",
+      "Ask",
+      "Compare",
+      "Personalize",
+      "Purchase",
+      "Delivery"
+    ],
+    "commerceItems": [
+      "Product catalog",
+      "Shopping cart",
+      "Secure payment",
+      "Order confirmation",
+      "Customer account and history",
+      "Brand communication and support"
+    ],
+    "commerceNote": "Commerce functionality is described as the planned product model.",
+    "phygitalTitle": "Physical + Digital.",
+    "phygitalP": "FACETIUM extends physical commerce rather than attempting to replace it. A physical boutique can have a persistent FACETIUM counterpart. A physical exhibition can remain accessible after the venue closes. A product launch can reach customers who cannot attend in person. A private consultation can begin digitally and continue in a physical location — or the reverse.",
+    "phygitalLeft": "Real boutique",
+    "phygitalRight": "FACETIUM boutique",
+    "persistTitle": "A Persistent Presence.",
+    "persistP": "Physical stores close. Trade shows end. Events finish. Temporary installations disappear. A FACETIUM environment can remain available — products, presentations, spaces, meetings, and customer relationships can continue beyond the original physical experience.",
+    "eventsTitle": "Experiences That Bring People Together.",
+    "eventsItems": [
+      "Product launches",
+      "Fashion shows",
+      "Collection presentations",
+      "Private previews",
+      "Conferences",
+      "Cultural and brand events",
+      "Live presentations",
+      "Invitation-only experiences"
+    ],
+    "bdaTitle": "Before. During. After.",
+    "beforeTitle": "Before",
+    "beforeP": "Visitors can discover exhibitors, products, participants, schedules, sessions, and destinations.",
+    "duringTitle": "During",
+    "duringP": "Physical and remote audiences can participate in the same environment.",
+    "afterTitle": "After",
+    "afterP": "The environment can remain available for product discovery, meetings, follow-up, content, communication, and commerce.",
+    "bdaKey": "A temporary event can become a persistent business environment.",
+    "b2bTitle": "From Luxury Retail to Global Industry.",
+    "b2bDesc": "Luxury retail is the initial use case. The same environment model supports professional exhibitions and business environments.",
+    "industries": [
+      "Aerospace",
+      "Robotics",
+      "Artificial Intelligence",
+      "Manufacturing",
+      "Healthcare",
+      "Agriculture",
+      "Advanced Materials",
+      "Energy",
+      "Technology"
+    ],
+    "b2bItems": [
+      "Exhibition pavilions",
+      "Company booths",
+      "Product demonstrations",
+      "Meetings and private lounges",
+      "Presentations",
+      "Networking",
+      "Lead generation",
+      "Scheduled appointments"
+    ],
+    "audienceTitle": "Built for People. Built for Business.",
+    "visitorsTitle": "For visitors",
+    "visitors": [
+      "Shoppers",
+      "Collectors",
+      "Private clients",
+      "Event attendees",
+      "Business visitors and buyers",
+      "Professional communities"
+    ],
+    "orgsTitle": "For organizations",
+    "orgs": [
+      "Luxury brands",
+      "Jewelry houses",
+      "Fashion brands",
+      "Manufacturers",
+      "Galleries",
+      "Event organizers",
+      "Trade associations and exhibition operators",
+      "Corporations and industry groups"
+    ],
+    "audienceNote": "FACETIUM creates value for both sides: the people entering the environment and the organizations operating inside it.",
+    "launchTitle": "Your Presence Inside FACETIUM.",
+    "launchItems": [
+      {
+        "title": "Virtual boutique",
+        "desc": "A persistent branded retail location."
+      },
+      {
+        "title": "Private showroom",
+        "desc": "An appointment-driven environment for selected clients."
+      },
+      {
+        "title": "Product experience",
+        "desc": "An interactive environment centered around a collection or product."
+      },
+      {
+        "title": "Event space",
+        "desc": "A venue for launches, presentations, shows, and private events."
+      },
+      {
+        "title": "Exhibition pavilion",
+        "desc": "A B2B environment for products, demonstrations, meetings, and lead generation."
+      },
+      {
+        "title": "Branded world",
+        "desc": "A larger dedicated environment designed around a company, industry, destination, or community."
+      }
+    ],
+    "brandTitle": "Your Brand. Your Environment.",
+    "brandP": "Brands should not disappear inside a standardized marketplace template. FACETIUM allows each organization to create a distinctive environment reflecting its architecture, identity, products, service model, and customer experience. The environment belongs to the brand experience. FACETIUM provides the infrastructure behind it.",
+    "destTitle": "One FACETIUM. Many Worlds.",
+    "destinations": [
+      "FACETIUM New York",
+      "FACETIUM Abu Dhabi",
+      "FACETIUM Paris",
+      "FACETIUM Tokyo",
+      "FACETIUM Delhi",
+      "FACETIUM Tel Aviv"
+    ],
+    "destDesc": "Each destination may combine local and international brands, culture, events, galleries, hospitality, business spaces, exhibitions, and private experiences — with its own architectural identity inside one connected network.",
+    "destNote": "These are curated FACETIUM environments inspired by major global markets, not literal digital copies of entire cities.",
+    "accessTitle": "Enter From Anywhere.",
+    "devices": [
+      "Desktop",
+      "Laptop",
+      "Tablet",
+      "Mobile",
+      "Large interactive displays",
+      "VR where appropriate"
+    ],
+    "accessNote": "The core FACETIUM experience is designed to work without a VR headset.",
+    "techTitle": "Technology Behind the Environment",
+    "techP": "FACETIUM is the product. Technology supports the experience rather than defining it.",
+    "techItems": [
+      "Real-time 3D",
+      "AI",
+      "Computer vision",
+      "Web technologies",
+      "Cloud infrastructure",
+      "Streaming",
+      "Digital payments",
+      "3D asset pipelines",
+      "Analytics",
+      "AR/VR where appropriate"
+    ],
+    "modelTitle": "How FACETIUM Creates Commercial Value",
+    "modelItems": [
+      {
+        "title": "Brand presence",
+        "desc": "Brands can pay for virtual locations, boutiques, pavilions, or branded environments."
+      },
+      {
+        "title": "Recurring services",
+        "desc": "Recurring fees can support environment operation, hosting, management, updates, and business tools."
+      },
+      {
+        "title": "Transaction revenue",
+        "desc": "FACETIUM may participate economically in transactions completed through the environment."
+      },
+      {
+        "title": "Design & development",
+        "desc": "Custom creation of boutiques, exhibitions, environments, and interactive experiences."
+      },
+      {
+        "title": "Events",
+        "desc": "Paid virtual events, launches, exhibitions, conferences, and private experiences."
+      },
+      {
+        "title": "B2B exhibitions",
+        "desc": "Exhibitor participation, sponsorship, premium placement, meetings, and related services."
+      },
+      {
+        "title": "Enterprise",
+        "desc": "Private environments and custom deployments for companies and organizations."
+      }
+    ],
+    "expandTitle": "From First Use Case to a Broader Environment.",
+    "expandChain": [
+      "High jewelry",
+      "Luxury",
+      "Events",
+      "Exhibitions",
+      "Industry",
+      "Global destinations"
+    ],
+    "expandNote": "This describes the product expansion model, not projected growth.",
+    "diTitle": "A Digital Invest Project",
+    "diP": "FACETIUM is a Digital Invest project focused on the convergence of interactive environments, commerce, communication, and real-world business activity.",
+    "finalTitle": "One FACETIUM. Many Worlds.",
+    "finalLines": [
+      "Commerce.",
+      "Experiences.",
+      "Events.",
+      "Business.",
+      "Connected."
+    ]
   }
 }
