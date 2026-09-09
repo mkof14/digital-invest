@@ -28,6 +28,13 @@ export const ROUTE_SEO: Record<string, RouteSEOData> = {
       "Explore 20+ active projects across digital health, biotech, agrotech drones, food production and infrastructure. Private portfolio for qualified investors.",
     keywords: "portfolio projects, biotech projects, agrotech, digital health, longevity, AI productivity",
   },
+  "/projects/starwall": {
+    title: "StarWall by AGRON — Intelligence & Security Infrastructure | Digital Invest",
+    description:
+      "StarWall by AGRON is a software and intelligence layer designed to connect compatible sensors, systems, operational data and physical infrastructure into a unified decision-support environment for enterprise, government and maritime applications.",
+    keywords:
+      "starwall, starwall by agron, agron, intelligence layer, security software, situational awareness, maritime intelligence, critical infrastructure, B2G security software",
+  },
   "/overview": {
     title: "Portfolio Overview — Digital Invest",
     description:
