@@ -1,185 +1,242 @@
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import Navigation from "@/components/Navigation";
-import Footer from "@/components/Footer";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Link } from "react-router-dom";
-import { 
-  ArrowRight, ArrowLeft, Globe, Target, CheckCircle2, Users, Building2, Shield, Plane, Truck,
-  MapPin, Cpu, GraduationCap, Settings, FileCheck, Network, Factory, Zap, Eye, Download, Share2, Mail, FileText
-} from "lucide-react";
-import agronLogo from "@/assets/agron-logo.webp";
-import agronHero from "@/assets/projects/agron-hero.webp";
-import agronInfographic from "@/assets/projects/agron-infographic.webp";
-import agronInfographic1 from "@/assets/agron-infographic-1.webp";
-import agronInfographic2 from "@/assets/agron-infographic-2.webp";
-import DownloadInvestorBriefButton from "@/components/DownloadInvestorBriefButton";
-import OptimizedImage from "@/components/OptimizedImage";
-import InvestorPageDisclaimer from "@/components/InvestorPageDisclaimer";
-import { InfographicsGallery } from "@/components/InfographicsGallery";
-import { useToast } from "@/hooks/use-toast";
-import agronTacticalPdf from "@/assets/projects/agron-tactical-blueprint.pdf.asset.json";
-import agronAutonomousPdf from "@/assets/projects/agron-autonomous-workforce.pdf.asset.json";
-import agronAutonomousV2Pdf from "@/assets/projects/agron-autonomous-workforce-v2.pdf.asset.json";
+
+import Navigation from '@/components/Navigation';
+import Footer from '@/components/Footer';
+import OptimizedImage from '@/components/OptimizedImage';
+import InterestForm from '@/components/InterestForm';
+import InvestorPageDisclaimer from '@/components/InvestorPageDisclaimer';
 import ProjectMediaRoomBySlug from '@/components/ProjectMediaRoomBySlug';
+import DownloadInvestorBriefButton from '@/components/DownloadInvestorBriefButton';
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent } from '@/components/ui/card';
+import {
+  ArrowLeft, ArrowRight, ArrowDown, ExternalLink, Cpu, Radar, ShieldCheck,
+  GraduationCap, Network, Settings, Anchor, Ship, Truck, Container as ContainerIcon,
+  Eye, Search, Gauge, Bell, LifeBuoy, Lock, Brain, Building2, Layers,
+} from 'lucide-react';
+
+import agronLogo from '@/assets/projects/agron-logo-official.png.asset.json';
+import agronContainer from '@/assets/projects/agron-container.png.asset.json';
+import agronMarina from '@/assets/projects/agron-marina.png.asset.json';
+import agronPort from '@/assets/projects/agron-port.png.asset.json';
+import agronIsland from '@/assets/projects/agron-island.png.asset.json';
+import starwallHero from '@/assets/projects/starwall-hero.png.asset.json';
+import starwallOverview from '@/assets/projects/starwall-overview.jpg.asset.json';
+import starwallLogo from '@/assets/projects/starwall-logo.png.asset.json';
+
+import { getAgronContent } from './agronContent';
+
+const AGRON_SITE = 'https://www.agron1.com';
+
+const layerIcons = [Cpu, Settings, Brain, ShieldCheck, GraduationCap, Network];
+const capabilityIcons = [Building2, Search, Layers, GraduationCap, Settings, Network, ShieldCheck];
+const protectionIcons = [Eye, Search, Gauge, Bell, LifeBuoy, Lock, Brain];
+const modularIcons = [Ship, Truck, ContainerIcon];
+
+/** Vertical on mobile, horizontal on desktop — never overflows. */
+const FlowChain = ({ steps }: { steps: string[] }) => (
+  <div className="flex flex-col lg:flex-row lg:flex-wrap items-stretch lg:items-center justify-center gap-2 lg:gap-3">
+    {steps.map((step, i) => (
+      <div key={i} className="flex flex-col lg:flex-row items-center gap-2 lg:gap-3">
+        <div className="w-full lg:w-auto text-center px-4 py-3 rounded-xl border border-primary/25 bg-primary/5 text-sm font-medium text-foreground">
+          {step}
+        </div>
+        {i < steps.length - 1 && (
+          <>
+            <ArrowDown className="w-4 h-4 text-primary/60 lg:hidden" aria-hidden="true" />
+            <ArrowRight className="w-4 h-4 text-primary/60 hidden lg:block rtl:rotate-180" aria-hidden="true" />
+          </>
+        )}
+      </div>
+    ))}
+  </div>
+);
+
+const SectionTitle = ({ kicker, title }: { kicker?: string; title: string }) => (
+  <div className="mb-8">
+    {kicker && (
+      <p className="text-xs md:text-sm uppercase tracking-[0.2em] text-primary/80 mb-3">{kicker}</p>
+    )}
+    <h2 className="text-2xl md:text-4xl font-bold tracking-tight text-foreground">{title}</h2>
+  </div>
+);
 
 const AGRON = () => {
-  const { toast } = useToast();
-  const { t } = useTranslation();
-
-  const infographics = [
-    { src: agronInfographic, title: t('projectAgron.presentationName'), alt: "AGRON infographic" },
-    { src: agronInfographic1, title: "AGRON: The Future of Robotics & Drone Workforce Development", alt: "AGRON Integrated Framework and Training to Career Model" },
-    { src: agronInfographic2, title: "AGRON: The Aerial-Ground Robotics Operations Network Ecosystem", alt: "AGRON Ecosystem: Education, Practical Operations, and Career Integration" },
-  ];
-
-  const handleSharePresentation = async () => {
-    if (navigator.share) { try { await navigator.share({ title: t('projectAgron.presentationName'), url: window.location.href }); } catch {} }
-    else { await navigator.clipboard.writeText(window.location.href); toast({ title: "Link copied!" }); }
-  };
-
-  const handleEmailPresentation = () => {
-    const subject = encodeURIComponent(t('projectAgron.presentationName'));
-    const body = encodeURIComponent(`${window.location.href}`);
-    window.open(`mailto:?subject=${subject}&body=${body}`, "_self");
-  };
+  const { i18n } = useTranslation();
+  const c = getAgronContent(i18n.language || 'en');
+  const [showInterest, setShowInterest] = useState(false);
 
   return (
     <div className="min-h-screen bg-background theme-agron">
       <Navigation />
-      <main className="container mx-auto px-4 py-8">
-        {/* Hero */}
-        <section className="relative py-32 -mx-4 px-4 overflow-hidden mb-16">
-          <div className="absolute inset-0 z-0" style={{ backgroundImage: `url(${agronHero})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
-            <div className="absolute inset-0 bg-gradient-to-r from-[hsl(210,30%,8%)]/98 via-background/95 to-background/70" />
-          </div>
-          <div className="relative z-10 max-w-4xl">
-            <Link to="/adamas" className="animate-fade-in">
-              <Button variant="ghost" size="sm" className="mb-6 hover:bg-background/80"><ArrowLeft className="w-4 h-4 mr-2" /> {t('adamas.backToProjects', 'Back to Adamas Projects')}</Button>
-            </Link>
-            <div className="animate-fade-in" style={{ animationDelay: '0.1s', animationFillMode: 'backwards' }}>
-              <div className="flex items-center gap-6 mb-8">
-                <OptimizedImage src={agronLogo} alt="AGRON logo" className="w-20 h-20 md:w-24 md:h-24 object-contain rounded-lg" showSkeleton={false} />
-                <div>
-                  <Badge className="mb-2 project-badge">{t('projectAgron.badge')}</Badge>
-                  <h1 className="text-4xl md:text-5xl font-bold project-glow-text">AGRON</h1>
-                  <p className="text-lg text-muted-foreground mt-1">{t('projectAgron.subtitle')}</p>
-                </div>
-              </div>
-              <p className="text-2xl text-foreground mb-4">{t('projectAgron.heroTitle')}</p>
-              <p className="text-xl text-muted-foreground max-w-3xl mb-8">{t('projectAgron.heroDesc')}</p>
-              <div className="flex gap-4 flex-wrap">
-                <Link to="/start-investing"><Button size="lg">{t('projectCommon.requestInformation')} <ArrowRight className="ml-2 w-5 h-5" /></Button></Link>
-                <DownloadInvestorBriefButton projectSlug="agron" size="lg" />
-                <Button size="lg" variant="outline" asChild>
-                  <a href="/documents/agron-network.pdf" target="_blank" rel="noopener noreferrer" download="The-AGRON-Network.pdf">
-                    <FileText className="w-5 h-5 mr-2" />
-                    The AGRON Network (PDF)
-                  </a>
-                </Button>
-              </div>
+
+      {/* HERO */}
+      <section className="relative min-h-[78vh] flex items-center overflow-hidden">
+        <div className="absolute inset-0">
+          <OptimizedImage
+            src={starwallHero.url}
+            alt="AGRON autonomous maritime operations environment"
+            containerClassName="w-full h-full"
+            className="w-full h-full object-cover"
+            showSkeleton={false}
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#05080d]/95 via-[#05080d]/85 to-[#05080d]/45" />
+        </div>
+
+        <div className="relative z-10 container mx-auto px-4 py-24">
+          <Link
+            to="/projects"
+            className="inline-flex items-center gap-2 text-sm text-white/70 hover:text-white transition-colors mb-8"
+          >
+            <ArrowLeft className="w-4 h-4 rtl:rotate-180" /> {c.back}
+          </Link>
+
+          <div className="max-w-3xl">
+            <div className="flex items-center gap-5 mb-6">
+              <OptimizedImage
+                src={agronLogo.url}
+                alt="AGRON official logo"
+                containerClassName="w-16 h-16 md:w-20 md:h-20 flex-shrink-0"
+                className="w-full h-full object-contain"
+                showSkeleton={false}
+              />
+              <Badge className="bg-white/10 text-white border border-white/20">{c.hero.badge}</Badge>
+            </div>
+
+            <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-white">{c.hero.title}</h1>
+            <p className="mt-3 text-xl md:text-3xl font-light text-white/90">{c.hero.tagline}</p>
+
+            <div className="flex flex-wrap gap-2 mt-6">
+              {c.hero.chips.map((chip) => (
+                <span
+                  key={chip}
+                  className="px-3 py-1.5 rounded-full border border-white/20 bg-white/5 text-xs md:text-sm text-white/80"
+                >
+                  {chip}
+                </span>
+              ))}
+            </div>
+
+            <p className="mt-8 text-base md:text-lg text-white/75 leading-relaxed max-w-2xl">{c.hero.desc}</p>
+
+            <div className="flex flex-wrap gap-3 mt-10">
+              <Button size="lg" onClick={() => setShowInterest(true)}>
+                {c.hero.ctaPrimary} <ArrowRight className="ml-2 w-5 h-5 rtl:rotate-180" />
+              </Button>
+              <Button size="lg" variant="secondary" asChild>
+                <a href={AGRON_SITE} target="_blank" rel="noopener noreferrer">
+                  {c.hero.ctaSecondary} <ExternalLink className="ml-2 w-4 h-4" />
+                </a>
+              </Button>
+              <DownloadInvestorBriefButton projectSlug="agron" size="lg" />
             </div>
           </div>
+        </div>
+      </section>
+
+      <main className="container mx-auto px-4 py-16 md:py-24 space-y-20 md:space-y-28">
+        {/* WHAT AGRON IS */}
+        <section>
+          <SectionTitle title={c.what.title} />
+          <p className="text-lg md:text-xl text-foreground leading-relaxed max-w-4xl">{c.what.p1}</p>
+          <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed max-w-4xl">{c.what.p2}</p>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-10">
+            {c.what.layers.map((layer, i) => {
+              const Icon = layerIcons[i % layerIcons.length];
+              return (
+                <Card key={layer.t} className="bg-card/60 border-border/60 hover:border-primary/40 transition-colors">
+                  <CardContent className="pt-6 space-y-3">
+                    <Icon className="w-7 h-7 text-primary" aria-hidden="true" />
+                    <h3 className="font-semibold text-foreground">{layer.t}</h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{layer.d}</p>
+                  </CardContent>
+                </Card>
+              );
+            })}
+          </div>
         </section>
 
-        {/* Positioning */}
-        <section className="mb-16 -mt-8">
-          <Card className="border-primary/20 shadow-lg bg-primary/5">
-            <CardContent className="pt-8 text-center">
-              <p className="text-2xl font-semibold text-primary">{t('projectAgron.positioning1')}</p>
-              <p className="text-2xl font-semibold text-foreground mt-2">{t('projectAgron.positioning2')}</p>
-            </CardContent>
-          </Card>
-        </section>
-
-        {/* Overview */}
-        <section className="mb-16">
-          <Card className="border-primary/20 shadow-lg">
-            <CardContent className="pt-8 space-y-4">
-              <h2 className="text-3xl font-bold mb-4">{t('projectAgron.overviewTitle')}</h2>
-              <p className="text-lg leading-relaxed">{t('projectAgron.overviewP1')}</p>
-              <p className="text-lg text-muted-foreground leading-relaxed">{t('projectAgron.overviewP2')}</p>
-              <p className="text-lg text-muted-foreground leading-relaxed">{t('projectAgron.overviewP3')}</p>
-              <div className="bg-muted/50 rounded-lg p-6 mt-6"><p className="text-lg font-medium text-foreground">{t('projectAgron.overviewHighlight')}</p></div>
-            </CardContent>
-          </Card>
-        </section>
-
-        <div className="project-section-divider my-12" />
-
-        {/* Core Mission */}
-        <section className="mb-16">
-          <h2 className="text-3xl font-bold mb-8">{t('projectAgron.coreMissionTitle')}</h2>
-          <Card className="project-card">
-            <CardContent className="pt-8">
-              <div className="flex items-start gap-6">
-                <Target className="w-16 h-16 text-primary flex-shrink-0" />
-                <p className="text-xl leading-relaxed">{t('projectAgron.coreMissionDesc')}</p>
+        {/* OPERATING RECORD */}
+        <section>
+          <SectionTitle title={c.record.title} />
+          <div className="grid grid-cols-2 lg:grid-cols-5 gap-4">
+            {c.record.stats.map((s) => (
+              <div key={s.l} className="p-6 rounded-xl border border-border/60 bg-card/40">
+                <p className="text-2xl md:text-3xl font-bold text-foreground">{s.v}</p>
+                <p className="mt-2 text-xs md:text-sm text-muted-foreground leading-snug">{s.l}</p>
               </div>
-            </CardContent>
-          </Card>
+            ))}
+          </div>
+          <p className="mt-4 text-xs text-muted-foreground">{c.record.note}</p>
         </section>
 
-        <div className="project-section-divider my-12" />
-
-        {/* Problems */}
-        <section className="mb-16">
-          <h2 className="text-3xl font-bold mb-8">{t('projectAgron.problemsTitle')}</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {[
-              { icon: Users, title: t('projectAgron.problemOperatorTitle'), desc: t('projectAgron.problemOperatorDesc') },
-              { icon: FileCheck, title: t('projectAgron.problemStandardsTitle'), desc: t('projectAgron.problemStandardsDesc') },
-              { icon: Settings, title: t('projectAgron.problemFrameworkTitle'), desc: t('projectAgron.problemFrameworkDesc') },
-              { icon: Shield, title: t('projectAgron.problemRiskTitle'), desc: t('projectAgron.problemRiskDesc') },
-            ].map((item, i) => (
-              <Card key={i} className="project-card">
-                <CardHeader><item.icon className="w-10 h-10 project-icon mb-2" /><CardTitle>{item.title}</CardTitle></CardHeader>
-                <CardContent><p className="text-muted-foreground">{item.desc}</p></CardContent>
-              </Card>
-            ))}
+        {/* CAPABILITIES */}
+        <section>
+          <SectionTitle title={c.capabilities.title} />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {c.capabilities.items.map((item, i) => {
+              const Icon = capabilityIcons[i % capabilityIcons.length];
+              return (
+                <Card key={item.t} className="bg-card/60 border-border/60 hover:border-primary/40 transition-colors">
+                  <CardContent className="pt-6 space-y-3">
+                    <Icon className="w-6 h-6 text-primary" aria-hidden="true" />
+                    <h3 className="font-semibold text-foreground">{item.t}</h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{item.d}</p>
+                  </CardContent>
+                </Card>
+              );
+            })}
           </div>
         </section>
 
-        <div className="project-section-divider my-12" />
+        {/* AGRON MARITIME */}
+        <section>
+          <SectionTitle kicker={c.maritime.kicker} title={c.maritime.title} />
+          <p className="text-xl md:text-2xl font-light text-foreground">{c.maritime.tagline}</p>
+          <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed max-w-4xl">
+            {c.maritime.desc}
+          </p>
 
-        {/* Solution */}
-        <section className="mb-16">
-          <h2 className="text-3xl font-bold mb-8">{t('projectAgron.solutionTitle')}</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="mt-10 p-6 md:p-8 rounded-2xl border border-border/60 bg-card/40">
+            <p className="text-sm uppercase tracking-widest text-muted-foreground mb-6">{c.maritime.flowTitle}</p>
+            <FlowChain steps={c.maritime.flow} />
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-10">
             {[
-              { icon: GraduationCap, title: t('projectAgron.solTrainingTitle'), desc: t('projectAgron.solTrainingDesc') },
-              { icon: Cpu, title: t('projectAgron.solAITitle'), desc: t('projectAgron.solAIDesc') },
-              { icon: Settings, title: t('projectAgron.solOpsTitle'), desc: t('projectAgron.solOpsDesc') },
-              { icon: Network, title: t('projectAgron.solNetworkTitle'), desc: t('projectAgron.solNetworkDesc') },
-              { icon: FileCheck, title: t('projectAgron.solStandardsTitle'), desc: t('projectAgron.solStandardsDesc') },
-              { icon: Zap, title: t('projectAgron.solEvolutionTitle'), desc: t('projectAgron.solEvolutionDesc') },
-            ].map((item, i) => (
-              <Card key={i} className="project-card">
-                <CardHeader><item.icon className="w-10 h-10 project-icon mb-2" /><CardTitle>{item.title}</CardTitle></CardHeader>
-                <CardContent><p className="text-muted-foreground">{item.desc}</p></CardContent>
-              </Card>
+              { src: agronMarina.url, alt: 'AGRON marina security environment' },
+              { src: agronPort.url, alt: 'AGRON port security environment' },
+              { src: agronIsland.url, alt: 'AGRON private island security environment' },
+            ].map((image) => (
+              <OptimizedImage
+                key={image.src}
+                src={image.src}
+                alt={image.alt}
+                containerClassName="w-full aspect-[16/10] rounded-xl overflow-hidden border border-border/60"
+                className="w-full h-full object-cover"
+              />
             ))}
           </div>
-        </section>
 
-        <div className="project-section-divider my-12" />
-
-        {/* Key Domains */}
-        <section className="mb-16">
-          <h2 className="text-3xl font-bold mb-8">{t('projectAgron.domainsTitle')}</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[
-              { icon: Plane, title: t('projectAgron.domainAerialTitle'), keys: ['domainAerialL1','domainAerialL2','domainAerialL3','domainAerialL4','domainAerialL5'] },
-              { icon: Truck, title: t('projectAgron.domainGroundTitle'), keys: ['domainGroundL1','domainGroundL2','domainGroundL3','domainGroundL4','domainGroundL5'] },
-              { icon: Network, title: t('projectAgron.domainCombinedTitle'), keys: ['domainCombinedL1','domainCombinedL2','domainCombinedL3','domainCombinedL4'] },
-            ].map((item, i) => (
-              <Card key={i} className="project-card">
-                <CardHeader><item.icon className="w-12 h-12 project-icon mb-4" /><CardTitle>{item.title}</CardTitle></CardHeader>
-                <CardContent>
-                  <ul className="space-y-2 text-muted-foreground">
-                    {item.keys.map((key, j) => (
-                      <li key={j} className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-primary" /> {t(`projectAgron.${key}`)}</li>
+          <h3 className="text-xl md:text-2xl font-semibold text-foreground mt-14 mb-6">{c.maritime.appsTitle}</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {c.maritime.apps.map((app, i) => (
+              <Card key={app.t} className="bg-card/60 border-border/60">
+                <CardContent className="pt-6">
+                  <div className="flex items-center gap-3 mb-4">
+                    {i === 0 ? <Ship className="w-5 h-5 text-primary" /> : i === 1 ? <Anchor className="w-5 h-5 text-primary" /> : i === 2 ? <Radar className="w-5 h-5 text-primary" /> : <Container className="w-5 h-5 text-primary" />}
+                    <h4 className="font-semibold text-foreground">{app.t}</h4>
+                  </div>
+                  <ul className="space-y-2">
+                    {app.items.map((line) => (
+                      <li key={line} className="flex items-start gap-2 text-sm text-muted-foreground">
+                        <span className="mt-2 w-1 h-1 rounded-full bg-primary flex-shrink-0" aria-hidden="true" />
+                        {line}
+                      </li>
                     ))}
                   </ul>
                 </CardContent>
@@ -188,243 +245,248 @@ const AGRON = () => {
           </div>
         </section>
 
-        <div className="project-section-divider my-12" />
-
-        {/* Service Phases */}
-        <section className="mb-16">
-          <h2 className="text-3xl font-bold mb-8">{t('projectAgron.phasesTitle')}</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[
-              { phase: 'Phase 1', title: t('projectAgron.phase1Title'), keys: ['phase1L1','phase1L2','phase1L3','phase1L4','phase1L5'] },
-              { phase: 'Phase 2', title: t('projectAgron.phase2Title'), keys: ['phase2L1','phase2L2','phase2L3','phase2L4','phase2L5'] },
-              { phase: 'Phase 3', title: t('projectAgron.phase3Title'), keys: ['phase3L1','phase3L2','phase3L3','phase3L4','phase3L5'] },
-            ].map((item, i) => (
-              <Card key={i} className="border-primary/20 relative overflow-hidden">
-                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary/50 to-primary" />
-                <CardHeader><Badge className="w-fit mb-2">{item.phase}</Badge><CardTitle>{item.title}</CardTitle></CardHeader>
-                <CardContent>
-                  <ul className="space-y-2 text-sm text-muted-foreground">
-                    {item.keys.map((key, j) => <li key={j}>• {t(`projectAgron.${key}`)}</li>)}
-                  </ul>
-                </CardContent>
-              </Card>
-            ))}
+        {/* STARWALL */}
+        <section>
+          <div className="flex items-center gap-4 mb-6">
+            <OptimizedImage
+              src={starwallLogo.url}
+              alt="StarWall by AGRON logo"
+              containerClassName="h-10 w-40"
+              className="h-full w-full object-contain object-left"
+              showSkeleton={false}
+            />
           </div>
-        </section>
+          <SectionTitle kicker={c.starwall.kicker} title={c.starwall.title} />
+          <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-4xl">{c.starwall.p1}</p>
+          <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed max-w-4xl">{c.starwall.p2}</p>
 
-        <div className="project-section-divider my-12" />
-
-        {/* Target Clients */}
-        <section className="mb-16">
-          <h2 className="text-3xl font-bold mb-8">{t('projectAgron.clientsTitle')}</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[
-              { icon: Building2, title: t('projectAgron.clientGovTitle'), keys: ['clientGovL1','clientGovL2','clientGovL3','clientGovL4','clientGovL5'] },
-              { icon: Factory, title: t('projectAgron.clientB2BTitle'), keys: ['clientB2BL1','clientB2BL2','clientB2BL3','clientB2BL4','clientB2BL5'] },
-              { icon: Shield, title: t('projectAgron.clientDefenseTitle'), keys: ['clientDefenseL1','clientDefenseL2','clientDefenseL3','clientDefenseL4'] },
-            ].map((item, i) => (
-              <Card key={i} className="project-card">
-                <CardHeader><item.icon className="w-12 h-12 project-icon mb-4" /><CardTitle>{item.title}</CardTitle></CardHeader>
-                <CardContent>
-                  <ul className="space-y-2 text-sm text-muted-foreground">
-                    {item.keys.map((key, j) => <li key={j}>• {t(`projectAgron.${key}`)}</li>)}
-                  </ul>
-                </CardContent>
-              </Card>
-            ))}
+          <div className="mt-8 p-6 rounded-2xl border border-primary/30 bg-primary/5">
+            <p className="font-semibold text-foreground">{c.starwall.principleTitle}</p>
+            <p className="mt-2 text-sm md:text-base text-muted-foreground leading-relaxed">{c.starwall.principle}</p>
           </div>
-        </section>
 
-        <div className="project-section-divider my-12" />
-
-        {/* Network */}
-        <section className="mb-16">
-          <h2 className="text-3xl font-bold mb-8">{t('projectAgron.networkTitle')}</h2>
-          <p className="text-lg text-muted-foreground mb-8">{t('projectAgron.networkDesc')}</p>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              { badge: 'NODE-01', city: t('projectAgron.node1City'), desc: t('projectAgron.node1Desc') },
-              { badge: 'NODE-02', city: t('projectAgron.node2City'), desc: t('projectAgron.node2Desc') },
-              { badge: 'NODE-03', city: t('projectAgron.node3City'), desc: t('projectAgron.node3Desc') },
-              { badge: 'NODE-04', city: t('projectAgron.node4City'), desc: t('projectAgron.node4Desc') },
-              { badge: 'HQ', city: t('projectAgron.nodeHQCity'), desc: t('projectAgron.nodeHQDesc') },
-            ].map((item, i) => (
-              <Card key={i} className="project-card">
-                <CardHeader>
-                  <div className="flex items-center gap-3"><MapPin className="w-6 h-6 text-primary" /><Badge variant="outline">{item.badge}</Badge></div>
-                  <CardTitle className="mt-4">{item.city}</CardTitle>
-                </CardHeader>
-                <CardContent><p className="text-muted-foreground">{item.desc}</p></CardContent>
-              </Card>
-            ))}
-          </div>
-        </section>
-
-        <div className="project-section-divider my-12" />
-
-        {/* Technology Stack */}
-        <section className="mb-16">
-          <h2 className="text-3xl font-bold mb-8">{t('projectAgron.techTitle')}</h2>
-          <Card className="project-card">
-            <CardContent className="pt-8">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {[
-                  { icon: Eye, title: t('projectAgron.techSim'), desc: t('projectAgron.techSimDesc') },
-                  { icon: Cpu, title: t('projectAgron.techAI'), desc: t('projectAgron.techAIDesc') },
-                  { icon: Settings, title: t('projectAgron.techCmd'), desc: t('projectAgron.techCmdDesc') },
-                  { icon: FileCheck, title: t('projectAgron.techCompliance'), desc: t('projectAgron.techComplianceDesc') },
-                  { icon: Shield, title: t('projectAgron.techSecurity'), desc: t('projectAgron.techSecurityDesc') },
-                ].map((item, i) => (
-                  <div key={i} className="flex items-start gap-3">
-                    <item.icon className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
-                    <div><p className="font-medium">{item.title}</p><p className="text-sm text-muted-foreground">{item.desc}</p></div>
-                  </div>
+          <div className="mt-10 grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <div className="p-6 rounded-2xl border border-border/60 bg-card/40">
+              <p className="text-sm uppercase tracking-widest text-muted-foreground mb-5">{c.starwall.inputsTitle}</p>
+              <div className="flex flex-wrap gap-2">
+                {c.starwall.inputs.map((input) => (
+                  <span key={input} className="px-3 py-2 rounded-lg border border-border/60 bg-background/50 text-xs md:text-sm text-foreground/80">
+                    {input}
+                  </span>
                 ))}
               </div>
-              <div className="mt-6 p-4 bg-muted/50 rounded-lg"><p className="text-muted-foreground">{t('projectAgron.techAgnostic')}</p></div>
-            </CardContent>
-          </Card>
-        </section>
-
-        <div className="project-section-divider my-12" />
-
-        {/* Business Model */}
-        <section className="mb-16">
-          <h2 className="text-3xl font-bold mb-8">{t('projectAgron.bizModelTitle')}</h2>
-          <Card className="project-card">
-            <CardContent className="pt-8">
-              <p className="text-lg mb-6">{t('projectAgron.bizModelIntro')}</p>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                {[
-                  { title: t('projectAgron.bizTraining'), desc: t('projectAgron.bizTrainingDesc') },
-                  { title: t('projectAgron.bizOps'), desc: t('projectAgron.bizOpsDesc') },
-                  { title: t('projectAgron.bizGov'), desc: t('projectAgron.bizGovDesc') },
-                  { title: t('projectAgron.bizEnterprise'), desc: t('projectAgron.bizEnterpriseDesc') },
-                  { title: t('projectAgron.bizLicensing'), desc: t('projectAgron.bizLicensingDesc') },
-                ].map((item, i) => (
-                  <div key={i} className="p-4 bg-muted/30 rounded-lg"><p className="font-medium">{item.title}</p><p className="text-sm text-muted-foreground">{item.desc}</p></div>
-                ))}
+              <div className="flex justify-center my-6">
+                <ArrowDown className="w-5 h-5 text-primary/70" aria-hidden="true" />
               </div>
-              <div className="mt-6 p-4 bg-primary/10 rounded-lg"><p className="text-foreground font-medium">{t('projectAgron.bizRecurring')}</p></div>
-            </CardContent>
-          </Card>
-        </section>
-
-        <div className="project-section-divider my-12" />
-
-        {/* Long-term Vision */}
-        <section className="mb-16">
-          <h2 className="text-3xl font-bold mb-8">{t('projectAgron.visionTitle')}</h2>
-          <Card className="project-card">
-            <CardContent className="pt-8">
-              <p className="text-lg mb-6">{t('projectAgron.visionIntro')}</p>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {['visionL1','visionL2','visionL3','visionL4'].map((key, i) => (
-                  <div key={i} className="flex items-start gap-3">
-                    <CheckCircle2 className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
-                    <p className="text-lg">{t(`projectAgron.${key}`)}</p>
-                  </div>
-                ))}
+              <div className="text-center px-5 py-4 rounded-xl border border-primary/40 bg-primary/10 font-semibold text-foreground">
+                StarWall
               </div>
-              <div className="mt-8 p-6 bg-primary/10 rounded-lg text-center">
-                <p className="text-xl font-semibold text-foreground">{t('projectAgron.visionFoundation')}</p>
-              </div>
-            </CardContent>
-          </Card>
-        </section>
-
-        {/* Investor Presentation */}
-        <section className="mb-16">
-          <div className="project-section-divider my-12" />
-          <h2 className="text-3xl font-bold mb-8">{t('projectAgron.presentationTitle')}</h2>
-          <Card className="border-primary/20 bg-gradient-to-br from-primary/5 via-background to-primary/10 overflow-hidden">
-            <CardContent className="pt-8">
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center"><FileText className="w-7 h-7 text-primary" /></div>
-                <div><h3 className="text-xl font-semibold">{t('projectAgron.presentationName')}</h3><p className="text-muted-foreground">{t('projectAgron.presentationDesc')}</p></div>
-              </div>
-              <div className="flex gap-3 flex-wrap">
-                <a href="/documents/AGRON_The_Robotics_Operations_Network.pdf" download><Button className="gap-2"><Download className="w-4 h-4" /> {t('projectAgron.downloadPDF')}</Button></a>
-                <Button variant="outline" className="gap-2" onClick={handleSharePresentation}><Share2 className="w-4 h-4" /> {t('projectAgron.share')}</Button>
-                <Button variant="outline" className="gap-2" onClick={handleEmailPresentation}><Mail className="w-4 h-4" /> {t('projectAgron.send')}</Button>
-              </div>
-            </CardContent>
-          </Card>
-        </section>
-
-        {/* Additional Presentations */}
-        <section className="mb-16">
-          <div className="project-section-divider my-12" />
-          <h2 className="text-3xl font-bold mb-8">Additional Presentations</h2>
-          <div className="grid md:grid-cols-3 gap-6">
-            {[
-              { title: "AGRON Tactical Blueprint", desc: "Tactical operations and deployment blueprint.", url: agronTacticalPdf.url, file: "AGRON_Tactical_Blueprint.pdf" },
-              { title: "Autonomous Workforce Infrastructure", desc: "Foundations of the autonomous workforce model.", url: agronAutonomousPdf.url, file: "Autonomous_Workforce_Infrastructure.pdf" },
-              { title: "Autonomous Workforce Infrastructure — Vol. II", desc: "Expanded framework and operational layers.", url: agronAutonomousV2Pdf.url, file: "Autonomous_Workforce_Infrastructure_v2.pdf" },
-            ].map((doc) => (
-              <Card key={doc.title} className="border-primary/20 hover:border-primary/40 transition-colors flex flex-col">
-                <CardContent className="pt-6 flex-1 flex flex-col">
-                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4"><FileText className="w-6 h-6 text-primary" /></div>
-                  <h3 className="text-lg font-semibold mb-2">{doc.title}</h3>
-                  <p className="text-sm text-muted-foreground mb-4 flex-1">{doc.desc}</p>
-                  <div className="flex gap-2 flex-wrap">
-                    <a href={doc.url} target="_blank" rel="noopener noreferrer"><Button size="sm" variant="outline" className="gap-2"><Eye className="w-4 h-4" /> View</Button></a>
-                    <a href={doc.url} download={doc.file}><Button size="sm" className="gap-2"><Download className="w-4 h-4" /> PDF</Button></a>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </section>
-
-        {/* Video */}
-        <section className="mb-16">
-          <div className="project-section-divider my-12" />
-          <h2 className="text-3xl font-bold mb-8">Video Overview</h2>
-          <Card className="border-primary/20 overflow-hidden">
-            <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
-              <iframe
-                className="absolute inset-0 w-full h-full"
-                src="https://www.youtube.com/embed/tansFOZdKRo"
-                title="AGRON Video Overview"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
-              />
             </div>
-          </Card>
+
+            <div className="p-6 rounded-2xl border border-border/60 bg-card/40">
+              <p className="text-sm uppercase tracking-widest text-muted-foreground mb-5">{c.starwall.chainTitle}</p>
+              <FlowChain steps={c.starwall.chain} />
+            </div>
+          </div>
+
+          <OptimizedImage
+            src={starwallOverview.url}
+            alt="StarWall by AGRON maritime intelligence overview"
+            containerClassName="mt-10 w-full rounded-2xl overflow-hidden border border-border/60"
+            className="w-full h-auto object-contain"
+          />
         </section>
 
-        {/* Infographics */}
-        <section className="mb-16">
-          <div className="project-section-divider my-12" />
-          <h2 className="text-3xl font-bold mb-8">{t('projectAgron.infographicsTitle')}</h2>
-          <InfographicsGallery infographics={infographics} projectTitle="AGRON" />
+        {/* MODULAR INFRASTRUCTURE */}
+        <section>
+          <SectionTitle title={c.modular.title} />
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+            <div className="space-y-4">
+              {c.modular.items.map((item, i) => {
+                const Icon = modularIcons[i % modularIcons.length];
+                return (
+                  <Card key={item.t} className="bg-card/60 border-border/60">
+                    <CardContent className="pt-6 flex items-start gap-4">
+                      <Icon className="w-6 h-6 text-primary flex-shrink-0" aria-hidden="true" />
+                      <div>
+                        <h3 className="font-semibold text-foreground">{item.t}</h3>
+                        <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{item.d}</p>
+                      </div>
+                    </CardContent>
+                  </Card>
+                );
+              })}
+              <div className="p-6 rounded-2xl border border-border/60 bg-card/40">
+                <p className="text-sm uppercase tracking-widest text-muted-foreground mb-4">{c.modular.zonesTitle}</p>
+                <div className="flex flex-wrap gap-2">
+                  {c.modular.zones.map((zone) => (
+                    <span key={zone} className="px-3 py-2 rounded-lg border border-border/60 bg-background/50 text-xs md:text-sm text-foreground/80">
+                      {zone}
+                    </span>
+                  ))}
+                </div>
+              </div>
+              <p className="text-xs text-muted-foreground">{c.modular.note}</p>
+            </div>
+
+            <OptimizedImage
+              src={agronContainer.url}
+              alt="AGRON containerized modular security unit"
+              containerClassName="w-full rounded-2xl overflow-hidden border border-border/60"
+              className="w-full h-auto object-cover"
+            />
+          </div>
+        </section>
+
+        {/* MULTI-LAYER PROTECTION */}
+        <section>
+          <SectionTitle title={c.protection.title} />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {c.protection.items.map((item, i) => {
+              const Icon = protectionIcons[i % protectionIcons.length];
+              return (
+                <div key={item.t} className="p-5 rounded-xl border border-border/60 bg-card/40">
+                  <Icon className="w-6 h-6 text-primary mb-3" aria-hidden="true" />
+                  <h3 className="font-semibold text-foreground">{item.t}</h3>
+                  <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{item.d}</p>
+                </div>
+              );
+            })}
+          </div>
+        </section>
+
+        {/* SUPPORT CENTER */}
+        <section>
+          <SectionTitle kicker={c.support.kicker} title={c.support.title} />
+          <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-4xl">{c.support.p1}</p>
+          <div className="mt-8 p-6 rounded-2xl border border-border/60 bg-card/40">
+            <FlowChain steps={c.support.flow} />
+          </div>
+          <h3 className="text-lg font-semibold text-foreground mt-10 mb-4">{c.support.capsTitle}</h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+            {c.support.caps.map((cap) => (
+              <div key={cap} className="px-4 py-3 rounded-lg border border-border/60 bg-background/50 text-sm text-foreground/85">
+                {cap}
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* BUSINESS MODEL */}
+        <section>
+          <SectionTitle kicker={c.business.kicker} title={c.business.title} />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {c.business.items.map((group) => (
+              <Card key={group.t} className="bg-card/60 border-border/60">
+                <CardContent className="pt-6">
+                  <h3 className="font-semibold text-foreground mb-4">{group.t}</h3>
+                  <ul className="space-y-2">
+                    {group.items.map((line) => (
+                      <li key={line} className="flex items-start gap-2 text-sm text-muted-foreground">
+                        <span className="mt-2 w-1 h-1 rounded-full bg-primary flex-shrink-0" aria-hidden="true" />
+                        {line}
+                      </li>
+                    ))}
+                  </ul>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+          <p className="mt-4 text-xs text-muted-foreground">{c.business.note}</p>
+        </section>
+
+        {/* MATURITY */}
+        <section>
+          <SectionTitle title={c.maturity.title} />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {[
+              { title: c.maturity.currentTitle, items: c.maturity.current, tone: 'border-primary/40 bg-primary/5' },
+              { title: c.maturity.nextTitle, items: c.maturity.next, tone: 'border-border/60 bg-card/40' },
+              { title: c.maturity.futureTitle, items: c.maturity.future, tone: 'border-dashed border-border/60 bg-transparent' },
+            ].map((col) => (
+              <div key={col.title} className={`p-6 rounded-2xl border ${col.tone}`}>
+                <h3 className="font-semibold text-foreground mb-4">{col.title}</h3>
+                <ul className="space-y-3">
+                  {col.items.map((line) => (
+                    <li key={line} className="flex items-start gap-2 text-sm text-muted-foreground">
+                      <span className="mt-2 w-1 h-1 rounded-full bg-primary flex-shrink-0" aria-hidden="true" />
+                      {line}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+          <p className="mt-4 text-xs text-muted-foreground">{c.maturity.note}</p>
+        </section>
+
+        {/* PORTFOLIO FIT */}
+        <section>
+          <SectionTitle title={c.fit.title} />
+          <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-4xl">{c.fit.p}</p>
+          <div className="flex flex-wrap gap-2 mt-6">
+            {c.fit.items.map((item) => (
+              <span key={item} className="px-4 py-2 rounded-full border border-border/60 bg-card/40 text-sm text-foreground/80">
+                {item}
+              </span>
+            ))}
+          </div>
+        </section>
+
+        {/* MEDIA ROOM */}
+        <ProjectMediaRoomBySlug slug="agron" />
+
+        {/* PROJECT OVERVIEW VS LIVE PRODUCT */}
+        <section>
+          <SectionTitle title={c.status.title} />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <Card className="bg-card/60 border-border/60">
+              <CardContent className="pt-6">
+                <h3 className="font-semibold text-foreground">{c.status.overviewTitle}</h3>
+                <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{c.status.overview}</p>
+              </CardContent>
+            </Card>
+            <Card className="bg-primary/5 border-primary/30">
+              <CardContent className="pt-6 flex flex-col h-full">
+                <h3 className="font-semibold text-foreground">{c.status.productTitle}</h3>
+                <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{c.status.product}</p>
+                <div className="mt-6">
+                  <Button asChild>
+                    <a href={AGRON_SITE} target="_blank" rel="noopener noreferrer">
+                      {c.status.cta} <ExternalLink className="ml-2 w-4 h-4" />
+                    </a>
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
         </section>
 
         {/* CTA */}
-        <section className="mb-16">
-          <Card className="border-primary/20 bg-gradient-to-br from-primary/5 to-primary/10">
-            <CardContent className="pt-8 text-center">
-              <h2 className="text-3xl font-bold mb-4">{t('projectAgron.ctaTitle')}</h2>
-              <p className="text-lg text-muted-foreground mb-6 max-w-2xl mx-auto">{t('projectAgron.ctaDesc')}</p>
-              <div className="flex gap-4 justify-center flex-wrap">
-                <Link to="/start-investing"><Button size="lg">{t('projectCommon.requestInformation')} <ArrowRight className="ml-2 w-5 h-5" /></Button></Link>
-                <DownloadInvestorBriefButton projectSlug="agron" size="lg" />
-                <Button size="lg" variant="outline" asChild>
-                  <a href="/documents/agron-network.pdf" target="_blank" rel="noopener noreferrer" download="The-AGRON-Network.pdf">
-                    <FileText className="w-5 h-5 mr-2" />
-                    The AGRON Network (PDF)
-                  </a>
-                </Button>
-              </div>
-            </CardContent>
-          </Card>
+        <section className="text-center max-w-3xl mx-auto">
+          <h2 className="text-2xl md:text-4xl font-bold text-foreground">{c.cta.title}</h2>
+          <p className="mt-4 text-muted-foreground leading-relaxed">{c.cta.desc}</p>
+          <div className="flex flex-wrap justify-center gap-3 mt-8">
+            <Button size="lg" onClick={() => setShowInterest(true)}>
+              {c.cta.primary} <ArrowRight className="ml-2 w-5 h-5 rtl:rotate-180" />
+            </Button>
+            <Button size="lg" variant="secondary" asChild>
+              <a href={AGRON_SITE} target="_blank" rel="noopener noreferrer">
+                {c.cta.secondary} <ExternalLink className="ml-2 w-4 h-4" />
+              </a>
+            </Button>
+          </div>
         </section>
 
         <InvestorPageDisclaimer />
       </main>
-      <ProjectMediaRoomBySlug slug="agron" />
+
+      <InterestForm
+        projectId="agron"
+        projectTitle="AGRON — Infrastructure for Autonomous Operations"
+        open={showInterest}
+        onOpenChange={setShowInterest}
+      />
       <Footer />
     </div>
   );
