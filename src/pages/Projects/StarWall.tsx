@@ -25,6 +25,8 @@ import agronLogo from '@/assets/projects/agron-logo-2026.png.asset.json';
 import agronMarina from '@/assets/projects/agron-marina.png.asset.json';
 
 import { getStarWallContent } from './starwallContent';
+import { getStarWallCommercialContent } from './starwallCommercialContent';
+import StarWallCommercial, { StarWallDeploymentModels } from '@/components/starwall/StarWallCommercial';
 
 const AGRON_SITE = 'https://www.agron1.com';
 const AGRON_SERVICES = 'https://www.agron1.com/services';
@@ -86,6 +88,7 @@ const Bullets = ({ items }: { items: string[] }) => (
 const StarWall = () => {
   const { i18n } = useTranslation();
   const c = getStarWallContent(i18n.language || 'en');
+  const cc = getStarWallCommercialContent(i18n.language || 'en');
   const [showInterest, setShowInterest] = useState(false);
 
   // Product / SoftwareApplication structured data for this page only.
