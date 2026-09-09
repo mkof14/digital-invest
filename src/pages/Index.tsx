@@ -208,13 +208,21 @@ const Index = () => {
         <div className="absolute inset-0 hero-noise" aria-hidden />
         <div className="pointer-events-none absolute inset-x-0 top-0 h-px hero-scanline bg-gradient-to-r from-transparent via-[rgba(224,180,95,0.55)] to-transparent" aria-hidden />
 
-        {/* Orbital system */}
+        {/* Orbital system with brand core */}
         <div className="pointer-events-none absolute -right-[22vw] top-1/2 -translate-y-1/2 w-[80vw] h-[80vw] max-w-[900px] max-h-[900px] lg:right-[-10vw]" aria-hidden>
           <div className="hero-orbit hero-orbit-1" />
           <div className="hero-orbit hero-orbit-2" />
           <div className="hero-orbit hero-orbit-3" />
           <div className="hero-core" />
+          <img
+            src={ecosystemCore.url}
+            alt=""
+            loading="lazy"
+            decoding="async"
+            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[46%] max-w-[380px] rounded-full opacity-[0.55] mix-blend-screen select-none"
+          />
         </div>
+
 
         {/* Signal line */}
         <div className="relative z-10 pt-24 lg:pt-28">
