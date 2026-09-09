@@ -398,6 +398,27 @@ const SAVEN = () => {
         </div>
         <OptimizedImage src={applicationsAsset.url} alt="SAVEN application environments overview" className="rounded-xl w-full h-auto shadow-lg" />
 
+        {/* Assistance scenes gallery */}
+        <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {[
+            { src: mealAssistAsset.url, alt: 'SAVEN concept visual: robotic assistant serving a meal to an older adult at home' },
+            { src: gardenAssistAsset.url, alt: 'SAVEN concept visual: robotic assistant supporting gardening on a balcony' },
+            { src: childAssistAsset.url, alt: 'SAVEN concept visual: robotic assistant helping a child reach a book' },
+            { src: companionshipAsset.url, alt: 'SAVEN concept visual: robotic assistant playing chess with an older gentleman in a care lounge' },
+            { src: recoveryAssistAsset.url, alt: 'SAVEN concept visual: robotic assistant supporting supervised mobility during recovery' },
+            { src: ecosystemAsset.url, alt: 'SAVEN concept visual: assistance across rehabilitation, home and learning environments' },
+          ].map((img) => (
+            <div key={img.src} className="overflow-hidden rounded-xl border border-border/60 group">
+              <OptimizedImage
+                src={img.src}
+                alt={img.alt}
+                className="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+              />
+            </div>
+          ))}
+        </div>
+        <p className="mt-3 text-xs text-muted-foreground">Concept visuals — illustrative of assistance scenarios under development.</p>
+
         <div className="mt-14">
           <p className="text-xs uppercase tracking-[0.2em] text-primary/80 font-medium mb-3">{C.broader.kicker}</p>
           <h3 className="text-2xl font-bold text-foreground mb-4">{C.broader.title}</h3>
