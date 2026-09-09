@@ -58,7 +58,7 @@ export const companyPresentationItems: PresentationItem[] = [
     title: "AGRON Work",
     description: "AGRON operational platform.",
     type: "page",
-    url: "/adamas/agron-work",
+    url: "/projects/agron-work",
     group: "Flagship Projects",
   },
   {
