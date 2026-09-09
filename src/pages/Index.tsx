@@ -72,7 +72,7 @@ import digitalInvestHero from "@/assets/projects/digitalinvest-hero.webp";
 import biomathLifeHero from "@/assets/projects/biomathlife-hero.jpg";
 import heroBackground from "@/assets/hero-digital-invest.webp";
 
-import archVisual from "@/assets/brand/di-architecture.asset.json";
+import corporatePortfolioArchitecture from "@/assets/brand/corporate-portfolio-architecture.asset.json";
 import evolutionVisual from "@/assets/brand/di-evolution.asset.json";
 import techMapVisual from "@/assets/brand/di-tech-map.asset.json";
 import campusVisual from "@/assets/brand/di-campus.asset.json";
