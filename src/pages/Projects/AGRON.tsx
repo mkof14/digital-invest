@@ -204,6 +204,68 @@ const AGRON = () => {
           </div>
         </section>
 
+        {/* SERVICES CATALOG */}
+        <section>
+          <SectionTitle kicker={c.services.kicker} title={c.services.title} />
+          <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-4xl">{c.services.p}</p>
+
+          <div className="mt-8">
+            <Button size="lg" asChild>
+              <a href={AGRON_SERVICES} target="_blank" rel="noopener noreferrer">
+                {c.services.cta} <ExternalLink className="ml-2 w-4 h-4" />
+              </a>
+            </Button>
+            <p className="mt-3 text-xs text-muted-foreground">{c.services.note}</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-10">
+            {c.services.areas.map((area, i) => {
+              const Icon = serviceIcons[i % serviceIcons.length];
+              return (
+                <Card key={area.t} className="bg-card/60 border-border/60 hover:border-primary/40 transition-colors">
+                  <CardContent className="pt-6">
+                    <Icon className="w-6 h-6 text-primary mb-3" aria-hidden="true" />
+                    <h3 className="font-semibold text-foreground">{area.t}</h3>
+                    <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{area.d}</p>
+                    {area.items && (
+                      <ul className="mt-4 space-y-2">
+                        {area.items.map((line) => (
+                          <li key={line} className="flex items-start gap-2 text-sm text-muted-foreground">
+                            <span className="mt-2 w-1 h-1 rounded-full bg-primary flex-shrink-0" aria-hidden="true" />
+                            {line}
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </CardContent>
+                </Card>
+              );
+            })}
+          </div>
+        </section>
+
+        {/* GEOSPATIAL */}
+        <section>
+          <SectionTitle title={c.geospatial.title} />
+          <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-4xl">{c.geospatial.p}</p>
+          <div className="flex flex-wrap gap-2 mt-6">
+            {c.geospatial.items.map((item) => (
+              <span key={item} className="px-4 py-2 rounded-lg border border-border/60 bg-card/40 text-sm text-foreground/80">
+                {item}
+              </span>
+            ))}
+          </div>
+          <a
+            href={AGRON_SERVICES}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 mt-6 text-sm font-medium text-primary hover:underline"
+          >
+            {c.geospatial.cta} <ExternalLink className="w-4 h-4" />
+          </a>
+        </section>
+
+
         {/* AGRON MARITIME */}
         <section>
           <SectionTitle kicker={c.maritime.kicker} title={c.maritime.title} />
