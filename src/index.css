@@ -503,42 +503,42 @@ button:not(:disabled):active,
   }
 
   /* ── Section gradients — Dark theme ── */
-  .dark .section-gradient-warm {
+  :root:not(.light) .section-gradient-warm {
     background: linear-gradient(170deg,
       transparent 0%, hsl(25 20% 9%) 25%, hsl(30 18% 11%) 50%,
       hsl(22 15% 10%) 75%, transparent 100%);
   }
-  .dark .section-gradient-cool {
+  :root:not(.light) .section-gradient-cool {
     background: linear-gradient(170deg,
       transparent 0%, hsl(210 22% 10%) 25%, hsl(220 20% 12%) 50%,
       hsl(215 18% 10%) 75%, transparent 100%);
   }
-  .dark .section-gradient-mint {
+  :root:not(.light) .section-gradient-mint {
     background: linear-gradient(170deg,
       transparent 0%, hsl(160 18% 9%) 25%, hsl(168 15% 11%) 50%,
       hsl(155 12% 10%) 75%, transparent 100%);
   }
-  .dark .section-gradient-lavender {
+  :root:not(.light) .section-gradient-lavender {
     background: linear-gradient(170deg,
       transparent 0%, hsl(250 18% 10%) 25%, hsl(260 15% 12%) 50%,
       hsl(245 12% 10%) 75%, transparent 100%);
   }
-  .dark .section-gradient-rose {
+  :root:not(.light) .section-gradient-rose {
     background: linear-gradient(170deg,
       transparent 0%, hsl(340 15% 9%) 25%, hsl(348 12% 11%) 50%,
       hsl(335 10% 10%) 75%, transparent 100%);
   }
-  .dark .section-gradient-gold {
+  :root:not(.light) .section-gradient-gold {
     background: linear-gradient(170deg,
       transparent 0%, hsl(40 18% 9%) 25%, hsl(45 15% 11%) 50%,
       hsl(38 12% 10%) 75%, transparent 100%);
   }
-  .dark .section-gradient-slate {
+  :root:not(.light) .section-gradient-slate {
     background: linear-gradient(170deg,
       transparent 0%, hsl(220 18% 9%) 25%, hsl(228 15% 11%) 50%,
       hsl(222 12% 10%) 75%, transparent 100%);
   }
-  .dark .section-gradient-teal {
+  :root:not(.light) .section-gradient-teal {
     background: linear-gradient(170deg,
       transparent 0%, hsl(182 16% 9%) 25%, hsl(190 14% 11%) 50%,
       hsl(185 10% 10%) 75%, transparent 100%);
@@ -1285,7 +1285,7 @@ button:not(:disabled):active,
 
 
   /* Dark theme variant of the glass hero */
-  .dark .hero-glass {
+  :root:not(.light) .hero-glass {
     --background: 205 45% 7%;
     --foreground: 195 30% 96%;
     --muted-foreground: 200 15% 70%;
@@ -1296,40 +1296,40 @@ button:not(:disabled):active,
     background: linear-gradient(180deg, hsl(205 50% 8%) 0%, hsl(202 45% 10%) 55%, hsl(205 45% 7%) 100%);
     color: hsl(195 30% 96%);
   }
-  .dark .hero-glass .hero-tech-grid {
+  :root:not(.light) .hero-glass .hero-tech-grid {
     background-image:
       linear-gradient(hsl(190 80% 70% / 0.07) 1px, transparent 1px),
       linear-gradient(90deg, hsl(190 80% 70% / 0.07) 1px, transparent 1px);
   }
-  .dark .hero-glass .hero-aurora {
+  :root:not(.light) .hero-glass .hero-aurora {
     background:
       radial-gradient(ellipse 55% 45% at 15% 20%, rgba(45, 205, 230, 0.20), transparent 70%),
       radial-gradient(ellipse 50% 55% at 80% 65%, rgba(20, 150, 200, 0.26), transparent 70%),
       radial-gradient(ellipse 70% 40% at 55% 108%, rgba(10, 40, 60, 0.5), transparent 70%);
   }
-  .dark .hero-glass .hero-noise { mix-blend-mode: screen; opacity: 0.3; }
-  .dark .hero-glass .hero-campus { opacity: 0.45; mix-blend-mode: screen; }
-  .dark .hero-glass .hero-wash {
+  :root:not(.light) .hero-glass .hero-noise { mix-blend-mode: screen; opacity: 0.3; }
+  :root:not(.light) .hero-glass .hero-campus { opacity: 0.45; mix-blend-mode: screen; }
+  :root:not(.light) .hero-glass .hero-wash {
     background: linear-gradient(90deg, hsl(205 50% 8%) 0%, hsl(205 50% 8% / 0.65) 45%, transparent 100%);
   }
-  .dark .hero-glass .hero-gradient-text {
+  :root:not(.light) .hero-glass .hero-gradient-text {
     background: linear-gradient(180deg, #FFFFFF 10%, rgba(190, 220, 235, 0.75) 100%);
     -webkit-background-clip: text; background-clip: text; color: transparent;
   }
-  .dark .hero-glass .hero-glow-text {
+  :root:not(.light) .hero-glass .hero-glow-text {
     background: linear-gradient(100deg, #7BEAF6 0%, #35D6EC 50%, #9FF2FB 100%);
     -webkit-background-clip: text; background-clip: text; color: transparent;
   }
-  .dark .hero-glass .hero-entry { color: hsl(195 30% 96%); }
-  .dark .hero-glass .hero-entry::after { background: linear-gradient(90deg, rgba(53,214,236,0.9), rgba(53,214,236,0)); }
-  .dark .hero-glass .hero-entry:hover { color: #7BEAF6; }
-  .dark .hero-glass .hero-entry-index { color: rgba(53,214,236,0.95); }
-  .dark .hero-glass .hero-orbit { border-color: rgba(53, 214, 236, 0.22); }
-  .dark .hero-glass .hero-orbit::after { background: #7BEAF6; box-shadow: 0 0 16px 4px rgba(53,214,236,0.45); }
-  .dark .hero-glass .hero-core {
+  :root:not(.light) .hero-glass .hero-entry { color: hsl(195 30% 96%); }
+  :root:not(.light) .hero-glass .hero-entry::after { background: linear-gradient(90deg, rgba(53,214,236,0.9), rgba(53,214,236,0)); }
+  :root:not(.light) .hero-glass .hero-entry:hover { color: #7BEAF6; }
+  :root:not(.light) .hero-glass .hero-entry-index { color: rgba(53,214,236,0.95); }
+  :root:not(.light) .hero-glass .hero-orbit { border-color: rgba(53, 214, 236, 0.22); }
+  :root:not(.light) .hero-glass .hero-orbit::after { background: #7BEAF6; box-shadow: 0 0 16px 4px rgba(53,214,236,0.45); }
+  :root:not(.light) .hero-glass .hero-core {
     background: radial-gradient(circle at 40% 40%, rgba(230, 255, 255, 0.95), rgba(53, 214, 236, 0.4) 45%, transparent 72%);
   }
-  .dark .hero-glass-panel {
+  :root:not(.light) .hero-glass-panel {
     background: rgba(10, 30, 42, 0.55);
     border-color: rgba(120, 200, 220, 0.18);
   }
