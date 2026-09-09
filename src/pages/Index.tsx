@@ -305,70 +305,120 @@ const Index = () => {
       {/* ═══════════════════ VISUAL STORY — Architecture of the holding ═══════════════════ */}
       <section className="relative px-4 py-20 md:py-28 section-gradient-cool">
         <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-12 gap-10 items-center">
-            <div className="lg:col-span-5 space-y-5">
-              <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
-                Corporate architecture
+          <div className="max-w-3xl space-y-5">
+            <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
+              Corporate architecture
+            </span>
+            <h2 className="text-3xl md:text-5xl font-semibold tracking-tight leading-[1.05]">
+              One holding. Four load-bearing pillars.
+            </h2>
+            <p className="text-muted-foreground leading-relaxed text-base md:text-lg">
+              Human data systems, health technology, robotics and advanced materials —
+              built as connected companies inside a single technology ecosystem.
+            </p>
+          </div>
+
+          {/* Pillars — visual legend */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mt-12">
+            {[
+              { n: '01', icon: Activity, name: 'BioMath Core', kind: 'Human data & health intelligence' },
+              { n: '02', icon: Brain, name: 'SAVEN', kind: 'AI & human assistance robotics' },
+              { n: '03', icon: Cpu, name: 'AGRON', kind: 'Autonomous operations infrastructure' },
+              { n: '04', icon: Layers, name: 'Adamas Materials', kind: 'Advanced materials' },
+            ].map((p) => (
+              <div
+                key={p.n}
+                className="group relative overflow-hidden rounded-2xl border border-border/40 bg-card p-5 transition-all duration-500 hover:-translate-y-1 hover:border-brand-gold/50"
+              >
+                <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-brand-gold/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="flex items-center justify-between">
+                  <p.icon className="h-5 w-5 text-brand-gold" />
+                  <span className="font-mono text-[10px] tracking-[0.28em] text-muted-foreground tabular-nums">{p.n}</span>
+                </div>
+                <h3 className="mt-6 text-lg font-semibold tracking-tight">{p.name}</h3>
+                <p className="mt-1.5 text-sm text-muted-foreground leading-snug">{p.kind}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* Main diagram */}
+          <figure className="mt-8 group overflow-hidden rounded-2xl border border-border/40 bg-card shadow-elevated">
+            <div className="overflow-hidden">
+              <img
+                src={portfolioArchitecture.url}
+                alt="Corporate portfolio architecture: BioMath Core, SAVEN, AGRON and Adamas Materials on a shared Digital Invest platform"
+                loading="lazy"
+                decoding="async"
+                className="w-full h-auto transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+              />
+            </div>
+            <figcaption className="flex flex-wrap items-center justify-between gap-3 border-t border-border/40 px-5 py-4">
+              <span className="text-sm text-muted-foreground">
+                Portfolio architecture — companies sharing one platform layer
               </span>
-              <h2 className="text-3xl md:text-5xl font-semibold tracking-tight leading-[1.05]">
-                One holding. Four load-bearing pillars.
-              </h2>
-              <p className="text-muted-foreground leading-relaxed">
-                Human data systems, health technology, robotics and advanced materials —
-                built as connected companies inside a single technology ecosystem.
-              </p>
               <Link to="/portfolio-overview" className="hero-entry group !text-foreground">
-                <span className="hero-entry-index">01</span>
                 <span className="hero-entry-label">Portfolio overview</span>
                 <ArrowUpRight className="h-4 w-4 shrink-0 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
               </Link>
-            </div>
+            </figcaption>
+          </figure>
 
-            <div className="lg:col-span-7">
-              <div className="overflow-hidden rounded-2xl border border-border/40 shadow-elevated bg-card">
-                <img
-                  src={portfolioArchitecture.url}
-                  alt="Corporate portfolio architecture: BioMath Core, SAVEN, AGRON and Adamas Materials on a shared Digital Invest platform"
-                  loading="lazy"
-                  decoding="async"
-                  className="w-full h-auto"
-                />
-              </div>
-            </div>
+          {/* Evolution + technology map */}
+          <div className="grid md:grid-cols-2 gap-6 mt-6">
+            {[
+              {
+                src: evolutionVisual.url,
+                alt: 'Company overview and evolution from human data to an integrated technology ecosystem',
+                label: 'Evolution',
+                caption: 'From human data foundations to an integrated technology ecosystem',
+              },
+              {
+                src: techMapVisual.url,
+                alt: 'Technology map linking human data, robotics, semiconductors and data infrastructure',
+                label: 'Technology map',
+                caption: 'Human data, robotics, semiconductors and data infrastructure in one map',
+              },
+            ].map((f) => (
+              <figure key={f.label} className="group overflow-hidden rounded-2xl border border-border/40 bg-card">
+                <div className="relative overflow-hidden">
+                  <img
+                    src={f.src}
+                    alt={f.alt}
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-auto transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                  />
+                  <span className="absolute left-4 top-4 rounded-full bg-background/80 backdrop-blur-sm px-3 py-1 font-mono text-[10px] uppercase tracking-[0.24em] text-foreground">
+                    {f.label}
+                  </span>
+                </div>
+                <figcaption className="border-t border-border/40 px-5 py-4 text-sm text-muted-foreground">
+                  {f.caption}
+                </figcaption>
+              </figure>
+            ))}
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6 mt-12">
-            <figure className="overflow-hidden rounded-2xl border border-border/40 bg-card">
-              <img
-                src={evolutionVisual.url}
-                alt="Company overview and evolution from human data in 2010 to an integrated technology ecosystem"
-                loading="lazy"
-                decoding="async"
-                className="w-full h-auto"
-              />
-            </figure>
-            <figure className="overflow-hidden rounded-2xl border border-border/40 bg-card">
-              <img
-                src={techMapVisual.url}
-                alt="Technology map linking human data, robotics, semiconductors and data infrastructure"
-                loading="lazy"
-                decoding="async"
-                className="w-full h-auto"
-              />
-            </figure>
-          </div>
-
-          <div className="mt-6 overflow-hidden rounded-2xl border border-border/40 bg-card">
+          {/* Full-width atmosphere image with overlay */}
+          <div className="relative mt-6 overflow-hidden rounded-2xl border border-border/40 bg-card">
             <img
               src={archVisual.url}
               alt="Futuristic glass architecture representing Digital Invest infrastructure"
               loading="lazy"
               decoding="async"
-              className="w-full h-[220px] md:h-[340px] object-cover"
+              className="w-full h-[260px] md:h-[420px] object-cover"
             />
+            <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
+            <div className="absolute inset-x-0 bottom-0 p-6 md:p-10">
+              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-brand-gold">Shape the future with us</p>
+              <p className="mt-3 max-w-xl text-lg md:text-2xl font-medium leading-snug text-foreground">
+                Long-horizon technology, built as infrastructure — not as isolated apps.
+              </p>
+            </div>
           </div>
         </div>
       </section>
+
 
 
 
