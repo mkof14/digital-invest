@@ -437,42 +437,34 @@ const AGRON = () => {
         {/* MODULAR INFRASTRUCTURE */}
         <section>
           <SectionTitle title={c.modular.title} />
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
-            <div className="space-y-4">
-              {c.modular.items.map((item, i) => {
-                const Icon = modularIcons[i % modularIcons.length];
-                return (
-                  <Card key={item.t} className="bg-card/60 border-border/60">
-                    <CardContent className="pt-6 flex items-start gap-4">
-                      <Icon className="w-6 h-6 text-primary flex-shrink-0" aria-hidden="true" />
-                      <div>
-                        <h3 className="font-semibold text-foreground">{item.t}</h3>
-                        <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{item.d}</p>
-                      </div>
-                    </CardContent>
-                  </Card>
-                );
-              })}
-              <div className="p-6 rounded-2xl border border-border/60 bg-card/40">
-                <p className="text-sm uppercase tracking-widest text-muted-foreground mb-4">{c.modular.zonesTitle}</p>
-                <div className="flex flex-wrap gap-2">
-                  {c.modular.zones.map((zone) => (
-                    <span key={zone} className="px-3 py-2 rounded-lg border border-border/60 bg-background/50 text-xs md:text-sm text-foreground/80">
-                      {zone}
-                    </span>
-                  ))}
-                </div>
-              </div>
-              <p className="text-xs text-muted-foreground">{c.modular.note}</p>
-            </div>
-
-            <OptimizedImage
-              src={agronContainer.url}
-              alt="AGRON containerized modular security unit"
-              containerClassName="w-full rounded-2xl overflow-hidden border border-border/60"
-              className="w-full h-auto object-cover"
-            />
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 items-start">
+            {c.modular.items.map((item, i) => {
+              const Icon = modularIcons[i % modularIcons.length];
+              return (
+                <Card key={item.t} className="bg-card/60 border-border/60">
+                  <CardContent className="pt-6 flex items-start gap-4">
+                    <Icon className="w-6 h-6 text-primary flex-shrink-0" aria-hidden="true" />
+                    <div>
+                      <h3 className="font-semibold text-foreground">{item.t}</h3>
+                      <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{item.d}</p>
+                    </div>
+                  </CardContent>
+                </Card>
+              );
+            })}
           </div>
+          <div className="mt-6 p-6 rounded-2xl border border-border/60 bg-card/40">
+            <p className="text-sm uppercase tracking-widest text-muted-foreground mb-4">{c.modular.zonesTitle}</p>
+            <div className="flex flex-wrap gap-2">
+              {c.modular.zones.map((zone) => (
+                <span key={zone} className="px-3 py-2 rounded-lg border border-border/60 bg-background/50 text-xs md:text-sm text-foreground/80">
+                  {zone}
+                </span>
+              ))}
+            </div>
+          </div>
+          <p className="mt-4 text-xs text-muted-foreground">{c.modular.note}</p>
+
         </section>
 
         {/* MULTI-LAYER PROTECTION */}
