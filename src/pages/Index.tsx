@@ -223,12 +223,11 @@ const Index = () => {
         <div className="pointer-events-none absolute inset-x-0 top-0 h-px hero-scanline bg-gradient-to-r from-transparent via-[rgba(20,196,217,0.7)] to-transparent" aria-hidden />
         <div className="hero-wash pointer-events-none absolute inset-0" aria-hidden />
 
-        {/* Orbital system with brand core */}
+        {/* Orbital system */}
         <div className="pointer-events-none absolute -right-[22vw] top-1/2 -translate-y-1/2 w-[80vw] h-[80vw] max-w-[900px] max-h-[900px] lg:right-[-10vw]" aria-hidden>
           <div className="hero-orbit hero-orbit-1" />
           <div className="hero-orbit hero-orbit-2" />
           <div className="hero-orbit hero-orbit-3" />
-          <div className="hero-core" />
           <img
             src={ecosystemCore.url}
             alt=""
@@ -367,6 +366,11 @@ const Index = () => {
               },
             ].map((f) => (
               <figure key={f.label} className="group overflow-hidden rounded-2xl border border-border/40 bg-card">
+                <figcaption className="px-5 pt-4 pb-2">
+                  <span className="font-mono text-[10px] uppercase tracking-[0.24em] text-brand-gold">
+                    {f.label}
+                  </span>
+                </figcaption>
                 <div className="relative overflow-hidden">
                   <img
                     src={f.src}
@@ -375,9 +379,6 @@ const Index = () => {
                     decoding="async"
                     className="theme-responsive-image w-full h-auto transition-[filter,transform] duration-700 ease-out group-hover:scale-[1.03]"
                   />
-                  <span className="absolute left-4 top-4 rounded-full bg-background/80 backdrop-blur-sm px-3 py-1 font-mono text-[10px] uppercase tracking-[0.24em] text-foreground">
-                    {f.label}
-                  </span>
                 </div>
                 <figcaption className="border-t border-border/40 px-5 py-4 text-sm text-muted-foreground">
                   {f.caption}
