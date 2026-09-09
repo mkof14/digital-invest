@@ -1248,7 +1248,7 @@ button:not(:disabled):active,
   .hero-corner::after { bottom: -1px; right: -1px; border-bottom: 1px solid; border-right: 1px solid; }
 
   @media (prefers-reduced-motion: reduce) {
-    .hero-scanline, .hero-ticker-track, .hero-blink { animation: none; }
+    .hero-ticker-track { animation: none; }
   }
 }
 
