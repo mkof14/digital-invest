@@ -15,7 +15,8 @@
     "news": "ニュース",
     "whyDigitalInvest": "Digital Investを選ぶ理由",
     "careers": "採用情報",
-    "schedule": "相談予約"
+    "schedule": "相談予約",
+    "resources": "リソース"
   },
   "hero": {
     "badge": "ベンチャーキャピタル＆イノベーション",
@@ -512,7 +513,10 @@
       "t1d": "1型・2型糖尿病のための統合された日常プラットフォーム",
       "1inow": "一つの場所。一つの文脈。いま。",
       "facetium": "デジタル商業環境のネットワーク"
-    }
+    },
+    "filters": "フィルター",
+    "category": "カテゴリー",
+    "view": "表示"
   },
   "team": {
     "title1": "次の時代を",

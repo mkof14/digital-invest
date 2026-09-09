@@ -15,7 +15,8 @@
     "news": "חדשות",
     "whyDigitalInvest": "למה Digital Invest",
     "careers": "קריירה",
-    "schedule": "קביעת ייעוץ"
+    "schedule": "קביעת ייעוץ",
+    "resources": "משאבים"
   },
   "hero": {
     "badge": "הון סיכון וחדשנות",
@@ -499,7 +500,10 @@
       "digital-invest-portfolio": "פלטפורמת השקעות רב-מגזרית",
       "1inow": "מקום אחד. הקשר אחד. עכשיו.",
       "facetium": "רשת של סביבות מסחר דיגיטליות"
-    }
+    },
+    "filters": "מסננים",
+    "category": "קטגוריה",
+    "view": "תצוגה"
   },
   "team": {
     "title1": "בונים את",

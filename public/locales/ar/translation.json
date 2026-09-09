@@ -15,7 +15,8 @@
     "news": "الأخبار",
     "whyDigitalInvest": "لماذا Digital Invest",
     "careers": "الوظائف",
-    "schedule": "حجز استشارة"
+    "schedule": "حجز استشارة",
+    "resources": "الموارد"
   },
   "hero": {
     "badge": "رأس المال الجريء والابتكار",
@@ -499,7 +500,10 @@
       "digital-invest-portfolio": "منصة استثمار متعددة القطاعات",
       "1inow": "مكان واحد. سياق واحد. الآن.",
       "facetium": "شبكة من البيئات التجارية الرقمية"
-    }
+    },
+    "filters": "عوامل التصفية",
+    "category": "الفئة",
+    "view": "العرض"
   },
   "team": {
     "title1": "صنّاع",

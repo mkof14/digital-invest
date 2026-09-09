@@ -15,7 +15,8 @@
     "news": "News",
     "whyDigitalInvest": "Why Digital Invest",
     "careers": "Careers",
-    "schedule": "Schedule"
+    "schedule": "Schedule",
+    "resources": "Resources"
   },
   "hero": {
     "badge": "Venture Capital & Innovation",
@@ -499,7 +500,10 @@
       "digital-invest-portfolio": "Multi-sector investment platform",
       "1inow": "One place. One context. Right now.",
       "facetium": "A network of digital commercial environments"
-    }
+    },
+    "filters": "Filters",
+    "category": "Category",
+    "view": "View"
   },
   "team": {
     "title1": "Builders of",

@@ -15,7 +15,8 @@
     "news": "Actualités",
     "whyDigitalInvest": "Pourquoi Digital Invest",
     "careers": "Carrières",
-    "schedule": "Rendez-vous"
+    "schedule": "Rendez-vous",
+    "resources": "Ressources"
   },
   "hero": {
     "badge": "Capital Risque et Innovation",
@@ -499,7 +500,10 @@
       "digital-invest-portfolio": "Plateforme d’investissement multisectorielle",
       "1inow": "Un lieu. Un contexte. Maintenant.",
       "facetium": "Un réseau d’environnements commerciaux numériques"
-    }
+    },
+    "filters": "Filtres",
+    "category": "Catégorie",
+    "view": "Affichage"
   },
   "team": {
     "title1": "Bâtisseurs de",
