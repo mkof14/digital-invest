@@ -91,13 +91,13 @@ const overviewTexts: Record<string, Record<string, string>> = {
     he: 'לוגיקת בריאות ב-4 צעדים. BaseLine הופך נתונים קליניים מורכבים לכן שיגור. מחליף חודשים של בדיקות מפוזרות ברצף קליטה מובנה אחד.'
   },
   'saven': {
-    en: 'SAVEN is an Infrastructure of Continuous Execution — the operational bridge between medical knowledge and real life. Built on a 5-step cycle (Assess → Act → Verify → Control → Support), it integrates with robots, smart devices, and wearables to ensure care plans are carried out — not just prescribed. The system self-learns and improves with every execution cycle, adapting across home, hospital, and institutional settings. Where medicine ends, SAVEN begins.',
-    ru: 'SAVEN — Инфраструктура Непрерывного Исполнения, операционный мост между медицинским знанием и реальной жизнью. Построен на 5-шаговом цикле (Оценка → Действие → Верификация → Контроль → Поддержка), интегрируется с роботами, умными устройствами и носимой электроникой, чтобы планы лечения выполнялись — а не просто назначались. Система самообучается с каждым циклом, адаптируясь к домашним, больничным и институциональным условиям. Там, где заканчивается медицина, начинается SAVEN.',
-    uk: 'SAVEN — Інфраструктура Безперервного Виконання, операційний міст між медичним знанням і реальним життям. Побудований на 5-кроковому циклі (Оцінка → Дія → Верифікація → Контроль → Підтримка), інтегрується з роботами, розумними пристроями та носимою електронікою, щоб плани лікування виконувалися — а не просто призначалися. Система самонавчається з кожним циклом, адаптуючись до домашніх, лікарняних та інституційних умов. Там, де закінчується медицина, починається SAVEN.',
-    fr: 'SAVEN est une Infrastructure d\'Exécution Continue — le pont opérationnel entre le savoir médical et la vie réelle. Construit sur un cycle en 5 étapes (Évaluer → Agir → Vérifier → Contrôler → Soutenir), il s\'intègre aux robots, dispositifs intelligents et wearables pour que les plans de soins soient exécutés — pas simplement prescrits. Le système apprend et s\'améliore à chaque cycle, s\'adaptant au domicile, à l\'hôpital et en institution. Là où la médecine s\'arrête, SAVEN commence.',
-    ar: 'SAVEN هو بنية تحتية للتنفيذ المستمر — الجسر التشغيلي بين المعرفة الطبية والحياة الواقعية. مبني على دورة من 5 خطوات (تقييم ← تنفيذ ← تحقق ← مراقبة ← دعم)، يتكامل مع الروبوتات والأجهزة الذكية والقابلة للارتداء لضمان تنفيذ خطط الرعاية — وليس مجرد وصفها. يتعلم النظام ذاتياً ويتحسن مع كل دورة، متكيفاً مع البيئات المنزلية والمستشفيات والمؤسسات. حيث ينتهي الطب، يبدأ SAVEN.',
-    ja: 'SAVENは継続的実行のインフラ — 医療知識と実生活をつなぐ運用の架け橋です。5ステップサイクル（評価→実行→検証→制御→支援）で構築され、ロボット、スマートデバイス、ウェアラブルと統合し、ケアプランが処方されるだけでなく確実に実行されます。システムは各サイクルで自己学習し、家庭・病院・施設の各環境に適応します。医療が終わるところから、SAVENが始まります。',
-    he: 'SAVEN הוא תשתית לביצוע רציף — הגשר התפעולי בין הידע הרפואי לחיים האמיתיים. בנוי על מחזור בן 5 שלבים (הערכה ← פעולה ← אימות ← בקרה ← תמיכה), משתלב עם רובוטים, מכשירים חכמים ולבישים כדי להבטיח שתוכניות טיפול מבוצעות — ולא רק נרשמות. המערכת לומדת עצמית ומשתפרת עם כל מחזור, מסתגלת לסביבות ביתיות, בית חולים ומוסדות. איפה שהרפואה נגמרת, SAVEN מתחיל.'
+    en: 'SAVEN develops the intelligence, interaction, personalization, integration and safety-oriented technologies that can help robotic systems assist people in the physical world — mobility, physical tasks, rehabilitation support and everyday activities. SAVEN is broader than one robot: a hardware-flexible Human Assistance Layer (perception, human movement understanding, assistance intelligence, personalization, safety and control) designed to work across humanoid robots, mobile robots, robotic arms, wearable robotics and rehabilitation systems. Human authority remains. Status: architecture, research and development.',
+    ru: 'SAVEN разрабатывает интеллект, взаимодействие, персонализацию, интеграцию и технологии безопасности, которые помогают роботизированным системам поддерживать людей в физическом мире — мобильность, физические задачи, поддержку реабилитации и повседневные действия. SAVEN шире одного робота: это аппаратно-гибкий слой человеческой поддержки (восприятие, понимание движения, интеллект помощи, персонализация, безопасность и контроль), рассчитанный на гуманоидных и мобильных роботов, роботизированные манипуляторы, носимую робототехнику и реабилитационные системы. Решение остаётся за человеком. Статус: архитектура, исследования и разработка.',
+    uk: 'SAVEN розробляє інтелект, взаємодію, персоналізацію, інтеграцію та технології безпеки, які допомагають роботизованим системам підтримувати людей у фізичному світі — мобільність, фізичні завдання, підтримку реабілітації та щоденні дії. SAVEN ширший за одного робота: це апаратно-гнучкий шар людської підтримки (сприйняття, розуміння руху, інтелект допомоги, персоналізація, безпека та контроль) для гуманоїдних і мобільних роботів, маніпуляторів, носимої робототехніки та реабілітаційних систем. Рішення залишається за людиною. Статус: архітектура, дослідження та розробка.',
+    fr: 'SAVEN développe l\'intelligence, l\'interaction, la personnalisation, l\'intégration et les technologies orientées sécurité qui peuvent aider les systèmes robotiques à assister les personnes dans le monde physique — mobilité, tâches physiques, soutien à la rééducation et activités quotidiennes. SAVEN dépasse un seul robot : une couche d\'assistance humaine indépendante du matériel (perception, compréhension du mouvement, intelligence d\'assistance, personnalisation, sécurité et contrôle) conçue pour des robots humanoïdes, mobiles, bras robotisés, robotique portable et systèmes de rééducation. L\'autorité humaine demeure. Statut : architecture, recherche et développement.',
+    ar: 'تطوّر SAVEN تقنيات الذكاء والتفاعل والتخصيص والتكامل والسلامة التي يمكن أن تساعد الأنظمة الروبوتية على مساندة الإنسان في العالم المادي — الحركة والمهام البدنية ودعم إعادة التأهيل والأنشطة اليومية. SAVEN أوسع من روبوت واحد: طبقة مساعدة بشرية مرنة تجاه العتاد (الإدراك، فهم الحركة، ذكاء المساعدة، التخصيص، السلامة والتحكم) مصمّمة للعمل مع الروبوتات البشرية والمتحركة والأذرع الروبوتية والروبوتات القابلة للارتداء وأنظمة إعادة التأهيل. تبقى السلطة للإنسان. الحالة: بنية وبحث وتطوير.',
+    ja: 'SAVENは、ロボットシステムが物理世界で人を支援できるようにするための知能・インタラクション・パーソナライゼーション・統合・安全指向の技術を開発しています。対象は移動、身体的タスク、リハビリ支援、日常活動です。SAVENは単一のロボットにとどまらず、ハードウェアに柔軟なヒューマン・アシスタンス・レイヤー（知覚、動作理解、支援知能、パーソナライゼーション、安全と制御）として、ヒューマノイド、移動ロボット、ロボットアーム、装着型ロボティクス、リハビリシステムでの動作を想定しています。権限は常に人間にあります。ステータス：アーキテクチャ・研究・開発。',
+    he: 'SAVEN מפתחת את טכנולוגיות הבינה, האינטראקציה, ההתאמה האישית, האינטגרציה והבטיחות שיכולות לסייע למערכות רובוטיות לתמוך באנשים בעולם הפיזי — ניידות, משימות פיזיות, תמיכה בשיקום ופעילויות יומיומיות. SAVEN רחבה מרובוט אחד: שכבת סיוע אנושי גמישה לחומרה (תפיסה, הבנת תנועה, בינת סיוע, התאמה אישית, בטיחות ובקרה) המיועדת לרובוטים הומנואידים, רובוטים ניידים, זרועות רובוטיות, רובוטיקה לבישה ומערכות שיקום. הסמכות נשארת בידי האדם. סטטוס: ארכיטקטורה, מחקר ופיתוח.'
   },
   'health-intelligence-suite': {
     en: 'Five health directions merged into one product: Stress, Vital, BioAge, Senior and Skin. One signal layer, one history, one non-medical guidance model across stress, vitals, biological age, senior support and skin analysis.',
@@ -222,7 +222,7 @@ const accentGradients: Record<string, string> = {
   'facetium': 'from-amber-500/20 to-amber-500/0',
   'mrx-health': 'from-rose-500/20 to-rose-500/0',
   'baseline': 'from-teal-500/20 to-teal-500/0',
-  'saven': 'from-violet-500/20 to-violet-500/0',
+  'saven': 'from-sky-500/20 to-sky-500/0',
   'luna-balance': 'from-pink-500/20 to-pink-500/0',
   'health-intelligence-suite': 'from-cyan-500/20 to-cyan-500/0',
   'longevitycore': 'from-emerald-400/20 to-emerald-400/0',
@@ -244,7 +244,7 @@ const accentDots: Record<string, string> = {
   'facetium': 'bg-amber-500',
   'mrx-health': 'bg-rose-500',
   'baseline': 'bg-teal-500',
-  'saven': 'bg-violet-500',
+  'saven': 'bg-sky-500',
   'luna-balance': 'bg-pink-500',
   'health-intelligence-suite': 'bg-cyan-500',
   'longevitycore': 'bg-emerald-400',
@@ -267,7 +267,7 @@ const accentPalette: Record<string, { text: string; border: string; bgSoft: stri
   'facetium':       { text: 'text-amber-300',   border: 'border-amber-500/60',   bgSoft: 'bg-amber-500/10',   glow: 'shadow-amber-500/20',   ring: 'ring-amber-500/40' },
   'mrx-health':     { text: 'text-rose-400',    border: 'border-rose-500/60',    bgSoft: 'bg-rose-500/10',    glow: 'shadow-rose-500/20',    ring: 'ring-rose-500/40' },
   'baseline':       { text: 'text-teal-400',    border: 'border-teal-500/60',    bgSoft: 'bg-teal-500/10',    glow: 'shadow-teal-500/20',    ring: 'ring-teal-500/40' },
-  'saven':          { text: 'text-violet-400',  border: 'border-violet-500/60',  bgSoft: 'bg-violet-500/10',  glow: 'shadow-violet-500/20',  ring: 'ring-violet-500/40' },
+  'saven':          { text: 'text-sky-400',  border: 'border-sky-500/60',  bgSoft: 'bg-sky-500/10',  glow: 'shadow-sky-500/20',  ring: 'ring-sky-500/40' },
   'luna-balance':   { text: 'text-pink-400',    border: 'border-pink-500/60',    bgSoft: 'bg-pink-500/10',    glow: 'shadow-pink-500/20',    ring: 'ring-pink-500/40' },
   'health-intelligence-suite': { text: 'text-cyan-300',   border: 'border-cyan-500/60',   bgSoft: 'bg-cyan-500/10',   glow: 'shadow-cyan-500/20',   ring: 'ring-cyan-500/40' },
   'longevitycore':  { text: 'text-emerald-300', border: 'border-emerald-400/60', bgSoft: 'bg-emerald-400/10', glow: 'shadow-emerald-400/20', ring: 'ring-emerald-400/40' },
