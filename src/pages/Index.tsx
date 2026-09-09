@@ -71,7 +71,7 @@ import dishcoreHero from "@/assets/projects/dishcore-hero.jpg";
 import digitalInvestHero from "@/assets/projects/digitalinvest-hero.webp";
 import biomathLifeHero from "@/assets/projects/biomathlife-hero.jpg";
 import heroBackground from "@/assets/hero-digital-invest.webp";
-import ecosystemCore from "@/assets/brand/di-ecosystem-core.asset.json";
+
 import archVisual from "@/assets/brand/di-architecture.asset.json";
 import evolutionVisual from "@/assets/brand/di-evolution.asset.json";
 import techMapVisual from "@/assets/brand/di-tech-map.asset.json";
@@ -220,22 +220,7 @@ const Index = () => {
         <div className="absolute inset-0 hero-aurora" aria-hidden />
         <div className="absolute inset-0 hero-tech-grid opacity-70" aria-hidden />
         <div className="absolute inset-0 hero-noise" aria-hidden />
-        <div className="pointer-events-none absolute inset-x-0 top-0 h-px hero-scanline bg-gradient-to-r from-transparent via-[rgba(20,196,217,0.7)] to-transparent" aria-hidden />
         <div className="hero-wash pointer-events-none absolute inset-0" aria-hidden />
-
-        {/* Orbital system */}
-        <div className="pointer-events-none absolute -right-[22vw] top-1/2 -translate-y-1/2 w-[80vw] h-[80vw] max-w-[900px] max-h-[900px] lg:right-[-10vw]" aria-hidden>
-          <div className="hero-orbit hero-orbit-1" />
-          <div className="hero-orbit hero-orbit-2" />
-          <div className="hero-orbit hero-orbit-3" />
-          <img
-            src={ecosystemCore.url}
-            alt=""
-            loading="lazy"
-            decoding="async"
-            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[46%] max-w-[380px] rounded-full opacity-[0.7] select-none mix-blend-multiply dark:mix-blend-screen dark:opacity-90"
-          />
-        </div>
 
 
 
@@ -243,7 +228,7 @@ const Index = () => {
         <div className="relative z-10 pt-24 lg:pt-28">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.32em] text-muted-foreground">
-              <span className="w-1.5 h-1.5 rounded-full bg-success hero-blink" />
+              <span className="w-1.5 h-1.5 rounded-full bg-success" />
               <span className="text-foreground">Digital Invest</span>
               <span className="hidden sm:inline text-muted-foreground/60">— private multi-sector portfolio</span>
             </div>
