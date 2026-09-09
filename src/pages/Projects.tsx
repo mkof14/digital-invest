@@ -516,7 +516,7 @@ const Projects = () => {
                                   : 'bg-muted/60 text-muted-foreground hover:bg-muted hover:text-foreground'
                               }`}
                             >
-                              {cat} ({count})
+                              {tLabel(cat)} ({count})
                             </button>
                           );
                         })}
@@ -724,7 +724,7 @@ const Projects = () => {
                         <div className="flex flex-wrap gap-1.5 pt-0.5">
                           {highlights.extraCategories.map(cat => (
                             <span
-                              key={tTag(cat)}
+                              key={cat}
                               className={`inline-flex items-center px-2 py-0.5 rounded-md text-[10px] font-semibold uppercase tracking-wider ${theme.border} border bg-muted/40 text-foreground/80`}
                             >
                               {tTag(cat)}
@@ -816,7 +816,7 @@ const Projects = () => {
                             <div className="flex flex-wrap gap-1.5">
                               {highlights.extraCategories.map(cat => (
                                 <span
-                                  key={tTag(cat)}
+                                  key={cat}
                                   className={`inline-flex items-center px-2 py-0.5 rounded-md text-[10px] font-semibold uppercase tracking-wider ${theme.border} border bg-muted/40 text-foreground/80`}
                                 >
                                   {tTag(cat)}
