@@ -228,7 +228,7 @@ const Index = () => {
         <div className="relative z-10 pt-24 lg:pt-28">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.32em] text-muted-foreground">
-              <span className="w-1.5 h-1.5 rounded-full bg-success hero-blink" />
+              <span className="w-1.5 h-1.5 rounded-full bg-success" />
               <span className="text-foreground">Digital Invest</span>
               <span className="hidden sm:inline text-muted-foreground/60">— private multi-sector portfolio</span>
             </div>
