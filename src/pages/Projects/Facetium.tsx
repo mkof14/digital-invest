@@ -109,17 +109,17 @@ const Facetium = () => {
             <Badge className="mb-4 bg-amber-500/20 text-amber-300 border-amber-500/30 text-sm px-4 py-1">
               {s('badge')}
             </Badge>
-            <h1 className="text-3xl md:text-5xl font-bold text-white mb-4 leading-tight">
+            <h1 className="text-3xl md:text-5xl font-bold text-primary-foreground mb-4 leading-tight">
               {s('heroTitle')}
             </h1>
             <p className="text-xl md:text-2xl text-amber-200/80 font-light italic mb-6">
               {s('heroTagline')}
             </p>
-            <p className="text-lg text-gray-300 mb-8 leading-relaxed max-w-2xl">{s('heroDesc')}</p>
+            <p className="text-lg text-primary-foreground/80 mb-8 leading-relaxed max-w-2xl">{s('heroDesc')}</p>
             <div className="flex flex-wrap gap-4">
               <Button
                 size="lg"
-                className="bg-amber-500 hover:bg-amber-600 text-black font-semibold px-8 py-6 text-lg"
+                className="bg-warning text-warning-foreground hover:bg-warning/90 px-8 py-6 text-lg"
                 onClick={() => setShowInterestForm(true)}
               >
                 {s('ctaInterest')}
@@ -128,7 +128,7 @@ const Facetium = () => {
                 size="lg"
                 variant="outline"
                 asChild
-                className="border-amber-400/40 text-amber-200 hover:bg-amber-500/10 px-8 py-6 text-lg"
+                className="bg-primary-foreground/10 text-primary-foreground hover:bg-primary-foreground/20 px-8 py-6 text-lg"
               >
                 <a href="https://facetium.com" target="_blank" rel="noopener noreferrer">
                   <Globe className="w-5 h-5 mr-2" />
@@ -141,11 +141,11 @@ const Facetium = () => {
       </section>
 
       {/* Gallery */}
-      <section className="py-16 bg-[#0d0b08]">
+      <section className="py-16 bg-card">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {gallery.map((item, i) => (
-              <figure key={i} className="group overflow-hidden rounded-xl border border-amber-500/15 bg-black/40">
+              <figure key={i} className="group overflow-hidden rounded-xl border border-border/60 bg-background/40">
                 <div className="aspect-[16/10] overflow-hidden">
                   <img
                     src={item.src}
@@ -154,7 +154,7 @@ const Facetium = () => {
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                 </div>
-                <figcaption className="p-4 text-sm text-amber-200/70">{galleryCaptions[i]}</figcaption>
+                <figcaption className="p-4 text-sm text-muted-foreground">{galleryCaptions[i]}</figcaption>
               </figure>
             ))}
           </div>
@@ -162,7 +162,7 @@ const Facetium = () => {
       </section>
 
       {/* From pages to places */}
-      <section className="py-20 bg-gradient-to-b from-[#14100a] to-background">
+      <section className="py-20 bg-gradient-to-b from-card to-background">
         <div className="container mx-auto px-4 max-w-4xl">
           <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">{s('pagesTitle')}</h2>
           <div className="space-y-4 text-lg text-muted-foreground leading-relaxed mb-12">
@@ -454,10 +454,10 @@ const Facetium = () => {
       <ProjectMediaRoomBySlug slug="facetium" fallbackTitle="FACETIUM" />
 
       {/* CTA */}
-      <section className="py-20 bg-gradient-to-r from-[#14100a] to-[#2a1f0a]">
+      <section className="py-20 bg-card">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">{s('finalTitle')}</h2>
-          <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-amber-200/80 text-lg mb-10">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">{s('finalTitle')}</h2>
+          <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-muted-foreground text-lg mb-10">
             {list('finalLines').map((l, i) => (
               <span key={i}>{l}</span>
             ))}
@@ -465,7 +465,7 @@ const Facetium = () => {
           <div className="flex flex-wrap gap-4 justify-center">
             <Button
               size="lg"
-              className="bg-amber-500 hover:bg-amber-600 text-black font-semibold px-10 py-6 text-lg"
+              className="bg-warning text-warning-foreground hover:bg-warning/90 px-10 py-6 text-lg"
               onClick={() => setShowInterestForm(true)}
             >
               {s('ctaInterest')} <ArrowRight className="w-5 h-5 ml-2 rtl:rotate-180" />
@@ -474,14 +474,14 @@ const Facetium = () => {
               size="lg"
               variant="outline"
               asChild
-              className="border-gray-500 text-gray-300 hover:bg-white/5 px-10 py-6 text-lg"
+              className="px-10 py-6 text-lg"
             >
               <a href="https://facetium.com" target="_blank" rel="noopener noreferrer">
                 {s('ctaVisit')}
               </a>
             </Button>
             <Link to="/projects">
-              <Button size="lg" variant="ghost" className="text-gray-300 hover:bg-white/5 px-10 py-6 text-lg">
+              <Button size="lg" variant="ghost" className="px-10 py-6 text-lg">
                 {s('back')}
               </Button>
             </Link>
