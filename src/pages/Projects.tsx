@@ -17,7 +17,7 @@ import terraaeroHero from '@/assets/projects/terraaero-hero.jpg';
 import biomathcoreHero from '@/assets/projects/biomathcore-hero.jpg';
 import mydayHero from '@/assets/projects/myday-hero.webp';
 import itsgoodtodayHero from '@/assets/projects/itsgoodtoday-hero.jpg';
-import agronHero from '@/assets/projects/agron-hero.webp';
+import agronHeroAsset from '@/assets/projects/starwall-hero.png.asset.json';
 import digitalinvestHero from '@/assets/projects/digitalinvest-hero.webp';
 import biomathlifeHero from '@/assets/projects/biomathlife-hero.jpg';
 import stresscoreHero from '@/assets/projects/stresscore-hero.jpg';
@@ -327,7 +327,7 @@ const Projects = () => {
     'biomath-core': biomathcoreHero,
     myday: mydayHero,
     itsgoodtoday: itsgoodtodayHero,
-    agron: agronHero,
+    agron: agronHeroAsset.url,
     'digital-invest-portfolio': digitalinvestHero,
     'digital-invest-ai-lab': digitalinvestHero,
     'digital-invest-manufacturing': digitalinvestHero,
