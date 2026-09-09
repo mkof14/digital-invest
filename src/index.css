@@ -1283,6 +1283,61 @@ button:not(:disabled):active,
     -webkit-mask-image: linear-gradient(90deg, transparent 0%, transparent 34%, black 72%, black 100%);
   }
 
+
+  /* Dark theme variant of the glass hero */
+  .dark .hero-glass {
+    --background: 205 45% 7%;
+    --foreground: 195 30% 96%;
+    --muted-foreground: 200 15% 70%;
+    --border: 195 30% 40%;
+    --card: 205 40% 10%;
+    --brand-gold: #35D6EC;
+    --brand-gold-strong: #7BEAF6;
+    background: linear-gradient(180deg, hsl(205 50% 8%) 0%, hsl(202 45% 10%) 55%, hsl(205 45% 7%) 100%);
+    color: hsl(195 30% 96%);
+  }
+  .dark .hero-glass .hero-tech-grid {
+    background-image:
+      linear-gradient(hsl(190 80% 70% / 0.07) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(190 80% 70% / 0.07) 1px, transparent 1px);
+  }
+  .dark .hero-glass .hero-aurora {
+    background:
+      radial-gradient(ellipse 55% 45% at 15% 20%, rgba(45, 205, 230, 0.20), transparent 70%),
+      radial-gradient(ellipse 50% 55% at 80% 65%, rgba(20, 150, 200, 0.26), transparent 70%),
+      radial-gradient(ellipse 70% 40% at 55% 108%, rgba(10, 40, 60, 0.5), transparent 70%);
+  }
+  .dark .hero-glass .hero-noise { mix-blend-mode: screen; opacity: 0.3; }
+  .dark .hero-glass .hero-campus { opacity: 0.45; mix-blend-mode: screen; }
+  .dark .hero-glass .hero-wash {
+    background: linear-gradient(90deg, hsl(205 50% 8%) 0%, hsl(205 50% 8% / 0.65) 45%, transparent 100%);
+  }
+  .dark .hero-glass .hero-gradient-text {
+    background: linear-gradient(180deg, #FFFFFF 10%, rgba(190, 220, 235, 0.75) 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .dark .hero-glass .hero-glow-text {
+    background: linear-gradient(100deg, #7BEAF6 0%, #35D6EC 50%, #9FF2FB 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .dark .hero-glass .hero-entry { color: hsl(195 30% 96%); }
+  .dark .hero-glass .hero-entry::after { background: linear-gradient(90deg, rgba(53,214,236,0.9), rgba(53,214,236,0)); }
+  .dark .hero-glass .hero-entry:hover { color: #7BEAF6; }
+  .dark .hero-glass .hero-entry-index { color: rgba(53,214,236,0.95); }
+  .dark .hero-glass .hero-orbit { border-color: rgba(53, 214, 236, 0.22); }
+  .dark .hero-glass .hero-orbit::after { background: #7BEAF6; box-shadow: 0 0 16px 4px rgba(53,214,236,0.45); }
+  .dark .hero-glass .hero-core {
+    background: radial-gradient(circle at 40% 40%, rgba(230, 255, 255, 0.95), rgba(53, 214, 236, 0.4) 45%, transparent 72%);
+  }
+  .dark .hero-glass-panel {
+    background: rgba(10, 30, 42, 0.55);
+    border-color: rgba(120, 200, 220, 0.18);
+  }
+
+  .hero-wash {
+    background: linear-gradient(90deg, hsl(198 70% 98%) 0%, hsl(198 70% 98% / 0.55) 45%, transparent 100%);
+  }
+
   .hero-glass-panel {
     background: rgba(255, 255, 255, 0.55);
     backdrop-filter: blur(14px);
