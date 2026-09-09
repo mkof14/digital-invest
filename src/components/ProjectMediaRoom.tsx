@@ -180,6 +180,10 @@ const ProjectMediaRoom = ({ projectSlug, projectId, websiteUrl, projectTitle }: 
 
   useEffect(() => {
     if (!active) return;
+    if (active.kind === 'website' || active.kind === 'link') {
+      setStatus('ready');
+      return;
+    }
     setStatus('loading');
     if (timeoutRef.current) window.clearTimeout(timeoutRef.current);
     timeoutRef.current = window.setTimeout(() => {
@@ -365,30 +369,19 @@ const ProjectMediaRoom = ({ projectSlug, projectId, websiteUrl, projectTitle }: 
                 />
               )}
               {(active.kind === 'website' || active.kind === 'link') && (
-                <div className="absolute inset-0 flex flex-col">
-                  <iframe
-                    key={`${active.id}-${reloadKey}`}
-                    src={active.url}
-                    title={active.title}
-                    onLoad={handleLoaded}
-                    onError={handleError}
-                    className="flex-1 w-full border-0 animate-fade-in bg-background"
-                    sandbox="allow-scripts allow-same-origin allow-popups allow-forms"
-                    referrerPolicy="no-referrer"
-                  />
-                  <div className="px-4 py-2 text-xs text-muted-foreground bg-muted/60 border-t border-border/60 flex items-center justify-between gap-3">
-                    <span className="truncate">
-                      Some sites block embedding. If the preview is blank, open in a new tab.
-                    </span>
-                    <a
-                      href={active.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 text-primary hover:underline shrink-0"
-                    >
-                      Open <ExternalLink className="w-3 h-3" />
-                    </a>
+                <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 p-8 text-center bg-gradient-to-br from-primary/10 via-background to-accent/10 animate-fade-in">
+                  <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center">
+                    <Globe className="w-7 h-7 text-primary" />
                   </div>
+                  <div className="text-lg font-semibold text-foreground">{active.title}</div>
+                  <p className="text-sm text-muted-foreground max-w-md">
+                    This is an external website. It opens directly in a new browser tab.
+                  </p>
+                  <Button size="lg" className="gap-2" asChild>
+                    <a href={active.url} target="_blank" rel="noopener noreferrer">
+                      <ExternalLink className="w-4 h-4" /> Open {active.subtitle ?? 'website'}
+                    </a>
+                  </Button>
                 </div>
               )}
 

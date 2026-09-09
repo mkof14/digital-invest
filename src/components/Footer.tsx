@@ -182,6 +182,8 @@ const Footer = () => {
                     <a 
                       key={link.id}
                       href={link.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       onClick={handleClick}
                       className="text-muted-foreground hover:text-primary hover:scale-110 transition-all duration-200 cursor-pointer"
                       aria-label={link.display_name}>
