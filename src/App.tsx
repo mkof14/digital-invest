@@ -100,19 +100,13 @@ const TerraAero = lazy(() => import("./pages/Projects/TerraAero"));
 const DigitalInvest = lazy(() => import("./pages/Projects/DigitalInvest"));
 const MyDay = lazy(() => import("./pages/Projects/MyDay"));
 const OneInow = lazy(() => import("./pages/Projects/OneInow"));
-const ItsGoodToday = lazy(() => import("./pages/Projects/ItsGoodToday"));
 const AGRON = lazy(() => import("./pages/Projects/AGRON"));
 const AGRONWork = lazy(() => import("./pages/Projects/AGRONWork"));
 const LunaBalance = lazy(() => import("./pages/Projects/LunaBalance"));
-const StressCore = lazy(() => import("./pages/Projects/StressCore"));
-const VitalCore = lazy(() => import("./pages/Projects/VitalCore"));
-const BioAgeCore = lazy(() => import("./pages/Projects/BioAgeCore"));
+const HealthIntelligenceSuite = lazy(() => import("./pages/Projects/HealthIntelligenceSuite"));
 const LongevityCore = lazy(() => import("./pages/Projects/LongevityCore"));
 const FamilyCore = lazy(() => import("./pages/Projects/FamilyCore"));
-const SeniorCore = lazy(() => import("./pages/Projects/SeniorCore"));
-const SkinCore = lazy(() => import("./pages/Projects/SkinCore"));
 const MRXHealth = lazy(() => import("./pages/Projects/MRXHealth"));
-const TableServed = lazy(() => import("./pages/Projects/TableServed"));
 const BaseLine = lazy(() => import("./pages/Projects/BaseLine"));
 const SAVEN = lazy(() => import("./pages/Projects/SAVEN"));
 const T1D = lazy(() => import("./pages/Projects/T1D"));
@@ -234,17 +228,18 @@ const App = () => (
               <Route path="/projects/digital-invest" element={<DigitalInvest />} />
               <Route path="/projects/myday" element={<MyDay />} />
               <Route path="/projects/1inow" element={<OneInow />} />
-              <Route path="/projects/itsgoodtoday" element={<ItsGoodToday />} />
+              <Route path="/projects/itsgoodtoday" element={<Navigate to="/projects" replace />} />
               <Route path="/projects/luna-balance" element={<LunaBalance />} />
-              <Route path="/projects/stresscore" element={<StressCore />} />
-              <Route path="/projects/vitalcore" element={<VitalCore />} />
-              <Route path="/projects/bioagecore" element={<BioAgeCore />} />
+              <Route path="/projects/health-intelligence-suite" element={<HealthIntelligenceSuite />} />
+              <Route path="/projects/stresscore" element={<Navigate to="/projects/health-intelligence-suite" replace />} />
+              <Route path="/projects/vitalcore" element={<Navigate to="/projects/health-intelligence-suite" replace />} />
+              <Route path="/projects/bioagecore" element={<Navigate to="/projects/health-intelligence-suite" replace />} />
               <Route path="/projects/longevitycore" element={<LongevityCore />} />
               <Route path="/projects/familycore" element={<FamilyCore />} />
-              <Route path="/projects/seniorcore" element={<SeniorCore />} />
-              <Route path="/projects/skincore" element={<SkinCore />} />
+              <Route path="/projects/seniorcore" element={<Navigate to="/projects/health-intelligence-suite" replace />} />
+              <Route path="/projects/skincore" element={<Navigate to="/projects/health-intelligence-suite" replace />} />
               <Route path="/projects/mrx-health" element={<MRXHealth />} />
-              <Route path="/projects/table-served" element={<TableServed />} />
+              <Route path="/projects/table-served" element={<Navigate to="/projects" replace />} />
               <Route path="/projects/baseline" element={<BaseLine />} />
               <Route path="/projects/saven" element={<SAVEN />} />
               <Route path="/projects/t1d" element={<T1D />} />

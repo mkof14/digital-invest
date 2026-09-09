@@ -122,12 +122,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://digital-invest.lovable.app/projects/itsgoodtoday</loc>
-    <lastmod>2026-06-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://digital-invest.lovable.app/projects/agron</loc>
     <lastmod>2026-06-18</lastmod>
     <changefreq>monthly</changefreq>
@@ -152,43 +146,13 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://digital-invest.lovable.app/projects/stresscore</loc>
-    <lastmod>2026-06-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://digital-invest.lovable.app/projects/vitalcore</loc>
-    <lastmod>2026-06-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://digital-invest.lovable.app/projects/bioagecore</loc>
-    <lastmod>2026-06-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://digital-invest.lovable.app/projects/seniorcore</loc>
-    <lastmod>2026-06-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://digital-invest.lovable.app/projects/skincore</loc>
+    <loc>https://digital-invest.lovable.app/projects/health-intelligence-suite</loc>
     <lastmod>2026-06-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://digital-invest.lovable.app/projects/mrx-health</loc>
-    <lastmod>2026-06-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://digital-invest.lovable.app/projects/table-served</loc>
     <lastmod>2026-06-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>

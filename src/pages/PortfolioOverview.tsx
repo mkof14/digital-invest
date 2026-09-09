@@ -72,15 +72,6 @@ const overviewTexts: Record<string, Record<string, string>> = {
     ja: 'AIによってリバースエンジニアリングされたあなたの一日。MyDayはパターンを学び、エネルギーのピークを予測し、本当に効果的なことに時間を再構築します。行動フィードバックループに基づき毎週適応します。',
     he: 'היום שלך, מהונדס לאחור על ידי AI. MyDay לומד את הדפוסים שלך, חוזה שיאי אנרגיה ומבנה מחדש את הזמן. המערכת מתאימה עצמה שבועית על בסיס לולאות משוב התנהגותיות.'
   },
-  'itsgoodtoday': {
-    en: 'No tracking marathons. No meditation pressure. Just one small thing today that makes tomorrow slightly better. A wellness companion designed for real humans, not fitness influencers. It uses micro-habit science to build sustainable change without overwhelming you.',
-    ru: 'Никаких марафонов трекинга. Никакого давления медитацией. Просто одна маленькая вещь сегодня, которая сделает завтра чуть лучше. Использует науку микро-привычек для устойчивых изменений без перегрузки.',
-    uk: 'Жодних марафонів трекінгу. Жодного тиску медитацією. Просто одна маленька річ сьогодні, яка зробить завтра трохи кращим. Використовує науку мікро-звичок для стійких змін без перевантаження.',
-    fr: 'Pas de marathons de suivi. Pas de pression. Juste une petite chose aujourd\'hui qui rend demain un peu meilleur. Utilise la science des micro-habitudes pour un changement durable sans vous submerger.',
-    ar: 'لا ماراثونات تتبع. لا ضغط. مجرد شيء صغير اليوم يجعل الغد أفضل. يستخدم علم العادات الصغيرة لبناء تغيير مستدام دون إرهاقك.',
-    ja: 'トラッキングマラソンなし。プレッシャーなし。今日の小さな一つが、明日を少し良くする。マイクロハビットサイエンスを使い、圧倒することなく持続可能な変化を構築します。',
-    he: 'בלי מרתוני מעקב. בלי לחץ. רק דבר קטן אחד היום. משתמש במדע מיקרו-הרגלים לשינוי בר-קיימא בלי להציף אותך.'
-  },
   'mrx-health': {
     en: 'What happens when you mix medications? MRX.Health explores drug interactions through AI-driven bio-scan analysis — turning pharmacological complexity into clear, actionable safety insights. It cross-references thousands of compound combinations and flags risks before they become emergencies. No medical advice — just transparent data.',
     ru: 'Что произойдёт при смешении лекарств? MRX.Health исследует лекарственные взаимодействия через ИИ-анализ биосканирования. Перекрёстно проверяет тысячи комбинаций соединений и выявляет риски до того, как они станут экстренными. Без медицинских советов — только прозрачные данные.',
@@ -89,15 +80,6 @@ const overviewTexts: Record<string, Record<string, string>> = {
     ar: 'ماذا يحدث عند خلط الأدوية؟ يستكشف MRX.Health التفاعلات الدوائية بالذكاء الاصطناعي. يتحقق من آلاف تركيبات المركبات ويحدد المخاطر قبل أن تصبح طوارئ. بدون نصائح طبية — فقط بيانات شفافة.',
     ja: '薬を混ぜるとどうなる？MRX.HealthはAIバイオスキャンで薬物相互作用を探求。数千の化合物の組み合わせを照合し、緊急事態になる前にリスクを検出します。医療アドバイスなし — 透明なデータのみ。',
     he: 'מה קורה כשמערבבים תרופות? MRX.Health חוקר אינטראקציות תרופתיות באמצעות AI. בודק אלפי שילובי תרכובות ומזהה סיכונים לפני שהם הופכים למצבי חירום. ללא ייעוץ רפואי — רק נתונים שקופים.'
-  },
-  'table-served': {
-    en: 'Not another recipe app. TableServed is a deterministic nutrition protocol — weekly Stability Boxes, a fixed Friday Lock cycle, zero ingredient improvisation. Family nutrition, engineered with the precision of a supply chain. Every box is pre-calculated for macro balance, allergen safety, and household size.',
-    ru: 'Не очередное приложение рецептов. TableServed — детерминистический протокол питания: еженедельные Stability Box\'ы, фиксированный цикл Friday Lock, ноль импровизаций. Каждый бокс рассчитан по макро-балансу, аллергенной безопасности и размеру семьи.',
-    uk: 'Не черговий додаток рецептів. TableServed — детерміністичний протокол харчування: щотижневі Stability Box\'и, фіксований цикл Friday Lock, нуль імпровізацій. Кожен бокс розрахований по макро-балансу, алергенній безпеці та розміру родини.',
-    fr: 'Pas une autre appli de recettes. TableServed est un protocole nutritionnel déterministe — Stability Boxes hebdomadaires, cycle Friday Lock fixe, zéro improvisation. Chaque box est pré-calculée pour l\'équilibre macro, la sécurité allergène et la taille du foyer.',
-    ar: 'ليس تطبيق وصفات آخر. TableServed بروتوكول تغذية حتمي — صناديق استقرار أسبوعية، دورة قفل الجمعة، صفر ارتجال. كل صندوق محسوب مسبقاً للتوازن الغذائي وسلامة المواد المسببة للحساسية وحجم الأسرة.',
-    ja: 'ただのレシピアプリではありません。TableServedは決定論的栄養プロトコル — 毎週のStability Box、Friday Lockサイクル、即興ゼロ。各ボックスはマクロバランス、アレルゲン安全性、世帯サイズに基づいて事前計算されています。',
-    he: 'לא עוד אפליקציית מתכונים. TableServed הוא פרוטוקול תזונתי דטרמיניסטי — קופסאות יציבות שבועיות, מחזור נעילת שישי, אפס אלתור. כל קופסה מחושבת מראש לאיזון מאקרו, בטיחות אלרגנים וגודל משק הבית.'
   },
   'baseline': {
     en: 'Health logic, simplified to 4 steps. BaseLine takes complex clinical data and turns it into a launchpad — Biological Handshake, Baseline Ingestion, Marker Synthesis, Prognostic Launch. Your health journey starts with understanding where you stand. It replaces months of fragmented testing with one structured onboarding sequence.',
@@ -117,6 +99,11 @@ const overviewTexts: Record<string, Record<string, string>> = {
     ja: 'SAVENは継続的実行のインフラ — 医療知識と実生活をつなぐ運用の架け橋です。5ステップサイクル（評価→実行→検証→制御→支援）で構築され、ロボット、スマートデバイス、ウェアラブルと統合し、ケアプランが処方されるだけでなく確実に実行されます。システムは各サイクルで自己学習し、家庭・病院・施設の各環境に適応します。医療が終わるところから、SAVENが始まります。',
     he: 'SAVEN הוא תשתית לביצוע רציף — הגשר התפעולי בין הידע הרפואי לחיים האמיתיים. בנוי על מחזור בן 5 שלבים (הערכה ← פעולה ← אימות ← בקרה ← תמיכה), משתלב עם רובוטים, מכשירים חכמים ולבישים כדי להבטיח שתוכניות טיפול מבוצעות — ולא רק נרשמות. המערכת לומדת עצמית ומשתפרת עם כל מחזור, מסתגלת לסביבות ביתיות, בית חולים ומוסדות. איפה שהרפואה נגמרת, SAVEN מתחיל.'
   },
+  'health-intelligence-suite': {
+    en: 'Five health directions merged into one product: Stress, Vital, BioAge, Senior and Skin. One signal layer, one history, one non-medical guidance model across stress, vitals, biological age, senior support and skin analysis.',
+    ru: 'Пять направлений объединены в один продукт: Stress, Vital, BioAge, Senior и Skin. Общий слой сигналов, единая история наблюдений и единая немедицинская модель рекомендаций.',
+    uk: 'П’ять напрямів об’єднані в один продукт: Stress, Vital, BioAge, Senior і Skin. Спільний шар сигналів, єдина історія спостережень та єдина немедична модель рекомендацій.'
+  },
   'luna-balance': {
     en: 'Silence as technology. Luna Balance is a women\'s mindfulness platform built on \'Silence Technology\' and \'Relationship Mode\' — designed for emotional depth, inner stillness, and authentic connection. It doesn\'t prescribe meditation routines; it builds a personalized emotional architecture that adapts to hormonal and relational cycles.',
     ru: 'Тишина как технология. Luna Balance — женская платформа осознанности на основе «Технологии тишины» и «Режима отношений». Не назначает медитацию — строит персонализированную эмоциональную архитектуру, адаптирующуюся к гормональным и отношенческим циклам.',
@@ -125,33 +112,6 @@ const overviewTexts: Record<string, Record<string, string>> = {
     ar: 'الصمت كتقنية. Luna Balance منصة وعي نسائية مبنية على "تقنية الصمت" و"وضع العلاقات". لا تصف تمارين تأمل — بل تبني بنية عاطفية مخصصة تتكيف مع الدورات الهرمونية والعلاقاتية.',
     ja: 'テクノロジーとしての静寂。Luna Balanceは「サイレンステクノロジー」と「リレーションシップモード」に基づく女性向けマインドフルネスプラットフォーム。瞑想ルーチンを処方せず、ホルモンと関係性のサイクルに適応するパーソナライズされた感情アーキテクチャを構築します。',
     he: 'שתיקה כטכנולוגיה. Luna Balance פלטפורמת מיינדפולנס לנשים. לא רושמת שגרות מדיטציה — בונה ארכיטקטורה רגשית מותאמת אישית שמסתגלת למחזורים הורמונליים ויחסיים.'
-  },
-  'stresscore': {
-    en: 'Stress isn\'t the enemy — misunderstanding it is. StressCore maps your stress patterns and turns data into actionable calm. Science-backed resilience, not motivational posters. The system distinguishes productive stress from chronic overload and teaches your body to recalibrate in real-time.',
-    ru: 'Стресс — не враг. Непонимание стресса — враг. StressCore картирует паттерны стресса и превращает данные в действенное спокойствие. Система различает продуктивный стресс от хронической перегрузки и учит тело рекалибровке в реальном времени.',
-    uk: 'Стрес — не ворог. Нерозуміння стресу — ворог. StressCore картографує патерни стресу і перетворює дані на дієвий спокій. Система розрізняє продуктивний стрес від хронічного перевантаження та вчить тіло рекалібруватися в реальному часі.',
-    fr: 'Le stress n\'est pas l\'ennemi — le mal comprendre, si. StressCore cartographie vos schémas de stress. Le système distingue le stress productif de la surcharge chronique et enseigne à votre corps à se recalibrer en temps réel.',
-    ar: 'التوتر ليس العدو — سوء فهمه هو العدو. يرسم StressCore خرائط أنماط التوتر. يميز النظام بين التوتر المنتج والحمل الزائد المزمن ويعلم جسمك إعادة المعايرة في الوقت الفعلي.',
-    ja: 'ストレスは敵ではない — それを誤解することが敵です。StressCoreはストレスパターンをマッピング。生産的ストレスと慢性過負荷を区別し、リアルタイムで体を再キャリブレーションさせます。',
-    he: 'סטרס הוא לא האויב — אי-הבנה שלו כן. StressCore ממפה דפוסי סטרס. המערכת מבחינה בין סטרס פרודוקטיבי לעומס כרוני ומלמדת את הגוף לכייל מחדש בזמן אמת.'
-  },
-  'vitalcore': {
-    en: 'Every heartbeat tells a story. VitalCore captures, analyzes, and interprets vital signs in real-time — turning raw physiological data into health narratives you can actually act on. It connects to wearables, lab results, and clinical devices to create a unified vitals dashboard.',
-    ru: 'Каждое сердцебиение рассказывает историю. VitalCore захватывает и интерпретирует показатели в реальном времени. Подключается к носимым устройствам, лабораторным результатам и клиническим приборам для создания единой панели показателей жизнедеятельности.',
-    uk: 'Кожне серцебиття розповідає історію. VitalCore захоплює та інтерпретує показники в реальному часі. Підключається до носимих пристроїв, лабораторних результатів та клінічних приладів для створення єдиної панелі показників.',
-    fr: 'Chaque battement de cœur raconte une histoire. VitalCore capture et interprète les signes vitaux en temps réel. Il se connecte aux wearables, résultats de labo et dispositifs cliniques pour un tableau de bord unifié des signes vitaux.',
-    ar: 'كل نبضة قلب تحكي قصة. يلتقط VitalCore العلامات الحيوية ويفسرها في الوقت الفعلي. يتصل بالأجهزة القابلة للارتداء ونتائج المختبر والأجهزة السريرية للوحة معلومات موحدة.',
-    ja: 'すべての心拍がストーリーを語ります。VitalCoreはバイタルサインをリアルタイムで捕捉・解釈。ウェアラブル、ラボ結果、臨床デバイスに接続し、統合バイタルダッシュボードを作成します。',
-    he: 'כל פעימת לב מספרת סיפור. VitalCore לוכד ומפרש סימנים חיוניים בזמן אמת. מתחבר למכשירים לבישים, תוצאות מעבדה ומכשירים קליניים ללוח מחוונים אחיד.'
-  },
-  'bioagecore': {
-    en: 'Your passport says one age. Your biology says another. BioAgeCore calculates your true biological age and gives you a personalized roadmap to change it — because aging is negotiable. It combines epigenetic markers, metabolic panels, and lifestyle data into one actionable age score.',
-    ru: 'Паспорт говорит один возраст. Биология — другой. BioAgeCore рассчитывает истинный биологический возраст и даёт дорожную карту для его изменения. Объединяет эпигенетические маркеры, метаболические панели и данные образа жизни в один рабочий показатель возраста.',
-    uk: 'Паспорт каже один вік. Біологія — інший. BioAgeCore розраховує справжній біологічний вік і дає дорожню карту для його зміни. Об\'єднує епігенетичні маркери, метаболічні панелі та дані способу життя в один робочий показник віку.',
-    fr: 'Votre passeport dit un âge. Votre biologie en dit un autre. BioAgeCore calcule votre véritable âge biologique. Il combine marqueurs épigénétiques, panels métaboliques et données de style de vie en un score d\'âge actionnable.',
-    ar: 'جواز سفرك يقول عمراً. بيولوجيتك تقول آخر. يحسب BioAgeCore عمرك البيولوجي الحقيقي. يجمع العلامات الجينية والألواح الأيضية وبيانات نمط الحياة في درجة عمر واحدة قابلة للتنفيذ.',
-    ja: 'パスポートはひとつの年齢を示します。生物学は別の年齢を。BioAgeCoreは真の生物学的年齢を計算。エピジェネティックマーカー、代謝パネル、ライフスタイルデータを一つの実用的な年齢スコアに統合します。',
-    he: 'הדרכון אומר גיל אחד. הביולוגיה אומרת אחר. BioAgeCore מחשב את הגיל הביולוגי האמיתי. משלב סמנים אפיגנטיים, פאנלים מטבוליים ונתוני אורח חיים לציון גיל אחד בר-פעולה.'
   },
   'longevitycore': {
     en: 'Living longer isn\'t the goal — living better, longer, is. LongevityCore is a precision anti-aging system that goes beyond supplements and serums into the architecture of biological time. It tracks cellular aging markers and builds intervention protocols personalized to your biology.',
@@ -170,24 +130,6 @@ const overviewTexts: Record<string, Record<string, string>> = {
     ar: 'الصحة ليست فردية — إنها جيلية. يربط FamilyCore بيانات الصحة عبر أسرتك. يكتشف أنماط المخاطر الوراثية ويبني بروتوكولات وقائية لكل الأسرة.',
     ja: '健康は個人のものではなく世代のもの。FamilyCoreは家庭全体の健康データを接続。遺伝性リスクパターンを検出し、家族全体の予防プロトコルを構築します。',
     he: 'בריאות היא לא אישית — היא דורית. FamilyCore מחבר נתוני בריאות ברחבי משק הבית. מזהה דפוסי סיכון תורשתיים ובונה פרוטוקולים מונעים לכל המשפחה.'
-  },
-  'seniorcore': {
-    en: 'Aging with data, not just dignity. SeniorCore monitors cognitive and physical markers for older adults — delivering predictive care before problems become emergencies. It integrates caregiver dashboards and automated alerts, so families stay informed without being intrusive.',
-    ru: 'Старение с данными, а не только с достоинством. SeniorCore мониторит когнитивные и физические маркеры — предиктивный уход до экстренных ситуаций. Интегрирует панели для ухаживающих и автоматические оповещения, чтобы семьи были информированы без навязчивости.',
-    uk: 'Старіння з даними, а не лише з гідністю. SeniorCore моніторить когнітивні та фізичні маркери — предиктивний догляд до екстрених ситуацій. Інтегрує панелі для доглядачів та автоматичні сповіщення.',
-    fr: 'Vieillir avec des données, pas seulement avec dignité. SeniorCore surveille les marqueurs cognitifs et physiques. Il intègre des tableaux de bord pour les soignants et des alertes automatisées pour que les familles restent informées.',
-    ar: 'الشيخوخة مع البيانات. يراقب SeniorCore العلامات المعرفية والجسدية لكبار السن. يدمج لوحات معلومات لمقدمي الرعاية وتنبيهات تلقائية حتى تبقى العائلات على اطلاع دون تطفل.',
-    ja: 'データとともに老いる。SeniorCoreは高齢者の認知的・身体的マーカーを監視。介護者ダッシュボードと自動アラートを統合し、家族が押し付けがましくなく情報を得られるようにします。',
-    he: 'הזדקנות עם נתונים. SeniorCore עוקב אחר סמנים קוגניטיביים ופיזיים. משלב לוחות מחוונים למטפלים והתראות אוטומטיות כדי שמשפחות יישארו מעודכנות.'
-  },
-  'skincore': {
-    en: 'Your skin is your largest organ — treat it like one. SkinCore uses AI dermatology to track, analyze, and guide personalized skin care routines with clinical-grade precision. It monitors changes over time and flags anomalies that deserve professional attention.',
-    ru: 'Кожа — ваш самый большой орган. SkinCore использует ИИ-дерматологию для персонализации ухода с клинической точностью. Отслеживает изменения во времени и выявляет аномалии, требующие профессионального внимания.',
-    uk: 'Шкіра — ваш найбільший орган. SkinCore використовує ІІ-дерматологію для персоналізації догляду з клінічною точністю. Відстежує зміни з часом та виявляє аномалії, що потребують професійної уваги.',
-    fr: 'Votre peau est votre plus grand organe. SkinCore utilise la dermatologie IA avec une précision clinique. Il surveille les changements au fil du temps et signale les anomalies nécessitant une attention professionnelle.',
-    ar: 'بشرتك أكبر عضو لديك. يستخدم SkinCore الأمراض الجلدية بالذكاء الاصطناعي بدقة سريرية. يراقب التغييرات بمرور الوقت ويحدد الشذوذات التي تستحق اهتماماً مهنياً.',
-    ja: '肌はあなたの最大の臓器。SkinCoreはAI皮膚科学で臨床グレードの精度でパーソナライズされたスキンケアをガイド。経時変化を監視し、専門的注意が必要な異常を検出します。',
-    he: 'העור הוא האיבר הגדול ביותר. SkinCore משתמש בדרמטולוגיית AI בדיוק קליני. עוקב אחר שינויים לאורך זמן ומזהה חריגות שמצדיקות תשומת לב מקצועית.'
   },
   't1d': {
     en: 'A unified daily-life platform for people with Type 1 and Type 2 diabetes. T1/2D translates continuous signals into simple states — stable, changing, possible risk, recovery — and runs in two distinct modes so children, parents, caregivers and Type 2 adults aren\'t forced into the same experience. No alarm-driven dashboards. Less effort, better timing.',
@@ -246,14 +188,10 @@ const projectOrder: string[] = [
   'biomath-core',
   'biomathcore',
   'saven',
-  'stresscore',
-  'vitalcore',
-  'bioagecore',
   'longevitycore',
   'familycore',
-  'seniorcore',
-  'skincore',
   'luna-balance',
+  'health-intelligence-suite',
   't1d',
   'mrx-health',
   'baseline',
@@ -264,8 +202,6 @@ const projectOrder: string[] = [
   'myday',
   '1inow',
   'facetium',
-  'itsgoodtoday',
-  'table-served',
 ];
 
 const getProjectOrderIndex = (slug: string) => {
@@ -284,19 +220,13 @@ const accentGradients: Record<string, string> = {
   'myday': 'from-indigo-500/20 to-indigo-500/0',
   '1inow': 'from-emerald-400/20 to-emerald-400/0',
   'facetium': 'from-amber-500/20 to-amber-500/0',
-  'itsgoodtoday': 'from-orange-500/20 to-orange-500/0',
   'mrx-health': 'from-rose-500/20 to-rose-500/0',
-  'table-served': 'from-amber-400/20 to-amber-400/0',
   'baseline': 'from-teal-500/20 to-teal-500/0',
   'saven': 'from-violet-500/20 to-violet-500/0',
   'luna-balance': 'from-pink-500/20 to-pink-500/0',
-  'stresscore': 'from-purple-500/20 to-purple-500/0',
-  'vitalcore': 'from-red-500/20 to-red-500/0',
-  'bioagecore': 'from-fuchsia-500/20 to-fuchsia-500/0',
+  'health-intelligence-suite': 'from-cyan-500/20 to-cyan-500/0',
   'longevitycore': 'from-emerald-400/20 to-emerald-400/0',
   'familycore': 'from-blue-500/20 to-blue-500/0',
-  'seniorcore': 'from-stone-500/20 to-stone-500/0',
-  'skincore': 'from-pink-400/20 to-pink-400/0',
   't1d': 'from-teal-500/20 to-teal-500/0',
   'digital-invest-portfolio': 'from-slate-400/20 to-slate-400/0',
 };
@@ -312,19 +242,13 @@ const accentDots: Record<string, string> = {
   'myday': 'bg-indigo-500',
   '1inow': 'bg-emerald-400',
   'facetium': 'bg-amber-500',
-  'itsgoodtoday': 'bg-orange-500',
   'mrx-health': 'bg-rose-500',
-  'table-served': 'bg-amber-400',
   'baseline': 'bg-teal-500',
   'saven': 'bg-violet-500',
   'luna-balance': 'bg-pink-500',
-  'stresscore': 'bg-purple-500',
-  'vitalcore': 'bg-red-500',
-  'bioagecore': 'bg-fuchsia-500',
+  'health-intelligence-suite': 'bg-cyan-500',
   'longevitycore': 'bg-emerald-400',
   'familycore': 'bg-blue-500',
-  'seniorcore': 'bg-stone-500',
-  'skincore': 'bg-pink-400',
   't1d': 'bg-teal-500',
   'digital-invest-portfolio': 'bg-slate-400',
 };
@@ -341,19 +265,13 @@ const accentPalette: Record<string, { text: string; border: string; bgSoft: stri
   'myday':          { text: 'text-indigo-400',  border: 'border-indigo-500/60',  bgSoft: 'bg-indigo-500/10',  glow: 'shadow-indigo-500/20',  ring: 'ring-indigo-500/40' },
   '1inow':          { text: 'text-emerald-300', border: 'border-emerald-400/60', bgSoft: 'bg-emerald-400/10', glow: 'shadow-emerald-400/20', ring: 'ring-emerald-400/40' },
   'facetium':       { text: 'text-amber-300',   border: 'border-amber-500/60',   bgSoft: 'bg-amber-500/10',   glow: 'shadow-amber-500/20',   ring: 'ring-amber-500/40' },
-  'itsgoodtoday':   { text: 'text-orange-400',  border: 'border-orange-500/60',  bgSoft: 'bg-orange-500/10',  glow: 'shadow-orange-500/20',  ring: 'ring-orange-500/40' },
   'mrx-health':     { text: 'text-rose-400',    border: 'border-rose-500/60',    bgSoft: 'bg-rose-500/10',    glow: 'shadow-rose-500/20',    ring: 'ring-rose-500/40' },
-  'table-served':   { text: 'text-amber-300',   border: 'border-amber-400/60',   bgSoft: 'bg-amber-400/10',   glow: 'shadow-amber-400/20',   ring: 'ring-amber-400/40' },
   'baseline':       { text: 'text-teal-400',    border: 'border-teal-500/60',    bgSoft: 'bg-teal-500/10',    glow: 'shadow-teal-500/20',    ring: 'ring-teal-500/40' },
   'saven':          { text: 'text-violet-400',  border: 'border-violet-500/60',  bgSoft: 'bg-violet-500/10',  glow: 'shadow-violet-500/20',  ring: 'ring-violet-500/40' },
   'luna-balance':   { text: 'text-pink-400',    border: 'border-pink-500/60',    bgSoft: 'bg-pink-500/10',    glow: 'shadow-pink-500/20',    ring: 'ring-pink-500/40' },
-  'stresscore':     { text: 'text-purple-400',  border: 'border-purple-500/60',  bgSoft: 'bg-purple-500/10',  glow: 'shadow-purple-500/20',  ring: 'ring-purple-500/40' },
-  'vitalcore':      { text: 'text-red-400',     border: 'border-red-500/60',     bgSoft: 'bg-red-500/10',     glow: 'shadow-red-500/20',     ring: 'ring-red-500/40' },
-  'bioagecore':     { text: 'text-fuchsia-400', border: 'border-fuchsia-500/60', bgSoft: 'bg-fuchsia-500/10', glow: 'shadow-fuchsia-500/20', ring: 'ring-fuchsia-500/40' },
+  'health-intelligence-suite': { text: 'text-cyan-300',   border: 'border-cyan-500/60',   bgSoft: 'bg-cyan-500/10',   glow: 'shadow-cyan-500/20',   ring: 'ring-cyan-500/40' },
   'longevitycore':  { text: 'text-emerald-300', border: 'border-emerald-400/60', bgSoft: 'bg-emerald-400/10', glow: 'shadow-emerald-400/20', ring: 'ring-emerald-400/40' },
   'familycore':     { text: 'text-blue-400',    border: 'border-blue-500/60',    bgSoft: 'bg-blue-500/10',    glow: 'shadow-blue-500/20',    ring: 'ring-blue-500/40' },
-  'seniorcore':     { text: 'text-stone-300',   border: 'border-stone-500/60',   bgSoft: 'bg-stone-500/10',   glow: 'shadow-stone-500/20',   ring: 'ring-stone-500/40' },
-  'skincore':       { text: 'text-pink-300',    border: 'border-pink-400/60',    bgSoft: 'bg-pink-400/10',    glow: 'shadow-pink-400/20',    ring: 'ring-pink-400/40' },
   't1d':            { text: 'text-teal-300',    border: 'border-teal-500/60',    bgSoft: 'bg-teal-500/10',    glow: 'shadow-teal-500/20',    ring: 'ring-teal-500/40' },
   'digital-invest-portfolio': { text: 'text-slate-300', border: 'border-slate-400/60', bgSoft: 'bg-slate-500/10', glow: 'shadow-slate-500/20', ring: 'ring-slate-400/40' },
 };
