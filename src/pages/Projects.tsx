@@ -293,6 +293,12 @@ const Projects = () => {
   const { toast } = useToast();
   const { t } = useTranslation();
 
+  // Локализация подписей карточек (категории, теги, статусы) с англ. фолбэком
+  const catalogKey = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+  const tLabel = (s: string) => t(`projectsCatalog.labels.${catalogKey(s)}`, s);
+  const tTag = (s: string) => t(`projectsCatalog.tags.${catalogKey(s)}`, s);
+  const tStatus = (s: string) => t(`projectsCatalog.statuses.${s}`, s.replace('_', ' '));
+
   // Map slugs to actual imported images
   const projectImages: Record<string, string> = {
     terraaero: terraaeroHero,
