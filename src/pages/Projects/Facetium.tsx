@@ -194,7 +194,21 @@ const Facetium = () => {
             ))}
           </div>
         </div>
+        <div className="container mx-auto px-4 mt-12">
+          <div className="rounded-2xl overflow-hidden border border-amber-500/15 max-w-5xl mx-auto">
+            <img
+              src={interiorImg}
+              alt="Interior of a FACETIUM digital commercial environment"
+              loading="lazy"
+              width={1600}
+              height={912}
+              className="w-full h-auto object-cover"
+            />
+          </div>
+        </div>
       </section>
+
+
 
       {/* Experience */}
       <section className="py-20">
