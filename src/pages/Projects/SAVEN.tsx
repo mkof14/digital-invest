@@ -26,6 +26,12 @@ import homeAssist2Asset from '@/assets/saven/home-assist-2.asset.json';
 import interactionAsset from '@/assets/saven/interaction.asset.json';
 import rehabilitationAsset from '@/assets/saven/rehabilitation.asset.json';
 import environmentsAsset from '@/assets/saven/environments.asset.json';
+import mealAssistAsset from '@/assets/saven/meal-assist.asset.json';
+import gardenAssistAsset from '@/assets/saven/garden-assist.asset.json';
+import childAssistAsset from '@/assets/saven/child-assist.asset.json';
+import companionshipAsset from '@/assets/saven/companionship.asset.json';
+import recoveryAssistAsset from '@/assets/saven/recovery-assist.asset.json';
+import ecosystemAsset from '@/assets/saven/ecosystem.asset.json';
 
 const Section = ({
   id, kicker, title, children, className = '',
