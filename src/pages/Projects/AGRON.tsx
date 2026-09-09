@@ -81,8 +81,9 @@ const AGRON = () => {
       <section className="relative min-h-[78vh] flex items-center overflow-hidden">
         <div className="absolute inset-0">
           <OptimizedImage
-            src={starwallHero.url}
-            alt="AGRON autonomous maritime operations environment"
+            src={agronPort.url}
+            alt="AGRON autonomous operations and port infrastructure environment"
+
             containerClassName="w-full h-full"
             className="w-full h-full object-cover"
             showSkeleton={false}
