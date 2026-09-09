@@ -14,12 +14,11 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import {
   ArrowLeft, ArrowRight, ArrowDown, ExternalLink, Cpu, Radar, ShieldCheck,
-  GraduationCap, Network, Settings, Anchor, Ship, Truck, Container as ContainerIcon,
+  GraduationCap, Network, Settings, Anchor, Ship, Truck,
   Eye, Search, Gauge, Bell, LifeBuoy, Lock, Brain, Building2, Layers,
 } from 'lucide-react';
 
 import agronLogo from '@/assets/projects/agron-logo-2026.png.asset.json';
-import agronContainer from '@/assets/projects/agron-container.png.asset.json';
 import agronMarina from '@/assets/projects/agron-marina.png.asset.json';
 import agronPort from '@/assets/projects/agron-port.png.asset.json';
 import agronIsland from '@/assets/projects/agron-island.png.asset.json';
