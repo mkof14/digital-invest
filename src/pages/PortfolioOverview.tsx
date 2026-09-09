@@ -456,7 +456,7 @@ const PortfolioOverview = () => {
                             </h2>
                             <div className={`flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium border transition-all duration-300 ${isHovered ? `${palette.bgSoft} ${palette.text} ${palette.border}` : 'bg-muted/60 text-muted-foreground border-transparent'}`}>
                               {icon}
-                              <span>{project.category}</span>
+                              <span>{t(`projectsCatalog.labels.${project.category.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')}`, project.category)}</span>
                             </div>
                             {isFlagship && (
                               <div className={`flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold border ${palette.bgSoft} ${palette.text} ${palette.border} shadow-sm`}>
