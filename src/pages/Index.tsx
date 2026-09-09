@@ -277,14 +277,6 @@ const Index = () => {
                     </span>
                     <span className="font-medium">Active Investment Opportunities</span>
                   </div>
-                  <div className="hidden sm:flex items-center gap-2">
-                    <Shield className="w-3.5 h-3.5 text-primary/70" />
-                    <span>Private · Trust-based</span>
-                  </div>
-                  <div className="hidden md:flex items-center gap-2">
-                    <Award className="w-3.5 h-3.5 text-accent/80" />
-                    <span>$19.5B in prior exits</span>
-                  </div>
                 </div>
 
                 {/* Sector pills — visual portfolio teaser */}
@@ -331,36 +323,6 @@ const Index = () => {
 
             {/* Right — Metrics + Live Portfolio Card */}
             <div className="lg:col-span-5 animate-fade-in space-y-4">
-              <div className="relative">
-                {/* Glow behind metrics */}
-                <div className="absolute -inset-2 bg-gradient-to-br from-primary/15 via-accent/10 to-info/15 rounded-3xl blur-xl opacity-60" />
-
-                <div className="relative grid grid-cols-2 gap-px bg-border/50 rounded-2xl overflow-hidden border border-border/40 shadow-elevated">
-                  {[
-                    { value: "25+", label: t('hero.yearsExp'), accent: "from-accent/15 via-accent/5 to-transparent", trend: null, badge: null },
-                    { value: "20+", label: t('hero.activeProjects'), accent: "from-info/15 via-info/5 to-transparent", trend: <TrendingUp className="w-3.5 h-3.5 text-success" />, badge: null },
-                    { value: "$19.5B", label: t('hero.exitValue'), accent: "from-success/15 via-success/5 to-transparent", trend: <TrendingUp className="w-3.5 h-3.5 text-success" />, badge: 'Top' },
-                    { value: "15+", label: t('hero.countriesServed'), accent: "from-primary/15 via-primary/5 to-transparent", trend: null, badge: null }
-                  ].map((stat, i) => (
-                    <div key={i} className={`relative bg-card/60 backdrop-blur-sm p-7 lg:p-9 flex flex-col justify-center text-center hover:bg-card/90 transition-all duration-500 group hover:shadow-lg`}>
-                      <div className={`absolute inset-0 bg-gradient-to-br ${stat.accent} opacity-40 group-hover:opacity-100 transition-opacity duration-500`} />
-                      {stat.badge && (
-                        <span className="absolute top-2 right-2 text-[9px] font-bold tracking-widest uppercase px-1.5 py-0.5 rounded-sm bg-success/15 text-success border border-success/30">
-                          {stat.badge}
-                        </span>
-                      )}
-                      <div className="relative">
-                        <div className="flex items-center justify-center gap-1.5">
-                          <div className="text-3xl lg:text-4xl xl:text-5xl font-bold text-foreground tracking-tight group-hover:scale-105 transition-transform duration-300">{stat.value}</div>
-                          {stat.trend}
-                        </div>
-                        <div className="text-xs md:text-sm text-muted-foreground mt-2 font-medium">{stat.label}</div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
               {/* Live portfolio teaser CTA */}
               <Link to="/projects" className="group relative block overflow-hidden rounded-2xl border border-brand-gold/20 bg-card/70 backdrop-blur-md p-5 hover:border-brand-gold/50 hover:bg-card transition-all duration-300 hover:shadow-xl hover:shadow-brand-gold/10">
                 <div className="absolute inset-0 bg-gradient-to-r from-[#D4A24C]/5 via-[#1E73E8]/5 to-[#D4A24C]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
