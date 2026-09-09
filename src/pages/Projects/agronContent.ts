@@ -26,6 +26,16 @@ export interface AgronContent {
   what: { title: string; p1: string; p2: string; layers: Pair[] };
   record: { title: string; note: string; stats: { v: string; l: string }[] };
   capabilities: { title: string; items: Pair[] };
+  services: { kicker: string; title: string; p: string; note: string; cta: string; areas: Area[] };
+  geospatial: { title: string; p: string; items: string[]; cta: string };
+  maritimeWater: { title: string; kicker: string; items: Pair[]; cta: string };
+  maritimeLand: { title: string; p: string; envs: string[]; items: Pair[] };
+  sysArch: { title: string; kicker: string; flow: string[] };
+  commercial: { title: string; kicker: string; p: string; items: string[]; note: string };
+  path: { title: string; kicker: string; steps: string[]; note: string };
+  now: { title: string; note: string; items: { t: string; s: string }[] };
+  portfolioArch: { title: string; p: string; items: string[] };
+
   maritime: {
     title: string;
     kicker: string;
