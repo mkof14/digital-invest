@@ -37,6 +37,7 @@ import savenHero from '@/assets/projects/saven-hero.webp';
 import savenLogo from '@/assets/projects/saven-logo.webp';
 import t1dHero from '@/assets/projects/t1d-hero.jpg';
 import oneinowHero from '@/assets/projects/1inow-hero.jpg';
+import facetiumEntrance from '@/assets/projects/facetium-entrance.png.asset.json';
 import biomathcoreCardBg from '@/assets/projects/biomathcore-card-bg.webp';
 import biomathcoreLogoBanner from '@/assets/projects/biomathcore-logo-banner.png';
 import OptimizedImage from '@/components/OptimizedImage';
@@ -68,6 +69,7 @@ const projectThemes: Record<string, { from: string; to: string; accent: string; 
   'skincore': { from: 'from-pink-400/20', to: 'to-rose-500/20', accent: 'text-pink-300', border: 'border-pink-400/30', btnBg: 'bg-pink-500', btnHover: 'hover:bg-pink-400', label: 'Beauty' },
   't1d': { from: 'from-teal-500/20', to: 'to-amber-500/20', accent: 'text-teal-300', border: 'border-teal-500/30', btnBg: 'bg-teal-600', btnHover: 'hover:bg-teal-500', label: 'Diabetes Care' },
   '1inow': { from: 'from-emerald-500/20', to: 'to-teal-700/20', accent: 'text-emerald-400', border: 'border-emerald-500/30', btnBg: 'bg-emerald-600', btnHover: 'hover:bg-emerald-500', label: 'Productivity' },
+  'facetium': { from: 'from-amber-500/20', to: 'to-yellow-700/20', accent: 'text-amber-300', border: 'border-amber-500/30', btnBg: 'bg-amber-600', btnHover: 'hover:bg-amber-500', label: 'Digital Commerce' },
 };
 
 const getTheme = (slug: string) => projectThemes[slug] || { from: 'from-primary/20', to: 'to-primary/20', accent: 'text-primary', border: 'border-primary/30', btnBg: 'bg-primary', btnHover: 'hover:bg-primary/80', label: 'Project' };
@@ -198,6 +200,7 @@ const projectOrder: string[] = [
   'itsgoodtoday',
   'table-served',
   '1inow',
+  'facetium',
 ];
 
 const getProjectOrderIndex = (slug: string) => {
