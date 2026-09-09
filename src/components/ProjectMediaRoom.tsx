@@ -180,6 +180,10 @@ const ProjectMediaRoom = ({ projectSlug, projectId, websiteUrl, projectTitle }: 
 
   useEffect(() => {
     if (!active) return;
+    if (active.kind === 'website' || active.kind === 'link') {
+      setStatus('ready');
+      return;
+    }
     setStatus('loading');
     if (timeoutRef.current) window.clearTimeout(timeoutRef.current);
     timeoutRef.current = window.setTimeout(() => {
