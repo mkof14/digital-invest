@@ -132,7 +132,7 @@ const Navigation = () => {
             {isAuthenticated ? (
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <Button variant="ghost" className="flex items-center gap-2 border border-border/40 bg-transparent hover:bg-primary/10 hover:border-primary/40 transition-all duration-300">
+                  <Button variant="ghost" className="flex items-center gap-2 bg-transparent hover:bg-primary/10">
                     <User className="h-4 w-4" />
                     <span className="max-w-[150px] truncate">{user?.email}</span>
                   </Button>
@@ -147,7 +147,7 @@ const Navigation = () => {
                 </DropdownMenuContent>
               </DropdownMenu>
             ) : (
-              <Button variant="ghost" asChild className="border border-border/40 bg-transparent hover:bg-primary/10 hover:border-primary/40 hover:shadow-md hover:shadow-primary/10 transition-all duration-300">
+              <Button variant="ghost" asChild className="bg-transparent hover:bg-primary/10 hover:shadow-md hover:shadow-primary/10">
                 <Link to="/investor-auth" className="flex items-center gap-2">
                   <LogIn className="h-4 w-4" />
                   {t('nav.signIn')}
@@ -192,17 +192,16 @@ const Navigation = () => {
               {/* Mobile Language Selector */}
               <div className="flex flex-wrap gap-2 py-2">
                 {languages.map((lang) => (
-                  <button
+                  <Button
+                    type="button"
+                    variant={i18n.language === lang.code ? 'default' : 'secondary'}
+                    size="sm"
                     key={lang.code}
                     onClick={() => changeLanguage(lang.code)}
-                    className={`px-3 py-1.5 rounded-md text-sm transition-colors ${
-                      i18n.language === lang.code
-                        ? 'bg-primary text-primary-foreground'
-                        : 'bg-muted text-muted-foreground hover:bg-muted/80'
-                    }`}
+                    className="px-3"
                   >
                     {lang.flag} {lang.name}
-                  </button>
+                  </Button>
                 ))}
               </div>
               

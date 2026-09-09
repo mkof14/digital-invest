@@ -11,6 +11,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { Button } from '@/components/ui/button';
 
 const AdamasNavigation = () => {
   const { theme, setTheme } = useTheme();
@@ -60,10 +61,10 @@ const AdamasNavigation = () => {
             {/* Language */}
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <button className="flex items-center gap-1.5 px-2.5 py-2 rounded-lg text-xs text-foreground/50 hover:text-foreground/80 hover:bg-muted/40 transition-colors">
+                <Button variant="ghost" size="sm" className="gap-1.5 px-2.5 text-foreground/70 hover:text-foreground">
                   <Globe className="w-3.5 h-3.5" />
                   <span className="hidden sm:inline">{currentLang.flag}</span>
-                </button>
+                </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end" className="min-w-[140px]">
                 {languages.map((lang) => (
@@ -80,12 +81,16 @@ const AdamasNavigation = () => {
             </DropdownMenu>
 
             {/* Theme toggle */}
-            <button
+            <Button
+              type="button"
+              variant="ghost"
+              size="icon"
               onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-              className="p-2 rounded-lg text-foreground/50 hover:text-foreground/80 hover:bg-muted/40 transition-colors"
+              className="h-9 w-9 text-foreground/70 hover:text-foreground"
+              aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
             >
               {theme === 'dark' ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
-            </button>
+            </Button>
           </div>
         </div>
       </div>
