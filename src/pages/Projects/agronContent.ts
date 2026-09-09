@@ -108,12 +108,12 @@ const en: AgronContent = {
     title: 'Operating Record',
     note: 'Operational indicators reported by AGRON. No financial performance figures are presented.',
     stats: [
-      { v: '10K+', l: 'Specialists trained' },
-      { v: '25K+', l: 'Mission exposures' },
-      { v: '4+ years', l: 'Continuous operations' },
-      { v: '30+', l: 'Team' },
-      { v: '10+', l: 'Countries / international programme experience' },
+      { v: '10K+', l: 'UAV operators, instructors and specialists trained' },
+      { v: '22', l: 'Defined professional-service offerings' },
+      { v: '18', l: 'Training programmes developed' },
+      { v: '10+', l: 'Countries with delivered programmes' },
     ],
+
   },
   capabilities: {
     title: 'Capability Architecture',
