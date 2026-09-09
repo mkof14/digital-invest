@@ -438,7 +438,3 @@ const Facetium = () => {
 };
 
 export default Facetium;
-</content>
-</invoke>
-<invoke name="code--exec">
-<parameter name="command">rg -n "abu-mall|AbuMall" src/App.tsx src/pages/AdamasMaterials/index.tsx src/pages/AdamasMaterials/AdamasProjectDetail.tsx; echo ---; sed -n 150,175p src/pages/ResourcesLibrary.tsx; echo ---; sed -n 305,315p public/sitemap.xml; echo ---; rg -n "Navigate|1inow" src/App.tsx | head
