@@ -18,23 +18,26 @@ import {
   Eye, Search, Gauge, Bell, LifeBuoy, Lock, Brain, Building2, Layers,
 } from 'lucide-react';
 
-import agronLogo from '@/assets/projects/agron-logo-official.png.asset.json';
+import agronLogo from '@/assets/projects/agron-logo-2026.png.asset.json';
 import agronContainer from '@/assets/projects/agron-container.png.asset.json';
 import agronMarina from '@/assets/projects/agron-marina.png.asset.json';
 import agronPort from '@/assets/projects/agron-port.png.asset.json';
 import agronIsland from '@/assets/projects/agron-island.png.asset.json';
-import starwallHero from '@/assets/projects/starwall-hero.png.asset.json';
 import starwallOverview from '@/assets/projects/starwall-overview.jpg.asset.json';
 import starwallLogo from '@/assets/projects/starwall-logo.png.asset.json';
 
 import { getAgronContent } from './agronContent';
 
 const AGRON_SITE = 'https://www.agron1.com';
+const AGRON_SERVICES = 'https://www.agron1.com/services';
+const AGRON_MARITIME = 'https://www.agron1.com/maritime';
 
 const layerIcons = [Cpu, Settings, Brain, ShieldCheck, GraduationCap, Network];
 const capabilityIcons = [Building2, Search, Layers, GraduationCap, Settings, Network, ShieldCheck];
+const serviceIcons = [Network, Search, Layers, GraduationCap, Settings];
 const protectionIcons = [Eye, Search, Gauge, Bell, LifeBuoy, Lock, Brain];
 const modularIcons = [Ship, Truck, ContainerIcon];
+
 
 /** Vertical on mobile, horizontal on desktop — never overflows. */
 const FlowChain = ({ steps }: { steps: string[] }) => (
@@ -77,8 +80,9 @@ const AGRON = () => {
       <section className="relative min-h-[78vh] flex items-center overflow-hidden">
         <div className="absolute inset-0">
           <OptimizedImage
-            src={starwallHero.url}
-            alt="AGRON autonomous maritime operations environment"
+            src={agronPort.url}
+            alt="AGRON autonomous operations and port infrastructure environment"
+
             containerClassName="w-full h-full"
             className="w-full h-full object-cover"
             showSkeleton={false}
@@ -123,16 +127,22 @@ const AGRON = () => {
             <p className="mt-8 text-base md:text-lg text-white/75 leading-relaxed max-w-2xl">{c.hero.desc}</p>
 
             <div className="flex flex-wrap gap-3 mt-10">
-              <Button size="lg" onClick={() => setShowInterest(true)}>
-                {c.hero.ctaPrimary} <ArrowRight className="ml-2 w-5 h-5 rtl:rotate-180" />
+              <Button size="lg" asChild>
+                <a href={AGRON_SERVICES} target="_blank" rel="noopener noreferrer">
+                  {c.services.cta} <ExternalLink className="ml-2 w-4 h-4" />
+                </a>
               </Button>
               <Button size="lg" variant="secondary" asChild>
                 <a href={AGRON_SITE} target="_blank" rel="noopener noreferrer">
                   {c.hero.ctaSecondary} <ExternalLink className="ml-2 w-4 h-4" />
                 </a>
               </Button>
+              <Button size="lg" variant="ghost" className="text-white hover:text-white" onClick={() => setShowInterest(true)}>
+                {c.cta.primary} <ArrowRight className="ml-2 w-5 h-5 rtl:rotate-180" />
+              </Button>
               <DownloadInvestorBriefButton projectSlug="agron" size="lg" />
             </div>
+
           </div>
         </div>
       </section>
@@ -158,7 +168,13 @@ const AGRON = () => {
               );
             })}
           </div>
+
+          <div className="mt-10 p-6 md:p-8 rounded-2xl border border-border/60 bg-card/40">
+            <p className="text-sm uppercase tracking-widest text-muted-foreground mb-6">{c.what.flowTitle}</p>
+            <FlowChain steps={c.what.flow} />
+          </div>
         </section>
+
 
         {/* OPERATING RECORD */}
         <section>
@@ -192,6 +208,68 @@ const AGRON = () => {
             })}
           </div>
         </section>
+
+        {/* SERVICES CATALOG */}
+        <section>
+          <SectionTitle kicker={c.services.kicker} title={c.services.title} />
+          <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-4xl">{c.services.p}</p>
+
+          <div className="mt-8">
+            <Button size="lg" asChild>
+              <a href={AGRON_SERVICES} target="_blank" rel="noopener noreferrer">
+                {c.services.cta} <ExternalLink className="ml-2 w-4 h-4" />
+              </a>
+            </Button>
+            <p className="mt-3 text-xs text-muted-foreground">{c.services.note}</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-10">
+            {c.services.areas.map((area, i) => {
+              const Icon = serviceIcons[i % serviceIcons.length];
+              return (
+                <Card key={area.t} className="bg-card/60 border-border/60 hover:border-primary/40 transition-colors">
+                  <CardContent className="pt-6">
+                    <Icon className="w-6 h-6 text-primary mb-3" aria-hidden="true" />
+                    <h3 className="font-semibold text-foreground">{area.t}</h3>
+                    <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{area.d}</p>
+                    {area.items && (
+                      <ul className="mt-4 space-y-2">
+                        {area.items.map((line) => (
+                          <li key={line} className="flex items-start gap-2 text-sm text-muted-foreground">
+                            <span className="mt-2 w-1 h-1 rounded-full bg-primary flex-shrink-0" aria-hidden="true" />
+                            {line}
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </CardContent>
+                </Card>
+              );
+            })}
+          </div>
+        </section>
+
+        {/* GEOSPATIAL */}
+        <section>
+          <SectionTitle title={c.geospatial.title} />
+          <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-4xl">{c.geospatial.p}</p>
+          <div className="flex flex-wrap gap-2 mt-6">
+            {c.geospatial.items.map((item) => (
+              <span key={item} className="px-4 py-2 rounded-lg border border-border/60 bg-card/40 text-sm text-foreground/80">
+                {item}
+              </span>
+            ))}
+          </div>
+          <a
+            href={AGRON_SERVICES}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 mt-6 text-sm font-medium text-primary hover:underline"
+          >
+            {c.geospatial.cta} <ExternalLink className="w-4 h-4" />
+          </a>
+        </section>
+
 
         {/* AGRON MARITIME */}
         <section>
@@ -243,7 +321,66 @@ const AGRON = () => {
               </Card>
             ))}
           </div>
+
+          <h3 className="text-xl md:text-2xl font-semibold text-foreground mt-14 mb-2">{c.maritimeWater.title}</h3>
+          <p className="text-xs uppercase tracking-[0.2em] text-primary/80 mb-6">{c.maritimeWater.kicker}</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {c.maritimeWater.items.map((item) => (
+              <div key={item.t} className="p-5 rounded-xl border border-border/60 bg-card/40">
+                <h4 className="font-semibold text-foreground">{item.t}</h4>
+                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{item.d}</p>
+              </div>
+            ))}
+          </div>
+          <a
+            href={AGRON_MARITIME}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 mt-6 text-sm font-medium text-primary hover:underline"
+          >
+            {c.maritimeWater.cta} <ExternalLink className="w-4 h-4" />
+          </a>
+
+          <h3 className="text-xl md:text-2xl font-semibold text-foreground mt-14 mb-3">{c.maritimeLand.title}</h3>
+          <p className="text-base text-muted-foreground leading-relaxed max-w-4xl">{c.maritimeLand.p}</p>
+          <div className="flex flex-wrap gap-2 mt-6">
+            {c.maritimeLand.envs.map((env) => (
+              <span key={env} className="px-3 py-2 rounded-lg border border-border/60 bg-background/50 text-xs md:text-sm text-foreground/80">
+                {env}
+              </span>
+            ))}
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+            {c.maritimeLand.items.map((item) => (
+              <div key={item.t} className="p-5 rounded-xl border border-border/60 bg-card/40">
+                <h4 className="font-semibold text-foreground">{item.t}</h4>
+                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{item.d}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-14 p-6 md:p-8 rounded-2xl border border-primary/25 bg-primary/5">
+            <p className="text-xs uppercase tracking-[0.2em] text-primary/80 mb-2">{c.sysArch.kicker}</p>
+            <h3 className="text-xl md:text-2xl font-semibold text-foreground mb-6">{c.sysArch.title}</h3>
+            <FlowChain steps={c.sysArch.flow} />
+          </div>
+
+          <div className="mt-14">
+            <p className="text-xs uppercase tracking-[0.2em] text-primary/80 mb-2">{c.commercial.kicker}</p>
+            <h3 className="text-xl md:text-2xl font-semibold text-foreground mb-3">{c.commercial.title}</h3>
+            <p className="text-base text-muted-foreground leading-relaxed max-w-4xl">{c.commercial.p}</p>
+            <div className="flex flex-wrap gap-2 mt-6">
+              {c.commercial.items.map((item) => (
+                <span key={item} className="px-4 py-2 rounded-full border border-border/60 bg-card/40 text-sm text-foreground/80">
+                  {item}
+                </span>
+              ))}
+            </div>
+            <p className="mt-4 text-xs text-muted-foreground">{c.commercial.note}</p>
+          </div>
         </section>
+
+
 
         {/* STARWALL */}
         <section>
@@ -419,6 +556,46 @@ const AGRON = () => {
           </div>
           <p className="mt-4 text-xs text-muted-foreground">{c.maturity.note}</p>
         </section>
+
+        {/* DEVELOPMENT PATH */}
+        <section>
+          <SectionTitle kicker={c.path.kicker} title={c.path.title} />
+          <div className="p-6 md:p-8 rounded-2xl border border-primary/25 bg-primary/5">
+            <FlowChain steps={c.path.steps} />
+          </div>
+          <p className="mt-4 text-xs text-muted-foreground">{c.path.note}</p>
+        </section>
+
+        {/* CURRENT DEVELOPMENT */}
+        <section>
+          <SectionTitle title={c.now.title} />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+            {c.now.items.map((item) => (
+              <div key={item.t} className="flex items-center justify-between gap-4 p-5 rounded-xl border border-border/60 bg-card/40">
+                <span className="text-sm font-medium text-foreground">{item.t}</span>
+                <Badge variant="secondary" className="shrink-0">{item.s}</Badge>
+              </div>
+            ))}
+          </div>
+          <p className="mt-4 text-xs text-muted-foreground">{c.now.note}</p>
+        </section>
+
+        {/* PORTFOLIO ARCHITECTURE */}
+        <section>
+          <SectionTitle title={c.portfolioArch.title} />
+          <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-4xl">{c.portfolioArch.p}</p>
+          <div className="mt-8 p-6 md:p-8 rounded-2xl border border-border/60 bg-card/40">
+            <FlowChain steps={['Digital Invest', 'AGRON']} />
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mt-6">
+              {c.portfolioArch.items.map((item) => (
+                <div key={item} className="px-4 py-3 rounded-lg border border-border/60 bg-background/50 text-sm text-foreground/85">
+                  {item}
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
 
         {/* PORTFOLIO FIT */}
         <section>

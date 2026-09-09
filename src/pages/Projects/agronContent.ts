@@ -8,6 +8,8 @@
 
 export type Pair = { t: string; d: string };
 export type Group = { t: string; items: string[] };
+export type Area = { t: string; d: string; items?: string[] };
+
 
 export interface AgronContent {
   back: string;
@@ -21,9 +23,19 @@ export interface AgronContent {
     ctaSecondary: string;
     external: string;
   };
-  what: { title: string; p1: string; p2: string; layers: Pair[] };
+  what: { title: string; p1: string; p2: string; layers: Pair[]; flowTitle: string; flow: string[] };
   record: { title: string; note: string; stats: { v: string; l: string }[] };
   capabilities: { title: string; items: Pair[] };
+  services: { kicker: string; title: string; p: string; note: string; cta: string; areas: Area[] };
+  geospatial: { title: string; p: string; items: string[]; cta: string };
+  maritimeWater: { title: string; kicker: string; items: Pair[]; cta: string };
+  maritimeLand: { title: string; p: string; envs: string[]; items: Pair[] };
+  sysArch: { title: string; kicker: string; flow: string[] };
+  commercial: { title: string; kicker: string; p: string; items: string[]; note: string };
+  path: { title: string; kicker: string; steps: string[]; note: string };
+  now: { title: string; note: string; items: { t: string; s: string }[] };
+  portfolioArch: { title: string; p: string; items: string[] };
+
   maritime: {
     title: string;
     kicker: string;
@@ -91,17 +103,29 @@ const en: AgronContent = {
       { t: 'Training', d: 'Operator training, instructor development and certification pathways.' },
       { t: 'Software & Data', d: 'The integration layer connecting sensors, systems and operational data.' },
     ],
+    flowTitle: 'The operational progression',
+    flow: [
+      'Technology',
+      'Assessment & validation',
+      'Training',
+      'Capability development',
+      'Deployment',
+      'Operations',
+      'Intelligence',
+      'Continuous support',
+    ],
+
   },
   record: {
     title: 'Operating Record',
     note: 'Operational indicators reported by AGRON. No financial performance figures are presented.',
     stats: [
-      { v: '10K+', l: 'Specialists trained' },
-      { v: '25K+', l: 'Mission exposures' },
-      { v: '4+ years', l: 'Continuous operations' },
-      { v: '30+', l: 'Team' },
-      { v: '10+', l: 'Countries / international programme experience' },
+      { v: '10K+', l: 'UAV operators, instructors and specialists trained' },
+      { v: '22', l: 'Defined professional-service offerings' },
+      { v: '18', l: 'Training programmes developed' },
+      { v: '10+', l: 'Countries with delivered programmes' },
     ],
+
   },
   capabilities: {
     title: 'Capability Architecture',
@@ -115,6 +139,165 @@ const en: AgronContent = {
       { t: 'Intelligence & Security', d: 'Situational awareness, risk analysis, monitoring, technical integration, security architecture and decision support.' },
     ],
   },
+  services: {
+    kicker: 'Professional Services Built Around Operational Capability',
+    title: 'AGRON Services Catalog',
+    p: 'AGRON provides structured professional services for organizations building, evaluating, deploying or improving autonomous, UAV, Counter-UAS, geospatial, training and operational capabilities.',
+    note: 'The full catalog is maintained on the AGRON website.',
+    cta: 'Open AGRON Services Catalog',
+    areas: [
+      {
+        t: 'Consulting',
+        d: 'Operational consulting for organizations developing or improving UAV, autonomous and Counter-UAS capabilities.',
+        items: ['Operating models', 'Employment concepts', 'Deployment planning', 'Capability architecture', 'Decision support'],
+      },
+      {
+        t: 'Assessment & Validation',
+        d: 'Independent evaluation of technologies and their practical suitability.',
+        items: ['Technology validation', 'Expert assessment', 'Operational use-case analysis', 'Practical suitability evaluation', 'Validation reporting'],
+      },
+      {
+        t: 'Capability Development',
+        d: 'Structured programmes for organizations that need operational capability rather than simply equipment.',
+        items: [
+          'Capability audits',
+          'Development roadmaps',
+          'Operating concepts',
+          'Methodology',
+          'Training programme development',
+          'Certification-system design',
+          'Institutional and national-scale operator-training systems',
+        ],
+      },
+      {
+        t: 'Training Infrastructure',
+        d: 'Development of professional training capacity.',
+        items: [
+          'Turnkey training centres',
+          'Training infrastructure design',
+          'Equipment selection',
+          'Procurement consulting',
+          'Instructor preparation',
+          'Train-the-Trainer',
+          'Professional qualification verification',
+        ],
+      },
+      {
+        t: 'Product Development',
+        d: 'Operational support for manufacturers, technology developers, R&D teams, startups and integrators.',
+        items: [
+          'End-user experience integration',
+          'Expert product-development support',
+          'Operational feedback',
+          'New-technology implementation',
+          'Deployment preparation',
+          'Personnel training',
+        ],
+      },
+    ],
+  },
+  geospatial: {
+    title: 'Geospatial & Data Capabilities',
+    p: 'Spatial data capabilities represented within the AGRON ecosystem, applied to operational, industrial and infrastructure environments.',
+    items: [
+      'Spatial data acquisition',
+      'Aerial LiDAR',
+      'UAV photogrammetry',
+      'GIS',
+      'Geoportals',
+      'Spatial databases',
+      'Automation',
+      'AI analytics',
+      'Industry-specific geospatial solutions',
+      'R&D',
+      'Knowledge transfer',
+    ],
+    cta: 'See the full services catalog',
+  },
+  maritimeWater: {
+    kicker: 'On the water',
+    title: 'Vessels & Operating Areas',
+    items: [
+      { t: 'Vessel & Risk Assessment', d: 'Understand the vessel, operating environment, exposure, systems, procedures and potential vulnerabilities.' },
+      { t: 'Route Intelligence', d: 'Intelligence related to routes, operating areas, relevant events and changing conditions.' },
+      { t: 'Situational Awareness', d: 'Maintain a unified understanding of what is happening around the vessel.' },
+      { t: 'Intelligent Analysis', d: 'Correlate information and identify events, patterns, anomalies and situations requiring attention.' },
+      { t: 'Crew Readiness & Protocol', d: 'Support crew preparation, procedures, escalation logic and security readiness.' },
+    ],
+    cta: 'Explore AGRON Maritime',
+  },
+  maritimeLand: {
+    title: 'Shore, Marinas & Facilities',
+    p: 'AGRON Maritime protects an operating environment rather than only an individual vessel.',
+    envs: ['Marinas', 'Ports', 'Berths', 'Private islands', 'Coastal properties', 'Special facilities', 'Temporary security environments'],
+    items: [
+      { t: 'Marina Security Assessment', d: 'Assessment of the marina environment, technical systems, access logic and operating procedures.' },
+      { t: 'Shore, Berth & Access', d: 'Awareness and integration across shoreline, berths, access points and supporting infrastructure.' },
+      { t: 'AGRON Security Support Center', d: 'Specialist support connected to the protected environment when additional analysis is required.' },
+    ],
+  },
+  sysArch: {
+    kicker: 'System architecture',
+    title: 'How the Environment Is Protected',
+    flow: [
+      'Protected environment — yacht / marina / port / island / commercial vessel',
+      'Sensors + existing systems + AGRON modules',
+      'StarWall',
+      'Intelligence & analysis',
+      'AGRON Security Support Center',
+      'Human decision',
+    ],
+  },
+  commercial: {
+    kicker: 'Expansion area',
+    title: 'Commercial Maritime',
+    p: 'The same intelligence, integration, monitoring, modular infrastructure and support architecture can extend beyond private yachts.',
+    items: ['Commercial vessels', 'Tankers', 'Ports', 'Terminals', 'Critical maritime infrastructure', 'Strategic maritime routes'],
+    note: 'Presented as an expanding application area. No commercial maritime deployments are claimed.',
+  },
+  path: {
+    kicker: 'Development path',
+    title: 'From Operational Experience to Scalable Infrastructure',
+    steps: [
+      'Training & field experience',
+      'Assessment & validation',
+      'Capability development',
+      'Autonomous operations',
+      'Intelligence & security',
+      'AGRON Maritime',
+      'StarWall',
+      'Software + intelligence + support + recurring services',
+    ],
+    note: 'Later stages describe direction of development and are not presented as fully commercialized.',
+  },
+  now: {
+    title: 'Current Development',
+    note: 'Status language reflects current stage. Development-stage capabilities are not presented as established commercial deployments.',
+    items: [
+      { t: 'Professional Services', s: 'Active' },
+      { t: 'Training Infrastructure', s: 'Active' },
+      { t: 'Assessment & Validation', s: 'Active' },
+      { t: 'AGRON Maritime', s: 'Expansion' },
+      { t: 'StarWall', s: 'Product & deployment development' },
+      { t: 'Modular Security Infrastructure', s: 'Development' },
+      { t: 'Commercial Maritime Applications', s: 'Expansion opportunity' },
+    ],
+  },
+  portfolioArch: {
+    title: 'Portfolio Architecture',
+    p: 'AGRON is one Digital Invest portfolio company. Its capabilities are parts of AGRON, not separate portfolio companies.',
+    items: [
+      'Professional services',
+      'Autonomous operations',
+      'Training & capability development',
+      'Assessment & validation',
+      'Geospatial & data',
+      'AGRON Maritime',
+      'StarWall',
+      'Security infrastructure',
+    ],
+  },
+
   maritime: {
     kicker: 'Intelligence + Security',
     title: 'AGRON Maritime',
@@ -331,6 +514,28 @@ const en: AgronContent = {
 };
 
 const ru: AgronContent = {
+  ...en,
+  services: {
+    ...en.services,
+    kicker: 'Профессиональные услуги вокруг операционных возможностей',
+    title: 'Каталог услуг AGRON',
+    p: 'AGRON предоставляет структурированные профессиональные услуги организациям, которые создают, оценивают, внедряют или развивают автономные, БПЛА, Counter-UAS, геопространственные, учебные и операционные возможности.',
+    note: 'Полный каталог поддерживается на сайте AGRON.',
+    cta: 'Открыть каталог услуг AGRON',
+    areas: en.services.areas.map((a, i) => ({
+      ...a,
+      t: ['Консалтинг', 'Оценка и валидация', 'Развитие возможностей', 'Учебная инфраструктура', 'Разработка продукта'][i] ?? a.t,
+    })),
+  },
+  geospatial: { ...en.geospatial, title: 'Геопространственные данные и аналитика', cta: 'Смотреть полный каталог услуг' },
+  maritimeWater: { ...en.maritimeWater, kicker: 'На воде', title: 'Суда и районы плавания', cta: 'Подробнее об AGRON Maritime' },
+  maritimeLand: { ...en.maritimeLand, title: 'Берег, марины и объекты', p: 'AGRON Maritime защищает всю операционную среду, а не только отдельное судно.' },
+  sysArch: { ...en.sysArch, kicker: 'Архитектура системы', title: 'Как защищается среда' },
+  commercial: { ...en.commercial, kicker: 'Направление расширения', title: 'Коммерческий флот', note: 'Представлено как направление расширения. Внедрения не заявляются.' },
+  path: { ...en.path, kicker: 'Путь развития', title: 'От операционного опыта к масштабируемой инфраструктуре', note: 'Поздние этапы описывают направление развития и не являются полностью коммерциализированными.' },
+  now: { ...en.now, title: 'Текущее состояние', note: 'Продукты на стадии разработки не представлены как готовые коммерческие внедрения.' },
+  portfolioArch: { ...en.portfolioArch, title: 'Архитектура портфеля', p: 'AGRON — одна компания портфеля Digital Invest. Её направления не являются отдельными компаниями.' },
+
   back: 'Назад к проектам',
   hero: {
     badge: 'Компания портфеля Digital Invest',
@@ -344,7 +549,20 @@ const ru: AgronContent = {
     external: 'Внешний сайт',
   },
   what: {
+    ...en.what,
+    flowTitle: 'Операционная последовательность',
+    flow: [
+      'Технология',
+      'Оценка и валидация',
+      'Обучение',
+      'Развитие возможностей',
+      'Развёртывание',
+      'Операции',
+      'Аналитика',
+      'Постоянная поддержка',
+    ],
     title: 'От технологии к операционной способности',
+
     p1: 'AGRON занимается тем, что происходит после выхода технологии из лаборатории.',
     p2:
       'Системы необходимо оценивать, интегрировать, эксплуатировать, контролировать, поддерживать, улучшать — и ими должны управлять подготовленные люди в реальных условиях. AGRON связывает эти слои в единую операционную структуру: автономные системы, ПО, аналитика, обучение, полевые операции и безопасность.',
@@ -361,13 +579,13 @@ const ru: AgronContent = {
     title: 'Операционный опыт',
     note: 'Операционные показатели по данным AGRON. Финансовые показатели не приводятся.',
     stats: [
-      { v: '10K+', l: 'Подготовленных специалистов' },
-      { v: '25K+', l: 'Операционных выходов' },
-      { v: '4+ года', l: 'Непрерывных операций' },
-      { v: '30+', l: 'Команда' },
-      { v: '10+', l: 'Стран / международный опыт программ' },
+      { v: '10K+', l: 'Подготовленных операторов БПЛА, инструкторов и специалистов' },
+      { v: '22', l: 'Профессиональных услуг в каталоге' },
+      { v: '18', l: 'Разработанных учебных программ' },
+      { v: '10+', l: 'Стран, где реализованы программы' },
     ],
   },
+
   capabilities: {
     title: 'Архитектура компетенций',
     items: [

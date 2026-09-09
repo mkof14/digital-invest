@@ -17,7 +17,7 @@ import terraaeroHero from '@/assets/projects/terraaero-hero.jpg';
 import biomathcoreHero from '@/assets/projects/biomathcore-hero.jpg';
 import mydayHero from '@/assets/projects/myday-hero.webp';
 import itsgoodtodayHero from '@/assets/projects/itsgoodtoday-hero.jpg';
-import agronHeroAsset from '@/assets/projects/starwall-hero.png.asset.json';
+import agronHeroAsset from '@/assets/projects/agron-port.png.asset.json';
 import digitalinvestHero from '@/assets/projects/digitalinvest-hero.webp';
 import biomathlifeHero from '@/assets/projects/biomathlife-hero.jpg';
 import stresscoreHero from '@/assets/projects/stresscore-hero.jpg';
@@ -102,7 +102,7 @@ const projectHighlights: Record<string, { extraCategories?: string[]; tagline?: 
     special: ['featured'],
   },
   'agron': {
-    extraCategories: ['Autonomous Operations', 'Maritime Intelligence', 'Security'],
+    extraCategories: ['AI', 'Robotics', 'Intelligence', 'Security'],
     tagline: 'Infrastructure for Autonomous Operations',
     special: ['featured'],
   },
