@@ -169,7 +169,13 @@ const AGRON = () => {
               );
             })}
           </div>
+
+          <div className="mt-10 p-6 md:p-8 rounded-2xl border border-border/60 bg-card/40">
+            <p className="text-sm uppercase tracking-widest text-muted-foreground mb-6">{c.what.flowTitle}</p>
+            <FlowChain steps={c.what.flow} />
+          </div>
         </section>
+
 
         {/* OPERATING RECORD */}
         <section>
