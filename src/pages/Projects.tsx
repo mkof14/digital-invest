@@ -508,7 +508,7 @@ const Projects = () => {
                           const count = projects.filter(p => getTheme(p.slug).label === cat).length;
                           return (
                             <button
-                              key={tTag(cat)}
+                              key={cat}
                               onClick={() => setSelectedCategory(cat)}
                               className={`px-3 py-1.5 rounded-full text-sm font-medium transition-all duration-300 ${
                                 selectedCategory === cat
