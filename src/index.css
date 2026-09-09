@@ -1282,18 +1282,6 @@ button:not(:disabled):active,
 
   .hero-glass .hero-noise { opacity: 0.18; mix-blend-mode: multiply; }
 
-  .hero-glass .hero-orbit { border-color: rgba(20, 170, 200, 0.28); }
-  .hero-glass .hero-orbit::after {
-    background: rgba(20, 196, 217, 1);
-    box-shadow: 0 0 16px 4px rgba(20, 196, 217, 0.5);
-  }
-  .hero-glass .hero-orbit-2 { border-color: rgba(20, 150, 200, 0.2); }
-  .hero-glass .hero-orbit-3 { border-color: rgba(20, 120, 160, 0.12); }
-
-  .hero-glass .hero-core {
-    background: radial-gradient(circle at 40% 40%, rgba(255, 255, 255, 0.95), rgba(20, 196, 217, 0.45) 45%, transparent 72%);
-  }
-
   .hero-glass .hero-gradient-text {
     background: linear-gradient(180deg, hsl(212 55% 12%) 10%, hsl(210 30% 30%) 100%);
     -webkit-background-clip: text;
