@@ -220,6 +220,7 @@ const PROJECT_TITLES: Record<string, string> = {
   "saven": "SAVEN — Safety & Environment",
   "agron": "AGRON — Autonomous Operations, Maritime Intelligence & Security",
   "agron-work": "AGRON Work — Autonomous Workforce",
+  "starwall": "StarWall by AGRON — Intelligence & Security Infrastructure",
   "t1d": "T1D — Type 1 Diabetes Platform",
   "facetium": "FACETIUM — Digital Commercial Environments",
 };
