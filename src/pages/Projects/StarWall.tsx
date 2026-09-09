@@ -669,6 +669,10 @@ const StarWall = () => {
           </div>
         </section>
 
+        {/* COMMERCIAL, ENTERPRISE & B2G ARCHITECTURE */}
+        <StarWallCommercial c={cc} onInterest={() => setShowInterest(true)} />
+
+
         {/* SYSTEM OVERVIEW VISUAL */}
         <section>
           <OptimizedImage
