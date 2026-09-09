@@ -1222,6 +1222,76 @@ button:not(:disabled):active,
   }
 }
 
+/* ═══════════ GLASS HERO — light futuristic campus (cyan) ═══════════ */
+@layer components {
+  .hero-glass {
+    --background: 200 60% 97%;
+    --foreground: 212 45% 14%;
+    --muted-foreground: 210 20% 38%;
+    --border: 195 45% 70%;
+    --card: 0 0% 100%;
+    --brand-gold: #0E9BB8;
+    --brand-gold-strong: #14C4D9;
+    background:
+      linear-gradient(180deg, hsl(198 70% 98%) 0%, hsl(196 55% 94%) 55%, hsl(200 40% 97%) 100%);
+    color: hsl(212 45% 14%);
+  }
+
+  .hero-glass .hero-tech-grid {
+    background-image:
+      linear-gradient(hsl(195 60% 35% / 0.07) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(195 60% 35% / 0.07) 1px, transparent 1px);
+  }
+
+  .hero-glass .hero-aurora {
+    background:
+      radial-gradient(ellipse 55% 45% at 15% 20%, rgba(45, 205, 230, 0.22), transparent 70%),
+      radial-gradient(ellipse 50% 55% at 80% 65%, rgba(20, 150, 200, 0.20), transparent 70%),
+      radial-gradient(ellipse 70% 40% at 55% 108%, rgba(255, 255, 255, 0.6), transparent 70%);
+  }
+
+  .hero-glass .hero-noise { opacity: 0.18; mix-blend-mode: multiply; }
+
+  .hero-glass .hero-orbit { border-color: rgba(20, 170, 200, 0.28); }
+  .hero-glass .hero-orbit::after {
+    background: rgba(20, 196, 217, 1);
+    box-shadow: 0 0 16px 4px rgba(20, 196, 217, 0.5);
+  }
+  .hero-glass .hero-orbit-2 { border-color: rgba(20, 150, 200, 0.2); }
+  .hero-glass .hero-orbit-3 { border-color: rgba(20, 120, 160, 0.12); }
+
+  .hero-glass .hero-core {
+    background: radial-gradient(circle at 40% 40%, rgba(255, 255, 255, 0.95), rgba(20, 196, 217, 0.45) 45%, transparent 72%);
+  }
+
+  .hero-glass .hero-gradient-text {
+    background: linear-gradient(180deg, hsl(212 55% 12%) 10%, hsl(210 30% 30%) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .hero-glass .hero-glow-text {
+    background: linear-gradient(100deg, #0E9BB8 0%, #14C4D9 50%, #0B7C96 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .hero-campus {
+    mask-image: linear-gradient(90deg, transparent 0%, transparent 34%, black 72%, black 100%);
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, transparent 34%, black 72%, black 100%);
+  }
+
+  .hero-glass-panel {
+    background: rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.75);
+    box-shadow: 0 18px 50px -24px rgba(12, 74, 110, 0.45);
+  }
+}
+
 /* ═══════════ FUTURISTIC HERO — aurora, orbits, text entries ═══════════ */
 @layer components {
   .hero-aurora {
@@ -1351,6 +1421,13 @@ button:not(:disabled):active,
     color: rgba(224, 180, 95, 0.85);
   }
   .hero-entry-label { text-transform: uppercase; font-size: 0.72rem; letter-spacing: 0.2em; font-weight: 600; }
+
+  .hero-glass .hero-entry { color: hsl(212 45% 14%); }
+  .hero-glass .hero-entry::after { background: linear-gradient(90deg, rgba(14,155,184,0.9), rgba(14,155,184,0)); }
+  .hero-glass .hero-entry:hover { color: #0B7C96; }
+  .hero-glass .hero-entry:focus-visible { outline: 1px solid rgba(14,155,184,0.9); }
+  .hero-glass .hero-entry-index { color: rgba(14,155,184,0.9); }
+
 
   @media (prefers-reduced-motion: reduce) {
     .hero-aurora, .hero-orbit, .hero-core, .hero-glow-text { animation: none; }
