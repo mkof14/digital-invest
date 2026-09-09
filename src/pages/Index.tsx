@@ -220,22 +220,7 @@ const Index = () => {
         <div className="absolute inset-0 hero-aurora" aria-hidden />
         <div className="absolute inset-0 hero-tech-grid opacity-70" aria-hidden />
         <div className="absolute inset-0 hero-noise" aria-hidden />
-        <div className="pointer-events-none absolute inset-x-0 top-0 h-px hero-scanline bg-gradient-to-r from-transparent via-[rgba(20,196,217,0.7)] to-transparent" aria-hidden />
         <div className="hero-wash pointer-events-none absolute inset-0" aria-hidden />
-
-        {/* Orbital system */}
-        <div className="pointer-events-none absolute -right-[22vw] top-1/2 -translate-y-1/2 w-[80vw] h-[80vw] max-w-[900px] max-h-[900px] lg:right-[-10vw]" aria-hidden>
-          <div className="hero-orbit hero-orbit-1" />
-          <div className="hero-orbit hero-orbit-2" />
-          <div className="hero-orbit hero-orbit-3" />
-          <img
-            src={ecosystemCore.url}
-            alt=""
-            loading="lazy"
-            decoding="async"
-            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[46%] max-w-[380px] rounded-full opacity-[0.7] select-none mix-blend-multiply dark:mix-blend-screen dark:opacity-90"
-          />
-        </div>
 
 
 
