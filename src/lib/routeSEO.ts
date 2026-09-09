@@ -218,7 +218,7 @@ const PROJECT_TITLES: Record<string, string> = {
   "familycore": "FamilyCore — Family Health Platform",
   "mrx-health": "MRX Health — Precision Health",
   "baseline": "BaseLine — Health Baseline Platform",
-  "saven": "SAVEN — Safety & Environment",
+  "saven": "SAVEN — Human Assistance Intelligence for Robotics",
   "agron": "AGRON — Autonomous Operations, Maritime Intelligence & Security",
   "agron-work": "AGRON Work — Autonomous Workforce",
   "starwall": "StarWall by AGRON — Intelligence & Security Infrastructure",
