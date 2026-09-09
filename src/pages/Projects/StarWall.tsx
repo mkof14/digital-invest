@@ -227,6 +227,10 @@ const StarWall = () => {
           </div>
         </section>
 
+        {/* ONE PRODUCT — THREE WAYS TO DEPLOY */}
+        <StarWallDeploymentModels c={cc} />
+
+
         {/* THE PROBLEM */}
         <section>
           <SectionTitle kicker={c.problem.kicker} title={c.problem.title} />
