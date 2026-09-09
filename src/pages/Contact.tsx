@@ -14,7 +14,7 @@ import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { supabase } from '@/integrations/supabase/client';
 import PageHero from '@/components/PageHero';
-import heroImage from '@/assets/heroes/contact.webp';
+import heroImage from '@/assets/heroes/digital-invest-inc-building.asset.json';
 
 const formSchema = z.object({
   name: z.string().min(2).max(100),
