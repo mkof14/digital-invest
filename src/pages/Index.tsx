@@ -73,7 +73,6 @@ import biomathLifeHero from "@/assets/projects/biomathlife-hero.jpg";
 import heroBackground from "@/assets/hero-digital-invest.webp";
 import ecosystemCore from "@/assets/brand/di-ecosystem-core.asset.json";
 import archVisual from "@/assets/brand/di-architecture.asset.json";
-import portfolioArchitecture from "@/assets/brand/di-portfolio-architecture.asset.json";
 import evolutionVisual from "@/assets/brand/di-evolution.asset.json";
 import techMapVisual from "@/assets/brand/di-tech-map.asset.json";
 import campusVisual from "@/assets/brand/di-campus.asset.json";
@@ -261,7 +260,7 @@ const Index = () => {
             </div>
 
             <h1
-              className="hero-rise mt-8 text-[2.7rem] sm:text-6xl lg:text-[5rem] font-semibold leading-[0.95] tracking-[-0.04em]"
+              className="hero-display-title hero-rise mt-8 text-[2.7rem] sm:text-6xl lg:text-[5rem] leading-[0.98]"
               style={{ animationDelay: '0.15s' }}
             >
               <span className="hero-gradient-text">{t('hero.strategicTitle')}</span>{' '}
@@ -321,21 +320,20 @@ const Index = () => {
               Corporate architecture
             </span>
             <h2 className="text-3xl md:text-5xl font-semibold tracking-tight leading-[1.05]">
-              One holding. Four load-bearing pillars.
+              One holding. Three connected technology pillars.
             </h2>
             <p className="text-muted-foreground leading-relaxed text-base md:text-lg">
-              Human data systems, health technology, robotics and advanced materials —
-              built as connected companies inside a single technology ecosystem.
+              Human data systems, health technology and robotics — built as connected
+              companies inside a single technology ecosystem.
             </p>
           </div>
 
           {/* Pillars — visual legend */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mt-12">
+          <div className="grid sm:grid-cols-3 gap-4 mt-12">
             {[
               { n: '01', icon: Activity, name: 'BioMath Core', kind: 'Human data & health intelligence' },
               { n: '02', icon: Brain, name: 'SAVEN', kind: 'AI & human assistance robotics' },
               { n: '03', icon: Cpu, name: 'AGRON', kind: 'Autonomous operations infrastructure' },
-              { n: '04', icon: Layers, name: 'Adamas Materials', kind: 'Advanced materials' },
             ].map((p) => (
               <div
                 key={p.n}
@@ -351,28 +349,6 @@ const Index = () => {
               </div>
             ))}
           </div>
-
-          {/* Main diagram */}
-          <figure className="mt-8 group overflow-hidden rounded-2xl border border-border/40 bg-card shadow-elevated">
-            <div className="overflow-hidden">
-              <img
-                src={portfolioArchitecture.url}
-                alt="Corporate portfolio architecture: BioMath Core, SAVEN, AGRON and Adamas Materials on a shared Digital Invest platform"
-                loading="lazy"
-                decoding="async"
-                className="w-full h-auto transition-transform duration-700 ease-out group-hover:scale-[1.02]"
-              />
-            </div>
-            <figcaption className="flex flex-wrap items-center justify-between gap-3 border-t border-border/40 px-5 py-4">
-              <span className="text-sm text-muted-foreground">
-                Portfolio architecture — companies sharing one platform layer
-              </span>
-              <Link to="/portfolio-overview" className="hero-entry group !text-foreground">
-                <span className="hero-entry-label">Portfolio overview</span>
-                <ArrowUpRight className="h-4 w-4 shrink-0 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
-              </Link>
-            </figcaption>
-          </figure>
 
           {/* Evolution + technology map */}
           <div className="grid md:grid-cols-2 gap-6 mt-6">
@@ -397,7 +373,7 @@ const Index = () => {
                     alt={f.alt}
                     loading="lazy"
                     decoding="async"
-                    className="w-full h-auto transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                    className="theme-responsive-image w-full h-auto transition-[filter,transform] duration-700 ease-out group-hover:scale-[1.03]"
                   />
                   <span className="absolute left-4 top-4 rounded-full bg-background/80 backdrop-blur-sm px-3 py-1 font-mono text-[10px] uppercase tracking-[0.24em] text-foreground">
                     {f.label}
@@ -417,7 +393,7 @@ const Index = () => {
               alt="Futuristic glass architecture representing Digital Invest infrastructure"
               loading="lazy"
               decoding="async"
-              className="w-full h-[260px] md:h-[420px] object-cover"
+              className="theme-responsive-image w-full h-[260px] md:h-[420px] object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
             <div className="absolute inset-x-0 bottom-0 p-6 md:p-10">

@@ -86,7 +86,7 @@ const OptimizedImage = ({
             width={(props as { width?: number }).width ?? 1600}
             height={(props as { height?: number }).height ?? 900}
             className={cn(
-              'w-full h-full object-cover transition-opacity duration-500 ease-out',
+              'theme-responsive-image w-full h-full object-cover transition-[opacity,filter,transform] duration-500 ease-out',
               isLoading ? 'opacity-0' : 'opacity-100',
               className
             )}

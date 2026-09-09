@@ -38,14 +38,6 @@ export const companyPresentationItems: PresentationItem[] = [
     group: "Flagship Projects",
   },
   {
-    id: "adamas-materials",
-    title: "Adamas Materials",
-    description: "Diamond / luxury vertical.",
-    type: "page",
-    url: "/adamas",
-    group: "Flagship Projects",
-  },
-  {
     id: "agron-net",
     title: "AGRON",
     description: "Infrastructure for autonomous operations, maritime intelligence and security.",

@@ -27,7 +27,7 @@ export type FocusItem = {
   /**
    * Where the block links to.
    *  - Bare slug "biomath-core" → /projects/biomath-core
-   *  - Full path "/adamas"     → used as-is
+   *  - Full path "/overview"   → used as-is
    */
   slug: string;
 };
@@ -36,13 +36,11 @@ export const CURRENT_FOCUS: FocusItem[] = [
   { name: "BioMath Core",     area: "Human Data Models",        track: "Research & Development", status: "Active Development", slug: "biomath-core" },
   { name: "SAVEN",            area: "Connected Infrastructure", track: "Engineering",            status: "Active Development", slug: "saven" },
   { name: "AGRON",            area: "Robotic Operations",       track: "Field Deployment",       status: "Active Development", slug: "agron" },
-  { name: "Adamas Materials", area: "Advanced Materials",       track: "Operations",             status: "Active Development", slug: "/adamas" },
 ];
 
 export const TODAY_WE_BUILD: string[] = [
   "Human Data Models",
   "Robotic Operations",
-  "Advanced Materials",
   "Future Infrastructure",
   "Connected Systems",
 ];

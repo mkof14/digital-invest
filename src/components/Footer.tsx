@@ -103,7 +103,6 @@ const Footer = () => {
               <li><Link to="/schedule" className={linkClass}><span className="w-0 group-hover/link:w-2 h-px bg-primary transition-all duration-300" />{t('footer.schedule')}</Link></li>
               <li><Link to="/overview" className={linkClass}><span className="w-0 group-hover/link:w-2 h-px bg-primary transition-all duration-300" />{t('footer.overview', 'Portfolio Overview')}</Link></li>
               <li><Link to="/company-presentation" className={linkClass}><span className="w-0 group-hover/link:w-2 h-px bg-primary transition-all duration-300" />Company Presentation</Link></li>
-              <li><Link to="/adamas" className={linkClass}><span className="w-0 group-hover/link:w-2 h-px bg-primary transition-all duration-300" />{t('footer.adamasMaterials', 'Adamas Materials')}</Link></li>
             </ul>
           </div>
 
