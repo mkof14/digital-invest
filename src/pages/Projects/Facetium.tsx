@@ -7,7 +7,9 @@ import { Card, CardContent } from '@/components/ui/card';
 import {
   ArrowLeft, ArrowRight, Globe, MapPin, ChevronRight, Store, Users,
   Sparkles, Building2, CalendarDays, Layers, Cpu, Briefcase, Boxes,
+  Compass, Wrench, ShieldCheck, Gem, Ticket, Rocket, HelpCircle, Search,
 } from 'lucide-react';
+
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import OptimizedImage from '@/components/OptimizedImage';
