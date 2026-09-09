@@ -14,7 +14,7 @@ import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { supabase } from '@/integrations/supabase/client';
 import PageHero from '@/components/PageHero';
-import heroImage from '@/assets/heroes/contact.webp';
+import heroImage from '@/assets/heroes/digital-invest-inc-building.asset.json';
 
 const formSchema = z.object({
   name: z.string().min(2).max(100),
@@ -57,7 +57,7 @@ const Contact = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
-      <PageHero image={heroImage} className="!pb-12">
+      <PageHero image={heroImage.url} className="!pb-12">
         <div className="mb-2 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">{t('contact.title')}</h1>
           <p className="text-xl max-w-3xl mx-auto mb-6 text-primary-light">{t('contact.subtitle')}</p>
