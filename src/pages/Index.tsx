@@ -200,151 +200,104 @@ const Index = () => {
     <div className="min-h-screen bg-background max-w-[1600px] mx-auto">
       <Navigation />
 
-      {/* ═══════════════════ HERO — Cinematic Living Portfolio ═══════════════════ */}
-      <section className="relative min-h-[100svh] flex items-center overflow-hidden">
-        {/* Hero background image — cinematic photo layer */}
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url(${heroBackground})` }}
-          aria-hidden="true"
-        />
-        {/* Readability overlay — keeps text legible over the photo */}
-        <div className="absolute inset-0 bg-gradient-to-r from-white/80 via-white/50 to-white/20 dark:from-background/90 dark:via-background/70 dark:to-background/40" />
-        <div className="absolute inset-0 bg-gradient-to-b from-white/30 via-transparent to-white/60 dark:from-background/40 dark:via-transparent dark:to-background/80" />
+      {/* ═══════════════════ HERO — Editorial Ledger ═══════════════════ */}
+      <section className="relative border-b border-border/60 bg-background overflow-hidden">
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-0 lg:pt-32">
+          <div className="grid lg:grid-cols-12 gap-10 lg:gap-0 items-stretch">
 
-        {/* Layered background — richer, more cinematic */}
-        <div className="absolute inset-0 bg-gradient-to-br from-white/50 via-white/30 to-gray-100/30 dark:from-background/60 dark:via-background/40 dark:to-card/30" />
-
-        {/* Vibrant gradient mesh — multi-color ambient depth */}
-        <div className="absolute top-[-10%] left-[-10%] w-[55vw] h-[55vw] rounded-full bg-gradient-to-br from-primary/20 via-accent/12 to-transparent blur-[120px] animate-subtle-float" />
-        <div className="absolute bottom-[-15%] right-[-10%] w-[60vw] h-[60vw] rounded-full bg-gradient-to-tl from-info/15 via-primary/10 to-transparent blur-[140px] animate-subtle-float" style={{ animationDelay: '4s' }} />
-        <div className="absolute top-[20%] right-[15%] w-[30vw] h-[30vw] rounded-full bg-success/[0.09] blur-[100px] animate-subtle-float" style={{ animationDelay: '2s' }} />
-        <div className="absolute bottom-[10%] left-[20%] w-[25vw] h-[25vw] rounded-full bg-accent/[0.10] blur-[90px] animate-subtle-float" style={{ animationDelay: '6s' }} />
-
-        {/* Spotlight orb behind headline — adds magnetism */}
-        <div className="absolute top-[35%] left-[10%] w-[40vw] h-[40vw] rounded-full bg-[radial-gradient(circle_at_center,hsl(var(--primary)/0.18),transparent_60%)] blur-2xl pointer-events-none" />
-
-        <FloatingElements />
-
-        {/* Subtle grid */}
-        <div className="absolute inset-0 opacity-[0.04]" style={{
-          backgroundImage: 'linear-gradient(hsl(var(--primary)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--primary)) 1px, transparent 1px)',
-          backgroundSize: '80px 80px',
-          maskImage: 'radial-gradient(ellipse at center, black 40%, transparent 75%)',
-          WebkitMaskImage: 'radial-gradient(ellipse at center, black 40%, transparent 75%)'
-        }} />
-
-        {/* Diagonal accent line */}
-        <div className="absolute top-0 right-0 w-px h-full bg-gradient-to-b from-transparent via-primary/20 to-transparent transform rotate-12 translate-x-[40vw]" />
-
-        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20">
-          <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-            {/* Left — Text */}
-            <div className="lg:col-span-7 space-y-8">
-              <div className="space-y-6 animate-fade-in">
-                {/* Premium status pill — instant credibility */}
-                <div className="inline-flex items-center gap-2.5 pl-3 pr-4 py-1.5 rounded-full border border-primary/15 bg-white/70 backdrop-blur-md shadow-sm hover:shadow-md transition-shadow">
-                  <span className="text-[11px] sm:text-xs font-semibold tracking-[0.18em] uppercase text-foreground">
-                    Digital Invest Inc.
-                  </span>
-                  <span className="hidden sm:inline-flex items-center gap-1 text-[10px] text-success font-bold tracking-wider">
-                    <span className="w-1.5 h-1.5 rounded-full bg-success animate-pulse" />
-                    LIVE
-                  </span>
-                </div>
-
-                <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-semibold leading-[0.95] tracking-tight">
-                  <span className="block text-brand-gold">{t('hero.strategicTitle')}</span>
-                  <span className="relative block mt-2">
-                    <span className="absolute inset-0 gradient-brand-animated blur-2xl opacity-40 select-none" aria-hidden>
-                      {t('hero.strategicHighlight')}
-                    </span>
-                    <span className="relative gradient-brand-animated">{t('hero.strategicHighlight')}</span>
-                  </span>
-                </h1>
-
-
-                <p className="text-lg md:text-xl text-muted-foreground max-w-xl leading-relaxed font-light">
-                  {t('hero.description')}
-                </p>
-
-                {/* Trust row — instant social proof */}
-                <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-xs text-muted-foreground/80">
-                  <div className="flex items-center gap-2">
-                    <span className="relative flex h-2.5 w-2.5">
-                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-success opacity-75" />
-                      <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-success" />
-                    </span>
-                    <span className="font-medium">Active Investment Opportunities</span>
-                  </div>
-                </div>
-
-                {/* Sector pills — visual portfolio teaser */}
-                <div className="flex flex-wrap gap-2 pt-2">
-                  {[
-                    { icon: <Heart className="w-3.5 h-3.5" />, label: 'HealthTech', color: 'text-rose-400 border-rose-400/30 bg-rose-400/5' },
-                    { icon: <Sprout className="w-3.5 h-3.5" />, label: 'AgriTech', color: 'text-emerald-400 border-emerald-400/30 bg-emerald-400/5' },
-                    { icon: <Utensils className="w-3.5 h-3.5" />, label: 'FoodTech', color: 'text-amber-400 border-amber-400/30 bg-amber-400/5' },
-                    { icon: <Cpu className="w-3.5 h-3.5" />, label: 'AI & Robotics', color: 'text-violet-400 border-violet-400/30 bg-violet-400/5' },
-                    { icon: <Building2 className="w-3.5 h-3.5" />, label: 'Infrastructure', color: 'text-blue-400 border-blue-400/30 bg-blue-400/5' },
-                  ].map((s, i) => (
-                    <span key={i} className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border text-xs font-medium backdrop-blur-sm ${s.color} hover:scale-105 transition-transform`}>
-                      {s.icon}
-                      {s.label}
-                    </span>
-                  ))}
-                </div>
+            {/* Left — Typographic column */}
+            <div className="lg:col-span-7 lg:pr-14 lg:border-r border-border/60 flex flex-col justify-center animate-fade-in">
+              <div className="flex items-center gap-4 mb-8">
+                <span className="h-px w-10 bg-brand-gold" aria-hidden />
+                <span className="text-[10px] font-semibold uppercase tracking-[0.32em] text-muted-foreground">
+                  Digital Invest Inc.
+                </span>
+                <span className="inline-flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-success">
+                  <span className="w-1.5 h-1.5 rounded-full bg-success" />
+                  Active
+                </span>
               </div>
 
-              <div className="flex flex-col sm:flex-row flex-wrap gap-4 animate-fade-in">
-                <Link to="/projects" className="relative group">
-                  {/* Pulsing gold glow halo */}
-                  <span className="absolute -inset-1 rounded-xl bg-gradient-to-r from-[#D4A24C] via-[#E8C070] to-[#1E73E8] opacity-50 blur-lg group-hover:opacity-80 transition-opacity duration-500 animate-pulse" aria-hidden />
-                  <Button size="lg" className="relative px-8 py-6 text-base font-semibold group btn-brand-gold shadow-brand-gold">
+              <h1 className="text-[2.6rem] sm:text-6xl lg:text-[4.6rem] font-semibold leading-[0.98] tracking-[-0.03em] text-foreground">
+                {t('hero.strategicTitle')}{' '}
+                <span className="text-brand-gold">{t('hero.strategicHighlight')}</span>
+              </h1>
+
+              <p className="mt-8 text-base md:text-lg text-muted-foreground max-w-xl leading-relaxed font-light">
+                {t('hero.description')}
+              </p>
+
+              <div className="mt-10 flex flex-col sm:flex-row gap-3">
+                <Link to="/projects">
+                  <Button size="lg" className="w-full sm:w-auto px-8 py-6 text-sm font-semibold uppercase tracking-[0.14em] btn-brand-gold group">
                     {t('hero.exploreProjects')}
-                    <ArrowUpRight className="ml-2 h-5 w-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                    <ArrowUpRight className="ml-2 h-4 w-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                   </Button>
                 </Link>
                 <Link to="/why-digital-invest">
-                  <Button size="lg" className="px-8 py-6 text-base group btn-brand-outline-blue">
-                    <Play className="mr-2 h-4 w-4 text-brand-blue group-hover:scale-110 transition-transform" />
+                  <Button size="lg" variant="ghost" className="w-full sm:w-auto px-8 py-6 text-sm font-semibold uppercase tracking-[0.14em] text-foreground hover:text-brand-gold group">
                     {t('hero.learnWhy')}
-                    <ChevronRight className="ml-1 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                    <ChevronRight className="ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </Link>
               </div>
 
-              {/* Reassurance microcopy */}
-              <p className="text-xs text-muted-foreground/70 -mt-2 flex items-center gap-2">
-                <CheckCircle2 className="w-3.5 h-3.5 text-success/80" />
-                <span>No commitment · Private review · Direct conversation with the team</span>
+              <p className="mt-6 text-xs text-muted-foreground/80">
+                No commitment · Private review · Direct conversation with the team
               </p>
+
+              {/* Sector index — editorial list, no pills */}
+              <div className="mt-12 lg:mb-14 pt-8 border-t border-border/60">
+                <div className="text-[10px] uppercase tracking-[0.28em] text-muted-foreground/70 mb-5">
+                  Sectors
+                </div>
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-10">
+                  {['HealthTech', 'AgriTech', 'FoodTech', 'AI & Robotics', 'Infrastructure'].map((label, i) => (
+                    <li
+                      key={label}
+                      className="group flex items-baseline gap-4 py-2.5 border-b border-border/40 last:border-b-0 sm:[&:nth-last-child(2)]:border-b-0"
+                    >
+                      <span className="text-[10px] font-mono text-brand-gold/80 tabular-nums">
+                        {String(i + 1).padStart(2, '0')}
+                      </span>
+                      <span className="text-sm text-foreground/85 tracking-wide group-hover:text-brand-gold transition-colors">
+                        {label}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
 
-            {/* Right — Metrics + Live Portfolio Card */}
-            <div className="lg:col-span-5 animate-fade-in space-y-4">
-              {/* Live portfolio teaser CTA */}
-              <Link to="/projects" className="group relative block overflow-hidden rounded-2xl border border-brand-gold/20 bg-card/70 backdrop-blur-md p-5 hover:border-brand-gold/50 hover:bg-card transition-all duration-300 hover:shadow-xl hover:shadow-brand-gold/10">
-                <div className="absolute inset-0 bg-gradient-to-r from-[#D4A24C]/5 via-[#1E73E8]/5 to-[#D4A24C]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <div className="relative flex items-center gap-4">
-                  <div className="shrink-0 p-3 rounded-xl bg-gradient-to-br from-[#D4A24C]/20 to-[#1E73E8]/20 border border-brand-gold/20">
-                    <Orbit className="w-5 h-5 text-brand-gold animate-spin" style={{ animationDuration: '8s' }} />
+            {/* Right — Full-bleed image + live portfolio ledger */}
+            <div className="lg:col-span-5 flex flex-col animate-fade-in">
+              <div className="relative flex-1 min-h-[280px] lg:min-h-0 lg:ml-14 overflow-hidden">
+                <div
+                  className="absolute inset-0 bg-cover bg-center scale-100 hover:scale-[1.03] transition-transform duration-[1200ms] ease-out"
+                  style={{ backgroundImage: `url(${heroBackground})` }}
+                  role="img"
+                  aria-label="Digital Invest portfolio"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
+                <div className="absolute inset-0 ring-1 ring-inset ring-border/50" />
+              </div>
+
+              <Link
+                to="/projects"
+                className="group lg:ml-14 mt-0 border-t border-border/60 lg:border lg:border-border/60 bg-card/60 hover:bg-card transition-colors duration-300 p-5 flex items-center justify-between gap-4"
+              >
+                <div className="min-w-0">
+                  <div className="text-[10px] uppercase tracking-[0.28em] text-muted-foreground/70">
+                    {t('hero.livePortfolioTitle', 'Live Portfolio')}
                   </div>
-                  <div className="flex-1 min-w-0">
-                    <div className="text-sm font-bold text-foreground group-hover:text-brand-gold transition-colors">{t('hero.livePortfolioTitle', 'Live Portfolio')}</div>
-                    <div className="text-xs text-muted-foreground mt-0.5">{t('hero.livePortfolioSubtitle', '20+ active projects across 5 sectors')}</div>
+                  <div className="mt-1.5 text-sm text-foreground font-medium">
+                    {t('hero.livePortfolioSubtitle', '20+ active projects across 5 sectors')}
                   </div>
-                  <ArrowUpRight className="w-5 h-5 text-muted-foreground group-hover:text-brand-gold group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0" />
                 </div>
+                <ArrowUpRight className="w-5 h-5 shrink-0 text-muted-foreground group-hover:text-brand-gold group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
               </Link>
             </div>
           </div>
-        </div>
-
-        {/* Scroll indicator with accent color */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-pulse">
-          <div className="w-px h-12 bg-gradient-to-b from-transparent via-accent/30 to-primary/40" />
-          <div className="w-1.5 h-1.5 rounded-full bg-primary/50" />
         </div>
       </section>
 
