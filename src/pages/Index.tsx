@@ -76,6 +76,7 @@ import archVisual from "@/assets/brand/di-architecture.asset.json";
 import portfolioArchitecture from "@/assets/brand/di-portfolio-architecture.asset.json";
 import evolutionVisual from "@/assets/brand/di-evolution.asset.json";
 import techMapVisual from "@/assets/brand/di-tech-map.asset.json";
+import campusVisual from "@/assets/brand/di-campus.asset.json";
 
 import {
   CurrentFocusBlock,
