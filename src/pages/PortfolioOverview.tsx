@@ -198,6 +198,15 @@ const overviewTexts: Record<string, Record<string, string>> = {
     ja: '1型・2型糖尿病の日常生活のための統合プラットフォーム。T1/2Dは連続信号をシンプルな状態に変換し、2つの独立したモードで動作するため、子供、親、介護者、2型の大人が同じ体験を強いられません。アラームベースのダッシュボードはありません。',
     he: 'פלטפורמה מאוחדת לחיי היומיום עם סוכרת מסוג 1 ו-2. T1/2D מתרגם אותות רציפים למצבים פשוטים ופועל בשני מצבים נפרדים כך שילדים, הורים, מטפלים ומבוגרים מסוג 2 לא נאלצים לחוות את אותה חוויה. ללא לוחות מחוונים מבוססי התראות כברירת מחדל.'
   },
+  'starwall': {
+    en: 'StarWall by AGRON — intelligence across the physical world. A software and integration layer that connects compatible sensors, equipment, operational systems, external data and human observations into one operating picture, with the responsible person always in command. Sold as software, managed intelligence or a full AGRON integrated deployment.',
+    ru: 'StarWall by AGRON — интеллект для физического мира. Программный и интеграционный слой, который объединяет совместимые датчики, оборудование, операционные системы, внешние данные и наблюдения людей в единую операционную картину. Решение всегда принимает ответственный человек.',
+    uk: 'StarWall by AGRON — інтелект для фізичного світу. Програмний та інтеграційний шар, що об’єднує сумісні датчики, обладнання, операційні системи, зовнішні дані та спостереження людей в єдину операційну картину.',
+    fr: 'StarWall by AGRON — l’intelligence du monde physique. Une couche logicielle et d’intégration qui relie capteurs, équipements, systèmes opérationnels, données externes et observations humaines en une seule image opérationnelle.',
+    ar: 'StarWall by AGRON — ذكاء للعالم المادي. طبقة برمجية وتكاملية تربط المستشعرات والمعدات والأنظمة التشغيلية والبيانات الخارجية وملاحظات البشر في صورة تشغيلية واحدة.',
+    ja: 'StarWall by AGRON — 物理世界のためのインテリジェンス。センサー、機器、運用システム、外部データ、人の観察を一つの運用画面に統合するソフトウェア／統合レイヤーです。',
+    he: 'StarWall by AGRON — מודיעין לעולם הפיזי. שכבת תוכנה ואינטגרציה המחברת חיישנים, ציוד, מערכות תפעוליות, נתונים חיצוניים ותצפיות אנוש לתמונה תפעולית אחת.'
+  },
   'facetium': {
     en: 'A network of digital commercial environments. FACETIUM turns commerce into a place: buyers walk into an architectural destination, explore complex products in detail, talk to real people and decide with confidence. Physical architecture reimagined, human service preserved.',
     ru: 'Сеть цифровых коммерческих пространств. FACETIUM превращает торговлю в место: покупатель входит в архитектурную среду, детально изучает сложные товары, общается с людьми и принимает решение уверенно. Архитектура переосмыслена, человеческий сервис сохранён.',
@@ -249,6 +258,7 @@ const projectOrder: string[] = [
   'mrx-health',
   'baseline',
   'agron',
+  'starwall',
   'agron-work',
   'terraaero',
   'myday',
@@ -269,6 +279,7 @@ const accentGradients: Record<string, string> = {
   'biomathlife': 'from-sky-500/20 to-sky-500/0',
   'terraaero': 'from-emerald-500/20 to-emerald-500/0',
   'agron': 'from-lime-500/20 to-lime-500/0',
+  'starwall': 'from-orange-500/20 to-orange-500/0',
   'agron-work': 'from-amber-500/20 to-amber-500/0',
   'myday': 'from-indigo-500/20 to-indigo-500/0',
   '1inow': 'from-emerald-400/20 to-emerald-400/0',
@@ -296,6 +307,7 @@ const accentDots: Record<string, string> = {
   'biomathlife': 'bg-sky-500',
   'terraaero': 'bg-emerald-500',
   'agron': 'bg-lime-500',
+  'starwall': 'bg-orange-500',
   'agron-work': 'bg-amber-500',
   'myday': 'bg-indigo-500',
   '1inow': 'bg-emerald-400',
@@ -324,6 +336,7 @@ const accentPalette: Record<string, { text: string; border: string; bgSoft: stri
   'biomathlife':    { text: 'text-sky-400',     border: 'border-sky-500/60',     bgSoft: 'bg-sky-500/10',     glow: 'shadow-sky-500/20',     ring: 'ring-sky-500/40' },
   'terraaero':      { text: 'text-emerald-400', border: 'border-emerald-500/60', bgSoft: 'bg-emerald-500/10', glow: 'shadow-emerald-500/20', ring: 'ring-emerald-500/40' },
   'agron':          { text: 'text-lime-400',    border: 'border-lime-500/60',    bgSoft: 'bg-lime-500/10',    glow: 'shadow-lime-500/20',    ring: 'ring-lime-500/40' },
+  'starwall':       { text: 'text-orange-400',  border: 'border-orange-500/60',  bgSoft: 'bg-orange-500/10',  glow: 'shadow-orange-500/20',  ring: 'ring-orange-500/40' },
   'agron-work':     { text: 'text-amber-400',   border: 'border-amber-500/60',   bgSoft: 'bg-amber-500/10',   glow: 'shadow-amber-500/20',   ring: 'ring-amber-500/40' },
   'myday':          { text: 'text-indigo-400',  border: 'border-indigo-500/60',  bgSoft: 'bg-indigo-500/10',  glow: 'shadow-indigo-500/20',  ring: 'ring-indigo-500/40' },
   '1inow':          { text: 'text-emerald-300', border: 'border-emerald-400/60', bgSoft: 'bg-emerald-400/10', glow: 'shadow-emerald-400/20', ring: 'ring-emerald-400/40' },
