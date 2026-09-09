@@ -108,6 +108,11 @@ const projectHighlights: Record<string, { extraCategories?: string[]; tagline?: 
     tagline: 'Infrastructure for Autonomous Operations',
     special: ['featured'],
   },
+  'starwall': {
+    extraCategories: ['AI', 'Intelligence', 'Security', 'Infrastructure', 'B2B', 'B2G'],
+    tagline: 'Intelligence Across the Physical World — an AGRON technology',
+    special: ['featured'],
+  },
   'agron-work': {
     extraCategories: ['Workforce', 'Operations'],
     tagline: 'Workforce platform for AGRON ecosystem',
@@ -243,7 +248,7 @@ const projectGroups: ProjectGroup[] = [
     id: 'agron',
     titleKey: 'projects.groups.agron',
     defaultTitle: 'AGRON Family',
-    slugs: ['agron', 'agron-work'],
+    slugs: ['agron', 'starwall', 'agron-work'],
   },
   {
     id: 'terraaero',
