@@ -7,6 +7,11 @@ import oneinowEnvironmentPdf from '@/assets/projects/1inow-environment.pdf.asset
 // Visual assets re-used as Media Room previews so every project ships with
 // at least one preview-ready item out of the box.
 import agronInfographic from '@/assets/projects/agron-infographic.webp';
+import starwallOverviewImg from '@/assets/projects/starwall-overview.jpg.asset.json';
+import agronContainerImg from '@/assets/projects/agron-container.png.asset.json';
+import agronMarinaImg from '@/assets/projects/agron-marina.png.asset.json';
+import agronPortImg from '@/assets/projects/agron-port.png.asset.json';
+import agronIslandImg from '@/assets/projects/agron-island.png.asset.json';
 import agronHero from '@/assets/projects/agron-hero.webp';
 import agronWorkHero from '@/assets/projects/agronwork-hero.jpg';
 import biomathInfo1 from '@/assets/projects/biomath-core-infographic1.webp';
@@ -93,6 +98,11 @@ const extrasBySlug: Record<string, MediaItem[]> = {
       watchUrl: 'https://www.youtube.com/watch?v=tansFOZdKRo',
     },
     img('agron-infographic', 'AGRON — Capability Map', agronInfographic, 'Infographic', 'Infographic'),
+    img('starwall-overview', 'StarWall by AGRON — Intelligence Overview', starwallOverviewImg.url, 'Maritime intelligence layer', 'Infographic'),
+    img('agron-container', 'Containerized Security Unit', agronContainerImg.url, 'Modular security infrastructure'),
+    img('agron-marina', 'AGRON Maritime — Marina Environment', agronMarinaImg.url, 'Operating environment'),
+    img('agron-port', 'AGRON Maritime — Port Environment', agronPortImg.url, 'Operating environment'),
+    img('agron-island', 'AGRON Maritime — Private Island', agronIslandImg.url, 'Operating environment'),
     img('agron-hero', 'AGRON — Brand Visual', agronHero, 'Cover image'),
   ],
   'agron-work': [
