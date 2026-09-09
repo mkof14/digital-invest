@@ -2931,6 +2931,277 @@
       "Events.",
       "Business.",
       "Connected."
+    ],
+    "archTitle": "FACETIUM Product Architecture",
+    "archDesc": "FACETIUM is not one single virtual mall. It is a family of commercial environment types — not separate brands, but formats within FACETIUM.",
+    "archItems": [
+      {
+        "title": "FACETIUM Worlds",
+        "desc": "Large destination environments connecting multiple experiences."
+      },
+      {
+        "title": "FACETIUM Boutiques",
+        "desc": "Permanent branded retail environments."
+      },
+      {
+        "title": "FACETIUM Showrooms",
+        "desc": "Private or public product presentation spaces."
+      },
+      {
+        "title": "FACETIUM Pavilions",
+        "desc": "Industry and B2B exhibition environments."
+      },
+      {
+        "title": "FACETIUM Events",
+        "desc": "Temporary or recurring event environments."
+      },
+      {
+        "title": "FACETIUM Lounges",
+        "desc": "Private meeting, consultation, and business spaces."
+      }
+    ],
+    "archNote": "These are environment types within FACETIUM, not independent brands.",
+    "joinTitle": "From brand to live environment",
+    "joinDesc": "How a business joins FACETIUM.",
+    "joinSteps": [
+      {
+        "title": "Discover",
+        "desc": "Define the business objective, audience, products, and required experience."
+      },
+      {
+        "title": "Design",
+        "desc": "Create the environment around the brand identity and customer journey."
+      },
+      {
+        "title": "Build",
+        "desc": "Develop the space, products, content, interaction, and integrations."
+      },
+      {
+        "title": "Connect",
+        "desc": "Connect commerce, communication, analytics, and existing business systems where required."
+      },
+      {
+        "title": "Launch",
+        "desc": "Open the environment to customers, guests, partners, or attendees."
+      },
+      {
+        "title": "Operate",
+        "desc": "Maintain content, products, events, customer interaction, and environment updates."
+      }
+    ],
+    "servicesTitle": "FACETIUM Services",
+    "servicesItems": [
+      {
+        "title": "Environment Design",
+        "desc": "Architecture and experience design for virtual destinations, boutiques, showrooms, pavilions, and event spaces."
+      },
+      {
+        "title": "3D Production",
+        "desc": "Creation and optimization of environments, products, materials, lighting, and interactive assets."
+      },
+      {
+        "title": "Commerce Integration",
+        "desc": "Connection of products, customer journeys, transactions, and existing commerce systems where appropriate."
+      },
+      {
+        "title": "Live Experience",
+        "desc": "Communication, consultations, presentations, meetings, and events."
+      },
+      {
+        "title": "Content & Operations",
+        "desc": "Product updates, collections, campaigns, events, environment management, and ongoing support."
+      },
+      {
+        "title": "Analytics",
+        "desc": "Measurement of visitor behavior, product engagement, event activity, and commercial performance where technically available."
+      },
+      {
+        "title": "Custom Development",
+        "desc": "Dedicated functionality and integrations for enterprise requirements."
+      }
+    ],
+    "deployTitle": "Business Deployment Models",
+    "deployDesc": "Organizations do not all need the same level of deployment.",
+    "deployItems": [
+      {
+        "title": "Brand Presence",
+        "desc": "A boutique, showroom, or pavilion inside an existing FACETIUM destination."
+      },
+      {
+        "title": "Dedicated Experience",
+        "desc": "A custom environment for a collection, launch, event, or campaign."
+      },
+      {
+        "title": "Permanent Environment",
+        "desc": "A persistent branded location operating continuously inside FACETIUM."
+      },
+      {
+        "title": "Private Enterprise Environment",
+        "desc": "A controlled-access environment for business meetings, exhibitions, customers, partners, training, or internal use."
+      }
+    ],
+    "deployNote": "Pricing is defined per project and is not published at this stage.",
+    "deployCta": "Discuss a FACETIUM Presence",
+    "identityTitle": "One identity. Multiple experiences.",
+    "identityP": "A FACETIUM visitor should eventually be able to move between participating destinations without repeatedly starting over.",
+    "identityItems": [
+      "One user identity",
+      "Saved preferences",
+      "Appointments",
+      "Event registrations",
+      "Brand relationships",
+      "Communication",
+      "Purchase history where applicable",
+      "Access permissions"
+    ],
+    "identityNote": "These capabilities describe the long-term product direction. They are not presented as currently live functionality.",
+    "discoveryTitle": "Discovery & Navigation",
+    "discoveryDesc": "FACETIUM must remain understandable as the number of destinations grows. The information architecture is planned around clear categories.",
+    "discoveryCats": [
+      "Worlds",
+      "Boutiques",
+      "Events",
+      "Expos",
+      "People",
+      "Business"
+    ],
+    "discoveryActions": [
+      "Browse",
+      "Search",
+      "Discover",
+      "Enter",
+      "Save",
+      "Return"
+    ],
+    "discoveryNote": "Navigation stays deliberately simple today; the architecture is designed to support growth without complicating the current experience.",
+    "trustTitle": "Trust & Transaction Confidence",
+    "trustItems": [
+      "Verified brand presence",
+      "Secure account access",
+      "Secure payments through supported providers",
+      "Product information",
+      "Certificates and documentation where provided by brands",
+      "Private consultations",
+      "Order confirmation",
+      "Customer support",
+      "Privacy controls"
+    ],
+    "trustNote": "FACETIUM provides the environment and infrastructure. Product authenticity remains the responsibility of the participating seller unless otherwise contractually established. FACETIUM does not independently authenticate products.",
+    "privateTitle": "Private Client Experience",
+    "privateP": "FACETIUM can support appointment-driven luxury experiences that feel closer to a private salon than an online store.",
+    "privateJourney": [
+      "Invitation",
+      "Private appointment",
+      "Enter private showroom",
+      "Meet advisor",
+      "Review selected pieces",
+      "Compare options",
+      "Personalize",
+      "Purchase or continue offline"
+    ],
+    "expoTitle": "Extend the exhibition beyond the venue",
+    "expoDesc": "FACETIUM can provide an interactive digital counterpart for a physical trade show.",
+    "expoItems": [
+      "Exhibitor pavilions",
+      "Product demonstrations",
+      "Event schedule",
+      "Speaker sessions",
+      "Private meetings",
+      "Visitor discovery",
+      "Networking",
+      "Lead capture",
+      "Post-event access"
+    ],
+    "expoGoal": "Commercial objective: increase the useful life and geographic reach of an exhibition without requiring the physical event to remain open.",
+    "brandsTitle": "Why would a brand participate?",
+    "brandsItems": [
+      "Reach customers beyond physical locations",
+      "Present products in richer context",
+      "Provide live expert interaction remotely",
+      "Create private client experiences",
+      "Launch collections and products",
+      "Host events",
+      "Maintain a persistent digital presence",
+      "Connect physical and digital campaigns",
+      "Measure engagement where technically available"
+    ],
+    "visitorsWhyTitle": "Why enter FACETIUM instead of a normal website?",
+    "visitorsWhyItems": [
+      "Explore rather than browse product grids",
+      "See products in context",
+      "Move between brands and experiences",
+      "Talk to real representatives",
+      "Attend events",
+      "Enter private experiences",
+      "Discover products naturally",
+      "Meet other participants where enabled",
+      "Return to familiar environments"
+    ],
+    "maturityTitle": "Current / Next / Future Direction",
+    "maturityNote": "Planned functionality is never presented as completed functionality.",
+    "maturityItems": [
+      {
+        "title": "Current",
+        "desc": "What exists and can be demonstrated now: the FACETIUM concept, environment formats, design and 3D production capability, and the facetium.com destination."
+      },
+      {
+        "title": "Next",
+        "desc": "Capabilities actively being developed or prepared: additional environments, commerce and communication integrations, event formats, and partner onboarding."
+      },
+      {
+        "title": "Future Direction",
+        "desc": "Longer-term capabilities and expansion: connected identity across destinations, broader discovery, and additional industry environments."
+      }
+    ],
+    "requestTitle": "Build your presence in FACETIUM",
+    "requestDesc": "For brands, event organizers, exhibition operators, and enterprises interested in creating a FACETIUM environment.",
+    "requestCta": "Discuss a Project",
+    "requestCta2": "Request Information",
+    "requestFields": [
+      "Name",
+      "Company",
+      "Business email",
+      "Website",
+      "Industry",
+      "Area of interest",
+      "Project description"
+    ],
+    "requestOptions": [
+      "Virtual Boutique",
+      "Private Showroom",
+      "Event",
+      "Exhibition Pavilion",
+      "Dedicated Environment",
+      "Enterprise Environment",
+      "Other"
+    ],
+    "statusTitle": "Project Overview vs Live Product",
+    "statusOverviewTitle": "Digital Invest — Project Overview",
+    "statusOverviewDesc": "Digital Invest explains the project, its business rationale, and product direction.",
+    "statusProductTitle": "FACETIUM — Live Product",
+    "statusProductDesc": "facetium.com is the destination for the actual FACETIUM brand and product experience.",
+    "fiveTitle": "FACETIUM in five answers",
+    "fiveItems": [
+      {
+        "title": "What is it?",
+        "desc": "A realistic interactive environment for commerce, experiences, events, exhibitions, and business."
+      },
+      {
+        "title": "Who pays for it?",
+        "desc": "Brands, businesses, event organizers, exhibition operators, and enterprise customers."
+      },
+      {
+        "title": "What do they buy?",
+        "desc": "Boutiques, showrooms, pavilions, events, dedicated environments, services, and ongoing operation."
+      },
+      {
+        "title": "Why would visitors use it?",
+        "desc": "Because it combines discovery, product experience, people, events, and transactions inside one environment rather than isolated web pages."
+      },
+      {
+        "title": "How does Digital Invest make money?",
+        "desc": "Environment creation, recurring services, events, enterprise deployments, exhibition participation, and transaction-related economics where applicable."
+      }
     ]
   }
 }
