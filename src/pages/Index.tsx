@@ -200,103 +200,134 @@ const Index = () => {
     <div className="min-h-screen bg-background max-w-[1600px] mx-auto">
       <Navigation />
 
-      {/* ═══════════════════ HERO — Editorial Ledger ═══════════════════ */}
-      <section className="relative border-b border-border/60 bg-background overflow-hidden">
-        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-0 lg:pt-32">
-          <div className="grid lg:grid-cols-12 gap-10 lg:gap-0 items-stretch">
+      {/* ═══════════════════ HERO — Tech Instrument Panel ═══════════════════ */}
+      <section className="hero-tech relative overflow-hidden">
+        {/* Structural layers */}
+        <div className="absolute inset-0 hero-tech-grid" aria-hidden />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_15%_20%,rgba(212,162,76,0.14),transparent_70%)]" aria-hidden />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_60%_at_85%_80%,rgba(30,115,232,0.14),transparent_70%)]" aria-hidden />
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-px hero-scanline bg-gradient-to-r from-transparent via-[rgba(212,162,76,0.5)] to-transparent" aria-hidden />
 
-            {/* Left — Typographic column */}
-            <div className="lg:col-span-7 lg:pr-14 lg:border-r border-border/60 flex flex-col justify-center animate-fade-in">
-              <div className="flex items-center gap-4 mb-8">
-                <span className="h-px w-10 bg-brand-gold" aria-hidden />
-                <span className="text-[10px] font-semibold uppercase tracking-[0.32em] text-muted-foreground">
-                  Digital Invest Inc.
-                </span>
-                <span className="inline-flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-success">
-                  <span className="w-1.5 h-1.5 rounded-full bg-success" />
-                  Active
-                </span>
+        {/* Instrument status bar */}
+        <div className="relative z-10 border-b border-border/15">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 lg:pt-28">
+            <div className="flex items-center justify-between gap-6 py-3 font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">
+              <span className="flex items-center gap-2 text-foreground">
+                <span className="w-1.5 h-1.5 rounded-full bg-success hero-blink" />
+                DIGITAL_INVEST // PRIVATE PORTFOLIO
+              </span>
+              <span className="hidden sm:inline">SYS.STATUS: ACTIVE</span>
+            </div>
+          </div>
+        </div>
+
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 lg:py-20">
+          <div className="grid lg:grid-cols-12 gap-12 lg:gap-10 items-center">
+
+            {/* Left — headline console */}
+            <div className="lg:col-span-7 animate-fade-in">
+              <div className="flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.3em] text-brand-gold">
+                <span className="h-px w-8 bg-[rgba(212,162,76,0.7)]" aria-hidden />
+                Multi-sector technology holding
               </div>
 
-              <h1 className="text-[2.6rem] sm:text-6xl lg:text-[4.6rem] font-semibold leading-[0.98] tracking-[-0.03em] text-foreground">
+              <h1 className="mt-7 text-[2.5rem] sm:text-6xl lg:text-[4.4rem] font-semibold leading-[0.97] tracking-[-0.035em] text-foreground">
                 {t('hero.strategicTitle')}{' '}
-                <span className="text-brand-gold">{t('hero.strategicHighlight')}</span>
+                <span className="relative inline-block text-brand-gold">
+                  {t('hero.strategicHighlight')}
+                  <span className="absolute -bottom-2 left-0 h-px w-full bg-gradient-to-r from-[rgba(212,162,76,0.9)] to-transparent" aria-hidden />
+                </span>
               </h1>
 
-              <p className="mt-8 text-base md:text-lg text-muted-foreground max-w-xl leading-relaxed font-light">
+              <p className="mt-9 max-w-xl text-base md:text-lg leading-relaxed text-muted-foreground font-light">
                 {t('hero.description')}
               </p>
 
               <div className="mt-10 flex flex-col sm:flex-row gap-3">
                 <Link to="/projects">
-                  <Button size="lg" className="w-full sm:w-auto px-8 py-6 text-sm font-semibold uppercase tracking-[0.14em] btn-brand-gold group">
+                  <Button size="lg" className="w-full sm:w-auto px-8 py-6 text-xs font-semibold uppercase tracking-[0.18em] btn-brand-gold group">
                     {t('hero.exploreProjects')}
                     <ArrowUpRight className="ml-2 h-4 w-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                   </Button>
                 </Link>
                 <Link to="/why-digital-invest">
-                  <Button size="lg" variant="ghost" className="w-full sm:w-auto px-8 py-6 text-sm font-semibold uppercase tracking-[0.14em] text-foreground hover:text-brand-gold group">
+                  <Button
+                    size="lg"
+                    variant="ghost"
+                    className="w-full sm:w-auto px-8 py-6 text-xs font-semibold uppercase tracking-[0.18em] text-foreground border border-border/25 hover:border-[rgba(212,162,76,0.6)] hover:text-brand-gold hover:bg-transparent group"
+                  >
                     {t('hero.learnWhy')}
                     <ChevronRight className="ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </Link>
               </div>
 
-              <p className="mt-6 text-xs text-muted-foreground/80">
-                No commitment · Private review · Direct conversation with the team
+              <p className="mt-6 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground/70">
+                No commitment · Private review · Direct conversation
               </p>
-
-              {/* Sector index — editorial list, no pills */}
-              <div className="mt-12 lg:mb-14 pt-8 border-t border-border/60">
-                <div className="text-[10px] uppercase tracking-[0.28em] text-muted-foreground/70 mb-5">
-                  Sectors
-                </div>
-                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-10">
-                  {['HealthTech', 'AgriTech', 'FoodTech', 'AI & Robotics', 'Infrastructure'].map((label, i) => (
-                    <li
-                      key={label}
-                      className="group flex items-baseline gap-4 py-2.5 border-b border-border/40 last:border-b-0 sm:[&:nth-last-child(2)]:border-b-0"
-                    >
-                      <span className="text-[10px] font-mono text-brand-gold/80 tabular-nums">
-                        {String(i + 1).padStart(2, '0')}
-                      </span>
-                      <span className="text-sm text-foreground/85 tracking-wide group-hover:text-brand-gold transition-colors">
-                        {label}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
             </div>
 
-            {/* Right — Full-bleed image + live portfolio ledger */}
-            <div className="lg:col-span-5 flex flex-col animate-fade-in">
-              <div className="relative flex-1 min-h-[280px] lg:min-h-0 lg:ml-14 overflow-hidden">
+            {/* Right — visual module + live readout */}
+            <div className="lg:col-span-5 animate-fade-in">
+              <div className="hero-corner relative aspect-[4/5] sm:aspect-[16/10] lg:aspect-[4/5] overflow-hidden border border-border/20">
                 <div
-                  className="absolute inset-0 bg-cover bg-center scale-100 hover:scale-[1.03] transition-transform duration-[1200ms] ease-out"
+                  className="absolute inset-0 bg-cover bg-center opacity-70 saturate-[0.6] contrast-125"
                   style={{ backgroundImage: `url(${heroBackground})` }}
                   role="img"
-                  aria-label="Digital Invest portfolio"
+                  aria-label="Digital Invest technology portfolio"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
-                <div className="absolute inset-0 ring-1 ring-inset ring-border/50" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#050A14] via-[#050A14]/40 to-transparent" aria-hidden />
+                <div className="absolute inset-0 hero-tech-grid opacity-60" aria-hidden />
+
+                <div className="absolute top-4 left-4 font-mono text-[9px] uppercase tracking-[0.3em] text-brand-gold">
+                  PORTFOLIO / LIVE FEED
+                </div>
+
+                <div className="absolute inset-x-4 bottom-4 grid grid-cols-2 gap-px bg-border/15 border border-border/20">
+                  {[
+                    { k: 'Sectors', v: '5' },
+                    { k: 'Active projects', v: '20+' },
+                  ].map((m) => (
+                    <div key={m.k} className="bg-[#050A14]/85 backdrop-blur-sm px-4 py-3">
+                      <div className="font-mono text-[9px] uppercase tracking-[0.24em] text-muted-foreground">{m.k}</div>
+                      <div className="mt-1 text-2xl font-semibold tabular-nums text-foreground">{m.v}</div>
+                    </div>
+                  ))}
+                </div>
               </div>
 
               <Link
                 to="/projects"
-                className="group lg:ml-14 mt-0 border-t border-border/60 lg:border lg:border-border/60 bg-card/60 hover:bg-card transition-colors duration-300 p-5 flex items-center justify-between gap-4"
+                className="group mt-3 flex items-center justify-between gap-4 border border-border/20 bg-card/40 px-5 py-4 hover:border-[rgba(212,162,76,0.55)] transition-colors"
               >
                 <div className="min-w-0">
-                  <div className="text-[10px] uppercase tracking-[0.28em] text-muted-foreground/70">
+                  <div className="font-mono text-[9px] uppercase tracking-[0.28em] text-muted-foreground">
                     {t('hero.livePortfolioTitle', 'Live Portfolio')}
                   </div>
-                  <div className="mt-1.5 text-sm text-foreground font-medium">
+                  <div className="mt-1 text-sm text-foreground">
                     {t('hero.livePortfolioSubtitle', '20+ active projects across 5 sectors')}
                   </div>
                 </div>
                 <ArrowUpRight className="w-5 h-5 shrink-0 text-muted-foreground group-hover:text-brand-gold group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
               </Link>
             </div>
+          </div>
+        </div>
+
+        {/* Sector ticker rail */}
+        <div className="relative z-10 border-t border-border/15 overflow-hidden">
+          <div className="flex hero-ticker-track w-max">
+            {[0, 1].map((dup) => (
+              <div key={dup} className="flex shrink-0" aria-hidden={dup === 1}>
+                {['HealthTech', 'AI & Robotics', 'AgriTech', 'Advanced Materials', 'FoodTech', 'Autonomous Systems', 'Infrastructure', 'Human Data'].map((s, i) => (
+                  <span key={s} className="flex items-center gap-4 px-8 py-4 font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
+                    <span className="text-brand-gold tabular-nums">{String(i + 1).padStart(2, '0')}</span>
+                    {s}
+                    <span className="w-1 h-1 rounded-full bg-border/40" />
+                  </span>
+                ))}
+              </div>
+            ))}
           </div>
         </div>
       </section>
